@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // React SVG and browser element types
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // React automatic JSX runtime
+    "jsx": "react-jsx",
+
+    // Buildable project and declaration API
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedDeclarations": true,
+
+    // TypeScript owns declarations; the package bundler owns JavaScript
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "noEmitOnError": true,
+
+    // Package source and output boundaries
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Local incremental-build metadata
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.build.tsbuildinfo"
+  },
+
+  // Icon components, shared wrapper, types, and public exports
+  "include": ["src"],
+
+  // Tests and stories are handled by specialized configurations
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.stories.ts",
+    "src/**/*.stories.tsx",
+    "src/**/__tests__"
+  ]
+}

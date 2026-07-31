@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Browser environment
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // React automatic JSX runtime
+    "jsx": "react-jsx",
+
+    // App-local import alias
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    // Vite browser globals, asset imports, HMR, and import.meta.env
+    "types": ["vite/client"]
+  },
+
+  // Production application source
+  "include": ["src"],
+
+  // Tests and stories are owned by specialized configurations
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.stories.ts",
+    "src/**/*.stories.tsx",
+    "src/**/__tests__"
+  ]
+}

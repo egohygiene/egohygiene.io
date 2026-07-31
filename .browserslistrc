@@ -1,0 +1,40 @@
+# -----------------------------------------------------------------------------
+# Browserslist
+# -----------------------------------------------------------------------------
+#
+# Shared browser-support policy for Ego Hygiene applications, documentation,
+# component tooling, and compatible CSS transformation tools.
+#
+# Production targets the Baseline Widely Available feature set. This provides
+# a stable compatibility window while still supporting downstream browsers
+# based on compatible Chromium and Gecko engine versions.
+#
+# Browserslist is consumed by tools such as Autoprefixer and PostCSS plugins.
+# Vite maintains its own JavaScript build target separately.
+#
+# Inspect the resolved targets:
+#
+#   pnpm exec browserslist
+#   BROWSERSLIST_ENV=development pnpm exec browserslist
+#   BROWSERSLIST_ENV=test pnpm exec browserslist
+#
+# Update the compatibility database:
+#
+#   pnpm exec update-browserslist-db latest
+#
+# -----------------------------------------------------------------------------
+
+[production]
+
+baseline widely available with downstream
+not dead
+
+[development]
+
+last 1 Chrome version
+last 1 Firefox version
+last 1 Safari version
+
+[test]
+
+last 1 Chrome version

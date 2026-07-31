@@ -1,0 +1,9 @@
+allowBuilds:
+  nx: true
+  secp256k1: true
+
+requiredScripts:
+  - build
+
+packages:
+  - "!**/test/**"

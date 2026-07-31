@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Browser environment
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // React automatic JSX runtime
+    "jsx": "react-jsx",
+
+    // Documentation app-local imports
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    // Vite browser globals, asset imports, HMR, and import.meta.env
+    "types": ["vite/client"]
+  },
+
+  // Documentation application source and declarations
+  "include": ["src"],
+
+  // Tests are owned by the shared Vitest configuration
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/**/__tests__"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // Browser-like APIs used by React component tests
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // React JSX transform
+    "jsx": "react-jsx",
+
+    // Explicit test-environment globals only
+    "types": ["node", "vite/client"]
+  },
+  "include": [
+    ".vitest/**/*.ts",
+    ".vitest/**/*.tsx",
+
+    "apps/*/src/**/*.test.ts",
+    "apps/*/src/**/*.test.tsx",
+    "apps/*/src/**/*.spec.ts",
+    "apps/*/src/**/*.spec.tsx",
+
+    "packages/*/src/**/*.test.ts",
+    "packages/*/src/**/*.test.tsx",
+    "packages/*/src/**/*.spec.ts",
+    "packages/*/src/**/*.spec.tsx"
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "root": true,
+
+  // Git integration and changed-file awareness
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+
+  // Repository-wide file discovery
+  "files": {
+    // Markdown, MDX, YAML, shell scripts, and binary assets are handled
+    // by their own tools without causing Biome diagnostics.
+    "ignoreUnknown": true,
+
+    "includes": [
+      "**",
+
+      // Generated source may still be indexed for type information, but it
+      // should not be formatted or linted directly.
+      "!**/generated",
+
+      // Build products and third-party content are completely excluded from
+      // formatting, linting, scanning, and project analysis.
+      "!!**/node_modules",
+      "!!**/dist",
+      "!!**/build",
+      "!!**/coverage",
+      "!!**/storybook-static",
+      "!!**/playwright-report",
+      "!!**/test-results",
+      "!!**/reports",
+      "!!**/logs",
+      "!!**/vendor",
+
+      // Framework, task-runner, editor, and tool caches
+      "!!**/.cache",
+      "!!**/.history",
+      "!!**/.next",
+      "!!**/.nuxt",
+      "!!**/.output",
+      "!!**/.turbo",
+      "!!**/.vercel"
+    ]
+  },
+
+  // Shared formatting policy
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "useEditorconfig": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 100,
+    "attributePosition": "auto",
+    "bracketSpacing": true,
+    "trailingNewline": true
+  },
+
+  // Source-code transformations
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+
+  // Static analysis
+  "linter": {
+    "enabled": true,
+
+    // Ecosystem-specific analysis
+    "domains": {
+      "playwright": "recommended",
+      "project": "recommended",
+      "react": "recommended",
+      "test": "recommended",
+      "turborepo": "recommended",
+      "types": "recommended"
+    },
+
+    "rules": {
+      "recommended": true,
+
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "warn"
+      },
+
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error"
+      },
+
+      "style": {
+        "noNonNullAssertion": "warn",
+        "useImportType": "error"
+      },
+
+      "suspicious": {
+        "noConsole": "warn",
+        "noExplicitAny": "warn"
+      },
+
+      // Carefully selected type-informed rules that are valuable enough to
+      // enable despite currently belonging to Biome's nursery group.
+      "nursery": {
+        "noFloatingPromises": "error",
+        "noMisusedPromises": "error",
+        "useAwaitThenable": "error",
+        "useExhaustiveSwitchCases": "warn"
+      }
+    }
+  },
+
+  // JavaScript, TypeScript, JSX, and TSX
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false
+    },
+    "globals": []
+  },
+
+  // JSON and JSONC
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
+    },
+    "linter": {
+      "enabled": true
+    },
+    "assist": {
+      "enabled": true
+    }
+  },
+
+  // CSS and CSS Modules
+  "css": {
+    "parser": {
+      "cssModules": true
+    },
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double"
+    },
+    "linter": {
+      "enabled": true
+    },
+    "assist": {
+      "enabled": true
+    }
+  },
+
+  // Vite application HTML
+  "html": {
+    "experimentalFullSupportEnabled": true,
+    "formatter": {
+      "enabled": true,
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "indentScriptAndStyle": true
+    },
+    "linter": {
+      "enabled": true
+    },
+    "assist": {
+      "enabled": true
+    }
+  },
+
+  // GraphQL documents and embedded schemas
+  "graphql": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double"
+    },
+    "linter": {
+      "enabled": true
+    },
+    "assist": {
+      "enabled": true
+    }
+  },
+
+  // Environment-specific exceptions
+  "overrides": [
+    {
+      // Console output is a legitimate interface for repository scripts,
+      // generators, configuration tools, and other Node-based tooling.
+      "includes": [
+        ".storybook/main.ts",
+        "**/*.config.js",
+        "**/*.config.mjs",
+        "**/*.config.ts",
+        "**/*.config.mts",
+        "packages/*/scripts/**/*.ts",
+        "scripts/**/*.ts",
+        "tooling/**/*.ts"
+      ],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
+    }
+  ]
+}

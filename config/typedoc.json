@@ -1,0 +1,10 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "tsconfig": "tsconfig.docs.json",
+  "entryPoints": ["src/index.ts"],
+  "lang": "en",
+  "cname": "egohygiene.io",
+  "githubPages": true,
+  "theme": "github-dark",
+  "out": "./docs/typedoc"
+}

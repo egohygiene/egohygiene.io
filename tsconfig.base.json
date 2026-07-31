@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // Language baseline
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "useDefineForClassFields": true,
+
+    // Module and bundler behavior
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
+    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+
+    // Single-file transpiler compatibility
+    "isolatedModules": true,
+
+    // Ambient type isolation
+    "types": [],
+
+    // Type safety
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+
+    // Code correctness and hygiene
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    // Default compilation behavior
+    "noEmit": true,
+
+    // Cross-platform consistency
+    "forceConsistentCasingInFileNames": true,
+
+    // Dependency compatibility and performance
+    "skipLibCheck": true
+  }
+}

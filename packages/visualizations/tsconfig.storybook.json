@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // React, Canvas, SVG, WebGL, and Storybook browser APIs
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // React automatic JSX runtime
+    "jsx": "react-jsx",
+
+    // Vite asset, stylesheet, HMR, and import.meta declarations
+    "types": ["vite/client"]
+  },
+
+  // Visualization stories and shared browser-side Storybook configuration
+  "include": [
+    "src/**/*.stories.ts",
+    "src/**/*.stories.tsx",
+    "../../.storybook/manager.ts",
+    "../../.storybook/preview.ts"
+  ]
+}

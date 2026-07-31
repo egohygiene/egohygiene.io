@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Buildable project and declaration API
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedDeclarations": true,
+
+    // TypeScript owns declarations; the package bundler owns JavaScript
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "noEmitOnError": true,
+
+    // Package source and output boundaries
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Local incremental-build metadata
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.build.tsbuildinfo"
+  },
+
+  // Public package implementation
+  "include": ["src"],
+
+  // Non-production source is handled by Vitest
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/**/__tests__"
+  ]
+}
