@@ -1,0 +1,39 @@
+@import "@egohygiene/design-tokens/styles.css";
+
+:root {
+  --color-background: var(--eh-color-background);
+  --color-surface: var(--eh-color-surface);
+  --color-foreground: var(--eh-color-foreground);
+  --color-muted: var(--eh-color-muted);
+  --color-accent: var(--eh-color-accent);
+  --color-border: var(--eh-color-border);
+  --color-focus: var(--eh-color-focus);
+  --color-success: var(--eh-color-success);
+  --color-warning: var(--eh-color-warning);
+  --color-danger: var(--eh-color-danger);
+  --font-sans: var(--eh-typography-fontSans);
+  --font-mono: var(--eh-typography-fontMono);
+  --surface-shadow: var(--eh-shadow-card);
+  --focus-shadow: var(--eh-shadow-focus);
+  --radius-sm: var(--eh-size-radiusSm);
+  --radius-md: var(--eh-size-radiusMd);
+  --radius-lg: var(--eh-size-radiusLg);
+  --container-width: var(--eh-size-container);
+  --content-width: var(--eh-size-content);
+}
+
+html {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+}

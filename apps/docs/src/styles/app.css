@@ -1,0 +1,54 @@
+.docs-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 2rem 1rem;
+}
+
+.docs-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+.docs-nav {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  position: sticky;
+  top: 1rem;
+}
+
+.docs-nav a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+}
+
+.docs-nav a.active {
+  background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  color: var(--color-accent);
+}
+
+.docs-prose {
+  max-width: var(--content-width);
+}
+
+.docs-prose pre {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+@media (max-width: 860px) {
+  .docs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-nav {
+    position: static;
+  }
+}

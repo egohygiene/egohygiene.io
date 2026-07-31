@@ -29,9 +29,6 @@ export const egoHygieneTheme = create({
   textColor: "#f0f6fc",
   textInverseColor: "#0d1117",
 
-  fontBase:
-    '"Atkinson Hyperlegible", Inter, ui-sans-serif, system-ui, sans-serif',
-  fontCode:
-    '"JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace',
+  fontBase: '"Atkinson Hyperlegible", Inter, ui-sans-serif, system-ui, sans-serif',
+  fontCode: '"JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace',
 });
-

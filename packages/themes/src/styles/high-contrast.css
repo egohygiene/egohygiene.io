@@ -1,0 +1,10 @@
+[data-theme="high-contrast"] {
+  color-scheme: dark;
+  --color-background: var(--eh-color-highContrastBackground);
+  --color-surface: var(--eh-color-highContrastSurface);
+  --color-foreground: var(--eh-color-highContrastForeground);
+  --color-muted: #f5f5f5;
+  --color-accent: var(--eh-color-highContrastAccent);
+  --color-border: #ffffff;
+  --surface-shadow: none;
+}

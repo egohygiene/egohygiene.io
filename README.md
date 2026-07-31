@@ -1,20 +1,55 @@
-# Website Placeholder
+# Ego Hygiene website
 
-`website/` is reserved for the future repository-owned web experience.
+A minimal, working monorepo for the first Ego Hygiene web platform release.
 
-## Why this directory exists now
+## What is here
 
-- to reserve a clear architectural home for the website surface
-- to avoid future ambiguity about where web-only app code should live
-- to keep repository topology stable as web work begins
+- `apps/egohygiene.io` — the public-facing website
+- `apps/docs` — repository and platform documentation
+- `apps/playground` — a small surface for themes, tokens, and shared UI
+- `packages/*` — shared building blocks used by the apps
 
-## Current state
+## Requirements
 
-- Website implementation has **not** started.
-- The directory currently contains shared TypeScript baseline configuration (`tsconfig.base.json`) only.
+- Node 24.18+
+- Corepack
+- pnpm 11.8+
 
-## Planned ownership boundary
+## Install
 
-- **Owned by:** repository/web platform work
-- **Intended scope:** website-specific frontend implementation and build configuration
-- **Out of scope:** Flutter app code (`apps/egohygiene/`) and publishing channel mirrors (`publishing/channels/website/`)
+```bash
+corepack enable
+pnpm install --frozen-lockfile
+```
+
+## Local development
+
+```bash
+pnpm dev
+pnpm --filter @egohygiene/egohygiene.io dev
+pnpm --filter @egohygiene/docs dev
+pnpm --filter @egohygiene/playground dev
+```
+
+## Quality gates
+
+```bash
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm storybook:build
+pnpm test:e2e
+pnpm check
+```
+
+## Deployment status
+
+The repository now supports a small static website slice. Product gateway routing, backend services, and production deployment integrations remain intentionally deferred.
+
+## Current limitations
+
+- The docs app uses a minimal markdown pipeline rather than a full CMS.
+- Product routes reserve future gateway paths locally instead of proxying to separate deployments.
+- Private publishing is disabled across workspace packages.

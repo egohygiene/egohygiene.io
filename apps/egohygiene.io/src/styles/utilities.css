@@ -1,0 +1,16 @@
+.site-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.site-prose {
+  max-width: var(--content-width);
+  padding-block: var(--eh-spacing-2xl);
+}
+
+.site-stack {
+  display: grid;
+  gap: var(--eh-spacing-lg);
+  padding-block: var(--eh-spacing-2xl);
+}

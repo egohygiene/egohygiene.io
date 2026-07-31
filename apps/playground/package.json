@@ -1,1 +1,24 @@
-{}
+{
+  "name": "@egohygiene/playground",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit"
+  },
+  "dependencies": {
+    "@egohygiene/design-tokens": "workspace:*",
+    "@egohygiene/themes": "workspace:*",
+    "@egohygiene/ui": "workspace:*",
+    "@egohygiene/visualizations": "workspace:*",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.0.5",
+    "vite": "8.2.0"
+  }
+}

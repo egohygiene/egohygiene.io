@@ -1,0 +1,9 @@
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-background: var(--eh-color-darkBackground);
+  --color-surface: var(--eh-color-darkSurface);
+  --color-foreground: var(--eh-color-darkForeground);
+  --color-muted: var(--eh-color-darkMuted);
+  --color-border: #3d315f;
+  --surface-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}

@@ -1,1 +1,25 @@
-{}
+{
+  "name": "@egohygiene/docs",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit"
+  },
+  "dependencies": {
+    "@egohygiene/content": "workspace:*",
+    "@egohygiene/themes": "workspace:*",
+    "@egohygiene/ui": "workspace:*",
+    "@egohygiene/utilities": "workspace:*",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-router-dom": "7.18.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.0.5",
+    "vite": "8.2.0"
+  }
+}
