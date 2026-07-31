@@ -1,0 +1,21 @@
+{
+  "background": "#f6f1ff",
+  "surface": "#ffffff",
+  "foreground": "#1f1633",
+  "muted": "#6c6480",
+  "accent": "#9b5de5",
+  "accentStrong": "#7b2cbf",
+  "border": "#d9caef",
+  "focus": "#ff7ac6",
+  "success": "#0f9d84",
+  "warning": "#d97706",
+  "danger": "#dc2626",
+  "darkBackground": "#120d1f",
+  "darkSurface": "#1c1530",
+  "darkForeground": "#f9f5ff",
+  "darkMuted": "#cbbcdf",
+  "highContrastBackground": "#000000",
+  "highContrastSurface": "#0f0f0f",
+  "highContrastForeground": "#ffffff",
+  "highContrastAccent": "#ffd60a"
+}

@@ -298,3 +298,7 @@ cdk.out/
 
 # Generic reports/, screenshots/, snapshots/, and coverage/ directories are
 # intentionally not ignored. They may contain reviewed or published artifacts.
+
+# Local web build artifacts
+apps/*/dist/
+packages/*/dist/

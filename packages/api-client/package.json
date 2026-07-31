@@ -1,0 +1,13 @@
+{
+  "name": "@egohygiene/api-client",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "node -e \"process.stdout.write('workspace package validated by root typecheck\\n')\"",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  }
+}

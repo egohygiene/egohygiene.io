@@ -1,0 +1,15 @@
+{
+  "name": "@egohygiene/design-tokens",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/generated.css",
+    "./generated": "./src/generated.ts"
+  },
+  "scripts": {
+    "build": "node --experimental-strip-types scripts/build-tokens.ts",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  }
+}

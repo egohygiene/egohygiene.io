@@ -1,0 +1,21 @@
+{
+  "name": "@egohygiene/themes",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/styles.css"
+  },
+  "peerDependencies": {
+    "react": "19.2.8"
+  },
+  "dependencies": {
+    "@egohygiene/design-tokens": "workspace:*",
+    "@egohygiene/utilities": "workspace:*"
+  },
+  "scripts": {
+    "build": "node -e \"process.stdout.write('workspace package validated by root typecheck\\n')\"",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  }
+}

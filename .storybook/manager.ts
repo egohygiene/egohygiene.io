@@ -16,4 +16,3 @@ addons.setConfig({
     collapsedRoots: [],
   },
 });
-

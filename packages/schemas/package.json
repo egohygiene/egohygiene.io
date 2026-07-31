@@ -1,0 +1,16 @@
+{
+  "name": "@egohygiene/schemas",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  },
+  "scripts": {
+    "build": "node -e \"process.stdout.write('workspace package validated by root typecheck\\n')\"",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  }
+}
