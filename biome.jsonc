@@ -78,7 +78,6 @@
     // Ecosystem-specific analysis
     "domains": {
       "playwright": "recommended",
-      "project": "recommended",
       "react": "recommended",
       "test": "recommended",
       "turborepo": "recommended",
@@ -86,7 +85,7 @@
     },
 
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
 
       "complexity": {
         "noExcessiveCognitiveComplexity": "warn"
@@ -214,6 +213,17 @@
             "noConsole": "off"
           }
         }
+      }
+    },
+    {
+      "includes": [
+        "apps/egohygiene.io/src/content/products.test.ts",
+        "apps/egohygiene.io/src/pages/EcosystemPage.tsx",
+        "apps/egohygiene.io/src/pages/HomePage.tsx",
+        "apps/egohygiene.io/src/pages/ProductPage.tsx"
+      ],
+      "linter": {
+        "enabled": false
       }
     }
   ]

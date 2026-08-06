@@ -18,12 +18,11 @@
   ],
   "homepage": "https://egohygiene.io",
   "bugs": {
-    "url": "https://github.com/egohygiene/egohygiene/issues",
-    "email": "szmyty@gmail.com"
+    "url": "https://github.com/egohygiene/website/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/egohygiene/egohygiene.git"
+    "url": "https://github.com/egohygiene/website.git"
   },
   "license": "Apache-2.0",
   "author": {

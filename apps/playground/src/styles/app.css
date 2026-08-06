@@ -1,0 +1,22 @@
+.playground-stack {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 2rem 3rem;
+}
+
+.playground-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.playground-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.playground-grid pre {
+  overflow-x: auto;
+}

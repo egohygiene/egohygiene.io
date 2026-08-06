@@ -7,25 +7,16 @@ const config = {
     "../packages/*/src/**/*.mdx",
     "../packages/*/src/**/*.stories.@(ts|tsx)",
   ],
-
-  addons: [
-    "@storybook/addon-docs",
-    "@storybook/addon-a11y",
-    "@storybook/addon-themes",
-    "@storybook/addon-vitest",
-  ],
-
+  addons: ["@storybook/addon-docs", "@storybook/addon-a11y", "@storybook/addon-themes"],
   framework: {
     name: "@storybook/react-vite",
     options: {
       strictMode: true,
     },
   },
-
   docs: {
     defaultName: "Documentation",
   },
-
   core: {
     disableTelemetry: true,
     enableCrashReports: false,
@@ -34,4 +25,3 @@ const config = {
 } satisfies StorybookConfig;
 
 export default config;
-

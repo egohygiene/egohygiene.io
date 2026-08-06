@@ -1,0 +1,9 @@
+{
+  "name": "Ego Hygiene",
+  "short_name": "Ego Hygiene",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#120d1f",
+  "theme_color": "#120d1f",
+  "icons": []
+}

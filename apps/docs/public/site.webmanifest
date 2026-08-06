@@ -1,0 +1,8 @@
+{
+  "name": "Ego Hygiene Docs",
+  "short_name": "Docs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#120d1f",
+  "theme_color": "#120d1f"
+}

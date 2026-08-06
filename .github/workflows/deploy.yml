@@ -1,0 +1,13 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  disabled-until-configured:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deployment is intentionally disabled until hosting credentials and environment configuration are provided."
