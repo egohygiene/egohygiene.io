@@ -2,14 +2,23 @@ allowBuilds:
   '@danmarshall/deckgl-typings': true
   '@heroui/shared-utils': true
   '@parcel/watcher': true
+  '@pulumi/kubernetes': set this to true or false
+  '@scarf/scarf': true
   '@swc/core': true
   browser-tabs-lock: true
+  core-js: true
+  cpu-features: true
   cypress: true
   esbuild: true
+  fsevents: set this to true or false
   maplibre-gl: true
   msw: true
   nx: true
+  pre-commit: true
+  protobufjs: true
   secp256k1: true
+  ssh2: true
+  unrs-resolver: true
 
 requiredScripts:
   - build
