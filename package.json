@@ -192,6 +192,7 @@
     "@uidotdev/usehooks": "^2.4.1",
     "@unovis/ts": "^1.6.7",
     "ahooks": "^3.9.7",
+    "animejs": "^4.5.0",
     "apache-arrow": "^21.2.0",
     "apcach": "^0.6.4",
     "autoprefixer": "^10.5.4",
