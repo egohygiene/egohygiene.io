@@ -9,6 +9,7 @@ import { PrivacyPage } from "../pages/PrivacyPage";
 import { ProductPage } from "../pages/ProductPage";
 import { TermsPage } from "../pages/TermsPage";
 import { StorePage } from "../pages/StorePage";
+import { StoreCollectionPage, StoreDesignPage, StoreProductPage } from "../features/store";
 import { RouteErrorPage } from "../pages/RouteErrorPage";
 
 export const router = createBrowserRouter([
@@ -23,6 +24,9 @@ export const router = createBrowserRouter([
       { path: "privacy", element: <PrivacyPage /> },
       { path: "terms", element: <TermsPage /> },
       { path: "store", element: <StorePage /> },
+      { path: "store/products/:slug", element: <StoreProductPage /> },
+      { path: "store/designs/:slug", element: <StoreDesignPage /> },
+      { path: "store/collections/:slug", element: <StoreCollectionPage /> },
       { path: ":product", element: <ProductPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
