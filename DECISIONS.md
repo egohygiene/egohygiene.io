@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-10-10
 governed_by:
   - architecture-decisions
 depends_on:
@@ -40,6 +40,7 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - ADR-001: Use a monorepo for shared public web foundations
 - ADR-002: Allow products to deploy independently behind stable routes
 - ADR-003: Keep the first release statically deployable
+- ADR-004: Consolidate the Store v1 website and use hosted checkout
 
 ## ADR-001: Use a monorepo for shared public web foundations
 
@@ -67,6 +68,17 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - **Decision:** Keep the first release statically deployable.
 - **Consequences:** The choice improves ownership and predictability while requiring maintained contracts, validation, and migration discipline.
 - **Reconsider when:** New evidence shows that the boundary prevents standalone usefulness, safety, portability, or maintainability.
+
+## ADR-004: Consolidate the Store v1 website and use hosted checkout
+
+- **Status:** Accepted direction from the Store v1 planning session; implementation details remain under checkpoint review.
+- **Date:** 2026-10-10
+- **Context:** Merchandise work is split between a private research/scaffold repository and this public website. The first release needs a visible mock store and one real product without requiring the operator to advance production costs.
+- **Decision:** Keep the canonical storefront inside `apps/egohygiene.io`, reuse existing workspace packages, and introduce a versioned, validated public catalog. Route a live product to a qualified provider-hosted checkout; keep private assets and provider administration outside the public repository. Model designs independently from products and optional song/character/collection context.
+- **Consequences:** No second website or universal order router is needed for v1. Provider eligibility and customer-funded production must be verified before activation. Private source history is preserved rather than blindly imported. Schema migrations and contract tests are explicit delivery work, not assumed benefits of configuration.
+- **Supersedes:** The separate-repository and comic-first recommendations in `incomprisllc/merch` research PR #5, for this Store v1 scope. ADR-002 still permits independent deployments for other ecosystem products.
+- **Evidence and implementation:** [Roadmap #31](https://github.com/egohygiene/egohygiene.io/issues/31), [architecture](docs/architecture/store-v1.md), and [migration ledger](docs/migration/store-v1-consolidation.md). No migration or checkout implementation is claimed by this record.
+- **Reconsider when:** A verified need for additional commerce capabilities or provider operations changes payment, customer-data, fulfillment, or maintenance responsibilities.
 
 ## Open decisions
 

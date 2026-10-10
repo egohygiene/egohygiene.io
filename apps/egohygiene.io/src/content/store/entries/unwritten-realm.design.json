@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "design",
+  "id": "design-demo-unwritten-realm",
+  "slug": "unwritten-realm-cover",
+  "title": "Unwritten Realm Cover",
+  "description": "Fictional placeholder cover demonstrating how a future comic can fit the catalog independently of its printing service.",
+  "visibility": "public",
+  "artworkRevision": 1,
+  "artwork": {
+    "kind": "placeholder",
+    "label": "Comic cover preview"
+  },
+  "contextIds": []
+}
