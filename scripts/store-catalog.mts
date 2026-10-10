@@ -3,6 +3,8 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import checkoutRoutes from "../apps/egohygiene.io/src/content/store/checkout-routes.json" with { type: "json" };
+import providers from "../apps/egohygiene.io/src/content/store/providers.json" with { type: "json" };
+import { parseStoreProviders } from "../packages/schemas/src/store-providers.ts";
 import { parseStoreCatalog } from "../packages/schemas/src/store.ts";
 import type { StoreCatalog } from "../packages/schemas/src/store.ts";
 
@@ -64,6 +66,7 @@ export async function loadCatalog(
   directory: string = defaultCatalogDirectory,
   routes: unknown = resolve(directory) === resolve(defaultCatalogDirectory) ? checkoutRoutes : [],
 ): Promise<StoreCatalog> {
+  parseStoreProviders(providers);
   return parseStoreCatalog(await loadCatalogSources(directory), routes);
 }
 
@@ -98,6 +101,7 @@ function readOptions(args: string[], allowed: readonly string[]): Map<string, st
 
 /** Return a short result so importing this module never executes or prints a command. */
 export async function runCatalogCommand(args: string[]): Promise<string> {
+  parseStoreProviders(providers);
   const [command, ...rest] = args;
   if (command === "--help" && rest.length === 0) {
     return usage;

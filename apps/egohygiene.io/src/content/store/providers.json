@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "providers": [
+    {
+      "id": "fourthwall-catalog",
+      "provider": "fourthwall",
+      "label": "Fourthwall catalog",
+      "role": "commerce-and-fulfillment",
+      "capabilities": ["hosted-checkout", "physical-fulfillment", "payment-processing"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "deducted-from-sale",
+      "notes": "First apparel candidate. The free plan's catalog product costs are deducted from sales, with payment processing fees. This does not describe self-sourced custom manufacturing. Confirm the real product, account eligibility, shipping, and current terms before activation.",
+      "reviewedAt": "2026-10-10",
+      "sources": [{ "title": "Fourthwall plans and pricing", "url": "https://fourthwall.com/pricing" }]
+    },
+    {
+      "id": "printify-pop-up",
+      "provider": "printify",
+      "label": "Printify Pop-Up Store",
+      "role": "commerce-and-fulfillment",
+      "capabilities": ["hosted-checkout", "physical-fulfillment", "payment-processing"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "deducted-from-sale",
+      "notes": "Alternative apparel and objects channel. Printify receives the customer's payment and deducts production and associated costs from earnings. Seller eligibility and Stripe verification apply. Keep separate from Printify's API and ordinary store integrations.",
+      "reviewedAt": "2026-10-10",
+      "sources": [
+        { "title": "How Printify charges merchants", "url": "https://help.printify.com/hc/en-us/articles/4483626302609-How-will-Printify-charge-me" },
+        { "title": "Pop-Up Store earnings", "url": "https://help.printify.com/hc/en-us/articles/12051908094993-How-will-my-Pop-Up-Store-earnings-be-paid-out" }
+      ]
+    },
+    {
+      "id": "printify-integration",
+      "provider": "printify",
+      "label": "Printify API and store integrations",
+      "role": "fulfillment",
+      "capabilities": ["physical-fulfillment"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "merchant-funded",
+      "notes": "Deferred. Printify charges the merchant's balance or card for production and shipping independently of the customer's checkout payment. This can require funding before the sales platform pays out.",
+      "reviewedAt": "2026-10-10",
+      "sources": [{ "title": "How Printify charges merchants", "url": "https://help.printify.com/hc/en-us/articles/4483626302609-How-will-Printify-charge-me" }]
+    },
+    {
+      "id": "lulu-buy-button",
+      "provider": "lulu",
+      "label": "Lulu Direct Buy Button and Checkout Link",
+      "role": "commerce-and-fulfillment",
+      "capabilities": ["hosted-checkout", "physical-fulfillment", "payment-processing"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "deducted-from-sale",
+      "notes": "Future comic candidate. Lulu describes deducting printing, shipping, fulfillment, and payment processing from the customer's payment. Requires a published printable project and Stripe onboarding; payout delays and reserves apply. Refunds exceeding reserves can debit the connected bank account. Prefer a hosted link for the initial site integration.",
+      "reviewedAt": "2026-10-10",
+      "sources": [
+        { "title": "Lulu Direct Buy Button and Checkout Link", "url": "https://www.lulu.com/sell/sell-on-your-site/buy-button" },
+        { "title": "Lulu Buy Button payouts", "url": "https://help.luludirect.lulu.com/en/support/solutions/articles/64000311683-how-do-direct-buy-button-payouts-work-" }
+      ]
+    },
+    {
+      "id": "lulu-direct-integration",
+      "provider": "lulu",
+      "label": "Lulu Direct store integrations and Print API",
+      "role": "fulfillment",
+      "capabilities": ["physical-fulfillment"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "merchant-funded",
+      "notes": "Deferred. The conventional connected-store fulfillment path bills the merchant separately for printing, shipping, handling, fulfillment, and applicable taxes. It has different cash flow from Lulu's Buy Button channel.",
+      "reviewedAt": "2026-10-10",
+      "sources": [{ "title": "Lulu Direct pricing calculations", "url": "https://help.luludirect.lulu.com/en/support/solutions/articles/64000270795-how-are-lulu-direct-prices-calculated-and-what-will-i-pay-" }]
+    },
+    {
+      "id": "stripe-payment-links",
+      "provider": "stripe",
+      "label": "Stripe Payment Links",
+      "role": "payments",
+      "capabilities": ["hosted-checkout", "payment-processing"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "not-applicable",
+      "notes": "Deferred payment infrastructure. Hosted payment links collect payment but do not manufacture or ship merchandise. A separate fulfillment arrangement and its funding would still be necessary. Provider-managed Stripe onboarding does not require our own Stripe integration.",
+      "reviewedAt": "2026-10-10",
+      "sources": [{ "title": "Stripe Payment Links", "url": "https://stripe.com/payments/payment-links" }]
+    },
+    {
+      "id": "square-payment-links",
+      "provider": "square",
+      "label": "Square Payment Links",
+      "role": "payments",
+      "capabilities": ["hosted-checkout", "payment-processing"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "not-applicable",
+      "notes": "Deferred payment infrastructure. Square offers hosted payment links with transaction fees. Accepting payment does not itself supply manufacturing or cover a separate supplier's order charges.",
+      "reviewedAt": "2026-10-10",
+      "sources": [{ "title": "Square Payment Links", "url": "https://squareup.com/us/en/payment-links" }]
+    },
+    {
+      "id": "plaid-auth",
+      "provider": "plaid",
+      "label": "Plaid Auth",
+      "role": "banking",
+      "capabilities": ["bank-linking"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "not-applicable",
+      "notes": "Parked reference only. Auth links and authenticates bank accounts for use with payment services; it is not a merch storefront or physical fulfillment service. Our hosted-checkout v1 has no direct Plaid requirement.",
+      "reviewedAt": "2026-10-10",
+      "sources": [{ "title": "Plaid Auth introduction", "url": "https://plaid.com/docs/auth/" }]
+    },
+    {
+      "id": "contrado-dropshipping",
+      "provider": "contrado",
+      "label": "Contrado custom-product dropshipping",
+      "role": "fulfillment",
+      "capabilities": ["physical-fulfillment"],
+      "status": "placeholder",
+      "enabled": false,
+      "orderFunding": "unverified",
+      "notes": "Research candidate for all-over printing, bags, and more complex garments. The reviewed page describes a Shopify integration and no minimum quantity. Do not infer customer-funded fulfillment from free app or no-inventory claims; verify the exact payment path and total platform costs first.",
+      "reviewedAt": "2026-10-10",
+      "sources": [{ "title": "Contrado dropshipping", "url": "https://www.contrado.com/drop-shipping" }]
+    }
+  ]
+}
