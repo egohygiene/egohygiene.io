@@ -31,7 +31,9 @@ To use an approved web image, place the derivative in `apps/egohygiene.io/public
 }
 ```
 
-Supported image extensions are PNG, JPG/JPEG, WebP, and AVIF, using lowercase filenames. The schema checks the local path format; this checkpoint does not verify that an image file exists or review image quality. Placeholder artwork remains valid without a file.
+Supported image extensions are PNG, JPG/JPEG, WebP, and AVIF, using lowercase filenames. The schema checks the local path format. The default CLI and build checks also require image-backed designs to reference existing regular files under `apps/egohygiene.io/public/`. This applies to draft designs too. Symlinks that resolve outside that public directory are rejected; internal symlinks to regular files are allowed. Missing files block validation and `add-design` before a new entry is written. Placeholder artwork remains valid without a file.
+
+These checks inspect file paths and metadata, not image bytes. They do not establish that the file is a decodable image or review its dimensions, appearance, rights, or print quality. Inspect the rendered image locally before approving it.
 
 ## Attach a product when ready
 
@@ -111,7 +113,13 @@ All IDs and slugs must be unique across the entire catalog. IDs use lowercase le
 4. Keep the entry draft until ready for public display. Promote its referenced entries together.
 5. Review and merge through the normal PR process. A successful validation does not publish the store or enable purchases.
 
-Use `--directory "/path/to/entries"` on either command to validate or author a separate test catalog. The directory must already exist. A separate directory uses an empty route list, so it cannot borrow production checkout approvals. Programmatic tests can pass explicit test routes to `loadCatalog(directory, routes)`. JSON files are discovered recursively in deterministic path order; symlinks are not followed. Every discovered JSON file is treated as a catalog entry.
+Use `--directory "/path/to/entries"` on either command to validate or author a separate test catalog. The directory must already exist. A separate directory uses an empty route list, so it cannot borrow production checkout approvals. It performs schema-only validation unless you also supply `--public-directory`; the CLI explicitly reports when artwork files were not checked:
+
+```sh
+node scripts/store-catalog.mts validate --directory "/path/to/entries" --public-directory "/path/to/public"
+```
+
+The public directory is the root that contains `store/`, not the `store/` directory itself. The same optional `--public-directory` flag works with `add-design`. Programmatic callers use `loadCatalog(directory, routes, publicDirectory)` to check a custom catalog's assets, or omit the third argument for schema-only validation of a custom catalog. Calling `loadCatalog()` checks the default catalog against the application's public directory, including during Vite builds. JSON entries are discovered recursively in deterministic path order; catalog-file symlinks are not followed. Every discovered JSON file is treated as a catalog entry.
 
 ## Schema changes
 
@@ -121,4 +129,4 @@ This is the first version: `schemaVersion: 1`. Unknown versions fail validation.
 
 For a compatible addition, add an optional field or a defined default, then prove existing version 1 fixtures still parse. A breaking change needs a new version, an explicit migration, and tests showing that permanent IDs, references, visibility, and purchase restrictions survive. Keep the old fixture as evidence. Rollbacks must restore compatible schema code and catalog data together. Avoid changing schema versions automatically just to make a validation error disappear.
 
-The next UI checkpoint will use this catalog to build the mock storefront. Real artwork ingestion, provider onboarding, purchases, and publication remain separate steps.
+The mock storefront consumes this catalog automatically at `/store`, with design, product, and collection detail pages. Follow [the next-design session](next-design-session.md) to preview one approved image. Provider onboarding, purchases, and publication remain separate steps.

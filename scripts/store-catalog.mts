@@ -1,15 +1,18 @@
 import { randomUUID } from "node:crypto";
-import { readdir, readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { readdir, readFile, realpath, stat, writeFile } from "node:fs/promises";
+import { isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import checkoutRoutes from "../apps/egohygiene.io/src/content/store/checkout-routes.json" with { type: "json" };
 import providers from "../apps/egohygiene.io/src/content/store/providers.json" with { type: "json" };
 import { parseStoreProviders } from "../packages/schemas/src/store-providers.ts";
-import { parseStoreCatalog } from "../packages/schemas/src/store.ts";
+import { parseStoreCatalog, StoreCatalogError } from "../packages/schemas/src/store.ts";
 import type { StoreCatalog } from "../packages/schemas/src/store.ts";
 
 export const defaultCatalogDirectory = fileURLToPath(
   new URL("../apps/egohygiene.io/src/content/store/entries/", import.meta.url),
+);
+export const defaultPublicDirectory = fileURLToPath(
+  new URL("../apps/egohygiene.io/public/", import.meta.url),
 );
 
 export interface CatalogSource {
@@ -65,19 +68,63 @@ export async function loadCatalogSources(
 export async function loadCatalog(
   directory: string = defaultCatalogDirectory,
   routes: unknown = resolve(directory) === resolve(defaultCatalogDirectory) ? checkoutRoutes : [],
+  publicDirectory: string | undefined = resolve(directory) === resolve(defaultCatalogDirectory) ? defaultPublicDirectory : undefined,
 ): Promise<StoreCatalog> {
   parseStoreProviders(providers);
-  return parseStoreCatalog(await loadCatalogSources(directory), routes);
+  return validateCatalog(await loadCatalogSources(directory), routes, publicDirectory);
 }
 
 const usage = [
   "Usage:",
-  "  node scripts/store-catalog.mts validate [--directory <path>]",
-  "  node scripts/store-catalog.mts add-design --slug <slug> --title <title> [--directory <path>]",
+  "  node scripts/store-catalog.mts validate [--directory <path>] [--public-directory <path>]",
+  "  node scripts/store-catalog.mts add-design --slug <slug> --title <title> [--directory <path>] [--public-directory <path>]",
 ].join("\n");
 
 function errorMessage(error: unknown): string {
   return error instanceof Error ? error.message : String(error);
+}
+
+function isWithinDirectory(directory: string, path: string): boolean {
+  const relativePath = relative(directory, path);
+  return !isAbsolute(relativePath) && relativePath !== ".." && !relativePath.startsWith(`..${sep}`);
+}
+
+/** Filesystem checks stay at the Node boundary; the shared/browser schema remains pure. */
+async function validateCatalog(
+  sources: CatalogSource[],
+  routes: unknown,
+  publicDirectory: string | undefined,
+): Promise<StoreCatalog> {
+  const catalog = parseStoreCatalog(sources, routes);
+  if (publicDirectory === undefined) return catalog;
+
+  const issues: string[] = [];
+  let assetRoot: string | undefined;
+  for (const [index, entry] of catalog.entries.entries()) {
+    if (entry.kind !== "design" || entry.artwork.kind !== "image") continue;
+    const field = `${sources[index]?.source ?? entry.id}:artwork.src`;
+    const target = resolve(publicDirectory, entry.artwork.src.slice(1));
+    try {
+      // Resolve both root and target so a symlink cannot conceal an escaping destination.
+      assetRoot ??= await realpath(publicDirectory);
+      const resolvedTarget = await realpath(target);
+      if (!isWithinDirectory(assetRoot, resolvedTarget)) {
+        issues.push(`${field}: Artwork file resolves outside public directory: ${entry.artwork.src}`);
+      } else if (!(await stat(resolvedTarget)).isFile()) {
+        issues.push(`${field}: Artwork must reference a regular file: ${entry.artwork.src}`);
+      }
+    } catch (error) {
+      issues.push(`${field}: Cannot resolve artwork file ${entry.artwork.src}: ${errorMessage(error)}`);
+    }
+  }
+  if (issues.length) throw new StoreCatalogError(issues);
+  return catalog;
+}
+
+function validationScope(catalog: StoreCatalog, publicDirectory: string | undefined): string {
+  if (publicDirectory === undefined) return "Schema only; artwork files were not checked.";
+  const count = catalog.entries.filter((entry) => entry.kind === "design" && entry.artwork.kind === "image").length;
+  return `Image files verified: ${count}.`;
 }
 
 function readOptions(args: string[], allowed: readonly string[]): Map<string, string> {
@@ -112,15 +159,18 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
 
   const options = readOptions(
     rest,
-    command === "validate" ? ["--directory"] : ["--directory", "--slug", "--title"],
+    command === "validate" ? ["--directory", "--public-directory"] : ["--directory", "--public-directory", "--slug", "--title"],
   );
   const directory = resolve(options.get("--directory") ?? defaultCatalogDirectory);
   const sources = await loadCatalogSources(directory);
   const routes = directory === resolve(defaultCatalogDirectory) ? checkoutRoutes : [];
+  const publicDirectory = options.has("--public-directory")
+    ? resolve(options.get("--public-directory")!)
+    : directory === resolve(defaultCatalogDirectory) ? defaultPublicDirectory : undefined;
 
   if (command === "validate") {
-    parseStoreCatalog(sources, routes);
-    return `Catalog valid: ${sources.length} entries.`;
+    const catalog = await validateCatalog(sources, routes, publicDirectory);
+    return `Catalog valid: ${sources.length} entries. ${validationScope(catalog, publicDirectory)}`;
   }
 
   const slug = options.get("--slug");
@@ -148,7 +198,7 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
   };
 
   // Validate the complete prospective catalog, including uniqueness and references.
-  parseStoreCatalog([...sources, { source, value }], routes);
+  const catalog = await validateCatalog([...sources, { source, value }], routes, publicDirectory);
   try {
     await writeFile(source, `${JSON.stringify(value, null, 2)}\n`, { encoding: "utf8", flag: "wx" });
   } catch (error) {
@@ -156,7 +206,7 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
       cause: error,
     });
   }
-  return `Created draft design: ${source}\nRun catalog:validate after editing.`;
+  return `Created draft design: ${source}\n${validationScope(catalog, publicDirectory)}\nRun catalog:validate after editing.`;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
