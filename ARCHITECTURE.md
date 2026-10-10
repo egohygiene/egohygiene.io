@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-10-10
 governed_by:
   - architecture-architecture
 depends_on:
@@ -77,6 +77,10 @@ The diagram is conceptual. [SYSTEM.md](SYSTEM.md) remains authoritative for resp
 - Akashic and future product subdomains
 
 ## Deployment and portability
+
+### Store v1 boundary
+
+The storefront is planned inside the existing `apps/egohygiene.io` application, with versioned public catalog contracts and provider-hosted checkout. See the [Store v1 architecture](docs/architecture/store-v1.md), [migration ledger](docs/migration/store-v1-consolidation.md), and ADR-004 in [DECISIONS.md](DECISIONS.md). These documents distinguish observed source behavior from proposed implementation; the generic `/store` project placeholder is not a live shop.
 
 The architecture favors independently usable local and self-hosted operation. Optional managed services may add availability, collaboration, support, and hosted infrastructure without becoming the canonical holder of portable state.
 
