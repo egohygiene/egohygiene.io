@@ -2,7 +2,7 @@ allowBuilds:
   '@danmarshall/deckgl-typings': true
   '@heroui/shared-utils': true
   '@parcel/watcher': true
-  '@pulumi/kubernetes': set this to true or false
+  '@pulumi/kubernetes': false
   '@scarf/scarf': true
   '@swc/core': true
   browser-tabs-lock: true
@@ -10,7 +10,7 @@ allowBuilds:
   cpu-features: true
   cypress: true
   esbuild: true
-  fsevents: set this to true or false
+  fsevents: false
   maplibre-gl: true
   msw: true
   nx: true

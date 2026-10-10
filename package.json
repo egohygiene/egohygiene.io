@@ -18,11 +18,11 @@
   ],
   "homepage": "https://egohygiene.io",
   "bugs": {
-    "url": "https://github.com/egohygiene/website/issues"
+    "url": "https://github.com/egohygiene/egohygiene.io/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/egohygiene/website.git"
+    "url": "https://github.com/egohygiene/egohygiene.io.git"
   },
   "license": "Apache-2.0",
   "author": {
@@ -35,10 +35,10 @@
     "url": "https://github.com/sponsors/szmyty"
   },
   "engineStrict": true,
-  "packageManager": "pnpm@11.8.0",
+  "packageManager": "pnpm@11.28.5",
   "engines": {
-    "node": ">=25.9.0",
-    "pnpm": ">=11.8.0"
+    "node": ">=24.21.0 <25",
+    "pnpm": "11.28.5"
   },
   "msw": {
     "workerDirectory": "public"
@@ -50,9 +50,9 @@
     "extends": "semantic-release-config-gitmoji"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "dev": "pnpm --filter @egohygiene/egohygiene.io dev",
+    "build": "pnpm catalog:validate && pnpm --filter @egohygiene/egohygiene.io build",
+    "preview": "pnpm --filter @egohygiene/egohygiene.io preview",
     "biome": "biome",
     "biome:check": "biome check .",
     "biome:format": "biome format .",
@@ -65,15 +65,21 @@
     "changelog:publish": "changeset publish",
     "knip": "knip",
     "storybook": "storybook dev -p 6006 --exact-port --host 0.0.0.0 --config-dir .storybook --disable-telemetry",
-    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
-    "types": "tsc -p tsconfig.types.json",
-    "build-cli": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --project apps/egohygiene.io/tsconfig.app.json --noEmit && tsc --project tsconfig.store.json --noEmit",
     "typedoc": "typedoc --options config/typedoc.json",
     "release": "semantic-release",
     "catalog:validate": "node scripts/store-catalog.mts validate",
     "catalog:add-design": "node scripts/store-catalog.mts add-design",
-    "catalog:test": "node --test tests/store/catalog.test.ts",
-    "catalog:typecheck": "tsc --project tsconfig.store.json --noEmit"
+    "catalog:test": "node --test tests/store/*.test.ts",
+    "catalog:typecheck": "tsc --project tsconfig.store.json --noEmit",
+    "typecheck:workspaces": "pnpm --recursive --if-present run typecheck",
+    "test": "pnpm catalog:test && pnpm test:unit",
+    "test:unit": "vitest run --config vitest.unit.config.ts",
+    "test:e2e": "playwright test",
+    "storybook:build": "storybook build --config-dir .storybook",
+    "format:check": "biome format .",
+    "lint": "biome lint .",
+    "check": "node scripts/checks/check-workspace.ts && node scripts/checks/check-package-exports.ts && node scripts/checks/check-locales.ts && node scripts/checks/check-circular-dependencies.ts"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.24.1",
@@ -406,7 +412,7 @@
     "@types/lodash-es": "^4.17.12",
     "@types/mdast": "^4.0.4",
     "@types/mui-image": "^1.0.5",
-    "@types/node": "^26.1.2",
+    "@types/node": "24.10.1",
     "@types/react": "^19.2.18",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "^19.2.4",
@@ -474,6 +480,7 @@
     "vite-plugin-svgr": "^5.2.0",
     "vite-plugin-wasm": "^3.6.0",
     "vite-tsconfig-paths": "^6.1.1",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "typescript": "5.9.3"
   }
 }

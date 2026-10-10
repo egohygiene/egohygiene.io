@@ -8,17 +8,21 @@ import { NotFoundPage } from "../pages/NotFoundPage";
 import { PrivacyPage } from "../pages/PrivacyPage";
 import { ProductPage } from "../pages/ProductPage";
 import { TermsPage } from "../pages/TermsPage";
+import { StorePage } from "../pages/StorePage";
+import { RouteErrorPage } from "../pages/RouteErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <RouteErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
       { path: "about", element: <AboutPage /> },
       { path: "ecosystem", element: <EcosystemPage /> },
       { path: "privacy", element: <PrivacyPage /> },
       { path: "terms", element: <TermsPage /> },
+      { path: "store", element: <StorePage /> },
       { path: ":product", element: <ProductPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],

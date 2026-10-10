@@ -6,6 +6,7 @@ import { Container, ThemeToggle } from "@egohygiene/ui";
 
 const routes = [
   ["/", "Home"],
+  ["/store", "Store"],
   ["/about", "About"],
   ["/ecosystem", "Ecosystem"],
   ["/privacy", "Privacy"],
