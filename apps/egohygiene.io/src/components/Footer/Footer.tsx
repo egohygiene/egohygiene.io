@@ -22,7 +22,7 @@ export function Footer() {
                 <NavLink to="/ecosystem">Ecosystem</NavLink>
               </li>
               <li>
-                <a href="https://github.com/egohygiene/website">Repository</a>
+                <a href="https://github.com/egohygiene/egohygiene.io">Repository</a>
               </li>
             </ul>
           </nav>

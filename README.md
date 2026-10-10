@@ -1,65 +1,50 @@
 # Ego Hygiene website
 
-A minimal, working monorepo for the first Ego Hygiene web platform release.
+The website and Store v1 catalog live in this monorepo.
 
-## What is here
+## Workspace
 
-- `apps/egohygiene.io` — the public-facing website
-- `apps/docs` — repository and platform documentation
-- `apps/playground` — a small surface for themes, tokens, and shared UI
-- `packages/*` — shared building blocks used by the apps
+- `apps/egohygiene.io` — public website and `/store`
+- `apps/docs` — repository documentation
+- `apps/playground` — themes, tokens, and shared UI
+- `packages/*` — shared app building blocks
 
-## Store v1 workstream
+## Local website
 
-The [Store v1 roadmap](https://github.com/egohygiene/egohygiene.io/issues/31) consolidates merchandise work into this website. Start with the [architecture plan](docs/architecture/store-v1.md) and [migration ledger](docs/migration/store-v1-consolidation.md). The [catalog authoring guide](docs/store/catalog-authoring.md) now provides a versioned schema, fictional fixtures, automatic discovery, and a command for adding draft designs. Real artwork can be added later. The current `/store` route remains an ecosystem project placeholder; the storefront UI is a later checkpoint.
+Use **Node 24.21.x** and **pnpm 11.28.5** (also declared in `.tool-versions` and `package.json`). Activate the pinned pnpm version with Corepack or your preferred version manager.
 
 ```sh
-node scripts/store-catalog.mts add-design --slug "my-new-design" --title "My New Design"
-node scripts/store-catalog.mts validate
-node --test tests/store/catalog.test.ts
-```
-
-## Requirements
-
-- Node 24.18+
-- Corepack
-- pnpm 11.8+
-
-## Install
-
-```bash
 corepack enable
-pnpm install --frozen-lockfile
-```
-
-## Local development
-
-```bash
+pnpm install --frozen-lockfile --ignore-scripts
 pnpm dev
-pnpm --filter @egohygiene/egohygiene.io dev
-pnpm --filter @egohygiene/docs dev
-pnpm --filter @egohygiene/playground dev
 ```
 
-## Quality gates
+`pnpm dev`, `pnpm build`, and `pnpm preview` target the public website. The docs and playground remain available through `pnpm --filter @egohygiene/docs dev` and `pnpm --filter @egohygiene/playground dev`.
 
-```bash
-pnpm format:check
-pnpm lint
+```sh
 pnpm typecheck
 pnpm test
-pnpm build
-pnpm storybook:build
-pnpm test:e2e
 pnpm check
+pnpm build
+pnpm preview --host 127.0.0.1
 ```
 
-## Deployment status
+`typecheck` covers the public app and catalog contracts. `test` runs catalog/provider contracts and workspace unit tests. `check` validates workspace manifests, exports, locales, and package dependency cycles. See the [foundation record](docs/store/foundation.md) for verification and deferred wider gates.
 
-The repository now supports a small static website slice. Product gateway routing, backend services, and production deployment integrations remain intentionally deferred.
+## Store v1
 
-## Current limitations
+Start with the [roadmap](https://github.com/egohygiene/egohygiene.io/issues/31), [architecture](docs/architecture/store-v1.md), and [migration ledger](docs/migration/store-v1-consolidation.md). `/store` has an explicit route ahead of the generic ecosystem gateway.
 
-- The docs app uses a minimal markdown pipeline rather than a full CMS.
-- Product routes reserve future gateway paths locally instead of proxying to separate deployments.
-- Private publishing is disabled across workspace packages.
+The [catalog authoring guide](docs/store/catalog-authoring.md) explains automatic discovery, versioned schemas, fictional fixtures, and adding a draft without touching UI code:
+
+```sh
+pnpm catalog:add-design --slug "my-new-design" --title "My New Design"
+pnpm catalog:validate
+pnpm catalog:test
+```
+
+[Provider notes](docs/store/providers.md) distinguish fulfillment, payments, and banking. Every provider placeholder is disabled. The catalog currently contains preview/unavailable products, with no purchase destination. Keep original artwork, credentials, and private business records out of this public repository.
+
+## Deployment and remaining work
+
+Local build verification does not establish production hosting. [Issue #29](https://github.com/egohygiene/egohygiene.io/issues/29) owns host configuration, SPA rewrites, remote CI, and deployment. The wider dependency lab, Storybook, formatting/lint cleanup, and separate product gateways remain independent workstreams. Private package publishing remains disabled.
