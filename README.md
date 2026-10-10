@@ -9,6 +9,10 @@ A minimal, working monorepo for the first Ego Hygiene web platform release.
 - `apps/playground` — a small surface for themes, tokens, and shared UI
 - `packages/*` — shared building blocks used by the apps
 
+## Store v1 workstream
+
+The [Store v1 roadmap](https://github.com/egohygiene/egohygiene.io/issues/31) consolidates merchandise work into this website. Start with the [architecture plan](docs/architecture/store-v1.md) and [migration ledger](docs/migration/store-v1-consolidation.md). Checkpoint A is documentation only; the current `/store` route remains an ecosystem project placeholder.
+
 ## Requirements
 
 - Node 24.18+
