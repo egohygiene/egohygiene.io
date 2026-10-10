@@ -30,7 +30,7 @@ export function applyTheme(theme: ThemeName): Exclude<ThemeName, "system"> {
   const resolvedTheme = resolveTheme(theme, prefersDark);
 
   if (isBrowser()) {
-    document.documentElement.dataset.theme = resolvedTheme;
+    document.documentElement.dataset["theme"] = resolvedTheme;
     document.documentElement.style.colorScheme = resolvedTheme === "light" ? "light" : "dark";
   }
 

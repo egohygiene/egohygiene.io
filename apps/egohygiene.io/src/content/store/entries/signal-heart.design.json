@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "design",
+  "id": "design-demo-signal-heart",
+  "slug": "signal-heart",
+  "title": "Signal Heart",
+  "description": "Fictional catalog example: an abstract heart design independent of any song or character. Artwork is a placeholder.",
+  "visibility": "public",
+  "artworkRevision": 1,
+  "artwork": {
+    "kind": "placeholder",
+    "label": "Abstract heart artwork preview"
+  },
+  "contextIds": []
+}

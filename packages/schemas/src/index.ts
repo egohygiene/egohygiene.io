@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+export * from "./store.ts";
+
 export const productStatusSchema = z.enum(["available", "development", "planned"]);
 export const productCategorySchema = z.enum([
   "knowledge",
