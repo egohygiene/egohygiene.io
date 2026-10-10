@@ -3,7 +3,7 @@
   "name": "@egohygiene/website",
   "private": true,
   "version": "0.0.1",
-  "description": "🧠 A privacy-first platform for self-awareness, knowledge cultivation, research, publishing, and AI-assisted personal growth.",
+  "description": "\ud83e\udde0 A privacy-first platform for self-awareness, knowledge cultivation, research, publishing, and AI-assisted personal growth.",
   "keywords": [
     "ego-hygiene",
     "mental-health",
@@ -79,7 +79,8 @@
     "storybook:build": "storybook build --config-dir .storybook",
     "format:check": "biome format .",
     "lint": "biome lint .",
-    "check": "node scripts/checks/check-workspace.ts && node scripts/checks/check-package-exports.ts && node scripts/checks/check-locales.ts && node scripts/checks/check-circular-dependencies.ts"
+    "check": "node scripts/checks/check-workspace.ts && node scripts/checks/check-package-exports.ts && node scripts/checks/check-locales.ts && node scripts/checks/check-circular-dependencies.ts",
+    "test:store": "playwright test --config playwright.store.config.ts"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.24.1",
