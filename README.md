@@ -35,7 +35,7 @@ pnpm preview --host 127.0.0.1
 
 Start with the [roadmap](https://github.com/egohygiene/egohygiene.io/issues/31), [architecture](docs/architecture/store-v1.md), and [migration ledger](docs/migration/store-v1-consolidation.md). `/store` now browses connected designs, products, and collections with search, filters, themes, and responsive detail pages. See the [visual direction](docs/store/visual-direction.md) and [test plan](docs/store/test-plan.md).
 
-The [catalog authoring guide](docs/store/catalog-authoring.md) explains automatic discovery, versioned schemas, fictional fixtures, and adding a draft without touching UI code:
+For the next session, follow [preview one real design](docs/store/next-design-session.md). The [catalog authoring guide](docs/store/catalog-authoring.md) explains automatic discovery, versioned schemas, fictional fixtures, and adding a draft without touching UI code:
 
 ```sh
 pnpm catalog:add-design --slug "my-new-design" --title "My New Design"
