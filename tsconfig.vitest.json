@@ -15,5 +15,6 @@
     "packages/*/src/**/*.test.tsx",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ]
+  ],
+  "exclude": ["tests/store"]
 }

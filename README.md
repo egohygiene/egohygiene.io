@@ -11,7 +11,13 @@ A minimal, working monorepo for the first Ego Hygiene web platform release.
 
 ## Store v1 workstream
 
-The [Store v1 roadmap](https://github.com/egohygiene/egohygiene.io/issues/31) consolidates merchandise work into this website. Start with the [architecture plan](docs/architecture/store-v1.md) and [migration ledger](docs/migration/store-v1-consolidation.md). Checkpoint A is documentation only; the current `/store` route remains an ecosystem project placeholder.
+The [Store v1 roadmap](https://github.com/egohygiene/egohygiene.io/issues/31) consolidates merchandise work into this website. Start with the [architecture plan](docs/architecture/store-v1.md) and [migration ledger](docs/migration/store-v1-consolidation.md). The [catalog authoring guide](docs/store/catalog-authoring.md) now provides a versioned schema, fictional fixtures, automatic discovery, and a command for adding draft designs. Real artwork can be added later. The current `/store` route remains an ecosystem project placeholder; the storefront UI is a later checkpoint.
+
+```sh
+node scripts/store-catalog.mts add-design --slug "my-new-design" --title "My New Design"
+node scripts/store-catalog.mts validate
+node --test tests/store/catalog.test.ts
+```
 
 ## Requirements
 

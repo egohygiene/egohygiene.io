@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "design",
+  "id": "design-demo-static-bloom",
+  "slug": "static-bloom-artwork",
+  "title": "Static Bloom Artwork",
+  "description": "Fictional artwork connected to the demo song Static Bloom. The same design can be used on several products.",
+  "visibility": "public",
+  "artworkRevision": 1,
+  "artwork": {
+    "kind": "placeholder",
+    "label": "Song artwork preview"
+  },
+  "contextIds": ["song-demo-static-bloom"]
+}

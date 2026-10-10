@@ -69,7 +69,11 @@
     "types": "tsc -p tsconfig.types.json",
     "build-cli": "tsc -p tsconfig.build.json",
     "typedoc": "typedoc --options config/typedoc.json",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "catalog:validate": "node scripts/store-catalog.mts validate",
+    "catalog:add-design": "node scripts/store-catalog.mts add-design",
+    "catalog:test": "node --test tests/store/catalog.test.ts",
+    "catalog:typecheck": "tsc --project tsconfig.store.json --noEmit"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.24.1",

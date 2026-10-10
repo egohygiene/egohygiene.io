@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "product",
+  "id": "product-demo-signal-heart-hoodie",
+  "slug": "signal-heart-hoodie",
+  "title": "Signal Heart Hoodie",
+  "description": "Fictional preview of a black hoodie featuring the standalone Signal Heart design. No manufacturer, sizing, price, or checkout is confirmed.",
+  "visibility": "public",
+  "designIds": ["design-demo-signal-heart"],
+  "contextIds": [],
+  "purchase": {
+    "state": "preview"
+  }
+}

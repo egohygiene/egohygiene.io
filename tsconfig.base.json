@@ -12,6 +12,7 @@
     "moduleDetection": "force",
     "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
 
     // Single-file transpiler compatibility
     "isolatedModules": true,
