@@ -4,11 +4,15 @@ The store uses the existing Ego Hygiene site and theme system. A quiet editorial
 
 ## Current preview
 
-- `/store` provides a searchable catalog of objects, designs, and collections. Search and type filters persist in URL query parameters, so back navigation and shared links retain the selection.
+- `/store` provides a searchable catalog of objects, designs, and collections. Search, type, and story filters persist in URL query parameters, so back navigation and shared links retain the selection. Visitors can browse connected worlds or standalone designs; these distinctions derive from existing public context relationships, including inherited design connections.
 - `/store/products/:slug` shows the associated design, availability, related collections, and contextual stories.
 - `/store/designs/:slug` lets a design exist independently of a product, song, or artist.
 - `/store/collections/:slug` gathers explicitly connected products and designs, including the designs used by its products.
 - Unknown slugs have a recovery link to the store. Empty collections and search results have explicit empty states.
+
+The entrance pairs an oversized editorial heading with a linked canonical design. Two discovery tiles lead into the first public collection and an independent design before the full catalog. Framed cards, rounded artwork panels, and restrained pink/mint accents give these routes a common visual language. Featured entries currently follow catalog order; editorial placement and declared artwork ordering remain separate follow-up work.
+
+Product, design, and collection pages share an artwork gallery. Multiple resolved designs provide thumbnail selection; a single design opens directly into the same enlarged viewer. The native modal keeps the underlying page inert, supports Escape and an explicit close control, locks background scrolling, and restores focus after closing. Authored images and labelled studies use the same artwork renderer; the same design retains its study across the hero, cards, and gallery.
 
 The abstract SVG studies are UI placeholders, not final merch designs, garment mockups, print proofs, or artist releases. Each is labelled as concept artwork. Approved catalog images replace them automatically through the existing artwork schema; a failed image falls back to a labelled study. No stock imagery, third-party fonts, trackers, or image-generation services are required by these pages.
 
@@ -23,6 +27,8 @@ The homepage preview notice is present while no live products exist. Individual 
 ## Accessibility and page behavior
 
 The pages use semantic headings, breadcrumbs, labelled search and filter controls, visible focus outlines, a polite search-result announcement, and responsive single- and multiple-column layouts. Motion is limited to a small hover treatment and disabled for reduced-motion preferences. The store uses the site theme tokens and provides explicit high-contrast overrides.
+
+This slice reuses the existing router, shared header/theme/footer, schema-validated catalog, image fallback, purchase-action contract, and the Task/Fourthwall preview foundation from #61. It adds no dependency, schema field, provider route, or font download. Interface labels remain in the route module and gallery component for the later localization slice; translations are not implemented by this visual pass.
 
 Each page sets its document title and existing description metadata in a React effect, restoring previous values on unmount. Metadata reflects the current entry. The app remains a client-rendered SPA; social preview crawlers that do not run JavaScript will need a later prerendering/deployment solution.
 

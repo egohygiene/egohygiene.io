@@ -60,4 +60,13 @@ describe("StoreArtwork", () => {
     expect(screen.getByRole("img", { name: "Comic cover preview. Concept artwork · placeholder." })).toBeInTheDocument();
     expect(screen.getByText("Concept artwork · placeholder")).toBeVisible();
   });
+
+  it("keeps the same design study when promoted from a card to the hero", () => {
+    const placeholder = { ...design, artwork: { kind: "placeholder" as const, label: "Shared design" } };
+    const { rerender } = render(<StoreArtwork design={placeholder} />);
+    const motif = screen.getByRole("img").className.match(/store-artwork--motif-\d/)?.[0];
+    expect(motif).toBeTruthy();
+    rerender(<StoreArtwork design={placeholder} hero />);
+    expect(screen.getByRole("img")).toHaveClass(motif!);
+  });
 });

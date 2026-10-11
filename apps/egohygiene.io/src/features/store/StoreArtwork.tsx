@@ -13,7 +13,7 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
   const [failedSource, setFailedSource] = useState<string>();
   const artwork = design?.artwork;
   const imageSource = artwork?.kind === "image" ? artwork.src : undefined;
-  const motif = hero ? 0 : [...(design?.id ?? "preview")].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 3;
+  const motif = design ? [...design.id].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 3 : 0;
   const gradientId = `${instanceId}-ink`;
   const gridId = `${instanceId}-grid`;
   const glowId = `${instanceId}-glow`;
