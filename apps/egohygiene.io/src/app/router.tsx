@@ -12,6 +12,17 @@ import { StorePage } from "../pages/StorePage";
 import { StoreCollectionPage, StoreDesignPage, StoreProductPage } from "../features/store";
 import { RouteErrorPage } from "../pages/RouteErrorPage";
 
+// Only the isolated local preview build includes the provider tryout or its fixtures.
+const previewRoutes = import.meta.env.VITE_STORE_PREVIEW === "true"
+  ? [{
+      path: "store/preview/fourthwall",
+      lazy: async () => {
+        const { FourthwallPreviewPage } = await import("../features/fourthwall-preview/FourthwallPreviewPage");
+        return { Component: FourthwallPreviewPage };
+      },
+    }]
+  : [];
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +35,7 @@ export const router = createBrowserRouter([
       { path: "privacy", element: <PrivacyPage /> },
       { path: "terms", element: <TermsPage /> },
       { path: "store", element: <StorePage /> },
+      ...previewRoutes,
       { path: "store/products/:slug", element: <StoreProductPage /> },
       { path: "store/designs/:slug", element: <StoreDesignPage /> },
       { path: "store/collections/:slug", element: <StoreCollectionPage /> },

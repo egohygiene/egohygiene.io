@@ -1,0 +1,45 @@
+version: "3"
+
+tasks:
+  default:
+    desc: "List the available local storefront tasks"
+    cmds:
+      - task --list
+
+  setup:store:
+    desc: "Check Node, select pinned pnpm, and install locked dependencies"
+    preconditions:
+      - sh: "command -v node >/dev/null 2>&1"
+        msg: "Node.js is missing from PATH. Install Node 24.21.0, then retry; see docs/store/local-preview.md."
+    cmds:
+      - node scripts/store-environment.mjs setup
+
+  build:store:
+    desc: "Set up dependencies and build a fresh, isolated local store preview"
+    cmds:
+      - task: setup:store
+      - node scripts/store-environment.mjs run catalog:validate
+      - node scripts/store-environment.mjs build
+
+  preview:store:
+    desc: "Set up, build, and open the store at http://127.0.0.1:4173/store"
+    cmds:
+      - task: build:store
+      - node scripts/store-environment.mjs preview
+
+  dev:store:
+    desc: "Set up and open the store with live editing at http://127.0.0.1:5173/store"
+    cmds:
+      - task: setup:store
+      - node scripts/store-environment.mjs dev
+
+  test:store:tooling:
+    desc: "Run focused local setup and preview command tests without installing dependencies"
+    cmds:
+      - node --test tests/tooling/*.test.mjs
+
+  fourthwall:check:
+    desc: "Check optional Fourthwall storefront credentials with read-only requests"
+    cmds:
+      - task: setup:store
+      - node scripts/store-environment.mjs run exec node --env-file-if-exists=apps/egohygiene.io/.env.local scripts/check-fourthwall.mjs

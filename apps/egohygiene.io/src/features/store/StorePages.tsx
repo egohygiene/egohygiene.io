@@ -172,6 +172,9 @@ export function StorePage() {
         <aside className="store-preview-note" aria-label="Store preview">
           <span className="store-preview-note__mark" aria-hidden="true">↳</span>
           <p><strong>You’re seeing the beginning.</strong> The store is in preview; nothing is available to purchase yet. Sample entries are fictional and labelled in their descriptions.</p>
+          {import.meta.env.VITE_STORE_PREVIEW === "true" && (
+            <Link className="store-text-link" to="/store/preview/fourthwall">Try the Fourthwall demo <Arrow /></Link>
+          )}
           <span className="store-kicker">Preview edition</span>
         </aside>
       )}
