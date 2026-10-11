@@ -10,10 +10,20 @@
     <meta name="theme-color" content="#120d1f">
     <script>
       (() => {
-        const storedTheme = localStorage.getItem("egohygiene-theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        // Keep this pre-paint script aligned with @egohygiene/themes; its contract is tested there.
+        const themeNames = ["system", "light", "dark", "high-contrast"];
+        let storedTheme = "system";
+        try {
+          const preference = window.localStorage.getItem("egohygiene-theme");
+          if (themeNames.includes(preference)) storedTheme = preference;
+        } catch {
+          // Browser storage is best-effort; system theme still works without it.
+        }
+        const prefersDark = typeof window.matchMedia === "function"
+          ? window.matchMedia("(prefers-color-scheme: dark)").matches
+          : true;
         const theme =
-          storedTheme && storedTheme !== "system" ? storedTheme : prefersDark ? "dark" : "light";
+          storedTheme !== "system" ? storedTheme : prefersDark ? "dark" : "light";
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme === "light" ? "light" : "dark";
       })();
