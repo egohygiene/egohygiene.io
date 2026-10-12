@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "subject": "Ego Hygiene organization mark",
+  "owner": "Ego Hygiene",
+  "source": {
+    "repository": "https://github.com/egohygiene/relay",
+    "revision": "f19b65b3f8bd8466884dee5529fa77f2430440b6",
+    "path": "actions/repository-intelligence/assets/egohygiene.png",
+    "gitBlob": "dadddbdd13c7a3f30d37d12fe179aaf31fd1915d",
+    "sha256": "cc09173cd26cade507423c22c5cca914cc424563d402341310fbe796ce81951a",
+    "width": 460,
+    "height": 460,
+    "mediaType": "image/png",
+    "originalCapture": {
+      "url": "https://avatars.githubusercontent.com/u/196492251?v=4",
+      "observedOn": "2026-10-10",
+      "organization": "egohygiene",
+      "organizationId": 196492251
+    }
+  },
+  "use": {
+    "scope": "Organization identification through favicons, touch icons and web manifest icons in the Ego Hygiene website, docs and local playground.",
+    "existingApprovalEvidence": "https://github.com/egohygiene/relay/pull/142",
+    "taskAuthorization": "https://github.com/egohygiene/egohygiene.io/issues/58",
+    "upstreamNotice": "https://github.com/egohygiene/relay/blob/f19b65b3f8bd8466884dee5529fa77f2430440b6/LICENSE",
+    "constraints": [
+      "Reuse the existing organization mark; retain geometry, colors, transparency and framing.",
+      "Resize and encode for browser surfaces only; do not infer approval of a new design or merchandise use.",
+      "The avatar capture is dated; the Relay commit and digest pin the consumed bytes.",
+      "Source resolution is 460 by 460; the 512 icon is a resample, not a higher-detail master.",
+      "Repository software licensing does not grant third-party trademark rights."
+    ]
+  }
+}
