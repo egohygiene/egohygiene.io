@@ -8,6 +8,10 @@
       content="Tools, ideas, and practices for moving toward balance and harmony."
     >
     <meta name="theme-color" content="#120d1f">
+    <link rel="icon" href="%BASE_URL%favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="%BASE_URL%favicon.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="%BASE_URL%icons/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="%BASE_URL%site.webmanifest">
     <script>
       (() => {
         // Keep this pre-paint script aligned with @egohygiene/themes; its contract is tested there.
@@ -19,11 +23,11 @@
         } catch {
           // Browser storage is best-effort; system theme still works without it.
         }
-        const prefersDark = typeof window.matchMedia === "function"
-          ? window.matchMedia("(prefers-color-scheme: dark)").matches
-          : true;
-        const theme =
-          storedTheme !== "system" ? storedTheme : prefersDark ? "dark" : "light";
+        const prefersDark =
+          typeof window.matchMedia === "function"
+            ? window.matchMedia("(prefers-color-scheme: dark)").matches
+            : true;
+        const theme = storedTheme !== "system" ? storedTheme : prefersDark ? "dark" : "light";
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme === "light" ? "light" : "dark";
       })();
