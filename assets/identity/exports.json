@@ -1,36 +1,37 @@
 {
   "sourceSha256": "cc09173cd26cade507423c22c5cca914cc424563d402341310fbe796ce81951a",
+  "framing": "Trim transparent padding; center unchanged 257x250 mark on transparent 288x288 canvas.",
   "renderer": "Version: ImageMagick 6.9.12-98 Q16 x86_64 18038 https://legacy.imagemagick.org",
   "files": [
     {
       "path": "favicon.png",
       "sizes": "32x32",
       "type": "image/png",
-      "sha256": "6c4c9de0c73b648f24707f36e40c991bed1c8dace95ed8762540f76d45df4866"
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
     },
     {
       "path": "icons/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png",
-      "sha256": "4785c11411bff01b640a262d87e9103888a839030b40787f4983c34b01402754"
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
     },
     {
       "path": "icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "sha256": "5e19c333c69bfe82828069f2c5f8c6e5cb79190262183e4e01825503de8a99ed"
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
     },
     {
       "path": "icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "sha256": "0cd3103cca5c264d33fab250a2a419a6250b4724608b2e72da02c62abf26adaa"
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
     },
     {
       "path": "favicon.ico",
       "sizes": "16x16 32x32 48x48",
       "type": "image/x-icon",
-      "sha256": "57d6b6310f284038e4e09376838a53ca04c2a2e80f5f0d35a9fd2cb66b2dc97f"
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
     }
   ]
 }

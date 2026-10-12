@@ -22,9 +22,12 @@ are not the organization mark. Browser files are derived from the pinned
 local source without runtime requests to GitHub.
 
 The upstream avatar URL is mutable; the consumed Relay revision and checksum
-are immutable. The original framing, geometry, colors and transparency are
-preserved. A 512 × 512 browser export resamples the 460 × 460 source and must
-not be described as a higher-detail master.
+are immutable. The original file, mark geometry, colors and transparency are
+preserved. Browser exports remove only excess transparent padding: the source's
+257 × 250 visible bounds are centered on a transparent 288 × 288 square before
+resampling. This keeps the 16 px icon legible without redrawing or thickening
+the mark. A 512 × 512 export is a resample and must not be described as a
+higher-detail master.
 
 ## Browser exports
 
@@ -58,8 +61,8 @@ git diff --check
 
 The authoring utility requires ImageMagick (`magick` or `convert`), verifies
 the source digest before any write, renders into a temporary directory, then
-copies the complete set into all three apps. It retains transparency and the
-original framing, uses Lanczos resampling, and strips export metadata.
+copies the complete set into all three apps. It retains transparency, applies
+the padding adjustment above, uses Lanczos resampling, and strips export metadata.
 [`assets/identity/exports.json`](../../assets/identity/exports.json) records
 the renderer version, file dimensions/types and SHA-256 digests. The current
 exports use ImageMagick 6.9.12-98 Q16. Different renderer versions may produce
@@ -74,7 +77,8 @@ reviewed change. Do not fetch the mutable avatar URL during a build.
 
 - A: approved source discovery and byte pin complete.
 - B: browser derivatives and application head/manifest wiring complete.
-- C: built-application and browser verification pending.
+- C: built-application and browser verification complete; see the
+  [verification record](verification.md) and [icon review sheet](browser-icons.png).
 
 No deployment, service worker, offline-commerce behavior or installation claim
 is part of this repair. Playground exposure policy remains owned by #25.

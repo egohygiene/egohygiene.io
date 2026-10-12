@@ -37,9 +37,24 @@ try {
   mkdirSync(join(temporary, "icons"));
   for (const file of files) {
     const output = join(temporary, file.path);
-    const args = [source, "-filter", "Lanczos", "-strip"];
+    // The pinned avatar has a wide empty border. Fit its unchanged mark into
+    // a square with breathing room so it stays legible at favicon sizes.
+    const args = [
+      source,
+      "-trim",
+      "+repage",
+      "-gravity",
+      "center",
+      "-background",
+      "none",
+      "-extent",
+      "288x288",
+      "-filter",
+      "Lanczos",
+      "-strip",
+    ];
     if (file.type === "image/png") {
-      args.push("-resize", file.sizes, "-define", "png:exclude-chunk=date,time", `PNG32:${output}`);
+      args.push("-resize", file.sizes, "-define", "png:exclude-chunk=all", `PNG32:${output}`);
     } else {
       args.push("-define", "icon:auto-resize=48,32,16", output);
     }
@@ -57,6 +72,8 @@ try {
     `${JSON.stringify(
       {
         sourceSha256: provenance.source.sha256,
+        framing:
+          "Trim transparent padding; center unchanged 257x250 mark on transparent 288x288 canvas.",
         renderer: spawnSync(renderer, ["-version"], { encoding: "utf8" }).stdout.split("\n")[0],
         files,
       },

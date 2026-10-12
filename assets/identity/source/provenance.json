@@ -24,8 +24,8 @@
     "taskAuthorization": "https://github.com/egohygiene/egohygiene.io/issues/58",
     "upstreamNotice": "https://github.com/egohygiene/relay/blob/f19b65b3f8bd8466884dee5529fa77f2430440b6/LICENSE",
     "constraints": [
-      "Reuse the existing organization mark; retain geometry, colors, transparency and framing.",
-      "Resize and encode for browser surfaces only; do not infer approval of a new design or merchandise use.",
+      "Reuse the existing organization mark; retain geometry, colors and transparency. Preserve the unmodified source file.",
+      "Trim excess transparent padding, center, resize and encode for browser surfaces only; do not infer approval of a new design or merchandise use.",
       "The avatar capture is dated; the Relay commit and digest pin the consumed bytes.",
       "Source resolution is 460 by 460; the 512 icon is a resample, not a higher-detail master.",
       "Repository software licensing does not grant third-party trademark rights."
