@@ -3,17 +3,12 @@ import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-import { loadCatalog } from "../../scripts/store-catalog.mts";
+import { publicStoreCatalog } from "../../scripts/vite-store-catalog.mts";
 
 export default defineConfig({
   plugins: [
     react(),
-    {
-      name: "validate-store-catalog",
-      async buildStart() {
-        await loadCatalog();
-      },
-    },
+    publicStoreCatalog(),
   ],
   resolve: {
     alias: {

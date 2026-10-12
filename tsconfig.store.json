@@ -8,6 +8,7 @@
   "include": [
     "packages/schemas/src/store.ts",
     "scripts/store-catalog.mts",
+    "scripts/vite-store-catalog.mts",
     "tests/store/**/*.ts"
   ]
 }

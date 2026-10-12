@@ -206,7 +206,7 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
 }
 
 // Explicit allowlisted schemas above reject unknown fields, including private authoring metadata.
-// A draft remains public Git content: visibility only controls storefront rendering.
+// A draft remains public Git content; the Node adapter excludes it from browser output.
 export function toPublicStoreCatalog(catalog: StoreCatalog): StoreCatalog {
   const validated = parseStoreCatalog(catalog.entries.map((value) => ({ source: value.id, value })), catalog.checkoutRoutes);
   const entries = validated.entries.filter((entry) => entry.visibility === "public");

@@ -2,8 +2,6 @@ import { randomUUID } from "node:crypto";
 import { readdir, readFile, realpath, stat, writeFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import checkoutRoutes from "../apps/egohygiene.io/src/content/store/checkout-routes.json" with { type: "json" };
-import providers from "../apps/egohygiene.io/src/content/store/providers.json" with { type: "json" };
 import { parseStoreProviders } from "../packages/schemas/src/store-providers.ts";
 import { parseStoreCatalog, StoreCatalogError } from "../packages/schemas/src/store.ts";
 import type { StoreCatalog } from "../packages/schemas/src/store.ts";
@@ -14,6 +12,27 @@ export const defaultCatalogDirectory = fileURLToPath(
 export const defaultPublicDirectory = fileURLToPath(
   new URL("../apps/egohygiene.io/public/", import.meta.url),
 );
+export const defaultCheckoutRoutesFile = fileURLToPath(
+  new URL("../apps/egohygiene.io/src/content/store/checkout-routes.json", import.meta.url),
+);
+export const defaultProvidersFile = fileURLToPath(
+  new URL("../apps/egohygiene.io/src/content/store/providers.json", import.meta.url),
+);
+
+/** Read configuration afresh so a running development server never reuses JSON import caches. */
+export async function readCatalogJson(source: string): Promise<unknown> {
+  let content: string;
+  try {
+    content = await readFile(source, "utf8");
+  } catch (error) {
+    throw new Error(`${source}: cannot read catalog JSON`, { cause: error });
+  }
+  try {
+    return JSON.parse(content) as unknown;
+  } catch (error) {
+    throw new Error(`${source}: invalid JSON: ${errorMessage(error)}`, { cause: error });
+  }
+}
 
 export interface CatalogSource {
   source: string;
@@ -49,17 +68,7 @@ export async function loadCatalogSources(
   files.sort();
   return Promise.all(
     files.map(async (source): Promise<CatalogSource> => {
-      let content: string;
-      try {
-        content = await readFile(source, "utf8");
-      } catch (error) {
-        throw new Error(`${source}: cannot read catalog entry`, { cause: error });
-      }
-      try {
-        return { source, value: JSON.parse(content) as unknown };
-      } catch (error) {
-        throw new Error(`${source}: invalid JSON: ${errorMessage(error)}`, { cause: error });
-      }
+      return { source, value: await readCatalogJson(source) };
     }),
   );
 }
@@ -67,11 +76,14 @@ export async function loadCatalogSources(
 /** Shared Node entry point for the CLI, build validation, and contract tests. */
 export async function loadCatalog(
   directory: string = defaultCatalogDirectory,
-  routes: unknown = resolve(directory) === resolve(defaultCatalogDirectory) ? checkoutRoutes : [],
+  routes?: unknown,
   publicDirectory: string | undefined = resolve(directory) === resolve(defaultCatalogDirectory) ? defaultPublicDirectory : undefined,
 ): Promise<StoreCatalog> {
-  parseStoreProviders(providers);
-  return validateCatalog(await loadCatalogSources(directory), routes, publicDirectory);
+  parseStoreProviders(await readCatalogJson(defaultProvidersFile));
+  const checkoutRoutes = routes === undefined
+    ? resolve(directory) === resolve(defaultCatalogDirectory) ? await readCatalogJson(defaultCheckoutRoutesFile) : []
+    : routes;
+  return validateCatalog(await loadCatalogSources(directory), checkoutRoutes, publicDirectory);
 }
 
 const usage = [
@@ -148,7 +160,7 @@ function readOptions(args: string[], allowed: readonly string[]): Map<string, st
 
 /** Return a short result so importing this module never executes or prints a command. */
 export async function runCatalogCommand(args: string[]): Promise<string> {
-  parseStoreProviders(providers);
+  parseStoreProviders(await readCatalogJson(defaultProvidersFile));
   const [command, ...rest] = args;
   if (command === "--help" && rest.length === 0) {
     return usage;
@@ -163,7 +175,7 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
   );
   const directory = resolve(options.get("--directory") ?? defaultCatalogDirectory);
   const sources = await loadCatalogSources(directory);
-  const routes = directory === resolve(defaultCatalogDirectory) ? checkoutRoutes : [];
+  const routes = directory === resolve(defaultCatalogDirectory) ? await readCatalogJson(defaultCheckoutRoutesFile) : [];
   const publicDirectory = options.has("--public-directory")
     ? resolve(options.get("--public-directory")!)
     : directory === resolve(defaultCatalogDirectory) ? defaultPublicDirectory : undefined;
