@@ -301,7 +301,9 @@ cdk.out/
 
 # Local web build artifacts
 apps/*/dist/
+apps/*/dist-preview/
 packages/*/dist/
+/.task/
 
 # Local Playwright diagnostics
 /test-results/

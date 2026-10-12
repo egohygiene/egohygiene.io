@@ -1,0 +1,161 @@
+.store-artwork-gallery {
+  min-width: 0;
+}
+
+.store-artwork-gallery__open {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--store-radius);
+  background: transparent;
+  color: var(--store-ink);
+  cursor: zoom-in;
+  text-align: start;
+}
+
+.store-artwork-gallery__expand {
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.8rem;
+  background: var(--color-surface);
+  border: 1px solid var(--store-line);
+  border-radius: 0.65rem;
+  font-size: 0.72rem;
+}
+
+.store-artwork-gallery__expand svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.store-artwork-gallery__caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block: 0.8rem;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.store-artwork-gallery__caption > span + span {
+  flex-shrink: 0;
+}
+
+.store-artwork-gallery__caption > span:first-child {
+  min-width: 0;
+}
+
+.store-artwork-gallery__thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-block: 0.25rem;
+}
+
+.store-artwork-gallery__thumbnail {
+  width: 4.5rem;
+  min-height: 4.5rem;
+  border: 2px solid transparent;
+  padding: 0.25rem;
+  border-radius: 3px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.store-artwork-gallery__thumbnail[aria-pressed="true"] {
+  border-color: var(--store-ink);
+  background: var(--store-chip);
+}
+
+.store-artwork-gallery__thumbnail .store-artwork__label {
+  display: none;
+}
+
+.store-artwork-viewer {
+  width: min(52rem, calc(100vw - 2rem));
+  max-height: calc(100svh - 2rem);
+  margin: auto;
+  padding: clamp(1rem, 3vw, 1.8rem);
+  border: 1px solid var(--store-line);
+  border-radius: var(--store-radius);
+  background: var(--color-surface);
+  color: var(--store-ink);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.store-artwork-viewer::backdrop {
+  background: #0c0a13cf;
+  backdrop-filter: blur(6px);
+}
+
+.store-artwork-viewer__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block-end: 1.2rem;
+}
+
+.store-artwork-viewer__eyebrow {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-block-end: 0.3rem;
+}
+
+.store-shell .store-artwork-viewer__header h2 {
+  margin: 0;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.store-artwork-viewer__close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--store-line);
+  border-radius: 50%;
+  padding: 0;
+  background: transparent;
+  color: var(--store-ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.store-artwork-viewer__art {
+  width: min(100%, 67svh);
+  margin-inline: auto;
+}
+
+.store-artwork-viewer__caption {
+  margin-block: 1rem 0;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+[data-theme="high-contrast"] .store-artwork-viewer::backdrop {
+  background: #000000e6;
+  backdrop-filter: none;
+}
+
+@media (forced-colors: active) {
+  .store-artwork-gallery__thumbnail[aria-pressed="true"] {
+    border-color: Highlight;
+  }
+}

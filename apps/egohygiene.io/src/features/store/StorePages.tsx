@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
 import { getStorePurchaseAction } from "@egohygiene/schemas";
-import type { StoreEntry, StoreProduct } from "@egohygiene/schemas";
+import type { StoreDesign, StoreEntry, StoreProduct } from "@egohygiene/schemas";
 
 import { storeCatalog } from "../../content/store";
 import {
@@ -14,8 +14,9 @@ import {
   isBrowsableEntry,
   storeEntryPath,
 } from "./catalog";
-import type { BrowsableStoreEntry, StoreView } from "./catalog";
+import type { BrowsableStoreEntry, StoreStory, StoreView } from "./catalog";
 import { StoreArtwork } from "./StoreArtwork";
+import { StoreArtworkGallery } from "./StoreArtworkGallery";
 
 import "./store.css";
 
@@ -24,6 +25,12 @@ const views: { value: StoreView; label: string }[] = [
   { value: "product", label: "Objects" },
   { value: "design", label: "Designs" },
   { value: "collection", label: "Collections" },
+];
+
+const stories: { value: StoreStory; label: string }[] = [
+  { value: "all", label: "Every story" },
+  { value: "connected", label: "Connected worlds" },
+  { value: "standalone", label: "Standalone designs" },
 ];
 
 function StoreMetadata({ title, description }: { readonly title: string; readonly description: string }) {
@@ -58,6 +65,7 @@ function EntryBadge({ entry }: { readonly entry: BrowsableStoreEntry }) {
 
 function StoreCard({ entry }: { readonly entry: BrowsableStoreEntry }) {
   const design = getEntryDesigns(storeCatalog, entry)[0];
+  const connected = getEntryContexts(storeCatalog, entry).length > 0;
   return (
     <article className="store-card">
       <Link className="store-card__link" to={storeEntryPath(entry)}>
@@ -67,7 +75,10 @@ function StoreCard({ entry }: { readonly entry: BrowsableStoreEntry }) {
           <span className="store-card__arrow"><Arrow diagonal /></span>
         </div>
         <div className="store-card__body">
-          <span className="store-kicker">{entry.kind === "product" ? "Object" : entry.kind}</span>
+          <div className="store-card__meta">
+            <span className="store-kicker">{entry.kind === "product" ? "Object" : entry.kind}</span>
+            <span className="store-card__context">{connected ? "Connected world" : "Standalone"}</span>
+          </div>
           <h3>{entry.title}</h3>
           <p>{entry.description}</p>
           <span className="store-card__action">Explore {entry.kind === "product" ? "object" : entry.kind} <Arrow /></span>
@@ -130,16 +141,22 @@ export function StorePage() {
   const query = searchParams.get("q") ?? "";
   const selectedView = searchParams.get("view");
   const view = views.find((item) => item.value === selectedView)?.value ?? "all";
-  const entries = filterStoreEntries(storeCatalog, query, view);
+  const story = stories.find((item) => item.value === searchParams.get("story"))?.value ?? "all";
+  const entries = filterStoreEntries(storeCatalog, query, view, story);
+  const hasFilters = query.trim().length > 0 || view !== "all" || story !== "all";
   const products = storeCatalog.entries.filter((entry): entry is StoreProduct => entry.kind === "product");
   const hasLiveProducts = products.some((product) => product.purchase.state === "live");
   const collections = storeCatalog.entries.filter((entry) => entry.kind === "collection");
   const firstCollection = collections[0];
+  const standaloneDesign = storeCatalog.entries.find((entry): entry is StoreDesign =>
+    entry.kind === "design" && entry.visibility === "public" && getEntryContexts(storeCatalog, entry).length === 0);
+  const heroDesign = standaloneDesign ?? storeCatalog.entries.find((entry): entry is StoreDesign => entry.kind === "design" && entry.visibility === "public");
 
-  function updateSearch(value: string, nextView: StoreView) {
+  function updateSearch(value: string, nextView: StoreView, nextStory: StoreStory = story) {
     const next = new URLSearchParams(searchParams);
     if (value) next.set("q", value); else next.delete("q");
     if (nextView !== "all") next.set("view", nextView); else next.delete("view");
+    if (nextStory !== "all") next.set("story", nextStory); else next.delete("story");
     setSearchParams(next, { replace: true, preventScrollReset: true });
   }
 
@@ -157,14 +174,21 @@ export function StorePage() {
           <p className="store-hero__description">Some begin with a song. Some with a feeling. A home for designs that become part of your everyday world.</p>
           <div className="store-hero__actions">
             <a className="store-button" href="#catalog">Explore the collection <Arrow /></a>
-            <a className="store-text-link" href="#store-story">Meet the worlds <Arrow diagonal /></a>
+            <a className="store-text-link" href="#worlds">Meet the worlds <Arrow diagonal /></a>
           </div>
           <div className="store-hero__footnote"><span aria-hidden="true">✳</span> Made of stories. Open to becoming.</div>
         </div>
         <div className="store-hero__visual">
-          <div className="store-art-caption"><span>Study / 001</span><span>Between feeling &amp; form</span></div>
-          <StoreArtwork hero />
-          <div className="store-art-caption"><span>Signal / Connection</span><span aria-hidden="true">∞</span></div>
+          <div className="store-art-caption"><span>The design archive</span><span>Between feeling &amp; form</span></div>
+          {heroDesign ? (
+            <>
+              <Link className="store-hero__art-link" to={storeEntryPath(heroDesign)} aria-label={`Explore ${heroDesign.title}`}><StoreArtwork design={heroDesign} hero /></Link>
+              <Link className="store-hero__artifact" to={storeEntryPath(heroDesign)}>
+                <div><span className="store-kicker">{getEntryContexts(storeCatalog, heroDesign).length ? "A connected world" : "A feeling, standing on its own"}</span><h2>{heroDesign.title}</h2></div>
+                <Arrow diagonal />
+              </Link>
+            </>
+          ) : <StoreArtwork hero />}
         </div>
       </section>
 
@@ -172,8 +196,34 @@ export function StorePage() {
         <aside className="store-preview-note" aria-label="Store preview">
           <span className="store-preview-note__mark" aria-hidden="true">↳</span>
           <p><strong>You’re seeing the beginning.</strong> The store is in preview; nothing is available to purchase yet. Sample entries are fictional and labelled in their descriptions.</p>
+          {import.meta.env.VITE_STORE_PREVIEW === "true" && (
+            <Link className="store-text-link" to="/store/preview/fourthwall">Try the Fourthwall demo <Arrow /></Link>
+          )}
           <span className="store-kicker">Preview edition</span>
         </aside>
+      )}
+
+      {(firstCollection || standaloneDesign) && (
+        <section className="store-pathways" id="worlds" aria-labelledby="store-pathways-heading">
+          <div className="store-section-heading">
+            <div><p className="store-kicker">Follow what pulls you in</p><h2 id="store-pathways-heading">Find a world. Or make your own.</h2></div>
+            <p>Stories to enter. Designs to live with.</p>
+          </div>
+          <div className="store-pathways__grid">
+            {firstCollection && (
+              <Link className="store-pathway" to={storeEntryPath(firstCollection)}>
+                <div className="store-pathway__art"><StoreArtwork design={getEntryDesigns(storeCatalog, firstCollection)[0]} /></div>
+                <div className="store-pathway__copy"><span className="store-kicker">Enter a collection</span><h3>{firstCollection.title}</h3><p>{firstCollection.description}</p><span className="store-text-link">Step inside <Arrow /></span></div>
+              </Link>
+            )}
+            {standaloneDesign && (
+              <Link className="store-pathway store-pathway--independent" to={storeEntryPath(standaloneDesign)}>
+                <div className="store-pathway__art"><StoreArtwork design={standaloneDesign} /></div>
+                <div className="store-pathway__copy"><span className="store-kicker">An independent design</span><h3>{standaloneDesign.title}</h3><p>A design can have a life of its own. Discover its artwork and the objects it could become.</p><span className="store-text-link">Follow the design <Arrow /></span></div>
+              </Link>
+            )}
+          </div>
+        </section>
       )}
 
       <section className="store-catalog-section" id="catalog" aria-labelledby="catalog-heading">
@@ -196,12 +246,20 @@ export function StorePage() {
             <input type="search" value={query} onChange={(event) => updateSearch(event.target.value, view)} placeholder="Find a feeling, a design…" />
           </label>
         </div>
+        <div className="store-catalog-options">
+          <label className="store-select">Browse by story
+            <select value={story} onChange={(event) => updateSearch(query, view, stories.find((item) => item.value === event.target.value)?.value ?? "all")}>
+              {stories.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+            </select>
+          </label>
+          {hasFilters && <button type="button" className="store-reset" onClick={() => updateSearch("", "all", "all")}>Clear filters <span aria-hidden="true">×</span></button>}
+        </div>
         <p className="store-result-count" role="status" aria-live="polite" aria-atomic="true">{entries.length} {entries.length === 1 ? "entry" : "entries"}{query.trim() ? ` matching “${query.trim()}”` : " to explore"}</p>
         {entries.length ? <StoreGrid entries={entries} emptyMessage="" /> : (
           <div className="store-empty">
             <span aria-hidden="true">✳</span><h3>A little quiet on this frequency.</h3>
             <p>No entries match your search. Try a different phrase or explore everything.</p>
-            <button type="button" className="store-button" onClick={() => updateSearch("", "all")}>Reset search and filters <Arrow /></button>
+            <button type="button" className="store-button" onClick={() => updateSearch("", "all", "all")}>Reset search and filters <Arrow /></button>
           </div>
         )}
       </section>
@@ -246,7 +304,7 @@ export function StoreProductPage() {
       <StoreMetadata title={entry.title} description={entry.description} />
       <StoreBreadcrumbs title={entry.title} kind={entry.kind} />
       <article className="store-detail">
-        <div className="store-detail__art"><StoreArtwork design={designs[0]} hero={false} /><p className="store-art-disclaimer">{designs[0]?.artwork.kind === "image" ? purchase.state === "live" ? "Design artwork. Product finish and fit are shown by the checkout provider." : "Design artwork only. Production details are not confirmed." : "Concept artwork only. This is not a garment, product photograph, or print proof."}</p></div>
+        <div className="store-detail__art"><StoreArtworkGallery designs={designs} title={entry.title} /><p className="store-art-disclaimer">{designs[0]?.artwork.kind === "image" ? purchase.state === "live" ? "Design artwork. Product finish and fit are shown by the checkout provider." : "Design artwork only. Production details are not confirmed." : "Concept artwork only. This is not a garment, product photograph, or print proof."}</p></div>
         <div className="store-detail__copy">
           <p className="store-kicker">An object with a story</p><EntryBadge entry={entry} /><h1>{entry.title}</h1><p className="store-detail__description">{entry.description}</p>
           <div className="store-purchase-panel">
@@ -264,6 +322,7 @@ export function StoreProductPage() {
             )}
           </div>
           <dl className="store-detail-facts"><div><dt>Design</dt><dd>{designs.map((design, index) => <span key={design.id}>{index > 0 && ", "}<Link to={storeEntryPath(design)}>{design.title}</Link></span>)}</dd></div><div><dt>Availability</dt><dd>{purchase.state === "live" ? "Provider checkout" : purchase.state === "unavailable" ? "Not available" : "A work in progress"}</dd></div></dl>
+          {collections[0] && <Link className="store-detail-world" to={storeEntryPath(collections[0])}><span className="store-kicker">Part of a bigger world</span><span>{collections[0].title} <Arrow /></span></Link>}
         </div>
       </article>
       <ContextNotes entry={entry} />
@@ -284,7 +343,7 @@ export function StoreDesignPage() {
       <StoreMetadata title={entry.title} description={entry.description} />
       <StoreBreadcrumbs title={entry.title} kind={entry.kind} />
       <article className="store-detail">
-        <div className="store-detail__art"><StoreArtwork design={entry} /><p className="store-art-disclaimer">{entry.artwork.kind === "placeholder" ? "A visual study standing in for future artwork." : "Design artwork preview."}</p></div>
+        <div className="store-detail__art"><StoreArtworkGallery designs={[entry]} title={entry.title} /><p className="store-art-disclaimer">{entry.artwork.kind === "placeholder" ? "A visual study standing in for future artwork." : "Design artwork preview."}</p></div>
         <div className="store-detail__copy"><p className="store-kicker">A design, finding its form</p><h1>{entry.title}</h1><p className="store-detail__description">{entry.description}</p><p className="store-detail__note">A design can live on many objects and belong to more than one story. It can also stand entirely on its own.</p><a className="store-button" href="#design-objects">See where it lives <Arrow /></a></div>
       </article>
       <ContextNotes entry={entry} />
@@ -307,7 +366,7 @@ export function StoreCollectionPage() {
       <StoreBreadcrumbs title={entry.title} kind={entry.kind} />
       <section className="store-collection-hero" aria-labelledby="collection-heading">
         <div><p className="store-kicker">A world of its own</p><h1 id="collection-heading">{entry.title}</h1><p>{entry.description}</p><a className="store-button" href="#collection-entries">Explore this world <Arrow /></a></div>
-        <StoreArtwork design={designs[0]} />
+        <StoreArtworkGallery designs={designs} title={entry.title} />
       </section>
       <ContextNotes entry={entry} />
       <section className="store-related" id="collection-entries" aria-labelledby="collection-entries-heading"><div className="store-section-heading"><div><p className="store-kicker">Shared threads</p><h2 id="collection-entries-heading">The pieces of this world.</h2></div></div><StoreGrid entries={entries.filter(isBrowsableEntry)} emptyMessage="This world is still taking shape. Its first designs and objects will appear here." /></section>

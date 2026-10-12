@@ -4,6 +4,7 @@ export type StoreCollection = Extract<StoreEntry, { kind: "collection" }>;
 export type StoreContext = Extract<StoreEntry, { kind: "context" }>;
 export type BrowsableStoreEntry = StoreDesign | StoreProduct | StoreCollection;
 export type StoreView = "all" | "product" | "design" | "collection";
+export type StoreStory = "all" | "connected" | "standalone";
 
 export function isBrowsableEntry(entry: StoreEntry): entry is BrowsableStoreEntry {
   return entry.kind !== "context" && entry.visibility === "public";
@@ -36,11 +37,19 @@ export function getEntryContexts(catalog: StoreCatalog, entry: BrowsableStoreEnt
 }
 
 /** Search follows shared designs and contexts without turning an association into ownership. */
-export function filterStoreEntries(catalog: StoreCatalog, query: string, view: StoreView): BrowsableStoreEntry[] {
+export function filterStoreEntries(
+  catalog: StoreCatalog,
+  query: string,
+  view: StoreView,
+  story: StoreStory = "all",
+): BrowsableStoreEntry[] {
   const terms = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
   return catalog.entries.filter(isBrowsableEntry).filter((entry) => {
     if (view !== "all" && entry.kind !== view) return false;
-    const related = [...getEntryDesigns(catalog, entry), ...getEntryContexts(catalog, entry)];
+    const contexts = getEntryContexts(catalog, entry);
+    if (story === "connected" && contexts.length === 0) return false;
+    if (story === "standalone" && contexts.length > 0) return false;
+    const related = [...getEntryDesigns(catalog, entry), ...contexts];
     const haystack = [entry.title, entry.description, entry.kind, ...related.map((item) => `${item.title} ${item.description}`)]
       .join(" ").toLocaleLowerCase();
     return terms.every((term) => haystack.includes(term));

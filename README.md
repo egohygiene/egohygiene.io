@@ -11,6 +11,18 @@ The website and Store v1 catalog live in this monorepo.
 
 ## Local website
 
+For the store and local Fourthwall tryout, install [Task v3](https://taskfile.dev/docs/installation) and activate Node **24.21.0**, then run:
+
+```sh
+task preview:store
+```
+
+The task selects pinned pnpm, installs locked dependencies, validates the catalog, builds an isolated preview, and opens **http://127.0.0.1:4173/store**. Use **Try the Fourthwall demo** to select a fictional product variant and preview the handoff. Stop with Ctrl+C. No Fourthwall account is needed for the mock experience.
+
+See [local preview setup](docs/store/local-preview.md) for prerequisites, live editing, and troubleshooting, or [Fourthwall connection setup](docs/store/fourthwall-local-setup.md) for the optional read-only account check.
+
+### Other workspace commands
+
 Use **Node 24.21.x** and **pnpm 11.28.5** (also declared in `.tool-versions` and `package.json`). Activate the pinned pnpm version with Corepack or your preferred version manager.
 
 ```sh

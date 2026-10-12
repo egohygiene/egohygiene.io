@@ -75,6 +75,82 @@ test("search and type filters compose, survive reload, and recover from empty re
   await expect(catalog(page).getByRole("article")).toHaveCount(7);
 });
 
+test("story browsing composes with search, persists, and clears without losing unrelated URL state", async ({ page }) => {
+  await page.goto("/store?source=preview");
+  const story = page.getByRole("combobox", { name: "Browse by story" });
+  await story.selectOption("connected");
+  await page.getByRole("button", { name: "Objects", exact: true }).click();
+  await page.getByRole("searchbox", { name: "Search the store" }).fill("static bloom");
+  await expect(catalog(page).getByRole("article")).toHaveCount(1);
+  await expect(card(page, "Static Bloom Mug")).toBeVisible();
+  await expect(page).toHaveURL(/story=connected/);
+  await page.reload();
+  await expect(story).toHaveValue("connected");
+  await expect(catalog(page).getByRole("article")).toHaveCount(1);
+  await story.selectOption("standalone");
+  await expect(catalog(page).getByRole("article")).toHaveCount(0);
+  await page.getByRole("button", { name: "Reset search and filters" }).click();
+  await expect(story).toHaveValue("all");
+  await expect(catalog(page).getByRole("article")).toHaveCount(7);
+  await expect(page).toHaveURL(/\/store\?source=preview$/);
+  await story.selectOption("standalone");
+  await expect(card(page, "Signal Heart")).toBeVisible();
+  await expect(card(page, "Static Bloom Artwork")).toHaveCount(0);
+  await page.getByRole("button", { name: "Clear filters" }).click();
+  await expect(catalog(page).getByRole("article")).toHaveCount(7);
+  await page.goto("/store?story=unknown");
+  await expect(story).toHaveValue("all");
+  await expect(catalog(page).getByRole("article")).toHaveCount(7);
+});
+
+for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
+  test(`world and independent-design pathways support artwork inspection at ${viewport.width}px`, async ({ page }, testInfo) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/store");
+    await page.getByRole("link", { name: "Meet the worlds", exact: true }).click();
+    const pathways = page.getByRole("region", { name: "Find a world. Or make your own." });
+    await expect(pathways.getByRole("heading", { level: 2 })).toBeInViewport();
+    await pathways.getByRole("link").filter({ has: page.getByRole("heading", { name: "The Static Bloom Collection", exact: true }) }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("The Static Bloom Collection");
+    await expectNoHorizontalOverflow(page);
+    await card(page, "Static Bloom Mug").getByRole("link").click();
+    const opener = page.getByRole("button", { name: "View artwork: Static Bloom Mug", exact: true });
+    const previousOverflow = await page.locator("body").evaluate((body) => body.style.overflow);
+    await opener.click();
+    const viewer = page.getByRole("dialog", { name: "Static Bloom Mug", exact: true });
+    const close = viewer.getByRole("button", { name: "Close artwork viewer" });
+    await expect(viewer).toBeVisible();
+    await expect(close).toBeFocused();
+    await expect(page.locator("body")).toHaveCSS("overflow", "hidden");
+    expect(await viewer.evaluate((dialog) => dialog.matches(":modal"))).toBe(true);
+    // A native modal makes the underlying page inert, including programmatic focus.
+    await opener.evaluate((button) => button.focus());
+    await expect(close).toBeFocused();
+    // Native dialogs allow browser-chrome traversal; Tab returns to their control.
+    await page.keyboard.press("Shift+Tab");
+    await page.keyboard.press("Tab");
+    await expect(close).toBeFocused();
+    await expectNoHorizontalOverflow(page);
+    const screenshotPath = testInfo.outputPath(`artwork-viewer-${viewport.width}.png`);
+    await page.screenshot({ path: screenshotPath });
+    await testInfo.attach("artwork-viewer", { path: screenshotPath, contentType: "image/png" });
+    await page.keyboard.press("Escape");
+    await expect(viewer).toHaveCount(0);
+    await expect(opener).toBeFocused();
+    await expect.poll(() => page.locator("body").evaluate((body) => body.style.overflow)).toBe(previousOverflow);
+    await opener.click();
+    await close.click();
+    await expect(opener).toBeFocused();
+    await page.getByRole("link", { name: /Part of a bigger world The Static Bloom Collection/ }).click();
+    await expect(page).toHaveURL(/\/store\/collections\/static-bloom-collection$/);
+    await page.goto("/store#worlds");
+    await pathways.getByRole("link").filter({ has: page.getByRole("heading", { name: "Signal Heart", exact: true }) }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Signal Heart");
+    await expect(card(page, "Signal Heart Hoodie")).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  });
+}
+
 test("a collection leads to its product, shared design, and the collection again", async ({ page }) => {
   await page.goto("/store?view=collection");
   await card(page, "The Static Bloom Collection").getByRole("link").click();

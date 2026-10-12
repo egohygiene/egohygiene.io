@@ -6,6 +6,29 @@ import { themeNames, type ThemeName } from "../theme.types";
 
 const STORAGE_KEY = "egohygiene-theme";
 
+/** Storage is optional: a blocked preference must never prevent the app from rendering. */
+function readThemePreference(): ThemeName {
+  if (!isBrowser()) return "system";
+
+  try {
+    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
+    return themeNames.find((theme) => theme === storedTheme) ?? "system";
+  } catch {
+    // Private browsing or an embedded context may deny even the storage getter.
+    return "system";
+  }
+}
+
+function saveThemePreference(theme: ThemeName): void {
+  if (!isBrowser()) return;
+
+  try {
+    window.localStorage.setItem(STORAGE_KEY, theme);
+  } catch {
+    // Keep the chosen theme in React state when persistence is unavailable.
+  }
+}
+
 export interface ThemeContextValue {
   readonly theme: ThemeName;
   readonly resolvedTheme: Exclude<ThemeName, "system">;
@@ -38,14 +61,7 @@ export function applyTheme(theme: ThemeName): Exclude<ThemeName, "system"> {
 }
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  const [theme, setThemeState] = useState<ThemeName>(() => {
-    if (!isBrowser()) {
-      return "system";
-    }
-
-    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
-    return themeNames.includes(storedTheme as ThemeName) ? (storedTheme as ThemeName) : "system";
-  });
+  const [theme, setThemeState] = useState<ThemeName>(readThemePreference);
   const [resolvedTheme, setResolvedTheme] = useState<Exclude<ThemeName, "system">>(() =>
     applyTheme(theme),
   );
@@ -54,9 +70,7 @@ export function ThemeProvider({ children }: PropsWithChildren) {
     const resolved = applyTheme(theme);
     setResolvedTheme(resolved);
 
-    if (isBrowser()) {
-      window.localStorage.setItem(STORAGE_KEY, theme);
-    }
+    saveThemePreference(theme);
   }, [theme]);
 
   useEffect(() => {

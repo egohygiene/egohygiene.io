@@ -80,7 +80,9 @@
     "format:check": "biome format .",
     "lint": "biome lint .",
     "check": "node scripts/checks/check-workspace.ts && node scripts/checks/check-package-exports.ts && node scripts/checks/check-locales.ts && node scripts/checks/check-circular-dependencies.ts",
-    "test:store": "playwright test --config playwright.store.config.ts"
+    "test:store": "playwright test --config playwright.store.config.ts",
+    "test:store:preview": "playwright test --config playwright.store-preview.config.ts",
+    "test:tooling": "node --test tests/tooling/*.test.mjs"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.24.1",
