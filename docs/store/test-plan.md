@@ -1,6 +1,6 @@
 # Store verification
 
-The mock-store journey suite uses the built website and the versioned fictional catalog. It never sends a request to a checkout provider or payment service. Adding a real product is a separate release step: update the fixture assumptions and qualify the selected provider before enabling its purchase link.
+The mock-store journey suite uses the built website and the versioned preview catalog: heartburst artwork alongside explicitly fictional product examples. It never sends a request to a checkout provider or payment service. Adding a real product is a separate release step: update the fixture assumptions and qualify the selected provider before enabling its purchase link.
 
 ## Local commands
 
@@ -18,7 +18,7 @@ The suite starts the production preview on `http://127.0.0.1:4173` and requires 
 
 | Journey | Evidence |
 | --- | --- |
-| Preview storefront | Visible concept disclosure, seven browsable entries, preview/unavailable labels, page title, no browser exceptions |
+| Preview storefront | Visible concept disclosure, eight browsable entries, preview/unavailable labels, page title, no browser exceptions |
 | Browse and search | Combined text/type/story filtering, persisted URL state after reload, announced result count, invalid-story fallback, reset preserving unrelated query parameters |
 | Connected catalog | Collection → product → shared design → collection → catalog |
 | Discovery pathways | Entrance → collection → product and entrance → standalone design at desktop and mobile widths |
@@ -35,7 +35,17 @@ Eighteen tests provide bounded regression coverage: thirteen catalog journeys pl
 
 Catalog contract and authoring tests remain separate (`pnpm catalog:test`). They exercise invalid data, references, visibility, provider boundaries, and the add-entry workflow before browser rendering.
 
-Image rendering also has component coverage: an approved image, load-error fallback, recovery when the image source changes, the placeholder's accessible label, and consistent study selection across hero/card/gallery views. Gallery tests cover multiple-design selection, reordered/removed designs, modal selection, focus and scroll cleanup, and an empty gallery. Story-filter tests exercise inherited contexts, standalone entries, search/type composition, and draft exclusion. The current production catalog intentionally contains only placeholders.
+Image rendering also has component coverage: an approved image, load-error fallback, recovery when the image source changes, the placeholder's accessible label, and consistent study selection across hero/card/gallery views. Gallery tests cover multiple-design selection, reordered/removed designs, modal selection, focus and scroll cleanup, and an empty gallery. Story-filter tests exercise inherited contexts, standalone entries, search/type composition, and draft exclusion. The production catalog now includes the heartburst display image alongside placeholder examples. Existing desktop/mobile pathway journeys verify image decoding and its enlarged viewer; the direct-link journey also reloads its route.
+
+## Heartburst artwork checkpoint — 2026-10-12
+
+The production build passed with nine public records (eight browsable entries) and one verified image file. Visual DNA passed its version 1 JSON Schema, and its stable ID/revision and empty song associations matched the catalog. Application/catalog typechecking, the four changed JSON/TypeScript files' Biome checks and `git diff --check` passed. No dependencies, runtime components or catalog schemas changed.
+
+All 18 store/theme browser journeys passed in 27.0 seconds using the existing Chromium 153.0.8010.0 fallback with Node 24.21.0 and pnpm 11.28.5. The standalone pathway now opens heartburst on desktop and mobile, confirms its decoded 1200px image and artwork viewer, and confirms that no objects are attached. Its direct route survives reload. Fictional product availability checks still pass.
+
+Additional local image/layout spot checks passed at 320 × 568, 390 × 844, 768 × 1024 and 1440 × 1000 in light mode, plus 390 × 844 in dark and high-contrast modes: no horizontal overflow, image decode failures, page exceptions, purchase links or external requests. These are bounded Chromium checks; the complete browser, zoom, locale and device matrix remains #70.
+
+Reviewed screenshots: [storefront](reviews/heartburst/storefront.webp), [desktop design](reviews/heartburst/desktop.webp), [mobile design](reviews/heartburst/mobile.webp). The artwork and text fit their layouts and the mobile enlarged viewer retains the whole design. Screenshots are review evidence, not pixel baselines or production-print approval. The public derivative and provenance are documented in [the asset notes](../../assets/designs/heartburst/README.md).
 
 ## Verified checkpoint — 2026-10-10
 

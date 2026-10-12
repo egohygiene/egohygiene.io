@@ -1,6 +1,8 @@
-# Next session: preview one real design
+# Add a design preview
 
-The goal is to see one of your designs in the local store. No catalog brain dump is needed, and the design does not need a song, collection, or character association.
+**heartburst** is the first artwork preview at `/store/designs/heartburst`. Its [asset notes](../../assets/designs/heartburst/README.md) record the selected proof, visual DNA and production status.
+
+Use this workflow for the next design. No catalog brain dump is needed, and the design does not need a song, collection, or character association.
 
 1. **Choose one design and a display image.** Use a web-sized PNG, JPG/JPEG, WebP, or AVIF derivative you approve for public sharing. Keep original masters and private notes elsewhere: this repository is public, including files marked `draft`.
 
