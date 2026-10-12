@@ -2,10 +2,13 @@ import { fileURLToPath } from "node:url";
 
 import { defineConfig } from "vitest/config";
 
+import { publicStoreCatalog } from "./scripts/vite-store-catalog.mts";
+
 const root = fileURLToPath(new URL(".", import.meta.url));
 const resolve = (value: string) => fileURLToPath(new URL(value, import.meta.url));
 
 export default defineConfig({
+  plugins: [publicStoreCatalog()],
   resolve: {
     alias: {
       "#test-utils": resolve("./.vitest/test-utils.tsx"),

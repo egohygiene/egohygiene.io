@@ -9,6 +9,7 @@
   "include": [
     ".vitest/**/*.ts",
     ".vitest/**/*.tsx",
+    "apps/*/src/**/*.d.ts",
     "apps/*/src/**/*.test.ts",
     "apps/*/src/**/*.test.tsx",
     "packages/*/src/**/*.test.ts",

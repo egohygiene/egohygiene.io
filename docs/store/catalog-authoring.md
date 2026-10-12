@@ -19,7 +19,21 @@ Edit the generated file to add the description and approved artwork. Keep the ge
 
 Validation reports the filename and field path. For example, a missing design reference is reported at `my-product.product.json:designIds.0`. Fix the named entry and run validation again. Unsupported schema versions, unknown fields, duplicate IDs or slugs, invalid references, and public entries referring to drafts are rejected.
 
-`visibility: "draft"` keeps an entry out of the storefront's public projection. Change it to `"public"` when its copy and all referenced entries are approved for display. This repository is public: **draft visibility does not make a file private**. Keep original artwork masters, private notes, credentials, and unapproved source material outside this repository.
+`visibility: "draft"` keeps an entry out of the storefront's public projection and its generated browser module. Change it to `"public"` when its copy and all referenced entries are approved for display. This repository is public: **draft visibility does not make a file private**. Keep original artwork masters, private notes, credentials, and unapproved source material outside this repository.
+
+## Public build and development boundary
+
+The Vite adapter in `scripts/vite-store-catalog.mts` discovers and validates all authoring entries in Node, then applies the shared `toPublicStoreCatalog` projection. The app imports `virtual:store-catalog` through its existing `content/store/index.ts` entry point. Only public entries and reviewed checkout routes used by public live products become browser module data. Raw entry files, unused routes, and provider research metadata are not imported into the browser graph. Use this adapter in any future browser entry point; do not import the authoring JSON directly.
+
+This is the same path for normal builds, isolated local previews, live editing, and component tests. No generated catalog file needs committing or regenerating by hand. Records retain deterministic filename order. Invalid drafts still fail validation: filtering is not permission to bypass schema, reference, purchase-route, or artwork-file checks.
+
+The development server watches nested entries, checkout routes, provider metadata, and public artwork. Edits, additions, and deletions trigger a full page reload and fresh validation. An invalid edit appears in Vite's error overlay; fixing it reloads the valid public view. This also refreshes module-level selections in the Fourthwall tryout.
+
+The authoring CLI still validates the complete catalog. Draft filtering is a browser publication boundary, **not access control**: source files remain public in Git and may be accessible on a local development server. Everything placed under `apps/egohygiene.io/public/` is copied into the build independently of catalog visibility, so that directory must contain only approved public assets. The adapter does not turn it into private artwork storage.
+
+Run `node --test tests/store/public-build.test.ts` for the focused boundary check. It builds synthetic public/draft records through the application's import entry, scans emitted HTML/JS/JSON/source maps, verifies repeatable output and live-route guards, and exercises a real local Vite server's file refresh and error recovery. Its synthetic checkout URLs are never visited.
+
+## Approved artwork
 
 To use an approved web image, place the derivative in `apps/egohygiene.io/public/store/` and replace the artwork object:
 
