@@ -82,6 +82,22 @@ The [adoption decision](../architecture/decisions/0004-adapt-fourthwall-for-loca
 
 This advances #62. Alan's visual feedback, first real artwork, expanded/localized text review, and broader assistive-technology/device qualification remain follow-up work.
 
+## Public catalog build boundary — 2026-10-12
+
+Issue #55 moves authoring discovery, validation, and public projection into `scripts/vite-store-catalog.mts`. Normal builds, isolated previews, and component tests import the same virtual public catalog. No raw authoring JSON enters that browser module.
+
+Verified locally with Node **24.21.0**, pnpm **11.28.5**, Vite **8.2.0**, and Vitest **4.1.11**:
+
+- The **4 focused build/dev integration tests** in `tests/store/public-build.test.ts` passed. Synthetic fixtures cover all four draft entry kinds, a public live product with its reviewed route, a draft live product, and an unused route for a public preview product. Emitted HTML/JS/JSON/source maps are scanned for draft and unused-route markers with positive public controls. Two builds produce identical files, and the emitted catalog retains valid public references and purchase guards.
+- A real local Vite server was exercised over HTTP. Nested file additions, edits, removals, draft/public transitions, changed checkout URLs, malformed JSON, and recovery trigger fresh public output and page-reload notifications. No checkout URL or provider service is contacted.
+- All **31 existing catalog/provider/CLI/artwork tests** and **22 affected store/Fourthwall component tests** passed. Application and catalog/tooling typechecks passed.
+- The test TypeScript profile now includes the app's virtual-module declaration. Its remaining six diagnostics are in the existing error-boundary, test-alias, content optional-property, and accessibility-alias areas tracked by #50/#52; there are no diagnostics in the changed catalog/preview features. This is not an all-repository typecheck pass.
+- `pnpm build` and `node scripts/store-environment.mjs build` both passed. The normal build remains at eight fictional public entries and excludes the Fourthwall demo. The isolated preview retains its separate demo chunk. No dependency or lockfile changes were needed.
+
+Run the focused suite with `node --test tests/store/public-build.test.ts`; it also runs through `pnpm catalog:test`. Full browser journeys, image decoding/print review, broad lint, remote CI, live checkout, and deployment were not rerun or performed for this data-boundary change. The existing browser checkpoints above remain the visual/journey evidence.
+
+Public Git sources remain public. Vite also copies the public asset directory independently of catalog visibility; only approved public derivatives belong there. This change does not provide private storage or remove already-published data from repository history.
+
 ## Remaining release checks
 
 - Review the first real design and its product imagery at desktop and mobile sizes; the placeholder screenshot inspection does not establish print quality or contrast compliance for future artwork.
