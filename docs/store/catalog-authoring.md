@@ -1,8 +1,10 @@
 # Store catalog authoring
 
-The catalog is ready for placeholders. Real design ingestion can happen later, a few entries at a time. Adding a JSON file under `apps/egohygiene.io/src/content/store/entries/` makes it discoverable without maintaining an import list. Subdirectories work too.
+The catalog accepts artwork previews and placeholders, a few entries at a time. Adding a JSON file under `apps/egohygiene.io/src/content/store/entries/` makes it discoverable without maintaining an import list. Subdirectories work too.
 
-The current examples are fictional: Signal Heart is a standalone design, Static Bloom demonstrates a song collection, and Unwritten Realm demonstrates a future comic. None has a purchase link or confirmed production details. Replace or remove these examples as real entries become ready.
+The first artwork preview is **heartburst**, a standalone ink-splatter heart with no song or product association. Its [display asset and portable visual DNA](../../assets/designs/heartburst/README.md) are separate from the private source pack.
+
+The remaining examples are fictional: Signal Heart is a standalone design, Static Bloom demonstrates a song collection, and Unwritten Realm demonstrates a future comic. None has a purchase link or confirmed production details. Replace or remove these examples as real entries become ready.
 
 ## Add a design
 

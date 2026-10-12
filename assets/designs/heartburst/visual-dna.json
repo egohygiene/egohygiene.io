@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "designId": "design-heartburst",
+  "revision": 1,
+  "workingTitle": "heartburst",
+  "status": "review",
+  "songAssociations": [],
+  "palette": [
+    {
+      "name": "fuchsia",
+      "hex": "#F50078"
+    },
+    {
+      "name": "ink",
+      "hex": "#090909"
+    },
+    {
+      "name": "lavender",
+      "hex": "#AC85CE"
+    },
+    {
+      "name": "cream garment reference",
+      "hex": "#F3EFE6"
+    }
+  ],
+  "motifs": ["elongated heart", "radial ink burst", "downward drips", "optional pastel speckles"],
+  "composition": {
+    "orientation": "front-facing",
+    "focalPoint": "pink heart",
+    "negativeSpace": "transparent",
+    "layerOrder": ["pastel-speckles", "black-ink-burst", "fuchsia-heart"]
+  },
+  "invariants": [
+    "recognizable pink heart",
+    "irregular black burst",
+    "no text or logos",
+    "keep garment out of print artwork"
+  ],
+  "avoid": ["rectangular printed background", "invented lettering", "cropped droplets"],
+  "provenance": {
+    "method": "AI-assisted raster remake; not extraction of original layers",
+    "sourceRevision": "cb06494d0fad80e5efc0aab3b1fc8cfcd9492b3c",
+    "sourceVisualDnaBlob": "4c897ec98169bd5e83f0136c6dae2b88fcdd3b51",
+    "publicSummary": true
+  },
+  "production": {
+    "approved": false,
+    "provider": "fourthwall",
+    "providerProductId": null,
+    "printArea": null,
+    "physicalSize": null,
+    "notes": [
+      "Design and garment concepts remain under review; no production product is approved.",
+      "Transparent source artwork is 1400px review resolution. The public display derivative is a smaller, flattened light-background proof.",
+      "Select garment, print area and exact provider template before preparing a production export.",
+      "All-over sleeve splatter is a separate manufacturing treatment."
+    ]
+  }
+}
