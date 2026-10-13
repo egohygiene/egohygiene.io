@@ -9,6 +9,14 @@ The website and Store v1 catalog live in this monorepo.
 - `apps/playground` — themes, tokens, and shared UI
 - `packages/*` — shared app building blocks
 
+## Agent and session context
+
+Start a fresh session with [AGENTS.md](AGENTS.md) and the
+[current handoff](docs/context/current-state.md), then refresh its linked GitHub
+issue/PR status. The [context map](docs/context/README.md) connects implementation
+decisions, provenance and verification receipts to the existing [META](META.md)
+architecture graph.
+
 ## Local website
 
 For the store and local Fourthwall tryout, install [Task v3](https://taskfile.dev/docs/installation) and activate Node **24.21.0**, then run:

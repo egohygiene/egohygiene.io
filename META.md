@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-10-13
 governed_by:
   - architecture-meta
 depends_on:
@@ -27,6 +27,24 @@ supersedes: []
 ## Architecture-system overview
 
 Ego Hygiene Website's architecture is an 18-document graph materialized from the Aether architecture specifications. Each document owns one bounded concern. This index maps ownership and relationships without replacing the documents themselves.
+
+## Operational context and agent entry points
+
+The architecture graph below retains its conceptual ownership. A small operational
+layer links it to implementation evidence and the current work checkpoint:
+
+| Artifact | Owns |
+| --- | --- |
+| [AGENTS.md](AGENTS.md) and its linked scoped files | Concise instructions and reading order for repository agents |
+| [Context map](docs/context/README.md) / [manifest](docs/context/manifest.json) | Human and machine navigation; repository-relative paths |
+| [Current handoff](docs/context/current-state.md) | Dated branch/PR/issue snapshot, completed work, blockers and next actions |
+| [Provenance ledger](docs/context/provenance.md) | Links to pinned implementation, asset lineage and verification receipts |
+| [Implementation ADR index](docs/architecture/decisions/README.md) | Decision records, historical placeholders and disambiguation from root DECISIONS |
+
+Start active implementation work from that handoff and refresh live source
+status. Consult the conceptual reading order below when changing purpose,
+architecture or policy. Context records do not silently amend accepted decisions
+or turn provisional systems into implemented ones.
 
 ## Document inventory
 
