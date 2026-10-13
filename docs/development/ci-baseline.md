@@ -123,6 +123,25 @@ The earlier main [validation run](https://github.com/egohygiene/egohygiene.io/ac
 is the baseline failure, not evidence about this PR. Existing Storybook chunk-size
 and missing-story-pattern warnings remain; build success is not visual approval.
 
+### Remote follow-up at the implementation revision
+
+After opening PR #73, the automatically triggered
+[CI run](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467586)
+passed at `48223775dde607c2116d0e78f9c5bed5f487ef7c`. Its logs confirm the same
+112 non-browser tests plus **all 23 browser journeys passed**: 3 legacy, 18
+production store/theme and 2 isolated preview. Playwright `1.62.1` installed
+Chrome/Headless Shell `151.0.7922.34` (Chromium build `1234`) on the Linux runner.
+This is runner-based browser evidence, distinct from the local environment
+limitation recorded above; it is not real-device or multi-browser qualification.
+
+The [CodeQL run](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467708)
+also passed; its log confirms successful result upload and completed processing.
+No claim of being vulnerability-free follows from a passing analysis job.
+[Dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467658)
+still failed at 11:57 America/New_York with the same unsupported-configuration
+error after the maintainer reported enabling the graph at 11:54. Its configuration
+issue remains unresolved; no dependency vulnerability finding is inferred.
+
 Rollback is a code/configuration revert; there is no catalog migration, provider
 activation or deployment to undo. Reverting also restores the known CI defects.
 Keep #29 open for browser/remote verification and its
