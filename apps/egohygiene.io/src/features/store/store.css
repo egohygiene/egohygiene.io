@@ -162,7 +162,10 @@
   color: var(--color-background);
   background: var(--store-ink);
   cursor: pointer;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .store-button:hover {
@@ -616,7 +619,9 @@
   background: var(--store-card);
   color: var(--color-foreground);
   text-decoration: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .store-card__link:hover {

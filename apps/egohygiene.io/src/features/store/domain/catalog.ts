@@ -21,21 +21,32 @@ export function getEntryDesigns(catalog: StoreCatalog, entry: BrowsableStoreEntr
   if (entry.kind === "collection") {
     for (const candidate of catalog.entries) {
       if (candidate.kind === "product" && entry.productIds.includes(candidate.id)) {
-        candidate.designIds.forEach((id) => { ids.add(id); });
+        candidate.designIds.forEach((id) => {
+          ids.add(id);
+        });
       }
     }
   }
-  return catalog.entries.filter((candidate): candidate is StoreDesign =>
-    candidate.kind === "design" && candidate.visibility === "public" && ids.has(candidate.id));
+  return catalog.entries.filter(
+    (candidate): candidate is StoreDesign =>
+      candidate.kind === "design" && candidate.visibility === "public" && ids.has(candidate.id),
+  );
 }
 
-export function getEntryContexts(catalog: StoreCatalog, entry: BrowsableStoreEntry): StoreContext[] {
+export function getEntryContexts(
+  catalog: StoreCatalog,
+  entry: BrowsableStoreEntry,
+): StoreContext[] {
   const ids = new Set(entry.contextIds);
   getEntryDesigns(catalog, entry).forEach((design) => {
-    design.contextIds.forEach((id) => { ids.add(id); });
+    design.contextIds.forEach((id) => {
+      ids.add(id);
+    });
   });
-  return catalog.entries.filter((candidate): candidate is StoreContext =>
-    candidate.kind === "context" && candidate.visibility === "public" && ids.has(candidate.id));
+  return catalog.entries.filter(
+    (candidate): candidate is StoreContext =>
+      candidate.kind === "context" && candidate.visibility === "public" && ids.has(candidate.id),
+  );
 }
 
 /** Search follows shared designs and contexts without turning an association into ownership. */
@@ -52,22 +63,37 @@ export function filterStoreEntries(
     if (story === "connected" && contexts.length === 0) return false;
     if (story === "standalone" && contexts.length > 0) return false;
     const related = [...getEntryDesigns(catalog, entry), ...contexts];
-    const haystack = [entry.title, entry.description, entry.kind, ...related.map((item) => `${item.title} ${item.description}`)]
-      .join(" ").toLocaleLowerCase();
+    const haystack = [
+      entry.title,
+      entry.description,
+      entry.kind,
+      ...related.map((item) => `${item.title} ${item.description}`),
+    ]
+      .join(" ")
+      .toLocaleLowerCase();
     return terms.every((term) => haystack.includes(term));
   });
 }
 
 export function getDesignProducts(catalog: StoreCatalog, designId: string): StoreProduct[] {
-  return catalog.entries.filter((entry): entry is StoreProduct =>
-    entry.kind === "product" && entry.visibility === "public" && entry.designIds.includes(designId));
+  return catalog.entries.filter(
+    (entry): entry is StoreProduct =>
+      entry.kind === "product" &&
+      entry.visibility === "public" &&
+      entry.designIds.includes(designId),
+  );
 }
 
-export function getRelatedCollections(catalog: StoreCatalog, entry: StoreDesign | StoreProduct): StoreCollection[] {
+export function getRelatedCollections(
+  catalog: StoreCatalog,
+  entry: StoreDesign | StoreProduct,
+): StoreCollection[] {
   const designIds = entry.kind === "design" ? [entry.id] : entry.designIds;
-  return catalog.entries.filter((candidate): candidate is StoreCollection =>
-    candidate.kind === "collection" && candidate.visibility === "public" && (
-      (entry.kind === "product" && candidate.productIds.includes(entry.id)) ||
-      getEntryDesigns(catalog, candidate).some((design) => designIds.includes(design.id))
-    ));
+  return catalog.entries.filter(
+    (candidate): candidate is StoreCollection =>
+      candidate.kind === "collection" &&
+      candidate.visibility === "public" &&
+      ((entry.kind === "product" && candidate.productIds.includes(entry.id)) ||
+        getEntryDesigns(catalog, candidate).some((design) => designIds.includes(design.id))),
+  );
 }

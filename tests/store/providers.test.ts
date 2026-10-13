@@ -4,10 +4,14 @@ import { test } from "node:test";
 
 import { parseStoreProviders } from "../../packages/schemas/src/store-providers.ts";
 
-const source = new URL("../../apps/egohygiene.io/src/content/store/providers.json", import.meta.url);
-const fixture = () => JSON.parse(readFileSync(source, "utf8")) as Record<string, unknown> & {
-  providers: Array<Record<string, unknown>>;
-};
+const source = new URL(
+  "../../apps/egohygiene.io/src/content/store/providers.json",
+  import.meta.url,
+);
+const fixture = () =>
+  JSON.parse(readFileSync(source, "utf8")) as Record<string, unknown> & {
+    providers: Array<Record<string, unknown>>;
+  };
 
 test("the provider manifest keeps every researched channel disabled and separates order funding", () => {
   const manifest = parseStoreProviders(fixture());
@@ -25,8 +29,12 @@ test("the provider manifest keeps every researched channel disabled and separate
 
 test("configuration cannot activate providers or smuggle clients, credentials, or purchase links", () => {
   for (const change of [
-    { enabled: true }, { status: "active" }, { status: "sandbox" },
-    { apiKey: "dummy-test-only" }, { credentials: {} }, { checkoutUrl: "https://example.com" },
+    { enabled: true },
+    { status: "active" },
+    { status: "sandbox" },
+    { apiKey: "dummy-test-only" },
+    { credentials: {} },
+    { checkoutUrl: "https://example.com" },
   ]) {
     const input = fixture();
     Object.assign(input.providers[0]!, change);
@@ -52,7 +60,10 @@ test("provider identities, source metadata, versions, and capabilities fail with
   }
   const duplicate = fixture();
   duplicate.providers.push({ ...duplicate.providers[0]! });
-  assert.throws(() => parseStoreProviders(duplicate, "custom/providers.json"), /custom\/providers.json:providers.9.id: Duplicate/);
+  assert.throws(
+    () => parseStoreProviders(duplicate, "custom/providers.json"),
+    /custom\/providers.json:providers.9.id: Duplicate/,
+  );
   assert.throws(() => parseStoreProviders({ ...fixture(), schemaVersion: 2 }), /schemaVersion/);
 });
 

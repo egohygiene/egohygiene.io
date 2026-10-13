@@ -1,7 +1,9 @@
 import { z } from "zod";
 
 export const STORE_SCHEMA_VERSION = 1;
-const id = z.string().regex(/^[a-z][a-z0-9]*(?:-[a-z0-9]+)+$/, "Use a stable lowercase hyphenated ID");
+const id = z
+  .string()
+  .regex(/^[a-z][a-z0-9]*(?:-[a-z0-9]+)+$/, "Use a stable lowercase hyphenated ID");
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Use a lowercase URL slug");
 const text = z.string().trim().min(1);
 const references = z.array(id).default([]);
@@ -18,7 +20,12 @@ export const storeArtworkSchema = z.discriminatedUnion("kind", [
   z.strictObject({ kind: z.literal("placeholder"), label: text }),
   z.strictObject({
     kind: z.literal("image"),
-    src: z.string().regex(/^\/store\/(?:[a-z0-9_-]+\/)*[a-z0-9_-]+\.(?:png|jpg|jpeg|webp|avif)$/, "Use an approved local /store/ image derivative"),
+    src: z
+      .string()
+      .regex(
+        /^\/store\/(?:[a-z0-9_-]+\/)*[a-z0-9_-]+\.(?:png|jpg|jpeg|webp|avif)$/,
+        "Use an approved local /store/ image derivative",
+      ),
     alt: text,
   }),
 ]);
@@ -39,11 +46,13 @@ export const storePurchaseSchema = z.discriminatedUnion("state", [
     provider: z.literal("fourthwall"),
     routeId: id,
     variants: z.array(z.strictObject({ id, label: text, providerVariantId: text })).min(1),
-    displayPrice: z.strictObject({
-      amountMinor: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),
-      currency: z.enum(["USD", "EUR", "GBP", "CAD", "AUD"]),
-      authority: z.literal("provider-checkout"),
-    }).optional(),
+    displayPrice: z
+      .strictObject({
+        amountMinor: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),
+        currency: z.enum(["USD", "EUR", "GBP", "CAD", "AUD"]),
+        authority: z.literal("provider-checkout"),
+      })
+      .optional(),
   }),
 ]);
 
@@ -70,7 +79,10 @@ export const storeContextSchema = z.strictObject({
 });
 
 export const storeEntrySchema = z.discriminatedUnion("kind", [
-  storeDesignSchema, storeProductSchema, storeCollectionSchema, storeContextSchema,
+  storeDesignSchema,
+  storeProductSchema,
+  storeCollectionSchema,
+  storeContextSchema,
 ]);
 
 // This is an explicit reviewed destination list, not a provider API or proof of availability.
@@ -78,12 +90,16 @@ export const storeCheckoutRouteSchema = z.strictObject({
   id,
   provider: z.literal("fourthwall"),
   productId: id,
-  checkoutUrl: z.url().regex(
-    /^https:\/\/[a-z0-9]+(?:-[a-z0-9]+)*\.fourthwall\.com\/products\/[a-z0-9][a-z0-9-]*\/?$/,
-    "Use a reviewed HTTPS Fourthwall product URL; custom domains require a later policy change",
-  ),
+  checkoutUrl: z
+    .url()
+    .regex(
+      /^https:\/\/[a-z0-9]+(?:-[a-z0-9]+)*\.fourthwall\.com\/products\/[a-z0-9][a-z0-9-]*\/?$/,
+      "Use a reviewed HTTPS Fourthwall product URL; custom domains require a later policy change",
+    ),
   providerVariantIds: z.array(text).min(1),
-  artworkRevisions: z.array(z.strictObject({ designId: id, revision: z.number().int().positive() })).min(1),
+  artworkRevisions: z
+    .array(z.strictObject({ designId: id, revision: z.number().int().positive() }))
+    .min(1),
 });
 
 export type StoreEntry = z.infer<typeof storeEntrySchema>;
@@ -113,14 +129,16 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
   for (const source of sources) {
     const result = storeEntrySchema.safeParse(source.value);
     if (result.success) records.push({ source: source.source, entry: result.data });
-    else for (const issue of result.error.issues) {
-      issues.push(`${source.source}:${issue.path.join(".") || "$"}: ${issue.message}`);
-    }
+    else
+      for (const issue of result.error.issues) {
+        issues.push(`${source.source}:${issue.path.join(".") || "$"}: ${issue.message}`);
+      }
   }
   const routeResult = z.array(storeCheckoutRouteSchema).safeParse(routes);
-  if (!routeResult.success) for (const issue of routeResult.error.issues) {
-    issues.push(`checkout-routes:${issue.path.join(".")}: ${issue.message}`);
-  }
+  if (!routeResult.success)
+    for (const issue of routeResult.error.issues) {
+      issues.push(`checkout-routes:${issue.path.join(".")}: ${issue.message}`);
+    }
   // Do not cascade reference errors from entries with invalid shapes.
   if (issues.length) throw new StoreCatalogError(issues);
   const checkoutRoutes = routeResult.success ? routeResult.data : [];
@@ -141,7 +159,8 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
         if (seen.has(reference)) issues.push(`${path}: Duplicate reference ${reference}`);
         seen.add(reference);
         const target = byId.get(reference)?.entry;
-        if (!target || target.kind !== kind) issues.push(`${path}: Expected ${kind} reference, received ${reference}`);
+        if (!target || target.kind !== kind)
+          issues.push(`${path}: Expected ${kind} reference, received ${reference}`);
         else if (entry.visibility === "public" && target.visibility !== "public") {
           issues.push(`${path}: Public entries cannot reference draft ${reference}`);
         }
@@ -153,7 +172,8 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
   }
   const routeIds = new Set<string>();
   for (const [index, route] of checkoutRoutes.entries()) {
-    if (routeIds.has(route.id)) issues.push(`checkout-routes:${index}.id: Duplicate route ID ${route.id}`);
+    if (routeIds.has(route.id))
+      issues.push(`checkout-routes:${index}.id: Duplicate route ID ${route.id}`);
     routeIds.add(route.id);
     if (byId.get(route.productId)?.entry.kind !== "product") {
       issues.push(`checkout-routes:${index}.productId: Unknown product ${route.productId}`);
@@ -165,11 +185,15 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
     route.artworkRevisions.forEach((artwork, artworkIndex) => {
       const product = byId.get(route.productId)?.entry;
       if (designIds.has(artwork.designId)) {
-        issues.push(`checkout-routes:${index}.artworkRevisions.${artworkIndex}: Duplicate design approval`);
+        issues.push(
+          `checkout-routes:${index}.artworkRevisions.${artworkIndex}: Duplicate design approval`,
+        );
       }
       designIds.add(artwork.designId);
       if (product?.kind !== "product" || !product.designIds.includes(artwork.designId)) {
-        issues.push(`checkout-routes:${index}.artworkRevisions.${artworkIndex}.designId: Design does not belong to this product`);
+        issues.push(
+          `checkout-routes:${index}.artworkRevisions.${artworkIndex}.designId: Design does not belong to this product`,
+        );
       }
     });
   }
@@ -178,14 +202,22 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
     const purchase = entry.purchase;
     const route = checkoutRoutes.find((candidate) => candidate.id === purchase.routeId);
     if (!route || route.productId !== entry.id || route.provider !== purchase.provider) {
-      issues.push(`${source}:purchase.routeId: Live products require a reviewed route for this product`);
+      issues.push(
+        `${source}:purchase.routeId: Live products require a reviewed route for this product`,
+      );
       continue;
     }
     entry.designIds.forEach((designId, index) => {
       const design = byId.get(designId)?.entry;
       const approved = route.artworkRevisions.find((artwork) => artwork.designId === designId);
-      if (design?.kind !== "design" || design.artwork.kind !== "image" || approved?.revision !== design.artworkRevision) {
-        issues.push(`${source}:designIds.${index}: Live products require image artwork at the reviewed revision`);
+      if (
+        design?.kind !== "design" ||
+        design.artwork.kind !== "image" ||
+        approved?.revision !== design.artworkRevision
+      ) {
+        issues.push(
+          `${source}:designIds.${index}: Live products require image artwork at the reviewed revision`,
+        );
       }
     });
     const variantIds = new Set<string>();
@@ -197,39 +229,63 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
       variantIds.add(variant.id);
       providerIds.add(variant.providerVariantId);
       if (!route.providerVariantIds.includes(variant.providerVariantId)) {
-        issues.push(`${source}:purchase.variants.${index}.providerVariantId: Variant is not on the reviewed route`);
+        issues.push(
+          `${source}:purchase.variants.${index}.providerVariantId: Variant is not on the reviewed route`,
+        );
       }
     });
   }
   if (issues.length) throw new StoreCatalogError(issues);
-  return { schemaVersion: STORE_SCHEMA_VERSION, entries: records.map(({ entry }) => entry), checkoutRoutes };
+  return {
+    schemaVersion: STORE_SCHEMA_VERSION,
+    entries: records.map(({ entry }) => entry),
+    checkoutRoutes,
+  };
 }
 
 // Explicit allowlisted schemas above reject unknown fields, including private authoring metadata.
 // A draft remains public Git content; the Node adapter excludes it from browser output.
 export function toPublicStoreCatalog(catalog: StoreCatalog): StoreCatalog {
-  const validated = parseStoreCatalog(catalog.entries.map((value) => ({ source: value.id, value })), catalog.checkoutRoutes);
+  const validated = parseStoreCatalog(
+    catalog.entries.map((value) => ({ source: value.id, value })),
+    catalog.checkoutRoutes,
+  );
   const entries = validated.entries.filter((entry) => entry.visibility === "public");
-  const usedRoutes = new Set(entries.flatMap((entry) =>
-    entry.kind === "product" && entry.purchase.state === "live" ? [entry.purchase.routeId] : []));
-  return { schemaVersion: STORE_SCHEMA_VERSION, entries, checkoutRoutes: validated.checkoutRoutes.filter((route) => usedRoutes.has(route.id)) };
+  const usedRoutes = new Set(
+    entries.flatMap((entry) =>
+      entry.kind === "product" && entry.purchase.state === "live" ? [entry.purchase.routeId] : [],
+    ),
+  );
+  return {
+    schemaVersion: STORE_SCHEMA_VERSION,
+    entries,
+    checkoutRoutes: validated.checkoutRoutes.filter((route) => usedRoutes.has(route.id)),
+  };
 }
 
 export type StorePurchaseAction =
   | { kind: "disabled"; label: string }
   | { kind: "external"; label: string; href: string };
 
-export function getStorePurchaseAction(catalog: StoreCatalog, productId: string): StorePurchaseAction {
+export function getStorePurchaseAction(
+  catalog: StoreCatalog,
+  productId: string,
+): StorePurchaseAction {
   const product = catalog.entries.find((entry) => entry.id === productId);
   if (!product || product.kind !== "product" || product.visibility !== "public") {
     return { kind: "disabled", label: "Unavailable" };
   }
   switch (product.purchase.state) {
-    case "preview": return { kind: "disabled", label: "Preview — coming later" };
-    case "unavailable": return { kind: "disabled", label: product.purchase.reason };
+    case "preview":
+      return { kind: "disabled", label: "Preview — coming later" };
+    case "unavailable":
+      return { kind: "disabled", label: product.purchase.reason };
     case "live": {
       // Revalidate at the purchase boundary; malformed runtime config must never create a link.
-      const validated = parseStoreCatalog(catalog.entries.map((value) => ({ source: value.id, value })), catalog.checkoutRoutes);
+      const validated = parseStoreCatalog(
+        catalog.entries.map((value) => ({ source: value.id, value })),
+        catalog.checkoutRoutes,
+      );
       const routeId = product.purchase.routeId;
       const route = validated.checkoutRoutes.find((candidate) => candidate.id === routeId);
       if (!route) return { kind: "disabled", label: "Unavailable" };

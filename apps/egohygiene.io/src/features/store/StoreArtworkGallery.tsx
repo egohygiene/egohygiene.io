@@ -52,8 +52,12 @@ export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps
       >
         <StoreArtwork design={selectedDesign} />
         <span className="store-artwork-gallery__expand" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" focusable="false">
-            <path d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7" stroke="currentColor" strokeWidth="1.5" />
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" focusable="false">
+            <path
+              d="M14 4h6v6M20 4l-7 7M10 20H4v-6M4 20l7-7"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
           </svg>
           View artwork
         </span>
@@ -61,11 +65,15 @@ export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps
 
       <div className="store-artwork-gallery__caption" aria-live="polite" aria-atomic="true">
         <span>{selectedDesign.title}</span>
-        {designs.length > 1 && <span>{selectedIndex + 1} / {designs.length}</span>}
+        {designs.length > 1 && (
+          <span>
+            {selectedIndex + 1} / {designs.length}
+          </span>
+        )}
       </div>
 
       {designs.length > 1 && (
-        <div className="store-artwork-gallery__thumbnails" role="group" aria-label="Choose artwork">
+        <fieldset className="store-artwork-gallery__thumbnails" aria-label="Choose artwork">
           {designs.map((design) => (
             <button
               className="store-artwork-gallery__thumbnail"
@@ -75,10 +83,12 @@ export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps
               aria-pressed={design.id === selectedDesign.id}
               onClick={() => setSelectedId(design.id)}
             >
-              <span aria-hidden="true"><StoreArtwork design={design} /></span>
+              <span aria-hidden="true">
+                <StoreArtwork design={design} />
+              </span>
             </button>
           ))}
-        </div>
+        </fieldset>
       )}
 
       {isViewerOpen && (
@@ -106,7 +116,9 @@ export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div className="store-artwork-viewer__art"><StoreArtwork design={selectedDesign} /></div>
+          <div className="store-artwork-viewer__art">
+            <StoreArtwork design={selectedDesign} />
+          </div>
           <p className="store-artwork-viewer__caption">{selectedDesign.title}</p>
         </dialog>
       )}

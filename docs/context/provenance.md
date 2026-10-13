@@ -33,6 +33,43 @@ graph. The normal merge API accepted the expected head; no checks or repository
 settings were disabled or bypassed. This is a merge receipt, not a new runtime,
 browser or post-merge CI pass. #69 remains open and no next issue is selected.
 
+## CI repair checkpoint — 2026-10-13
+
+The maintainer selected #29's CI repair after the architecture merge, with
+hosting/deployment still deferred. Implementation
+`48223775dde607c2116d0e78f9c5bed5f487ef7c` is in
+[draft PR #73](https://github.com/egohygiene/egohygiene.io/pull/73), based on main
+`db634b887ede348ce85d9c03af789467ab535dcf`. The
+[CI guide](../development/ci-baseline.md) records sources, local commands, scope,
+rollback and verification results. It pins the inspected upstream CodeQL workflow
+revision that lacked `workflow_call`; supported action entry points replace it.
+
+Complete local `pnpm ci:check` passed, including 38 catalog, 64 unit and 10 tooling
+tests, current types/boundaries, production and Storybook builds. The isolated
+preview build and actionlint 1.7.12 checks also passed. Browser discovery found
+23 journeys; no local browser run was inferred from it. Of the changed source
+files, 31 match exactly the formatter output for their base contents; first-party
+lint repairs account for the other formatted source changes. Generated token
+outputs, the upstream MSW worker, old tracked Storybook assets and the lockfile
+retain their base bytes. Warnings and profile gaps remain documented.
+
+The maintainer reported enabling Dependency graph at 11:54 America/New_York.
+The [dependency-review job](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467658)
+still returned the same unsupported-configuration error at 11:57 for the named
+implementation. This is an observed check result, not an independent read of the
+admin setting. New [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467586)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467708)
+jobs ran automatically for the PR; no manual rerun/dispatch or gate bypass
+was used. Both completed successfully for implementation
+`48223775dde607c2116d0e78f9c5bed5f487ef7c`. The CI log confirms 112 non-browser
+tests, the existing type/boundary/build gates and **23 browser journeys passed**
+(3 legacy, 18 production store/theme, 2 isolated preview). CodeQL's log confirms
+successful results upload and completed analysis processing. This closes the
+execution gap for those specific journeys, not broader visual, accessibility,
+cross-browser, deployment or security qualification. Dependency review remains
+failed. Refresh the current PR head before assuming a later documentation update
+has its own completed checks.
+
 ## Recording the next receipt
 
 Record the source path or stable URL, observation date, exact implementation

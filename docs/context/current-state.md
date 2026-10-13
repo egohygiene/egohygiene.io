@@ -8,20 +8,22 @@ file is the current handoff; [provenance](provenance.md) retains dated evidence.
 | Item | Observed state / source |
 | --- | --- |
 | Canonical repository | `egohygiene/egohygiene.io`; website/store in `apps/egohygiene.io` |
-| Main at this snapshot | [PR #72](https://github.com/egohygiene/egohygiene.io/pull/72) merged at `0b536b9f62c5921d70c515fdd102001dd39e7f37` on 2026-10-13; this documentation-only merge receipt follows |
-| Remaining issue | [#69 — architecture and extension contracts](https://github.com/egohygiene/egohygiene.io/issues/69), open for acceptance review and browser verification |
-| Active branch / review | `main`; PR #72 is merged. No next implementation issue has been selected |
-| Implementation tested | `08a092b1b576abf9c4b7ea182ec423a586ed5b34`; context commit `e7cf8581e8ec7d80e221c42e18f034465d245ff3` changes documentation only |
+| Main at this snapshot | `db634b887ede348ce85d9c03af789467ab535dcf`, including merged [PR #72](https://github.com/egohygiene/egohygiene.io/pull/72) and its handoff |
+| Active issue | [#29 — CI and hosting baseline](https://github.com/egohygiene/egohygiene.io/issues/29); only its CI repair portion is active, with hosting/deployment deferred |
+| Active branch / review | `fix/ci-baseline`; [draft PR #73](https://github.com/egohygiene/egohygiene.io/pull/73), not merged |
+| Implementation tested | `48223775dde607c2116d0e78f9c5bed5f487ef7c`; this handoff is a later documentation-only update |
+| Related open issue | [#69 — architecture and extension contracts](https://github.com/egohygiene/egohygiene.io/issues/69); architecture is merged and browser smoke now passes in PR #73; acceptance review remains open |
 
-#69's first checkpoint extracts an app-owned portable store domain, normalizes
-Fourthwall fixture input behind an adapter, and exercises an alternate disabled
-fixture through the same contract. It adds a DOM-free compilation/import guard
-and architecture/extension/migration guidance. See the
-[implementation receipt](../architecture/store-domain-checkpoint.md).
+#29 repairs repository formatting/lint errors, replaces the invalid CodeQL
+workflow call, and gives CI/local use the same named validation commands. Tooling
+tests and both store browser suites are now selected. Storybook builds into
+ignored `.cache/storybook` rather than rewriting tracked historical output. See
+the [CI guide and receipt](../development/ci-baseline.md).
 
-The architecture checkpoint and agent/context layer are now on `main`. The
-maintainer authorized the merge on 2026-10-13. The acceptance checklist remains
-open for review and browser proof; merging this checkpoint does not close #69.
+#69's portable domain, provider adapter, DOM-free guard and agent/context layer
+are already on `main`; do not reimplement them. Its earlier
+[implementation receipt](../architecture/store-domain-checkpoint.md) remains a
+dated record of the original checkpoint.
 
 ## Product context to retain
 
@@ -41,48 +43,50 @@ open for review and browser proof; merging this checkpoint does not close #69.
 
 ## Verification and unresolved checks
 
-At the implementation commit above: 38 catalog/build-boundary tests and 23
-focused store/Fourthwall unit tests passed, as did typechecks, existing workspace
-checks plus the new boundary check, and normal/isolated-preview builds. The
-receipt records exact bundle measurements and negative boundary probes. No
-dependency or lockfile version changed.
+At implementation `48223775dde607c2116d0e78f9c5bed5f487ef7c`, complete
+`pnpm ci:check` passed: formatting/lint, current type profiles, 38 catalog + 64
+unit + 10 tooling tests, boundary checks, production website and Storybook builds.
+The isolated preview build also passed. actionlint 1.7.12 validated CI, CodeQL
+and dependency-review workflows. Lint retains 32 warnings and 20 informational
+diagnostics; no rule severity was lowered. Dependencies and lockfile are unchanged.
 
-Desktop/mobile browser smoke **did not run**: Playwright's browser download
-failed; separately downloaded Chrome 155 then failed at startup because the
-execution environment denied required local socket creation. This is an
-execution limitation, not evidence of a passing visual review.
+GitHub CI executed all 23 browser journeys successfully (3 legacy, 18 production
+store/theme, 2 isolated preview) at the named implementation. The logs also
+confirm the same 112 non-browser tests and build gates passed remotely. Local
+browser execution was not retried after the previously observed Chromium
+socket-permission denial; this new evidence comes from GitHub's runner.
+Broader all-workspace compilation and accessibility qualification remain #52 and
+#37/#70; this checkpoint does not claim those profiles passed.
 
-Pre-merge GitHub [validation](https://github.com/egohygiene/egohygiene.io/actions/runs/38420486285)
-stopped at repository formatting with 37 diagnostics; subsequent CI test steps
-did not run. [Dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/38420486278)
-reported that the repository does not support it and requested Dependency graph.
-Both logs were rechecked at PR head `e7cf8581e8ec7d80e221c42e18f034465d245ff3`
-before the merge. No gate/settings were disabled or bypassed. Post-merge CI and
-browser verification are not claimed by this documentation-only receipt; refresh
-current checks before resuming. Earlier implementation evidence remains in the
-provenance ledger.
+The maintainer reported enabling Dependency graph at 11:54 America/New_York.
+The [first new dependency-review run](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467658)
+at 11:57 still reported unsupported repository configuration and requested that
+setting. This is not a vulnerability finding or proof of the setting's state.
+No security gate was disabled. [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467586)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/38426467708)
+completed successfully; CodeQL's log confirms analysis upload and processing
+completed. This does not claim the repository is vulnerability-free. Results
+apply to implementation `48223775dde607c2116d0e78f9c5bed5f487ef7c`; refresh
+checks for any later documentation head rather than assuming they ran again.
 
 ## Next concrete actions
 
-1. Refresh `main`, #69 and current CI. Preserve new user/contributor changes.
-   The maintainer asked to return and choose the next issue after this merge;
-   do not assume a new implementation sprint is already authorized.
-2. Choose a bounded next issue. [#29](https://github.com/egohygiene/egohygiene.io/issues/29)
-   owns the current CI/format baseline repair; its CI slice can proceed without
-   choosing hosting or deploying. Other options are #34's attribution and
-   migration contract, #54's cover-order fix, #64's interface localization and
-   #70's responsive qualification. #65 owns catalog translations separately.
-3. Run the existing preview smoke where Chromium can launch, recording the
-   actual revision and results. Reconcile CI blockers in the agreed scope; do
-   not repeatedly reinstall browsers after an environment permission denial.
-4. Review #69's acceptance checklist against the delivered code and docs. Update
-   it with evidence; do not equate a merged checkpoint with a completed issue.
-   #36 still owns product presentation and #61/#38 provider decisions and
-   real-product qualification. Refresh any selected issue before implementing.
+1. Refresh PR #73, branch heads and CI. Review this bounded CI checkpoint and
+   retain any newer user/contributor changes. Do not infer merge authority from
+   the earlier approval for PR #72.
+2. Resolve dependency review's remaining repository configuration error after
+   the reported admin setting change. Keep it distinct from vulnerability
+   findings; do not disable the check or replace failure with success.
+3. Reconcile #69 acceptance with the new browser evidence. Keep
+   #29 open for any outstanding CI evidence and its deferred hosting scope.
+4. After this checkpoint, choose the next implementation issue with the
+   maintainer: #34 attribution/migration, #54 cover order, #64 interface i18n,
+   #65 catalog localization or #70 responsive qualification. #36 owns product
+   presentation and #61/#38 provider decisions/real-product qualification.
 
-No new artwork generation, Drive import, framework switch or live checkout is
-required to finish this architecture checkpoint. Source asset intake resumes
-from the authorized private source and the [design guide](../store/next-design-session.md).
+No new artwork intake, framework switch, live checkout or deployment is part of
+this CI repair. Future asset intake uses the authorized private source and
+[design guide](../store/next-design-session.md).
 
 ## Local commands
 
@@ -99,15 +103,12 @@ The preview opens `http://127.0.0.1:4173/store`; heartburst is under
 For checks, activate the pinned runtime/package manager first:
 
 ```sh
-pnpm typecheck
-pnpm catalog:test
-pnpm test:unit apps/egohygiene.io/src/features/store apps/egohygiene.io/src/features/fourthwall-preview
-pnpm check
-pnpm build
-task build:store
-pnpm test:store:preview
+pnpm ci:check
+pnpm exec playwright install --with-deps chromium
+pnpm ci:browser
 ```
 
-Normal `pnpm build` emits `dist`; `task build:store` emits `dist-preview`. See
-[local setup](../store/local-preview.md) for prerequisites. These are repeatable
-commands, not a claim they were all rerun for a documentation-only handoff.
+Normal `pnpm build` emits `dist`; `pnpm build:store:preview` or `task build:store`
+emits `dist-preview`. See the [CI guide](../development/ci-baseline.md) for command
+scope and browser prerequisites. Runtime/browser results above are pinned to the
+implementation; this documentation-only handoff did not rerun the application.

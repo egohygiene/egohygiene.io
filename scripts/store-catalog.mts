@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import type { Dirent } from "node:fs";
 import { readdir, readFile, realpath, stat, writeFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -47,7 +48,7 @@ export async function loadCatalogSources(
   const files: string[] = [];
 
   async function discover(path: string): Promise<void> {
-    let entries;
+    let entries: Dirent<string>[];
     try {
       entries = await readdir(path, { withFileTypes: true });
     } catch (error) {
@@ -77,12 +78,17 @@ export async function loadCatalogSources(
 export async function loadCatalog(
   directory: string = defaultCatalogDirectory,
   routes?: unknown,
-  publicDirectory: string | undefined = resolve(directory) === resolve(defaultCatalogDirectory) ? defaultPublicDirectory : undefined,
+  publicDirectory: string | undefined = resolve(directory) === resolve(defaultCatalogDirectory)
+    ? defaultPublicDirectory
+    : undefined,
 ): Promise<StoreCatalog> {
   parseStoreProviders(await readCatalogJson(defaultProvidersFile));
-  const checkoutRoutes = routes === undefined
-    ? resolve(directory) === resolve(defaultCatalogDirectory) ? await readCatalogJson(defaultCheckoutRoutesFile) : []
-    : routes;
+  const checkoutRoutes =
+    routes === undefined
+      ? resolve(directory) === resolve(defaultCatalogDirectory)
+        ? await readCatalogJson(defaultCheckoutRoutesFile)
+        : []
+      : routes;
   return validateCatalog(await loadCatalogSources(directory), checkoutRoutes, publicDirectory);
 }
 
@@ -121,12 +127,16 @@ async function validateCatalog(
       assetRoot ??= await realpath(publicDirectory);
       const resolvedTarget = await realpath(target);
       if (!isWithinDirectory(assetRoot, resolvedTarget)) {
-        issues.push(`${field}: Artwork file resolves outside public directory: ${entry.artwork.src}`);
+        issues.push(
+          `${field}: Artwork file resolves outside public directory: ${entry.artwork.src}`,
+        );
       } else if (!(await stat(resolvedTarget)).isFile()) {
         issues.push(`${field}: Artwork must reference a regular file: ${entry.artwork.src}`);
       }
     } catch (error) {
-      issues.push(`${field}: Cannot resolve artwork file ${entry.artwork.src}: ${errorMessage(error)}`);
+      issues.push(
+        `${field}: Cannot resolve artwork file ${entry.artwork.src}: ${errorMessage(error)}`,
+      );
     }
   }
   if (issues.length) throw new StoreCatalogError(issues);
@@ -135,7 +145,9 @@ async function validateCatalog(
 
 function validationScope(catalog: StoreCatalog, publicDirectory: string | undefined): string {
   if (publicDirectory === undefined) return "Schema only; artwork files were not checked.";
-  const count = catalog.entries.filter((entry) => entry.kind === "design" && entry.artwork.kind === "image").length;
+  const count = catalog.entries.filter(
+    (entry) => entry.kind === "design" && entry.artwork.kind === "image",
+  ).length;
   return `Image files verified: ${count}.`;
 }
 
@@ -171,14 +183,21 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
 
   const options = readOptions(
     rest,
-    command === "validate" ? ["--directory", "--public-directory"] : ["--directory", "--public-directory", "--slug", "--title"],
+    command === "validate"
+      ? ["--directory", "--public-directory"]
+      : ["--directory", "--public-directory", "--slug", "--title"],
   );
   const directory = resolve(options.get("--directory") ?? defaultCatalogDirectory);
   const sources = await loadCatalogSources(directory);
-  const routes = directory === resolve(defaultCatalogDirectory) ? await readCatalogJson(defaultCheckoutRoutesFile) : [];
+  const routes =
+    directory === resolve(defaultCatalogDirectory)
+      ? await readCatalogJson(defaultCheckoutRoutesFile)
+      : [];
   const publicDirectory = options.has("--public-directory")
     ? resolve(options.get("--public-directory")!)
-    : directory === resolve(defaultCatalogDirectory) ? defaultPublicDirectory : undefined;
+    : directory === resolve(defaultCatalogDirectory)
+      ? defaultPublicDirectory
+      : undefined;
 
   if (command === "validate") {
     const catalog = await validateCatalog(sources, routes, publicDirectory);
@@ -192,7 +211,9 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
   }
   // Check before constructing a path: a slug cannot escape the authoring directory.
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
-    throw new Error("--slug must contain lowercase letters, digits, and single separating hyphens.");
+    throw new Error(
+      "--slug must contain lowercase letters, digits, and single separating hyphens.",
+    );
   }
 
   const source = resolve(directory, `${slug}.design.json`);
@@ -212,7 +233,10 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
   // Validate the complete prospective catalog, including uniqueness and references.
   const catalog = await validateCatalog([...sources, { source, value }], routes, publicDirectory);
   try {
-    await writeFile(source, `${JSON.stringify(value, null, 2)}\n`, { encoding: "utf8", flag: "wx" });
+    await writeFile(source, `${JSON.stringify(value, null, 2)}\n`, {
+      encoding: "utf8",
+      flag: "wx",
+    });
   } catch (error) {
     throw new Error(`${source}: could not create entry; existing files are never overwritten`, {
       cause: error,

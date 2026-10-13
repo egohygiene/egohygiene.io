@@ -6,10 +6,7 @@ import { defineConfig } from "vite";
 import { publicStoreCatalog } from "../../scripts/vite-store-catalog.mts";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    publicStoreCatalog(),
-  ],
+  plugins: [react(), publicStoreCatalog()],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

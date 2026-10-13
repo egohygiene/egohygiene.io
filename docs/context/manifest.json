@@ -11,5 +11,6 @@
   "architectureGraph": "META.md",
   "decisionIndex": "docs/architecture/decisions/README.md",
   "dependencyRules": "docs/architecture/dependency-rules.md",
-  "extensionContracts": "docs/architecture/store-extension-contracts.md"
+  "extensionContracts": "docs/architecture/store-extension-contracts.md",
+  "validationGuide": "docs/development/ci-baseline.md"
 }
