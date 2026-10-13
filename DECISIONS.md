@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-10-10
+updated: 2026-10-13
 governed_by:
   - architecture-decisions
 depends_on:
@@ -41,6 +41,14 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - ADR-002: Allow products to deploy independently behind stable routes
 - ADR-003: Keep the first release statically deployable
 - ADR-004: Consolidate the Store v1 website and use hosted checkout
+
+The records above are the high-level decision sequence. Concrete implementation
+records (tokens, Fourthwall preview, portable store domain) are indexed in
+[docs/architecture/decisions/README.md](docs/architecture/decisions/README.md).
+Their numeric filenames are a separate sequence; cite full paths and titles.
+See [recording practice](docs/architecture/decisions/0000-record-architecture-decisions.md)
+for evidence, status and supersession, and the
+[current handoff](docs/context/current-state.md) for live-work context.
 
 ## ADR-001: Use a monorepo for shared public web foundations
 

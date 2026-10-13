@@ -9,6 +9,7 @@
     "packages/schemas/src/store.ts",
     "scripts/store-catalog.mts",
     "scripts/vite-store-catalog.mts",
+    "scripts/checks/check-store-boundaries.ts",
     "tests/store/**/*.ts"
   ]
 }
