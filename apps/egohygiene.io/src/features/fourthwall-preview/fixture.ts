@@ -1,6 +1,6 @@
 import type { StoreProduct } from "@egohygiene/schemas";
 
-import { fourthwallProductSchema } from "./contract";
+import { fourthwallProductSchema } from "./contract.ts";
 
 /** Synthetic provider data layered over a canonical preview item, never an offer. */
 export function createFourthwallFixture(product: StoreProduct) {

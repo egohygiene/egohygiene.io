@@ -13,8 +13,8 @@ import {
   getRelatedCollections,
   isBrowsableEntry,
   storeEntryPath,
-} from "./catalog";
-import type { BrowsableStoreEntry, StoreStory, StoreView } from "./catalog";
+} from "./domain/index.ts";
+import type { BrowsableStoreEntry, StoreStory, StoreView } from "./domain/index.ts";
 import { StoreArtwork } from "./StoreArtwork";
 import { StoreArtworkGallery } from "./StoreArtworkGallery";
 

@@ -1,7 +1,7 @@
 import { parseStoreCatalog } from "@egohygiene/schemas";
 import { describe, expect, it } from "vitest";
 
-import { filterStoreEntries } from "./catalog";
+import { filterStoreEntries } from "./domain/index.ts";
 
 const base = (id: string, title: string) => ({
   schemaVersion: 1,

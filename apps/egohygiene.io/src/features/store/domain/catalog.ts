@@ -21,7 +21,7 @@ export function getEntryDesigns(catalog: StoreCatalog, entry: BrowsableStoreEntr
   if (entry.kind === "collection") {
     for (const candidate of catalog.entries) {
       if (candidate.kind === "product" && entry.productIds.includes(candidate.id)) {
-        candidate.designIds.forEach((id) => ids.add(id));
+        candidate.designIds.forEach((id) => { ids.add(id); });
       }
     }
   }
@@ -31,7 +31,9 @@ export function getEntryDesigns(catalog: StoreCatalog, entry: BrowsableStoreEntr
 
 export function getEntryContexts(catalog: StoreCatalog, entry: BrowsableStoreEntry): StoreContext[] {
   const ids = new Set(entry.contextIds);
-  getEntryDesigns(catalog, entry).forEach((design) => design.contextIds.forEach((id) => ids.add(id)));
+  getEntryDesigns(catalog, entry).forEach((design) => {
+    design.contextIds.forEach((id) => { ids.add(id); });
+  });
   return catalog.entries.filter((candidate): candidate is StoreContext =>
     candidate.kind === "context" && candidate.visibility === "public" && ids.has(candidate.id));
 }

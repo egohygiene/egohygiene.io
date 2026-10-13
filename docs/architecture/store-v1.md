@@ -1,5 +1,11 @@
 # Store v1 architecture
 
+This is the original checkpoint plan and pinned source inventory. For the
+implemented store boundaries as of #69, use [dependency rules](dependency-rules.md),
+[extension contracts](store-extension-contracts.md) and the
+[verified checkpoint](store-domain-checkpoint.md). The historical observations
+below describe their named commit, not the current application.
+
 Status: reviewable checkpoint A plan, 2026-10-10. The consolidation direction is accepted in [roadmap #31](https://github.com/egohygiene/egohygiene.io/issues/31); the paths and contracts below are proposed implementation details. This document does not claim a deployed store.
 
 Owner: `egohygiene/egohygiene.io`. Execution: [#32](https://github.com/egohygiene/egohygiene.io/issues/32), checkpoints A–C. See the [inventory and migration ledger](../migration/store-v1-consolidation.md) for pinned source evidence, preservation, and the next checkpoint.

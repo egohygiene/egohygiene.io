@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 import { storeCatalog } from "../../content/store";
 import { StoreArtwork } from "../store/StoreArtwork";
-import { canPreviewVariant, previewFourthwallHandoff } from "./contract";
-import type { MockFourthwallHandoff } from "./contract";
+import { canPreviewStoreVariant, createStorePreviewOffer, previewStoreHandoff, STORE_PREVIEW_MAX_QUANTITY } from "../store/domain/index.ts";
+import type { MockStoreHandoff } from "../store/domain/index.ts";
+import { fourthwallPreviewAdapter } from "./adapter.ts";
 import { createFourthwallFixture } from "./fixture";
 
 import "../store/store.css";
@@ -12,16 +13,18 @@ import "./fourthwall-preview.css";
 
 const canonicalProduct = storeCatalog.entries.find((entry) => entry.kind === "product" && entry.id === "product-demo-signal-heart-hoodie");
 const canonicalDesign = storeCatalog.entries.find((entry) => entry.kind === "design" && entry.id === "design-demo-signal-heart");
-const product = canonicalProduct?.kind === "product" ? createFourthwallFixture(canonicalProduct) : undefined;
+const product = canonicalProduct?.kind === "product"
+  ? createStorePreviewOffer(canonicalProduct, fourthwallPreviewAdapter, createFourthwallFixture(canonicalProduct))
+  : undefined;
 const formatMoney = (value: number, currency: string) => new Intl.NumberFormat("en-US", { style: "currency", currency }).format(value);
 
 /** Loaded only by the explicit local preview route; all checkout behavior is inert. */
 export function FourthwallPreviewPage() {
   const [selectedId, setSelectedId] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [handoff, setHandoff] = useState<MockFourthwallHandoff>();
+  const [handoff, setHandoff] = useState<MockStoreHandoff>();
   const selected = product?.variants.find((variant) => variant.id === selectedId);
-  const canPreview = product ? canPreviewVariant(product, selectedId, quantity) : false;
+  const canPreview = product ? canPreviewStoreVariant(product, selectedId, quantity) : false;
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -52,7 +55,7 @@ export function FourthwallPreviewPage() {
           <h2 id="fourthwall-product-title">{product.name}</h2>
           <p>For the parts of you that keep transmitting. A standalone design, with room for its own story.</p>
           <p className="fourthwall-preview__price">
-            {selected ? formatMoney(selected.unitPrice.value, selected.unitPrice.currency) : "From $42.00"}
+            {selected ? formatMoney(selected.price.amount, selected.price.currency) : "From $42.00"}
             <span>Illustrative price only · USD</span>
           </p>
           <p className="fourthwall-preview__material">Color study: black <span aria-hidden="true" className="fourthwall-preview__swatch" /></p>
@@ -60,8 +63,8 @@ export function FourthwallPreviewPage() {
           <fieldset className="fourthwall-preview__sizes">
             <legend>Choose a size</legend>
             <div>{product.variants.map((variant) => {
-              const available = canPreviewVariant(product, variant.id);
-              const size = variant.attributes?.size?.name ?? variant.name;
+              const available = canPreviewStoreVariant(product, variant.id);
+              const size = variant.optionLabel;
               return <button
                 type="button"
                 key={variant.id}
@@ -76,10 +79,10 @@ export function FourthwallPreviewPage() {
 
           <label className="fourthwall-preview__quantity">Quantity
             <select value={quantity} onChange={(event) => { setQuantity(Number(event.target.value)); setHandoff(undefined); }}>
-              {[1, 2, 3, 4, 5].map((value) => <option key={value} value={value}>{value}</option>)}
+              {Array.from({ length: STORE_PREVIEW_MAX_QUANTITY }, (_, index) => index + 1).map((value) => <option key={value} value={value}>{value}</option>)}
             </select>
           </label>
-          <button className="fourthwall-preview__cta" type="button" disabled={!canPreview} onClick={() => setHandoff(previewFourthwallHandoff(product, selectedId, quantity))}>
+          <button className="fourthwall-preview__cta" type="button" disabled={!canPreview} onClick={() => setHandoff(previewStoreHandoff(product, selectedId, quantity))}>
             Preview checkout handoff <span aria-hidden="true">↗</span>
           </button>
           <p className="fourthwall-preview__hint">{selected ? "This stays on the page. No cart, payment, or order is created." : "Select a size to try the next step. No account needed."}</p>
