@@ -15,10 +15,12 @@ const variantSchema = z.object({
     type: z.string().min(1),
     inStock: z.number().int().nonnegative().optional(),
   }),
-  attributes: z.object({
-    size: z.object({ name: z.string().min(1) }).optional(),
-    color: z.object({ name: z.string().min(1) }).optional(),
-  }).optional(),
+  attributes: z
+    .object({
+      size: z.object({ name: z.string().min(1) }).optional(),
+      color: z.object({ name: z.string().min(1) }).optional(),
+    })
+    .optional(),
 });
 
 /** Validated, additive API fields are stripped before the preview consumes them. */

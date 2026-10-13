@@ -16,6 +16,10 @@ changes, run `pnpm typecheck`, `pnpm catalog:test`, relevant `pnpm test:unit` fi
 and `pnpm check`; run build/browser checks when the affected path needs them.
 Report failures honestly instead of claiming all CI passed from focused tests.
 
+For the full current CI baseline, use `pnpm ci:check` and then `pnpm ci:browser`
+with Chromium installed. See [validation scope and setup](docs/development/ci-baseline.md)
+for generated-file policy, browser prerequisites and remaining security settings.
+
 Review only applicable checklist items: dependency direction, caller-provided
 messages, token/layout/accessibility behavior, schema compatibility and public
 projection. Framework migration, live provider activation and deployment are

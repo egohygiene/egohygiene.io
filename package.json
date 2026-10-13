@@ -73,16 +73,19 @@
     "catalog:test": "node --test tests/store/*.test.ts",
     "catalog:typecheck": "tsc --project tsconfig.store.json --noEmit",
     "typecheck:workspaces": "pnpm --recursive --if-present run typecheck",
-    "test": "pnpm catalog:test && pnpm test:unit",
+    "test": "pnpm catalog:test && pnpm test:unit && pnpm test:tooling",
     "test:unit": "vitest run --config vitest.unit.config.ts",
     "test:e2e": "playwright test",
-    "storybook:build": "storybook build --config-dir .storybook",
+    "storybook:build": "storybook build --config-dir .storybook --output-dir .cache/storybook",
     "format:check": "biome format .",
     "lint": "biome lint .",
     "check": "node scripts/checks/check-workspace.ts && node scripts/checks/check-package-exports.ts && node scripts/checks/check-locales.ts && node scripts/checks/check-circular-dependencies.ts && node scripts/checks/check-store-boundaries.ts",
     "test:store": "playwright test --config playwright.store.config.ts",
     "test:store:preview": "playwright test --config playwright.store-preview.config.ts",
-    "test:tooling": "node --test tests/tooling/*.test.mjs"
+    "test:tooling": "node --test tests/tooling/*.test.mjs",
+    "build:store:preview": "node scripts/store-environment.mjs build",
+    "ci:check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm check && pnpm build && pnpm storybook:build",
+    "ci:browser": "pnpm build && pnpm test:e2e && pnpm test:store && pnpm build:store:preview && pnpm test:store:preview"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.24.1",

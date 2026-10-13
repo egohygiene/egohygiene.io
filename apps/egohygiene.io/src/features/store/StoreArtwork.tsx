@@ -13,7 +13,9 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
   const [failedSource, setFailedSource] = useState<string>();
   const artwork = design?.artwork;
   const imageSource = artwork?.kind === "image" ? artwork.src : undefined;
-  const motif = design ? [...design.id].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 3 : 0;
+  const motif = design
+    ? [...design.id].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 3
+    : 0;
   const gradientId = `${instanceId}-ink`;
   const gridId = `${instanceId}-grid`;
   const glowId = `${instanceId}-glow`;
@@ -41,7 +43,14 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
     >
       <svg aria-hidden="true" viewBox="0 0 600 600" fill="none" focusable="false">
         <defs>
-          <linearGradient id={gradientId} x1="110" y1="130" x2="490" y2="460" gradientUnits="userSpaceOnUse">
+          <linearGradient
+            id={gradientId}
+            x1="110"
+            y1="130"
+            x2="490"
+            y2="460"
+            gradientUnits="userSpaceOnUse"
+          >
             <stop stopColor="#F6AAD6" />
             <stop offset="0.48" stopColor="#C9BAFF" />
             <stop offset="1" stopColor="#A4EDE8" />
@@ -63,11 +72,36 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
         </g>
         {motif === 0 && (
           <g stroke={`url(#${gradientId})`} strokeWidth="2">
-            <ellipse cx="300" cy="312" rx="245" ry="74" transform="rotate(-29 300 312)" opacity="0.55" />
-            <ellipse cx="300" cy="290" rx="232" ry="94" transform="rotate(35 300 290)" opacity="0.3" />
-            <path d="M300 420 170 290C90 208 214 107 300 210 386 107 510 208 430 290Z" fill={`url(#${gradientId})`} fillOpacity="0.09" strokeWidth="3" />
-            <path d="M300 395 187 282C128 222 220 146 300 235 380 146 472 222 413 282Z" opacity="0.5" />
-            <path d="M300 365 209 274C172 237 239 185 300 263 361 185 428 237 391 274Z" opacity="0.3" />
+            <ellipse
+              cx="300"
+              cy="312"
+              rx="245"
+              ry="74"
+              transform="rotate(-29 300 312)"
+              opacity="0.55"
+            />
+            <ellipse
+              cx="300"
+              cy="290"
+              rx="232"
+              ry="94"
+              transform="rotate(35 300 290)"
+              opacity="0.3"
+            />
+            <path
+              d="M300 420 170 290C90 208 214 107 300 210 386 107 510 208 430 290Z"
+              fill={`url(#${gradientId})`}
+              fillOpacity="0.09"
+              strokeWidth="3"
+            />
+            <path
+              d="M300 395 187 282C128 222 220 146 300 235 380 146 472 222 413 282Z"
+              opacity="0.5"
+            />
+            <path
+              d="M300 365 209 274C172 237 239 185 300 263 361 185 428 237 391 274Z"
+              opacity="0.3"
+            />
             <path d="m306 185-33 70 54 40-38 57 26 53" strokeWidth="6" />
             <path d="M152 260h59M373 298h80M223 341h56" strokeWidth="8" />
             <circle cx="498" cy="193" r="5" fill="#B6F1EC" stroke="none" />
@@ -75,8 +109,16 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
         )}
         {motif === 1 && (
           <g stroke={`url(#${gradientId})`} strokeWidth="2">
-            {Array.from({ length: 8 }, (_, index) => (
-              <ellipse key={index} cx="300" cy="238" rx="66" ry="142" transform={`rotate(${index * 45} 300 300)`} opacity={0.4 + (index % 2) * 0.3} />
+            {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
+              <ellipse
+                key={index}
+                cx="300"
+                cy="238"
+                rx="66"
+                ry="142"
+                transform={`rotate(${index * 45} 300 300)`}
+                opacity={0.4 + (index % 2) * 0.3}
+              />
             ))}
             <circle cx="300" cy="300" r="56" fill={`url(#${gradientId})`} fillOpacity="0.12" />
             <circle cx="300" cy="300" r="22" />
@@ -87,9 +129,25 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
         {motif === 2 && (
           <g stroke={`url(#${gradientId})`} strokeWidth="2">
             {[0, 1, 2, 3, 4, 5].map((index) => (
-              <rect key={index} x={160 + index * 19} y={116 + index * 25} width={280 - index * 38} height={368 - index * 50} rx="100" transform={`rotate(${index * 8 - 20} 300 300)`} opacity={1 - index * 0.1} />
+              <rect
+                key={index}
+                x={160 + index * 19}
+                y={116 + index * 25}
+                width={280 - index * 38}
+                height={368 - index * 50}
+                rx="100"
+                transform={`rotate(${index * 8 - 20} 300 300)`}
+                opacity={1 - index * 0.1}
+              />
             ))}
-            <ellipse cx="300" cy="338" rx="234" ry="55" transform="rotate(-15 300 338)" opacity="0.4" />
+            <ellipse
+              cx="300"
+              cy="338"
+              rx="234"
+              ry="55"
+              transform="rotate(-15 300 338)"
+              opacity="0.4"
+            />
             <path d="M108 224h71M403 395h94" strokeWidth="6" />
             <circle cx="423" cy="147" r="5" fill="#B6F1EC" stroke="none" />
           </g>
@@ -97,7 +155,9 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
         <g fill="#F4D7ED">
           <path d="m448 92 2 8 8 2-8 2-2 8-2-8-8-2 8-2Z" />
           <path d="m114 420 2 7 7 2-7 2-2 7-2-7-7-2 7-2Z" />
-          <circle cx="486" cy="451" r="2" /><circle cx="192" cy="104" r="2" /><circle cx="98" cy="184" r="2" />
+          <circle cx="486" cy="451" r="2" />
+          <circle cx="192" cy="104" r="2" />
+          <circle cx="98" cy="184" r="2" />
         </g>
       </svg>
       <span className="store-artwork__label">{label}</span>

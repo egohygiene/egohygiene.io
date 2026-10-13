@@ -48,21 +48,27 @@ export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plu
       // Build watchers need these inputs. In serve mode, addWatchFile also creates module
       // dependencies; use the server watcher below so raw authoring files stay out of the graph.
       if (building) for (const input of inputs) this.addWatchFile(input);
-      const catalog = toPublicStoreCatalog(await loadCatalog(
-        directory,
-        await readCatalogJson(routesFile),
-        publicDirectory,
-      ));
+      const catalog = toPublicStoreCatalog(
+        await loadCatalog(directory, await readCatalogJson(routesFile), publicDirectory),
+      );
       // Raw JSON is never a browser import or an emitted asset. No timestamp or absolute path
       // enters this deterministic module, including its optional production source map.
-      return { code: `export const storeCatalog = ${JSON.stringify(catalog)};\n`, map: { mappings: "" } };
+      return {
+        code: `export const storeCatalog = ${JSON.stringify(catalog)};\n`,
+        map: { mappings: "" },
+      };
     },
     configureServer(server) {
       server.watcher.add(inputs);
       const refresh = (event: string, file: string) => {
         if (!["add", "change", "unlink", "addDir", "unlinkDir"].includes(event)) return;
         const path = resolve(file);
-        if (!inputs.some((input) => path === input) && !isWithin(directory, path) && !isWithin(publicDirectory, path)) return;
+        if (
+          !inputs.some((input) => path === input) &&
+          !isWithin(directory, path) &&
+          !isWithin(publicDirectory, path)
+        )
+          return;
         const module = server.moduleGraph.getModuleById(resolvedModuleId);
         if (module) server.moduleGraph.invalidateModule(module);
         // Full reload also refreshes module-level fixture selections and surfaces invalid edits
@@ -70,7 +76,9 @@ export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plu
         server.ws.send({ type: "full-reload", path: "*" });
       };
       server.watcher.on("all", refresh);
-      stopWatching = () => { server.watcher.off("all", refresh); };
+      stopWatching = () => {
+        server.watcher.off("all", refresh);
+      };
     },
     closeBundle() {
       stopWatching?.();

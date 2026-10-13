@@ -22,6 +22,8 @@
       // Generated source may still be indexed for type information, but it
       // should not be formatted or linted directly.
       "!**/generated",
+      "!packages/design-tokens/src/generated.ts",
+      "!packages/design-tokens/src/generated.css",
 
       // Build products and third-party content are completely excluded from
       // formatting, linting, scanning, and project analysis.
@@ -35,6 +37,8 @@
       "!!**/reports",
       "!!**/logs",
       "!!**/vendor",
+      // Upstream MSW worker: copied by MSW and carries its own integrity hash.
+      "!!public/mockServiceWorker.js",
 
       // Framework, task-runner, editor, and tool caches
       "!!**/.cache",
