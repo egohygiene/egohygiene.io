@@ -14,6 +14,25 @@ earlier versions; retain dated entries when the current handoff changes.
 | GitHub CI failure evidence | [Validation run](https://github.com/egohygiene/egohygiene.io/actions/runs/38415659599), [dependency-review run](https://github.com/egohygiene/egohygiene.io/actions/runs/38415659412) for PR #72's implementation head | Validation stopped at 37 formatting diagnostics. Dependency review reported unsupported repository configuration. Not evidence that later CI tests ran or that dependencies were reviewed successfully. |
 | Repository context layer | Maintainer request on 2026-10-13 to preserve agent instructions, ADRs, provenance and restart context; this documentation change in PR #72 | Task authorization is scoped to the requested update. No transcript, private Drive inventory or new operational authority is embedded here. |
 
+## Merge receipt — 2026-10-13
+
+The maintainer explicitly requested merging PR #72 and returning to choose the
+next issue. GitHub confirmed [PR #72](https://github.com/egohygiene/egohygiene.io/pull/72)
+merged at 15:25:52 UTC with merge commit
+`0b536b9f62c5921d70c515fdd102001dd39e7f37`, preserving implementation
+`08a092b1b576abf9c4b7ea182ec423a586ed5b34` and context commit
+`e7cf8581e8ec7d80e221c42e18f034465d245ff3`. The earlier draft-state entries above
+are historical observations. The local checkout was fast-forwarded to `main`.
+
+At the approved PR head, GitHub reported no merge conflicts or submitted/inline
+review comments. The [validation log](https://github.com/egohygiene/egohygiene.io/actions/runs/38420486285)
+again reported 37 formatting errors before subsequent CI tests, and
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/38420486278)
+again reported unsupported repository configuration and requested Dependency
+graph. The normal merge API accepted the expected head; no checks or repository
+settings were disabled or bypassed. This is a merge receipt, not a new runtime,
+browser or post-merge CI pass. #69 remains open and no next issue is selected.
+
 ## Recording the next receipt
 
 Record the source path or stable URL, observation date, exact implementation
