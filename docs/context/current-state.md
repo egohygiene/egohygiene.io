@@ -14,6 +14,12 @@ then a sync with proposed milestone/roadmap parent issues and sub-issues.
 No deployment, purchase, repository transfer, or implementation migration is
 authorized by this checkpoint. Branch: `docs/store-launch-direction-20261016`.
 
+Review receipts: [website draft PR #74](https://github.com/egohygiene/egohygiene.io/pull/74)
+and [store draft PR #33](https://github.com/egohygiene/store/pull/33).
+Both are published for review and unmerged at this checkpoint. Documentation
+checks passed (142 relative links, available anchors, context JSON and diff
+scope); application/provider/deployment qualification was not rerun.
+
 Agreed direction: Ego Hygiene root mission/future product, community `/store`,
 featured `.play()` artist, separate music merchandise catalog, local development
 and merge-triggered Netlify development preview through a reusable Actions

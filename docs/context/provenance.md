@@ -63,6 +63,16 @@ purchase, repository transfer, or archival operation is part of this change.
 
 ### Receipt guidance
 
+Publication receipt: [website draft PR #74](https://github.com/egohygiene/egohygiene.io/pull/74)
+contains the capture at `06bf92fb2cfac9f7f00f1bf41077ad57669b7cb5`; companion
+[store draft PR #33](https://github.com/egohygiene/store/pull/33) contains it at
+`070d297f5b22f2a35c32bd9115860afe066f0134`. This follow-up adds review pointers.
+Remote comparisons confirmed 13 website documentation/context files and nine
+store Markdown files. The combined local check passed 142 relative file links,
+five available local heading anchors, balanced fences and context-manifest JSON;
+website diff whitespace checks and independent consistency review also passed.
+Neither PR was merged and no proposed issue/milestone was created.
+
 Record the source path or stable URL, observation date, exact implementation
 commit and result. Distinguish observed facts, inherited historical evidence,
 accepted decisions and proposals. State coverage gaps such as an unavailable
