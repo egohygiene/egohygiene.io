@@ -19,6 +19,13 @@ or provider-activation authority.
    [AI constitution](AI_CONSTITUTION.md) and [methodology](METHODOLOGY.md).
    Load other conceptual documents through [META](META.md) as needed.
 
+For the website/store launch discussion, follow the
+[launch plan](docs/architecture/store-launch-plan.md) and
+[proposed milestone backlog](docs/roadmaps/store-launch.md). The 2026-10-16
+checkpoint requires a maintainer sync before creating its proposed issues or
+milestones. Store ownership overlaps with `egohygiene/store`; resolve the recorded
+conflict before activating deployment or moving implementation/assets.
+
 ## Working boundaries
 
 - Keep changes bounded to the owning issue. Preserve URLs, stable catalog IDs,

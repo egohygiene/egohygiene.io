@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-10-13
+updated: 2026-10-16
 governed_by:
   - architecture-decisions
 depends_on:
@@ -89,6 +89,18 @@ for evidence, status and supersession, and the
 - **Reconsider when:** A verified need for additional commerce capabilities or provider operations changes payment, customer-data, fulfillment, or maintenance responsibilities.
 
 ## Open decisions
+
+### 2026-10-16 storefront ownership reconciliation
+
+[Implementation ADR 0006](docs/architecture/decisions/0006-store-launch-direction.md)
+records the newly discussed public identity and development workflow. Inspection
+also found a separate implemented `egohygiene/store` whose ADR-003 describes
+independent `/store` deployment. Compare it with this repository's ADR-004 and
+implementation before selecting the canonical storefront. Neither history is
+silently discarded; topology remains unresolved. The
+[launch plan](docs/architecture/store-launch-plan.md) and
+[proposed milestone backlog](docs/roadmaps/store-launch.md) are the next review
+inputs. Proposed issues/milestones await maintainer approval before creation.
 
 - Release and compatibility policy for the first stable version.
 - Exact self-hosted, managed, and organization-integrated deployment boundaries.

@@ -35,6 +35,34 @@ browser or post-merge CI pass. #69 remains open and no next issue is selected.
 
 ## Recording the next receipt
 
+### Discussion checkpoint — 2026-10-16
+
+The maintainer requested that the store/domain/hosting discussion be captured in
+both application repositories, including agent hooks, continuity and ADRs, before
+returning with a proposed milestone and sub-issue roadmap. Issue/milestone
+creation is explicitly deferred until that proposal is approved.
+
+Observed website main: `db634b887ede348ce85d9c03af789467ab535dcf`; store main:
+`599c90ca6a454c0f2e9aa95eab5f8395016474c5`; private merch main:
+`60e36d5a0cde95144920d4954cee3ed35b7bbd61`. Repository metadata, branch heads,
+open PR listings, website routes/architecture/context, and store
+README/AGENTS/DECISIONS/domain-routing were read. Website PR #73 and store
+dependency PRs #26/#27 remain separate work. Their runtime/CI status was not
+requalified by reading them.
+
+The [launch plan](../architecture/store-launch-plan.md) records source URLs and
+distinguishes accepted product direction, development preference, unresolved
+implementation ownership, and future provider qualification. CLI draft previews
+are not native branch deployments, and their retention is recorded explicitly.
+No raw chat, private design files, credentials, or business records were copied.
+
+Validation for the documentation capture is limited to Markdown/link checks,
+context-manifest JSON, diff scope, and consistency review. App/browser/provider
+tests are not claimed. No issue/milestone, infrastructure, DNS, credential,
+purchase, repository transfer, or archival operation is part of this change.
+
+### Receipt guidance
+
 Record the source path or stable URL, observation date, exact implementation
 commit and result. Distinguish observed facts, inherited historical evidence,
 accepted decisions and proposals. State coverage gaps such as an unavailable

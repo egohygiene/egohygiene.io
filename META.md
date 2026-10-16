@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-10-13
+updated: 2026-10-16
 governed_by:
   - architecture-meta
 depends_on:
@@ -40,6 +40,8 @@ layer links it to implementation evidence and the current work checkpoint:
 | [Current handoff](docs/context/current-state.md) | Dated branch/PR/issue snapshot, completed work, blockers and next actions |
 | [Provenance ledger](docs/context/provenance.md) | Links to pinned implementation, asset lineage and verification receipts |
 | [Implementation ADR index](docs/architecture/decisions/README.md) | Decision records, historical placeholders and disambiguation from root DECISIONS |
+| [Website/store launch plan](docs/architecture/store-launch-plan.md) | Accepted conversation direction, unresolved ownership/hosting choices, and provider/source boundaries |
+| [Proposed store milestones](docs/roadmaps/store-launch.md) | Approval-pending roadmap parent issues, sub-issues, existing backlog mapping and exit criteria |
 
 Start active implementation work from that handoff and refresh live source
 status. Consult the conceptual reading order below when changing purpose,

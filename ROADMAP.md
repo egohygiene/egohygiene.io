@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-08-24
+updated: 2026-10-16
 governed_by:
   - architecture-roadmap
 depends_on:
@@ -25,6 +25,15 @@ supersedes: []
 ---
 
 # Ego Hygiene Website Roadmap
+
+## 2026-10-16 store-launch discussion proposal
+
+The [website/store launch plan](docs/architecture/store-launch-plan.md) and
+[proposed milestone backlog](docs/roadmaps/store-launch.md) are the current
+review inputs for the community-store work. They map existing issues and expose
+the two-store ownership conflict. Their proposed parent issues, sub-issues and
+milestones must be approved before creation or reorganization. Earlier quest
+lines below remain historical context; this entry does not complete their work.
 
 <!-- BEGIN ROADMAP EXECUTION SNAPSHOT -->
 <!-- roadmap-manifest

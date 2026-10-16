@@ -17,6 +17,11 @@ issue/PR status. The [context map](docs/context/README.md) connects implementati
 decisions, provenance and verification receipts to the existing [META](META.md)
 architecture graph.
 
+The [2026-10-16 website/store launch plan](docs/architecture/store-launch-plan.md)
+and [proposed milestones](docs/roadmaps/store-launch.md) capture the current
+discussion. They identify overlapping storefront implementations and leave
+deployment, migration, and issue creation pending their stated review steps.
+
 ## Local website
 
 For the store and local Fourthwall tryout, install [Task v3](https://taskfile.dev/docs/installation) and activate Node **24.21.0**, then run:
