@@ -7,7 +7,9 @@ The maintainer requested the last checkpoint after B. Complete C in
 `feat/storefront-checkpoint-62a`, then return for a sync. No merge, deployment,
 new artwork or live-provider activation is part of this instruction. Starting
 PR head: `2c047489a1a4b583d83a135d5de7f4241773bd6f`; refreshed main:
-`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Publication receipt follows verification.
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Verified implementation:
+`1e784ee9a0afdc228457e63714becd69a94b97c7`; all 23 published file hashes match the
+reviewed local source/captures. This following receipt changes documentation only.
 
 Read the [final review](../design/storefront-62c.md) and
 [content workflow](../store/storefront-content-workflow.md). The existing A/B

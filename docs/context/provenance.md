@@ -316,7 +316,11 @@ head `2c047489a1a4b583d83a135d5de7f4241773bd6f`, tree
 `5d46fef71938f30e7fc3ada9ffa919c2653999db`; main remained
 `e52e4654fa826c7d66f47e03bc17de07fc977c2c`. All 560 local tracked baseline hashes
 matched the remote head before editing. Untouched generated remote files remain
-preserved. Publication receipt follows final verification.
+preserved. Implementation: `1e784ee9a0afdc228457e63714becd69a94b97c7`. GitHub comparison
+confirmed all 23 changed file hashes match reviewed source/docs/captures.
+This following documentation-only commit records that receipt. PR #78 remains
+open/draft/unmerged; #62 records all A/B/C checklists delivered and stays open for
+final acceptance and merge review.
 
 The [C review](../design/storefront-62c.md) records bounded journey/layout results
 and the [content workflow](../store/storefront-content-workflow.md) gives the

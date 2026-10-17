@@ -5,7 +5,9 @@ This completes the third checkpoint of
 [draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78), on the existing
 `feat/storefront-checkpoint-62a` branch. The maintainer authorized the last
 checkpoint after B. Return for a sync before merging, deploying or expanding
-scope. Publication receipt follows final verification.
+scope. Verified implementation: `1e784ee9a0afdc228457e63714becd69a94b97c7`.
+GitHub comparison confirmed all 23 changed file hashes match the reviewed source,
+documentation and captures. This following receipt changes documentation only.
 
 ## Result to review
 
