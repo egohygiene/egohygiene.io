@@ -29,6 +29,12 @@ selected direction is one website-owned storefront/build, submitted for review.
 The wider milestone creation/reparenting proposal awaits the next sync. Do not
 mistake the preserved separate-store implementation for a second V1 deployment.
 
+The current selected task is now #35's local landing/shell review; see
+[current state](docs/context/current-state.md) and the
+[rendered checkpoint](docs/design/landing-shell-35.md). The maintainer prioritized
+local visual work before CI/hosting repair. Preserve the earlier ownership PRs
+as separate reviews; this change does not authorize merging them.
+
 ## Working boundaries
 
 - Keep changes bounded to the owning issue. Preserve URLs, stable catalog IDs,

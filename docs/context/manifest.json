@@ -18,5 +18,6 @@
   "storeLaunchPlan": "docs/architecture/store-launch-plan.md",
   "storeLaunchRoadmap": "docs/roadmaps/store-launch.md",
   "storefrontOwnership": "docs/architecture/storefront-ownership.md",
-  "storefrontOwnershipDecision": "docs/architecture/decisions/0007-canonical-storefront-owner.md"
+  "storefrontOwnershipDecision": "docs/architecture/decisions/0007-canonical-storefront-owner.md",
+  "landingShellReview": "docs/design/landing-shell-35.md"
 }
