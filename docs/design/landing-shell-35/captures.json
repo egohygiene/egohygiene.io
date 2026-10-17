@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "capturedOn": "2026-10-17",
+  "browser": "Chromium 153.0.8010.0",
+  "deviceScaleFactor": 1,
+  "fullPage": true,
+  "format": "jpeg",
+  "quality": 82,
+  "reducedMotion": true,
+  "implementationReceipt": "../../context/provenance.md",
+  "syntheticLocales": [
+    "expanded",
+    "rtl"
+  ],
+  "captures": [
+    {
+      "file": "before-desktop.jpg",
+      "viewport": {
+        "width": 1440,
+        "height": 1080
+      },
+      "bytes": 239834,
+      "sha256": "615b0f7ddd8f49e9ebccc847c4327e7e6d4afaff3a8c13b2acc14d160fc72470",
+      "build": "baseline-production"
+    },
+    {
+      "file": "before-phone.jpg",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "bytes": 189681,
+      "sha256": "924ea64fba3720b8802e039c93786dbf0c66787835f5eeea344d5a14e5e5fbe7",
+      "build": "baseline-production"
+    },
+    {
+      "file": "desktop.jpg",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "bytes": 309709,
+      "sha256": "0d12577897895a1adb3e6ded4ce93a0efcddaf3b7f1fa0eb8b0cda1003b00697",
+      "build": "local-vite-component-review"
+    },
+    {
+      "file": "phone.jpg",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "bytes": 215254,
+      "sha256": "fb58896b80ac90fdcbd25a028a31660c536bd14d3a4a8b31943a8f399b88bae0",
+      "build": "local-vite-component-review"
+    },
+    {
+      "file": "tablet.jpg",
+      "viewport": {
+        "width": 820,
+        "height": 900
+      },
+      "bytes": 235479,
+      "sha256": "7b29ff447f39d52c889314142829377ad8ad9a7b825605ae7cfe505893bf5d3c",
+      "build": "local-vite-component-review"
+    },
+    {
+      "file": "high-contrast.jpg",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "bytes": 346405,
+      "sha256": "7b43c93a1fc059efda427b6f41e756ac2151ccbf77ba7a3d83cde8b161b331d0",
+      "build": "local-vite-component-review"
+    },
+    {
+      "file": "expanded-phone.jpg",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "bytes": 367205,
+      "sha256": "1d6ea02e1b55bd03691da376d436eced33073323ce4fcaa3d66391e35120031b",
+      "build": "local-vite-component-review"
+    },
+    {
+      "file": "rtl-phone.jpg",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "bytes": 254077,
+      "sha256": "98f20f3ba018f89ba280eb1d80192e5246a6678cc1fd4231dfe063a98dcc4622",
+      "build": "local-vite-component-review"
+    }
+  ]
+}

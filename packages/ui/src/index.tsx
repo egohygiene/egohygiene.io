@@ -1,11 +1,10 @@
+import { Icon } from "@egohygiene/icons";
+import { themeNames, useTheme } from "@egohygiene/themes";
+import { cn } from "@egohygiene/utilities";
 import type { HTMLAttributes, PropsWithChildren } from "react";
 
-import { Icon } from "@egohygiene/icons";
-import { useTheme, themeNames } from "@egohygiene/themes";
-import { cn } from "@egohygiene/utilities";
-
-export { Button, LinkButton } from "./components/Button";
 export type { ButtonProps } from "./components/Button";
+export { Button, LinkButton } from "./components/Button";
 export { Spinner } from "./components/Spinner";
 export { VisuallyHidden } from "./components/VisuallyHidden";
 
@@ -38,21 +37,27 @@ export function StatusBadge({
   return <span className={cn("eh-badge", `eh-badge--${tone}`)}>{children}</span>;
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({
+  label = "Theme",
+  labels,
+}: {
+  readonly label?: string;
+  readonly labels?: Partial<Record<(typeof themeNames)[number], string>>;
+} = {}) {
   const { theme, setTheme } = useTheme();
 
   return (
     <label className="eh-theme-toggle">
-      <span className="eh-theme-toggle__label">Theme</span>
+      <span className="eh-theme-toggle__label">{label}</span>
       <select
-        aria-label="Theme"
+        aria-label={label}
         className="eh-select"
         onChange={(event) => setTheme(event.target.value as typeof theme)}
         value={theme}
       >
         {themeNames.map((option) => (
           <option key={option} value={option}>
-            {option}
+            {labels?.[option] ?? option}
           </option>
         ))}
       </select>

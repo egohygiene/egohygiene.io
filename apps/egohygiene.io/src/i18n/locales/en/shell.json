@@ -1,0 +1,30 @@
+{
+  "brand": "Ego Hygiene",
+  "skipToContent": "Skip to content",
+  "navigation": {
+    "label": "Primary",
+    "open": "Open navigation",
+    "close": "Close navigation",
+    "home": "Home",
+    "store": "Store",
+    "about": "About",
+    "ecosystem": "Ecosystem"
+  },
+  "theme": {
+    "label": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark",
+    "highContrast": "High contrast"
+  },
+  "footer": {
+    "statement": "A space for self-awareness, creative expression, and a little more understanding.",
+    "navigation": "Footer",
+    "store": "Community store",
+    "repository": "View the source",
+    "signature": "Always growing. Always becoming.",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

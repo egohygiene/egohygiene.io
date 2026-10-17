@@ -1,9 +1,9 @@
-import type { ReactElement } from "react";
 import { render } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import type { ReactElement } from "react";
 import { MemoryRouter } from "react-router-dom";
+import { describe, expect, it } from "vitest";
 
-import { ThemeProvider } from "@egohygiene/themes";
+import { AppProviders } from "../../apps/egohygiene.io/src/app/providers";
 
 import { Header } from "../../apps/egohygiene.io/src/components/Header/Header";
 import { AboutPage } from "../../apps/egohygiene.io/src/pages/AboutPage";
@@ -13,7 +13,7 @@ import { HomePage } from "../../apps/egohygiene.io/src/pages/HomePage";
 function renderPage(element: ReactElement) {
   return render(
     <MemoryRouter>
-      <ThemeProvider>{element}</ThemeProvider>
+      <AppProviders>{element}</AppProviders>
     </MemoryRouter>,
   );
 }
@@ -21,10 +21,12 @@ function renderPage(element: ReactElement) {
 describe("primary site accessibility", () => {
   it("renders the home page heading and links", () => {
     const { getByRole } = renderPage(<HomePage />);
-    expect(
-      getByRole("heading", { level: 1, name: /Tools, ideas, and practices/i }),
-    ).toBeInTheDocument();
-    expect(getByRole("link", { name: /Explore the ecosystem/i })).toBeInTheDocument();
+    expect(getByRole("heading", { level: 1, name: /A little more human/i })).toBeInTheDocument();
+    expect(getByRole("link", { name: "Discover Ego Hygiene" })).toHaveAttribute("href", "/about");
+    expect(getByRole("link", { name: /Explore the ecosystem/i })).toHaveAttribute(
+      "href",
+      "/ecosystem",
+    );
   });
 
   it("renders about and ecosystem headings", () => {

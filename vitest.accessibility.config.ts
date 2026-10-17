@@ -2,11 +2,15 @@ import { fileURLToPath } from "node:url";
 
 import { defineConfig } from "vitest/config";
 
+import { publicStoreCatalog } from "./scripts/vite-store-catalog.mts";
+
 const resolve = (value: string) => fileURLToPath(new URL(value, import.meta.url));
 
 export default defineConfig({
+  plugins: [publicStoreCatalog()],
   resolve: {
     alias: {
+      "@egohygiene/i18n": resolve("./packages/i18n/src/index.ts"),
       "@egohygiene/content": resolve("./packages/content/src/index.ts"),
       "@egohygiene/icons": resolve("./packages/icons/src/index.ts"),
       "@egohygiene/schemas": resolve("./packages/schemas/src/index.ts"),

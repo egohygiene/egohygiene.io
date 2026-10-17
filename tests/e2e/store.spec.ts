@@ -343,13 +343,13 @@ test.describe("mobile store", () => {
     page,
   }, testInfo) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "Toggle navigation" }).click();
+    await page.getByRole("button", { name: "Open navigation" }).click();
     await page
       .getByRole("navigation", { name: "Primary" })
       .getByRole("link", { name: "Store", exact: true })
       .click();
     await expect(page).toHaveURL(/\/store$/);
-    await expect(page.getByRole("button", { name: "Toggle navigation" })).toHaveAttribute(
+    await expect(page.getByRole("button", { name: "Open navigation" })).toHaveAttribute(
       "aria-expanded",
       "false",
     );
@@ -371,9 +371,9 @@ test.describe("mobile store", () => {
   }) => {
     await page.goto("/store");
     for (const theme of ["light", "dark", "high-contrast"]) {
-      await page.getByRole("button", { name: "Toggle navigation" }).click();
+      await page.getByRole("button", { name: "Open navigation" }).click();
       await page.getByLabel("Theme", { exact: true }).selectOption(theme);
-      await page.getByRole("button", { name: "Toggle navigation" }).click();
+      await page.getByRole("button", { name: "Close navigation" }).click();
       await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
       await expectNoHorizontalOverflow(page);
       await expect(
