@@ -5,7 +5,9 @@
 After the checkpoint A sync, the maintainer requested **checkpoint 2/B**. Extend
 [draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78), on
 `feat/storefront-checkpoint-62a`, and **pause before checkpoint C**. The PR remains
-open, draft and unmerged. Publication receipt follows local verification.
+open, draft and unmerged. Verified implementation:
+`983b8bd15ec35896acda04ff1cbad861b2748d94`; all 40 published file hashes match the
+reviewed local source/screenshots. This following receipt changes documentation only.
 Starting remote head: `9bec5be66a17e716c325b7940ff2cf66b103e792`; main remains
 `e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Refresh live GitHub state before resuming.
 

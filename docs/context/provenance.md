@@ -274,7 +274,11 @@ Authority: after the A checkpoint, the maintainer explicitly requested checkpoin
 on `feat/storefront-checkpoint-62a`; stop for a sync before C. Remote starting
 head was `9bec5be66a17e716c325b7940ff2cf66b103e792`, tree
 `bc31fd7a1814670578c48316b7eb951c6397e086`. Main was refreshed at
-`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Publication receipt follows verification.
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Implementation:
+`983b8bd15ec35896acda04ff1cbad861b2748d94`. GitHub comparison confirmed all 40 changed
+file hashes match the reviewed local source/captures, preserving untouched base
+files. This following documentation-only commit records the receipt. PR #78
+remains draft/open/unmerged; #62 marks A/B delivered and leaves C unchecked.
 
 The [B review](../design/storefront-62b.md) describes artist routes, URL search,
 canonical song collection links and the additive curation contract. The

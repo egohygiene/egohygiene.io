@@ -6,6 +6,10 @@ This extends [#62](https://github.com/egohygiene/egohygiene.io/issues/62) in
 the [checkpoint A](storefront-62a.md) review. Stop for a sync before checkpoint C;
 this is not a merge, deployment or real-commerce activation.
 
+Verified implementation: `983b8bd15ec35896acda04ff1cbad861b2748d94`. GitHub comparison
+confirmed all 40 published file hashes match the reviewed source and captures.
+This receipt-only follow-up changes documentation, not application behavior.
+
 ## What to review
 
 | Destination | Behavior |
