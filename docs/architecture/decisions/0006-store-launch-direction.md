@@ -4,7 +4,10 @@ Date: 2026-10-16. Status: **accepted direction; delivery and repository ownershi
 remain proposed/unresolved**. Scope: website/store planning and continuity only.
 Owner: `egohygiene/egohygiene.io`, coordinated with `egohygiene/store`.
 Review branch: `docs/store-launch-direction-20261016`; the containing PR is the
-documentation review receipt. Proposed issue creation awaits maintainer approval.
+documentation review receipt. Proposed issue creation awaited maintainer approval
+at this dated checkpoint. **2026-10-17 successor:**
+[ADR 0007](0007-canonical-storefront-owner.md) selects ownership/topology under
+issue #75 for review; the original discussion and its status below are historical.
 
 ## Context
 

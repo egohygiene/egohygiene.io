@@ -1,6 +1,53 @@
 # Current handoff
 
-## Active discussion checkpoint — 2026-10-16
+## Active ownership checkpoint — 2026-10-17 UTC
+
+Planning [website PR #74](https://github.com/egohygiene/egohygiene.io/pull/74)
+merged as `ee59e2f83c59c084c23a5f8bcc3311c2dc830859`; companion
+[store PR #33](https://github.com/egohygiene/store/pull/33) merged as
+`bfda1a7c6b0ce09258522be8d8fe4bf9cba8b5a3`. GitHub read-back confirmed both.
+The maintainer authorized those merges and the first bounded roadmap task;
+[issue #75](https://github.com/egohygiene/egohygiene.io/issues/75) now tracks it
+in the existing Store v1 milestone. No new roadmap parents or reparenting occurred.
+
+Review receipts: [website draft PR #76](https://github.com/egohygiene/egohygiene.io/pull/76)
+and [store draft PR #34](https://github.com/egohygiene/store/pull/34), both open
+and unmerged at this checkpoint. Branch: `docs/storefront-ownership-75` in both
+repositories. Read the
+[comparison/preservation plan](../architecture/storefront-ownership.md) and
+[ADR 0007](../architecture/decisions/0007-canonical-storefront-owner.md).
+Selected direction, submitted for review: the website owns the V1 storefront
+and one composed build; `egohygiene/store` retains its commerce source/research.
+Private creative sources stay separate. No application code, dependency, host,
+provider configuration or purchase state changed.
+
+The comparison records actual source capabilities, license inconsistencies,
+cart/adapter test gaps, path/ID preservation, staged integration and rollback.
+Website #59 retains licensing reconciliation; #61/#37/#38 retain any needed
+commerce adaptation, journey tests and real-provider qualification. The useful
+separate-store cart is not a proven live checkout. See the ledger for evidence.
+
+Verification: source audit and independent review; 174 relative links, eight
+cross-repository draft links, ten available anchors, 14 manifest paths, JSON,
+fences/newlines and changed-line whitespace checks passed. No application tests
+were rerun. Refresh CI at the new PR heads; the following is pre-merge planning
+CI evidence. Pre-merge
+website CI still stops at 37 formatting diagnostics and unsupported dependency
+review (#29 / draft PR #73); store Quality gates pass, E2E fails on ambiguous
+`Black / Small` (#32 there). These are not new passing application tests. No
+protection/settings changed. Unrelated website PR #73 and store dependency
+PRs #26/#27 remain open and untouched.
+
+Next: review the paired ownership PRs, then finish #29's existing CI slice and
+specify the single-app Netlify development workflow. Remaining milestone/parent
+creation, production hosting and live product setup still need their respective
+next checkpoints. Do not start by creating a second storefront or migrating
+private repositories. Refresh live GitHub state before resuming.
+
+The dated sections below preserve earlier authority/status; this active section
+supersedes their old next actions. They do not describe current PR states.
+
+## Historical discussion checkpoint — 2026-10-16
 
 Website main was refreshed at `db634b887ede348ce85d9c03af789467ab535dcf`.
 Separate store main is `599c90ca6a454c0f2e9aa95eab5f8395016474c5`.

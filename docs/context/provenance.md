@@ -82,3 +82,45 @@ source and derivative hashes and export method in the asset-local record.
 Use live issue/PR links for current delivery status and commit links or dated
 receipts for reproducible evidence. Neither a hash nor a merged PR establishes
 copyright ownership, manufacturing quality, deployment or successful checkout.
+
+## Planning merges and ownership audit — 2026-10-17 UTC
+
+The maintainer requested merging the two planning PRs and beginning the first
+roadmap task before the next sync. GitHub confirmed website #74 merged as
+`ee59e2f83c59c084c23a5f8bcc3311c2dc830859`, store #33 as
+`bfda1a7c6b0ce09258522be8d8fe4bf9cba8b5a3`. Expected heads were respectively
+`8c9c0a6483b3116bc4b9d2886c98da9a7425d0a8` and
+`39a478e1a395c98f61537e6b72b06df22616e34c`. Refreshed comparisons contained
+13 documentation/context files and nine Markdown files; no implementation changed.
+
+[Issue #75](https://github.com/egohygiene/egohygiene.io/issues/75) is the new bounded
+ownership comparison, associated with existing Store v1 milestone 1. No full
+roadmap creation or native sub-issue reparenting was performed. The
+[comparison](../architecture/storefront-ownership.md) pins source trees and
+paths, CI runs, license evidence, selected owner and import/cutover/rollback
+conditions. [ADR 0007](../architecture/decisions/0007-canonical-storefront-owner.md)
+and reciprocal store ADR-005 preserve earlier decisions and record the selected
+website-owned V1 application/build for review.
+
+Website validation at the planning head stopped at 37 existing formatting
+errors; dependency review still reported unsupported/Dependency graph. Store
+Quality gates passed and E2E failed on the existing duplicate Black / Small
+locator. Logs were read before the normal merge API accepted each expected head;
+no checks or settings were disabled. Existing CI repair and unrelated dependency
+PRs were not merged. Source review found website LICENSE empty versus Apache-2.0
+metadata and a complete store MIT notice; #59 retains the reconciliation.
+
+No source code was imported or executed for this ownership checkpoint. New
+validation covers documentation links, context JSON, whitespace and consistency;
+prior application/browser evidence remains historical. There is no new provider,
+deployment, transaction, license-repair or physical-product qualification claim.
+
+Publication receipts: [website draft PR #76](https://github.com/egohygiene/egohygiene.io/pull/76)
+and [store draft PR #34](https://github.com/egohygiene/store/pull/34). Initial
+comparison commits are website `9c37849de420ce5434de39eff0272286d98a9a89` and
+store `4531e46c383a94db3119dc7e6917bc2c32fc9d26`; the following context-only
+commit adds these review links. Both PRs remain unmerged for the next sync.
+Combined validation passed: 174 relative link targets, eight cross-repository
+draft links resolved against the paired trees, ten available heading anchors,
+14 manifest paths, JSON, fences/newlines and changed-line whitespace. Independent
+review confirmed the comparison and fixed the reciprocal ADR-005 anchor.

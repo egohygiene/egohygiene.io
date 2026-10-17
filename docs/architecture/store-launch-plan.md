@@ -1,8 +1,10 @@
 # Ego Hygiene website and community store launch plan
 
-Version: **0.1.0**. Conversation checkpoint: **2026-10-16**, America/New_York.
+Version: **0.2.0**. Conversation checkpoint: **2026-10-16**, America/New_York.
+Ownership checkpoint: **2026-10-17 UTC**, issue #75.
 Status: accepted product direction and development preference; delivery plan
-proposed for review. This file records the discussion, not a deployed system.
+proposed for review, with first ownership task authorized and delivered for review.
+This file records the plan, not a deployed system.
 
 Start with [current state](../context/current-state.md), then this plan,
 [ADR 0006](decisions/0006-store-launch-direction.md), and the
@@ -12,9 +14,11 @@ Start with [current state](../context/current-state.md), then this plan,
 
 The maintainer requested repository documentation, agent/continuity hooks, ADRs,
 and a proposed milestone/parent-issue/sub-issue roadmap, followed by a sync.
-**Issue and milestone creation must wait for approval of the proposal.** This
-checkpoint does not authorize deployment, purchases, account activation,
-repository transfer, archival, or automatic merging of these documentation PRs.
+On 2026-10-17 the maintainer authorized merging the two planning PRs and starting
+the first bounded issue. Those merges are complete; [#75](https://github.com/egohygiene/egohygiene.io/issues/75)
+now holds the ownership comparison. Remaining new roadmap parents/milestones and
+reparenting await the next sync. Deployment, purchases, account activation,
+repository transfer and archival are outside this checkpoint.
 
 ## Product direction
 
@@ -40,7 +44,7 @@ Preserve current working product/design/collection links when adding them.
 | Address | Purpose | Current qualification |
 | --- | --- | --- |
 | `/` | Mission, project introduction, eventual core-product entry | Website route exists; content refinement proposed |
-| `/store` | Curated community storefront | Implemented in two repositories; canonical owner unresolved |
+| `/store` | Curated community storefront | Website selected under #75 for review; separate source preserved |
 | `/store/products/:slug` | Stable merchandise destination | Existing website route; preserve compatibility |
 | `/store/designs/:slug` | Design context and associated products | Existing website route; preserve compatibility |
 | `/store/collections/:slug` | Curated artist, brand, character, or theme | Existing website route; preserve compatibility |
@@ -55,7 +59,7 @@ The core product's future `/app` versus app subdomain remains open. Music may
 later move to its own destination; stable IDs and redirects should preserve
 incoming song/product links. Featuring an artist does not require a marketplace.
 
-## Repository ownership must be reconciled first
+## Repository ownership checkpoint
 
 Live source inspected on 2026-10-16:
 
@@ -65,31 +69,25 @@ Live source inspected on 2026-10-16:
 | `egohygiene/store` | `599c90ca6a454c0f2e9aa95eab5f8395016474c5` | Separate React/Vite storefront with commerce port, mock/Fourthwall adapter, cart code, and `/store/` hosting design |
 | `incomprisllc/merch` | `60e36d5a0cde95144920d4954cee3ed35b7bbd61` | Private creative source and design packs; not the same repository as `egohygiene/store` |
 
-Website [high-level ADR-004](../../DECISIONS.md#adr-004-consolidate-the-store-v1-website-and-use-hosted-checkout)
-records consolidation inside the website. Store
-[ADR-003](https://github.com/egohygiene/store/blob/599c90ca6a454c0f2e9aa95eab5f8395016474c5/DECISIONS.md#adr-003-deploy-independently-beneath-the-store-route)
-records an independent application. Neither record alone resolves the overlap.
-The store's Vercel configuration is existing source, not a new hosting choice.
+The [pinned implementation comparison](storefront-ownership.md) and
+[ADR 0007](decisions/0007-canonical-storefront-owner.md) select the website's
+`apps/egohygiene.io` as the V1 storefront owner, with one composed static build.
+The website already owns catalog/publication safeguards, artwork approvals,
+canonical URLs and shared shell. The separate store's cart/provider code remains
+valuable reference for bounded adaptation, with its MIT notice and source history.
+The selection is submitted in paired documentation PRs for maintainer review.
 
-Before implementing deployment, compare both implementations, tests, catalog
-contracts, current issues, licenses, and checkout behavior. Name one canonical
-store owner, document any selected imports and migrations with provenance, and
-link successor decisions in both repositories. Do not discard useful work or
-build a third competing store. No source is moved by this checkpoint.
+On acceptance this reaffirms website high-level ADR-004 and resolves store
+ADR-003's conflicting independent V1 deployment direction through reciprocal
+store ADR-005. Historical decisions and the original private-merch migration
+ledger remain intact. No code is copied or repository retired by this checkpoint.
 
-Two deployable shapes remain available:
-
-1. **Independent applications behind path routing.** The website owns `/` and
-   public navigation; the store owns `/store` and descendants. The website host
-   proxies that path to the store's origin, keeping the visitor's URL unchanged.
-2. **One composed website deployment.** One workflow builds the agreed modules
-   or composes pinned application outputs, with an explicit integration contract.
-
-DNS selects hosts, not URL paths. Path routing belongs to the hosting layer.
-Separate repositories must not independently overwrite the same deployment.
-For independent origins, test `/store`, `/store/`, nested page reloads, router
-basenames, asset URLs, error pages, cookies, and shared navigation. No iframe or
-microfrontend runtime is required merely to provide a shared public namespace.
+The selected V1 delivery is one website build/deployment coordinator for `/` and
+`/store`. Do not combine competing application outputs or create an independent
+Vercel store origin. Future products/documentation may still deploy independently.
+DNS selects hosts, not URL paths; no `/store` reverse proxy is needed for the
+composed V1 application. The comparison preserves routing/asset verification
+and rollback requirements for the actual host, which is still unconfigured.
 
 ## Creative and commerce boundaries
 
@@ -141,9 +139,10 @@ environment, with production chosen later between Cloudflare and Google.
   builds/PR deployments to avoid duplicate pipelines. A CLI `--alias` creates a
   named draft deployment, **not** a native branch deployment. Use an alias that
   differs from repository branch names and choose the exact mode during setup.
-- If two apps remain, use distinct deployment destinations and consistent
-  development-to-development routing. Record both source SHAs and the integration
-  configuration; do not route the development gateway to production checkout.
+- For the selected V1 shape, deploy one composed website artifact. Record its
+  source SHA and configuration; preview checkout remains mock or disabled. A
+  future independent application needs a new integration decision and must not
+  overwrite this deployment.
 - Preview configuration uses mock commerce or explicitly disabled purchases.
   Draft visibility flags are not privacy controls. Development credentials and
   production credentials are separate; secrets do not enter browser bundles.
@@ -187,7 +186,9 @@ than requiring an infrastructure rewrite before a preview works.
 
 See the [proposed roadmap](../roadmaps/store-launch.md) for candidate parent
 issues, sub-issues, dependencies, existing work to reuse, and exit criteria.
-**Next action is maintainer review of that proposal, not issue creation.**
+The first ownership issue #75 is underway; next is review of its paired PRs,
+then #29's existing CI slice and development-preview implementation. Remaining
+roadmap creation/reparenting still awaits sync.
 
 ## Sources and provenance
 
@@ -204,6 +205,7 @@ transcript. Source repository revisions are pinned above. External sources:
 - [Fourthwall custom storefront boundary](https://help.fourthwall.com/manage-my-shop/apps-features-and-integrations/storefront-api-for-custom-storefronts).
 - [Lulu Direct Buy Button candidate](https://help.luludirect.lulu.com/en/support/solutions/articles/64000311603-how-to-create-and-manage-a-lulu-direct-buy-button).
 
-Companion store checkpoint is on
-[`docs/store-launch-direction-20261016`](https://github.com/egohygiene/store/tree/docs/store-launch-direction-20261016).
-Branch links refer to review work until merged; refresh PR state before resuming.
+Planning receipts: [website #74](https://github.com/egohygiene/egohygiene.io/pull/74)
+and [store #33](https://github.com/egohygiene/store/pull/33), both merged.
+The current companion [ownership checkpoint](https://github.com/egohygiene/store/blob/docs/storefront-ownership-75/docs/context/current-state.md)
+is submitted for review; refresh its PR state before resuming.

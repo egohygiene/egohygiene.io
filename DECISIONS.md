@@ -90,17 +90,20 @@ for evidence, status and supersession, and the
 
 ## Open decisions
 
-### 2026-10-16 storefront ownership reconciliation
+### 2026-10-17 storefront ownership checkpoint
 
 [Implementation ADR 0006](docs/architecture/decisions/0006-store-launch-direction.md)
 records the newly discussed public identity and development workflow. Inspection
 also found a separate implemented `egohygiene/store` whose ADR-003 describes
-independent `/store` deployment. Compare it with this repository's ADR-004 and
-implementation before selecting the canonical storefront. Neither history is
-silently discarded; topology remains unresolved. The
-[launch plan](docs/architecture/store-launch-plan.md) and
-[proposed milestone backlog](docs/roadmaps/store-launch.md) are the next review
-inputs. Proposed issues/milestones await maintainer approval before creation.
+independent `/store` deployment. [ADR 0007](docs/architecture/decisions/0007-canonical-storefront-owner.md)
+and the [pinned comparison](docs/architecture/storefront-ownership.md) select the
+website as canonical V1 storefront with one composed build, submitted for review
+under #75. On acceptance this reaffirms high-level ADR-004 and supersedes only
+the separate store's independent V1 deployment through its reciprocal ADR-005.
+Historical records remain intact. No source code or deployment is moved.
+The [launch plan](docs/architecture/store-launch-plan.md) and
+[proposed milestone backlog](docs/roadmaps/store-launch.md) retain the wider
+scope. Only the first issue is underway; remaining milestone creation awaits sync.
 
 - Release and compatibility policy for the first stable version.
 - Exact self-hosted, managed, and organization-integrated deployment boundaries.
