@@ -114,3 +114,13 @@ No source code was imported or executed for this ownership checkpoint. New
 validation covers documentation links, context JSON, whitespace and consistency;
 prior application/browser evidence remains historical. There is no new provider,
 deployment, transaction, license-repair or physical-product qualification claim.
+
+Publication receipts: [website draft PR #76](https://github.com/egohygiene/egohygiene.io/pull/76)
+and [store draft PR #34](https://github.com/egohygiene/store/pull/34). Initial
+comparison commits are website `9c37849de420ce5434de39eff0272286d98a9a89` and
+store `4531e46c383a94db3119dc7e6917bc2c32fc9d26`; the following context-only
+commit adds these review links. Both PRs remain unmerged for the next sync.
+Combined validation passed: 174 relative link targets, eight cross-repository
+draft links resolved against the paired trees, ten available heading anchors,
+14 manifest paths, JSON, fences/newlines and changed-line whitespace. Independent
+review confirmed the comparison and fixed the reciprocal ADR-005 anchor.

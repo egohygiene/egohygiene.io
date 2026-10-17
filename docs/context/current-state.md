@@ -10,7 +10,10 @@ The maintainer authorized those merges and the first bounded roadmap task;
 [issue #75](https://github.com/egohygiene/egohygiene.io/issues/75) now tracks it
 in the existing Store v1 milestone. No new roadmap parents or reparenting occurred.
 
-Branch: `docs/storefront-ownership-75` in both repositories. Read the
+Review receipts: [website draft PR #76](https://github.com/egohygiene/egohygiene.io/pull/76)
+and [store draft PR #34](https://github.com/egohygiene/store/pull/34), both open
+and unmerged at this checkpoint. Branch: `docs/storefront-ownership-75` in both
+repositories. Read the
 [comparison/preservation plan](../architecture/storefront-ownership.md) and
 [ADR 0007](../architecture/decisions/0007-canonical-storefront-owner.md).
 Selected direction, submitted for review: the website owns the V1 storefront
@@ -24,7 +27,11 @@ Website #59 retains licensing reconciliation; #61/#37/#38 retain any needed
 commerce adaptation, journey tests and real-provider qualification. The useful
 separate-store cart is not a proven live checkout. See the ledger for evidence.
 
-Verification: source audit and documentation/context checks only. Pre-merge
+Verification: source audit and independent review; 174 relative links, eight
+cross-repository draft links, ten available anchors, 14 manifest paths, JSON,
+fences/newlines and changed-line whitespace checks passed. No application tests
+were rerun. Refresh CI at the new PR heads; the following is pre-merge planning
+CI evidence. Pre-merge
 website CI still stops at 37 formatting diagnostics and unsupported dependency
 review (#29 / draft PR #73); store Quality gates pass, E2E fails on ambiguous
 `Black / Small` (#32 there). These are not new passing application tests. No
