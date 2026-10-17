@@ -1,10 +1,16 @@
 import { randomUUID } from "node:crypto";
+import type { Dirent } from "node:fs";
 import { readdir, readFile, realpath, stat, writeFile } from "node:fs/promises";
 import { isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { parseStoreProviders } from "../packages/schemas/src/store-providers.ts";
-import { parseStoreCatalog, StoreCatalogError } from "../packages/schemas/src/store.ts";
 import type { StoreCatalog } from "../packages/schemas/src/store.ts";
+import { parseStoreCatalog, StoreCatalogError } from "../packages/schemas/src/store.ts";
+import { parseStoreProviders } from "../packages/schemas/src/store-providers.ts";
+import type { StorefrontCuration } from "../packages/schemas/src/storefront-curation.ts";
+import {
+  emptyStorefrontCuration,
+  parseStorefrontCuration,
+} from "../packages/schemas/src/storefront-curation.ts";
 
 export const defaultCatalogDirectory = fileURLToPath(
   new URL("../apps/egohygiene.io/src/content/store/entries/", import.meta.url),
@@ -17,6 +23,9 @@ export const defaultCheckoutRoutesFile = fileURLToPath(
 );
 export const defaultProvidersFile = fileURLToPath(
   new URL("../apps/egohygiene.io/src/content/store/providers.json", import.meta.url),
+);
+export const defaultStorefrontCurationFile = fileURLToPath(
+  new URL("../apps/egohygiene.io/src/content/store/storefront-curation.json", import.meta.url),
 );
 
 /** Read configuration afresh so a running development server never reuses JSON import caches. */
@@ -39,6 +48,21 @@ export interface CatalogSource {
   value: unknown;
 }
 
+/** Custom catalogs get empty curation unless their caller explicitly supplies a manifest. */
+export function curationFileForDirectory(directory: string): string | null {
+  return resolve(directory) === resolve(defaultCatalogDirectory)
+    ? defaultStorefrontCurationFile
+    : null;
+}
+
+export async function loadStorefrontCuration(
+  catalog: StoreCatalog,
+  file: string | null = defaultStorefrontCurationFile,
+): Promise<StorefrontCuration> {
+  if (file === null) return emptyStorefrontCuration();
+  return parseStorefrontCuration(await readCatalogJson(file), catalog, file);
+}
+
 /** Discover entries recursively. Filenames organize authors' work, not runtime imports. */
 export async function loadCatalogSources(
   directory: string = defaultCatalogDirectory,
@@ -47,7 +71,7 @@ export async function loadCatalogSources(
   const files: string[] = [];
 
   async function discover(path: string): Promise<void> {
-    let entries;
+    let entries: Dirent[];
     try {
       entries = await readdir(path, { withFileTypes: true });
     } catch (error) {
@@ -77,19 +101,31 @@ export async function loadCatalogSources(
 export async function loadCatalog(
   directory: string = defaultCatalogDirectory,
   routes?: unknown,
-  publicDirectory: string | undefined = resolve(directory) === resolve(defaultCatalogDirectory) ? defaultPublicDirectory : undefined,
+  publicDirectory: string | undefined = resolve(directory) === resolve(defaultCatalogDirectory)
+    ? defaultPublicDirectory
+    : undefined,
+  curationFile: string | null = curationFileForDirectory(directory),
 ): Promise<StoreCatalog> {
   parseStoreProviders(await readCatalogJson(defaultProvidersFile));
-  const checkoutRoutes = routes === undefined
-    ? resolve(directory) === resolve(defaultCatalogDirectory) ? await readCatalogJson(defaultCheckoutRoutesFile) : []
-    : routes;
-  return validateCatalog(await loadCatalogSources(directory), checkoutRoutes, publicDirectory);
+  const checkoutRoutes =
+    routes === undefined
+      ? resolve(directory) === resolve(defaultCatalogDirectory)
+        ? await readCatalogJson(defaultCheckoutRoutesFile)
+        : []
+      : routes;
+  const catalog = await validateCatalog(
+    await loadCatalogSources(directory),
+    checkoutRoutes,
+    publicDirectory,
+  );
+  await loadStorefrontCuration(catalog, curationFile);
+  return catalog;
 }
 
 const usage = [
   "Usage:",
-  "  node scripts/store-catalog.mts validate [--directory <path>] [--public-directory <path>]",
-  "  node scripts/store-catalog.mts add-design --slug <slug> --title <title> [--directory <path>] [--public-directory <path>]",
+  "  node scripts/store-catalog.mts validate [--directory <path>] [--public-directory <path>] [--curation-file <path>]",
+  "  node scripts/store-catalog.mts add-design --slug <slug> --title <title> [--directory <path>] [--public-directory <path>] [--curation-file <path>]",
 ].join("\n");
 
 function errorMessage(error: unknown): string {
@@ -121,12 +157,16 @@ async function validateCatalog(
       assetRoot ??= await realpath(publicDirectory);
       const resolvedTarget = await realpath(target);
       if (!isWithinDirectory(assetRoot, resolvedTarget)) {
-        issues.push(`${field}: Artwork file resolves outside public directory: ${entry.artwork.src}`);
+        issues.push(
+          `${field}: Artwork file resolves outside public directory: ${entry.artwork.src}`,
+        );
       } else if (!(await stat(resolvedTarget)).isFile()) {
         issues.push(`${field}: Artwork must reference a regular file: ${entry.artwork.src}`);
       }
     } catch (error) {
-      issues.push(`${field}: Cannot resolve artwork file ${entry.artwork.src}: ${errorMessage(error)}`);
+      issues.push(
+        `${field}: Cannot resolve artwork file ${entry.artwork.src}: ${errorMessage(error)}`,
+      );
     }
   }
   if (issues.length) throw new StoreCatalogError(issues);
@@ -135,7 +175,9 @@ async function validateCatalog(
 
 function validationScope(catalog: StoreCatalog, publicDirectory: string | undefined): string {
   if (publicDirectory === undefined) return "Schema only; artwork files were not checked.";
-  const count = catalog.entries.filter((entry) => entry.kind === "design" && entry.artwork.kind === "image").length;
+  const count = catalog.entries.filter(
+    (entry) => entry.kind === "design" && entry.artwork.kind === "image",
+  ).length;
   return `Image files verified: ${count}.`;
 }
 
@@ -158,6 +200,21 @@ function readOptions(args: string[], allowed: readonly string[]): Map<string, st
   return options;
 }
 
+function resolveCatalogPaths(options: Map<string, string>) {
+  const directory = resolve(options.get("--directory") ?? defaultCatalogDirectory);
+  const publicOption = options.get("--public-directory");
+  const curationOption = options.get("--curation-file");
+  return {
+    directory,
+    publicDirectory: publicOption
+      ? resolve(publicOption)
+      : directory === resolve(defaultCatalogDirectory)
+        ? defaultPublicDirectory
+        : undefined,
+    curationFile: curationOption ? resolve(curationOption) : curationFileForDirectory(directory),
+  };
+}
+
 /** Return a short result so importing this module never executes or prints a command. */
 export async function runCatalogCommand(args: string[]): Promise<string> {
   parseStoreProviders(await readCatalogJson(defaultProvidersFile));
@@ -171,18 +228,21 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
 
   const options = readOptions(
     rest,
-    command === "validate" ? ["--directory", "--public-directory"] : ["--directory", "--public-directory", "--slug", "--title"],
+    command === "validate"
+      ? ["--directory", "--public-directory", "--curation-file"]
+      : ["--directory", "--public-directory", "--curation-file", "--slug", "--title"],
   );
-  const directory = resolve(options.get("--directory") ?? defaultCatalogDirectory);
+  const { directory, publicDirectory, curationFile } = resolveCatalogPaths(options);
   const sources = await loadCatalogSources(directory);
-  const routes = directory === resolve(defaultCatalogDirectory) ? await readCatalogJson(defaultCheckoutRoutesFile) : [];
-  const publicDirectory = options.has("--public-directory")
-    ? resolve(options.get("--public-directory")!)
-    : directory === resolve(defaultCatalogDirectory) ? defaultPublicDirectory : undefined;
+  const routes =
+    directory === resolve(defaultCatalogDirectory)
+      ? await readCatalogJson(defaultCheckoutRoutesFile)
+      : [];
 
   if (command === "validate") {
     const catalog = await validateCatalog(sources, routes, publicDirectory);
-    return `Catalog valid: ${sources.length} entries. ${validationScope(catalog, publicDirectory)}`;
+    await loadStorefrontCuration(catalog, curationFile);
+    return `Catalog valid: ${sources.length} entries. ${validationScope(catalog, publicDirectory)} Storefront curation: ${curationFile ? "validated" : "empty (custom catalog)"}.`;
   }
 
   const slug = options.get("--slug");
@@ -192,7 +252,9 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
   }
   // Check before constructing a path: a slug cannot escape the authoring directory.
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
-    throw new Error("--slug must contain lowercase letters, digits, and single separating hyphens.");
+    throw new Error(
+      "--slug must contain lowercase letters, digits, and single separating hyphens.",
+    );
   }
 
   const source = resolve(directory, `${slug}.design.json`);
@@ -211,8 +273,12 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
 
   // Validate the complete prospective catalog, including uniqueness and references.
   const catalog = await validateCatalog([...sources, { source, value }], routes, publicDirectory);
+  await loadStorefrontCuration(catalog, curationFile);
   try {
-    await writeFile(source, `${JSON.stringify(value, null, 2)}\n`, { encoding: "utf8", flag: "wx" });
+    await writeFile(source, `${JSON.stringify(value, null, 2)}\n`, {
+      encoding: "utf8",
+      flag: "wx",
+    });
   } catch (error) {
     throw new Error(`${source}: could not create entry; existing files are never overwritten`, {
       cause: error,

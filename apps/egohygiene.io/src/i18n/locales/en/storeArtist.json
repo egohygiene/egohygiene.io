@@ -1,0 +1,58 @@
+{
+  "title": "Artist collection",
+  "description": "Explore an Incompris artist’s standalone designs and collections inspired by individual songs.",
+  "kicker": "An Incompris artist collection",
+  "introduction": "Two ways into the artist’s world: independent designs, and collections that begin with a song.",
+  "backLink": "Back to Incompris",
+  "navigationLabel": "Browse the artist collection",
+  "collectionArtists": "Artist collections",
+  "collectionSongs": "Shop by song",
+  "preview": {
+    "title": "Fictional artist preview",
+    "description": "A local example of standalone and song collections. Demo artist and these products are fictional; nothing here is for sale.",
+    "back": "Back to Incompris",
+    "link": "Try the fictional artist example"
+  },
+  "breadcrumb": {
+    "label": "Breadcrumb",
+    "store": "Ego Hygiene store",
+    "incompris": "Incompris"
+  },
+  "entrance": {
+    "kicker": "Music and the worlds around it",
+    "heading": "Artist collections",
+    "description": "Explore the artists within Incompris, each with room for independent ideas and designs inspired by their music.",
+    "link": "Explore artist collection"
+  },
+  "standalone": {
+    "label": "Standalone & worlds",
+    "kicker": "Room for its own story",
+    "heading": "Standalone designs & worlds",
+    "description": "Characters, abstract ideas, and designs to explore beyond an individual song.",
+    "searchLabel": "Search standalone designs and worlds",
+    "emptyHeading": "The first designs are still taking shape.",
+    "emptyDescription": "Selected standalone designs and character worlds will appear here when they are ready to share."
+  },
+  "songs": {
+    "label": "Shop by song",
+    "kicker": "From a song to something you can hold",
+    "heading": "Shop by song",
+    "description": "Find a song’s collection, then explore the designs and objects connected to it.",
+    "searchLabel": "Search song collections",
+    "emptyHeading": "The first song collection is on its way.",
+    "emptyDescription": "Song collections will appear here as their designs are ready. No song merchandise has been added to this artist collection yet."
+  },
+  "search": {
+    "formLabel": "Search this artist collection",
+    "clear": "Clear search",
+    "resultsLabel": "Results:",
+    "emptyHeading": "No matches in this view.",
+    "emptyDescription": "Try another search, clear it, or switch between standalone designs and song collections."
+  },
+  "missing": {
+    "title": "Artist collection not found",
+    "kicker": "A little off the map",
+    "heading": "This artist collection isn’t here.",
+    "description": "The link may have changed, or the collection may not be ready to share. Explore Incompris to find the available artist collections."
+  }
+}

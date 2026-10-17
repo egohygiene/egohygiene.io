@@ -11,6 +11,7 @@ why this checkpoint adds a provider adapter without adding a framework or engine
 | --- | --- | --- |
 | IDs, slugs, artwork revisions, design/product/context relationships | Validated catalog v1 | Derive views through selectors; never replace IDs with provider IDs |
 | Public browser catalog | Node loader → `toPublicStoreCatalog` → Vite adapter | Import `src/content/store/index.ts`; no raw authoring JSON imports |
+| Shop and artist selections | Validated storefront curation v1 | Resolve ordered canonical IDs through domain selectors; membership does not imply authorship or purchase eligibility |
 | `q`, `view`, `story` and navigation | Router URL/search parameters | Derive filters on render; retain unrelated query parameters |
 | Gallery selection, size, quantity and displayed mock summary | Local React state | Derive selected objects/eligibility; clear the summary when selection changes |
 | Theme preference and system resolution | One `ThemeProvider` | `useTheme` and semantic variables; storage failure must not block the app |
@@ -176,3 +177,60 @@ must be adapted if a future renderer is justified.
 
 The [checkpoint evidence](store-domain-checkpoint.md) records actual checks,
 bundle deltas and the browser verification limitation for this implementation.
+
+## Curate the primary shop and Incompris
+
+Checkpoint A of #62 adds a strict `storefront-curation.json` version-1 manifest
+beside the authoring catalog. It selects ordered public canonical IDs for the
+primary Ego Hygiene shop, Incompris collection and its featured subset; it never
+confers ownership, artist attribution or purchase eligibility. Browser consumers
+receive `storefrontCuration` alongside `storeCatalog` from `src/content/store`.
+Use `getCuratedStoreEntries` from the portable domain entry point to preserve
+manual order without copying entries or constructing new detail URLs.
+
+`/store/catalog` retains the uncurated preview browser, including fictional
+examples. The curated `/store` and `/store/incompris` pages can stay empty until
+approved content exists. Old `/store` filter/section links redirect to the preview
+browser; product/design/collection URLs remain unchanged. See the
+[checkpoint authoring guide](../design/storefront-62a.md) and
+[ADR 0008](decisions/0008-curated-storefront-views.md).
+
+## Artist and song discovery
+
+Checkpoint B adds optional `artists` to the same curation v1 manifest. Each
+selection has a public artist-context `artistId`, ordered `standaloneEntryIds`
+and ordered `songCollectionIds`. All three arrays default to empty; previous
+curation v1 sources still parse. Standalone selections accept public designs,
+products and collections. Song selections require public collections with at
+least one directly referenced public song context. Duplicate artist IDs or
+duplicates within a list, missing/draft references and wrong entry kinds fail
+the existing Node validation boundary.
+
+Use `getCuratedStoreArtists` for discovery and `getCuratedStoreArtist` for an
+exact slug lookup. They return the canonical artist context, ordered
+`standaloneEntries` and `songCollections`; they do not infer extra membership.
+`storeArtistPath` supplies `/store/incompris/artists/<artist-slug>`. The reusable
+React page owns URL state (`view=songs`, optional `q`), translated controls,
+metadata and empty/missing views. Unknown view values use the standalone view;
+view changes retain other query parameters.
+
+Song collections keep their existing `storeEntryPath` destination,
+`/store/collections/<slug>`, suitable for stable SoundCloud links once published.
+Products keep `/store/products/<slug>` in every view. Many artists or song
+collections may select the same entry, and the standalone/song views may overlap
+intentionally. Selection is editorial discoverability; it does not establish
+authorship or require duplicate artist context associations on each collection.
+No private song-catalog fetch or new provider routing is involved.
+
+The real `/store/incompris/artists/play` destination is registered with empty
+selections. Heartburst remains selected only for Incompris, without an artist or
+song attribution. `/store/preview/artists/demo-artist` reuses the same page with
+a clearly fictional artist and existing demo entries, lazy-loaded only in the
+isolated preview build. Normal builds exclude that route and synthetic artist;
+all demo purchase states remain disabled.
+
+See [artist authoring](../store/catalog-authoring.md#curate-an-artist-and-shop-by-song)
+for content steps. `tests/store/artists.test.ts` covers compatible defaults,
+many-to-many identity, order, stable paths and invalid references. UI/browser
+checks exercise URL navigation and empty/populated states; passing these checks
+does not qualify a live checkout or a real release's metadata.

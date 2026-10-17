@@ -3,7 +3,7 @@ import { defineConfig, devices } from "@playwright/test";
 /** Run `task build:store` first; this suite uses the isolated local demo artifact. */
 export default defineConfig({
   testDir: "./tests/e2e",
-  testMatch: "fourthwall-preview.spec.ts",
+  testMatch: ["fourthwall-preview.spec.ts", "artist-preview.spec.ts"],
   workers: 1,
   retries: 0,
   reporter: "list",

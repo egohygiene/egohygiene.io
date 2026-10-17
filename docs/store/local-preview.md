@@ -77,6 +77,13 @@ See [Fourthwall local setup](fourthwall-local-setup.md) for the connection trial
 
 These tasks do not deploy the website, create service accounts, activate checkout routes, or place orders. Hosting remains tracked by #29 and live provider activation by #38.
 
+The [storefront content workflow](storefront-content-workflow.md) walks through
+adding approved content and reviewing its placement. The real artist destination
+is `/store/incompris/artists/play`; its empty selections are intentional. In the
+isolated preview, follow **Try the fictional artist example** from Incompris to
+`/store/preview/artists/demo-artist` for populated standalone/song browsing. That
+additional fictional artist and route are excluded from normal builds.
+
 ## Troubleshooting
 
 - **`task: command not found`:** Install Task, reopen your terminal if necessary, and check `task --version`.

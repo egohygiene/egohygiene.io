@@ -3,7 +3,13 @@ import { defineConfig, devices } from "@playwright/test";
 /** Build first with `pnpm build`; these journeys exercise the production bundle. */
 export default defineConfig({
   testDir: "./tests/e2e",
-  testMatch: ["store.spec.ts", "theme.spec.ts"],
+  testMatch: [
+    "store.spec.ts",
+    "storefront.spec.ts",
+    "store-artist.spec.ts",
+    "storefront-journey.spec.ts",
+    "theme.spec.ts",
+  ],
   fullyParallel: true,
   workers: 2,
   retries: 0,
@@ -19,7 +25,8 @@ export default defineConfig({
       : {},
   },
   webServer: {
-    command: "pnpm --filter @egohygiene/egohygiene.io preview --host 127.0.0.1 --port 4173 --strictPort",
+    command:
+      "pnpm --filter @egohygiene/egohygiene.io preview --host 127.0.0.1 --port 4173 --strictPort",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: false,
     timeout: 60_000,

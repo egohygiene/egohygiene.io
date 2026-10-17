@@ -1,0 +1,96 @@
+{
+  "capturedAt": "2026-10-17T09:51:16.301Z",
+  "browser": "153.0.8010.0",
+  "build": "Local production build; source revision is recorded in the companion review document.",
+  "format": "JPEG, quality 82, full page, no image manipulation",
+  "screens": [
+    {
+      "route": "/store",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "file": "store-desktop.jpg",
+      "sha256": "701c6e98c761c49194a2189bdf8a59382604c0da693ebe2c4773b74967c189f5",
+      "bytes": 201544,
+      "errors": [],
+      "metrics": {
+        "title": "The community store \u00b7 Ego Hygiene",
+        "headings": [
+          "The Ego Hygiene store.",
+          "Ego Hygiene merchandise",
+          "Featured from Incompris"
+        ],
+        "documentWidth": 1440,
+        "documentHeight": 2476,
+        "imageErrors": []
+      }
+    },
+    {
+      "route": "/store",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "file": "store-phone.jpg",
+      "sha256": "906422d4f9ba7ef6a36927f59abe70414602b2e1b96311d56ca3201eee0635c8",
+      "bytes": 131567,
+      "errors": [],
+      "metrics": {
+        "title": "The community store \u00b7 Ego Hygiene",
+        "headings": [
+          "The Ego Hygiene store.",
+          "Ego Hygiene merchandise",
+          "Featured from Incompris"
+        ],
+        "documentWidth": 390,
+        "documentHeight": 2683,
+        "imageErrors": []
+      }
+    },
+    {
+      "route": "/store/incompris",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "file": "incompris-desktop.jpg",
+      "sha256": "8f9f29feeb0344052b70516b76e59f5de502cd83f14f9ed0711a79323252507d",
+      "bytes": 142947,
+      "errors": [],
+      "metrics": {
+        "title": "Incompris collection \u00b7 Ego Hygiene",
+        "headings": [
+          "Incompris",
+          "Explore the collection"
+        ],
+        "documentWidth": 1440,
+        "documentHeight": 1907,
+        "imageErrors": []
+      }
+    },
+    {
+      "route": "/store/incompris",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "file": "incompris-phone.jpg",
+      "sha256": "00dfde932480e4c95e2cdd7ab5da20289fad335f1de4365d16624e82e607e586",
+      "bytes": 105739,
+      "errors": [],
+      "metrics": {
+        "title": "Incompris collection \u00b7 Ego Hygiene",
+        "headings": [
+          "Incompris",
+          "Explore the collection"
+        ],
+        "documentWidth": 390,
+        "documentHeight": 1925,
+        "imageErrors": []
+      }
+    }
+  ],
+  "implementationRevision": "b320b7af555d2408ce0b75dff4d4b5bc4fa44e5e",
+  "pullRequest": "https://github.com/egohygiene/egohygiene.io/pull/78"
+}

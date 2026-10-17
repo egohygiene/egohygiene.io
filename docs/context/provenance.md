@@ -209,3 +209,156 @@ The next authorized activity is discussion, not implementation: settle #62's
 World showcase / Shop by song structure and one connected product journey.
 Functional setup precedes further visual polish. No #62 code, new artwork,
 deployment, provider activation, purchase or unrelated PR merge occurred.
+
+
+## #62 checkpoint A — 2026-10-17 UTC
+
+The maintainer approved the three-checkpoint plan in
+[issue #62](https://github.com/egohygiene/egohygiene.io/issues/62), then authorized
+checkpoint A only, ending at a draft PR and sync before B. This supersedes the
+prior pause-before-discussion instruction, without granting merge or deployment
+authority. Branch: `feat/storefront-checkpoint-62a`.
+
+Starting website main was refreshed at
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c` (confirmed #77 merge), tree
+`a647d8fdff8b85c14cd02ed7b42e05d7a57d7c20`. The isolated source checkout was exported from that verified
+tree; ignored generated files were not included in its local snapshot history.
+Publication uses the real remote base tree and preserves those remote files. Existing unrelated checkouts and open CI work were preserved.
+
+[ADR 0008](../architecture/decisions/0008-curated-storefront-views.md) records the
+editorial manifest and route compatibility decision. The
+[review/authoring guide](../design/storefront-62a.md) records the implementation,
+commands, precise test scope and limitations. Heartburst was selected using its
+existing canonical ID and approved public derivative; no asset, product, context,
+checkout route or provider approval was added. The Ego Hygiene selection is empty.
+
+Local validation passes: build (173 modules), app/catalog/domain typechecks,
+47 catalog tests, 28 focused unit tests, 23 production store/theme journeys,
+five new storefront journeys rerun against the last UI rebuild, and the portable
+11-module import guard. Scope-limited format checks and diff whitespace pass;
+pre-existing lint warnings remain. Independent source review found no substantive
+issue. Hosted CI was not made a delivery gate and no workflow setting changed.
+
+Four actual production route screenshots were inspected and preserved with
+[SHA-256/dimension metadata](../design/storefront-62a/captures.json). Browser checks
+cover 320/390/820/1440 widths. A temporary unshipped four-card QA host verified
+expanded and synthetic RTL messages, native horizontal keyboard scrolling and
+visible row focus at 320/390/1440 (six scenarios). It was removed before publishing.
+These are bounded Chromium 153 checks, not physical-device, cross-browser,
+screen-reader or provider qualification. No dependency or lockfile changed.
+
+The publication receipt below pins the implementation revision after creating
+its real GitHub commit. Documentation-only receipt changes do not imply another
+application test run. Next: sync on A; do not begin artist/song checkpoint B.
+
+### Publication receipt — checkpoint A
+
+[Draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78) is open and unmerged on
+`feat/storefront-checkpoint-62a`, targeting `main`. Implementation commit:
+`b320b7af555d2408ce0b75dff4d4b5bc4fa44e5e`; tree:
+`546e2f45c12251131a49d60da9b0618758c2332d`. GitHub comparison verified all 43
+changed file hashes against the reviewed local source and screenshot bytes.
+No ignored generated baseline file was changed remotely. This follow-up adds
+only the publication receipt and capture revision metadata.
+
+At the implementation head, hosted dependency review completed with failure
+and validation was still in progress when inspected. This is not a hosted CI
+pass; investigate those checks under the existing CI work rather than silently
+changing gates. Local receipts above stand on their named commands and scope.
+The PR stays draft for Alan's sync, and issue #62 stays open for B/C.
+
+## Artist/song checkpoint B — 2026-10-17 UTC
+
+Authority: after the A checkpoint, the maintainer explicitly requested checkpoint
+2/B. Work extends [draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78)
+on `feat/storefront-checkpoint-62a`; stop for a sync before C. Remote starting
+head was `9bec5be66a17e716c325b7940ff2cf66b103e792`, tree
+`bc31fd7a1814670578c48316b7eb951c6397e086`. Main was refreshed at
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Implementation:
+`983b8bd15ec35896acda04ff1cbad861b2748d94`. GitHub comparison confirmed all 40 changed
+file hashes match the reviewed local source/captures, preserving untouched base
+files. This following documentation-only commit records the receipt. PR #78
+remains draft/open/unmerged; #62 marks A/B delivered and leaves C unchecked.
+
+The [B review](../design/storefront-62b.md) describes artist routes, URL search,
+canonical song collection links and the additive curation contract. The
+[ADR extension](../architecture/decisions/0008-curated-storefront-views.md)
+records why explicit artist placement does not infer attribution. `.play()` is
+based on the maintainer's approved hierarchy and existing featured identity;
+its public context introduces no verified release metadata or merch assignment.
+Heartburst's existing asset-local provenance remains authoritative and unchanged.
+The separate fictional preview uses only existing public demo catalog entries
+plus a synthetic Demo artist, never assigning them to `.play()`.
+
+Local verification includes the normal and isolated builds, types, 55 catalog
+cases, 40 focused unit cases, a 12-module portable boundary check and independent
+read-only source review without substantive findings. All 27 production and
+five isolated-preview browser cases pass. The older Fourthwall test was updated
+to traverse A's catalog entrance; no runtime workaround was needed. Three
+inspected JPEGs total 387,029 bytes, with no page/image errors; capture hashes
+are recorded in the review's manifest. The normal
+artifact was checked for absence of the additional fictional artist IDs and both
+local preview route prefixes. New interface messages use the existing provider;
+full catalog translations and broad locale/device review remain separate.
+
+No dependencies, lockfile, private artwork/master, provider wire contract or
+purchase guards changed. All three fictional products remain non-purchasable.
+No CI settings were changed or gates disabled; hosted CI and production/live
+provider qualification are not claimed. This checkpoint is not a merge or a
+completed checkpoint C.
+
+## Final storefront checkpoint C — 2026-10-17 UTC
+
+Authority: the maintainer requested the last of #62's three checkpoints after B.
+Work extends [draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78)
+on `feat/storefront-checkpoint-62a`, then returns for a sync. Starting remote
+head `2c047489a1a4b583d83a135d5de7f4241773bd6f`, tree
+`5d46fef71938f30e7fc3ada9ffa919c2653999db`; main remained
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. All 560 local tracked baseline hashes
+matched the remote head before editing. Untouched generated remote files remain
+preserved. Implementation: `1e784ee9a0afdc228457e63714becd69a94b97c7`. GitHub comparison
+confirmed all 23 changed file hashes match reviewed source/docs/captures.
+This following documentation-only commit records that receipt. PR #78 remains
+open/draft/unmerged; #62 records all A/B/C checklists delivered and stays open for
+final acceptance and merge review.
+
+The [C review](../design/storefront-62c.md) records bounded journey/layout results
+and the [content workflow](../store/storefront-content-workflow.md) gives the
+repeatable approved-item/feature/artist/song steps. Six new detail-page unit
+cases cover empty collections, two artist return paths, shared product identity
+and purchase presentation. The live fixture is synthetic and inspected only in
+JSDOM; its provider URL is never visited. Invalid route approval is rejected
+before rendering a live action. No public purchase configuration changed.
+
+The layout harness composes existing React components with the existing public
+demo catalog, validated synthetic selections, longer descriptions/titles and the
+existing test-only locale dictionary factory. It does not import private work,
+assign demo work to `.play()`, add a production route or claim real translations.
+Its labelled screenshots and capture hashes are evidence of fixture rendering,
+not production catalog content. Existing asset provenance remains unchanged.
+
+Final local runs pass: app/catalog/domain types, 55 catalog tests, 46 focused
+unit tests, 31 production and six isolated-preview browser journeys, and the
+12-module portable boundary. The 32-case layout matrix covers shop, Incompris,
+artist standalone and artist song views at 320/390/820/1440 widths with expanded
+and synthetic RTL copy; eight native featured-row keyboard/focus checks pass.
+Four inspected JPEGs total 1,177,327 bytes with matching SHA-256 and no recorded
+page/image errors. Normal and isolated builds pass; qualification-only markers
+are absent from both, and the extra artist-preview route/ID is absent from normal
+output. Independent source/docs review found no substantive issue. The content
+generator example was checked in a temporary catalog; no public entry was added.
+No application behavior changed in C. Existing Vite/module/config warnings were
+retained, not suppressed as a repository-wide cleanup.
+
+Workspace maintenance removed the earlier Chromium binary. The pinned
+Playwright browser download returned an invalid archive; local verification uses
+an external temporary `@sparticuz/chromium@138.0.2` binary reporting Chromium
+138.0.7204.0. No repository dependency or lockfile changed. This is distinct from
+B's Chromium 153 receipt and does not claim current cross-browser qualification.
+
+Starting B-head hosted checks still reported failures:
+[validation](https://github.com/egohygiene/egohygiene.io/actions/runs/39024327451/job/117372206930)
+and [dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39024327659/job/117372207688).
+Their causes were not re-diagnosed in C. No CI, branch protection, account,
+provider or deployment setting was changed. The completed local evidence and
+review limits belong to C's receipt; this is not a merge or launch.

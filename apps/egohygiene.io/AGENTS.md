@@ -11,8 +11,17 @@ for the actual module map and examples.
   adapter; canonical identity and purchase eligibility stay in the domain.
 - Browser catalog data comes through `src/content/store/index.ts` and the Node
   public projection. Never import authoring entry JSON directly into browser code.
-- Normal builds use `dist`; the local Fourthwall tryout is isolated in
-  `dist-preview`. Synthetic fixtures and the tryout route stay out of production.
+- Normal builds use `dist`; the local Fourthwall and artist tryouts are isolated
+  in `dist-preview`. Their additional fixtures and routes stay out of production.
+- Curated `/store` and `/store/incompris` views use the validated editorial
+  manifest exported with the public catalog. `/store/catalog` keeps the generic
+  preview browser. Selection does not imply artist ownership or approval to sell;
+  follow [checkpoint A](../../docs/design/storefront-62a.md) for authoring.
+- Artist pages at `/store/incompris/artists/:artistSlug` use optional editorial
+  artist selections. Song destinations reuse canonical collection URLs and
+  direct public song contexts. Standalone/song overlap never copies a product.
+  Follow [checkpoint B](../../docs/design/storefront-62b.md); do not assign demo
+  entries to real artists or infer ownership from placement.
 - A design is artwork; products carry designs. Song/character context is optional.
   The heartburst display proof does not establish a garment or print-ready master.
 - Keep transient controls local and shareable filters in the URL. Use the single
@@ -24,5 +33,10 @@ for the actual module map and examples.
   desktop/mobile smoke when Chromium is available and record any execution limit.
 
 Catalog additions follow [authoring](../../docs/store/catalog-authoring.md).
+Use the [content workflow](../../docs/store/storefront-content-workflow.md) for
+placement across the shop, Incompris and artist/song views. The
+[checkpoint C review](../../docs/design/storefront-62c.md) records the bounded
+journey and synthetic layout checks. Its test-only host is not a production
+entry point or a supported locale; never deploy qualification/preview artifacts.
 Read [current state](../../docs/context/current-state.md) before choosing the next
 issue; this file intentionally does not duplicate changing PR status.

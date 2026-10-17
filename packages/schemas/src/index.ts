@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export * from "./store.ts";
 export * from "./store-providers.ts";
+export * from "./storefront-curation.ts";
 
 export const productStatusSchema = z.enum(["available", "development", "planned"]);
 export const productCategorySchema = z.enum([

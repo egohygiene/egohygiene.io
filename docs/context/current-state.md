@@ -1,6 +1,131 @@
 # Current handoff
 
-## Active pause before #62 — 2026-10-17 UTC
+## Active #62 checkpoint C — 2026-10-17 UTC
+
+The maintainer requested the last checkpoint after B. Complete C in
+[draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78), keeping branch
+`feat/storefront-checkpoint-62a`, then return for a sync. No merge, deployment,
+new artwork or live-provider activation is part of this instruction. Starting
+PR head: `2c047489a1a4b583d83a135d5de7f4241773bd6f`; refreshed main:
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Verified implementation:
+`1e784ee9a0afdc228457e63714becd69a94b97c7`; all 23 published file hashes match the
+reviewed local source/captures. This following receipt changes documentation only.
+
+Read the [final review](../design/storefront-62c.md) and
+[content workflow](../store/storefront-content-workflow.md). The existing A/B
+architecture and public content are preserved. C supplies the remaining bounded
+journey tests, empty-collection/multi-artist return coverage, purchase UI checks,
+failed-image recovery, forward history, touch paths, and repeatable long-copy/RTL
+layout qualification. The synthetic host is under `tests/` and is not an app
+entry point. No supported locale or real artist merchandise was invented.
+
+The public `.play()` selections are still empty; heartburst remains Incompris
+artwork with no artist/song assignment or garment. The normal public catalog has
+10 records (8 browsable) and 3 fictional non-purchasable products. The isolated
+Demo artist preview demonstrates populated standalone/song/overlap browsing.
+The content workflow explains how approved real additions can replace these
+empty states without duplicate identities, new pages or provider activation.
+
+Local verification passes: normal/isolated builds, app/catalog/domain types,
+55 catalog tests, 46 focused unit tests, 31 production and six preview browser
+journeys, 32 synthetic layout cases (320/390/820/1440 widths, expanded/RTL copy),
+eight featured-row keyboard checks and the 12-module portable boundary. Four
+inspected capture hashes and actual Chromium 138 details are in the final review;
+touch/layout emulation is not physical-device or supported-locale qualification.
+Hosted CI at the
+starting B head still reported failed `validate` and `dependency-review` checks;
+no gate was disabled and no hosted success is inferred from local passes. No
+package or lockfile changes were needed.
+
+**Next action:** sync with Alan on the complete A/B/C result. PR #78 remains
+unmerged and #62 remains open for acceptance/merge review. Refresh both before
+resuming; do not automatically start another roadmap item. Broader browser/device,
+accessibility and translation qualification, product options and real checkout
+remain in their existing issues. The dated sections below preserve prior
+checkpoint authority and evidence, not current instructions.
+
+## Historical #62 checkpoint B — 2026-10-17 UTC
+
+After the checkpoint A sync, the maintainer requested **checkpoint 2/B**. Extend
+[draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78), on
+`feat/storefront-checkpoint-62a`, and **pause before checkpoint C**. The PR remains
+open, draft and unmerged. Verified implementation:
+`983b8bd15ec35896acda04ff1cbad861b2748d94`; all 40 published file hashes match the
+reviewed local source/screenshots. This following receipt changes documentation only.
+Starting remote head: `9bec5be66a17e716c325b7940ff2cf66b103e792`; main remains
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Refresh live GitHub state before resuming.
+
+Read the [checkpoint B review](../design/storefront-62b.md) and
+[ADR 0008 extension](../architecture/decisions/0008-curated-storefront-views.md).
+Incompris now leads to `/store/incompris/artists/play`. Reusable artist views
+separate **Standalone & worlds** from **Shop by song**, with URL-backed search,
+view changes, direct links and return navigation. Song cards reuse canonical
+`/store/collections/:slug` destinations; overlapping selections reuse the same
+products. Curation v1 accepts optional/defaulted artist selections without
+changing catalog v1 or inferring authorship from placement.
+
+The public `.play()` context has empty selections. Heartburst remains unassigned
+to an artist/song and has no garment. The isolated local preview has a clearly
+fictional Demo artist and reuses existing public demo records to prove populated
+standalone/song/overlap flows. No private source, artwork, song catalog import,
+provider route or purchase state changed. Normal builds exclude the additional
+preview fixture and route. There are 10 public catalog records, 8 browsable;
+three fictional products retain disabled purchase states.
+
+Local verification passes: normal/isolated builds, app/catalog/domain types,
+55 catalog tests, 40 focused unit tests, 27 production and five preview browser
+journeys, and the 12-module portable boundary. Three inspected captures and
+bounded coverage are recorded in the review. Hosted CI, live routing and commerce
+qualification are not claimed.
+No dependency/lockfile, hosting, account or paid service changed. The broader
+checkpoint C checklist remains open even where B includes useful focused tests
+and authoring notes.
+
+**Next action:** sync with Alan on checkpoint B using the normal empty `.play()`
+page and the populated fictional preview. Await the next instruction before C,
+merge, deployment or real content/provider activation. Do not restart the A/B
+foundation or automatically resume unrelated hosted-CI work. The dated sections
+below retain earlier instructions as historical evidence, not current authority.
+
+## Historical #62 checkpoint A — 2026-10-17 UTC
+
+The maintainer approved the Ego Hygiene → Incompris → artist hierarchy and the
+three checkpoints in [#62](https://github.com/egohygiene/egohygiene.io/issues/62),
+then requested **checkpoint A only**, a draft PR, and a sync **before B**.
+Branch: `feat/storefront-checkpoint-62a`. [Draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78) is open and unmerged, based on
+`main`. Verified implementation: `b320b7af555d2408ce0b75dff4d4b5bc4fa44e5e`. GitHub comparison
+confirmed all 43 published file hashes match the reviewed source/screenshots.
+Receipt-only follow-up changes documentation; it does not change application code.
+Do not infer merge or hosted CI success from the local checks.
+
+Local checks pass: production build, app/catalog/domain types, 47 catalog tests,
+28 focused unit tests, all 23 store browser journeys, five new browser cases
+rerun after the final UI rebuild, and the 11-module portable boundary. The review
+contains four inspected production screenshots and bounded expanded/RTL fixture
+evidence. No physical-device, Safari, screen-reader or live-provider qualification
+is claimed.
+
+The implementation adds a curated Ego Hygiene shop, selected Incompris feature
+row, and `/store/incompris` collection. The existing generic browser remains at
+`/store/catalog` with old filtered/anchor links preserved. A strict versioned
+editorial manifest selects public canonical IDs without changing catalog schema,
+artist/song attribution, products, checkout routes or providers. Heartburst is
+an artwork preview with no garment attached; Ego Hygiene merchandise is upcoming.
+Read the [review/authoring guide](../design/storefront-62a.md) and
+[ADR 0008](../architecture/decisions/0008-curated-storefront-views.md).
+
+Refreshed starting main: `e52e4654fa826c7d66f47e03bc17de07fc977c2c`, the confirmed
+merge of landing PR #77. Ownership #76 and store #34 were already merged (receipts
+below). The source checkout was exported from verified main tree
+`a647d8fdff8b85c14cd02ed7b42e05d7a57d7c20` before edits.
+
+**Next action:** review checkpoint A with Alan. Do not begin checkpoint B
+(`/store/incompris/artists/play`, Shop by song, stable song links) or checkpoint C's
+broader qualification until selected. No new artwork, real provider, purchase,
+deployment, account, paid CI or repository consolidation is part of this slice.
+
+
+## Historical pause before #62 — 2026-10-17 UTC
 
 The maintainer authorized merging the ownership and landing PRs, then returning
 for a discussion of #62 **before any implementation**. Functional setup is the

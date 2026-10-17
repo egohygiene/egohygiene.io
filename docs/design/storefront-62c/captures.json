@@ -1,0 +1,620 @@
+{
+  "capturedAt": "2026-10-17T11:20:02.988Z",
+  "source": "Actual repository React components in a local Vite development server. Test-only host replaces the document entry through Playwright; no production routes or catalog files are changed.",
+  "fixture": "Existing public fictional catalog records and the isolated Demo artist fixture, with validated test-only curation, longer titles/descriptions, and the existing expanded/synthetic RTL dictionary. No real .play() associations or supported translations are created.",
+  "format": "JPEG, quality 82, full page, no image manipulation",
+  "scope": "Chromium desktop/mobile viewport emulation with reduced motion. This is not physical-device, Safari, translation, or screen-reader qualification.",
+  "results": [
+    {
+      "key": "expanded-320-shop",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 320,
+        "documentHeight": 4568,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "scrolling": {
+        "scrollLeft": 12,
+        "width": 309,
+        "contentWidth": 1049,
+        "focused": true,
+        "outline": "solid"
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-320-incompris",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store/incompris?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 320,
+        "documentHeight": 5301,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-320-standalone",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 320,
+        "documentHeight": 4856,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-320-songs",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 320,
+        "documentHeight": 3165,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-390-shop",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 390,
+        "documentHeight": 3994,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "scrolling": {
+        "scrollLeft": 11,
+        "width": 379,
+        "contentWidth": 1290,
+        "focused": true,
+        "outline": "solid"
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-390-incompris",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store/incompris?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 390,
+        "documentHeight": 5071,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-390-standalone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 390,
+        "documentHeight": 4679,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-390-songs",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 390,
+        "documentHeight": 2859,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-820-shop",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 820,
+        "documentHeight": 3419,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "scrolling": {
+        "scrollLeft": 11,
+        "width": 809,
+        "contentWidth": 1490,
+        "focused": true,
+        "outline": "solid"
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-820-incompris",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store/incompris?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 820,
+        "documentHeight": 3433,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-820-standalone",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 820,
+        "documentHeight": 2980,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-820-songs",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 820,
+        "documentHeight": 2383,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-1440-shop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 1440,
+        "documentHeight": 3672,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "scrolling": {
+        "scrollLeft": 12,
+        "width": 1173,
+        "contentWidth": 1490,
+        "focused": true,
+        "outline": "solid"
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-1440-incompris",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store/incompris?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 1440,
+        "documentHeight": 3555,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-1440-standalone",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 1440,
+        "documentHeight": 3210,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "expanded-1440-songs",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=expanded",
+      "metrics": {
+        "documentWidth": 1440,
+        "documentHeight": 2583,
+        "direction": "ltr",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-320-shop",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 320,
+        "documentHeight": 3807,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "scrolling": {
+        "scrollLeft": -11,
+        "width": 309,
+        "contentWidth": 1049,
+        "focused": true,
+        "outline": "solid"
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-320-incompris",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store/incompris?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 320,
+        "documentHeight": 4780,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-320-standalone",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 320,
+        "documentHeight": 4536,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-320-songs",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 320,
+        "documentHeight": 2817,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-390-shop",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 390,
+        "documentHeight": 3505,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "scrolling": {
+        "scrollLeft": -12,
+        "width": 379,
+        "contentWidth": 1290,
+        "focused": true,
+        "outline": "solid"
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-390-incompris",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store/incompris?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 390,
+        "documentHeight": 4704,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-390-standalone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 390,
+        "documentHeight": 4355,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-390-songs",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 390,
+        "documentHeight": 2608,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-820-shop",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 820,
+        "documentHeight": 2942,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "scrolling": {
+        "scrollLeft": -11,
+        "width": 809,
+        "contentWidth": 1490,
+        "focused": true,
+        "outline": "solid"
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-820-incompris",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store/incompris?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 820,
+        "documentHeight": 3126,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-820-standalone",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 820,
+        "documentHeight": 2815,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-820-songs",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 820,
+        "documentHeight": 2234,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-1440-shop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 1440,
+        "documentHeight": 3207,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "scrolling": {
+        "scrollLeft": -12,
+        "width": 1173,
+        "contentWidth": 1490,
+        "focused": true,
+        "outline": "solid"
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-1440-incompris",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store/incompris?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 1440,
+        "documentHeight": 3360,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-1440-standalone",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 1440,
+        "documentHeight": 3043,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    },
+    {
+      "key": "rtl-1440-songs",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=rtl",
+      "metrics": {
+        "documentWidth": 1440,
+        "documentHeight": 2435,
+        "direction": "rtl",
+        "imageErrors": []
+      },
+      "errors": []
+    }
+  ],
+  "screens": [
+    {
+      "file": "expanded-incompris-tablet.jpg",
+      "key": "expanded-820-incompris",
+      "viewport": {
+        "width": 820,
+        "height": 1000
+      },
+      "route": "/store/incompris?qaLocale=expanded",
+      "synthetic": true,
+      "dimensions": {
+        "width": 820,
+        "height": 3433
+      },
+      "sha256": "d7bb59cbd2f3b572fe7ee0dec0fc5a5a56208e91d2db5591bdcac2fa967e1afe",
+      "bytes": 346674,
+      "errors": [],
+      "imageErrors": []
+    },
+    {
+      "file": "expanded-shop-desktop.jpg",
+      "key": "expanded-1440-shop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "route": "/store?qaLocale=expanded",
+      "synthetic": true,
+      "dimensions": {
+        "width": 1440,
+        "height": 3672
+      },
+      "sha256": "7028e30724701891815c965d2f96a4277f1faf8e89d35dbc344d8feeb1ce3b1b",
+      "bytes": 440942,
+      "errors": [],
+      "imageErrors": []
+    },
+    {
+      "file": "rtl-songs-small-phone.jpg",
+      "key": "rtl-320-songs",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?view=songs&qaLocale=rtl",
+      "synthetic": true,
+      "dimensions": {
+        "width": 320,
+        "height": 2817
+      },
+      "sha256": "34b744cf241c1d0b8289598bb0d392789ac3c29ff5ed90e9193dd7f1c450153e",
+      "bytes": 141848,
+      "errors": [],
+      "imageErrors": []
+    },
+    {
+      "file": "rtl-artist-phone.jpg",
+      "key": "rtl-390-standalone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "route": "/store/incompris/artists/demo-artist?qaLocale=rtl",
+      "synthetic": true,
+      "dimensions": {
+        "width": 390,
+        "height": 4355
+      },
+      "sha256": "0766adfa78fa6e3b5c311c7b16582c5f26012aa9bc42d2b13efe616a8f69061b",
+      "bytes": 247863,
+      "errors": [],
+      "imageErrors": []
+    }
+  ],
+  "browser": "138.0.7204.0"
+}
