@@ -81,6 +81,13 @@ test("standalone and song browsing reach the same product and support deep links
     "aria-current",
     "page",
   );
+  await page.goForward();
+  await expect(page).toHaveURL(canonicalCollectionPath);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The Static Bloom Collection");
+  await page.goForward();
+  await expect(page).toHaveURL(canonicalProductPath);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Static Bloom Mug");
+  await expect(page.getByText("Preview — not for sale yet", { exact: true })).toBeVisible();
   expect(errors).toEqual([]);
 });
 
@@ -101,4 +108,54 @@ test("populated artist views fit a phone and retain canonical destinations", asy
   await card(page, "Static Bloom Mug").getByRole("link").click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Static Bloom Mug");
   await expect(page.getByText("Preview — not for sale yet", { exact: true })).toBeVisible();
+});
+
+test.describe("phone touch artist journey", () => {
+  test.use({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+
+  test("song search and direct links survive reload and touch navigation", async ({ page }) => {
+    await page.goto(`${artistPath}?source=shared&q=static`);
+    await page.getByRole("link", { name: "Shop by song", exact: true }).tap();
+    const songUrl = page.url();
+    await page.reload();
+    await expect(page.getByRole("searchbox", { name: "Search song collections" })).toHaveValue(
+      "static",
+    );
+    await expect(page.getByRole("link", { name: "Shop by song", exact: true })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+    await card(page, "The Static Bloom Collection").getByRole("link").tap();
+    await expect(page).toHaveURL("/store/collections/static-bloom-collection");
+    await page.reload();
+    await card(page, "Static Bloom Mug").getByRole("link").tap();
+    await expect(page).toHaveURL("/store/products/static-bloom-mug");
+    await expect(page.getByText("Preview — not for sale yet", { exact: true })).toBeVisible();
+    await expect(page.getByRole("link", { name: /buy|checkout|purchase|order now/i })).toHaveCount(
+      0,
+    );
+    await expect(
+      page.getByRole("button", { name: /buy|checkout|purchase|order now/i }),
+    ).toHaveCount(0);
+    await page.goBack();
+    await page.goBack();
+    await expect(page).toHaveURL(songUrl);
+    await expect(page.getByRole("searchbox", { name: "Search song collections" })).toHaveValue(
+      "static",
+    );
+    await page.goBack();
+    await expect(
+      page.getByRole("link", { name: "Standalone & worlds", exact: true }),
+    ).toHaveAttribute("aria-current", "page");
+    await expect(
+      page.getByRole("searchbox", { name: "Search standalone designs and worlds" }),
+    ).toHaveValue("static");
+    await page.goForward();
+    await expect(page).toHaveURL(songUrl);
+    const dimensions = await page.evaluate(() => ({
+      content: document.documentElement.scrollWidth,
+      viewport: document.documentElement.clientWidth,
+    }));
+    expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport + 1);
+  });
 });

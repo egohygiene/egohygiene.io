@@ -33,13 +33,16 @@ mistake the preserved separate-store implementation for a second V1 deployment.
 The #35 landing/shell checkpoint merged in #77. The subsequent #62 discussion
 approved Ego Hygiene as the primary shop, Incompris as its featured collection,
 and `.play()` as an artist destination. After checkpoint A, the maintainer
-authorized **checkpoint B**, extending the existing **draft PR #78 and syncing
-before C**. Read the [artist/song checkpoint](docs/design/storefront-62b.md),
+authorized **checkpoint C**, completing the existing **draft PR #78 and returning
+for a final sync**. Read the [final checkpoint](docs/design/storefront-62c.md),
+[content workflow](docs/store/storefront-content-workflow.md),
+[artist/song checkpoint](docs/design/storefront-62b.md),
 [earlier curated shop review](docs/design/storefront-62a.md) and
 [current state](docs/context/current-state.md). Preserve the existing canonical
 catalog and truthful purchase states. Real artist selections remain empty until
 approved associations are supplied; populated examples are isolated preview
-fixtures. Do not proceed to checkpoint C, merge or deploy without the next instruction.
+fixtures. After C, wait for the next selected work; do not merge, deploy or
+activate commerce without the next instruction.
 
 ## Working boundaries
 

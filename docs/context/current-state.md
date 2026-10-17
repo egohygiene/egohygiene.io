@@ -1,6 +1,48 @@
 # Current handoff
 
-## Active #62 checkpoint B — 2026-10-17 UTC
+## Active #62 checkpoint C — 2026-10-17 UTC
+
+The maintainer requested the last checkpoint after B. Complete C in
+[draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78), keeping branch
+`feat/storefront-checkpoint-62a`, then return for a sync. No merge, deployment,
+new artwork or live-provider activation is part of this instruction. Starting
+PR head: `2c047489a1a4b583d83a135d5de7f4241773bd6f`; refreshed main:
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Publication receipt follows verification.
+
+Read the [final review](../design/storefront-62c.md) and
+[content workflow](../store/storefront-content-workflow.md). The existing A/B
+architecture and public content are preserved. C supplies the remaining bounded
+journey tests, empty-collection/multi-artist return coverage, purchase UI checks,
+failed-image recovery, forward history, touch paths, and repeatable long-copy/RTL
+layout qualification. The synthetic host is under `tests/` and is not an app
+entry point. No supported locale or real artist merchandise was invented.
+
+The public `.play()` selections are still empty; heartburst remains Incompris
+artwork with no artist/song assignment or garment. The normal public catalog has
+10 records (8 browsable) and 3 fictional non-purchasable products. The isolated
+Demo artist preview demonstrates populated standalone/song/overlap browsing.
+The content workflow explains how approved real additions can replace these
+empty states without duplicate identities, new pages or provider activation.
+
+Local verification passes: normal/isolated builds, app/catalog/domain types,
+55 catalog tests, 46 focused unit tests, 31 production and six preview browser
+journeys, 32 synthetic layout cases (320/390/820/1440 widths, expanded/RTL copy),
+eight featured-row keyboard checks and the 12-module portable boundary. Four
+inspected capture hashes and actual Chromium 138 details are in the final review;
+touch/layout emulation is not physical-device or supported-locale qualification.
+Hosted CI at the
+starting B head still reported failed `validate` and `dependency-review` checks;
+no gate was disabled and no hosted success is inferred from local passes. No
+package or lockfile changes were needed.
+
+**Next action:** sync with Alan on the complete A/B/C result. PR #78 remains
+unmerged and #62 remains open for acceptance/merge review. Refresh both before
+resuming; do not automatically start another roadmap item. Broader browser/device,
+accessibility and translation qualification, product options and real checkout
+remain in their existing issues. The dated sections below preserve prior
+checkpoint authority and evidence, not current instructions.
+
+## Historical #62 checkpoint B — 2026-10-17 UTC
 
 After the checkpoint A sync, the maintainer requested **checkpoint 2/B**. Extend
 [draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78), on

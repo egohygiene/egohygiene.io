@@ -1,8 +1,8 @@
 # ADR 0008 — Curated storefront views over one catalog
 
 - Date: 2026-10-17
-- Status: Proposed implementation for #62 checkpoints A and B; brand hierarchy
-  approved in the maintainer discussion. Draft review precedes checkpoint C.
+- Status: Implementation submitted in #62 checkpoints A/B/C; brand hierarchy
+  approved in the maintainer discussion. Final draft review precedes merge.
 - Scope: Website-owned storefront under ADR 0007.
 
 ## Context
@@ -92,5 +92,11 @@ code and content together, as with other strict contract changes.
 
 [Issue #62](https://github.com/egohygiene/egohygiene.io/issues/62) records the agreed
 A/B/C checkpoints. [Checkpoint A](../../design/storefront-62a.md),
-[checkpoint B](../../design/storefront-62b.md) and the
+[checkpoint B](../../design/storefront-62b.md),
+[checkpoint C](../../design/storefront-62c.md) and the
 [context ledger](../../context/provenance.md) record delivery and verification.
+Checkpoint C retains the A/B architecture and adds bounded journey/layout
+qualification and a [content workflow](../../store/storefront-content-workflow.md).
+Synthetic layout content lives under `tests/`, uses the real components and
+existing locale fixture factory, and is not imported by the application entry.
+It is test evidence, not a new locale, catalog release or storefront deployment.

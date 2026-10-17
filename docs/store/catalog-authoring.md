@@ -2,6 +2,10 @@
 
 The catalog accepts artwork previews and placeholders, a few entries at a time. Adding a JSON file under `apps/egohygiene.io/src/content/store/entries/` makes it discoverable without maintaining an import list. Subdirectories work too.
 
+For the end-to-end path from an approved idea to shop, featured artist or song
+placement, follow the [storefront content workflow](storefront-content-workflow.md).
+This page remains the reference for individual JSON records and validation.
+
 The first artwork preview is **heartburst**, a standalone ink-splatter heart with no song or product association. Its [display asset and portable visual DNA](../../assets/designs/heartburst/README.md) are separate from the private source pack.
 
 The public `.play()` artist context currently has no selected merchandise or songs. Signal Heart, Static Bloom and Unwritten Realm are fictional examples of a standalone design, song collection and future comic. None has a purchase link or confirmed production details. Replace or remove these examples as real entries become ready.

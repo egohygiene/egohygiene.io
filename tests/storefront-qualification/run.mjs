@@ -1,0 +1,228 @@
+/** Local-only layout stress check. Run with the repository's pinned Node runtime. */
+import assert from "node:assert/strict";
+import { spawn } from "node:child_process";
+import { createHash } from "node:crypto";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { parseArgs } from "node:util";
+import { chromium } from "@playwright/test";
+
+const root = fileURLToPath(new URL("../../", import.meta.url));
+const app = path.join(root, "apps/egohygiene.io");
+const entry = path.join(root, "tests/storefront-qualification/host.tsx");
+const { values } = parseArgs({
+  options: {
+    "output-dir": { type: "string", default: "test-results/storefront-qualification" },
+    port: { type: "string", default: "5182" },
+  },
+});
+const output = path.resolve(root, values["output-dir"]);
+const port = Number(values.port);
+const origin = `http://127.0.0.1:${port}`;
+// biome-ignore lint/suspicious/noUndeclaredEnvVars: Direct local check, not a cached Turbo task.
+const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH;
+const routes = [
+  { name: "shop", path: "/store", selector: ".storefront-row .store-card", count: 4 },
+  {
+    name: "incompris",
+    path: "/store/incompris",
+    selector: ".storefront-grid .store-card",
+    count: 4,
+  },
+  {
+    name: "standalone",
+    path: "/store/incompris/artists/demo-artist",
+    selector: ".storefront-grid .store-card",
+    count: 4,
+  },
+  {
+    name: "songs",
+    path: "/store/incompris/artists/demo-artist?view=songs",
+    selector: ".storefront-grid .store-card",
+    count: 1,
+  },
+];
+const captures = new Map([
+  ["expanded-1440-shop", "expanded-shop-desktop.jpg"],
+  ["expanded-820-incompris", "expanded-incompris-tablet.jpg"],
+  ["rtl-390-standalone", "rtl-artist-phone.jpg"],
+  ["rtl-320-songs", "rtl-songs-small-phone.jpg"],
+]);
+
+let server;
+let browser;
+let serverOutput = "";
+const report = {
+  capturedAt: new Date().toISOString(),
+  source:
+    "Actual repository React components in a local Vite development server. Test-only host replaces the document entry through Playwright; no production routes or catalog files are changed.",
+  fixture:
+    "Existing public fictional catalog records and the isolated Demo artist fixture, with validated test-only curation, longer titles/descriptions, and the existing expanded/synthetic RTL dictionary. No real .play() associations or supported translations are created.",
+  format: "JPEG, quality 82, full page, no image manipulation",
+  scope:
+    "Chromium desktop/mobile viewport emulation with reduced motion. This is not physical-device, Safari, translation, or screen-reader qualification.",
+  results: [],
+  screens: [],
+};
+
+async function startServer() {
+  server = spawn(
+    process.execPath,
+    [
+      path.join(app, "node_modules/vite/bin/vite.js"),
+      "--host",
+      "127.0.0.1",
+      "--port",
+      String(port),
+      "--strictPort",
+    ],
+    {
+      cwd: app,
+      env: { ...process.env, VITE_STORE_PREVIEW: "false" },
+      stdio: ["ignore", "pipe", "pipe"],
+    },
+  );
+  for (const stream of [server.stdout, server.stderr])
+    stream.on("data", (chunk) => {
+      serverOutput += chunk.toString();
+    });
+  for (let attempt = 0; attempt < 100; attempt += 1) {
+    if (server.exitCode !== null) throw new Error(`Vite exited: ${serverOutput}`);
+    try {
+      if ((await fetch(origin)).ok) return;
+    } catch {}
+    await new Promise((resolve) => setTimeout(resolve, 100));
+  }
+  throw new Error(`Local Vite server did not become ready: ${serverOutput}`);
+}
+
+async function qualify(mode, width, route) {
+  const key = `${mode}-${width}-${route.name}`;
+  const viewport = { width, height: width <= 390 ? 844 : 1000 };
+  const page = await browser.newPage({ viewport, reducedMotion: "reduce", colorScheme: "light" });
+  const errors = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.route("**/*", async (request) => {
+    if (new URL(request.request().url()).origin !== origin) return request.abort("blockedbyclient");
+    if (request.request().resourceType() !== "document") return request.continue();
+    const response = await request.fetch();
+    const html = (await response.text()).replace('src="/src/main.tsx"', `src="/@fs/${entry}"`);
+    assert.ok(html.includes(`src="/@fs/${entry}"`), "Vite document entry must be replaced");
+    return request.fulfill({ response, body: html });
+  });
+  try {
+    const url = new URL(route.path, origin);
+    url.searchParams.set("qaLocale", mode);
+    await page.goto(url.href, { waitUntil: "networkidle" });
+    assert.deepEqual(errors, [], `${key}: entry must render`);
+    await page.locator(route.selector).first().waitFor();
+    await page.evaluate(() => document.fonts.ready);
+    assert.equal(await page.locator(route.selector).count(), route.count, key);
+    const metrics = await page.evaluate(() => ({
+      documentWidth: document.documentElement.scrollWidth,
+      documentHeight: document.documentElement.scrollHeight,
+      direction: document.documentElement.dir,
+      imageErrors: [...document.images]
+        .filter((image) => !image.complete || image.naturalWidth === 0)
+        .map((image) => image.currentSrc),
+    }));
+    assert.ok(
+      metrics.documentWidth <= width + 1,
+      `${key}: document overflows ${width}px to ${metrics.documentWidth}px`,
+    );
+    assert.equal(metrics.direction, mode === "rtl" ? "rtl" : "ltr", key);
+    assert.deepEqual(metrics.imageErrors, [], key);
+    let scrolling;
+    if (route.name === "shop") {
+      const row = page.locator(".storefront-scroll");
+      await row.focus();
+      const before = await row.evaluate((element) => element.scrollLeft);
+      await page.keyboard.press(mode === "rtl" ? "ArrowLeft" : "ArrowRight");
+      await page.waitForFunction(
+        (previous) =>
+          Math.abs(document.querySelector(".storefront-scroll").scrollLeft - previous) > 0,
+        before,
+      );
+      scrolling = await row.evaluate((element) => ({
+        scrollLeft: element.scrollLeft,
+        width: element.clientWidth,
+        contentWidth: element.scrollWidth,
+        focused: document.activeElement === element,
+        outline: getComputedStyle(element).outlineStyle,
+      }));
+      assert.ok(
+        scrolling.focused && scrolling.outline === "solid",
+        `${key}: row focus must remain visible`,
+      );
+      await row.evaluate((element) => {
+        element.scrollLeft = 0;
+      });
+    }
+    assert.deepEqual(errors, [], key);
+    report.results.push({
+      key,
+      viewport,
+      route: url.pathname + url.search,
+      metrics,
+      ...(scrolling ? { scrolling } : {}),
+      errors,
+    });
+    const file = captures.get(key);
+    if (file) {
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.screenshot({
+        path: path.join(output, file),
+        type: "jpeg",
+        quality: 82,
+        fullPage: true,
+      });
+      const bytes = await readFile(path.join(output, file));
+      report.screens.push({
+        file,
+        key,
+        viewport,
+        route: url.pathname + url.search,
+        synthetic: true,
+        dimensions: { width: metrics.documentWidth, height: metrics.documentHeight },
+        sha256: createHash("sha256").update(bytes).digest("hex"),
+        bytes: bytes.length,
+        errors,
+        imageErrors: metrics.imageErrors,
+      });
+    }
+    process.stdout.write(`${key}: pass\n`);
+  } catch (error) {
+    process.stderr.write(
+      `${key}: ${JSON.stringify({ errors, body: await page.locator("body").innerText(), serverOutput })}\n`,
+    );
+    throw error;
+  } finally {
+    await page.close();
+  }
+}
+
+try {
+  await mkdir(output, { recursive: true });
+  await startServer();
+  browser = await chromium.launch({
+    headless: true,
+    ...(executablePath ? { executablePath } : {}),
+  });
+  report.browser = browser.version();
+  for (const mode of ["expanded", "rtl"]) {
+    for (const width of [320, 390, 820, 1440]) {
+      for (const route of routes) await qualify(mode, width, route);
+    }
+  }
+  await writeFile(path.join(output, "captures.json"), `${JSON.stringify(report, null, 2)}\n`);
+  process.stdout.write(
+    `${report.results.length} layout cases passed; ${report.screens.length} captures saved.\n`,
+  );
+} finally {
+  await browser?.close();
+  if (server && server.exitCode === null) {
+    server.kill("SIGTERM");
+    await new Promise((resolve) => server.once("exit", resolve));
+  }
+}

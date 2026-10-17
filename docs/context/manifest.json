@@ -19,5 +19,7 @@
   "landingShellReview": "docs/design/landing-shell-35.md",
   "storefrontCheckpointReview": "docs/design/storefront-62a.md",
   "storefrontArtistCheckpointReview": "docs/design/storefront-62b.md",
+  "storefrontFinalCheckpointReview": "docs/design/storefront-62c.md",
+  "storefrontContentWorkflow": "docs/store/storefront-content-workflow.md",
   "storefrontCurationDecision": "docs/architecture/decisions/0008-curated-storefront-views.md"
 }

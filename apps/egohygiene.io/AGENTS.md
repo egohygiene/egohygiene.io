@@ -33,5 +33,10 @@ for the actual module map and examples.
   desktop/mobile smoke when Chromium is available and record any execution limit.
 
 Catalog additions follow [authoring](../../docs/store/catalog-authoring.md).
+Use the [content workflow](../../docs/store/storefront-content-workflow.md) for
+placement across the shop, Incompris and artist/song views. The
+[checkpoint C review](../../docs/design/storefront-62c.md) records the bounded
+journey and synthetic layout checks. Its test-only host is not a production
+entry point or a supported locale; never deploy qualification/preview artifacts.
 Read [current state](../../docs/context/current-state.md) before choosing the next
 issue; this file intentionally does not duplicate changing PR status.
