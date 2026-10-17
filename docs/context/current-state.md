@@ -1,6 +1,39 @@
 # Current handoff
 
-## Active landing/shell review — 2026-10-17 UTC
+## Active pause before #62 — 2026-10-17 UTC
+
+The maintainer authorized merging the ownership and landing PRs, then returning
+for a discussion of #62 **before any implementation**. Functional setup is the
+priority; visual polish can be revisited later. This is not authorization to
+start the next roadmap slice or add designs.
+
+Confirmed ownership merges:
+
+- [Website #76](https://github.com/egohygiene/egohygiene.io/pull/76):
+  `08174a9ce39dfd3f2be806181b20153e94642e6a`.
+- [Store #34](https://github.com/egohygiene/store/pull/34):
+  `13279f96491d3dad49d9d6ebf558404eccc8103f`.
+
+[Landing PR #77](https://github.com/egohygiene/egohygiene.io/pull/77) has been
+retargeted from the ownership branch to `main` and carries this handoff for its
+authorized merge. Its live PR record supplies the final merge receipt; refresh
+that status before resuming. Application implementation remains
+`dae9ba8b0318b1975ca8969072821ebdf93d7e9d`; later commits update context and JSON
+formatting only. Existing local checks and screenshots are recorded below and
+in the [review document](../design/landing-shell-35.md). No deployment or real
+product was activated. Hosted checks still report failures; no checks or
+protection settings were disabled to merge.
+
+**Next conversation:** define #62's functional scope using the existing routes
+and catalog. Proposed entries are World showcase (standalone designs/characters)
+and Shop by song (stable song destinations for SoundCloud links). Discuss entry
+labels, where each page lives, and the first complete browse-to-product example.
+Preserve optional song associations and shared design/product identities. The
+existing browsing/gallery/preview foundation is already implemented; do not
+restart it. No #62 source changes have been made. Do not close #35's remaining
+visual/accessibility qualifications merely because its checkpoint was merged.
+
+## Historical landing/shell review — 2026-10-17 UTC
 
 The maintainer explicitly selected **#35** and prioritized local visual progress
 before hosted CI/deployment work. [Draft PR #77](https://github.com/egohygiene/egohygiene.io/pull/77)

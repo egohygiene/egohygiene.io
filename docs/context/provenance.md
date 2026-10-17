@@ -180,3 +180,32 @@ contrast/zoom/screen-reader review and Storybook parity remain explicit follow-u
 work. The visual direction still needs Alan's review; #35 stays open. The next
 proposed implementation is #62, subject to the sync. Existing CI #29/#73 and
 separate store dependency PRs remain separate work.
+
+## Authorized ownership merges and #62 pause — 2026-10-17 UTC
+
+The maintainer requested closing the three pending PRs through merge and returning
+to discuss #62 before starting it. Read-back confirmed the reviewed heads had
+not moved: website #76 `98cc8d8eee1e3446a0fe10bbffb1b7aaf6f7526c`, store #34
+`3c2a46ad74057b4ed4c7e9298bfc08193eff804f`, website #77
+`127062af75e19f77e3c0a4e2a182618b195d519e`. Independent scope review found no
+unexpected changes: 15 ownership documentation files, nine companion store
+files and 40 landing/shell/evidence/context files respectively.
+
+Normal expected-head merge calls succeeded for website #76 at
+`08174a9ce39dfd3f2be806181b20153e94642e6a` and store #34 at
+`13279f96491d3dad49d9d6ebf558404eccc8103f`. Website #77 was retargeted to main;
+this documentation-only handoff accompanies its authorized merge. The live
+[PR #77 record](https://github.com/egohygiene/egohygiene.io/pull/77) is the
+canonical final merge receipt. ADR 0007's status now reflects acceptance.
+
+Latest pre-merge workflow statuses were read at the exact reviewed heads:
+website CI, dependency review and CodeQL fail; companion store CI fails. Known
+format/dependency-review and store E2E limitations remain separate repair work;
+this merge checkpoint does not claim green CI or rerun application validation.
+No checks, protections or settings were disabled. Documentation links and
+changed-line whitespace were checked for this handoff.
+
+The next authorized activity is discussion, not implementation: settle #62's
+World showcase / Shop by song structure and one connected product journey.
+Functional setup precedes further visual polish. No #62 code, new artwork,
+deployment, provider activation, purchase or unrelated PR merge occurred.

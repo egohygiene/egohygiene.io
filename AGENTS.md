@@ -25,15 +25,16 @@ For the website/store launch discussion, follow the
 authorized merging the planning PRs and beginning the first issue, #75. Read its
 [ownership comparison](docs/architecture/storefront-ownership.md) and
 [ADR 0007](docs/architecture/decisions/0007-canonical-storefront-owner.md): the
-selected direction is one website-owned storefront/build, submitted for review.
+accepted direction is one website-owned storefront/build; ownership PRs #76
+and store #34 were merged on 2026-10-17.
 The wider milestone creation/reparenting proposal awaits the next sync. Do not
 mistake the preserved separate-store implementation for a second V1 deployment.
 
-The current selected task is now #35's local landing/shell review; see
-[current state](docs/context/current-state.md) and the
-[rendered checkpoint](docs/design/landing-shell-35.md). The maintainer prioritized
-local visual work before CI/hosting repair. Preserve the earlier ownership PRs
-as separate reviews; this change does not authorize merging them.
+The maintainer authorized merging the #35 landing/shell checkpoint in #77,
+then explicitly requested discussing #62 before implementation. See
+[current state](docs/context/current-state.md) for the merge receipts. Prioritize
+functional setup; visual polish can be revisited. Do not start #62 until that
+discussion establishes its next scope.
 
 ## Working boundaries
 
