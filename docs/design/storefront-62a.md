@@ -1,7 +1,8 @@
 # Storefront checkpoint A — Ego Hygiene and Incompris
 
 This is checkpoint A of [#62](https://github.com/egohygiene/egohygiene.io/issues/62).
-The maintainer requested a draft PR and a sync before checkpoint B. There is no
+[Draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78) contains implementation
+`b320b7af555d2408ce0b75dff4d4b5bc4fa44e5e`. The maintainer requested a draft PR and a sync before checkpoint B. There is no
 merge, deployment or real commerce activation in this checkpoint.
 
 ## What to review

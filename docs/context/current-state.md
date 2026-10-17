@@ -5,8 +5,11 @@
 The maintainer approved the Ego Hygiene → Incompris → artist hierarchy and the
 three checkpoints in [#62](https://github.com/egohygiene/egohygiene.io/issues/62),
 then requested **checkpoint A only**, a draft PR, and a sync **before B**.
-Branch: `feat/storefront-checkpoint-62a`. The draft publication receipt is recorded below and in the ledger once created;
-do not infer merge or hosted CI success from the local checks.
+Branch: `feat/storefront-checkpoint-62a`. [Draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78) is open and unmerged, based on
+`main`. Verified implementation: `b320b7af555d2408ce0b75dff4d4b5bc4fa44e5e`. GitHub comparison
+confirmed all 43 published file hashes match the reviewed source/screenshots.
+Receipt-only follow-up changes documentation; it does not change application code.
+Do not infer merge or hosted CI success from the local checks.
 
 Local checks pass: production build, app/catalog/domain types, 47 catalog tests,
 28 focused unit tests, all 23 store browser journeys, five new browser cases

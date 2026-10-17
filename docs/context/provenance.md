@@ -250,3 +250,19 @@ screen-reader or provider qualification. No dependency or lockfile changed.
 The publication receipt below pins the implementation revision after creating
 its real GitHub commit. Documentation-only receipt changes do not imply another
 application test run. Next: sync on A; do not begin artist/song checkpoint B.
+
+### Publication receipt — checkpoint A
+
+[Draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78) is open and unmerged on
+`feat/storefront-checkpoint-62a`, targeting `main`. Implementation commit:
+`b320b7af555d2408ce0b75dff4d4b5bc4fa44e5e`; tree:
+`546e2f45c12251131a49d60da9b0618758c2332d`. GitHub comparison verified all 43
+changed file hashes against the reviewed local source and screenshot bytes.
+No ignored generated baseline file was changed remotely. This follow-up adds
+only the publication receipt and capture revision metadata.
+
+At the implementation head, hosted dependency review completed with failure
+and validation was still in progress when inspected. This is not a hosted CI
+pass; investigate those checks under the existing CI work rather than silently
+changing gates. Local receipts above stand on their named commands and scope.
+The PR stays draft for Alan's sync, and issue #62 stays open for B/C.

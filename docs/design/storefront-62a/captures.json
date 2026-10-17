@@ -15,7 +15,7 @@
       "bytes": 201544,
       "errors": [],
       "metrics": {
-        "title": "The community store · Ego Hygiene",
+        "title": "The community store \u00b7 Ego Hygiene",
         "headings": [
           "The Ego Hygiene store.",
           "Ego Hygiene merchandise",
@@ -37,7 +37,7 @@
       "bytes": 131567,
       "errors": [],
       "metrics": {
-        "title": "The community store · Ego Hygiene",
+        "title": "The community store \u00b7 Ego Hygiene",
         "headings": [
           "The Ego Hygiene store.",
           "Ego Hygiene merchandise",
@@ -59,7 +59,7 @@
       "bytes": 142947,
       "errors": [],
       "metrics": {
-        "title": "Incompris collection · Ego Hygiene",
+        "title": "Incompris collection \u00b7 Ego Hygiene",
         "headings": [
           "Incompris",
           "Explore the collection"
@@ -80,7 +80,7 @@
       "bytes": 105739,
       "errors": [],
       "metrics": {
-        "title": "Incompris collection · Ego Hygiene",
+        "title": "Incompris collection \u00b7 Ego Hygiene",
         "headings": [
           "Incompris",
           "Explore the collection"
@@ -90,5 +90,7 @@
         "imageErrors": []
       }
     }
-  ]
+  ],
+  "implementationRevision": "b320b7af555d2408ce0b75dff4d4b5bc4fa44e5e",
+  "pullRequest": "https://github.com/egohygiene/egohygiene.io/pull/78"
 }
