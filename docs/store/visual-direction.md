@@ -1,5 +1,10 @@
 # Store visual direction
 
+The root landing page and shared navigation now have a separate
+[#35 rendered review checkpoint](../design/landing-shell-35.md), including
+before/after phone, tablet, desktop, theme and locale stress examples. The
+existing store behaviors described below remain the starting point for #62.
+
 The store uses the existing Ego Hygiene site and theme system. A quiet editorial layout gives each design room to feel like part of a world: generous spacing, large titles, small monospaced labels, dark ink artwork studies, blush accents, and cyan details. Light, dark, and high-contrast themes remain available through the shared header.
 
 ## Current preview

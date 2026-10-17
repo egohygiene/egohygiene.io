@@ -1,0 +1,51 @@
+{
+  "title": "Ego Hygiene — A little more human",
+  "description": "A growing home for self-awareness, creative expression, and thoughtful tools. Explore Ego Hygiene and its community store.",
+  "eyebrow": "Self-awareness. Creative expression. Connection.",
+  "heading": "A little more human.",
+  "intro": "A space to understand ourselves, create with feeling, and build a more thoughtful relationship with the world around us.",
+  "aboutAction": "Discover Ego Hygiene",
+  "storeAction": "Explore the store",
+  "progress": "An independent project, growing in the open",
+  "identityAlt": "Ego Hygiene’s cyan and magenta yin-yang symbol",
+  "identityLabel": "The practice of balance",
+  "identityCaption": "Always becoming.",
+  "philosophyEyebrow": "A practice, not a destination",
+  "philosophyHeading": "Small shifts. A wider perspective.",
+  "philosophyIntro": "Ego Hygiene begins with noticing our patterns and making room for another way of seeing. These ideas guide the things we create.",
+  "pillars": {
+    "awareness": {
+      "title": "Notice yourself",
+      "description": "Get curious about the thoughts, feelings, and patterns shaping your day."
+    },
+    "empathy": {
+      "title": "Make room for others",
+      "description": "Meet different perspectives with a little more openness and care."
+    },
+    "growth": {
+      "title": "Keep becoming",
+      "description": "Leave space to learn, change your mind, and begin again."
+    },
+    "balance": {
+      "title": "Find your rhythm",
+      "description": "Return to what grounds you while staying open to what comes next."
+    }
+  },
+  "storeEyebrow": "The community store",
+  "storeHeading": "Feel something. Make it part of your world.",
+  "storeIntro": "Original designs, character worlds, and ideas finding a physical form. A place for the things we imagine together.",
+  "storeNote": "The store is taking shape. Explore the designs and clearly marked product concepts; purchases are not available yet.",
+  "designLabel": "From the design studio",
+  "designAction": "Explore this design",
+  "designNote": "Artwork preview · not a garment mockup",
+  "designUnavailable": "More designs are taking shape. Explore the current store preview.",
+  "artistEyebrow": "Featured artist",
+  "artistDescription": "Music, characters, and an imagined universe by .play(). One creative voice within the wider Ego Hygiene world.",
+  "artistStatus": "Artist space in development",
+  "ecosystemEyebrow": "Beyond the store",
+  "ecosystemHeading": "Ideas taking shape.",
+  "ecosystemDescription": "Explore the evolving tools and experiments behind Ego Hygiene, from capturing ideas to making creative work.",
+  "ecosystemAction": "Explore the ecosystem",
+  "closing": "A work in progress. A world worth creating.",
+  "closingAction": "Read the philosophy"
+}

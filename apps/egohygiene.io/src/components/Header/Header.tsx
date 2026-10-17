@@ -1,52 +1,104 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import { useI18n } from "@egohygiene/i18n";
 import { Icon } from "@egohygiene/icons";
 import { Container, ThemeToggle } from "@egohygiene/ui";
+import { useEffect, useRef, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 const routes = [
-  ["/", "Home"],
-  ["/store", "Store"],
-  ["/about", "About"],
-  ["/ecosystem", "Ecosystem"],
-  ["/privacy", "Privacy"],
-  ["/terms", "Terms"],
+  ["/", "home"],
+  ["/store", "store"],
+  ["/about", "about"],
+  ["/ecosystem", "ecosystem"],
 ] as const;
 
-export function Header() {
+function HeaderNavigation() {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      toggleRef.current?.focus();
+    };
+
+    const closeOnOutsideFocus = (event: FocusEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("focusin", closeOnOutsideFocus);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("focusin", closeOnOutsideFocus);
+    };
+  }, [open]);
 
   return (
-    <header className="site-header">
+    <header className="site-header" ref={headerRef}>
       <Container>
         <div className="site-header__inner">
-          <NavLink className="site-wordmark" to="/">
-            Ego Hygiene
+          <NavLink className="site-wordmark" onClick={() => setOpen(false)} to="/">
+            <img alt="" height="42" src="/icons/icon-192x192.png" width="42" />
+            <span>{t("shell.brand")}</span>
           </NavLink>
           <button
             aria-controls="primary-navigation"
             aria-expanded={open}
             className="site-nav-toggle"
             onClick={() => setOpen((value) => !value)}
+            ref={toggleRef}
             type="button"
           >
             <Icon decorative name={open ? "close" : "menu"} />
-            <span className="eh-visually-hidden">Toggle navigation</span>
+            <span className="eh-visually-hidden">
+              {t(open ? "shell.navigation.close" : "shell.navigation.open")}
+            </span>
           </button>
-          <nav aria-label="Primary" className="site-nav" data-open={open} id="primary-navigation">
+          <nav
+            aria-label={t("shell.navigation.label")}
+            className="site-nav"
+            data-open={open}
+            id="primary-navigation"
+          >
             <ul>
-              {routes.map(([to, label]) => (
+              {routes.map(([to, key]) => (
                 <li key={to}>
-                  <NavLink className="site-nav__link" onClick={() => setOpen(false)} to={to}>
-                    {label}
+                  <NavLink
+                    className="site-nav__link"
+                    end={to === "/"}
+                    onClick={() => setOpen(false)}
+                    to={to}
+                  >
+                    {t(`shell.navigation.${key}`)}
                   </NavLink>
                 </li>
               ))}
             </ul>
-            <ThemeToggle />
+            <ThemeToggle
+              label={t("shell.theme.label")}
+              labels={{
+                system: t("shell.theme.system"),
+                light: t("shell.theme.light"),
+                dark: t("shell.theme.dark"),
+                "high-contrast": t("shell.theme.highContrast"),
+              }}
+            />
           </nav>
         </div>
       </Container>
     </header>
   );
+}
+
+export function Header() {
+  const location = useLocation();
+  // A new history entry resets the disclosure, including navigation outside this header.
+  return <HeaderNavigation key={location.key} />;
 }

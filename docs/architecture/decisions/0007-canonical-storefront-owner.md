@@ -1,7 +1,6 @@
 # One canonical V1 storefront in the website
 
-Date: **2026-10-17 UTC**. Status: **selected for the #75 checkpoint; submitted
-for maintainer review in paired draft PRs**. Scope: ownership and preservation
+Date: **2026-10-17 UTC**. Status: **accepted by the maintainer; paired ownership PRs merged on 2026-10-17**. Scope: ownership and preservation
 plan, not application migration or deployment.
 Owner: [website #75](https://github.com/egohygiene/egohygiene.io/issues/75).
 
@@ -48,11 +47,11 @@ production; Netlify development remains a preference, not configured service.
 
 ## Relationship to earlier records
 
-On acceptance, this resolves the ownership/topology question in
+This resolves the ownership/topology question in
 [ADR 0006](0006-store-launch-direction.md), reaffirms website
 [high-level ADR-004](../../../DECISIONS.md#adr-004-consolidate-the-store-v1-website-and-use-hosted-checkout),
 and supersedes the independent V1 store deployment part of store ADR-003 through
-its reciprocal [ADR-005](https://github.com/egohygiene/store/blob/docs/storefront-ownership-75/DECISIONS.md#adr-005-select-the-website-as-the-v1-storefront-owner).
+its reciprocal [ADR-005](https://github.com/egohygiene/store/blob/main/DECISIONS.md#adr-005-select-the-website-as-the-v1-storefront-owner).
 Other ecosystem products can still deploy independently under website ADR-002.
 Historical records and implementation evidence remain intact.
 

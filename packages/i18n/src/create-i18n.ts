@@ -3,10 +3,19 @@ export interface I18nMessages {
 }
 
 export function getMessage(messages: I18nMessages, key: string): string {
-  return key.split(".").reduce<string | I18nMessages>((current, part) => {
-    if (typeof current === "string") {
-      return current;
+  let current: string | I18nMessages = messages;
+
+  for (const part of key.split(".")) {
+    if (typeof current !== "object" || current === null || !Object.hasOwn(current, part)) {
+      return key;
     }
-    return current[part] ?? key;
-  }, messages) as string;
+
+    const next: string | I18nMessages | undefined = current[part];
+    if (next === undefined) {
+      return key;
+    }
+    current = next;
+  }
+
+  return typeof current === "string" ? current : key;
 }

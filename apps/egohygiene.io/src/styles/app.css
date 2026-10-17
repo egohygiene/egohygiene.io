@@ -1,79 +1,32 @@
 @import "./reset.css";
 @import "./fonts.css";
 @import "./utilities.css";
+@import "./shell.css";
 
-.site-skip-link {
-  position: absolute;
-  inset-inline-start: 1rem;
-  inset-block-start: 0;
-  transform: translateY(-150%);
-  z-index: 10;
-  padding: 0.75rem 1rem;
-  border-radius: 999px;
-  background: var(--color-surface);
+/* The public website maps shared semantic tokens to its editorial light palette. */
+:root:not([data-theme]),
+[data-theme="light"] {
+  --color-background: #f7f5ef;
+  --color-surface: #fffdf9;
+  --color-foreground: #29252e;
+  --color-muted: #625c67;
+  --color-border: #d9d2da;
+  --color-accent: #714b7e;
+  --color-focus: #67408b;
 }
 
-.site-skip-link:focus {
-  transform: translateY(1rem);
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
-  backdrop-filter: blur(18px);
-  background: color-mix(in srgb, var(--color-background) 82%, transparent);
-}
-
-.site-header__inner,
-.site-footer__inner {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 1rem;
-}
-
-.site-wordmark {
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.site-nav {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.site-nav ul,
-.site-footer__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.site-nav__link {
-  text-decoration: none;
-}
-
-.site-nav__link.active {
-  color: var(--color-accent);
-}
-
-.site-nav-toggle {
-  display: none;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  padding: 0.5rem;
-  background: var(--color-surface);
+body {
+  background: var(--color-background);
 }
 
 main {
   padding-block: 2rem 4rem;
+  scroll-margin-block-start: 8rem;
+}
+
+main:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .site-hero {
@@ -103,35 +56,16 @@ main {
   justify-content: space-between;
 }
 
-.site-footer {
-  border-top: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
-}
-
-@media (max-width: 720px) {
-  .site-header__inner,
-  .site-footer__inner {
-    align-items: flex-start;
-    flex-direction: column;
+/* Keep the application override after the shared primitives' transition rules. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-
-  .site-nav-toggle {
-    display: inline-flex;
-    align-self: flex-end;
-  }
-
-  .site-nav {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .site-nav[data-open="true"] {
-    display: flex;
-  }
-
-  .site-nav ul {
-    flex-direction: column;
-    align-items: flex-start;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
   }
 }

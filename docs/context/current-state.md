@@ -1,6 +1,77 @@
 # Current handoff
 
-## Active ownership checkpoint — 2026-10-17 UTC
+## Active pause before #62 — 2026-10-17 UTC
+
+The maintainer authorized merging the ownership and landing PRs, then returning
+for a discussion of #62 **before any implementation**. Functional setup is the
+priority; visual polish can be revisited later. This is not authorization to
+start the next roadmap slice or add designs.
+
+Confirmed ownership merges:
+
+- [Website #76](https://github.com/egohygiene/egohygiene.io/pull/76):
+  `08174a9ce39dfd3f2be806181b20153e94642e6a`.
+- [Store #34](https://github.com/egohygiene/store/pull/34):
+  `13279f96491d3dad49d9d6ebf558404eccc8103f`.
+
+[Landing PR #77](https://github.com/egohygiene/egohygiene.io/pull/77) has been
+retargeted from the ownership branch to `main` and carries this handoff for its
+authorized merge. Its live PR record supplies the final merge receipt; refresh
+that status before resuming. Application implementation remains
+`dae9ba8b0318b1975ca8969072821ebdf93d7e9d`; later commits update context and JSON
+formatting only. Existing local checks and screenshots are recorded below and
+in the [review document](../design/landing-shell-35.md). No deployment or real
+product was activated. Hosted checks still report failures; no checks or
+protection settings were disabled to merge.
+
+**Next conversation:** define #62's functional scope using the existing routes
+and catalog. Proposed entries are World showcase (standalone designs/characters)
+and Shop by song (stable song destinations for SoundCloud links). Discuss entry
+labels, where each page lives, and the first complete browse-to-product example.
+Preserve optional song associations and shared design/product identities. The
+existing browsing/gallery/preview foundation is already implemented; do not
+restart it. No #62 source changes have been made. Do not close #35's remaining
+visual/accessibility qualifications merely because its checkpoint was merged.
+
+## Historical landing/shell review — 2026-10-17 UTC
+
+The maintainer explicitly selected **#35** and prioritized local visual progress
+before hosted CI/deployment work. [Draft PR #77](https://github.com/egohygiene/egohygiene.io/pull/77)
+is the new review checkpoint on `feat/landing-shell-35`. Implementation:
+`dae9ba8b0318b1975ca8969072821ebdf93d7e9d`. It is stacked on the still-open
+ownership draft #76 (`docs/storefront-ownership-75`, head
+`98cc8d8eee1e3446a0fe10bbffb1b7aaf6f7526c`); companion store #34 also remains
+unmerged. This checkpoint does not merge either ownership proposal.
+
+Read the [rendered review](../design/landing-shell-35.md) first. It contains
+before/after desktop and phone views, tablet/high-contrast examples, expanded
+copy and RTL stress views, with public-asset provenance links. The root explains
+Ego Hygiene, leads into the community store, features the existing heartburst
+design preview and presents `.play()` as a featured creative identity. Shared
+navigation/footer, mobile disclosure, skip focus and new message-based copy are
+implemented. No product, checkout route, provider, deployment or new artwork
+was added. The small nested-translation lookup prerequisite is fixed; full-site
+localization and supported locale selection remain separate work.
+
+Local verification passes: production build/catalog validation, app/store/domain
+typechecks, portable store import guard, 38 distinct focused unit cases across
+runs, three accessibility role checks, four production site smoke cases and the
+18 existing store/theme browser cases (two mobile locators were updated and
+rerun). Scoped formatting and whitespace checks pass. The ledger records exact
+scope and limitations. Chromium renders cover 320–1920 widths, short menus,
+light/dark/high contrast and synthetic locale stress. Hosted CI and full
+cross-browser/device/zoom/screen-reader qualification are not claimed.
+
+**Next:** sync with Alan on the rendered look and feel. #35 remains open for his
+visual approval and remaining broad qualification. Review/merge ownership #76
+and store #34 only under the current maintainer instructions; after #76 merges,
+retarget #77 to main before its eventual merge. Proposed next implementation is
+#62 (curated standalone designs and a distinct song-merch discovery path), then
+bounded product/mock-provider journey work. Additional designs come after the
+store structure is ready. Do not resume #29/hosting automatically from the
+older handoff: this selected local visual sequence supersedes that priority.
+
+## Historical ownership checkpoint — 2026-10-17 UTC
 
 Planning [website PR #74](https://github.com/egohygiene/egohygiene.io/pull/74)
 merged as `ee59e2f83c59c084c23a5f8bcc3311c2dc830859`; companion

@@ -1,6 +1,5 @@
-import { Outlet, ScrollRestoration } from "react-router-dom";
-
 import { Container } from "@egohygiene/ui";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
@@ -11,7 +10,7 @@ export function RootLayout() {
     <>
       <SkipLink />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <Container>
           <Outlet />
         </Container>

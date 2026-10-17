@@ -124,3 +124,88 @@ Combined validation passed: 174 relative link targets, eight cross-repository
 draft links resolved against the paired trees, ten available heading anchors,
 14 manifest paths, JSON, fences/newlines and changed-line whitespace. Independent
 review confirmed the comparison and fixed the reciprocal ADR-005 anchor.
+
+## Landing/shared-shell rendered checkpoint — 2026-10-17 UTC
+
+Authority: the maintainer selected #35 after prioritizing local visual progress
+and deferring hosted CI/deployment. [Draft PR #77](https://github.com/egohygiene/egohygiene.io/pull/77)
+contains implementation `dae9ba8b0318b1975ca8969072821ebdf93d7e9d`; this
+following context-only commit records its receipt. Base: ownership #76 at
+`98cc8d8eee1e3446a0fe10bbffb1b7aaf6f7526c`, tree
+`6adc55396873085424f8bed272f65dc476bad9eb`. Website main was refreshed at
+`ee59e2f83c59c084c23a5f8bcc3311c2dc830859`. Neither ownership PR was merged.
+
+The [review document](../design/landing-shell-35.md) records visual choices,
+small extension contracts and limits. The [capture manifest](../design/landing-shell-35/captures.json)
+records dimensions, byte counts and SHA-256 hashes for eight browser JPEGs
+(2,157,644 bytes total; no resizing). Before captures use application revision
+`db634b887ede348ce85d9c03af789467ab535dcf` in a production build; intervening
+planning/ownership commits did not change app source. Current screenshots use
+real components and messages in a temporary local Vite review host. The host
+was removed; only the reusable test dictionary generator remains. Expanded and
+RTL copy are synthetic stress fixtures, not real translations. Final RTL proof
+includes isolation of `.play()` punctuation. Approved identity and heartburst
+source bytes were not modified; their asset-local receipts remain authoritative.
+
+Verification used Node 24.21.0 (download checksum verified), pnpm 11.28.5 with a
+frozen lockfile, and Chromium 153.0.8010.0. No package/lock version changed.
+
+- `pnpm build`: catalog valid (9 entries, one verified image), 166 modules;
+  final JS 414.01 kB / gzip 125.69 kB, CSS 42.49 kB / gzip 8.77 kB.
+- `pnpm typecheck`: app, store and portable domain pass. The import guard passes
+  for nine domain modules. Production output excludes locale-fixture markers.
+- Focused unit run: 37 cases across 11 files passed; after adding outside-focus
+  behavior, the six-case Header suite passed again (38 distinct cases in total).
+  New tests cover safe lookup, public feature routing/fallback, metadata cleanup,
+  nav focus/reset and message labels; existing UI primitive cases also ran.
+- Accessibility role fixture: three cases pass. These are semantic/role checks,
+  not a comprehensive axe or screen-reader audit.
+- Production site smoke: four cases pass, including short-menu keyboard reach
+  and skip link/menu closure. Existing store/theme suite: 16 initially pass;
+  two mobile cases failed because they used the previous `Toggle navigation`
+  label. After updating them to Open/Close, both passed. No assertion was removed.
+- Rendered width samples: 320, 390, 820, 1024, 1440, 1920; light/dark/high
+  contrast; expanded and RTL fixtures; short 390×300/844×300 menus. Visual
+  inspection caught clipped expanded hero text, unreachable short-menu controls,
+  a sticky-header skip offset and reversed artist punctuation. Each was fixed
+  and the affected states rerendered. Decorative orbits extend geometrically
+  but stay clipped within the art panel; no document horizontal overflow remains.
+- Focused Biome check passed for 24 implementation/test files; changed-line
+  whitespace passed. Existing Vite native-config/module-format warnings were
+  reported and not suppressed. No full-repository formatting cleanup occurred.
+
+No hosted CI, deployment, provider activation, purchase or manufacturing test
+was used to claim completion. Physical devices, other browser engines, full
+contrast/zoom/screen-reader review and Storybook parity remain explicit follow-up
+work. The visual direction still needs Alan's review; #35 stays open. The next
+proposed implementation is #62, subject to the sync. Existing CI #29/#73 and
+separate store dependency PRs remain separate work.
+
+## Authorized ownership merges and #62 pause — 2026-10-17 UTC
+
+The maintainer requested closing the three pending PRs through merge and returning
+to discuss #62 before starting it. Read-back confirmed the reviewed heads had
+not moved: website #76 `98cc8d8eee1e3446a0fe10bbffb1b7aaf6f7526c`, store #34
+`3c2a46ad74057b4ed4c7e9298bfc08193eff804f`, website #77
+`127062af75e19f77e3c0a4e2a182618b195d519e`. Independent scope review found no
+unexpected changes: 15 ownership documentation files, nine companion store
+files and 40 landing/shell/evidence/context files respectively.
+
+Normal expected-head merge calls succeeded for website #76 at
+`08174a9ce39dfd3f2be806181b20153e94642e6a` and store #34 at
+`13279f96491d3dad49d9d6ebf558404eccc8103f`. Website #77 was retargeted to main;
+this documentation-only handoff accompanies its authorized merge. The live
+[PR #77 record](https://github.com/egohygiene/egohygiene.io/pull/77) is the
+canonical final merge receipt. ADR 0007's status now reflects acceptance.
+
+Latest pre-merge workflow statuses were read at the exact reviewed heads:
+website CI, dependency review and CodeQL fail; companion store CI fails. Known
+format/dependency-review and store E2E limitations remain separate repair work;
+this merge checkpoint does not claim green CI or rerun application validation.
+No checks, protections or settings were disabled. Documentation links and
+changed-line whitespace were checked for this handoff.
+
+The next authorized activity is discussion, not implementation: settle #62's
+World showcase / Shop by song structure and one connected product journey.
+Functional setup precedes further visual polish. No #62 code, new artwork,
+deployment, provider activation, purchase or unrelated PR merge occurred.

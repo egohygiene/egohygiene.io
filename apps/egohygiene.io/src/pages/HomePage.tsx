@@ -1,75 +1,192 @@
+import { useI18n } from "@egohygiene/i18n";
+import type { StoreDesign } from "@egohygiene/schemas";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Icon } from "@egohygiene/icons";
-import { Card, Cluster, LinkButton, PageSection, Stack, StatusBadge } from "@egohygiene/ui";
+import { landingSelection } from "../content/landing";
+import { storeCatalog } from "../content/store";
+import { storeEntryPath } from "../features/store/domain";
 
-import { products } from "../content/products";
+import "../styles/landing.css";
 
-const pillars = ["self-awareness", "empathy", "growth", "balance"];
+const pillars = ["awareness", "empathy", "growth", "balance"] as const;
+
+function Arrow() {
+  return (
+    <span aria-hidden="true" className="landing-arrow">
+      ↗
+    </span>
+  );
+}
+
+/** The home feature consumes the same reviewed public design as the store. */
+function FeaturedDesign() {
+  const { t } = useI18n();
+  const [failedSource, setFailedSource] = useState<string>();
+  const design = storeCatalog.entries.find(
+    (entry): entry is StoreDesign =>
+      entry.kind === "design" &&
+      entry.visibility === "public" &&
+      entry.id === landingSelection.featuredDesignId,
+  );
+  const artwork = design?.artwork;
+  const image = artwork?.kind === "image" ? artwork : undefined;
+
+  if (!design || !image || image.src === failedSource) {
+    return (
+      <div className="landing-design landing-design--empty">
+        <p>{t("landing.designUnavailable")}</p>
+        <Link className="landing-text-link" to="/store">
+          {t("landing.storeAction")} <Arrow />
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="landing-design">
+      <Link
+        aria-label={`${t("landing.designAction")}: ${design.title}`}
+        to={storeEntryPath(design)}
+      >
+        <figure>
+          <div className="landing-design__image">
+            <img
+              alt={image.alt}
+              decoding="async"
+              loading="lazy"
+              onError={() => setFailedSource(image.src)}
+              src={image.src}
+            />
+          </div>
+          <figcaption>
+            <span>
+              <span className="landing-kicker">{t("landing.designLabel")}</span>
+              <strong>{design.title}</strong>
+            </span>
+            <Arrow />
+          </figcaption>
+        </figure>
+      </Link>
+      <p className="landing-design__note">{t("landing.designNote")}</p>
+    </div>
+  );
+}
 
 export function HomePage() {
+  const { t } = useI18n();
+  const title = t("landing.title");
+  const description = t("landing.description");
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    const existing = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const meta = existing ?? document.createElement("meta");
+    const previousDescription = meta.content;
+    meta.name = "description";
+    meta.content = description;
+    if (!existing) document.head.append(meta);
+    document.title = title;
+    return () => {
+      document.title = previousTitle;
+      if (existing) meta.content = previousDescription;
+      else meta.remove();
+    };
+  }, [title, description]);
+
   return (
-    <Stack>
-      <PageSection className="site-hero">
-        <p className="site-eyebrow">Ego Hygiene</p>
-        <h1>Tools, ideas, and practices for moving toward balance and harmony.</h1>
-        <p>
-          A calm first release for people building more awareness, more compassion, and more
-          thoughtful creative and engineering tools.
-        </p>
-        <Cluster>
-          <LinkButton href="/ecosystem">Explore the ecosystem</LinkButton>
-          <LinkButton href="/about" tone="ghost">
-            Learn what Ego Hygiene means
-          </LinkButton>
-        </Cluster>
-      </PageSection>
-      <PageSection>
-        <h2>Pillars</h2>
-        <div className="site-grid">
-          {pillars.map((pillar) => (
-            <Card key={pillar}>
-              <h3>{pillar}</h3>
-              <p>Practical, reflective language for everyday growth without inflated claims.</p>
-            </Card>
-          ))}
+    <div className="landing-page">
+      <section aria-labelledby="landing-heading" className="landing-hero">
+        <div className="landing-hero__copy">
+          <p className="landing-kicker">{t("landing.eyebrow")}</p>
+          <h1 id="landing-heading">{t("landing.heading")}</h1>
+          <p className="landing-intro">{t("landing.intro")}</p>
+          <div className="landing-actions">
+            <Link className="landing-button" to="/about">
+              {t("landing.aboutAction")} <Arrow />
+            </Link>
+            <Link className="landing-text-link" to="/store">
+              {t("landing.storeAction")} <Arrow />
+            </Link>
+          </div>
+          <p className="landing-progress">
+            <span aria-hidden="true" />
+            {t("landing.progress")}
+          </p>
         </div>
-      </PageSection>
-      <PageSection>
-        <h2>Ecosystem preview</h2>
-        <div className="site-grid">
-          {products.slice(0, 6).map((product) => (
-            <Card key={product.identifier}>
-              <Cluster className="site-card-header">
-                <strong>{product.name}</strong>
-                <StatusBadge tone={product.status}>{product.status}</StatusBadge>
-              </Cluster>
-              <p>{product.description}</p>
-              <Link to={product.path}>View status</Link>
-            </Card>
-          ))}
+        <figure className="landing-identity">
+          <div aria-hidden="true" className="landing-identity__orbit" />
+          <span className="landing-identity__label">{t("landing.identityLabel")}</span>
+          <img
+            alt={t("landing.identityAlt")}
+            src="/icons/icon-512x512.png"
+            width="512"
+            height="512"
+            fetchPriority="high"
+          />
+          <figcaption>{t("landing.identityCaption")}</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="landing-philosophy" className="landing-philosophy">
+        <div className="landing-section-heading">
+          <div>
+            <p className="landing-kicker">{t("landing.philosophyEyebrow")}</p>
+            <h2 id="landing-philosophy">{t("landing.philosophyHeading")}</h2>
+          </div>
+          <p>{t("landing.philosophyIntro")}</p>
         </div>
-      </PageSection>
-      <PageSection>
-        <h2>Philosophy</h2>
-        <p>
-          Awareness helps us notice our patterns. Balance helps us respond with steadiness.
-          Compassion keeps technology humane. Creativity helps the work feel alive.
-        </p>
-      </PageSection>
-      <PageSection>
-        <Card>
-          <Cluster>
-            <Icon decorative name="sparkles" />
-            <div>
-              <h2>Keep exploring</h2>
-              <p>
-                No account, no email capture, no backend required — just a clear starting point.
-              </p>
-            </div>
-          </Cluster>
-        </Card>
-      </PageSection>
-    </Stack>
+        <ol className="landing-pillars">
+          {pillars.map((pillar, index) => (
+            <li key={pillar}>
+              <span aria-hidden="true" className="landing-pillar-number">
+                0{index + 1}
+              </span>
+              <h3>{t(`landing.pillars.${pillar}.title`)}</h3>
+              <p>{t(`landing.pillars.${pillar}.description`)}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section aria-labelledby="landing-store" className="landing-store">
+        <div className="landing-store__copy">
+          <p className="landing-kicker">{t("landing.storeEyebrow")}</p>
+          <h2 id="landing-store">{t("landing.storeHeading")}</h2>
+          <p>{t("landing.storeIntro")}</p>
+          <Link className="landing-button landing-button--light" to="/store">
+            {t("landing.storeAction")} <Arrow />
+          </Link>
+          <p className="landing-store__note">{t("landing.storeNote")}</p>
+        </div>
+        <FeaturedDesign />
+      </section>
+
+      <div className="landing-explore">
+        <section aria-labelledby="landing-artist" className="landing-artist">
+          <p className="landing-kicker">{t("landing.artistEyebrow")}</p>
+          <h2 id="landing-artist">
+            <bdi dir="ltr">.play()</bdi>
+          </h2>
+          <p>{t("landing.artistDescription")}</p>
+          <span className="landing-status">{t("landing.artistStatus")}</span>
+        </section>
+        <section aria-labelledby="landing-ecosystem" className="landing-ecosystem">
+          <p className="landing-kicker">{t("landing.ecosystemEyebrow")}</p>
+          <h2 id="landing-ecosystem">{t("landing.ecosystemHeading")}</h2>
+          <p>{t("landing.ecosystemDescription")}</p>
+          <Link className="landing-text-link" to="/ecosystem">
+            {t("landing.ecosystemAction")} <Arrow />
+          </Link>
+        </section>
+      </div>
+
+      <section className="landing-signoff">
+        <h2>{t("landing.closing")}</h2>
+        <Link className="landing-text-link" to="/about">
+          {t("landing.closingAction")} <Arrow />
+        </Link>
+      </section>
+    </div>
   );
 }
