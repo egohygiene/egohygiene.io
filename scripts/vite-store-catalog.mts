@@ -4,11 +4,13 @@ import type { Plugin } from "vite";
 
 import { toPublicStoreCatalog } from "../packages/schemas/src/store.ts";
 import {
+  curationFileForDirectory,
   defaultCatalogDirectory,
   defaultCheckoutRoutesFile,
   defaultProvidersFile,
   defaultPublicDirectory,
   loadCatalog,
+  loadStorefrontCuration,
   readCatalogJson,
 } from "./store-catalog.mts";
 
@@ -19,6 +21,7 @@ export interface PublicStoreCatalogOptions {
   readonly directory?: string;
   readonly routesFile?: string;
   readonly publicDirectory?: string;
+  readonly curationFile?: string | null;
 }
 
 function isWithin(directory: string, file: string): boolean {
@@ -31,7 +34,19 @@ export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plu
   const directory = resolve(options.directory ?? defaultCatalogDirectory);
   const routesFile = resolve(options.routesFile ?? defaultCheckoutRoutesFile);
   const publicDirectory = resolve(options.publicDirectory ?? defaultPublicDirectory);
-  const inputs = [directory, routesFile, defaultProvidersFile, publicDirectory];
+  const curationFile =
+    options.curationFile === undefined
+      ? curationFileForDirectory(directory)
+      : options.curationFile === null
+        ? null
+        : resolve(options.curationFile);
+  const inputs = [
+    directory,
+    routesFile,
+    defaultProvidersFile,
+    publicDirectory,
+    ...(curationFile ? [curationFile] : []),
+  ];
   let building = false;
   let stopWatching: (() => void) | undefined;
 
@@ -48,21 +63,33 @@ export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plu
       // Build watchers need these inputs. In serve mode, addWatchFile also creates module
       // dependencies; use the server watcher below so raw authoring files stay out of the graph.
       if (building) for (const input of inputs) this.addWatchFile(input);
-      const catalog = toPublicStoreCatalog(await loadCatalog(
-        directory,
-        await readCatalogJson(routesFile),
-        publicDirectory,
-      ));
+      const catalog = toPublicStoreCatalog(
+        await loadCatalog(
+          directory,
+          await readCatalogJson(routesFile),
+          publicDirectory,
+          curationFile,
+        ),
+      );
+      const storefrontCuration = await loadStorefrontCuration(catalog, curationFile);
       // Raw JSON is never a browser import or an emitted asset. No timestamp or absolute path
       // enters this deterministic module, including its optional production source map.
-      return { code: `export const storeCatalog = ${JSON.stringify(catalog)};\n`, map: { mappings: "" } };
+      return {
+        code: `export const storeCatalog = ${JSON.stringify(catalog)};\nexport const storefrontCuration = ${JSON.stringify(storefrontCuration)};\n`,
+        map: { mappings: "" },
+      };
     },
     configureServer(server) {
       server.watcher.add(inputs);
       const refresh = (event: string, file: string) => {
         if (!["add", "change", "unlink", "addDir", "unlinkDir"].includes(event)) return;
         const path = resolve(file);
-        if (!inputs.some((input) => path === input) && !isWithin(directory, path) && !isWithin(publicDirectory, path)) return;
+        if (
+          !inputs.some((input) => path === input) &&
+          !isWithin(directory, path) &&
+          !isWithin(publicDirectory, path)
+        )
+          return;
         const module = server.moduleGraph.getModuleById(resolvedModuleId);
         if (module) server.moduleGraph.invalidateModule(module);
         // Full reload also refreshes module-level fixture selections and surfaces invalid edits
@@ -70,7 +97,9 @@ export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plu
         server.ws.send({ type: "full-reload", path: "*" });
       };
       server.watcher.on("all", refresh);
-      stopWatching = () => { server.watcher.off("all", refresh); };
+      stopWatching = () => {
+        server.watcher.off("all", refresh);
+      };
     },
     closeBundle() {
       stopWatching?.();

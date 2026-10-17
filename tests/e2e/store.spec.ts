@@ -41,7 +41,7 @@ test("the production store presents a labeled preview and all public catalog ent
 }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/store");
+  await page.goto("/store/catalog");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     /Objects with\s*a world inside\./,
   );
@@ -63,7 +63,7 @@ test("the production store presents a labeled preview and all public catalog ent
 test("search and type filters compose, survive reload, and recover from empty results", async ({
   page,
 }) => {
-  await page.goto("/store");
+  await page.goto("/store/catalog");
   const search = page.getByRole("searchbox", { name: "Search the store" });
   await search.fill("static bloom");
   await expect(catalog(page).getByRole("article")).toHaveCount(3);
@@ -92,7 +92,7 @@ test("search and type filters compose, survive reload, and recover from empty re
 test("story browsing composes with search, persists, and clears without losing unrelated URL state", async ({
   page,
 }) => {
-  await page.goto("/store?source=preview");
+  await page.goto("/store/catalog?source=preview");
   const story = page.getByRole("combobox", { name: "Browse by story" });
   await story.selectOption("connected");
   await page.getByRole("button", { name: "Objects", exact: true }).click();
@@ -108,14 +108,14 @@ test("story browsing composes with search, persists, and clears without losing u
   await page.getByRole("button", { name: "Reset search and filters" }).click();
   await expect(story).toHaveValue("all");
   await expect(catalog(page).getByRole("article")).toHaveCount(8);
-  await expect(page).toHaveURL(/\/store\?source=preview$/);
+  await expect(page).toHaveURL(/\/store\/catalog\?source=preview$/);
   await story.selectOption("standalone");
   await expect(card(page, "Signal Heart")).toBeVisible();
   await expect(card(page, "heartburst")).toBeVisible();
   await expect(card(page, "Static Bloom Artwork")).toHaveCount(0);
   await page.getByRole("button", { name: "Clear filters" }).click();
   await expect(catalog(page).getByRole("article")).toHaveCount(8);
-  await page.goto("/store?story=unknown");
+  await page.goto("/store/catalog?story=unknown");
   await expect(story).toHaveValue("all");
   await expect(catalog(page).getByRole("article")).toHaveCount(8);
 });
@@ -128,7 +128,7 @@ for (const viewport of [
     page,
   }, testInfo) => {
     await page.setViewportSize(viewport);
-    await page.goto("/store");
+    await page.goto("/store/catalog");
     await page.getByRole("link", { name: "Meet the worlds", exact: true }).click();
     const pathways = page.getByRole("region", { name: "Find a world. Or make your own." });
     await expect(pathways.getByRole("heading", { level: 2 })).toBeInViewport();
@@ -177,7 +177,7 @@ for (const viewport of [
       .getByRole("link", { name: /Part of a bigger world The Static Bloom Collection/ })
       .click();
     await expect(page).toHaveURL(/\/store\/collections\/static-bloom-collection$/);
-    await page.goto("/store#worlds");
+    await page.goto("/store/catalog#worlds");
     await pathways
       .getByRole("link")
       .filter({ has: page.getByRole("heading", { name: "heartburst", exact: true }) })
@@ -213,7 +213,7 @@ for (const viewport of [
 test("a collection leads to its product, shared design, and the collection again", async ({
   page,
 }) => {
-  await page.goto("/store?view=collection");
+  await page.goto("/store/catalog?view=collection");
   await card(page, "The Static Bloom Collection").getByRole("link").click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("The Static Bloom Collection");
   await card(page, "Static Bloom Mug").getByRole("link").click();
@@ -228,6 +228,7 @@ test("a collection leads to its product, shared design, and the collection again
     .getByRole("navigation", { name: "Breadcrumb" })
     .getByRole("link", { name: "Store", exact: true })
     .click();
+  await page.getByRole("link", { name: "Catalog preview", exact: true }).click();
   await expect(catalog(page).getByRole("article")).toHaveCount(8);
 });
 
@@ -250,7 +251,7 @@ test("product, design, and collection deep links survive a full page reload", as
 test("detail navigation resets scrolling, Back restores it, and section links remain usable", async ({
   page,
 }) => {
-  await page.goto("/store");
+  await page.goto("/store/catalog");
   await page.getByRole("link", { name: "Explore the collection", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "Find your frequency.", exact: true }),
@@ -285,6 +286,7 @@ test("unknown and mismatched slugs provide a usable route back to the catalog", 
     await page.goto(path);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(heading);
     await page.getByRole("link", { name: "Back to the store" }).click();
+    await page.getByRole("link", { name: "Catalog preview", exact: true }).click();
     await expect(catalog(page).getByRole("article")).toHaveCount(8);
   }
 });
@@ -318,7 +320,7 @@ test("every mock product is explicit about availability and offers no purchase a
 
 test("keyboard browsing exposes focus and respects reduced motion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/store");
+  await page.goto("/store/catalog");
   const everything = page.getByRole("button", { name: "Everything", exact: true });
   await tabTo(page, everything);
   await expect(everything).toBeFocused();
@@ -354,6 +356,7 @@ test.describe("mobile store", () => {
       "false",
     );
     await expectNoHorizontalOverflow(page);
+    await page.getByRole("link", { name: "Catalog preview", exact: true }).click();
     const screenshotPath = testInfo.outputPath("store-mobile.png");
     await page.screenshot({ path: screenshotPath, fullPage: true });
     await testInfo.attach("store-mobile", { path: screenshotPath, contentType: "image/png" });
@@ -369,7 +372,7 @@ test.describe("mobile store", () => {
   test("all themes and detail layouts fit mobile without horizontal scrolling", async ({
     page,
   }) => {
-    await page.goto("/store");
+    await page.goto("/store/catalog");
     for (const theme of ["light", "dark", "high-contrast"]) {
       await page.getByRole("button", { name: "Open navigation" }).click();
       await page.getByLabel("Theme", { exact: true }).selectOption(theme);

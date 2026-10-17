@@ -209,3 +209,44 @@ The next authorized activity is discussion, not implementation: settle #62's
 World showcase / Shop by song structure and one connected product journey.
 Functional setup precedes further visual polish. No #62 code, new artwork,
 deployment, provider activation, purchase or unrelated PR merge occurred.
+
+
+## #62 checkpoint A — 2026-10-17 UTC
+
+The maintainer approved the three-checkpoint plan in
+[issue #62](https://github.com/egohygiene/egohygiene.io/issues/62), then authorized
+checkpoint A only, ending at a draft PR and sync before B. This supersedes the
+prior pause-before-discussion instruction, without granting merge or deployment
+authority. Branch: `feat/storefront-checkpoint-62a`.
+
+Starting website main was refreshed at
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c` (confirmed #77 merge), tree
+`a647d8fdff8b85c14cd02ed7b42e05d7a57d7c20`. The isolated source checkout was exported from that verified
+tree; ignored generated files were not included in its local snapshot history.
+Publication uses the real remote base tree and preserves those remote files. Existing unrelated checkouts and open CI work were preserved.
+
+[ADR 0008](../architecture/decisions/0008-curated-storefront-views.md) records the
+editorial manifest and route compatibility decision. The
+[review/authoring guide](../design/storefront-62a.md) records the implementation,
+commands, precise test scope and limitations. Heartburst was selected using its
+existing canonical ID and approved public derivative; no asset, product, context,
+checkout route or provider approval was added. The Ego Hygiene selection is empty.
+
+Local validation passes: build (173 modules), app/catalog/domain typechecks,
+47 catalog tests, 28 focused unit tests, 23 production store/theme journeys,
+five new storefront journeys rerun against the last UI rebuild, and the portable
+11-module import guard. Scope-limited format checks and diff whitespace pass;
+pre-existing lint warnings remain. Independent source review found no substantive
+issue. Hosted CI was not made a delivery gate and no workflow setting changed.
+
+Four actual production route screenshots were inspected and preserved with
+[SHA-256/dimension metadata](../design/storefront-62a/captures.json). Browser checks
+cover 320/390/820/1440 widths. A temporary unshipped four-card QA host verified
+expanded and synthetic RTL messages, native horizontal keyboard scrolling and
+visible row focus at 320/390/1440 (six scenarios). It was removed before publishing.
+These are bounded Chromium 153 checks, not physical-device, cross-browser,
+screen-reader or provider qualification. No dependency or lockfile changed.
+
+The publication receipt below pins the implementation revision after creating
+its real GitHub commit. Documentation-only receipt changes do not imply another
+application test run. Next: sync on A; do not begin artist/song checkpoint B.

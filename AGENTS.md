@@ -30,11 +30,14 @@ and store #34 were merged on 2026-10-17.
 The wider milestone creation/reparenting proposal awaits the next sync. Do not
 mistake the preserved separate-store implementation for a second V1 deployment.
 
-The maintainer authorized merging the #35 landing/shell checkpoint in #77,
-then explicitly requested discussing #62 before implementation. See
-[current state](docs/context/current-state.md) for the merge receipts. Prioritize
-functional setup; visual polish can be revisited. Do not start #62 until that
-discussion establishes its next scope.
+The #35 landing/shell checkpoint merged in #77. The subsequent #62 discussion
+approved Ego Hygiene as the primary shop, Incompris as its featured collection,
+and `.play()` as a later artist destination. The maintainer authorized **checkpoint
+A only**, ending at a **draft PR and sync before B**. Read the
+[checkpoint review](docs/design/storefront-62a.md) and
+[current state](docs/context/current-state.md). Preserve the existing canonical
+catalog and truthful purchase states; do not proceed to artists/songs, merge or
+deploy without the next instruction.
 
 ## Working boundaries
 

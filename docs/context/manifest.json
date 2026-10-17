@@ -16,5 +16,7 @@
   "storeLaunchRoadmap": "docs/roadmaps/store-launch.md",
   "storefrontOwnership": "docs/architecture/storefront-ownership.md",
   "storefrontOwnershipDecision": "docs/architecture/decisions/0007-canonical-storefront-owner.md",
-  "landingShellReview": "docs/design/landing-shell-35.md"
+  "landingShellReview": "docs/design/landing-shell-35.md",
+  "storefrontCheckpointReview": "docs/design/storefront-62a.md",
+  "storefrontCurationDecision": "docs/architecture/decisions/0008-curated-storefront-views.md"
 }

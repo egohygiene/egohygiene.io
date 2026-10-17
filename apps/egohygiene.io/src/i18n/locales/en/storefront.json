@@ -1,0 +1,52 @@
+{
+  "home": {
+    "title": "The community store",
+    "description": "The Ego Hygiene community store, with a growing collection of merchandise and selected artwork from Incompris.",
+    "eyebrow": "Ego Hygiene / The store",
+    "status": "A community store, taking shape",
+    "kicker": "A little balance. A shared space.",
+    "heading": "The Ego Hygiene store.",
+    "introduction": "A home for Ego Hygiene merchandise and creative collections from our community. Things to wear, carry, and make part of your everyday world.",
+    "featuredLink": "Discover the featured collection",
+    "identityCaption": "A little balance, carried with you."
+  },
+  "egoHygiene": {
+    "kicker": "Our community collection",
+    "heading": "Ego Hygiene merchandise",
+    "description": "Ideas for everyday life.",
+    "emptyHeading": "The first pieces are taking shape.",
+    "emptyDescription": "There are no Ego Hygiene products available yet. As designs become ready-to-order items, you’ll find them here.",
+    "emptyStatus": "Upcoming"
+  },
+  "featured": {
+    "kicker": "A creative collection in our community",
+    "heading": "Featured from Incompris",
+    "description": "A small selection from the Incompris creative world. Begin with the artwork, then explore the collection as it grows.",
+    "link": "Explore Incompris",
+    "rowLabel": "Selected Incompris pieces",
+    "scrollHint": "Scroll sideways to explore, or use the arrow keys while this row is focused.",
+    "emptyDescription": "The next Incompris selection is taking shape. You can still visit the collection."
+  },
+  "incompris": {
+    "title": "Incompris collection",
+    "description": "Explore the Incompris creative collection within the Ego Hygiene community store.",
+    "name": "Incompris",
+    "kicker": "A creative collection at Ego Hygiene",
+    "introduction": "A place for artwork, characters, and future merchandise from the Incompris creative world. Follow an idea from its first design to the things it becomes.",
+    "collectionKicker": "From the creative world",
+    "collectionHeading": "Explore the collection",
+    "emptyHeading": "A collection with room to grow.",
+    "emptyDescription": "There are no public pieces in this collection yet. Come back as new artwork and merchandise are added.",
+    "backLink": "Back to the Ego Hygiene store"
+  },
+  "artworkNote": "Design previews show artwork only. They are not garments or digital downloads for sale; product pages will show what can be ordered when merchandise is ready.",
+  "breadcrumb": {
+    "label": "Breadcrumb",
+    "store": "Ego Hygiene store"
+  },
+  "catalog": {
+    "label": "Catalog preview",
+    "description": "Want to explore how the catalog works? The catalog preview also includes clearly labelled fictional examples.",
+    "link": "Catalog preview"
+  }
+}

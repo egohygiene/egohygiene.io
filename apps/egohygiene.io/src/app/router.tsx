@@ -1,5 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-
+import {
+  IncomprisPage,
+  StoreCatalogPage,
+  StoreCollectionPage,
+  StoreDesignPage,
+  StoreProductPage,
+} from "../features/store";
 import { RootLayout } from "../layouts/RootLayout";
 import { AboutPage } from "../pages/AboutPage";
 import { EcosystemPage } from "../pages/EcosystemPage";
@@ -7,21 +13,25 @@ import { HomePage } from "../pages/HomePage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { PrivacyPage } from "../pages/PrivacyPage";
 import { ProductPage } from "../pages/ProductPage";
-import { TermsPage } from "../pages/TermsPage";
-import { StorePage } from "../pages/StorePage";
-import { StoreCollectionPage, StoreDesignPage, StoreProductPage } from "../features/store";
 import { RouteErrorPage } from "../pages/RouteErrorPage";
+import { StorePage } from "../pages/StorePage";
+import { TermsPage } from "../pages/TermsPage";
 
 // Only the isolated local preview build includes the provider tryout or its fixtures.
-const previewRoutes = import.meta.env.VITE_STORE_PREVIEW === "true"
-  ? [{
-      path: "store/preview/fourthwall",
-      lazy: async () => {
-        const { FourthwallPreviewPage } = await import("../features/fourthwall-preview/FourthwallPreviewPage");
-        return { Component: FourthwallPreviewPage };
-      },
-    }]
-  : [];
+const previewRoutes =
+  import.meta.env.VITE_STORE_PREVIEW === "true"
+    ? [
+        {
+          path: "store/preview/fourthwall",
+          lazy: async () => {
+            const { FourthwallPreviewPage } = await import(
+              "../features/fourthwall-preview/FourthwallPreviewPage"
+            );
+            return { Component: FourthwallPreviewPage };
+          },
+        },
+      ]
+    : [];
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +45,8 @@ export const router = createBrowserRouter([
       { path: "privacy", element: <PrivacyPage /> },
       { path: "terms", element: <TermsPage /> },
       { path: "store", element: <StorePage /> },
+      { path: "store/incompris", element: <IncomprisPage /> },
+      { path: "store/catalog", element: <StoreCatalogPage /> },
       ...previewRoutes,
       { path: "store/products/:slug", element: <StoreProductPage /> },
       { path: "store/designs/:slug", element: <StoreDesignPage /> },

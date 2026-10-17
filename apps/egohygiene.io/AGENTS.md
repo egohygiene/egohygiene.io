@@ -13,6 +13,10 @@ for the actual module map and examples.
   public projection. Never import authoring entry JSON directly into browser code.
 - Normal builds use `dist`; the local Fourthwall tryout is isolated in
   `dist-preview`. Synthetic fixtures and the tryout route stay out of production.
+- Curated `/store` and `/store/incompris` views use the validated editorial
+  manifest exported with the public catalog. `/store/catalog` keeps the generic
+  preview browser. Selection does not imply artist ownership or approval to sell;
+  follow [checkpoint A](../../docs/design/storefront-62a.md) for authoring.
 - A design is artwork; products carry designs. Song/character context is optional.
   The heartburst display proof does not establish a garment or print-ready master.
 - Keep transient controls local and shareable filters in the URL. Use the single

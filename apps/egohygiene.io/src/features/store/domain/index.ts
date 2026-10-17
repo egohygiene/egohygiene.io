@@ -16,6 +16,7 @@ export {
   isBrowsableEntry,
   storeEntryPath,
 } from "./catalog.ts";
+export { getCuratedStoreEntries } from "./curation.ts";
 export type {
   MockStoreHandoff,
   StorePreviewAdapter,

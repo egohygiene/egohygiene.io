@@ -176,3 +176,21 @@ must be adapted if a future renderer is justified.
 
 The [checkpoint evidence](store-domain-checkpoint.md) records actual checks,
 bundle deltas and the browser verification limitation for this implementation.
+
+## Curate the primary shop and Incompris
+
+Checkpoint A of #62 adds a strict `storefront-curation.json` version-1 manifest
+beside the authoring catalog. It selects ordered public canonical IDs for the
+primary Ego Hygiene shop, Incompris collection and its featured subset; it never
+confers ownership, artist attribution or purchase eligibility. Browser consumers
+receive `storefrontCuration` alongside `storeCatalog` from `src/content/store`.
+Use `getCuratedStoreEntries` from the portable domain entry point to preserve
+manual order without copying entries or constructing new detail URLs.
+
+`/store/catalog` retains the uncurated preview browser, including fictional
+examples. The curated `/store` and `/store/incompris` pages can stay empty until
+approved content exists. Old `/store` filter/section links redirect to the preview
+browser; product/design/collection URLs remain unchanged. See the
+[checkpoint authoring guide](../design/storefront-62a.md) and
+[ADR 0008](decisions/0008-curated-storefront-views.md). Artist/song discovery is the
+next checkpoint, not implicit in these editorial lists.

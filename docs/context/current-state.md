@@ -1,6 +1,41 @@
 # Current handoff
 
-## Active pause before #62 — 2026-10-17 UTC
+## Active #62 checkpoint A — 2026-10-17 UTC
+
+The maintainer approved the Ego Hygiene → Incompris → artist hierarchy and the
+three checkpoints in [#62](https://github.com/egohygiene/egohygiene.io/issues/62),
+then requested **checkpoint A only**, a draft PR, and a sync **before B**.
+Branch: `feat/storefront-checkpoint-62a`. The draft publication receipt is recorded below and in the ledger once created;
+do not infer merge or hosted CI success from the local checks.
+
+Local checks pass: production build, app/catalog/domain types, 47 catalog tests,
+28 focused unit tests, all 23 store browser journeys, five new browser cases
+rerun after the final UI rebuild, and the 11-module portable boundary. The review
+contains four inspected production screenshots and bounded expanded/RTL fixture
+evidence. No physical-device, Safari, screen-reader or live-provider qualification
+is claimed.
+
+The implementation adds a curated Ego Hygiene shop, selected Incompris feature
+row, and `/store/incompris` collection. The existing generic browser remains at
+`/store/catalog` with old filtered/anchor links preserved. A strict versioned
+editorial manifest selects public canonical IDs without changing catalog schema,
+artist/song attribution, products, checkout routes or providers. Heartburst is
+an artwork preview with no garment attached; Ego Hygiene merchandise is upcoming.
+Read the [review/authoring guide](../design/storefront-62a.md) and
+[ADR 0008](../architecture/decisions/0008-curated-storefront-views.md).
+
+Refreshed starting main: `e52e4654fa826c7d66f47e03bc17de07fc977c2c`, the confirmed
+merge of landing PR #77. Ownership #76 and store #34 were already merged (receipts
+below). The source checkout was exported from verified main tree
+`a647d8fdff8b85c14cd02ed7b42e05d7a57d7c20` before edits.
+
+**Next action:** review checkpoint A with Alan. Do not begin checkpoint B
+(`/store/incompris/artists/play`, Shop by song, stable song links) or checkpoint C's
+broader qualification until selected. No new artwork, real provider, purchase,
+deployment, account, paid CI or repository consolidation is part of this slice.
+
+
+## Historical pause before #62 — 2026-10-17 UTC
 
 The maintainer authorized merging the ownership and landing PRs, then returning
 for a discussion of #62 **before any implementation**. Functional setup is the

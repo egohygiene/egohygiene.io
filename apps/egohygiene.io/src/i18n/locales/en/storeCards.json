@@ -1,0 +1,25 @@
+{
+  "badge": {
+    "live": "Available",
+    "unavailable": "Unavailable",
+    "preview": "Preview",
+    "collection": "Collection",
+    "study": "Design study",
+    "design": "Design preview"
+  },
+  "kind": { "product": "Object", "design": "Design", "collection": "Collection" },
+  "explore": {
+    "product": "Explore object",
+    "design": "Explore design",
+    "collection": "Explore collection"
+  },
+  "connected": "Connected world",
+  "standalone": "Standalone",
+  "artwork": {
+    "unavailable": "Artwork preview unavailable",
+    "placeholder": "Concept artwork · placeholder"
+  },
+  "catalogNavigation": "Catalog navigation",
+  "backToStore": "Back to the store",
+  "catalogPreview": "Catalog preview · includes fictional examples"
+}

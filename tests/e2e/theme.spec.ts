@@ -33,8 +33,11 @@ for (const failure of ["storage getter", "getItem", "setItem"] as const) {
       await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
     }
 
+    await page.getByRole("link", { name: "Catalog preview", exact: true }).click();
     await page.getByRole("searchbox", { name: "Search the store" }).fill("signal heart");
-    await expect(page.getByRole("heading", { name: "Signal Heart Hoodie", exact: true })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Signal Heart Hoodie", exact: true }),
+    ).toBeVisible();
     expect(errors).toEqual([]);
   });
 }
@@ -52,7 +55,9 @@ test("invalid persisted preferences fall back to the system theme", async ({ pag
   expect(errors).toEqual([]);
 });
 
-test("manual preferences persist across reload and system mode resumes following the device", async ({ page }) => {
+test("manual preferences persist across reload and system mode resumes following the device", async ({
+  page,
+}) => {
   await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/store");
   const theme = page.getByLabel("Theme", { exact: true });
