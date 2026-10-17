@@ -6,7 +6,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
-| Storefront checkpoint C | [#62 final journey review](../design/storefront-62c.md); draft PR #78, final sync before merge or new work |
+| Storefront checkpoint C | [#62 final journey review](../design/storefront-62c.md); PR #78 merged and #62 closed on 2026-10-17; next work awaits selection |
 | Add storefront content | [Approved item, feature, artist and song workflow](../store/storefront-content-workflow.md) |
 | Earlier storefront checkpoint B | [Artist/song review and authoring](../design/storefront-62b.md); historical evidence retained |
 | Earlier storefront checkpoint A | [Curated shop review and authoring](../design/storefront-62a.md); historical evidence retained |

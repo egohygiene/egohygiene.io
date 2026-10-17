@@ -1,6 +1,45 @@
 # Current handoff
 
-## Active #62 checkpoint C — 2026-10-17 UTC
+## Current: #62 merged; select the next issue — 2026-10-17 UTC
+
+Alan authorized merging [PR #78](https://github.com/egohygiene/egohygiene.io/pull/78)
+and returning to plan the next issue. GitHub confirmed the normal merge at
+13:34 UTC: `71449947a2ff67ac87a512dbd8c8a11dead941fc`, from reviewed head
+`f4bc59c43e194d492ea32c7bd75dacb47cd51c02` on `feat/storefront-checkpoint-62a`.
+Main was read back at that merge. [#62](https://github.com/egohygiene/egohygiene.io/issues/62)
+is closed as completed; A/B/C are accepted. This documentation receipt follows
+the merge and does not change application code. Refresh live refs before resuming.
+
+The recorded C local build/type/unit/browser/layout checks below remain the
+implementation evidence; they were not rerun for a status-only update. At the
+final PR head, hosted `validate` stopped at 27 repository formatting errors,
+before tests; `dependency-review` reported unsupported repository/dependency
+graph configuration. No settings or protections changed. See the
+[merge receipt](provenance.md#accepted-62-merge-and-next-work-proposal--2026-10-17-utc)
+for exact logs and commits. Nothing was deployed or activated for purchase.
+
+**Proposed next: [#54 — declared cover/artwork order](https://github.com/egohygiene/egohygiene.io/issues/54).**
+The current portable selector collects reference IDs into a set, then returns
+designs in global catalog order, which can silently change the first cover.
+This is a bounded part of #36 and needs no real artwork or paid services.
+
+1. Define precedence: explicit `designIds` order, then collection `productIds`
+   order and each product's design order, with stable deduplication.
+2. Implement once in the portable selector, preserving visibility, validation,
+   canonical identities and existing single-design behavior.
+3. Verify cards/galleries and collection fallbacks with reversed input and
+   multiple-design fixtures; save local evidence and a draft PR checkpoint.
+
+After that, propose #37's isolated hosted-handoff browser coverage using existing
+route/artwork/variant guards, then #38's provider-readiness contract preparation.
+The separate readiness record is still proposed, not an existing guard. Reuse
+the delivered #61 preview and #62 journey/layout work. No next-issue code has
+been started; return to Alan for selection before implementing this proposal.
+
+The dated sections below preserve historical authority and evidence; their
+draft/unmerged instructions are superseded by this accepted merge receipt.
+
+## Historical #62 checkpoint C — 2026-10-17 UTC
 
 The maintainer requested the last checkpoint after B. Complete C in
 [draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78), keeping branch

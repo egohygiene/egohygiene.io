@@ -362,3 +362,42 @@ and [dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs
 Their causes were not re-diagnosed in C. No CI, branch protection, account,
 provider or deployment setting was changed. The completed local evidence and
 review limits belong to C's receipt; this is not a merge or launch.
+
+## Accepted #62 merge and next-work proposal — 2026-10-17 UTC
+
+Authority: Alan explicitly requested merging PR #78 and returning to plan the
+next issue. Refreshed PR, main, reviews, comments and check runs before merging;
+no new review requests or comments were present. Final reviewed PR head:
+`f4bc59c43e194d492ea32c7bd75dacb47cd51c02`; main before merge:
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Marked the PR ready and performed a
+normal merge with the expected-head guard. GitHub returned and read-back confirmed
+merge `71449947a2ff67ac87a512dbd8c8a11dead941fc` at 13:34 UTC, with both expected
+parents and tree `31fe9e7e0cfc5041e0ad0dfed7dd1b0140405d35`. Main resolved to the
+same merge. [PR #78](https://github.com/egohygiene/egohygiene.io/pull/78) is merged;
+[#62](https://github.com/egohygiene/egohygiene.io/issues/62) is closed as completed,
+with an acceptance receipt. Prior A/B/C entries retain their historical state.
+
+Read final-head hosted logs:
+[validate](https://github.com/egohygiene/egohygiene.io/actions/runs/39028652547/job/117384541632)
+failed with 27 repository formatting errors before tests;
+[dependency-review](https://github.com/egohygiene/egohygiene.io/actions/runs/39028652556/job/117384541655)
+reported unsupported repository/dependency graph configuration. No gate,
+protection, account, provider or deployment setting was changed. The C local
+evidence remains attached to implementation `1e784ee9a0afdc228457e63714becd69a94b97c7`;
+application checks were not rerun for this documentation-only merge receipt.
+
+Refreshed open issues #36/#37/#38/#61/#29/#54 and reviewed the current portable
+`getEntryDesigns` selector. It still returns references in global catalog order.
+Recommend #54 next: define declared reference/collection fallback ordering, fix
+the selector once, then prove card/gallery behavior with synthetic multi-design
+fixtures and a local draft PR checkpoint. Follow with a bounded #37 intercepted
+hosted-handoff test slice, then #38 provider-readiness preparation. Existing
+route/artwork/variant guards already exist; the separate provider-readiness
+record remains proposed. Reuse #61's accepted local preview and #62's delivered
+navigation/layout tests. No implementation of these proposals has begun.
+
+Updated the agent entry point, current handoff/context map and ADR 0008 status
+to reflect acceptance and the next selection pause. Validated documentation
+links, context manifest JSON/paths and the scoped diff. The receipt changes only
+six Markdown files; it does not add artwork, products, provider activation,
+deployment or a new dependency. Return to Alan to select the next issue.

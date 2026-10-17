@@ -1,8 +1,8 @@
 # ADR 0008 — Curated storefront views over one catalog
 
 - Date: 2026-10-17
-- Status: Implementation submitted in #62 checkpoints A/B/C; brand hierarchy
-  approved in the maintainer discussion. Final draft review precedes merge.
+- Status: Accepted; #62 checkpoints A/B/C merged in PR #78 on 2026-10-17 at
+  `71449947a2ff67ac87a512dbd8c8a11dead941fc`. No deployment or provider activation.
 - Scope: Website-owned storefront under ADR 0007.
 
 ## Context
