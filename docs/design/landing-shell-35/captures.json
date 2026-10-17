@@ -8,10 +8,7 @@
   "quality": 82,
   "reducedMotion": true,
   "implementationReceipt": "../../context/provenance.md",
-  "syntheticLocales": [
-    "expanded",
-    "rtl"
-  ],
+  "syntheticLocales": ["expanded", "rtl"],
   "captures": [
     {
       "file": "before-desktop.jpg",
