@@ -11,5 +11,7 @@
   "architectureGraph": "META.md",
   "decisionIndex": "docs/architecture/decisions/README.md",
   "dependencyRules": "docs/architecture/dependency-rules.md",
-  "extensionContracts": "docs/architecture/store-extension-contracts.md"
+  "extensionContracts": "docs/architecture/store-extension-contracts.md",
+  "storeLaunchPlan": "docs/architecture/store-launch-plan.md",
+  "storeLaunchRoadmap": "docs/roadmaps/store-launch.md"
 }

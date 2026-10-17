@@ -35,6 +35,44 @@ browser or post-merge CI pass. #69 remains open and no next issue is selected.
 
 ## Recording the next receipt
 
+### Discussion checkpoint — 2026-10-16
+
+The maintainer requested that the store/domain/hosting discussion be captured in
+both application repositories, including agent hooks, continuity and ADRs, before
+returning with a proposed milestone and sub-issue roadmap. Issue/milestone
+creation is explicitly deferred until that proposal is approved.
+
+Observed website main: `db634b887ede348ce85d9c03af789467ab535dcf`; store main:
+`599c90ca6a454c0f2e9aa95eab5f8395016474c5`; private merch main:
+`60e36d5a0cde95144920d4954cee3ed35b7bbd61`. Repository metadata, branch heads,
+open PR listings, website routes/architecture/context, and store
+README/AGENTS/DECISIONS/domain-routing were read. Website PR #73 and store
+dependency PRs #26/#27 remain separate work. Their runtime/CI status was not
+requalified by reading them.
+
+The [launch plan](../architecture/store-launch-plan.md) records source URLs and
+distinguishes accepted product direction, development preference, unresolved
+implementation ownership, and future provider qualification. CLI draft previews
+are not native branch deployments, and their retention is recorded explicitly.
+No raw chat, private design files, credentials, or business records were copied.
+
+Validation for the documentation capture is limited to Markdown/link checks,
+context-manifest JSON, diff scope, and consistency review. App/browser/provider
+tests are not claimed. No issue/milestone, infrastructure, DNS, credential,
+purchase, repository transfer, or archival operation is part of this change.
+
+### Receipt guidance
+
+Publication receipt: [website draft PR #74](https://github.com/egohygiene/egohygiene.io/pull/74)
+contains the capture at `06bf92fb2cfac9f7f00f1bf41077ad57669b7cb5`; companion
+[store draft PR #33](https://github.com/egohygiene/store/pull/33) contains it at
+`070d297f5b22f2a35c32bd9115860afe066f0134`. This follow-up adds review pointers.
+Remote comparisons confirmed 13 website documentation/context files and nine
+store Markdown files. The combined local check passed 142 relative file links,
+five available local heading anchors, balanced fences and context-manifest JSON;
+website diff whitespace checks and independent consistency review also passed.
+Neither PR was merged and no proposed issue/milestone was created.
+
 Record the source path or stable URL, observation date, exact implementation
 commit and result. Distinguish observed facts, inherited historical evidence,
 accepted decisions and proposals. State coverage gaps such as an unavailable

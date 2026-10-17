@@ -8,6 +8,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
 | Resume the current work | [Current state](current-state.md), then refresh its live GitHub links |
 | Decisions and rationale | [ADR index](../architecture/decisions/README.md) and [high-level decisions](../../DECISIONS.md) |
+| Website/store launch discussion | [Launch plan](../architecture/store-launch-plan.md), [ADR 0006](../architecture/decisions/0006-store-launch-direction.md), and [proposed milestone backlog](../roadmaps/store-launch.md) |
 | Actual module boundaries | [Dependency rules](../architecture/dependency-rules.md) and [extension contracts](../architecture/store-extension-contracts.md) |
 | Evidence, origin and limitations | [Provenance ledger](provenance.md); asset-local records remain authoritative for assets |
 | Wider purpose and architecture graph | [META](../../META.md) |

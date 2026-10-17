@@ -1,5 +1,43 @@
 # Current handoff
 
+## Active discussion checkpoint — 2026-10-16
+
+Website main was refreshed at `db634b887ede348ce85d9c03af789467ab535dcf`.
+Separate store main is `599c90ca6a454c0f2e9aa95eab5f8395016474c5`.
+Read the [launch plan](../architecture/store-launch-plan.md),
+[ADR 0006](../architecture/decisions/0006-store-launch-direction.md), and
+[proposed milestone backlog](../roadmaps/store-launch.md) before resuming.
+
+The maintainer requested this documentation checkpoint in both repositories,
+then a sync with proposed milestone/roadmap parent issues and sub-issues.
+**Do not create those issues/milestones before the proposal is approved.**
+No deployment, purchase, repository transfer, or implementation migration is
+authorized by this checkpoint. Branch: `docs/store-launch-direction-20261016`.
+
+Review receipts: [website draft PR #74](https://github.com/egohygiene/egohygiene.io/pull/74)
+and [store draft PR #33](https://github.com/egohygiene/store/pull/33).
+Both are published for review and unmerged at this checkpoint. Documentation
+checks passed (142 relative links, available anchors, context JSON and diff
+scope); application/provider/deployment qualification was not rerun.
+
+Agreed direction: Ego Hygiene root mission/future product, community `/store`,
+featured `.play()` artist, separate music merchandise catalog, local development
+and merge-triggered Netlify development preview through a reusable Actions
+workflow. Production host and the core product's future path remain open.
+
+Both website and separate store contain store implementations with conflicting
+ownership records. Reconcile them first. Keep private merch sources separate as
+a recommendation; no relocation has been approved. Existing website CI draft
+[PR #73](https://github.com/egohygiene/egohygiene.io/pull/73) remains open on
+`fix/ci-baseline`; this checkpoint does not replace or merge it.
+
+Next action: review the linked documentation and proposed milestones with the
+maintainer. After approval, reuse/link existing issues, create only missing
+sub-issues and parent roadmap records, then sync again before execution.
+The dated handoff below retains earlier implementation/test evidence.
+
+## Historical implementation handoff — 2026-10-13
+
 Snapshot: **2026-10-13**. Refresh GitHub and local changes before resuming. This
 file is the current handoff; [provenance](provenance.md) retains dated evidence.
 
