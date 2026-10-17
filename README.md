@@ -19,8 +19,10 @@ architecture graph.
 
 The [2026-10-16 website/store launch plan](docs/architecture/store-launch-plan.md)
 and [proposed milestones](docs/roadmaps/store-launch.md) capture the current
-discussion. They identify overlapping storefront implementations and leave
-deployment, migration, and issue creation pending their stated review steps.
+direction. [Issue #75's comparison](docs/architecture/storefront-ownership.md)
+selects this website as the V1 storefront owner with one composed build, retaining
+useful separate-store commerce code for bounded future adaptation. The decision
+is submitted for review; deployment and code migration have not occurred.
 
 ## Local website
 

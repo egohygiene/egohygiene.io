@@ -4,7 +4,10 @@
   "repository": "egohygiene/egohygiene.io",
   "pathBase": "repository-root",
   "entrypoint": "AGENTS.md",
-  "scopedInstructions": ["apps/egohygiene.io/AGENTS.md", "packages/schemas/AGENTS.md"],
+  "scopedInstructions": [
+    "apps/egohygiene.io/AGENTS.md",
+    "packages/schemas/AGENTS.md"
+  ],
   "contextMap": "docs/context/README.md",
   "currentState": "docs/context/current-state.md",
   "provenance": "docs/context/provenance.md",
@@ -13,5 +16,7 @@
   "dependencyRules": "docs/architecture/dependency-rules.md",
   "extensionContracts": "docs/architecture/store-extension-contracts.md",
   "storeLaunchPlan": "docs/architecture/store-launch-plan.md",
-  "storeLaunchRoadmap": "docs/roadmaps/store-launch.md"
+  "storeLaunchRoadmap": "docs/roadmaps/store-launch.md",
+  "storefrontOwnership": "docs/architecture/storefront-ownership.md",
+  "storefrontOwnershipDecision": "docs/architecture/decisions/0007-canonical-storefront-owner.md"
 }

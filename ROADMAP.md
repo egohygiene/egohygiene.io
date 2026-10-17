@@ -26,14 +26,17 @@ supersedes: []
 
 # Ego Hygiene Website Roadmap
 
-## 2026-10-16 store-launch discussion proposal
+## 2026-10-17 first store-launch checkpoint
 
 The [website/store launch plan](docs/architecture/store-launch-plan.md) and
 [proposed milestone backlog](docs/roadmaps/store-launch.md) are the current
-review inputs for the community-store work. They map existing issues and expose
-the two-store ownership conflict. Their proposed parent issues, sub-issues and
-milestones must be approved before creation or reorganization. Earlier quest
-lines below remain historical context; this entry does not complete their work.
+delivery map for the community store. Planning PRs #74 and store #33 are merged.
+The maintainer authorized the first bounded task,
+[#75](https://github.com/egohygiene/egohygiene.io/issues/75); its
+[comparison and decision](docs/architecture/storefront-ownership.md) select this
+website as the V1 storefront/build owner, submitted for review. Remaining new
+roadmap parents/milestones and reparenting await the next sync. Earlier quest
+lines remain historical context; this checkpoint does not complete their work.
 
 <!-- BEGIN ROADMAP EXECUTION SNAPSHOT -->
 <!-- roadmap-manifest

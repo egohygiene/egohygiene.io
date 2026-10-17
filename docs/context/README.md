@@ -9,6 +9,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | Resume the current work | [Current state](current-state.md), then refresh its live GitHub links |
 | Decisions and rationale | [ADR index](../architecture/decisions/README.md) and [high-level decisions](../../DECISIONS.md) |
 | Website/store launch discussion | [Launch plan](../architecture/store-launch-plan.md), [ADR 0006](../architecture/decisions/0006-store-launch-direction.md), and [proposed milestone backlog](../roadmaps/store-launch.md) |
+| Two-store ownership comparison | [Selected owner and preservation plan](../architecture/storefront-ownership.md), [ADR 0007](../architecture/decisions/0007-canonical-storefront-owner.md), issue #75 |
 | Actual module boundaries | [Dependency rules](../architecture/dependency-rules.md) and [extension contracts](../architecture/store-extension-contracts.md) |
 | Evidence, origin and limitations | [Provenance ledger](provenance.md); asset-local records remain authoritative for assets |
 | Wider purpose and architecture graph | [META](../../META.md) |

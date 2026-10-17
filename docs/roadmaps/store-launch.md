@@ -1,7 +1,9 @@
 # Store launch: proposed roadmaps, milestones, and sub-issues
 
-Status: **proposal for maintainer approval, 2026-10-16**. No new GitHub issue,
-milestone, or parent/sub-issue relationship has been created for this proposal.
+Status: **remaining hierarchy proposed; first bounded task authorized 2026-10-17**.
+Planning PRs #74 and store #33 are merged. [Issue #75](https://github.com/egohygiene/egohygiene.io/issues/75)
+is the first M1 task, in existing Store v1 milestone 1. No new milestone/roadmap
+parent or native sub-issue relationship has been created for this proposal.
 See the [launch plan](../architecture/store-launch-plan.md) for product scope,
 unresolved architecture, source revisions, provider boundaries, and authority.
 
@@ -33,17 +35,18 @@ scope or reparenting explicitly. Do not clone their backlogs into new parents.
 ### M1 — Resolve storefront ownership and public structure
 
 Proposed parent: **[Roadmap] One authoritative storefront and Ego Hygiene site**.
-Coordinate in the website repository; create only after approval.
+Coordinate in the website repository; creation remains pending the next sync.
+The first bounded task proceeds under existing Store v1 coordination (#31).
 
 | Candidate sub-issue | Reuse or addition | Completion evidence |
 | --- | --- | --- |
-| Compare both stores and record canonical ownership | New bounded reconciliation issue; relate website #32/#69 and store architecture | Capability/test/license matrix, selected owner, migration/cutover/rollback plan; reciprocal ADR links |
+| Compare both stores and record canonical ownership | [#75](https://github.com/egohygiene/egohygiene.io/issues/75), created in existing milestone 1; related to #32/#69 | [Comparison and selected owner](../architecture/storefront-ownership.md), preservation/cutover/rollback plan and reciprocal ADRs submitted for review |
 | Root mission and community-store navigation | Reuse website [#3](https://github.com/egohygiene/egohygiene.io/issues/3) and [#35](https://github.com/egohygiene/egohygiene.io/issues/35); narrow the relevant slice | Root introduces Ego Hygiene; store and artist are distinct destinations; existing URLs preserved |
 | Public catalog and creative-source publication boundary | Reuse website [#34](https://github.com/egohygiene/egohygiene.io/issues/34) and store [#30](https://github.com/egohygiene/store/issues/30) after selecting one implementation owner | Brand/artist/design/song/product identities remain distinct; only approved public projection reaches the site |
 | Comic and Alpal development pages | Proposed new content slice; coordinate store [#18](https://github.com/egohygiene/store/issues/18) | Approved cover/concept, honest development state, no unsupported buy/campaign action |
 
-Exit: one agreed store implementation owner and route contract; no competing
-deployment authority. Placeholder/content work can proceed alongside later
+Checkpoint #75 selects the website application and one composed V1 build for
+review. Exit: accepted owner and route contract; no competing deployment authority. Placeholder/content work can proceed alongside later
 milestones and must not delay preview setup for missing artwork.
 
 ### M2 — Merge-to-phone development preview
@@ -143,13 +146,14 @@ experiments remain backlog, not mandatory launch dependencies.
 
 ## Approval and next sync
 
-1. Review this hierarchy, choose the first milestone, and agree which existing
-   parents/milestones remain or change. Confirm M5 split if desired.
+1. Review #75's paired ownership PRs and the remaining hierarchy. The first
+   bounded task was authorized; new roadmap parents/milestones and reparenting
+   have not yet been approved. Confirm M5 split if desired.
 2. Only after approval, refresh issue states and parent relationships, amend the
    existing roadmap scope with history intact, and create only missing issues.
 3. Attach actual native sub-issues where supported, add dependency links and
    repository-scoped milestones, and record their URLs in this document.
 4. Return to sync with the concrete issue map before beginning implementation.
 
-No issue numbers are reserved and no future deployment/spending approval is
-inferred from approving this documentation proposal.
+Issue #75 is real; the remaining M1–M5 labels are still proposal identifiers.
+No future deployment/spending approval is inferred from this checkpoint.

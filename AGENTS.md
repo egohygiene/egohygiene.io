@@ -21,10 +21,13 @@ or provider-activation authority.
 
 For the website/store launch discussion, follow the
 [launch plan](docs/architecture/store-launch-plan.md) and
-[proposed milestone backlog](docs/roadmaps/store-launch.md). The 2026-10-16
-checkpoint requires a maintainer sync before creating its proposed issues or
-milestones. Store ownership overlaps with `egohygiene/store`; resolve the recorded
-conflict before activating deployment or moving implementation/assets.
+[milestone backlog](docs/roadmaps/store-launch.md). On 2026-10-17 the maintainer
+authorized merging the planning PRs and beginning the first issue, #75. Read its
+[ownership comparison](docs/architecture/storefront-ownership.md) and
+[ADR 0007](docs/architecture/decisions/0007-canonical-storefront-owner.md): the
+selected direction is one website-owned storefront/build, submitted for review.
+The wider milestone creation/reparenting proposal awaits the next sync. Do not
+mistake the preserved separate-store implementation for a second V1 deployment.
 
 ## Working boundaries
 

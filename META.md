@@ -40,7 +40,8 @@ layer links it to implementation evidence and the current work checkpoint:
 | [Current handoff](docs/context/current-state.md) | Dated branch/PR/issue snapshot, completed work, blockers and next actions |
 | [Provenance ledger](docs/context/provenance.md) | Links to pinned implementation, asset lineage and verification receipts |
 | [Implementation ADR index](docs/architecture/decisions/README.md) | Decision records, historical placeholders and disambiguation from root DECISIONS |
-| [Website/store launch plan](docs/architecture/store-launch-plan.md) | Accepted conversation direction, unresolved ownership/hosting choices, and provider/source boundaries |
+| [Website/store launch plan](docs/architecture/store-launch-plan.md) | Product direction, selected ownership checkpoint, open hosting choices, and provider/source boundaries |
+| [Storefront ownership](docs/architecture/storefront-ownership.md) | Pinned capability/license comparison, selected owner, preservation and cutover/rollback plan for #75 |
 | [Proposed store milestones](docs/roadmaps/store-launch.md) | Approval-pending roadmap parent issues, sub-issues, existing backlog mapping and exit criteria |
 
 Start active implementation work from that handoff and refresh live source
