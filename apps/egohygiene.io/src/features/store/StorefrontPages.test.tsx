@@ -17,6 +17,7 @@ const emptyCuration: StorefrontCuration = {
   egoHygieneEntryIds: [],
   incomprisEntryIds: [],
   featuredIncomprisEntryIds: [],
+  artists: [],
 };
 
 function design(id: string, title: string): StoreDesign {
@@ -88,6 +89,10 @@ describe("curated storefront pages", () => {
       "href",
       "/store",
     );
+    expect(getByRole("link", { name: /\.play\(\).*Explore artist collection/ })).toHaveAttribute(
+      "href",
+      "/store/incompris/artists/play",
+    );
   });
 
   it("keeps explicit empty collection states and a working collection link", () => {
@@ -101,6 +106,7 @@ describe("curated storefront pages", () => {
       "/store/incompris",
     );
     expect(queryByRole("article")).not.toBeInTheDocument();
+    expect(queryByRole("region", { name: "Artist collections" })).not.toBeInTheDocument();
   });
 
   it("shows an empty Incompris page without borrowing unselected catalog examples", () => {

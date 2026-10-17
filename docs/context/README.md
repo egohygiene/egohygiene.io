@@ -6,7 +6,8 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
-| Storefront checkpoint A | [#62 curated shop review and authoring](../design/storefront-62a.md); sync before artist/song checkpoint B |
+| Storefront checkpoint B | [#62 artist/song review and authoring](../design/storefront-62b.md); draft PR #78, sync before checkpoint C |
+| Earlier storefront checkpoint A | [Curated shop review and authoring](../design/storefront-62a.md); historical evidence retained |
 | Landing/shell visual review | [#35 rendered checkpoint](../design/landing-shell-35.md), including before/after and locale stress captures |
 | Resume the current work | [Current state](current-state.md), then refresh its live GitHub links |
 | Decisions and rationale | [ADR index](../architecture/decisions/README.md) and [high-level decisions](../../DECISIONS.md) |

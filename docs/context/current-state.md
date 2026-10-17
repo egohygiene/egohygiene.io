@@ -1,6 +1,47 @@
 # Current handoff
 
-## Active #62 checkpoint A — 2026-10-17 UTC
+## Active #62 checkpoint B — 2026-10-17 UTC
+
+After the checkpoint A sync, the maintainer requested **checkpoint 2/B**. Extend
+[draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78), on
+`feat/storefront-checkpoint-62a`, and **pause before checkpoint C**. The PR remains
+open, draft and unmerged. Publication receipt follows local verification.
+Starting remote head: `9bec5be66a17e716c325b7940ff2cf66b103e792`; main remains
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Refresh live GitHub state before resuming.
+
+Read the [checkpoint B review](../design/storefront-62b.md) and
+[ADR 0008 extension](../architecture/decisions/0008-curated-storefront-views.md).
+Incompris now leads to `/store/incompris/artists/play`. Reusable artist views
+separate **Standalone & worlds** from **Shop by song**, with URL-backed search,
+view changes, direct links and return navigation. Song cards reuse canonical
+`/store/collections/:slug` destinations; overlapping selections reuse the same
+products. Curation v1 accepts optional/defaulted artist selections without
+changing catalog v1 or inferring authorship from placement.
+
+The public `.play()` context has empty selections. Heartburst remains unassigned
+to an artist/song and has no garment. The isolated local preview has a clearly
+fictional Demo artist and reuses existing public demo records to prove populated
+standalone/song/overlap flows. No private source, artwork, song catalog import,
+provider route or purchase state changed. Normal builds exclude the additional
+preview fixture and route. There are 10 public catalog records, 8 browsable;
+three fictional products retain disabled purchase states.
+
+Local verification passes: normal/isolated builds, app/catalog/domain types,
+55 catalog tests, 40 focused unit tests, 27 production and five preview browser
+journeys, and the 12-module portable boundary. Three inspected captures and
+bounded coverage are recorded in the review. Hosted CI, live routing and commerce
+qualification are not claimed.
+No dependency/lockfile, hosting, account or paid service changed. The broader
+checkpoint C checklist remains open even where B includes useful focused tests
+and authoring notes.
+
+**Next action:** sync with Alan on checkpoint B using the normal empty `.play()`
+page and the populated fictional preview. Await the next instruction before C,
+merge, deployment or real content/provider activation. Do not restart the A/B
+foundation or automatically resume unrelated hosted-CI work. The dated sections
+below retain earlier instructions as historical evidence, not current authority.
+
+## Historical #62 checkpoint A — 2026-10-17 UTC
 
 The maintainer approved the Ego Hygiene → Incompris → artist hierarchy and the
 three checkpoints in [#62](https://github.com/egohygiene/egohygiene.io/issues/62),

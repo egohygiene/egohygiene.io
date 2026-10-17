@@ -4,7 +4,7 @@ The catalog accepts artwork previews and placeholders, a few entries at a time. 
 
 The first artwork preview is **heartburst**, a standalone ink-splatter heart with no song or product association. Its [display asset and portable visual DNA](../../assets/designs/heartburst/README.md) are separate from the private source pack.
 
-The remaining examples are fictional: Signal Heart is a standalone design, Static Bloom demonstrates a song collection, and Unwritten Realm demonstrates a future comic. None has a purchase link or confirmed production details. Replace or remove these examples as real entries become ready.
+The public `.play()` artist context currently has no selected merchandise or songs. Signal Heart, Static Bloom and Unwritten Realm are fictional examples of a standalone design, song collection and future comic. None has a purchase link or confirmed production details. Replace or remove these examples as real entries become ready.
 
 ## Add a design
 
@@ -121,6 +121,66 @@ A collection groups any approved combination of designs and products. Copy this 
 
 All IDs and slugs must be unique across the entire catalog. IDs use lowercase letters, digits, and hyphens, with at least two hyphen-separated parts. Slugs use lowercase letters, digits, and separating hyphens. Each file contains exactly one entry. No registration file needs editing.
 
+## Curate an artist and Shop by song
+
+An artist page needs a public context with `kind: "context"`,
+`contextType: "artist"`, a permanent ID, a stable slug and approved public copy.
+The existing example is `artist-play`, slug `play`, title `.play()`. Selecting
+that context in `apps/egohygiene.io/src/content/store/storefront-curation.json`
+creates its destination at `/store/incompris/artists/play` and its link from
+Incompris. Adding a context alone does not select merchandise automatically.
+
+The version-1 curation manifest accepts an optional `artists` array. Preserve its
+existing primary/featured lists and merge artist selections like this example:
+
+```json
+{
+  "artists": [
+    {
+      "artistId": "artist-play",
+      "standaloneEntryIds": [],
+      "songCollectionIds": []
+    }
+  ]
+}
+```
+
+Omitted `artists`, `standaloneEntryIds` and `songCollectionIds` default to empty
+arrays. The current `.play()` selection intentionally stays empty; heartburst's
+Incompris placement does not assign it to that artist. To add another artist,
+create its public context and append a selection using its canonical ID.
+
+- `standaloneEntryIds` selects public designs, products or collections in manual
+  order for the standalone/world-inspired view.
+- `songCollectionIds` selects public collections in manual order for Shop by
+  song. Each collection must directly list at least one public song context in
+  its own `contextIds`; a song on a child design does not qualify the collection.
+- Artist IDs must be unique within `artists`; each selection list rejects
+  duplicate, missing, draft and wrong-kind references. Promote approved entries
+  and their referenced content before selecting them.
+
+Membership can overlap: several artists can select one collection, a collection
+can reference several songs, and the same product can appear in several
+collections or both artist views. Reuse its original ID and detail page. These
+lists express discovery placement, not authorship, ownership or purchase approval;
+an artist context on every selected item is not required.
+
+Share the collection's canonical `/store/collections/<slug>` link for a song.
+For the earlier example, that is `/store/collections/my-new-song-collection`;
+once deployed, the full site URL can be used in SoundCloud. Keep published slugs
+stable. Artist browsing state uses `?view=songs` and optional `q`; it does not
+change the collection or product URL.
+
+Run `node scripts/store-catalog.mts validate` after editing. The normal site shows
+the real empty `.play()` selection. The isolated local preview offers fictional
+data at `/store/preview/artists/demo-artist`, using existing demo merchandise;
+its synthetic artist is excluded from normal builds and never becomes `.play()`
+content. See [local preview](local-preview.md) and the
+[extension contract](../architecture/store-extension-contracts.md#artist-and-song-discovery).
+Private song metadata stays in its source repository; this public catalog needs
+only approved context and collection records. Curation does not activate a
+provider or purchase link.
+
 ## Review a small addition
 
 1. Generate the design, then edit its public-safe copy and artwork placeholder or derivative.
@@ -145,4 +205,4 @@ This is the first version: `schemaVersion: 1`. Unknown versions fail validation.
 
 For a compatible addition, add an optional field or a defined default, then prove existing version 1 fixtures still parse. A breaking change needs a new version, an explicit migration, and tests showing that permanent IDs, references, visibility, and purchase restrictions survive. Keep the old fixture as evidence. Rollbacks must restore compatible schema code and catalog data together. Avoid changing schema versions automatically just to make a validation error disappear.
 
-The mock storefront consumes this catalog automatically at `/store`, with design, product, and collection detail pages. Follow [the next-design session](next-design-session.md) to preview one approved image. Provider onboarding, purchases, and publication remain separate steps.
+The generic preview browser consumes this catalog automatically at `/store/catalog`, with canonical design, product and collection detail pages. Curated shop and artist views use the separate curation manifest. Follow [the next-design session](next-design-session.md) to preview one approved image. Provider onboarding, purchases, and publication remain separate steps.

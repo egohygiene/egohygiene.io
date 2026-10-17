@@ -151,6 +151,7 @@ test("the approved storefront places only heartburst as artwork and leaves Ego H
     egoHygieneEntryIds: [],
     incomprisEntryIds: ["design-heartburst"],
     featuredIncomprisEntryIds: ["design-heartburst"],
+    artists: [{ artistId: "artist-play", standaloneEntryIds: [], songCollectionIds: [] }],
   });
   const [entry] = getCuratedStoreEntries(current, curation.featuredIncomprisEntryIds);
   assert.equal(entry?.kind, "design");

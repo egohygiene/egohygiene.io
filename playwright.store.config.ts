@@ -3,7 +3,7 @@ import { defineConfig, devices } from "@playwright/test";
 /** Build first with `pnpm build`; these journeys exercise the production bundle. */
 export default defineConfig({
   testDir: "./tests/e2e",
-  testMatch: ["store.spec.ts", "storefront.spec.ts", "theme.spec.ts"],
+  testMatch: ["store.spec.ts", "storefront.spec.ts", "store-artist.spec.ts", "theme.spec.ts"],
   fullyParallel: true,
   workers: 2,
   retries: 0,

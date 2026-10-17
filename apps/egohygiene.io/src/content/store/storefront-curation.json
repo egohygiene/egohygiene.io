@@ -2,5 +2,12 @@
   "schemaVersion": 1,
   "egoHygieneEntryIds": [],
   "incomprisEntryIds": ["design-heartburst"],
-  "featuredIncomprisEntryIds": ["design-heartburst"]
+  "featuredIncomprisEntryIds": ["design-heartburst"],
+  "artists": [
+    {
+      "artistId": "artist-play",
+      "standaloneEntryIds": [],
+      "songCollectionIds": []
+    }
+  ]
 }

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "kind": "context",
+  "id": "artist-play",
+  "slug": "play",
+  "title": ".play()",
+  "description": "A featured artist within the Incompris creative collection. Explore standalone ideas and collections connected to songs as merchandise is added.",
+  "visibility": "public",
+  "contextType": "artist"
+}

@@ -1,5 +1,7 @@
 // Portable entry point: no React, router, Vite, DOM, Node or provider wire formats.
 
+export type { StoreArtistContext, StorefrontArtist } from "./artists.ts";
+export { getCuratedStoreArtist, getCuratedStoreArtists, storeArtistPath } from "./artists.ts";
 export type {
   BrowsableStoreEntry,
   StoreCollection,

@@ -4,15 +4,17 @@ import { getStorePurchaseAction } from "@egohygiene/schemas";
 import { useEffect } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
-import { storeCatalog } from "../../content/store";
+import { storeCatalog, storefrontCuration } from "../../content/store";
 import type { BrowsableStoreEntry, StoreStory, StoreView } from "./domain/index.ts";
 import {
   filterStoreEntries,
+  getCuratedStoreArtists,
   getDesignProducts,
   getEntryContexts,
   getEntryDesigns,
   getRelatedCollections,
   isBrowsableEntry,
+  storeArtistPath,
   storeEntryPath,
 } from "./domain/index.ts";
 import { StoreArtwork } from "./StoreArtwork";
@@ -712,6 +714,7 @@ export function StoreDesignPage() {
 }
 
 export function StoreCollectionPage() {
+  const { t } = useI18n();
   const { slug } = useParams();
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "collection" && candidate.slug === slug,
@@ -723,6 +726,9 @@ export function StoreCollectionPage() {
       candidate.kind === "product" && entry.productIds.includes(candidate.id),
   );
   const entries: StoreEntry[] = [...products, ...designs];
+  const artists = getCuratedStoreArtists(storeCatalog, storefrontCuration).filter((item) =>
+    item.songCollections.some((collection) => collection.id === entry.id),
+  );
   return (
     <div className="store-shell">
       <StoreMetadata title={entry.title} description={entry.description} />
@@ -739,6 +745,20 @@ export function StoreCollectionPage() {
         <StoreArtworkGallery designs={designs} title={entry.title} />
       </section>
       <ContextNotes entry={entry} />
+      {artists.length > 0 && (
+        <nav className="store-artist-returns" aria-label={t("storeArtist.collectionArtists")}>
+          <h2>{t("storeArtist.collectionArtists")}</h2>
+          <ul>
+            {artists.map(({ artist }) => (
+              <li key={artist.id}>
+                <Link className="store-text-link" to={`${storeArtistPath(artist)}?view=songs`}>
+                  <bdi dir="auto">{artist.title}</bdi> · {t("storeArtist.collectionSongs")}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       <section
         className="store-related"
         id="collection-entries"

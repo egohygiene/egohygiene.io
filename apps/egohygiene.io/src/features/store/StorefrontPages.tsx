@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 
 import { storeCatalog, storefrontCuration } from "../../content/store";
 import type { BrowsableStoreEntry } from "./domain/index.ts";
-import { getCuratedStoreEntries } from "./domain/index.ts";
+import { getCuratedStoreArtists, getCuratedStoreEntries, storeArtistPath } from "./domain/index.ts";
 import { StoreCard, StoreMetadata } from "./StorePages";
 
 import "./storefront.css";
+import "./store-artist.css";
 
 type StorefrontProps = {
   readonly catalog?: StoreCatalog;
@@ -166,6 +167,7 @@ export function IncomprisPage({
 }: StorefrontProps) {
   const { t } = useI18n();
   const entries = getCuratedStoreEntries(catalog, curation.incomprisEntryIds);
+  const artists = getCuratedStoreArtists(catalog, curation);
 
   return (
     <div className="store-shell storefront-page storefront-incompris">
@@ -191,6 +193,33 @@ export function IncomprisPage({
         <p className="storefront-artwork-note">{t("storefront.artworkNote")}</p>
       </header>
 
+      {artists.length > 0 && (
+        <section className="store-artist-entrance" aria-labelledby="incompris-artists-heading">
+          <div className="store-section-heading">
+            <div>
+              <p className="store-kicker">{t("storeArtist.entrance.kicker")}</p>
+              <h2 id="incompris-artists-heading">{t("storeArtist.entrance.heading")}</h2>
+            </div>
+            <p>{t("storeArtist.entrance.description")}</p>
+          </div>
+          <ul className="store-artist-list">
+            {artists.map(({ artist }) => (
+              <li key={artist.id}>
+                <Link className="store-artist-link" to={storeArtistPath(artist)}>
+                  <h3>
+                    <bdi dir="auto">{artist.title}</bdi>
+                  </h3>
+                  <p>{artist.description}</p>
+                  <span className="store-text-link">
+                    {t("storeArtist.entrance.link")} <Arrow />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section aria-labelledby="incompris-collection-heading">
         <div className="store-section-heading">
           <div>
@@ -213,6 +242,13 @@ export function IncomprisPage({
           {t("storefront.incompris.backLink")} <Arrow />
         </Link>
       </div>
+      {import.meta.env.VITE_STORE_PREVIEW === "true" && (
+        <div className="storefront-return">
+          <Link className="store-text-link" to="/store/preview/artists/demo-artist">
+            {t("storeArtist.preview.link")} <Arrow />
+          </Link>
+        </div>
+      )}
       <CatalogPreviewLink />
     </div>
   );

@@ -266,3 +266,39 @@ and validation was still in progress when inspected. This is not a hosted CI
 pass; investigate those checks under the existing CI work rather than silently
 changing gates. Local receipts above stand on their named commands and scope.
 The PR stays draft for Alan's sync, and issue #62 stays open for B/C.
+
+## Artist/song checkpoint B — 2026-10-17 UTC
+
+Authority: after the A checkpoint, the maintainer explicitly requested checkpoint
+2/B. Work extends [draft PR #78](https://github.com/egohygiene/egohygiene.io/pull/78)
+on `feat/storefront-checkpoint-62a`; stop for a sync before C. Remote starting
+head was `9bec5be66a17e716c325b7940ff2cf66b103e792`, tree
+`bc31fd7a1814670578c48316b7eb951c6397e086`. Main was refreshed at
+`e52e4654fa826c7d66f47e03bc17de07fc977c2c`. Publication receipt follows verification.
+
+The [B review](../design/storefront-62b.md) describes artist routes, URL search,
+canonical song collection links and the additive curation contract. The
+[ADR extension](../architecture/decisions/0008-curated-storefront-views.md)
+records why explicit artist placement does not infer attribution. `.play()` is
+based on the maintainer's approved hierarchy and existing featured identity;
+its public context introduces no verified release metadata or merch assignment.
+Heartburst's existing asset-local provenance remains authoritative and unchanged.
+The separate fictional preview uses only existing public demo catalog entries
+plus a synthetic Demo artist, never assigning them to `.play()`.
+
+Local verification includes the normal and isolated builds, types, 55 catalog
+cases, 40 focused unit cases, a 12-module portable boundary check and independent
+read-only source review without substantive findings. All 27 production and
+five isolated-preview browser cases pass. The older Fourthwall test was updated
+to traverse A's catalog entrance; no runtime workaround was needed. Three
+inspected JPEGs total 387,029 bytes, with no page/image errors; capture hashes
+are recorded in the review's manifest. The normal
+artifact was checked for absence of the additional fictional artist IDs and both
+local preview route prefixes. New interface messages use the existing provider;
+full catalog translations and broad locale/device review remain separate.
+
+No dependencies, lockfile, private artwork/master, provider wire contract or
+purchase guards changed. All three fictional products remain non-purchasable.
+No CI settings were changed or gates disabled; hosted CI and production/live
+provider qualification are not claimed. This checkpoint is not a merge or a
+completed checkpoint C.

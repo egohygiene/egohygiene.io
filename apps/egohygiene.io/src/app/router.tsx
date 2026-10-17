@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import {
   IncomprisPage,
+  StoreArtistPage,
   StoreCatalogPage,
   StoreCollectionPage,
   StoreDesignPage,
@@ -30,6 +31,15 @@ const previewRoutes =
             return { Component: FourthwallPreviewPage };
           },
         },
+        {
+          path: "store/preview/artists/:artistSlug",
+          lazy: async () => {
+            const { ArtistPreviewPage } = await import(
+              "../features/artist-preview/ArtistPreviewPage"
+            );
+            return { Component: ArtistPreviewPage };
+          },
+        },
       ]
     : [];
 
@@ -46,6 +56,7 @@ export const router = createBrowserRouter([
       { path: "terms", element: <TermsPage /> },
       { path: "store", element: <StorePage /> },
       { path: "store/incompris", element: <IncomprisPage /> },
+      { path: "store/incompris/artists/:artistSlug", element: <StoreArtistPage /> },
       { path: "store/catalog", element: <StoreCatalogPage /> },
       ...previewRoutes,
       { path: "store/products/:slug", element: <StoreProductPage /> },
