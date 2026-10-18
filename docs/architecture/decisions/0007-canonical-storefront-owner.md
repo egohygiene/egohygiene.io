@@ -51,7 +51,7 @@ This resolves the ownership/topology question in
 [ADR 0006](0006-store-launch-direction.md), reaffirms website
 [high-level ADR-0004](../../../DECISIONS.md#adr-0004-consolidate-the-store-v1-website-and-use-hosted-checkout),
 and supersedes the independent V1 store deployment part of store ADR-0003 through
-its reciprocal [ADR-005](https://github.com/egohygiene/store/blob/main/DECISIONS.md#adr-0005-select-the-website-as-the-v1-storefront-owner).
+its reciprocal [ADR-0005](https://github.com/egohygiene/store/blob/main/DECISIONS.md#adr-0005-select-the-website-as-the-v1-storefront-owner).
 Other ecosystem products can still deploy independently under website ADR-0002.
 Historical records and implementation evidence remain intact.
 

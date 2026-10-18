@@ -79,7 +79,7 @@ The selection is submitted in paired documentation PRs for maintainer review.
 
 On acceptance this reaffirms website high-level ADR-0004 and resolves store
 ADR-0003's conflicting independent V1 deployment direction through reciprocal
-store ADR-005. Historical decisions and the original private-merch migration
+store ADR-0005. Historical decisions and the original private-merch migration
 ledger remain intact. No code is copied or repository retired by this checkpoint.
 
 The selected V1 delivery is one website build/deployment coordinator for `/` and
