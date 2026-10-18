@@ -1,6 +1,41 @@
 # Current handoff
 
-## Current: #54 merged; #37 scope discussion — 2026-10-18 UTC
+## Current: #37 checkpoint 1 review — 2026-10-18 UTC
+
+Alan selected the next checkpoint and requested a sync afterward. Delivered
+**checkpoint 1 only** in [draft PR #82](https://github.com/egohygiene/egohygiene.io/pull/82),
+branch `test/checkout-handoff-37a`, based on refreshed main
+`1a0a3f9caa6bfb111ffff017dbb0155729a3a068`. Verified source:
+`2a91b2b02edb606fe594a65784ac7f5eb798173e`, tree
+`58ac9598a1770e29d570cfe020feffd187219102`; the published tree matches local source.
+Read the [fixture/boundary receipt](../store/checkout-handoff-37a.md) and
+[machine-readable baseline](../store/reviews/checkout-handoff-37a/baseline.json).
+
+A usable Chrome for Testing 155.0.8059.84 now runs through the existing executable
+override. Temporary fictional live/preview/unavailable products reuse the actual
+website and catalog adapter; a draft sentinel stays out of the public artifact.
+The exact fictional destination is served locally. Other external requests,
+non-GET requests, WebSockets and loopback redirects are blocked; service workers
+are disabled in the isolated browser context. Normal catalog, artwork, provider
+configuration, runtime application and dependencies are unchanged.
+
+Local evidence: all 73 catalog tests, app/catalog/domain types, normal build,
+normal-artifact fixture exclusion, scoped Biome and diff checks pass. The browser
+baseline renders three states, decodes the test swatch, fulfills one exact direct
+navigation and denies four probes, with no page errors or unexpected WebSockets.
+Independent review found no remaining blocking issue. These are local results;
+no hosted CI success or actual provider qualification is inferred. At source
+head `2a91b2b`, hosted CodeQL and dependency review reported failure while CI
+was running; see the linked ledger for run URLs.
+
+**Next:** sync with Alan before checkpoint 2: activate the actual product link,
+exercise desktop keyboard/mobile tap and Back/reload against this boundary.
+Checkpoint 3 remains the focused regression/evidence closeout. #37 stays open;
+this draft is unmerged. #38 readiness preparation remains proposed. Nothing was
+deployed or activated for purchase; no real provider was contacted by the tests.
+See the [continuity record](provenance.md#checkout-handoff-37-checkpoint-1--2026-10-18-utc).
+
+## Historical: #54 merged; #37 scope discussion — 2026-10-18 UTC
 
 Alan authorized merging [PR #81](https://github.com/egohygiene/egohygiene.io/pull/81)
 and returning to explain the next issue. Normal merge:

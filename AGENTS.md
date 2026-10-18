@@ -50,9 +50,11 @@ approved associations are supplied; populated examples are isolated preview
 fixtures. #54's declared cover/gallery ordering merged in PR #81 on 2026-10-18
 at `28a2ed2d712becf1513d1bd3d6190502db876a69`; #54 is closed. Its
 [checkpoint receipt](docs/store/design-order-54.md) preserves verification and
-browser limits. The next proposed slice is #37's intercepted checkout-handoff
-browser coverage, followed by #38 readiness preparation. Neither has started;
-return for selection before implementation.
+browser limits. Alan selected checkpoint 1 of #37's intercepted checkout-handoff
+slice on 2026-10-18. The [fixture and boundary receipt](docs/store/checkout-handoff-37a.md)
+records the usable browser, isolated inputs and local verification in draft PR #82.
+Sync before checkpoint 2 (product-link activation, keyboard/mobile and Back/reload).
+#37 remains open; #38 readiness preparation remains a later proposal.
 Deployment and commerce activation remain separate instructions.
 
 ## Working boundaries

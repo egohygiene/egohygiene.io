@@ -566,3 +566,55 @@ This follow-up updates current-state, agent/context entry points, ADR 0005 deliv
 status and the #54 receipt. Documentation links, manifest JSON/paths and diff
 whitespace were checked; no application rerun was needed for docs-only updates.
 Return to Alan to discuss/select the next bounded checkpoint.
+
+
+## Checkout-handoff #37 checkpoint 1 — 2026-10-18 UTC
+
+Authority: Alan requested work through the proposed checkpoint and a sync after
+it. The scope was stated as checkpoint 1 (usable browser, isolated fictional
+inputs and intercepted destination), with a draft PR before customer journeys.
+Recovered the repository after scratch pruning, read the context/scoped guidance,
+and refreshed main at `1a0a3f9caa6bfb111ffff017dbb0155729a3a068`, #37/#38 and open
+PRs before editing. Main was unchanged at publication. Existing draft #73 stays
+separate. #54/#81 remain closed/merged; no earlier browser claim was rewritten.
+
+Published [draft PR #82](https://github.com/egohygiene/egohygiene.io/pull/82) on
+`test/checkout-handoff-37a`. Verified implementation:
+`2a91b2b02edb606fe594a65784ac7f5eb798173e`, Git tree
+`58ac9598a1770e29d570cfe020feffd187219102`, equal to the local staged tree. This
+following receipt adds documentation only. Read the
+[checkpoint receipt](../store/checkout-handoff-37a.md) for exact commands,
+browser acquisition, expected states and limits; its linked JSON records the
+final baseline at 23:02:29 UTC.
+
+The test-only catalog contains fresh mutable fixture inputs, a valid authored
+1×1 PNG, synthetic approval metadata and a draft sentinel. Existing validation,
+public projection and the actual app/catalog plugin are reused. Owned temporary
+inputs/build output are cleaned in nested finally blocks. The browser allows
+only the test loopback origin and locally fulfills the exact top-level GET
+navigation to the fictional provider-shaped URL; no provider request continues.
+Service workers are blocked, WebSockets closed, and loopback responses fetched
+with no redirect following. Four negative probes include the local 302 edge case.
+Normal catalog/assets/providers, application code, dependencies and lockfile are
+unchanged. Public fixture approvals are test data, not real-product readiness.
+
+All 73 catalog tests, app/catalog/domain typechecks, normal build and emitted
+fixture-exclusion checks passed. Six source/config files passed scoped Biome;
+diff whitespace passed. Final browser baseline on Chrome for Testing
+155.0.8059.84/Playwright 1.62.1 renders all three states and decodes the swatch,
+fulfills one direct destination, denies four probes and records no page errors
+or unexpected WebSockets. The final tooling typecheck was repeated after the
+redirect-probe change. Initial harness typing problems and an aborted-navigation
+race were corrected; the redirect failure probe now uses its own disposable page.
+Independent source review found no remaining blocking issue. Browser distribution
+checksum and acquisition provenance are in the receipt; no binary was committed.
+
+At source head `2a91b2b`, [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39174899850)
+and [dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39174899451)
+reported failure; [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39174899549)
+was running at readback. Local checks do not imply hosted CI success; no gate, billing, hosting or provider setting changed. Full existing
+browser/layout suites were not rerun. This baseline directly probes interception;
+it does not activate the product link or cover keyboard/mobile/Back/reload yet.
+No real provider checkout, variant transfer, price/shipping/tax, order, print or
+fulfillment qualification occurred. #37 stays open, #82 stays draft/unmerged.
+Sync with Alan before checkpoint 2; #38 is still a later readiness proposal.
