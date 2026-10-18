@@ -401,3 +401,49 @@ to reflect acceptance and the next selection pause. Validated documentation
 links, context manifest JSON/paths and the scoped diff. The receipt changes only
 six Markdown files; it does not add artwork, products, provider activation,
 deployment or a new dependency. Return to Alan to select the next issue.
+
+## Catalog schema audit — 2026-10-18 UTC
+
+Authority: Alan requested a quick schema audit and appropriate robustness
+upgrades, then a return to chat before the next issue. Refreshed main and #34,
+its comments, open PRs and main workflow status. Main remained
+`d8cf7e8e1825de7241d5ccecb69685e17686a75d`; the only existing open PR was the
+separate CI draft #73. Recovered a clean checkout from GitHub after maintenance.
+Work belongs to #34; #54 was not started.
+
+Implementation: `57ffa8befabbce6f0f9dc51190a2dc1273380c26`, tree
+`8aea85a79b9e5ec2c48448b5df9d24680b8ae5e4`, on `fix/catalog-schema-audit-34`.
+The GitHub tree equals the reviewed local implementation tree, including all
+untouched baseline files. Publication used the connected GitHub API after local
+Git push lacked authentication; no implementation differences were introduced.
+The following documentation-only receipt does not imply a new application run.
+
+The [audit](../store/schema-audit-34.md) records the reproduced ignored-envelope
+version/metadata gap, strict shape schema, inferred type and reuse of existing
+cross-record validation. Version-1 content requires no migration. Optional
+attribution/readiness/image metadata was not invented; broader #34/#38 work stays
+open. Shape validation alone does not approve references or purchases.
+
+Pinned local checks pass: 62 catalog tests (seven new), 49 focused unit tests,
+app/catalog/domain types, both builds and the 12-module portable guard. Initial
+broader units had two existing failures from a missing locale provider in the
+Fourthwall fixture. Confirmed against unchanged baseline files and repaired only
+the test setup; all assertions remain. Independent review found no blocking
+issue. New-test formatting/imports and changed-line whitespace pass; pre-existing
+format/lint/module warnings remain in their owning CI work.
+
+Current main [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39037276091)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39037276123)
+still report failure. Their causes were not re-investigated here; the earlier
+dependency-review configuration limitation is still recorded. No CI was manually
+dispatched and no gate/settings were changed. Browser/device, real-provider,
+production routing and print qualification were not rerun or claimed. No assets,
+catalog entries, dependency/lockfile, account, checkout activation or deployment
+changed. Return to Alan with a draft PR; merge and next-issue work await selection.
+
+Publication receipt: [draft PR #79](https://github.com/egohygiene/egohygiene.io/pull/79)
+was created open, draft and unmerged, with source commit `57ffa8befabbce6f0f9dc51190a2dc1273380c26`
+and initial documentation commit `ded87d26e2ce7f7182728f2d57c5123adbd6d3e4`.
+The latter's tree `8939d3ac70a2d3dbc4ecf2017c0a0685fba8a85f` matches the local
+implementation plus reviewed documentation. This final receipt only adds links
+and publication status; it does not broaden validation or close #34.

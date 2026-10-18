@@ -86,16 +86,22 @@ export const storeCheckoutRouteSchema = z.strictObject({
   artworkRevisions: z.array(z.strictObject({ designId: id, revision: z.number().int().positive() })).min(1),
 });
 
+/**
+ * Validates the versioned envelope and record shapes, not cross-record relationships.
+ * Public projection and live purchase actions also run the catalog reference and review checks.
+ */
+export const storeCatalogSchema = z.strictObject({
+  schemaVersion: z.literal(STORE_SCHEMA_VERSION),
+  entries: z.array(storeEntrySchema),
+  checkoutRoutes: z.array(storeCheckoutRouteSchema),
+});
+
 export type StoreEntry = z.infer<typeof storeEntrySchema>;
 export type StoreDesign = z.infer<typeof storeDesignSchema>;
 export type StoreProduct = z.infer<typeof storeProductSchema>;
 export type StoreCheckoutRoute = z.infer<typeof storeCheckoutRouteSchema>;
 export type StoreSource = { source: string; value: unknown };
-export type StoreCatalog = {
-  schemaVersion: typeof STORE_SCHEMA_VERSION;
-  entries: StoreEntry[];
-  checkoutRoutes: StoreCheckoutRoute[];
-};
+export type StoreCatalog = z.infer<typeof storeCatalogSchema>;
 
 export class StoreCatalogError extends Error {
   readonly issues: string[];
@@ -205,10 +211,23 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
   return { schemaVersion: STORE_SCHEMA_VERSION, entries: records.map(({ entry }) => entry), checkoutRoutes };
 }
 
+/** Validate the complete runtime envelope before applying the source-aware relationship checks. */
+function validateStoreCatalog(catalog: unknown): StoreCatalog {
+  const result = storeCatalogSchema.safeParse(catalog);
+  if (!result.success) {
+    throw new StoreCatalogError(result.error.issues.map((issue) =>
+      `catalog:${issue.path.join(".") || "$"}: ${issue.message}`));
+  }
+  return parseStoreCatalog(
+    result.data.entries.map((value) => ({ source: value.id, value })),
+    result.data.checkoutRoutes,
+  );
+}
+
 // Explicit allowlisted schemas above reject unknown fields, including private authoring metadata.
 // A draft remains public Git content; the Node adapter excludes it from browser output.
 export function toPublicStoreCatalog(catalog: StoreCatalog): StoreCatalog {
-  const validated = parseStoreCatalog(catalog.entries.map((value) => ({ source: value.id, value })), catalog.checkoutRoutes);
+  const validated = validateStoreCatalog(catalog);
   const entries = validated.entries.filter((entry) => entry.visibility === "public");
   const usedRoutes = new Set(entries.flatMap((entry) =>
     entry.kind === "product" && entry.purchase.state === "live" ? [entry.purchase.routeId] : []));
@@ -229,7 +248,7 @@ export function getStorePurchaseAction(catalog: StoreCatalog, productId: string)
     case "unavailable": return { kind: "disabled", label: product.purchase.reason };
     case "live": {
       // Revalidate at the purchase boundary; malformed runtime config must never create a link.
-      const validated = parseStoreCatalog(catalog.entries.map((value) => ({ source: value.id, value })), catalog.checkoutRoutes);
+      const validated = validateStoreCatalog(catalog);
       const routeId = product.purchase.routeId;
       const route = validated.checkoutRoutes.find((candidate) => candidate.id === routeId);
       if (!route) return { kind: "disabled", label: "Unavailable" };
