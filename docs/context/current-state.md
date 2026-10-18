@@ -1,6 +1,25 @@
 # Current handoff
 
-## Current: bounded schema audit for review — 2026-10-18 UTC
+## Current: #54 artwork ordering — 2026-10-18 UTC
+
+Alan authorized merging [PR #79](https://github.com/egohygiene/egohygiene.io/pull/79)
+and starting [#54](https://github.com/egohygiene/egohygiene.io/issues/54). The normal
+merge completed at `988b3598c7acaa2cfbd60ecb225e557137c10713`, from reviewed head
+`5b87b2d2f741e93505623db10f1f71d00db9cabc`; GitHub main was read back at the merge.
+All three hosted workflows at the reviewed head reported failure. The audit's
+recorded local evidence remains local; no gate or provider setting changed.
+
+Branch `fix/design-order-54` starts from that merge. Checkpoint A defines explicit
+`designIds` order followed, for collections, by `productIds` order and each
+product's design order, keeping the first occurrence of each design. No cover
+field or schema migration is needed. Read the [#54 receipt](../store/design-order-54.md)
+and [portable-domain decision](../architecture/decisions/0005-portable-store-domain.md#artwork-reference-order--54).
+
+**Next:** complete B's shared selector change and C's multiple-design/file-order
+and card/gallery checks, updating the draft checkpoint as each completes. Return
+to Alan before merging #54 or starting #37/#38. No deployment or purchases.
+
+## Historical: bounded schema audit review — 2026-10-18 UTC
 
 Alan requested a quick schema audit and appropriate robustness upgrades before
 continuing the roadmap. This selects a bounded #34 slice, not #54 implementation

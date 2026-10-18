@@ -49,3 +49,24 @@ We defer a provider registry, generic service layer, global state container,
 new framework, shared commerce package and deployment. The checkpoint introduces
 no runtime dependency or persisted schema version. Reverting its code and docs
 together restores the earlier preview without a data migration.
+
+## Artwork reference order — #54
+
+Selected for the 2026-10-18 checkpoint: the portable `getEntryDesigns` selector
+resolves a product's `designIds` in declared order. For a collection, resolve its
+explicit `designIds` first, then each referenced product in `productIds` order,
+then that product's `designIds` order. Keep the first occurrence of each design.
+The first resolved public design supplies the cover; the same list supplies the
+gallery. A design's own display remains that canonical design.
+
+Catalog discovery order and filenames are not presentation priorities. Resolve
+IDs to the original canonical objects without sorting or mutating the catalog.
+Keep existing visibility filtering and validation boundaries: public projection
+rejects invalid references before rendering; this selector does not approve
+content, repair malformed input or change purchase eligibility.
+
+An extra cover field is unnecessary while the first declared reference expresses
+the intended cover. This fixes the existing relationship semantics without a
+version bump or data migration. Reverting the selector restores catalog-order
+presentation without changing stored records. See the [#54 checkpoint](../../store/design-order-54.md)
+for implementation and verification status.

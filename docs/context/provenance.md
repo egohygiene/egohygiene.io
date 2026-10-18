@@ -447,3 +447,25 @@ and initial documentation commit `ded87d26e2ce7f7182728f2d57c5123adbd6d3e4`.
 The latter's tree `8939d3ac70a2d3dbc4ecf2017c0a0685fba8a85f` matches the local
 implementation plus reviewed documentation. This final receipt only adds links
 and publication status; it does not broaden validation or close #34.
+
+
+## Accepted schema audit merge and #54 checkpoint A — 2026-10-18 UTC
+
+Authority: Alan authorized merging PR #79 and starting #54. Refreshed the PR,
+main, #54 and its comments; the PR head remained
+`5b87b2d2f741e93505623db10f1f71d00db9cabc`, main remained the expected base and
+#54 was open with no comments. CI, dependency review and CodeQL at that PR head
+all reported failure; earlier local passes were not treated as hosted success.
+
+Marked #79 ready and merged normally with the exact expected head. GitHub
+confirmed merge `988b3598c7acaa2cfbd60ecb225e557137c10713`; read back the merged
+PR and main. No force merge, gate, account, provider or deployment setting changed.
+The audit remains a bounded #34 contribution and does not close its broader work.
+
+Created `fix/design-order-54` from the refreshed merge. Checkpoint A records
+explicit design references first, then collection product references and their
+designs in declared order, with first-occurrence deduplication. ADR 0005 records
+the durable selector contract; the [#54 receipt](../store/design-order-54.md)
+and catalog guide explain authoring. No new schema field or content migration.
+This documentation checkpoint has no new application verification claim; B/C
+implementation and local consumer evidence follow on the same draft branch.
