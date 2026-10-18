@@ -15,18 +15,21 @@ export function storeEntryPath(entry: BrowsableStoreEntry): string {
   return `/store/${segments[entry.kind]}/${entry.slug}`;
 }
 
+/** Explicit artwork leads; collection products append their declared artwork, first occurrence wins. */
 export function getEntryDesigns(catalog: StoreCatalog, entry: BrowsableStoreEntry): StoreDesign[] {
   if (entry.kind === "design") return [entry];
+  const byId = new Map(catalog.entries.map((candidate) => [candidate.id, candidate]));
   const ids = new Set(entry.designIds);
   if (entry.kind === "collection") {
-    for (const candidate of catalog.entries) {
-      if (candidate.kind === "product" && entry.productIds.includes(candidate.id)) {
+    for (const productId of entry.productIds) {
+      const candidate = byId.get(productId);
+      if (candidate?.kind === "product") {
         candidate.designIds.forEach((id) => { ids.add(id); });
       }
     }
   }
-  return catalog.entries.filter((candidate): candidate is StoreDesign =>
-    candidate.kind === "design" && candidate.visibility === "public" && ids.has(candidate.id));
+  return [...ids].map((id) => byId.get(id)).filter((candidate): candidate is StoreDesign =>
+    candidate?.kind === "design" && candidate.visibility === "public");
 }
 
 export function getEntryContexts(catalog: StoreCatalog, entry: BrowsableStoreEntry): StoreContext[] {
