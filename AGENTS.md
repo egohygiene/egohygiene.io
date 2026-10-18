@@ -34,8 +34,10 @@ The #35 landing/shell checkpoint merged in #77. The subsequent #62 discussion
 approved Ego Hygiene as the primary shop, Incompris as its featured collection,
 and `.play()` as an artist destination. The maintainer accepted all three
 checkpoints and authorized merging **PR #78**, completed on 2026-10-17 at
-`71449947a2ff67ac87a512dbd8c8a11dead941fc`; #62 is closed. The current task is
-to return with the next plan, not begin implementation. Read the
+`71449947a2ff67ac87a512dbd8c8a11dead941fc`; #62 is closed. On 2026-10-18 the
+maintainer selected a bounded schema audit under #34 before returning to the
+next issue. Read its [audit receipt](docs/store/schema-audit-34.md) and current
+handoff for delivery status; #54 and later roadmap slices remain proposals. Read the
 [final checkpoint](docs/design/storefront-62c.md),
 [content workflow](docs/store/storefront-content-workflow.md),
 [artist/song checkpoint](docs/design/storefront-62b.md),
