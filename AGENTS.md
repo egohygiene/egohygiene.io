@@ -53,7 +53,9 @@ at `28a2ed2d712becf1513d1bd3d6190502db876a69`; #54 is closed. Its
 browser limits. Alan selected checkpoint 1 of #37's intercepted checkout-handoff
 slice on 2026-10-18. The [fixture and boundary receipt](docs/store/checkout-handoff-37a.md)
 records the usable browser, isolated inputs and local verification in draft PR #82.
-Sync before checkpoint 2 (product-link activation, keyboard/mobile and Back/reload).
+Alan subsequently authorized checkpoint 2. Its [journey receipt](docs/store/checkout-handoff-37b.md)
+records passing actual keyboard/touch link activation and Back/reload checks in
+that same draft. Sync before checkpoint 3's focused regression/artifact closeout.
 #37 remains open; #38 readiness preparation remains a later proposal.
 Deployment and commerce activation remain separate instructions.
 

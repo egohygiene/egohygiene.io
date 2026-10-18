@@ -1,0 +1,49 @@
+{
+  "checkpoint": "37 handoff 1 — fixture and interception baseline",
+  "capturedAt": "2026-10-18T23:37:41.767Z",
+  "browser": "155.0.8059.84",
+  "node": "24.21.0",
+  "fixture": "test-handoff-37a",
+  "renderedStates": [
+    "live",
+    "preview",
+    "unavailable"
+  ],
+  "decodedImage": {
+    "width": 1,
+    "authoredTestSwatch": true
+  },
+  "interceptedDestinations": [
+    "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live"
+  ],
+  "blockedProbes": [
+    {
+      "url": "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+      "method": "POST",
+      "resourceType": "fetch",
+      "isMainFrameNavigation": false
+    },
+    {
+      "url": "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live?unreviewed=1",
+      "method": "GET",
+      "resourceType": "fetch",
+      "isMainFrameNavigation": false
+    },
+    {
+      "url": "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+      "method": "GET",
+      "resourceType": "image",
+      "isMainFrameNavigation": false
+    },
+    {
+      "url": "http://127.0.0.1:38705/__test_handoff_redirect",
+      "method": "GET",
+      "resourceType": "document",
+      "isMainFrameNavigation": true
+    }
+  ],
+  "blockedWebSockets": [],
+  "pageErrors": [],
+  "limits": "Test-only temporary production build. Direct interception probes; no product-link activation, keyboard/mobile journey, Back/reload, real provider, order or print qualification.",
+  "implementationCommit": "e90e9b65b54a7365b6668802d8a984ee392be837"
+}

@@ -138,3 +138,19 @@ This is checkpoint 1's fixture/interception baseline. Product-link activation,
 desktop keyboard/mobile tap journeys and Back/reload are checkpoint 2, after the
 maintainer sync. It does not replace the existing store/Fourthwall preview suites
 or qualify a real product, purchase, deployment or provider.
+
+
+## Checkout-handoff journeys — #37 checkpoint 2, 2026-10-18
+
+The same `node tests/checkout-handoff/run.mts` command now follows its boundary
+baseline with actual Tab/Enter and touch-tap product link activation, intercepted
+destination reload, Back/product reload and repeat activation. Preview and
+unavailable products stay non-purchasable through actual SPA links and reload.
+Fresh contexts retain the checkpoint 1 network guard. The temporary build now
+also copies the existing shared shell logo so its rendered evidence is complete.
+
+Both desktop 1280×800 and mobile-emulated 390×844 journeys pass locally with no
+unexpected requests, WebSockets or page errors. Read the
+[checkpoint 2 receipt](checkout-handoff-37b.md) for reports, inspected captures,
+commands and limits. This does not qualify a real provider or physical device;
+checkpoint 3's focused regression/artifact closeout awaits the maintainer sync.

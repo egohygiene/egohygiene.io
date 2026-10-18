@@ -1,6 +1,41 @@
 # Current handoff
 
-## Current: #37 checkpoint 1 review — 2026-10-18 UTC
+## Current: #37 checkpoint 2 review — 2026-10-18 UTC
+
+Alan authorized continuing checkpoint 2 after the fixture/interception sync.
+Delivered in the same [draft PR #82](https://github.com/egohygiene/egohygiene.io/pull/82),
+branch `test/checkout-handoff-37a`. Refreshed main remained
+`1a0a3f9caa6bfb111ffff017dbb0155729a3a068`; the starting PR head was
+`c9976ca548f629b012297346f00e73ac78a21dee`. Verified implementation:
+`e90e9b65b54a7365b6668802d8a984ee392be837`, tree
+`55f71d7a2e76ab29b7eb5a801eecd070287e8ce2`, matching the local staged tree.
+Read the [journey receipt](../store/checkout-handoff-37b.md),
+[report and captures](../store/reviews/checkout-handoff-37b/journeys.json), and
+[continuity record](provenance.md#checkout-handoff-37-checkpoint-2--2026-10-18-utc).
+
+Desktop Tab/Enter and mobile touch emulation activate the actual product link,
+reload the locally intercepted destination, return with Back, reload the original
+product and activate again. Each scenario makes exactly three intercepted
+requests, stays in one tab, and preserves preview/unavailable guards through real
+SPA links and reload. No unexpected requests, WebSockets or page errors occur.
+Both viewports fit without horizontal overflow. Final captures show visible
+desktop focus and a readable mobile action/disclosure. A missing-logo fixture
+gap was corrected by copying the existing public logo into the temporary build.
+No application, catalog, artwork, dependency or provider configuration changed.
+
+Fresh checks: both browser journeys and the earlier boundary baseline pass,
+plus six focused Node fixture/guard tests, catalog/tooling types, scoped Biome
+and diff checks. The full 73-test catalog run, app/domain typechecks and normal
+build exclusion evidence remain checkpoint 1 results, not fresh checkpoint 2
+claims. All three hosted workflows at both the starting PR head and verified source
+head failed; hosted results remain separate and no gate was disabled.
+
+**Next:** sync with Alan before checkpoint 3's focused regression and production
+artifact closeout. #82 stays draft/unmerged and #37 stays open; broader #37 and
+real-provider qualification are not complete. #38 readiness preparation remains
+proposed. No real provider, order, purchase activation or deployment occurred.
+
+## Historical: #37 checkpoint 1 review — 2026-10-18 UTC
 
 Alan selected the next checkpoint and requested a sync afterward. Delivered
 **checkpoint 1 only** in [draft PR #82](https://github.com/egohygiene/egohygiene.io/pull/82),

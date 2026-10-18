@@ -618,3 +618,65 @@ it does not activate the product link or cover keyboard/mobile/Back/reload yet.
 No real provider checkout, variant transfer, price/shipping/tax, order, print or
 fulfillment qualification occurred. #37 stays open, #82 stays draft/unmerged.
 Sync with Alan before checkpoint 2; #38 is still a later readiness proposal.
+
+
+## Checkout-handoff #37 checkpoint 2 — 2026-10-18 UTC
+
+Authority: Alan approved continuing checkpoint 2 after reviewing the previous
+fixture/interception checkpoint. Re-read repository/scoped context and relevant
+ADRs; live GitHub confirmed main at `1a0a3f9caa6bfb111ffff017dbb0155729a3a068`,
+#82 draft/open at `c9976ca548f629b012297346f00e73ac78a21dee`, and #37 open. All
+three hosted workflows at that starting PR head reported failure. The current
+instruction selects customer-link journeys, not checkpoint 3, merge or deployment.
+
+Published source `e90e9b65b54a7365b6668802d8a984ee392be837` to the existing
+`test/checkout-handoff-37a` branch and [draft #82](https://github.com/egohygiene/egohygiene.io/pull/82).
+Its Git tree `55f71d7a2e76ab29b7eb5a801eecd070287e8ce2` equals the tested local
+staged tree. This following receipt records docs/evidence only. Read the
+[journey receipt](../store/checkout-handoff-37b.md) and linked machine reports for
+actual timestamps, viewport/input settings, requests and screenshot hashes.
+
+Two fresh browser contexts reuse the strict existing boundary and actual app.
+Desktop reaches the purchase link with 11 native Tab presses and uses Enter;
+mobile uses touch tap at 390×844 CSS pixels. Each activates the actual link twice,
+reloads the local destination once, returns through Back twice and reloads the
+canonical product twice. Exactly three destination requests per context are
+fulfilled locally. Preview/unavailable products are reached through real
+product/design SPA links, retain truthful statuses and expose no purchase action
+before or after reload. No unexpected requests, WebSockets, extra pages or page
+errors occur; both tested widths have no horizontal overflow.
+
+The first run passed functionally, but manual screenshot review found the test
+public directory omitted the shared shell logo. The runner now copies only the
+existing `apps/egohygiene.io/public/icons/icon-192x192.png` into its owned temporary
+directory. Final live-page checks decode both that 192px public logo and the
+1px authored fixture swatch. Source assets and runtime UI were not modified.
+Final desktop/mobile captures were inspected for focus, action/disclosure fit
+and the corrected logo. Capture origins and SHA-256 hashes are in the report;
+these are test evidence, not new artwork or merchandise approval.
+
+Fresh local evidence: both journey scenarios, the earlier boundary baseline,
+six focused Node fixture/request cases, catalog/tooling typecheck, scoped Biome
+and diff whitespace pass. Chrome for Testing 155.0.8059.84, Playwright 1.62.1,
+Node 24.21.0 and the existing pnpm 11.28.5 setup were reused; acquisition details
+remain in checkpoint 1. Independent review found no blocking issue before or
+after the logo correction. No package/lockfile, normal catalog, private creative
+source or provider configuration changed. Full catalog/app-domain types/normal
+build and existing store/preview/layout suites were not rerun; earlier passing
+results remain historical rather than fresh evidence for this turn.
+
+This proves a website link/return journey against inert local HTML. It does not
+qualify provider checkout, variants, pricing/shipping/tax, returns, fulfillment,
+physical devices, print quality or a full accessibility/browser matrix. Interception
+disables HTTP caching, so no cache/BFCache behavior is claimed. No actual provider
+request, purchase, deployment, remote CI dispatch or gate override occurred.
+#37 stays open and #82 draft/unmerged. Sync with Alan before checkpoint 3's
+regression/artifact closeout; #38 readiness remains proposed.
+
+
+At checkpoint 2 implementation head `e90e9b6`, hosted
+[CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39177365551),
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39177365587)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39177365614)
+all reported failure at readback. This does not alter the separately recorded
+local passes. No workflow was manually dispatched or gate changed.
