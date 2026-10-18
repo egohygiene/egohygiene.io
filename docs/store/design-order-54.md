@@ -1,5 +1,11 @@
 # Declared cover and gallery order — #54
 
+Status: accepted and merged in [PR #81](https://github.com/egohygiene/egohygiene.io/pull/81)
+on 2026-10-18 at `28a2ed2d712becf1513d1bd3d6190502db876a69`; #54 is closed.
+A documentation-only reconciliation preserved concurrent #80 decision numbering.
+The delivery evidence and limitations below remain unchanged; see the
+[merge receipt](../context/provenance.md#accepted-54-merge-and-37-scope-discussion--2026-10-18-utc).
+
 ## Checkpoint A: contract
 
 Alan authorized #54 after accepting the schema audit. PR #79 merged at
@@ -74,8 +80,9 @@ were not investigated or bypassed here. Existing formatting/configuration work
 remains separate. No workflow was manually dispatched and no gate was disabled.
 
 All three #54 checkpoints are delivered for review, with the browser execution
-limit recorded above. The PR is draft and unmerged, and #54 remains open pending
-acceptance. Next: return to Alan before merging or choosing #37/#38. No catalog
+limit recorded above. At that delivery checkpoint the PR was draft/unmerged and #54 remained open
+pending acceptance; the merge receipt above supersedes that status. #37/#38
+selection still awaits instruction. No catalog
 content, real artist selections, artwork, purchases, provider settings or
 deployment changed. The [continuity ledger](../context/provenance.md#54-declared-artwork-order-checkpoints-bc--2026-10-18-utc)
 records this handoff.

@@ -52,7 +52,8 @@ together restores the earlier preview without a data migration.
 
 ## Artwork reference order — #54
 
-Selected for the 2026-10-18 checkpoint: the portable `getEntryDesigns` selector
+Accepted in PR #81 on 2026-10-18 (merge
+`28a2ed2d712becf1513d1bd3d6190502db876a69`): the portable `getEntryDesigns` selector
 resolves a product's `designIds` in declared order. For a collection, resolve its
 explicit `designIds` first, then each referenced product in `productIds` order,
 then that product's `designIds` order. Keep the first occurrence of each design.

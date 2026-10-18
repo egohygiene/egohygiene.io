@@ -528,3 +528,41 @@ changes. Application/source/test files are unchanged from reviewed #81 head
 this documentation reconciliation. Relative links, manifest JSON/paths and diff
 whitespace were checked. All three hosted workflows at the reviewed #81 head
 reported failure; no hosted pass or gate bypass is implied. #37 has not started.
+
+
+## Accepted #54 merge and #37 scope discussion — 2026-10-18 UTC
+
+Alan authorized merging #81, then returning to explain the next issue. Refreshed
+PR head `8afe3b1d53ba29265498e92c2b74f56376885631` and main; main had advanced via
+#80 to `443dacacf15057cc5d00822d63cf2d100da50938`. Reconciled the two conflicting
+continuity docs, preserved all four-digit numbering changes and both histories,
+and published merge commit `ca833b227168a5e4bb5b748984be7ad4847d4b7f` to #81.
+Its tree matched the locally resolved tree exactly. Only Markdown changed from
+the reviewed #81 head; the implementation and existing test evidence are intact.
+
+Marked #81 ready, refreshed its exact head and clean mergeability, and merged
+normally with an expected-head check. GitHub returned
+`28a2ed2d712becf1513d1bd3d6190502db876a69`; read back #81 as merged, main at that
+merge and #54 closed as completed. No force update, gate override, deployment,
+provider activation or purchase occurred. All hosted workflows at the originally
+reviewed head reported failure; no new hosted pass or browser run is claimed.
+
+Read live #37/#38 and #37 comments, and reviewed existing tests. The useful next
+slice is the real product-page external link activated in a local browser, with
+an isolated synthetic catalog and an intercepted destination. Existing schema
+approvals, inert Fourthwall variant/quantity preview, browse/navigation, image
+failure and non-purchase coverage are reused. No cart/checkout API or transfer
+of preview selections to the live link exists or is proposed by this test slice.
+
+Suggested checkpoints: establish browser/fixture isolation and destination
+expectations; exercise keyboard/mobile link navigation and Back/reload; verify
+focused regressions and normal-build fixture exclusion with exact evidence. The
+current browser-installation failure must be resolved for browser claims. This
+advances #37 without claiming actual provider checkout, fulfillment, pricing,
+shipping/tax, print quality or broader accessibility/hosting qualification.
+#38 readiness preparation follows only after selection. No #37 code was started.
+
+This follow-up updates current-state, agent/context entry points, ADR 0005 delivery
+status and the #54 receipt. Documentation links, manifest JSON/paths and diff
+whitespace were checked; no application rerun was needed for docs-only updates.
+Return to Alan to discuss/select the next bounded checkpoint.

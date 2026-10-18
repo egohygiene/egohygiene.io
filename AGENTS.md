@@ -47,10 +47,12 @@ handoff for delivery status. The maintainer authorized merging PR #79 and starti
 [current state](docs/context/current-state.md). Preserve the existing canonical
 catalog and truthful purchase states. Real artist selections remain empty until
 approved associations are supplied; populated examples are isolated preview
-fixtures. Current work is #54's declared cover/gallery ordering, documented in
-its [checkpoint receipt](docs/store/design-order-54.md); A/B/C are delivered in
-draft #81 for review. Follow with bounded #37
-journey qualification and #38 provider-readiness preparation only after selection.
+fixtures. #54's declared cover/gallery ordering merged in PR #81 on 2026-10-18
+at `28a2ed2d712becf1513d1bd3d6190502db876a69`; #54 is closed. Its
+[checkpoint receipt](docs/store/design-order-54.md) preserves verification and
+browser limits. The next proposed slice is #37's intercepted checkout-handoff
+browser coverage, followed by #38 readiness preparation. Neither has started;
+return for selection before implementation.
 Deployment and commerce activation remain separate instructions.
 
 ## Working boundaries

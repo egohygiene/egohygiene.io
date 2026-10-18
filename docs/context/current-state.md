@@ -1,6 +1,40 @@
 # Current handoff
 
-## Current: #54 artwork ordering for review — 2026-10-18 UTC
+## Current: #54 merged; #37 scope discussion — 2026-10-18 UTC
+
+Alan authorized merging [PR #81](https://github.com/egohygiene/egohygiene.io/pull/81)
+and returning to explain the next issue. Normal merge:
+`28a2ed2d712becf1513d1bd3d6190502db876a69`, from reconciled head
+`ca833b227168a5e4bb5b748984be7ad4847d4b7f`. GitHub confirms #81 merged and
+[#54](https://github.com/egohygiene/egohygiene.io/issues/54) closed as completed.
+Main's concurrent #80 four-digit decision-label migration was preserved; only
+the two continuity documents required conflict resolution. Application code is
+unchanged from the verified #54 implementation. The 67 catalog/55 focused unit
+passes remain the recorded local evidence; browser-download and hosted-CI limits
+remain. No application checks were rerun for documentation reconciliation.
+
+**Proposed next:** a bounded [#37](https://github.com/egohygiene/egohygiene.io/issues/37)
+checkout-handoff browser slice. Existing coverage already includes browsing,
+reload/history, keyboard/mobile, failed images and non-purchasable states. The
+Fourthwall tryout remains an inert variant/quantity summary; live product UI is
+a plain link to the reviewed provider product page. Its synthetic live link is
+covered in JSDOM but has not been activated in the browser suite.
+
+1. Establish a usable local browser and isolated synthetic live/preview/unavailable
+   fixtures with strict external-request interception and exact URL expectations.
+2. Exercise real product UI → intercepted provider destination → Back/reload with
+   desktop keyboard and mobile tap coverage, preserving non-purchase guards.
+3. Run focused regressions and normal-build fixture-exclusion checks; save exact
+   evidence/limits and a draft PR, then sync. Reuse the existing #61/#62 work.
+
+This would advance #37, not complete its broader qualification or validate actual
+provider checkout, variants, shipping/tax, fulfillment or print quality. Provider
+readiness preparation remains the following #38 proposal; no real product is
+selected or activated by this plan. **No #37 implementation has started.** Return
+to Alan for selection; each new checkpoint should retain a reviewable sync.
+See the [merge receipt](provenance.md#accepted-54-merge-and-37-scope-discussion--2026-10-18-utc).
+
+## Historical: #54 artwork ordering review — 2026-10-18 UTC
 
 Alan authorized merging [PR #79](https://github.com/egohygiene/egohygiene.io/pull/79)
 and starting [#54](https://github.com/egohygiene/egohygiene.io/issues/54). The normal
