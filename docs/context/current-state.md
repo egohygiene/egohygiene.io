@@ -33,6 +33,10 @@ See the receipt for exact scope and limits.
 **Next:** sync with Alan on #54; draft #81 remains unmerged and #54 remains open.
 Merge and #37/#38 selection await instruction. No deployment or purchases.
 
+## Historical: four-digit decision-label migration — 2026-10-18 UTC
+
+The maintainer authorized the bounded org numbering migration in [Hygiene #73](https://github.com/egohygiene/hygiene/issues/73). Default branch includes the independent #79 schema-audit merge at `988b3598c7acaa2cfbd60ecb225e557137c10713`. Its earlier open/draft checkpoint below is historical. Four inline labels and current links are padded; the per-record map is in root DECISIONS.md. The distinct implementation sequence already uses four-digit filenames. Decision content, lifecycle, storefront implementation and the pending selection below remain unchanged. Inverse decision-body comparison and documentation link/JSON/diff checks passed. Application tests were not rerun for this documentation change. No deployment or commerce activation is claimed.
+
 ## Historical: bounded schema audit review — 2026-10-18 UTC
 
 Alan requested a quick schema audit and appropriate robustness upgrades before

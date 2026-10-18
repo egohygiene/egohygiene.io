@@ -511,3 +511,20 @@ provider qualification or production readiness is claimed. No catalog/assets,
 real artist selections, dependency/lockfile, provider setting, purchase or
 deployment changed. PR #81 stays draft/unmerged and #54 stays open. Return to
 Alan before merge or next-issue selection; #37 then #38 remain proposed.
+
+## Four-digit inline numbering — 2026-10-18 UTC
+
+Source: default branch `d8cf7e8e1825de7241d5ccecb69685e17686a75d`; maintainer naming authorization: [Hygiene #73](https://github.com/egohygiene/hygiene/issues/73). Four inline IDs and current references normalize with an explicit map in root DECISIONS.md. The distinct implementation record sequence, historical receipt text, rationale and disposition are preserved. Inverse mapping, documentation link/JSON and diff checks passed. Hosted outcomes remain separate; no new application or deployment evidence is asserted.
+
+
+### #81 merge preparation — 2026-10-18 UTC
+
+Alan authorized merging #81 and returning to explain the next issue. Main had
+advanced to `443dacacf15057cc5d00822d63cf2d100da50938` through PR #80's four-digit
+decision-label normalization. Merging that docs-only update into #81 conflicted
+only in current-state and provenance. Preserved both histories and all numbering
+changes. Application/source/test files are unchanged from reviewed #81 head
+`8afe3b1d53ba29265498e92c2b74f56376885631`; no application tests were rerun for
+this documentation reconciliation. Relative links, manifest JSON/paths and diff
+whitespace were checked. All three hosted workflows at the reviewed #81 head
+reported failure; no hosted pass or gate bypass is implied. #37 has not started.

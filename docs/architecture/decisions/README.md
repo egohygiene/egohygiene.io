@@ -1,7 +1,7 @@
 # Decision index
 
 High-level decisions live in root [DECISIONS.md](../../../DECISIONS.md). Its
-ADR-001–ADR-004 sequence is distinct from the implementation filenames below.
+ADR-0001–ADR-0004 sequence is distinct from the implementation filenames below.
 Use full paths/links and titles in issues, handoffs and provenance.
 
 | Record | Role / recorded status | Implementation evidence at the 2026-10-13 snapshot |
