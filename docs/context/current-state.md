@@ -8,6 +8,9 @@ or live-product activation. Branch: `fix/catalog-schema-audit-34`, based on main
 `d8cf7e8e1825de7241d5ccecb69685e17686a75d`. Verified implementation:
 `57ffa8befabbce6f0f9dc51190a2dc1273380c26`; its Git tree matches tested local source.
 Read the [audit receipt](../store/schema-audit-34.md) for scope and exact checks.
+Review checkpoint: [draft PR #79](https://github.com/egohygiene/egohygiene.io/pull/79),
+open and unmerged. Initial publication includes documentation commit
+`ded87d26e2ce7f7182728f2d57c5123adbd6d3e4`; this receipt adds no runtime changes.
 
 A strict runtime catalog envelope now rejects unknown/missing versions and
 unexpected fields before public projection or live action creation. Its type
@@ -25,7 +28,7 @@ and no new hosted success is claimed; existing #29/#73 failures remain visible.
 
 **Next:** review this draft checkpoint with Alan; do not merge or start #54 until
 instructed. The proposed sequence remains #54 ordering, bounded #37 intercepted
-handoff coverage, then #38 readiness preparation. Publication receipt follows in
+handoff coverage, then #38 readiness preparation. Publication is recorded in
 the [ledger](provenance.md#catalog-schema-audit--2026-10-18-utc).
 
 ## Historical #62 merge and next selection — 2026-10-17 UTC

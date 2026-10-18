@@ -440,3 +440,10 @@ dispatched and no gate/settings were changed. Browser/device, real-provider,
 production routing and print qualification were not rerun or claimed. No assets,
 catalog entries, dependency/lockfile, account, checkout activation or deployment
 changed. Return to Alan with a draft PR; merge and next-issue work await selection.
+
+Publication receipt: [draft PR #79](https://github.com/egohygiene/egohygiene.io/pull/79)
+was created open, draft and unmerged, with source commit `57ffa8befabbce6f0f9dc51190a2dc1273380c26`
+and initial documentation commit `ded87d26e2ce7f7182728f2d57c5123adbd6d3e4`.
+The latter's tree `8939d3ac70a2d3dbc4ecf2017c0a0685fba8a85f` matches the local
+implementation plus reviewed documentation. This final receipt only adds links
+and publication status; it does not broaden validation or close #34.

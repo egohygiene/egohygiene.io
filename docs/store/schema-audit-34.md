@@ -9,6 +9,7 @@ Publication and implementation revisions are recorded in the
 [continuity ledger](../context/provenance.md#catalog-schema-audit--2026-10-18-utc).
 Verified implementation: `57ffa8befabbce6f0f9dc51190a2dc1273380c26`; its complete
 Git tree matches the tested local implementation.
+Review checkpoint: [draft PR #79](https://github.com/egohygiene/egohygiene.io/pull/79).
 
 ## Finding and contract
 
