@@ -1,5 +1,9 @@
 # Current handoff
 
+## Four-digit decision-label migration — 2026-10-18 UTC
+
+The maintainer authorized the bounded org numbering migration in [Hygiene #73](https://github.com/egohygiene/hygiene/issues/73). Four inline labels and current links are padded; the per-record map is in root DECISIONS.md. The distinct implementation sequence already uses four-digit filenames. Decision content, lifecycle, storefront implementation and the pending selection below remain unchanged. Inverse decision-body comparison and documentation link/JSON/diff checks passed. Application tests were not rerun for this documentation change. No deployment or commerce activation is claimed.
+
 ## Current: #62 merged; select the next issue — 2026-10-17 UTC
 
 Alan authorized merging [PR #78](https://github.com/egohygiene/egohygiene.io/pull/78)

@@ -401,3 +401,7 @@ to reflect acceptance and the next selection pause. Validated documentation
 links, context manifest JSON/paths and the scoped diff. The receipt changes only
 six Markdown files; it does not add artwork, products, provider activation,
 deployment or a new dependency. Return to Alan to select the next issue.
+
+## Four-digit inline numbering — 2026-10-18 UTC
+
+Source: default branch `d8cf7e8e1825de7241d5ccecb69685e17686a75d`; maintainer naming authorization: [Hygiene #73](https://github.com/egohygiene/hygiene/issues/73). Four inline IDs and current references normalize with an explicit map in root DECISIONS.md. The distinct implementation record sequence, historical receipt text, rationale and disposition are preserved. Inverse mapping, documentation link/JSON and diff checks passed. Hosted outcomes remain separate; no new application or deployment evidence is asserted.

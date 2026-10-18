@@ -77,8 +77,8 @@ canonical URLs and shared shell. The separate store's cart/provider code remains
 valuable reference for bounded adaptation, with its MIT notice and source history.
 The selection is submitted in paired documentation PRs for maintainer review.
 
-On acceptance this reaffirms website high-level ADR-004 and resolves store
-ADR-003's conflicting independent V1 deployment direction through reciprocal
+On acceptance this reaffirms website high-level ADR-0004 and resolves store
+ADR-0003's conflicting independent V1 deployment direction through reciprocal
 store ADR-005. Historical decisions and the original private-merch migration
 ledger remain intact. No code is copied or repository retired by this checkpoint.
 

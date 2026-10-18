@@ -8,8 +8,8 @@ Keep durable architectural rationale in this directory and index it in
 in the owning checkpoint/asset record, linked through
 [provenance](../../context/provenance.md).
 
-Root [DECISIONS](../../../DECISIONS.md) contains earlier high-level ADR-001 through
-ADR-004. They are a separate sequence from these implementation filenames.
+Root [DECISIONS](../../../DECISIONS.md) contains earlier high-level ADR-0001 through
+ADR-0004. They are a separate sequence from these implementation filenames.
 Always cite the full file path/link and title; “ADR 003” alone is ambiguous.
 Do not renumber historical decisions to hide the distinction. Empty 0001/0002
 files are reserved scaffolds, not accepted decisions or implementation evidence.
