@@ -10,6 +10,8 @@
     "scripts/store-catalog.mts",
     "scripts/vite-store-catalog.mts",
     "scripts/checks/check-store-boundaries.ts",
-    "tests/store/**/*.ts"
+    "tests/store/**/*.ts",
+    "tests/checkout-handoff/**/*.ts",
+    "tests/checkout-handoff/**/*.mts"
   ]
 }
