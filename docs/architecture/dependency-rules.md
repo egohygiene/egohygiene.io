@@ -54,8 +54,9 @@ published consumer contract.
 
 The former preview page consumed provider `unitPrice`, `attributes` and stock
 fields directly. Its adapter now supplies a normalized synthetic offer and the
-domain owns eligibility/subtotal rules. Catalog selectors were moved without
-changing their ordering behavior; the cover-order follow-up remains #54.
+domain owns eligibility/subtotal rules. Catalog selectors were originally moved without
+changing their ordering behavior. The subsequent [#54 checkpoint](../store/design-order-54.md)
+resolves artwork references in declared order within that same portable boundary.
 
 ## Checks and limits
 

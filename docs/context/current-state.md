@@ -1,6 +1,6 @@
 # Current handoff
 
-## Current: #54 artwork ordering — 2026-10-18 UTC
+## Current: #54 artwork ordering for review — 2026-10-18 UTC
 
 Alan authorized merging [PR #79](https://github.com/egohygiene/egohygiene.io/pull/79)
 and starting [#54](https://github.com/egohygiene/egohygiene.io/issues/54). The normal
@@ -15,9 +15,23 @@ product's design order, keeping the first occurrence of each design. No cover
 field or schema migration is needed. Read the [#54 receipt](../store/design-order-54.md)
 and [portable-domain decision](../architecture/decisions/0005-portable-store-domain.md#artwork-reference-order--54).
 
-**Next:** complete B's shared selector change and C's multiple-design/file-order
-and card/gallery checks, updating the draft checkpoint as each completes. Return
-to Alan before merging #54 or starting #37/#38. No deployment or purchases.
+A/B/C are now delivered in [draft PR #81](https://github.com/egohygiene/egohygiene.io/pull/81).
+Verified implementation: `24d27ee31a72414dc7168ef5e2acd60e37b62ceb`, tree
+`d027e73fbc2e5d824cf9314337b6eb4b8aeef933`. The portable selector resolves references
+in declared order; actual card/page/gallery consumers pass six original/reversed
+catalog permutations without runtime UI changes. Real filename-renaming tests
+prove cover order is independent of discovery. Existing IDs, catalog content,
+visibility and purchase validation remain intact.
+
+Local evidence: 67 catalog tests, 55 focused units, all three typechecks, normal
+build and 12-module boundary guard pass. Independent review found no blocking
+issue. Browser execution was blocked by an invalid/truncated Chromium download;
+no fresh browser/layout evidence is claimed. At the source head, hosted CodeQL
+and dependency review failed while CI was running; no hosted pass is inferred.
+See the receipt for exact scope and limits.
+
+**Next:** sync with Alan on #54; draft #81 remains unmerged and #54 remains open.
+Merge and #37/#38 selection await instruction. No deployment or purchases.
 
 ## Historical: bounded schema audit review — 2026-10-18 UTC
 

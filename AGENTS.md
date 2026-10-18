@@ -48,7 +48,8 @@ handoff for delivery status. The maintainer authorized merging PR #79 and starti
 catalog and truthful purchase states. Real artist selections remain empty until
 approved associations are supplied; populated examples are isolated preview
 fixtures. Current work is #54's declared cover/gallery ordering, documented in
-its [checkpoint receipt](docs/store/design-order-54.md). Follow with bounded #37
+its [checkpoint receipt](docs/store/design-order-54.md); A/B/C are delivered in
+draft #81 for review. Follow with bounded #37
 journey qualification and #38 provider-readiness preparation only after selection.
 Deployment and commerce activation remain separate instructions.
 
