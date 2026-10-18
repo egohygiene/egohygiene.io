@@ -37,7 +37,9 @@ checkpoints and authorized merging **PR #78**, completed on 2026-10-17 at
 `71449947a2ff67ac87a512dbd8c8a11dead941fc`; #62 is closed. On 2026-10-18 the
 maintainer selected a bounded schema audit under #34 before returning to the
 next issue. Read its [audit receipt](docs/store/schema-audit-34.md) and current
-handoff for delivery status; #54 and later roadmap slices remain proposals. Read the
+handoff for delivery status. The maintainer authorized merging PR #79 and starting
+#54 on 2026-10-18; the schema audit merged at
+`988b3598c7acaa2cfbd60ecb225e557137c10713`. Read the
 [final checkpoint](docs/design/storefront-62c.md),
 [content workflow](docs/store/storefront-content-workflow.md),
 [artist/song checkpoint](docs/design/storefront-62b.md),
@@ -45,10 +47,11 @@ handoff for delivery status; #54 and later roadmap slices remain proposals. Read
 [current state](docs/context/current-state.md). Preserve the existing canonical
 catalog and truthful purchase states. Real artist selections remain empty until
 approved associations are supplied; populated examples are isolated preview
-fixtures. Proposed next work is #54's declared cover/gallery ordering, followed
-by bounded #37 journey qualification and #38 provider-readiness preparation.
-Wait for the next selected work; deployment and commerce activation remain
-separate instructions.
+fixtures. Current work is #54's declared cover/gallery ordering, documented in
+its [checkpoint receipt](docs/store/design-order-54.md); A/B/C are delivered in
+draft #81 for review. Follow with bounded #37
+journey qualification and #38 provider-readiness preparation only after selection.
+Deployment and commerce activation remain separate instructions.
 
 ## Working boundaries
 

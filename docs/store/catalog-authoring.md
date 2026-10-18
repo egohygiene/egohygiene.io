@@ -87,6 +87,19 @@ Preview products need no price, variant, provider, or purchase URL. Their purcha
 
 Do not add a placeholder checkout link. Live purchases require a reviewed Fourthwall route in `apps/egohygiene.io/src/content/store/checkout-routes.json`, a matching product, approved variant mappings, and image artwork at the route's explicitly reviewed revisions. Changing an artwork revision requires reviewing the route again. That list starts empty. The live-product checkpoint will verify the destination, product, fulfillment arrangement, and variants before adding one. The schema validates configuration consistency; it cannot confirm availability, ownership, image quality, or provider approval remotely.
 
+## Cover and gallery order
+
+Put a product's intended cover first in `designIds`; subsequent IDs set gallery
+order. A collection starts with its own `designIds`, then adds designs from each
+product in its declared `productIds` order and that product's `designIds` order.
+Shared designs appear once, at their first occurrence. An empty collection
+`designIds` list uses this product order as its cover/gallery fallback.
+
+File names and catalog discovery order do not set the cover. References still
+must pass the existing kind, duplicate, visibility and approval validation.
+Changing presentation order does not change IDs, artwork revisions or permission
+to sell. See the [#54 checkpoint](design-order-54.md) for delivery evidence.
+
 ## Add optional context or a collection
 
 For a song, realm, artist, character, or appearance, create a context entry. `contextType` selects one of those five kinds:

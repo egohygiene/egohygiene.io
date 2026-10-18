@@ -448,6 +448,83 @@ The latter's tree `8939d3ac70a2d3dbc4ecf2017c0a0685fba8a85f` matches the local
 implementation plus reviewed documentation. This final receipt only adds links
 and publication status; it does not broaden validation or close #34.
 
+
+## Accepted schema audit merge and #54 checkpoint A — 2026-10-18 UTC
+
+Authority: Alan authorized merging PR #79 and starting #54. Refreshed the PR,
+main, #54 and its comments; the PR head remained
+`5b87b2d2f741e93505623db10f1f71d00db9cabc`, main remained the expected base and
+#54 was open with no comments. CI, dependency review and CodeQL at that PR head
+all reported failure; earlier local passes were not treated as hosted success.
+
+Marked #79 ready and merged normally with the exact expected head. GitHub
+confirmed merge `988b3598c7acaa2cfbd60ecb225e557137c10713`; read back the merged
+PR and main. No force merge, gate, account, provider or deployment setting changed.
+The audit remains a bounded #34 contribution and does not close its broader work.
+
+Created `fix/design-order-54` from the refreshed merge. Checkpoint A records
+explicit design references first, then collection product references and their
+designs in declared order, with first-occurrence deduplication. ADR 0005 records
+the durable selector contract; the [#54 receipt](../store/design-order-54.md)
+and catalog guide explain authoring. No new schema field or content migration.
+This documentation checkpoint has no new application verification claim; B/C
+implementation and local consumer evidence follow on the same draft branch.
+
+
+## #54 declared artwork order checkpoints B/C — 2026-10-18 UTC
+
+Continued the authorized #54 work in [draft PR #81](https://github.com/egohygiene/egohygiene.io/pull/81),
+publishing small checkpoints: A contract `2d01f0ffccfc4b380fb899a87e1da22d652eaf40`,
+B selector/Node cases `df20d8626ffe96bcf1e3e87a30c68f29252bef05`, C consumer cases
+`24d27ee31a72414dc7168ef5e2acd60e37b62ceb`. The C tree
+`d027e73fbc2e5d824cf9314337b6eb4b8aeef933` equals the verified local implementation
+plus the A documentation. Publication used the connected GitHub API; subsequent
+receipt edits are docs-only. Main was refreshed at the #79 merge, unchanged.
+
+Baseline new tests produced four failures and one pass. The five cases pass after
+replacing catalog-order assembly with declared-ID traversal and first-occurrence
+deduplication. A temporary on-disk filename rename changes actual discovery order
+without changing resulting covers/galleries. Canonical object identity and input
+immutability, multiple explicit/fallback references, existing filtering and
+validation, single-design and empty cases are covered. No schema/data migration.
+
+Six component permutations follow actual cards to canonical product/collection
+pages, checking matching covers, initial gallery image, exact thumbnail sequence,
+selection counters, related-design links and no purchase link. Both source orders
+are exercised. Existing components needed no runtime changes. The full focused
+store/Fourthwall/artist run passed 55 cases; catalog suite passed 67. Pinned app,
+catalog and DOM-free domain typechecks, normal build and 12-module import guard
+pass. New-test Biome and diff whitespace pass; independent review found no
+blocking issue. Exact commands and counts are in the [receipt](../store/design-order-54.md).
+
+Browser limit: no local Chromium executable was present. Playwright's attempt to
+install its Chromium headless shell failed with an invalid/truncated ZIP archive.
+No fresh browser suite, screenshot or layout/device evidence was produced. Unit
+image URLs are JSDOM fixtures, not decoded browser assets. The isolated-preview
+build was not repeated. Existing #62 browser evidence remains historical.
+
+At source head `24d27ee`, [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39167462290)
+and [dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39167462061)
+reported failure; [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39167462071)
+was running at readback. No hosted success, workflow dispatch, gate override,
+provider qualification or production readiness is claimed. No catalog/assets,
+real artist selections, dependency/lockfile, provider setting, purchase or
+deployment changed. PR #81 stays draft/unmerged and #54 stays open. Return to
+Alan before merge or next-issue selection; #37 then #38 remain proposed.
+
 ## Four-digit inline numbering — 2026-10-18 UTC
 
 Source: default branch `d8cf7e8e1825de7241d5ccecb69685e17686a75d`; maintainer naming authorization: [Hygiene #73](https://github.com/egohygiene/hygiene/issues/73). Four inline IDs and current references normalize with an explicit map in root DECISIONS.md. The distinct implementation record sequence, historical receipt text, rationale and disposition are preserved. Inverse mapping, documentation link/JSON and diff checks passed. Hosted outcomes remain separate; no new application or deployment evidence is asserted.
+
+
+### #81 merge preparation — 2026-10-18 UTC
+
+Alan authorized merging #81 and returning to explain the next issue. Main had
+advanced to `443dacacf15057cc5d00822d63cf2d100da50938` through PR #80's four-digit
+decision-label normalization. Merging that docs-only update into #81 conflicted
+only in current-state and provenance. Preserved both histories and all numbering
+changes. Application/source/test files are unchanged from reviewed #81 head
+`8afe3b1d53ba29265498e92c2b74f56376885631`; no application tests were rerun for
+this documentation reconciliation. Relative links, manifest JSON/paths and diff
+whitespace were checked. All three hosted workflows at the reviewed #81 head
+reported failure; no hosted pass or gate bypass is implied. #37 has not started.
