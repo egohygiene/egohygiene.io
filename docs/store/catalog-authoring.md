@@ -207,6 +207,16 @@ The public directory is the root that contains `store/`, not the `store/` direct
 
 This is the first version: `schemaVersion: 1`. Unknown versions fail validation. There is no earlier production catalog to migrate, and this checkpoint does not pretend otherwise.
 
+The assembled catalog also has a strict envelope: `schemaVersion`, `entries`,
+and `checkoutRoutes` are required and unknown top-level fields are rejected.
+`storeCatalogSchema` validates that envelope and its record shapes; `StoreCatalog`
+is inferred from it. Shape validation alone does not check relationships or
+approve a purchase. `parseStoreCatalog` checks authoring records and their
+references; public projection and live purchase actions revalidate the envelope
+and those relationships before emitting content or a checkout URL. An unsupported
+envelope version is never silently converted to version 1. See the
+[schema audit](schema-audit-34.md) for regression coverage and compatibility.
+
 For a compatible addition, add an optional field or a defined default, then prove existing version 1 fixtures still parse. A breaking change needs a new version, an explicit migration, and tests showing that permanent IDs, references, visibility, and purchase restrictions survive. Keep the old fixture as evidence. Rollbacks must restore compatible schema code and catalog data together. Avoid changing schema versions automatically just to make a validation error disappear.
 
 The generic preview browser consumes this catalog automatically at `/store/catalog`, with canonical design, product and collection detail pages. Curated shop and artist views use the separate curation manifest. Follow [the next-design session](next-design-session.md) to preview one approved image. Provider onboarding, purchases, and publication remain separate steps.

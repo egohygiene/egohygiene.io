@@ -1,6 +1,34 @@
 # Current handoff
 
-## Current: #62 merged; select the next issue — 2026-10-17 UTC
+## Current: bounded schema audit for review — 2026-10-18 UTC
+
+Alan requested a quick schema audit and appropriate robustness upgrades before
+continuing the roadmap. This selects a bounded #34 slice, not #54 implementation
+or live-product activation. Branch: `fix/catalog-schema-audit-34`, based on main
+`d8cf7e8e1825de7241d5ccecb69685e17686a75d`. Verified implementation:
+`57ffa8befabbce6f0f9dc51190a2dc1273380c26`; its Git tree matches tested local source.
+Read the [audit receipt](../store/schema-audit-34.md) for scope and exact checks.
+
+A strict runtime catalog envelope now rejects unknown/missing versions and
+unexpected fields before public projection or live action creation. Its type
+is inferred from that schema. Existing relationship/artwork/variant guards and
+non-live disabled actions remain intact. One stale Fourthwall unit fixture now
+includes the existing locale provider; runtime presentation did not change.
+Optional metadata was deferred until a concrete consumer requires it. All current
+version-1 content, empty artist selections, disabled providers and routes remain
+unchanged. #34 still owns attribution and a justified migration; no version bump.
+
+Local evidence: 62 catalog cases, 49 focused unit cases, app/catalog/domain
+types, normal/isolated builds and the 12-module import guard pass. Browser suites
+were not rerun for this schema-only runtime change. Hosted checks are separate
+and no new hosted success is claimed; existing #29/#73 failures remain visible.
+
+**Next:** review this draft checkpoint with Alan; do not merge or start #54 until
+instructed. The proposed sequence remains #54 ordering, bounded #37 intercepted
+handoff coverage, then #38 readiness preparation. Publication receipt follows in
+the [ledger](provenance.md#catalog-schema-audit--2026-10-18-utc).
+
+## Historical #62 merge and next selection — 2026-10-17 UTC
 
 Alan authorized merging [PR #78](https://github.com/egohygiene/egohygiene.io/pull/78)
 and returning to plan the next issue. GitHub confirmed the normal merge at
