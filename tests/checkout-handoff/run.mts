@@ -1,6 +1,6 @@
-/** Checkpoint 1: isolated fixture/build and request-boundary proof, before journey tests. */
+/** Isolated checkout-handoff boundary and keyboard/touch journey checks. */
 import assert from "node:assert/strict";
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
@@ -9,6 +9,7 @@ import { build, loadConfigFromFile, preview } from "vite";
 
 import { publicStoreCatalog } from "../../scripts/vite-store-catalog.mts";
 import { CHECKOUT_HANDOFF_FIXTURE, createCheckoutHandoffFixture } from "./fixture.ts";
+import { runHandoffJourneys } from "./journeys.ts";
 import { installHandoffBoundary } from "./network.ts";
 
 const repository = fileURLToPath(new URL("../../", import.meta.url));
@@ -24,6 +25,12 @@ let server: Awaited<ReturnType<typeof preview>> | undefined;
 let browser: Awaited<ReturnType<typeof chromium.launch>> | undefined;
 
 try {
+  // Keep the shared shell's approved logo in the isolated build, without copying store assets.
+  await mkdir(join(fixture.publicDirectory, "icons"), { recursive: true });
+  await copyFile(
+    join(app, "public/icons/icon-192x192.png"),
+    join(fixture.publicDirectory, "icons/icon-192x192.png"),
+  );
   const loaded = await loadConfigFromFile(
     { command: "build", mode: "production" },
     join(app, "vite.config.ts"),
@@ -135,7 +142,7 @@ try {
   assert.deepEqual(boundary.blocked, [], "Fixture rendering must make no unexpected requests");
   assert.deepEqual(boundary.intercepted, [], "Rendering alone must not open a destination");
 
-  // Probe the boundary directly; activating the product UI and history is checkpoint 2.
+  // Probe the boundary directly before the separate product-activation journeys.
   const probes = await page.evaluate(async (destination) => {
     const rejected: boolean[] = [];
     for (const [url, method] of [
@@ -201,6 +208,10 @@ try {
   process.stdout.write(
     `Handoff foundation passed in Chromium ${report.browser}: three states, decoded swatch, exact intercepted destination and four denied probes.\n`,
   );
+  await context.close();
+  const journeys = await runHandoffJourneys(browser, origin, output);
+  await writeFile(join(output, "journeys.json"), `${JSON.stringify(journeys, null, 2)}\n`);
+  process.stdout.write("Handoff keyboard and touch journeys passed with Back/reload guards.\n");
 } finally {
   try {
     await browser?.close();
