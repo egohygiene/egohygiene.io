@@ -447,3 +447,7 @@ and initial documentation commit `ded87d26e2ce7f7182728f2d57c5123adbd6d3e4`.
 The latter's tree `8939d3ac70a2d3dbc4ecf2017c0a0685fba8a85f` matches the local
 implementation plus reviewed documentation. This final receipt only adds links
 and publication status; it does not broaden validation or close #34.
+
+## Four-digit inline numbering — 2026-10-18 UTC
+
+Source: default branch `d8cf7e8e1825de7241d5ccecb69685e17686a75d`; maintainer naming authorization: [Hygiene #73](https://github.com/egohygiene/hygiene/issues/73). Four inline IDs and current references normalize with an explicit map in root DECISIONS.md. The distinct implementation record sequence, historical receipt text, rationale and disposition are preserved. Inverse mapping, documentation link/JSON and diff checks passed. Hosted outcomes remain separate; no new application or deployment evidence is asserted.

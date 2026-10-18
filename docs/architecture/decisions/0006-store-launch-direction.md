@@ -17,7 +17,7 @@ catalog. Phone-based development review must work without a running laptop.
 
 At website `db634b887ede348ce85d9c03af789467ab535dcf` and store
 `599c90ca6a454c0f2e9aa95eab5f8395016474c5`, both repositories contain storefront
-implementations. Website high-level ADR-004 favors consolidation; store ADR-003
+implementations. Website high-level ADR-0004 favors consolidation; store ADR-0003
 favors separate deployment. Those are different records and remain in history.
 
 ## Recorded direction
@@ -46,7 +46,7 @@ Do not run both deployment mechanisms for the same merge.
 One composed application reduces routing/configuration surfaces. Separate apps
 allow independent release ownership behind path routing. Evidence comparison is
 still required; this ADR does not prematurely settle that choice or supersede
-website ADR-004/store ADR-003 in full.
+website ADR-0004/store ADR-0003 in full.
 
 Keeping private merch sources separate is the current recommendation, not an
 authorized repository transfer. Their publication boundary is separate from
