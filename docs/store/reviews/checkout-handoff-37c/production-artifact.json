@@ -1,0 +1,296 @@
+{
+  "checkpoint": "37c-production-artifact",
+  "capturedAt": "2026-10-19T00:39:08.187771+00:00",
+  "testedCommit": "89d33e49eca49530645042930df92373daf33a84",
+  "buildCommand": "node scripts/store-environment.mjs run build",
+  "browserCommand": "node scripts/store-environment.mjs run test:store",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "vite": "8.2.0",
+    "playwright": "1.62.1",
+    "browser": "Chrome for Testing 155.0.8059.84 via PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH"
+  },
+  "build": {
+    "result": "pass",
+    "catalogEntries": 10,
+    "verifiedCatalogImages": 1,
+    "transformedModules": 177,
+    "viteDisplayedSizes": {
+      "javascript": "434.26 kB; gzip 130.03 kB",
+      "css": "49.50 kB; gzip 9.79 kB",
+      "html": "1.79 kB; gzip 0.83 kB"
+    }
+  },
+  "artifactRoot": "apps/egohygiene.io/dist",
+  "scan": {
+    "scope": "Every emitted file path; every HTML/JS/MJS/CJS/JSON/map/CSS/TXT/webmanifest/CNAME file content. Binary assets hashed but not searched as text.",
+    "emittedFileCount": 16,
+    "scannedTextFiles": [
+      "CNAME",
+      "assets/index-JPClQ1-A.css",
+      "assets/index-hgcKHW9j.js",
+      "icons/NOTICE.txt",
+      "index.html",
+      "llms.txt",
+      "robots.txt",
+      "site.webmanifest"
+    ],
+    "markerChecks": [
+      {
+        "label": "handoff fixture prefix",
+        "marker": "test-handoff-37a",
+        "source": "tests/checkout-handoff/fixture.ts",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "fictional provider destination",
+        "marker": "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+        "source": "tests/checkout-handoff/fixture.ts",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "fictional product label",
+        "marker": "Fictional handoff test",
+        "source": "tests/checkout-handoff/fixture.ts",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "intercepted destination document",
+        "marker": "Intercepted checkout destination",
+        "source": "tests/checkout-handoff/network.ts",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "Fourthwall isolated route",
+        "marker": "store/preview/fourthwall",
+        "source": "apps/egohygiene.io/src/app/router.tsx",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "artist isolated route",
+        "marker": "store/preview/artists/:artistSlug",
+        "source": "apps/egohygiene.io/src/app/router.tsx",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "Fourthwall provider fixture",
+        "marker": "mock-fourthwall-signal-heart",
+        "source": "apps/egohygiene.io/src/features/fourthwall-preview/fixture.ts",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "fictional artist ID",
+        "marker": "artist-preview-fictional",
+        "source": "apps/egohygiene.io/src/features/artist-preview/fixture.ts",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "layout qualification host",
+        "marker": "Qualification fixture",
+        "source": "tests/storefront-qualification/host.tsx",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      },
+      {
+        "label": "synthetic RTL dictionary",
+        "marker": "\u0646\u0635 \u062a\u062c\u0631\u064a\u0628\u064a",
+        "source": "apps/egohygiene.io/src/test/locale-fixtures.ts",
+        "contentMatches": [],
+        "pathMatches": [],
+        "result": "absent"
+      }
+    ],
+    "positiveControls": [
+      {
+        "marker": "design-heartburst",
+        "contentMatches": [
+          "assets/index-hgcKHW9j.js"
+        ],
+        "result": "present"
+      },
+      {
+        "marker": "/store/heartburst/heartburst-light.webp",
+        "contentMatches": [
+          "assets/index-hgcKHW9j.js"
+        ],
+        "result": "present"
+      },
+      {
+        "marker": "product-demo-signal-heart-hoodie",
+        "contentMatches": [
+          "assets/index-hgcKHW9j.js"
+        ],
+        "result": "present"
+      }
+    ],
+    "heartburstPublicImageExactByteMatch": true
+  },
+  "normalConfiguration": {
+    "checkoutRoutes": 0,
+    "disabledProviders": 9,
+    "allProvidersDisabled": true,
+    "sourceDiffFromMain": "No changes to apps/egohygiene.io/src, apps/egohygiene.io/public, packages, package.json or pnpm-lock.yaml against base main 1a0a3f9caa6bfb111ffff017dbb0155729a3a068."
+  },
+  "files": [
+    {
+      "path": "CNAME",
+      "bytes": 14,
+      "sha256": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12"
+    },
+    {
+      "path": "assets/index-JPClQ1-A.css",
+      "bytes": 49505,
+      "sha256": "5995390f2b4827725684045bd311376f69ab2fe5a0fdda0ba6e0d87ee269902d"
+    },
+    {
+      "path": "assets/index-hgcKHW9j.js",
+      "bytes": 434262,
+      "sha256": "2c94791f04b9dca937cfa805697266c97061726824b9e2f621086c7c84a1c941"
+    },
+    {
+      "path": "favicon.ico",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "favicon.png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "fonts/atkinson-bold.woff",
+      "bytes": 23780,
+      "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623"
+    },
+    {
+      "path": "fonts/atkinson-regular.woff",
+      "bytes": 22792,
+      "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b"
+    },
+    {
+      "path": "icons/NOTICE.txt",
+      "bytes": 1574,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "icons/apple-touch-icon.png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "icons/icon-192x192.png",
+      "bytes": 36806,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "icons/icon-512x512.png",
+      "bytes": 161290,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1792,
+      "sha256": "fdf3357c30719b887429a168e7b539b7dd7e6e78bdeafd37b9d4008d29737072"
+    },
+    {
+      "path": "llms.txt",
+      "bytes": 661,
+      "sha256": "0278fd4ceaf2283f4002156d060eef999785ed17a2634e9ec241c9e68d41ecad"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 68,
+      "sha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+    },
+    {
+      "path": "site.webmanifest",
+      "bytes": 473,
+      "sha256": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e"
+    },
+    {
+      "path": "store/heartburst/heartburst-light.webp",
+      "bytes": 141978,
+      "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550"
+    }
+  ],
+  "limits": [
+    "A targeted fixture-isolation scan, not a general secret audit.",
+    "Local build/browser evidence does not establish hosted CI or production readiness.",
+    "No actual provider checkout, purchases, shipping/tax, fulfillment or print quality is qualified."
+  ],
+  "browser": {
+    "result": "pass",
+    "passed": 31,
+    "failed": 0,
+    "retries": 0,
+    "workers": 2,
+    "durationSeconds": 26.7,
+    "captures": [
+      {
+        "path": "test-results/store/store-mobile-store-navigat-918bd-ail-work-on-a-narrow-screen/store-mobile.png",
+        "bytes": 737668,
+        "sha256": "6f05552a496f84437fc3324aa1a6d511f8d1cd02b9ee29683a37388c200493e2",
+        "dimensions": [
+          390,
+          5938
+        ],
+        "manuallyInspected": true,
+        "observations": "Narrow catalog remains readable in a two-column grid with preview/unavailable labels and the public artwork. Full-page capture retains the sticky shell at the capture scroll position."
+      },
+      {
+        "path": "test-results/store/store-the-production-store-c0343--all-public-catalog-entries/store-desktop.png",
+        "bytes": 1566355,
+        "sha256": "658bc34b6024c134b8ce6ba0b859dc4296dbdb25b0840785fcb62b4ad6864b59",
+        "dimensions": [
+          1280,
+          5123
+        ],
+        "manuallyInspected": true,
+        "observations": "Public catalog, preview notice, artwork cards and footer are visible without clipped layout; Heartburst renders."
+      },
+      {
+        "path": "test-results/store/store-world-and-independen-95739-artwork-inspection-at-390px/heartburst-viewer-390.png",
+        "bytes": 172945,
+        "sha256": "b47cf34293249f50ea4719dea67e8a4de38e5bd4906740c07076e29c97c136b7",
+        "dimensions": [
+          390,
+          844
+        ],
+        "manuallyInspected": true,
+        "observations": "Artwork fits the phone modal with readable title/caption and a visible close control."
+      },
+      {
+        "path": "test-results/store/store-world-and-independen-ba03f-rtwork-inspection-at-1440px/heartburst-viewer-1440.png",
+        "bytes": 576519,
+        "sha256": "24e7d6e364e06a302f18ae971680905f76454042a7d5e55a8b1040e2921f5aad",
+        "dimensions": [
+          1440,
+          1000
+        ],
+        "manuallyInspected": true,
+        "observations": "Artwork fits the desktop modal with readable title/caption and a visible close control."
+      }
+    ],
+    "limits": [
+      "Desktop Chromium and viewport/touch emulation, not physical devices, Safari or a full accessibility qualification."
+    ]
+  }
+}

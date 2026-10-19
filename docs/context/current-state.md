@@ -1,6 +1,45 @@
 # Current handoff
 
-## Current: #37 checkpoint 2 review — 2026-10-18 UTC
+## Current: #37 bounded slice complete, review pending — 2026-10-19 UTC
+
+Alan authorized checkpoint 3 and asked that the draft include everything.
+All three checkpoints of the **bounded intercepted-checkout testing slice** are
+complete in [draft PR #82](https://github.com/egohygiene/egohygiene.io/pull/82),
+branch `test/checkout-handoff-37a`. The PR is unmerged; #37 remains open because
+its broader qualification scope is not complete. No merge or next-issue start
+was included in this instruction.
+
+Refreshed main: `1a0a3f9caa6bfb111ffff017dbb0155729a3a068`. Tested PR head:
+`89d33e49eca49530645042930df92373daf33a84`, tree
+`4083c3b8e5a462e145d78383c547f010e93a83f8`. No code fix was needed; this following
+update adds evidence/docs only. Read the [closeout receipt](../store/checkout-handoff-37c.md),
+[check inventory](../store/reviews/checkout-handoff-37c/checks.json) and
+[production artifact manifest](../store/reviews/checkout-handoff-37c/production-artifact.json).
+The [ledger](provenance.md#checkout-handoff-37-checkpoint-3--2026-10-19-utc)
+records authority and exact scope. UTC date is October 19; Alan's local date was
+October 18 in America/New_York.
+
+Fresh local passes: 73 catalog tests, 55 focused units across 10 files, all three
+typechecks, 12-module import boundary, 31 normal-browser cases, six isolated
+preview cases, and the handoff baseline/two native keyboard-touch journeys.
+Both builds pass. Normal output has no handoff fixtures or preview-only routes:
+16 files hashed, eight text files scanned, 10 excluded markers absent and three
+public controls present. Reviewed captures are linked in the receipt. Seven
+source/config files pass scoped Biome. No new defect was found in these checks.
+
+Chrome for Testing 155.0.8059.84/Playwright 1.62.1 is the actual browser environment.
+The real catalog, runtime UI, public artwork, schemas, dependencies and provider
+configuration remain unchanged. Nine providers are disabled and checkout routes
+are empty. Local passes do not imply hosted success: CI, CodeQL and dependency
+review all failed at the tested head; no gate was changed or manually dispatched.
+
+**Next:** review/accept the complete draft with Alan, then merge if instructed.
+After that, propose the bounded #38 readiness-preparation slice. #38 has not
+started. Broader #37 gaps (host, performance budgets, wider accessibility/device/
+locale coverage, migration cases when needed, actual provider qualification)
+remain explicit. No deployment, actual provider contact or purchase activation.
+
+## Historical: #37 checkpoint 2 review — 2026-10-18 UTC
 
 Alan authorized continuing checkpoint 2 after the fixture/interception sync.
 Delivered in the same [draft PR #82](https://github.com/egohygiene/egohygiene.io/pull/82),

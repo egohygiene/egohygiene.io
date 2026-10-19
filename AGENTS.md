@@ -55,7 +55,10 @@ slice on 2026-10-18. The [fixture and boundary receipt](docs/store/checkout-hand
 records the usable browser, isolated inputs and local verification in draft PR #82.
 Alan subsequently authorized checkpoint 2. Its [journey receipt](docs/store/checkout-handoff-37b.md)
 records passing actual keyboard/touch link activation and Back/reload checks in
-that same draft. Sync before checkpoint 3's focused regression/artifact closeout.
+that same draft. Alan then authorized checkpoint 3; the [regression closeout](docs/store/checkout-handoff-37c.md)
+records fresh passing local checks and normal-artifact isolation. The bounded
+three-checkpoint slice is complete in draft #82. Sync before merging or selecting
+#38; no merge was authorized by the checkpoint instruction.
 #37 remains open; #38 readiness preparation remains a later proposal.
 Deployment and commerce activation remain separate instructions.
 

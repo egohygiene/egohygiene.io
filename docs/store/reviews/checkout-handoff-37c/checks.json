@@ -1,0 +1,161 @@
+{
+  "checkpoint": "37 handoff 3 — bounded regression and artifact closeout",
+  "capturedAt": "2026-10-19T00:41:26.079082+00:00",
+  "testedCommit": "89d33e49eca49530645042930df92373daf33a84",
+  "testedTree": "4083c3b8e5a462e145d78383c547f010e93a83f8",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "playwright": "1.62.1",
+    "browser": "Chrome for Testing 155.0.8059.84",
+    "browserSelection": "PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH"
+  },
+  "checks": [
+    {
+      "name": "Catalog contract/public-build suite",
+      "command": "node --test tests/store/*.test.ts",
+      "passed": 73,
+      "failed": 0
+    },
+    {
+      "name": "Store/Fourthwall focused units",
+      "command": "node scripts/store-environment.mjs run test:unit apps/egohygiene.io/src/features/store apps/egohygiene.io/src/features/fourthwall-preview",
+      "passed": 53,
+      "files": 9,
+      "failed": 0
+    },
+    {
+      "name": "Artist preview fixture units",
+      "command": "node scripts/store-environment.mjs run test:unit apps/egohygiene.io/src/features/artist-preview/fixture.test.ts",
+      "passed": 2,
+      "files": 1,
+      "failed": 0
+    },
+    {
+      "name": "App, catalog/tooling, portable-domain types",
+      "command": "node scripts/store-environment.mjs run typecheck",
+      "result": "pass"
+    },
+    {
+      "name": "Portable import boundary",
+      "command": "node scripts/checks/check-store-boundaries.ts",
+      "sourceModules": 12,
+      "result": "pass"
+    },
+    {
+      "name": "Scoped Biome",
+      "command": "node_modules/.bin/biome check tests/checkout-handoff tests/store/checkout-handoff-fixture.test.ts tests/store/checkout-handoff-network.test.ts tsconfig.store.json",
+      "files": 7,
+      "result": "pass"
+    },
+    {
+      "name": "Normal build",
+      "command": "node scripts/store-environment.mjs run build",
+      "modules": 177,
+      "result": "pass"
+    },
+    {
+      "name": "Production browser regressions",
+      "command": "node scripts/store-environment.mjs run test:store",
+      "passed": 31,
+      "failed": 0,
+      "retries": 0,
+      "durationSeconds": 26.7
+    },
+    {
+      "name": "Isolated preview build",
+      "command": "node scripts/store-environment.mjs build",
+      "modules": 184,
+      "result": "pass"
+    },
+    {
+      "name": "Fourthwall/artist preview browser regressions",
+      "command": "node scripts/store-environment.mjs run test:store:preview",
+      "passed": 6,
+      "failed": 0,
+      "retries": 0,
+      "durationSeconds": 18.7
+    },
+    {
+      "name": "Handoff boundary and actual link journeys",
+      "command": "node tests/checkout-handoff/run.mts --output-dir test-results/checkout-handoff/checkpoint-3",
+      "journeysPassed": 2,
+      "renderedPurchaseStates": 3,
+      "deniedBoundaryProbes": 4,
+      "unexpectedJourneyRequests": 0,
+      "pageErrors": 0,
+      "result": "pass"
+    },
+    {
+      "name": "Normal artifact isolation",
+      "report": "production-artifact.json",
+      "files": 16,
+      "textFiles": 8,
+      "absentMarkers": 10,
+      "positiveControls": 3,
+      "result": "pass"
+    }
+  ],
+  "previewBundleKilobytes": {
+    "mainJs": 437.57,
+    "mainJsGzip": 130.95,
+    "fourthwallJs": 8.04,
+    "fourthwallJsGzip": 2.89,
+    "artistJs": 1.29,
+    "artistJsGzip": 0.63,
+    "mainCss": 49.5,
+    "mainCssGzip": 9.79,
+    "fourthwallCss": 4.51,
+    "fourthwallCssGzip": 1.24
+  },
+  "durableCaptures": [
+    {
+      "path": "heartburst-mobile.png",
+      "sourceCapture": "test-results/store/store-world-and-independen-95739-artwork-inspection-at-390px/heartburst-390.png",
+      "bytes": 246370,
+      "sha256": "f5d56a7bee4408773bf139ae708081a9527d42c11a42e482cc7ab3490cb4d8f1",
+      "manuallyInspected": true,
+      "observations": "Approved public artwork preview, visible artwork action and empty object associations; no garment or purchase inferred."
+    },
+    {
+      "path": "fourthwall-preview-mobile.png",
+      "sourceCapture": "test-results/store-preview/fourthwall-preview-local-F-4e61a-t-leaving-the-site-at-390px/fourthwall-390.png",
+      "bytes": 194659,
+      "sha256": "6f5ccb8cca45bcaf0293fd43a5126eb8f56fbcae2213033249edc98fe1fc52ba",
+      "manuallyInspected": true,
+      "observations": "Fictional preview disclosure, illustrative price, unavailable XL and disabled initial handoff fit the mobile stack."
+    }
+  ],
+  "handoffCaptures": "Fresh captures are byte-identical to checkpoint 2; journeys.json references those retained PNGs and hashes.",
+  "defectsFoundInSelectedChecks": [],
+  "sourceChanges": "No runtime application, schema, catalog, public artwork, dependency, provider configuration or test changes required for checkpoint 3.",
+  "hostedAtTestedCommit": {
+    "result": "all three workflows failed",
+    "ci": "https://github.com/egohygiene/egohygiene.io/actions/runs/39177489271",
+    "dependencyReview": "https://github.com/egohygiene/egohygiene.io/actions/runs/39177489275",
+    "codeql": "https://github.com/egohygiene/egohygiene.io/actions/runs/39177489490"
+  },
+  "limits": [
+    "Local checks are not hosted CI or deployed-host qualification.",
+    "Targeted marker exclusion is not a general secret audit.",
+    "No agreed performance budget was introduced; bundle sizes are measurements only.",
+    "No fresh synthetic locale/RTL/expanded-text matrix, broad screen-reader/zoom/contrast audit, Safari or physical-device test. Existing #62 evidence is historical.",
+    "No provider checkout, order, fulfillment, print or real-product readiness qualification.",
+    "Routing interception disables HTTP cache; no cache/BFCache claim."
+  ],
+  "nextAction": "Sync on the completed bounded slice; keep #82 draft/unmerged and #37 open. #38 readiness preparation remains proposed.",
+  "otherInspectedPreviewCaptures": [
+    {
+      "path": "test-results/store-preview/fourthwall-preview-local-F-bded2--leaving-the-site-at-1440px/fourthwall-1440.png",
+      "bytes": 301600,
+      "sha256": "57b07a54ee9b9d04f273bc99e77d96386df9b5e8b1f4e2961fcd01be755515c2",
+      "dimensions": [
+        1440,
+        1913
+      ],
+      "manuallyInspected": true,
+      "retained": "Ignored reproducible local output; desktop preview observations recorded by independent verifier.",
+      "observations": "Readable fictional/illustrative-price/placeholder-art labels; logo, disabled preselection handoff and unavailable XL fit the desktop columns."
+    }
+  ]
+}

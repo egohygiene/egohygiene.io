@@ -154,3 +154,18 @@ unexpected requests, WebSockets or page errors. Read the
 [checkpoint 2 receipt](checkout-handoff-37b.md) for reports, inspected captures,
 commands and limits. This does not qualify a real provider or physical device;
 checkpoint 3's focused regression/artifact closeout awaits the maintainer sync.
+
+
+## Checkout-handoff regression closeout — 2026-10-19 UTC
+
+The [#37 bounded-slice closeout](checkout-handoff-37c.md) records fresh 73 catalog,
+55 focused unit, 31 production-browser and six preview-browser passes, plus the
+handoff baseline/two keyboard-touch journeys, all three typechecks and the
+12-module import boundary. Both builds pass; normal output excludes the handoff
+fixtures and preview-only routes. Exact artifact hashes, marker/positive-control
+checks, inspected captures and repeatable commands are linked from that receipt.
+
+This completes the agreed three-checkpoint slice in draft #82. Broader #37,
+hosted gate failures and real-provider qualification remain explicit; the complete
+locale/browser/device matrix and performance budgets are not newly qualified.
+No application fix, provider activation, deployment or order was needed.
