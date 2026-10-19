@@ -20,13 +20,22 @@ function renderPage(element: ReactElement) {
 
 describe("primary site accessibility", () => {
   it("renders the home page heading and links", () => {
-    const { getByRole } = renderPage(<HomePage />);
+    const { getByRole, getAllByRole } = renderPage(<HomePage />);
     expect(getByRole("heading", { level: 1, name: /A little more human/i })).toBeInTheDocument();
     expect(getByRole("link", { name: "Discover Ego Hygiene" })).toHaveAttribute("href", "/about");
     expect(getByRole("link", { name: /Explore the ecosystem/i })).toHaveAttribute(
       "href",
       "/ecosystem",
     );
+    for (const link of getAllByRole("link", { name: "Explore the store", exact: true })) {
+      expect(link).toHaveAttribute("href", "/store");
+    }
+    expect(
+      getByRole("link", { name: "Explore this design: heartburst", exact: true }),
+    ).toHaveAttribute("href", "/store/designs/heartburst");
+    expect(
+      getByRole("img", { name: "Ego Hygiene’s cyan and magenta yin-yang symbol" }),
+    ).toHaveAttribute("width", "512");
   });
 
   it("renders about and ecosystem headings", () => {

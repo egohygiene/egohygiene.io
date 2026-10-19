@@ -748,3 +748,24 @@ Keep #37 open for its wider scope and keep #82 unmerged for Alan's acceptance.
 Next action: sync on the complete review; merge only if instructed, then discuss
 #38 readiness preparation. The proposed separate readiness record is not an
 implemented eligibility guard. No new ADR is needed for this test/evidence work.
+
+## Checkout-handoff #82 merge and continued #37 authority — 2026-10-19 UTC
+
+Alan explicitly instructed: merge the completed PR and continue #37 for completion.
+Refreshed #82 was draft/open, mergeable, with unchanged head
+`7b5433971acf671db812ec6b20dcd7569e4635a8` and base
+`1a0a3f9caa6bfb111ffff017dbb0155729a3a068`. Marked ready and merged normally
+with that expected head; merge commit is
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. Fetched the merge and created
+`test/store-qualification-37` from it. No unrelated branch or gate changed.
+
+At the merged head, hosted [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39182109806),
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39182109840)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39182109970)
+reported failure. Previously recorded local checks are not hosted passes.
+
+The new selection is broader #37 qualification; #38 preparation remains unstarted.
+The audit reuses existing #54/#55/#62 and intercepted-handoff evidence, identifies
+remaining local accessibility/artifact/profile work, and keeps absent migration/
+locale contracts and external verification explicit. No paid service, deployment,
+real provider contact, order or commerce activation is included.

@@ -9,19 +9,22 @@ export default defineConfig({
     "store-artist.spec.ts",
     "storefront-journey.spec.ts",
     "theme.spec.ts",
+    "site.spec.ts",
+    "store-metadata.spec.ts",
+    "store-accessibility.spec.ts",
   ],
   fullyParallel: true,
   workers: 2,
   retries: 0,
-  reporter: "list",
+  reporter: [["list"], ["json", { outputFile: "test-results/store/report.json" }]],
   outputDir: "test-results/store",
   use: {
     ...devices["Desktop Chrome"],
     baseURL: "http://127.0.0.1:4173",
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
-    launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
-      ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH }
+    launchOptions: process.env["PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH"]
+      ? { executablePath: process.env["PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH"] }
       : {},
   },
   webServer: {

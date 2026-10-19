@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["node", "vite/client"]
+  },
+  "include": [
+    "playwright.store.config.ts",
+    "playwright.store-preview.config.ts",
+    "tests/e2e/store*.spec.ts",
+    "tests/e2e/theme.spec.ts",
+    "tests/e2e/site.spec.ts",
+    "tests/e2e/fourthwall-preview.spec.ts",
+    "tests/e2e/artist-preview.spec.ts"
+  ]
+}

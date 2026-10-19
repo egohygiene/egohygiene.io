@@ -1,6 +1,27 @@
 # Current handoff
 
-## Current: #37 bounded slice complete, review pending — 2026-10-19 UTC
+## Current: #82 merged; broader #37 qualification in progress — 2026-10-19 UTC
+
+Alan explicitly authorized merging #82 and continuing #37 toward completion.
+#82 merged at `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`, using expected head
+`7b5433971acf671db812ec6b20dcd7569e4635a8`. The new work is on
+`test/store-qualification-37`, based on that refreshed main. #37 remains open;
+#38 was not selected. No deployment, purchase or provider activation is authorized.
+
+The remaining local work adds repeatable artifact/size checks, measured selected
+contrast and focus, shared reduced-motion repairs, shell/metadata journeys,
+reference/breakpoint layouts and a fresh-build qualification command. Existing
+catalog, handoff, Fourthwall preview and synthetic locale fixtures are reused.
+Verification and the complete acceptance/dependency mapping will be recorded in
+the following review receipt before handoff. Future migration/locale features,
+real devices/providers and deployed-host evidence must not be inferred from
+local Chromium passes.
+
+At #82's exact merge head, hosted CI, dependency review and CodeQL all reported
+failure. Normal merge succeeded without changing a gate; local results remain
+separate. See the ledger for exact run links.
+
+## Historical: #37 bounded slice complete, review pending — 2026-10-19 UTC
 
 Alan authorized checkpoint 3 and asked that the draft include everything.
 All three checkpoints of the **bounded intercepted-checkout testing slice** are

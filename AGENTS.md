@@ -57,8 +57,10 @@ Alan subsequently authorized checkpoint 2. Its [journey receipt](docs/store/chec
 records passing actual keyboard/touch link activation and Back/reload checks in
 that same draft. Alan then authorized checkpoint 3; the [regression closeout](docs/store/checkout-handoff-37c.md)
 records fresh passing local checks and normal-artifact isolation. The bounded
-three-checkpoint slice is complete in draft #82. Sync before merging or selecting
-#38; no merge was authorized by the checkpoint instruction.
+three-checkpoint slice merged in #82 on 2026-10-19 at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7` after Alan's explicit instruction.
+Alan selected continued work toward completion of #37, rather than starting #38.
+Read current state for the remaining qualification work and dependency limits.
 #37 remains open; #38 readiness preparation remains a later proposal.
 Deployment and commerce activation remain separate instructions.
 

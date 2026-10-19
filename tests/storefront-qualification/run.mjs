@@ -97,16 +97,76 @@ async function startServer() {
   throw new Error(`Local Vite server did not become ready: ${serverOutput}`);
 }
 
-async function qualify(mode, width, route) {
-  const key = `${mode}-${width}-${route.name}`;
+async function qualifyRegional(page, mode, width, route, options, key) {
+  if (route.name !== "standalone" || width !== 390 || options.textScale) return;
+  const selector = route.selector;
+  const status = page.locator(".store-artist-results");
+  const search = page.getByRole("searchbox");
+  const initial = mode === "rtl" ? "٤" : "4";
+  const one = mode === "rtl" ? "١" : "1";
+  const zero = mode === "rtl" ? "٠" : "0";
+  assert.ok((await status.innerText()).endsWith(initial), `${key}: locale-aware initial count`);
+  await search.fill("Signal Heart Hoodie");
+  await page.waitForFunction(
+    (suffix) => document.querySelector(".store-artist-results").textContent.endsWith(suffix),
+    one,
+  );
+  assert.equal(await page.locator(selector).count(), 1);
+  const href = await page.locator(`${selector} a`).getAttribute("href");
+  assert.equal(href, "/store/products/signal-heart-hoodie");
+  await search.fill("no-such-fictional-selection");
+  await page.waitForFunction(
+    (suffix) => document.querySelector(".store-artist-results").textContent.endsWith(suffix),
+    zero,
+  );
+  assert.equal(await page.locator(selector).count(), 0);
+  await page.reload({ waitUntil: "networkidle" });
+  assert.equal(await search.inputValue(), "no-such-fictional-selection");
+  assert.ok((await status.innerText()).endsWith(zero));
+  assert.equal(await page.locator(".storefront-empty").count(), 1);
+  await page.locator(".store-artist-search button").click();
+  await page.waitForFunction(
+    (suffix) => document.querySelector(".store-artist-results").textContent.endsWith(suffix),
+    initial,
+  );
+  assert.ok(await search.evaluate((element) => document.activeElement === element));
+  return {
+    locale: mode === "rtl" ? "ar-u-nu-arab" : "en",
+    counts: [initial, one, zero],
+    canonicalHref: href,
+    emptyReload: true,
+    clearRestoresFocus: true,
+  };
+}
+
+async function qualify(mode, width, route, options = {}) {
+  const key = `${mode}-${width}-${route.name}${options.textScale ? "-root-text-200-percent" : ""}`;
   const viewport = { width, height: width <= 390 ? 844 : 1000 };
   const page = await browser.newPage({ viewport, reducedMotion: "reduce", colorScheme: "light" });
   const errors = [];
+  const externalRequests = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  if (options.textScale) {
+    await page.addInitScript(() => {
+      addEventListener("DOMContentLoaded", () => {
+        document.documentElement.style.fontSize = "200%";
+      });
+    });
+  }
   await page.route("**/*", async (request) => {
-    if (new URL(request.request().url()).origin !== origin) return request.abort("blockedbyclient");
-    if (request.request().resourceType() !== "document") return request.continue();
-    const response = await request.fetch();
+    if (
+      new URL(request.request().url()).origin !== origin ||
+      request.request().method() !== "GET"
+    ) {
+      externalRequests.push(request.request().url());
+      return request.abort("blockedbyclient");
+    }
+    const response = await request.fetch({ maxRedirects: 0 });
+    if (response.status() >= 300) {
+      externalRequests.push(`Unexpected HTTP ${response.status()}: ${request.request().url()}`);
+      return request.abort("blockedbyclient");
+    }
+    if (request.request().resourceType() !== "document") return request.fulfill({ response });
     const html = (await response.text()).replace('src="/src/main.tsx"', `src="/@fs/${entry}"`);
     assert.ok(html.includes(`src="/@fs/${entry}"`), "Vite document entry must be replaced");
     return request.fulfill({ response, body: html });
@@ -159,13 +219,40 @@ async function qualify(mode, width, route) {
         element.scrollLeft = 0;
       });
     }
+    const regional = await qualifyRegional(page, mode, width, route, options, key);
+    let motion;
+    if (route.name === "shared") {
+      await page.locator(".eh-button").hover();
+      motion = await page.evaluate(() => ({
+        transition: getComputedStyle(document.querySelector(".eh-button")).transitionDuration,
+        transform: getComputedStyle(document.querySelector(".eh-button")).transform,
+        animation: getComputedStyle(document.querySelector(".eh-spinner")).animationName,
+        scroll: getComputedStyle(document.documentElement).scrollBehavior,
+      }));
+      assert.deepEqual(motion, {
+        transition: "0s",
+        transform: "none",
+        animation: "none",
+        scroll: "auto",
+      });
+    }
     assert.deepEqual(errors, [], key);
+    assert.deepEqual(externalRequests, [], key);
     report.results.push({
       key,
       viewport,
       route: url.pathname + url.search,
       metrics,
-      ...(scrolling ? { scrolling } : {}),
+      scrolling,
+      regional,
+      motion,
+      ...(options.textScale
+        ? {
+            textResize:
+              "200% root font size; synthetic CSS probe, not native browser zoom or text-only preference",
+          }
+        : {}),
+      externalRequests,
       errors,
     });
     const file = captures.get(key);
@@ -214,7 +301,14 @@ try {
     for (const width of [320, 390, 820, 1440]) {
       for (const route of routes) await qualify(mode, width, route);
     }
+    await qualify(mode, 390, routes[2], { textScale: true });
   }
+  await qualify("expanded", 390, {
+    name: "shared",
+    path: "/qualification/shared",
+    selector: ".eh-button",
+    count: 1,
+  });
   await writeFile(path.join(output, "captures.json"), `${JSON.stringify(report, null, 2)}\n`);
   process.stdout.write(
     `${report.results.length} layout cases passed; ${report.screens.length} captures saved.\n`,
