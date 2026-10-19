@@ -1,6 +1,33 @@
 # Current handoff
 
-## Current: #37 local qualification complete in draft #83 — 2026-10-19 UTC
+## Current: remaining work saved in roadmap #84 — 2026-10-19 UTC
+
+Alan requested one roadmap capturing the next issues, their order and discussion
+notes. [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) now
+records review of draft #83, then #64, coordinated #65/#34, remaining local #37
+qualification with #49/#70/#52, #38 readiness with the applicable #9 disclosures,
+#22/#29 release preparation, and final #37/#39 host/product/launch evidence.
+It also records provisional size budgets, local/hosted evidence limits,
+reconciliation of #36/#61/#69/#75/#51, deferred work and the product boundaries.
+
+The linked checklist is saved. **Native hierarchy linking remains pending:**
+the available GitHub connector lacks a sub-issue mutation. The intended structure
+preserves #31's existing #32–#39 children and nests #31 under #84; the remaining
+owners become direct children after refreshing their parent relationships.
+Browser fallback requires approval under the browser tool's instructions.
+
+Refreshed main remains `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`; draft #83 was
+at `60ff62f060fe2fa4cb461bee21942f49aa59b1a2` before this documentation-only update
+on `test/store-qualification-37`. No new implementation, merge, deployment,
+provider activation or test run is part of this planning checkpoint. The
+qualification evidence below remains pinned to its tested implementation.
+
+**Next:** finish native hierarchy linking, then review #83 and select the first
+bounded #64 checkpoint with Alan. Do not close #37 before its outstanding
+acceptance is evidenced or explicitly rescoped. See the
+[roadmap receipt](provenance.md#remaining-work-roadmap--2026-10-19-utc).
+
+## Historical: #37 local qualification complete in draft #83 — 2026-10-19 UTC
 
 Alan authorized merging #82 and continuing #37 toward completion. #82 merged at
 `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. The next local qualification pass is

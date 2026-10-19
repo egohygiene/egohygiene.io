@@ -839,3 +839,36 @@ blocker. The old test-plan heading was marked historical to avoid confusing its
 18-case baseline with the current 70-case profile. Issue #37 now checks delivered
 B/fixture/adapter work and records the precise open migration, locale, performance
 and environment dependencies. #83 remains draft; no follow-up merge occurred.
+
+## Remaining work roadmap — 2026-10-19 UTC
+
+Alan requested one roadmap issue containing the remaining order, existing
+sub-issues and discussion notes. Live issue/PR/main snapshots and #31's native
+children were refreshed. Main was `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`;
+draft #83 was `60ff62f060fe2fa4cb461bee21942f49aa59b1a2`. #31 retains native
+children #32–#39, including closed #32/#33/#35; #47 and #3 had no native children.
+
+Created [roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) in the
+existing Store v1 milestone. It captures #83/budget review, #64, coordinated
+#65/#34, remaining local #37 work with #49/#70/#52, #38 readiness and applicable
+#9 disclosures, #22/#29 release preparation, and final #37/#39 acceptance.
+It preserves prior delivered work, identifies #36/#61/#69/#75/#51 reconciliation,
+and records cost/privacy/product boundaries, evidence limits and later work.
+An independent read-only review caught the need to retain #37's final host
+acceptance until release and to include the bounded #9 customer disclosure work.
+
+Issue creation was read back with identical body and milestone 1. Native
+hierarchy mutation is not exposed by the connected GitHub tools; only the ordered
+links/checklists are saved. The intended hierarchy nests #31 under #84 without
+moving its children, then attaches the other owners after refreshing their
+parents. Browser fallback requires approval under the browser tool's instructions.
+No native relationship was changed or represented as completed. #31 links to
+the new execution guide while retaining its original body/history.
+
+This follow-up changes continuity documents only on `test/store-qualification-37`
+in draft #83. Validation is relative-file links, context-manifest JSON/paths,
+diff whitespace and remote readback; no runtime/browser/provider checks were
+rerun. Prior local qualification and failed hosted runs remain dated evidence,
+not fresh results for this planning update. No ADR is needed for issue
+coordination. No merge, next implementation checkpoint, deployment, account,
+product activation or purchase was performed.

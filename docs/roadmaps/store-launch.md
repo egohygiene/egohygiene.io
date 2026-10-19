@@ -1,5 +1,17 @@
 # Store launch: proposed roadmaps, milestones, and sub-issues
 
+## Current execution guide — 2026-10-19
+
+Alan requested the remaining storefront sequence and notes as a durable issue.
+[Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) now records that
+focused queue, existing issue owners, evidence, dependencies and deferred work.
+Native linking is pending tooling/browser access; the issue's linked checklist
+does not claim the native hierarchy is installed. Preserve #31's existing
+children/history when attaching it beneath #84. This request does not authorize
+creating every M1–M5 proposal below, starting implementation, merging or deploying.
+
+## Historical wider proposal — 2026-10-17
+
 Status: **remaining hierarchy proposed; first bounded task authorized 2026-10-17**.
 Planning PRs #74 and store #33 are merged. [Issue #75](https://github.com/egohygiene/egohygiene.io/issues/75)
 is the first M1 task, in existing Store v1 milestone 1. No new milestone/roadmap

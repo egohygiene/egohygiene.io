@@ -64,6 +64,11 @@ The [local qualification review](docs/store/qualification-37.md) records the
 complete fresh-build pass in draft #83 and explicit dependency limits. Review
 that draft before merge; its instruction did not authorize merging subsequent PRs.
 #37 remains open; #38 readiness preparation remains a later proposal.
+Alan requested the remaining sequence be saved on 2026-10-19. Use
+[roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) for the current
+ordered queue and notes. Native hierarchy linking is pending; the saved issue
+checklists are not native sub-issue relationships. This planning request does
+not select a new implementation checkpoint or approve a merge.
 Deployment and commerce activation remain separate instructions.
 
 ## Working boundaries
