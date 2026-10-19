@@ -6,6 +6,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
+| Current #37 local qualification | [Complete local review and remaining dependencies](../store/qualification-37.md); draft #83, one fresh-build profile and retained evidence |
 | Checkout-handoff closeout | [#37 regression/artifact receipt](../store/checkout-handoff-37c.md), [keyboard/touch journeys](../store/checkout-handoff-37b.md) and [fixture boundary](../store/checkout-handoff-37a.md); bounded slice merged in #82, broader #37 qualification selected next |
 | Artwork ordering | [#54 contract and verification](../store/design-order-54.md); A/B/C merged in #81; #54 closed |
 | Schema audit | [#34 bounded envelope hardening](../store/schema-audit-34.md); bounded contribution merged in #79; broader #34 remains open |

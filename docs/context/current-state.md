@@ -1,25 +1,50 @@
 # Current handoff
 
-## Current: #82 merged; broader #37 qualification in progress — 2026-10-19 UTC
+## Current: #37 local qualification complete in draft #83 — 2026-10-19 UTC
 
-Alan explicitly authorized merging #82 and continuing #37 toward completion.
-#82 merged at `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`, using expected head
-`7b5433971acf671db812ec6b20dcd7569e4635a8`. The new work is on
-`test/store-qualification-37`, based on that refreshed main. #37 remains open;
-#38 was not selected. No deployment, purchase or provider activation is authorized.
+Alan authorized merging #82 and continuing #37 toward completion. #82 merged at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. The next local qualification pass is
+complete in [draft PR #83](https://github.com/egohygiene/egohygiene.io/pull/83),
+branch `test/store-qualification-37`, based on that merge. #83 is unmerged;
+#37 remains open for explicit upstream and qualification dependencies.
 
-The remaining local work adds repeatable artifact/size checks, measured selected
-contrast and focus, shared reduced-motion repairs, shell/metadata journeys,
-reference/breakpoint layouts and a fresh-build qualification command. Existing
-catalog, handoff, Fourthwall preview and synthetic locale fixtures are reused.
-Verification and the complete acceptance/dependency mapping will be recorded in
-the following review receipt before handoff. Future migration/locale features,
-real devices/providers and deployed-host evidence must not be inferred from
-local Chromium passes.
+Tested implementation: `5e148843998a44ce7c7923c0fd27cf944dce5187`, tree
+`01bfbe2568bfab4470e7f967b0e4e5128107f373`, identical to local source. Its complete
+13-step `node scripts/qualify-store.mjs` run began clean and passed. This following
+commit records evidence/docs only. Read the [review receipt](../store/qualification-37.md),
+[exact commands/results](../store/reviews/qualification-37/checks.json),
+[browser cases/contrast samples](../store/reviews/qualification-37/browser.json)
+and [artifact inventory](../store/reviews/qualification-37/production-artifact.json).
 
-At #82's exact merge head, hosted CI, dependency review and CodeQL all reported
-failure. Normal merge succeeded without changing a gate; local results remain
-separate. See the ledger for exact run links.
+Delivered: required fresh builds, explicit selected browser types, shell/metadata
+journeys, measured text/focus contrast, forced colors, #70 reference/breakpoint
+widths, separate CSS text enlargement/reflow, regional synthetic interactions and
+artifact/credential-pattern/reference/size checks. Shared CSS fixes foreground
+focus outlines and badge text, plus reduced-motion buttons/spinners. The real
+catalog, schemas, public art, providers, dependencies and canonical routes remain
+unchanged. Existing #54/#55/#62, Fourthwall and intercepted handoff work is reused.
+
+Fresh passes: 79 catalog/artifact contracts, 92 focused units, three semantic
+component checks, four type profiles, the 12-module import boundary, 70 production
+browser cases, six preview cases, handoff baseline/two journeys, and 35 synthetic
+layout/interaction/motion cases. Artifact scan: 16 files, 12 local references,
+zero findings. Selected captures were inspected. Environment: Node 24.21.0,
+pnpm 11.28.5, Playwright 1.62.1, Chrome for Testing 155.0.8059.84. This is local
+Chromium evidence, not native zoom, screen-reader or physical-device certification.
+
+**Next:** review #83 and the concrete proposed bundle-size ceilings with Alan.
+To finish #37 as written, the missing #64 locale/fallback contract and coordinated
+#65/#34 catalog translation/version migration need implementation and resulting
+journey fixtures. #37 also retains unsupported-environment and later deployed-host
+checks; #22/#29 own crawler/host work. No arbitrary version bump or pretend
+translation was introduced to close a checkbox. #38 real-provider readiness is
+still unstarted and separate. Broader #49/#52/#70 issues remain open.
+
+Hosted CI, dependency review and CodeQL failed at the tested source head. CI's
+format step failed and later stages were skipped; local passes do not make these
+hosted gates green. No gate change or manual dispatch. Nine provider placeholders
+remain disabled, real checkout routes empty and real `.play()` selections empty.
+No actual provider contact, order, deployment or commerce activation occurred.
 
 ## Historical: #37 bounded slice complete, review pending — 2026-10-19 UTC
 

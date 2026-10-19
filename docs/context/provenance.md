@@ -769,3 +769,73 @@ The audit reuses existing #54/#55/#62 and intercepted-handoff evidence, identifi
 remaining local accessibility/artifact/profile work, and keeps absent migration/
 locale contracts and external verification explicit. No paid service, deployment,
 real provider contact, order or commerce activation is included.
+
+## Broader #37 local qualification — 2026-10-19 UTC
+
+Authority continues Alan's instruction to merge #82 and work toward #37
+completion. Refreshed main stayed at `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`.
+Source published to [draft #83](https://github.com/egohygiene/egohygiene.io/pull/83)
+as `5e148843998a44ce7c7923c0fd27cf944dce5187`, tree
+`01bfbe2568bfab4470e7f967b0e4e5128107f373`; the API tree equals the staged local
+tree. Fetched/read back the branch and ran the complete profile with a clean
+checkout. This subsequent publication contains review evidence and continuity only.
+
+The [receipt](../store/qualification-37.md) maps exact requirements and remaining
+dependencies. [Commands/timings](../store/reviews/qualification-37/checks.json),
+[browser cases/contrast/captures](../store/reviews/qualification-37/browser.json),
+[normal output inventory](../store/reviews/qualification-37/production-artifact.json)
+and [all retained evidence hashes](../store/reviews/qualification-37/manifest.json)
+are durable. Images originate from actual local browser captures of existing
+public artwork/fictional fixtures, without manipulation or private sources.
+The root reviewed the two enlargement/reflow captures, expanded tablet collection
+and synthetic RTL artist capture; the final profile retains all associated raw
+files and explicit limits. No screenshot baseline or print approval is inferred.
+
+All 13 profile steps passed: 79 catalog/artifact Node cases; 92 store/preview/
+theme/locale units across 13 files; three semantic component cases; app/catalog/
+portable-domain/browser type profiles; 12-module import boundary; fresh normal
+and isolated preview builds; 70 normal browser and six isolated preview cases
+with zero retries; intercepted baseline plus keyboard/touch journeys; 35 synthetic
+layout/regional/motion cases. Scanner: 16 files, 12 local references, zero findings.
+Selected text/focus sample minima are 5.934/7.533, with raw computed values retained.
+The Node 24.21.0/pnpm 11.28.5/Playwright 1.62.1/Chrome for Testing 155.0.8059.84
+setup was reused. No dependency, lockfile, provider or catalog change.
+
+Implementation adds a fail-fast fresh-build profile, selected browser compiler
+profile, active shell/metadata cases, computed contrast/focus and reference/
+breakpoint layouts, and a repeatable artifact checker with six negative/positive
+fixtures. Shared CSS replaces shadow-only focus, improves badge-label contrast
+and explicitly respects reduced motion on shared buttons/spinners. Test-only
+regional numbering uses `ar-u-nu-arab`: a preflight bare-`ar` digit assumption was
+invalid in this browser and was corrected without changing production locales.
+A test logo locator was also scoped to the header during preflight. Final source
+passed the combined run without a runtime fix or retry. Independent source review
+found no blocker; suggested request guards and required contrast sample presence
+were incorporated before publication.
+
+#37 remains open: an actual justified migration belongs to #34 and true locale/
+fallback/catalog translation contracts belong to #64/#65; no invented version or
+translation is called delivered. Size ceilings are concrete provisional local
+regression limits for review, not an already-agreed launch budget. CSS root-text
+and short-viewport reflow probes do not establish native browser zoom. Wider
+engines, assistive technology, physical devices, deployed-host/crawler behavior
+and real-provider/print/fulfillment evidence remain explicit. #38 remains unstarted.
+Existing #49/#52/#70 scopes are not closed incidentally. Next: sync on draft #83,
+its proposed budgets and the exact upstream completion sequence.
+
+At the tested source, hosted [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39217917425),
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39217917449)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39217917918)
+failed. Job readback establishes installation passed, format checking failed and
+later CI stages were skipped. Detailed dependency/CodeQL causes were not newly
+diagnosed. No gate change or manual workflow dispatch occurred. Local results
+remain local; no deployment, real provider request, purchase or activation.
+
+Final review: 13 source/config files passed scoped Biome with two environment
+warnings and two bracket-key suggestions in the browser config; no gate was
+disabled to silence them. Evidence hashes, JSON, context paths, 145 relative links
+and whitespace passed validation. Independent source/evidence review found no
+blocker. The old test-plan heading was marked historical to avoid confusing its
+18-case baseline with the current 70-case profile. Issue #37 now checks delivered
+B/fixture/adapter work and records the precise open migration, locale, performance
+and environment dependencies. #83 remains draft; no follow-up merge occurred.

@@ -60,7 +60,9 @@ records fresh passing local checks and normal-artifact isolation. The bounded
 three-checkpoint slice merged in #82 on 2026-10-19 at
 `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7` after Alan's explicit instruction.
 Alan selected continued work toward completion of #37, rather than starting #38.
-Read current state for the remaining qualification work and dependency limits.
+The [local qualification review](docs/store/qualification-37.md) records the
+complete fresh-build pass in draft #83 and explicit dependency limits. Review
+that draft before merge; its instruction did not authorize merging subsequent PRs.
 #37 remains open; #38 readiness preparation remains a later proposal.
 Deployment and commerce activation remain separate instructions.
 
