@@ -116,3 +116,56 @@ Public Git sources remain public. Vite also copies the public asset directory in
 - Test one provider's real approved product URL, variants, pricing authority, shipping, returns, and customer-funded order flow before changing a product to `live`. Do not make purchases automatically as part of this suite.
 - Verify deep links on the eventual deployment host; local Vite preview confirms the bundle and its local SPA fallback only.
 - Broader browser/device qualification and screenshot baselines can follow the first design approval; this checkpoint targets Chromium desktop and mobile viewport behavior.
+
+## Checkout handoff foundation — #37 checkpoint 1, 2026-10-18
+
+The [checkpoint receipt](checkout-handoff-37a.md) records a separate temporary
+build of the actual application with fictional live, preview and unavailable
+products. After the pinned setup and browser installation, run:
+
+```sh
+node tests/checkout-handoff/run.mts
+```
+
+The optional `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` override selects an existing
+local browser. Reports go to ignored `test-results/checkout-handoff/`. The harness
+checks rendered purchase states, a decoded test swatch, public draft exclusion,
+an exact locally intercepted destination and four denied request probes. All
+external traffic and loopback redirects are blocked; no provider is contacted.
+Six Node fixture/boundary cases also run through `catalog:test`.
+
+This is checkpoint 1's fixture/interception baseline. Product-link activation,
+desktop keyboard/mobile tap journeys and Back/reload are checkpoint 2, after the
+maintainer sync. It does not replace the existing store/Fourthwall preview suites
+or qualify a real product, purchase, deployment or provider.
+
+
+## Checkout-handoff journeys — #37 checkpoint 2, 2026-10-18
+
+The same `node tests/checkout-handoff/run.mts` command now follows its boundary
+baseline with actual Tab/Enter and touch-tap product link activation, intercepted
+destination reload, Back/product reload and repeat activation. Preview and
+unavailable products stay non-purchasable through actual SPA links and reload.
+Fresh contexts retain the checkpoint 1 network guard. The temporary build now
+also copies the existing shared shell logo so its rendered evidence is complete.
+
+Both desktop 1280×800 and mobile-emulated 390×844 journeys pass locally with no
+unexpected requests, WebSockets or page errors. Read the
+[checkpoint 2 receipt](checkout-handoff-37b.md) for reports, inspected captures,
+commands and limits. This does not qualify a real provider or physical device;
+checkpoint 3's focused regression/artifact closeout awaits the maintainer sync.
+
+
+## Checkout-handoff regression closeout — 2026-10-19 UTC
+
+The [#37 bounded-slice closeout](checkout-handoff-37c.md) records fresh 73 catalog,
+55 focused unit, 31 production-browser and six preview-browser passes, plus the
+handoff baseline/two keyboard-touch journeys, all three typechecks and the
+12-module import boundary. Both builds pass; normal output excludes the handoff
+fixtures and preview-only routes. Exact artifact hashes, marker/positive-control
+checks, inspected captures and repeatable commands are linked from that receipt.
+
+This completes the agreed three-checkpoint slice in draft #82. Broader #37,
+hosted gate failures and real-provider qualification remain explicit; the complete
+locale/browser/device matrix and performance budgets are not newly qualified.
+No application fix, provider activation, deployment or order was needed.

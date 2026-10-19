@@ -566,3 +566,185 @@ This follow-up updates current-state, agent/context entry points, ADR 0005 deliv
 status and the #54 receipt. Documentation links, manifest JSON/paths and diff
 whitespace were checked; no application rerun was needed for docs-only updates.
 Return to Alan to discuss/select the next bounded checkpoint.
+
+
+## Checkout-handoff #37 checkpoint 1 — 2026-10-18 UTC
+
+Authority: Alan requested work through the proposed checkpoint and a sync after
+it. The scope was stated as checkpoint 1 (usable browser, isolated fictional
+inputs and intercepted destination), with a draft PR before customer journeys.
+Recovered the repository after scratch pruning, read the context/scoped guidance,
+and refreshed main at `1a0a3f9caa6bfb111ffff017dbb0155729a3a068`, #37/#38 and open
+PRs before editing. Main was unchanged at publication. Existing draft #73 stays
+separate. #54/#81 remain closed/merged; no earlier browser claim was rewritten.
+
+Published [draft PR #82](https://github.com/egohygiene/egohygiene.io/pull/82) on
+`test/checkout-handoff-37a`. Verified implementation:
+`2a91b2b02edb606fe594a65784ac7f5eb798173e`, Git tree
+`58ac9598a1770e29d570cfe020feffd187219102`, equal to the local staged tree. This
+following receipt adds documentation only. Read the
+[checkpoint receipt](../store/checkout-handoff-37a.md) for exact commands,
+browser acquisition, expected states and limits; its linked JSON records the
+final baseline at 23:02:29 UTC.
+
+The test-only catalog contains fresh mutable fixture inputs, a valid authored
+1×1 PNG, synthetic approval metadata and a draft sentinel. Existing validation,
+public projection and the actual app/catalog plugin are reused. Owned temporary
+inputs/build output are cleaned in nested finally blocks. The browser allows
+only the test loopback origin and locally fulfills the exact top-level GET
+navigation to the fictional provider-shaped URL; no provider request continues.
+Service workers are blocked, WebSockets closed, and loopback responses fetched
+with no redirect following. Four negative probes include the local 302 edge case.
+Normal catalog/assets/providers, application code, dependencies and lockfile are
+unchanged. Public fixture approvals are test data, not real-product readiness.
+
+All 73 catalog tests, app/catalog/domain typechecks, normal build and emitted
+fixture-exclusion checks passed. Six source/config files passed scoped Biome;
+diff whitespace passed. Final browser baseline on Chrome for Testing
+155.0.8059.84/Playwright 1.62.1 renders all three states and decodes the swatch,
+fulfills one direct destination, denies four probes and records no page errors
+or unexpected WebSockets. The final tooling typecheck was repeated after the
+redirect-probe change. Initial harness typing problems and an aborted-navigation
+race were corrected; the redirect failure probe now uses its own disposable page.
+Independent source review found no remaining blocking issue. Browser distribution
+checksum and acquisition provenance are in the receipt; no binary was committed.
+
+At source head `2a91b2b`, [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39174899850)
+and [dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39174899451)
+reported failure; [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39174899549)
+was running at readback. Local checks do not imply hosted CI success; no gate, billing, hosting or provider setting changed. Full existing
+browser/layout suites were not rerun. This baseline directly probes interception;
+it does not activate the product link or cover keyboard/mobile/Back/reload yet.
+No real provider checkout, variant transfer, price/shipping/tax, order, print or
+fulfillment qualification occurred. #37 stays open, #82 stays draft/unmerged.
+Sync with Alan before checkpoint 2; #38 is still a later readiness proposal.
+
+
+## Checkout-handoff #37 checkpoint 2 — 2026-10-18 UTC
+
+Authority: Alan approved continuing checkpoint 2 after reviewing the previous
+fixture/interception checkpoint. Re-read repository/scoped context and relevant
+ADRs; live GitHub confirmed main at `1a0a3f9caa6bfb111ffff017dbb0155729a3a068`,
+#82 draft/open at `c9976ca548f629b012297346f00e73ac78a21dee`, and #37 open. All
+three hosted workflows at that starting PR head reported failure. The current
+instruction selects customer-link journeys, not checkpoint 3, merge or deployment.
+
+Published source `e90e9b65b54a7365b6668802d8a984ee392be837` to the existing
+`test/checkout-handoff-37a` branch and [draft #82](https://github.com/egohygiene/egohygiene.io/pull/82).
+Its Git tree `55f71d7a2e76ab29b7eb5a801eecd070287e8ce2` equals the tested local
+staged tree. This following receipt records docs/evidence only. Read the
+[journey receipt](../store/checkout-handoff-37b.md) and linked machine reports for
+actual timestamps, viewport/input settings, requests and screenshot hashes.
+
+Two fresh browser contexts reuse the strict existing boundary and actual app.
+Desktop reaches the purchase link with 11 native Tab presses and uses Enter;
+mobile uses touch tap at 390×844 CSS pixels. Each activates the actual link twice,
+reloads the local destination once, returns through Back twice and reloads the
+canonical product twice. Exactly three destination requests per context are
+fulfilled locally. Preview/unavailable products are reached through real
+product/design SPA links, retain truthful statuses and expose no purchase action
+before or after reload. No unexpected requests, WebSockets, extra pages or page
+errors occur; both tested widths have no horizontal overflow.
+
+The first run passed functionally, but manual screenshot review found the test
+public directory omitted the shared shell logo. The runner now copies only the
+existing `apps/egohygiene.io/public/icons/icon-192x192.png` into its owned temporary
+directory. Final live-page checks decode both that 192px public logo and the
+1px authored fixture swatch. Source assets and runtime UI were not modified.
+Final desktop/mobile captures were inspected for focus, action/disclosure fit
+and the corrected logo. Capture origins and SHA-256 hashes are in the report;
+these are test evidence, not new artwork or merchandise approval.
+
+Fresh local evidence: both journey scenarios, the earlier boundary baseline,
+six focused Node fixture/request cases, catalog/tooling typecheck, scoped Biome
+and diff whitespace pass. Chrome for Testing 155.0.8059.84, Playwright 1.62.1,
+Node 24.21.0 and the existing pnpm 11.28.5 setup were reused; acquisition details
+remain in checkpoint 1. Independent review found no blocking issue before or
+after the logo correction. No package/lockfile, normal catalog, private creative
+source or provider configuration changed. Full catalog/app-domain types/normal
+build and existing store/preview/layout suites were not rerun; earlier passing
+results remain historical rather than fresh evidence for this turn.
+
+This proves a website link/return journey against inert local HTML. It does not
+qualify provider checkout, variants, pricing/shipping/tax, returns, fulfillment,
+physical devices, print quality or a full accessibility/browser matrix. Interception
+disables HTTP caching, so no cache/BFCache behavior is claimed. No actual provider
+request, purchase, deployment, remote CI dispatch or gate override occurred.
+#37 stays open and #82 draft/unmerged. Sync with Alan before checkpoint 3's
+regression/artifact closeout; #38 readiness remains proposed.
+
+
+At checkpoint 2 implementation head `e90e9b6`, hosted
+[CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39177365551),
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39177365587)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39177365614)
+all reported failure at readback. This does not alter the separately recorded
+local passes. No workflow was manually dispatched or gate changed.
+
+
+## Checkout-handoff #37 checkpoint 3 — 2026-10-19 UTC
+
+Authority: after the checkpoint 2 sync and a brief explanation of regression/
+smoke checks, Alan explicitly requested the next checkpoint and a complete draft
+PR. Scope: focused regression and normal-artifact closeout of the existing local
+handoff slice. No merge, #38 implementation, deployment or provider activation.
+Refreshed main remained `1a0a3f9caa6bfb111ffff017dbb0155729a3a068`; #82 was draft,
+open and unmerged at `89d33e49eca49530645042930df92373daf33a84`; #37 remained open.
+Read root/scoped instructions and the current receipts before running checks.
+
+All checks use tested commit `89d33e49eca49530645042930df92373daf33a84`, tree
+`4083c3b8e5a462e145d78383c547f010e93a83f8`. Implementation remains
+`e90e9b65b54a7365b6668802d8a984ee392be837`; no test/runtime code fix was required.
+The following publication adds evidence/continuity only. Read the
+[checkpoint 3 receipt](../store/checkout-handoff-37c.md),
+[check inventory](../store/reviews/checkout-handoff-37c/checks.json), fresh
+[handoff reports](../store/reviews/checkout-handoff-37c/journeys.json) and
+[normal artifact manifest](../store/reviews/checkout-handoff-37c/production-artifact.json).
+Capture/report timestamps are UTC; Alan's local date was October 18.
+
+Fresh passes: 73 catalog/public-build tests; 53 store/Fourthwall units plus two
+artist fixture units (55 across ten files); app/catalog/portable-domain types;
+12-module import boundary; seven source/config files' Biome; normal build and
+31 unchanged production-browser cases; isolated preview build and six unchanged
+Fourthwall/artist browser cases; the handoff baseline and two actual native
+keyboard/touch return journeys. Browser suites used no configured retry and
+passed without a code change. Pinned Node 24.21.0, pnpm 11.28.5, Playwright 1.62.1
+and the existing verified Chrome for Testing 155.0.8059.84 executable were reused.
+No package or lockfile changed; the acquisition record remains checkpoint 1.
+
+Normal artifact verification hashes all 16 emitted files, scans eight text
+files plus every emitted path for ten explicit fixture/route/qualification
+markers, and checks three public catalog controls. No excluded marker appears;
+Heartburst's emitted derivative equals its approved public source byte-for-byte.
+The manifest and receipt preserve the exact reproduction code and raw/gzip
+sizes. These are targeted isolation checks and measurements, not a general
+secret audit or an invented performance budget. Nine provider records remain
+disabled; real routes stay empty. Runtime application/schema/catalog/public
+artwork/provider files are unchanged from main.
+
+Desktop/mobile catalog and artwork-viewer captures plus both Fourthwall preview
+captures were inspected. Selected Heartburst and Fourthwall mobile captures are
+retained in this receipt with hashes; other inspected raw captures are ignored
+local outputs with hashes/commands recorded in the manifest and check inventory.
+Fresh handoff
+captures exactly match checkpoint 2's retained PNG bytes, which the fresh report
+references. Labels, artwork/modal presentation, focus and the reviewed mobile
+action/disclosure fit remain usable. No new defect was found in the selected
+checks. Independent source/evidence review found no blocker.
+
+At the tested head, hosted [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39177489271),
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39177489275)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39177489490)
+all reported failure. Those outcomes are separate from the local passes; no
+gate was disabled, workflow manually dispatched or paid service enabled.
+No new locale/expanded-text/RTL matrix, broad screen-reader/zoom/contrast audit,
+physical-device/browser matrix, deployed-host behavior, migration or real-provider
+qualification is claimed. No cache/BFCache claim follows from interception.
+No actual provider, order, purchase activation, print/fulfillment proof or
+deployment occurred. Existing #62 work was reused rather than rebuilt.
+
+The three checkpoints of this bounded slice are complete in the same draft #82.
+Keep #37 open for its wider scope and keep #82 unmerged for Alan's acceptance.
+Next action: sync on the complete review; merge only if instructed, then discuss
+#38 readiness preparation. The proposed separate readiness record is not an
+implemented eligibility guard. No new ADR is needed for this test/evidence work.

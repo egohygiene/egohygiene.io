@@ -1,0 +1,134 @@
+{
+  "checkpoint": "37 handoff 2 — keyboard and touch customer journeys",
+  "capturedAt": "2026-10-18T23:37:48.273Z",
+  "browser": "155.0.8059.84",
+  "node": "24.21.0",
+  "fixture": "test-handoff-37a",
+  "scenarios": [
+    {
+      "name": "desktop-keyboard",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "isMobile": false,
+      "hasTouch": false,
+      "input": "Tab and Enter",
+      "screenshot": "desktop-keyboard-focused.png",
+      "keyboardTabCounts": [
+        11,
+        0,
+        11,
+        12,
+        6,
+        11,
+        7
+      ],
+      "liveProduct": "test-handoff-37a-live",
+      "canonicalProductPath": "/store/products/test-handoff-37a-fictional-live",
+      "directProductLoad": true,
+      "productReloads": 2,
+      "actualLinkActivations": 2,
+      "destinationReloads": 1,
+      "backReturns": 2,
+      "sameTab": true,
+      "disclosureVisible": true,
+      "dimensions": {
+        "viewportWidth": 1280,
+        "contentWidth": 1280
+      },
+      "guardedStates": [
+        {
+          "state": "preview",
+          "entry": "test-handoff-37a-preview",
+          "loads": [
+            "SPA navigation",
+            "reload"
+          ]
+        },
+        {
+          "state": "unavailable",
+          "entry": "test-handoff-37a-unavailable",
+          "loads": [
+            "SPA navigation",
+            "reload"
+          ]
+        }
+      ],
+      "interceptedDestinations": [
+        "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+        "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+        "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live"
+      ],
+      "blockedRequests": [],
+      "blockedWebSockets": [],
+      "pageErrors": []
+    },
+    {
+      "name": "mobile-touch",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "isMobile": true,
+      "hasTouch": true,
+      "input": "touch tap",
+      "screenshot": "mobile-touch-live.png",
+      "keyboardTabCounts": [],
+      "liveProduct": "test-handoff-37a-live",
+      "canonicalProductPath": "/store/products/test-handoff-37a-fictional-live",
+      "directProductLoad": true,
+      "productReloads": 2,
+      "actualLinkActivations": 2,
+      "destinationReloads": 1,
+      "backReturns": 2,
+      "sameTab": true,
+      "disclosureVisible": true,
+      "dimensions": {
+        "viewportWidth": 390,
+        "contentWidth": 390
+      },
+      "guardedStates": [
+        {
+          "state": "preview",
+          "entry": "test-handoff-37a-preview",
+          "loads": [
+            "SPA navigation",
+            "reload"
+          ]
+        },
+        {
+          "state": "unavailable",
+          "entry": "test-handoff-37a-unavailable",
+          "loads": [
+            "SPA navigation",
+            "reload"
+          ]
+        }
+      ],
+      "interceptedDestinations": [
+        "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+        "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+        "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live"
+      ],
+      "blockedRequests": [],
+      "blockedWebSockets": [],
+      "pageErrors": []
+    }
+  ],
+  "limits": "Local intercepted destination only. Mobile viewport and touch emulation, not a physical device. Bounded keyboard/layout checks, not full accessibility or browser-matrix qualification. No real provider, payment, cart/variant transfer, shipping/tax, order, print or fulfillment qualification.",
+  "implementationCommit": "e90e9b65b54a7365b6668802d8a984ee392be837",
+  "playwright": "1.62.1",
+  "captures": [
+    {
+      "path": "desktop-keyboard-focused.png",
+      "sha256": "0221152974291204394aed9e3aa762ceb2fdef723993b08f7d69aedfb58ebaf8",
+      "bytes": 70063
+    },
+    {
+      "path": "mobile-touch-live.png",
+      "sha256": "a92c24abc23cdf3b7d8214e766587eb1e1ad9f949b7f03c4b4e072d2cd674dc0",
+      "bytes": 49411
+    }
+  ]
+}
