@@ -28,5 +28,7 @@
   "storeQualificationReview": "docs/store/qualification-37.md",
   "localeContractReview": "docs/store/locale-contract-64a.md",
   "localeRuntimeDecision": "docs/architecture/decisions/0009-single-locale-runtime.md",
-  "localeServiceReview": "docs/store/locale-service-64b.md"
+  "localeServiceReview": "docs/store/locale-service-64b.md",
+  "localeReviewCheckpoint": "docs/store/locale-review-64c.md",
+  "interfaceMessageWorkflow": "docs/store/interface-message-workflow.md"
 }

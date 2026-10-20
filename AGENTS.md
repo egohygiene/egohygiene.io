@@ -73,9 +73,13 @@ is implemented in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/8
 stacked on unmerged #83. Read [ADR 0009](docs/architecture/decisions/0009-single-locale-runtime.md)
 and the [locale contract receipt](docs/store/locale-contract-64a.md). Alan then
 authorized #64 B, implemented in the same draft; its [service receipt](docs/store/locale-service-64b.md)
-records the local passes and blocked Chromium startup. C remains the next checkpoint. #64 C,
-#65/#34 and #37's remaining qualification are still open; no new merge authority
-is inferred from continued implementation.
+records the local passes and blocked Chromium startup. Alan then selected C; its
+[review receipt](docs/store/locale-review-64c.md) records message-review tooling and
+authored browser journeys in #85. Browser startup remains blocked, so C acceptance
+stays open. Use the [message workflow](docs/store/interface-message-workflow.md) for
+source edits and human translation review. Next: run the retained journeys in a
+usable browser and sync; #65/#34 and #37's remaining qualification follow. No new
+merge authority is inferred from continued implementation.
 Deployment and commerce activation remain separate instructions.
 
 ## Working boundaries

@@ -11,7 +11,11 @@ Alan also selected further bounded progress: #64 checkpoint A is in draft #85,
 stacked on unmerged #83. Alan subsequently selected B: the router-bound locale
 service, language control and interface messages are now implemented in the same
 draft. [B evidence](../store/locale-service-64b.md) records local passes and blocked
-browser startup; C browser/message review is next. See the current handoff.
+browser startup. Alan then selected C: [message-review tooling and browser journey
+implementation](../store/locale-review-64c.md) are saved in #85. C acceptance remains
+open because browser startup is still blocked. Run the retained journeys in a
+usable browser before closing C; coordinated #65/#34 follows the sync. See the
+current handoff.
 The wider M1–M5 proposals below remain historical; no broad rollout, merge or
 deployment is authorized by the execution checkpoint.
 

@@ -1,0 +1,52 @@
+{
+  "sourceCommit": "4ad0dcb90c8190b5b151eb29a6f7cc72f7895444",
+  "derivation": "Summary of check-locales.ts --inventory output; message texts and per-message hashes are reproducible using the recorded command. No translation review approvals generated.",
+  "version": 1,
+  "sourceLocale": "en",
+  "formatLocale": "en",
+  "sourceHash": "050792a0940ca18104362a54059dc99bbed56fad47efe2d45c8a3c9fe0acbf4a",
+  "messageCount": 376,
+  "namespaces": [
+    {
+      "name": "common",
+      "messages": 2
+    },
+    {
+      "name": "errors",
+      "messages": 8
+    },
+    {
+      "name": "fourthwallPreview",
+      "messages": 39
+    },
+    {
+      "name": "landing",
+      "messages": 40
+    },
+    {
+      "name": "navigation",
+      "messages": 5
+    },
+    {
+      "name": "pages",
+      "messages": 35
+    },
+    {
+      "name": "shell",
+      "messages": 23
+    },
+    {
+      "name": "storeArtist",
+      "messages": 46
+    },
+    {
+      "name": "storeCards",
+      "messages": 140
+    },
+    {
+      "name": "storefront",
+      "messages": 38
+    }
+  ],
+  "translations": []
+}

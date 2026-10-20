@@ -1,6 +1,49 @@
 # Current handoff
 
-## Current: #64 B implemented in draft #85 — 2026-10-20 UTC
+## Current: #64 C implementation saved; browser acceptance blocked — 2026-10-20 UTC
+
+Alan explicitly selected checkpoint C. Its message-review tooling and authored
+browser journeys are in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85),
+branch `feat/locale-contract-64a`, still stacked on unmerged #83 at
+`8a6258a1011569ac6e531fc124ccb0766f986389`. Main remains
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. No merge was authorized.
+
+Tested source `4ad0dcb90c8190b5b151eb29a6f7cc72f7895444`, tree
+`1e789c79674e3c19719fe83afccb5428ac55023b`, equals the published/local source;
+final verification began clean. The checker validates 376 English messages in
+10 namespaces, placeholders/plural families and explicit fallback. Deterministic
+source/translation hashes detect stale human reviews; inventories cannot approve
+a language. The existing host and simulated service tests use real app composition.
+Ten locale browser journeys join the existing 35 layout cases. Read the
+[C receipt](../store/locale-review-64c.md), [message workflow](../store/interface-message-workflow.md)
+and [ADR 0009](../architecture/decisions/0009-single-locale-runtime.md).
+
+Local passes: 15 message-review tests, 79 catalog/artifact contracts, 162 consumer
+unit/component tests across 23 files, 3 semantic checks, 6 type profiles, 12-module
+boundary, 12-file Biome, four syntax checks, normal/preview builds and artifact
+guards (16 files/12 references/zero findings). Browser discovery listed 70 normal
+and 6 preview cases only. An incorrect artifact output-directory invocation was
+corrected without source/gate changes; both attempts are recorded. Independent
+review's empty unknown-group finding was fixed and tested; no source blocker remains.
+Exact [checks](../store/reviews/locale-review-64c/checks.json) and
+[artifacts](../store/reviews/locale-review-64c/artifacts.json) are retained.
+
+**C remains open:** Vite starts, but Chromium aborts before any page on denied
+process-singleton `socket()` (`Operation not permitted`). The cloud browser cannot
+reach the loopback server either. Zero browser cases or screenshots completed.
+Types, discovery and simulated DOM checks are not browser/layout evidence; earlier
+captures remain historical. Hosted source CI, dependency review and CodeQL failed;
+CI stopped at repository formatting after installation. No gate was disabled.
+
+**Next:** refresh GitHub, run the retained 35 layout + 10 locale journeys in a usable
+Chromium environment, inspect captures and resolve actual failures. Then rerun the
+16-step fresh-build qualification profile for normal/preview/handoff evidence.
+Sync before coordinated #65/#34. Keep #64/#37 open. Review #83/#85 separately; merge
+only when instructed and reconcile/retarget #85 after #83. English remains the sole
+public locale, real artist selections remain empty and providers disabled. No
+deployment, product/account activation, real provider contact or spending occurred.
+
+## Historical: #64 B implemented in draft #85 — 2026-10-20 UTC
 
 Alan explicitly selected checkpoint B. Implemented on `feat/locale-contract-64a`
 in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85), still stacked

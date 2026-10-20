@@ -1,7 +1,7 @@
 # ADR 0009 — One locale registry and the existing translation runtime
 
 - Date: 2026-10-20
-- Status: Selected for the local #64 checkpoint A; draft implementation awaits review.
+- Status: Selected for #64; A/B and C review tooling are in draft, browser qualification pending.
 - Scope: Shared interface messages and website locale selection. Catalog translations
   remain #65/#34; public rendering and canonical metadata remain #22.
 
@@ -117,3 +117,24 @@ fallback; missing source configuration is an error. Production registers only
 English; preview messages follow the existing compile-time route boundary. See the
 [B receipt](../../store/locale-service-64b.md) for implementation and verification
 limits, including blocked browser startup. C's browser/message-review work remains.
+
+## Checkpoint C review workflow refinement — 2026-10-20
+
+Validate all source namespaces and explicitly report partial translation fallback.
+Reserve plural suffixes and interpolation braces for the runtime's documented
+syntax. Require matching placeholder sets and a supported `_other` form for every
+authored plural family. Additional locale categories can refer to an existing
+source family without inventing English forms.
+
+Bind human review records to deterministic hashes of source and translated text.
+Hash source plural families together, so edits invalidate even translations of
+categories absent from English. Future production dictionaries require current
+records; candidate inventories never generate approval identities or decisions.
+Metadata checks cannot establish linguistic quality or reviewer identity. Public
+locale activation still requires a separate reviewed registry/resource change.
+See the [authoring workflow](../../store/interface-message-workflow.md).
+
+Test catalogs enter through optional app-composition inputs with production
+defaults unchanged. Tests use the same router subscription and translation service,
+not a second selection implementation. The [C receipt](../../store/locale-review-64c.md)
+records passing local message checks and the unresolved actual-browser blocker.
