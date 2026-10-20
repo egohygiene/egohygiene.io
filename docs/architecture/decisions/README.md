@@ -15,6 +15,7 @@ Use full paths/links and titles in issues, handoffs and provenance.
 | [0006 — Ego Hygiene identity and staged store launch](0006-store-launch-direction.md) | Accepted discussion direction on 2026-10-16; delivery/ownership unresolved | Documentation on `docs/store-launch-direction-20261016`; no deployment or storefront migration at that historical checkpoint |
 | [0007 — One canonical V1 storefront](0007-canonical-storefront-owner.md) | Selected website ownership/composed build for #75; submitted for review | Pinned comparison and preservation plan; no code migration or deployment |
 | [0008 — Curated storefront views](0008-curated-storefront-views.md) | Accepted; #62 checkpoints A/B/C merged in PR #78 on 2026-10-17 | Ordered editorial and artist/song references over one public catalog; merge receipt in current handoff |
+| [0009 — One locale runtime](0009-single-locale-runtime.md) | Selected for local #64 checkpoint A; draft implementation awaits review | Validated registry, source fallback, plural/interpolation and pure website selection policy; English remains the only public locale |
 
 This table records a dated delivery snapshot, not live merge status. Refresh the
 [current handoff](../../context/current-state.md) and GitHub before resuming.
