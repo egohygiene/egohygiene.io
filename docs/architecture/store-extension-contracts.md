@@ -9,7 +9,9 @@ why this checkpoint adds a provider adapter without adding a framework or engine
 
 | Data / state | Authority | Consumer behavior |
 | --- | --- | --- |
-| IDs, slugs, artwork revisions, design/product/context relationships | Validated catalog v1 | Derive views through selectors; never replace IDs with provider IDs |
+| IDs, slugs, artwork revisions, design/product/context relationships | Validated catalog v2 | Derive views through selectors; never replace IDs with provider IDs |
+| Source copy, translations and their review bindings | Canonical entry with explicit `sourceLocale` | Public projection retains current reviewed fields; selected-language rendering/search follows in #65 B |
+| Creator and rights-holder declarations | Explicit catalog attribution | Default to unknown; do not infer from contexts, curation or collection membership |
 | Public browser catalog | Node loader → `toPublicStoreCatalog` → Vite adapter | Import `src/content/store/index.ts`; no raw authoring JSON imports |
 | Shop and artist selections | Validated storefront curation v1 | Resolve ordered canonical IDs through domain selectors; membership does not imply authorship or purchase eligibility |
 | `q`, `view`, `story` and navigation | Router URL/search parameters | Derive filters on render; retain unrelated query parameters |
@@ -26,12 +28,31 @@ checkout route list is empty. `getStorePurchaseAction` still owns actual catalog
 purchase links and revalidates live mappings/artwork approvals. Preview adapters
 produce only inert summaries and cannot activate that path.
 
-Catalog and provider manifests currently accept version `1` only. Unknown fields
-and versions fail validation. Optional/defaulted compatible additions require old
-fixtures to keep passing; breaking data changes need an explicit version and
-migration. #34 owns catalog evolution and #55's public projection remains the
-build boundary. Restore compatible schema code and content together on rollback.
-See [catalog authoring](../store/catalog-authoring.md) for runnable content examples.
+Current catalog parsing accepts version `2` only, including required canonical
+`sourceLocale`. Provider and curation manifests retain their independent version
+`1`. Unknown fields and unsupported versions fail validation. Shared Zod schemas
+in `store.ts` compose the localization/review/attribution contract from
+`store-localization.ts`; inferred types and exports remain in
+`@egohygiene/schemas`, not a second app model.
+
+`store-migrations.ts` accepts v1 solely through an explicit migration, with the
+reviewed source language supplied by the caller. The CLI writes a new v2 envelope
+without overwriting its input or existing output; it does not silently migrate
+loaders or rewrite individual authoring files. Restore the retained v1 inputs and
+compatible consumer/schema code together on rollback. Compatible optional/defaulted
+v2 additions must preserve existing v2 fixtures; breaking changes need the next
+version and an explicit migration. Future digital or license offers need a reviewed
+product/purchase contract and delivery/terms policy under the same version policy;
+v2 does not implement them. See [catalog authoring](../store/catalog-authoring.md#schema-changes)
+for the runnable migration and [ADR 0010](decisions/0010-versioned-catalog-localization.md)
+for the durable contract. #55's validated public projection remains the build boundary.
+
+The portable import checker follows transitive imports from the store profile,
+including these shared schema modules. It permits Zod for schema validation,
+rejects application imports from schemas, and keeps provider adapters out of the
+domain. The module inventory grows with imports; it is not a fixed allowlist of
+schema filenames. File discovery, migration file output and artwork checks remain
+in Node tooling rather than the portable schemas.
 
 ## Add a page
 
@@ -152,18 +173,60 @@ provider, native language selector and `html lang`/`dir`. Internal `LocaleLink` 
 `LocaleNavLink` consumers retain explicit/non-source selection without changing
 canonical domain paths or external destinations. Only selecting a language saves
 a preference; opening a shared URL does not overwrite it. Back to an unqualified
-URL resolves the current saved preference. C still owns actual browser journeys
-and the translation key/placeholder review workflow.
-`check-locales.ts` still checks four populated English files rather than full
-translation parity. Do not present these pending parts as implemented.
+URL resolves the current saved preference.
+
+[Checkpoint C](../store/locale-review-64c.md) implements the message inventory,
+translation review workflow and browser journey definitions. `check-locales.ts`
+discovers all English namespaces, including isolated preview copy, and checks
+message keys, string shape, placeholders, cardinal plural categories and required
+`_other` forms. Partial dictionaries report source/category fallback. Deterministic
+source and translation hashes bind human message-review records; future production
+locale directories require a current review, while external candidate directories
+can be checked before review. Actual Chromium execution remains deferred to the
+final #37 qualification phase. The validator and journey definitions do not count
+as a passing browser run.
 
 Actual new public languages require reviewed dictionaries, registry entries and
 a catalog mapping supplied by app composition. Missing partial dictionaries use
 source fallback. The production selector currently lists English only.
-#65/#34 own catalog translations and schema migration; preserve canonical IDs,
-stored currency codes, asset paths and provider destinations. Language selection
-must not imply a new currency or shipping country. #22 owns crawler-visible
-locale/canonical outputs before multilingual publication.
+#65 A / #34 establish the v2 catalog contract below; #65 B will connect catalog
+fallback/rendering and search to this existing locale service. Preserve canonical
+IDs, stored currency codes, asset paths and provider destinations. Language
+selection must not imply a new currency or shipping country. #22 owns
+crawler-visible locale/canonical outputs before multilingual publication.
+
+## Add catalog translations or attribution
+
+Keep translations on the existing canonical entry, with its actual source language
+in `sourceLocale`. Optional `translations` default empty and cover only supported
+presentation fields. Creative names may stay untranslated. Image alt text and
+placeholder labels must match the artwork kind; unavailable copy and variant
+labels must match the product's purchase state and canonical variant IDs.
+
+Each translated field starts as draft. A reviewed field binds exact source/target
+language and text, plus artwork revision or variant ID where applicable, with a
+public reviewer ID and date. Changed bindings become stale; applicability errors
+remain validation failures even on drafts. `inspectStoreTranslations` reports
+present fields, and `toPublicStoreCatalog` removes draft/stale fields after full
+validation. Current reviewed fields retain their review bindings for downstream
+revalidation. These are exact catalog snapshots, separate from the interface
+message hashes described above. Keep private contacts, business records and rights
+evidence out of all review metadata: the authoring repository and public projection
+are public. Structurally valid metadata cannot establish identity or translation
+quality.
+
+Attribution defaults to `status: "unknown"`. A supported public declaration can
+name creators and/or rights holders through existing artist or brand context IDs.
+References must be unique per role, of the right kind and respect visibility.
+Context membership and artist/song/collection selection remain discovery data;
+they never infer ownership or approve selling. All migrated records keep unknown
+attribution until a supported declaration is authored.
+
+Source catalog fields still render unchanged in checkpoint A. Selected-language
+rendering, deterministic fallback and multilingual search remain #65 B; no public
+language is enabled by adding translation data. See the
+[catalog checkpoint](../store/catalog-localization-65a.md) and
+[authoring examples](../store/catalog-authoring.md#catalog-translations-and-attribution).
 
 ## Loading and failure behavior
 
@@ -181,12 +244,18 @@ module. Existing theme/gallery effects still need review if #22 introduces SSR.
 
 ## Local verification and review
 
-Use pinned Node `24.21.0` and pnpm `11.28.5` (Node range `>=24.21.0 <25`). Run the
-focused consumer above, `pnpm typecheck`, `pnpm catalog:test`, relevant
-`pnpm test:unit` files and `pnpm check`. For the actual preview interaction, use
-`task build:store` then `pnpm test:store:preview`; normal output must exclude the
-preview route and synthetic fixtures. [Local preview](../store/local-preview.md)
-describes the same build isolation and runtime setup.
+Use pinned Node `24.21.0` and pnpm `11.28.5` (Node range `>=24.21.0 <25`). Choose
+focused type/contract checks and relevant unit tests for the changed behavior;
+preserve normal-build exclusion of preview routes and synthetic fixtures.
+On 2026-10-20, Alan deferred Chromium execution, unrelated refactoring and broad
+lint/testing/CI repair to the final #37 qualification phase, coordinated with
+#29/#52/#49/#70. This changes execution order, not the passing criteria or evidence.
+
+The final full profile includes `pnpm typecheck`, `pnpm catalog:test`,
+`pnpm test:unit` and `pnpm check`. For preview interaction, build with
+`task build:store` before `pnpm test:store:preview`. [Local preview](../store/local-preview.md)
+describes the build isolation and runtime setup. Record exact commands and results;
+local checks are not hosted CI or production qualification.
 
 Record dependency/bundle changes and preserve the public-build fixture checks.
 Use the short PR checklist; unrelated changes need not run every possible gate.

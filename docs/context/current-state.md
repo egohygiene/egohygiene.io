@@ -1,6 +1,57 @@
 # Current handoff
 
-## Current: #64 C implementation saved; browser acceptance blocked — 2026-10-20 UTC
+## Current: #65 A / #34 contract saved; final validation deferred — 2026-10-20 UTC
+
+Alan explicitly moved Chromium execution/troubleshooting, unrelated refactoring,
+repository-wide lint/testing and CI repair to the final phase and selected further
+bounded implementation. [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84)
+records the new order. Existing [#37](https://github.com/egohygiene/egohygiene.io/issues/37)
+coordinates that final pass with #29/#52/#49/#70; no duplicate owner or disabled
+gate was introduced. #64 C's authored journeys remain unrun and acceptance open.
+
+Implemented #65 checkpoint A coordinated with #34 in
+[draft #86](https://github.com/egohygiene/egohygiene.io/pull/86), branch
+`feat/catalog-localization-65a`, stacked on unmerged draft #85 at
+`9b308a88df4446d54e0558ed35d5dd0f0bbee37e`. #85 remains stacked on draft #83 at
+`8a6258a1011569ac6e531fc124ccb0766f986389`; main remains
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. No merge was authorized.
+
+Tested source `879af7ebf9ffafe5467da892aef2c0eb78e87055`, tree `f5855f7f768c4863a5a6b3149e83802637a901af`,
+was published with an exact local/staged-tree comparison. Final focused checks
+ran on that source before publication; the following documentation commit records
+evidence. Strict catalog/entry v2 adds source language, inline reviewed translation
+fields, stale-review diagnostics and separate creator/rights-holder references.
+Public output excludes draft/stale translations. The explicit v1 migration and
+non-overwriting CLI retain originals; all ten shipped entries preserve their old
+fields, IDs, order, art and purchase state. Attribution remains unknown and no
+real translation was added. See [ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md),
+[checkpoint receipt](../store/catalog-localization-65a.md) and
+[authoring policy](../store/catalog-authoring.md#schema-changes).
+
+Focused local results: 104 catalog tests (24 new localization/migration contracts),
+57 store/preview consumer tests in 10 files, app/tooling/domain/schema types, normal
+build and 14-module boundary passed. A Vite emitted-file test proves draft/stale
+translation markers absent from HTML/JS/JSON/source maps. Independent review's
+undefined-only translation-field finding was fixed with a regression. Initial
+fixture-version/default failures were corrected; an incorrect schema tsconfig path
+was corrected without code/gate changes. [Exact evidence](../store/reviews/catalog-localization-65a/checks.json)
+retains those attempts and scope. No Chromium, full qualification, broad lint or
+manual hosted CI run occurred. Automatic source CI 39471602329, dependency review 39471602298 and CodeQL
+39471602591 failed; causes were not re-diagnosed. Hosted failures are unresolved,
+not qualified by local passes. Only source-level/browser-module compatibility is shown.
+
+**Next:** sync on A, then #65 B: selected-language catalog rendering and Unicode
+search, deterministic source fallback, provider-declared price formatting and
+canonical metadata inputs using the existing #64 service. C follows with bounded
+synthetic integration/authoring proof; actual browser execution stays with final
+#37. After #65/#34, continue #38 plus relevant #9 readiness/disclosures, then #22
+public rendering/metadata, then final lint/test/browser/CI review. Hosting/provider
+activation and #39 remain separately authorized work. Review/merge the draft stack
+only when instructed, reconciling each base after its parent changes. English is
+still the only public locale; real artist selections are empty, providers disabled,
+and no deployment, account change, real order or spending occurred.
+
+## Historical: #64 C implementation saved; browser acceptance blocked — 2026-10-20 UTC
 
 Alan explicitly selected checkpoint C. Its message-review tooling and authored
 browser journeys are in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85),

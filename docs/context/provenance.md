@@ -4,6 +4,50 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Catalog localization A and validation deferral — 2026-10-20 UTC
+
+Alan selected bounded progress and explicitly deferred Chromium, unrelated
+refactoring and broad lint/test/CI repair until final #37. Refreshed #65/#34/#37/
+#29/#84, main `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`, draft #83
+`8a6258a1011569ac6e531fc124ccb0766f986389` and #85
+`9b308a88df4446d54e0558ed35d5dd0f0bbee37e`; rechecked #85 unchanged immediately
+before publishing. #84/#37/#64 retain the revised sequencing and open browser
+acceptance. No issue hierarchy or CI gate changed.
+
+Implementation [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86):
+`879af7ebf9ffafe5467da892aef2c0eb78e87055`, tree `f5855f7f768c4863a5a6b3149e83802637a901af`. The remote
+Git tree exactly matched the staged tested source. Inputs were existing public
+v1 catalog records and synthetic tests; no external code, real translations,
+private assets or business/rights evidence was retrieved. The ten records migrated
+through the exported API, with original fields compared exactly to the parent
+revision after removing only v2 additions. Empty translations and unknown attribution
+make no inferred artist/rights claim. Source files and code can be restored together
+from the retained parent for rollback.
+
+[ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md) records
+the inline contract, source/target/value/artwork/variant review bindings, public-safe
+metadata tradeoff, independent attribution and strict one-version migration chain.
+The [receipt](../store/catalog-localization-65a.md) and [authoring guide](../store/catalog-authoring.md)
+record partial creative-name fallback, stale diagnostics and non-overwriting migration.
+Independent review found one undefined-only field edge, fixed with regression.
+
+Focused final results: 104 catalog contracts, 57 consumer tests, four type profiles,
+normal build and 14-module boundary passed. See [checks](../store/reviews/catalog-localization-65a/checks.json)
+for commands, log hashes, corrections and unrun work. An emitted-file test covers
+translation sentinels; it is not a browser/layout review. Initial v1 expectation
+and typed-default fixture errors were corrected for v2. A mistaken schema config
+path failed, then the existing `tsconfig.build.json` passed; no validation gate
+was removed. Publication's first local ref adoption used a missing remote-tracking
+ref; adoption by the fetched exact commit succeeded without source changes.
+
+No Chromium retry, broad lint/refactor, full qualification, CI dispatch, preview
+deployment, provider contact, purchase or spending. Parent #85 hosted CI, dependency
+review and CodeQL were failed on refresh (39442495673 / 39442496380 / 39442495599).
+Source draft publication also triggered failed CI 39471602329, dependency review
+39471602298 and CodeQL 39471602591. Status only was refreshed; causes were not
+re-diagnosed. Those remain final-phase work, not hidden by local results. #65/#34/#64/#37 stay
+open; #86/#85/#83 stay draft/unmerged. Next checkpoint is #65 B after sync.
+
 ## Locale review checkpoint C — 2026-10-20 UTC
 
 Alan selected C after B. Refreshed draft #85 at
