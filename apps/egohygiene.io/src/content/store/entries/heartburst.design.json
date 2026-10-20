@@ -1,11 +1,16 @@
 {
-  "schemaVersion": 1,
   "id": "design-heartburst",
   "slug": "heartburst",
-  "kind": "design",
   "title": "heartburst",
   "description": "An electric fuchsia heart surrounded by black ink splashes, long drips and scattered pastel marks. A standalone design study; garment ideas are still taking shape.",
   "visibility": "public",
+  "schemaVersion": 2,
+  "sourceLocale": "en",
+  "translations": [],
+  "attribution": {
+    "status": "unknown"
+  },
+  "kind": "design",
   "contextIds": [],
   "artworkRevision": 1,
   "artwork": {

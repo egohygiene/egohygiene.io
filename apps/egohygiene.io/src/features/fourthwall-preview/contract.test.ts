@@ -6,7 +6,7 @@ import { fourthwallPreviewAdapter } from "./adapter.ts";
 import { fourthwallProductSchema } from "./contract.ts";
 
 const canonical = storeProductSchema.parse({
-  schemaVersion: 1, kind: "product", id: "product-example", slug: "canonical-example",
+  schemaVersion: 2, sourceLocale: "en", kind: "product", id: "product-example", slug: "canonical-example",
   title: "Example", description: "Fictional example", visibility: "public",
   designIds: ["design-example"], purchase: { state: "preview" },
 });

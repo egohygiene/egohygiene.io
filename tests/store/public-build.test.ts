@@ -19,7 +19,8 @@ const browserEntry = fileURLToPath(
   new URL("../../apps/egohygiene.io/src/content/store/index.ts", import.meta.url),
 );
 const base = (id: string, visibility = "public") => ({
-  schemaVersion: 1,
+  schemaVersion: 2,
+  sourceLocale: "en",
   id,
   slug: id,
   title: id,
@@ -180,6 +181,42 @@ test("production artifacts exclude all draft kinds and unused routes while prese
   assert.equal(getStorePurchaseAction(catalog, "product-draft").kind, "disabled");
   await build(f.configuration());
   assert.deepEqual(await emittedFiles(f.root), files, "Repeated builds must be byte-identical");
+});
+
+test("emitted catalog includes only current reviewed translation fields", async (t) => {
+  const f = await fixture(t);
+  await writeJson(f.entry("design-public"), {
+    ...design("design-public"),
+    translations: [{
+      locale: "fr",
+      fields: {
+        title: {
+          value: "PUBLIC_REVIEWED_TRANSLATION",
+          review: {
+            status: "reviewed", locale: "fr", reviewedBy: "synthetic-reviewer",
+            reviewedAt: "2026-10-20", source: { locale: "en", value: "design-public" },
+            value: "PUBLIC_REVIEWED_TRANSLATION",
+          },
+        },
+        description: { value: "DRAFT_TRANSLATION_SENTINEL", review: { status: "draft" } },
+        artworkAlt: {
+          value: "STALE_TRANSLATION_SENTINEL",
+          review: {
+            status: "reviewed", locale: "fr", reviewedBy: "synthetic-reviewer",
+            reviewedAt: "2026-10-20",
+            source: { locale: "en", value: "OLD_SOURCE_SENTINEL", artworkRevision: 1 },
+            value: "STALE_TRANSLATION_SENTINEL",
+          },
+        },
+      },
+    }],
+  });
+  await build(f.configuration());
+  const output = Object.values(await emittedFiles(f.root)).join("\n");
+  assert.ok(output.includes("PUBLIC_REVIEWED_TRANSLATION"));
+  for (const marker of ["DRAFT_TRANSLATION_SENTINEL", "STALE_TRANSLATION_SENTINEL", "OLD_SOURCE_SENTINEL"]) {
+    assert.ok(!output.includes(marker), `Unpublished translation leaked: ${marker}`);
+  }
 });
 
 test("build failures preserve source diagnostics and reject public-to-draft references and stale live approvals", async (t) => {

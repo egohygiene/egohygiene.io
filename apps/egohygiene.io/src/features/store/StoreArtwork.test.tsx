@@ -13,7 +13,8 @@ function Messages({ children }: { readonly children: ReactNode }) {
 const render = (ui: ReactElement) => baseRender(ui, { wrapper: Messages });
 
 const design: StoreDesign = {
-  schemaVersion: 1,
+  schemaVersion: 2,
+  sourceLocale: "en", translations: [], attribution: { status: "unknown" },
   kind: "design",
   id: "design-test-approved",
   slug: "approved-artwork",

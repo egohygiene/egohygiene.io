@@ -1,6 +1,8 @@
 import { z } from "zod";
 
 export * from "./store.ts";
+export * from "./store-localization.ts";
+export * from "./store-migrations.ts";
 export * from "./store-providers.ts";
 export * from "./storefront-curation.ts";
 

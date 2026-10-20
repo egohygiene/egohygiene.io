@@ -12,11 +12,12 @@ import { StoreArtistPage } from "./StoreArtistPage";
 import { IncomprisPage } from "./StorefrontPages";
 
 const fixtureCatalog: StoreCatalog = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   checkoutRoutes: [],
   entries: [
     {
-      schemaVersion: 1,
+      schemaVersion: 2,
+      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
       kind: "context",
       contextType: "artist",
       id: "artist-test",
@@ -26,7 +27,8 @@ const fixtureCatalog: StoreCatalog = {
       visibility: "public",
     },
     {
-      schemaVersion: 1,
+      schemaVersion: 2,
+      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
       kind: "context",
       contextType: "song",
       id: "song-test",
@@ -36,7 +38,8 @@ const fixtureCatalog: StoreCatalog = {
       visibility: "public",
     },
     {
-      schemaVersion: 1,
+      schemaVersion: 2,
+      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
       kind: "design",
       id: "design-test",
       slug: "test-artwork",
@@ -48,7 +51,8 @@ const fixtureCatalog: StoreCatalog = {
       artwork: { kind: "placeholder", label: "Test artwork" },
     },
     {
-      schemaVersion: 1,
+      schemaVersion: 2,
+      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
       kind: "product",
       id: "product-shirt",
       slug: "test-shirt",
@@ -60,7 +64,8 @@ const fixtureCatalog: StoreCatalog = {
       purchase: { state: "preview" },
     },
     {
-      schemaVersion: 1,
+      schemaVersion: 2,
+      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
       kind: "product",
       id: "product-hoodie",
       slug: "test-hoodie",
@@ -72,7 +77,8 @@ const fixtureCatalog: StoreCatalog = {
       purchase: { state: "preview" },
     },
     {
-      schemaVersion: 1,
+      schemaVersion: 2,
+      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
       kind: "collection",
       id: "collection-first",
       slug: "first-song-collection",
@@ -84,7 +90,8 @@ const fixtureCatalog: StoreCatalog = {
       contextIds: ["artist-test", "song-test"],
     },
     {
-      schemaVersion: 1,
+      schemaVersion: 2,
+      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
       kind: "collection",
       id: "collection-second",
       slug: "second-song-collection",

@@ -1,17 +1,31 @@
 import { z } from "zod";
+import {
+  publicStoreTranslations,
+  storeAttributionSchema,
+  storeContentLocaleSchema,
+  storeReferenceIdSchema,
+  storeTranslationSchema,
+  validateStoreTranslations,
+} from "./store-localization.ts";
 
-export const STORE_SCHEMA_VERSION = 1;
-const id = z.string().regex(/^[a-z][a-z0-9]*(?:-[a-z0-9]+)+$/, "Use a stable lowercase hyphenated ID");
+export const STORE_SCHEMA_VERSION = 2;
+const id = storeReferenceIdSchema;
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Use a lowercase URL slug");
 const text = z.string().trim().min(1);
 const references = z.array(id).default([]);
-const base = {
-  schemaVersion: z.literal(STORE_SCHEMA_VERSION),
+const commonBase = {
   id,
   slug,
   title: text,
   description: text,
   visibility: z.enum(["draft", "public"]),
+};
+const base = {
+  ...commonBase,
+  schemaVersion: z.literal(STORE_SCHEMA_VERSION),
+  sourceLocale: storeContentLocaleSchema,
+  translations: z.array(storeTranslationSchema).default([]),
+  attribution: storeAttributionSchema.default({ status: "unknown" }),
 };
 
 export const storeArtworkSchema = z.discriminatedUnion("kind", [
@@ -23,13 +37,13 @@ export const storeArtworkSchema = z.discriminatedUnion("kind", [
   }),
 ]);
 
-export const storeDesignSchema = z.strictObject({
-  ...base,
+const designFields = {
   kind: z.literal("design"),
   contextIds: references,
   artworkRevision: z.number().int().positive(),
   artwork: storeArtworkSchema,
-});
+};
+export const storeDesignSchema = z.strictObject({ ...base, ...designFields });
 
 export const storePurchaseSchema = z.discriminatedUnion("state", [
   z.strictObject({ state: z.literal("preview") }),
@@ -47,26 +61,28 @@ export const storePurchaseSchema = z.discriminatedUnion("state", [
   }),
 ]);
 
-export const storeProductSchema = z.strictObject({
-  ...base,
+const productFields = {
   kind: z.literal("product"),
   designIds: z.array(id).min(1),
   contextIds: references,
   purchase: storePurchaseSchema,
-});
+};
+export const storeProductSchema = z.strictObject({ ...base, ...productFields });
 
-export const storeCollectionSchema = z.strictObject({
-  ...base,
+const collectionFields = {
   kind: z.literal("collection"),
   designIds: references,
   productIds: references,
   contextIds: references,
-});
+};
+export const storeCollectionSchema = z.strictObject({ ...base, ...collectionFields });
+
+const legacyContextType = z.enum(["artist", "realm", "song", "character", "appearance"]);
 
 export const storeContextSchema = z.strictObject({
   ...base,
   kind: z.literal("context"),
-  contextType: z.enum(["artist", "realm", "song", "character", "appearance"]),
+  contextType: legacyContextType.or(z.literal("brand")),
 });
 
 export const storeEntrySchema = z.discriminatedUnion("kind", [
@@ -93,6 +109,20 @@ export const storeCheckoutRouteSchema = z.strictObject({
 export const storeCatalogSchema = z.strictObject({
   schemaVersion: z.literal(STORE_SCHEMA_VERSION),
   entries: z.array(storeEntrySchema),
+  checkoutRoutes: z.array(storeCheckoutRouteSchema),
+});
+
+// Explicit v1 compatibility input: shared unchanged field rules, without v2 content/rights fields.
+const legacyBase = { ...commonBase, schemaVersion: z.literal(1) };
+export const storeEntryV1Schema = z.discriminatedUnion("kind", [
+  z.strictObject({ ...legacyBase, ...designFields }),
+  z.strictObject({ ...legacyBase, ...productFields }),
+  z.strictObject({ ...legacyBase, ...collectionFields }),
+  z.strictObject({ ...legacyBase, kind: z.literal("context"), contextType: legacyContextType }),
+]);
+export const storeCatalogV1Schema = z.strictObject({
+  schemaVersion: z.literal(1),
+  entries: z.array(storeEntryV1Schema),
   checkoutRoutes: z.array(storeCheckoutRouteSchema),
 });
 
@@ -156,6 +186,23 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
     if ("contextIds" in entry) check("contextIds", entry.contextIds, "context");
     if ("designIds" in entry) check("designIds", entry.designIds, "design");
     if ("productIds" in entry) check("productIds", entry.productIds, "product");
+    issues.push(...validateStoreTranslations(entry, source));
+    if (entry.attribution.status === "declared") {
+      for (const field of ["creatorIds", "rightsHolderIds"] as const) {
+        const seen = new Set<string>();
+        entry.attribution[field].forEach((reference, index) => {
+          const path = `${source}:attribution.${field}.${index}`;
+          if (seen.has(reference)) issues.push(`${path}: Duplicate attribution reference ${reference}`);
+          seen.add(reference);
+          const target = byId.get(reference)?.entry;
+          if (!target || target.kind !== "context" || !["artist", "brand"].includes(target.contextType)) {
+            issues.push(`${path}: Expected an artist or brand reference, received ${reference}`);
+          } else if (entry.visibility === "public" && target.visibility !== "public") {
+            issues.push(`${path}: Public attribution cannot reference draft ${reference}`);
+          }
+        });
+      }
+    }
   }
   const routeIds = new Set<string>();
   for (const [index, route] of checkoutRoutes.entries()) {
@@ -228,7 +275,8 @@ function validateStoreCatalog(catalog: unknown): StoreCatalog {
 // A draft remains public Git content; the Node adapter excludes it from browser output.
 export function toPublicStoreCatalog(catalog: StoreCatalog): StoreCatalog {
   const validated = validateStoreCatalog(catalog);
-  const entries = validated.entries.filter((entry) => entry.visibility === "public");
+  const entries = validated.entries.filter((entry) => entry.visibility === "public")
+    .map((entry) => ({ ...entry, translations: publicStoreTranslations(entry) }));
   const usedRoutes = new Set(entries.flatMap((entry) =>
     entry.kind === "product" && entry.purchase.state === "live" ? [entry.purchase.routeId] : []));
   return { schemaVersion: STORE_SCHEMA_VERSION, entries, checkoutRoutes: validated.checkoutRoutes.filter((route) => usedRoutes.has(route.id)) };

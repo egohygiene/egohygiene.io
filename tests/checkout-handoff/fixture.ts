@@ -50,7 +50,10 @@ export function createCheckoutHandoffInputs(): {
 } {
   const fixture = CHECKOUT_HANDOFF_FIXTURE;
   const base = {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    sourceLocale: "en",
+    translations: [] as StoreEntry["translations"],
+    attribution: { status: "unknown" },
     description: "Fictional local browser test. No real merchandise or provider approval.",
     visibility: "public",
   } as const;
