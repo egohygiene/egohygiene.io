@@ -66,9 +66,14 @@ that draft before merge; its instruction did not authorize merging subsequent PR
 #37 remains open; #38 readiness preparation remains a later proposal.
 Alan requested the remaining sequence be saved on 2026-10-19. Use
 [roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) for the current
-ordered queue and notes. Native hierarchy linking is pending; the saved issue
-checklists are not native sub-issue relationships. This planning request does
-not select a new implementation checkpoint or approve a merge.
+ordered queue and notes. On 2026-10-20 Alan approved browser hierarchy linking
+and further bounded progress while away. #84 now has its 13 intended native
+children, preserving #31's eight existing children. The next #64 checkpoint A
+is implemented in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85),
+stacked on unmerged #83. Read [ADR 0009](docs/architecture/decisions/0009-single-locale-runtime.md)
+and the [locale contract receipt](docs/store/locale-contract-64a.md). #64 B/C,
+#65/#34 and #37's remaining qualification are still open; no new merge authority
+is inferred from continued implementation.
 Deployment and commerce activation remain separate instructions.
 
 ## Working boundaries

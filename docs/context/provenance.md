@@ -872,3 +872,75 @@ rerun. Prior local qualification and failed hosted runs remain dated evidence,
 not fresh results for this planning update. No ADR is needed for issue
 coordination. No merge, next implementation checkpoint, deployment, account,
 product activation or purchase was performed.
+
+## Native roadmap and locale contract A — 2026-10-20 UTC
+
+Authority: Alan explicitly approved browser fallback for native roadmap links and
+asked for more progress while away. Recovered the pruned scratch checkout from
+GitHub; re-read root/scoped context, relevant ADRs and live issue/PR/main states.
+Main was `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`; #83 remained draft/open at
+`8a6258a1011569ac6e531fc124ccb0766f986389`. No prior unmerged PR was merged.
+
+Completed [#84](https://github.com/egohygiene/egohygiene.io/issues/84)'s native
+hierarchy through the authorized GitHub browser UI: direct children
+#31/#64/#65/#49/#70/#52/#9/#22/#29/#61/#69/#75/#51. Readback confirmed #31 still
+has #32–#39. Other targets had no native parent before attaching. A transient UI
+result-list change attached #5 accidentally; that relationship was removed and
+the final exact set verified. #5 itself, its body and state were unchanged.
+#31's old program body/history and existing milestone assignments were retained.
+
+Selected the next bounded #64 checkpoint A rather than starting product activation.
+[Draft #85](https://github.com/egohygiene/egohygiene.io/pull/85), branch
+`feat/locale-contract-64a`, is stacked on #83's branch. Source
+`bd217fed480fbc6124ad4bf0e23865605c8ef0c7`, tree
+`2bf0ba9db2b66da881bc4e61168083179c2d5070`, equals the local staged tree.
+Fetched the source commit and ran the final focused checks from a clean checkout;
+this follow-up adds evidence and continuity only.
+
+[ADR 0009](../architecture/decisions/0009-single-locale-runtime.md) records the
+single-runtime/registry/fallback/URL contract. Existing safe lookup remains; new
+translation calls add source fallback, finite-count cardinal plurals and plain-text
+named interpolation. Registry validation covers canonical IDs, direction, Intl
+support and deterministic source-last fallback graphs. The app keeps English-only
+registration; pure helpers handle validated URL/preference precedence and denied
+storage without browser side effects. No language picker, DOM direction update or
+real translation is claimed. Existing catalog/providers/artwork/dependencies stay
+unchanged; no schema bump or extra runtime was introduced.
+
+[Receipt](../store/locale-contract-64a.md), [exact checks](../store/reviews/locale-contract-64a/checks.json)
+and [normal artifact inventory](../store/reviews/locale-contract-64a/artifacts.json)
+retain the commands, timestamps, source and limits. Final local result: 128 tests
+across 19 files, two type profiles, 12 portable modules, 11-file scoped Biome,
+fresh normal build and artifact checks pass. Artifact output: 16 files, 12
+references, zero findings; 929,781 raw/575,609 level-9 gzip bytes. Existing budgets
+remain provisional. An initial scanner output-path argument was rejected before
+scanning; only the argument was corrected and the failed invocation is retained.
+One informational Biome bracket-key suggestion and existing module notices remain.
+Independent source review found no blocker. No browser/device/AT/provider or
+full #37 suite was rerun for this contract-only scope.
+
+Node 24.21.0/pnpm 11.28.5 were recovered through official sources and the existing
+frozen-lockfile, ignore-scripts setup. Node archive SHA-256
+`fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6`
+matched the vendor checksum. Actual TypeScript 5.9.3, Vitest 4.1.11 and Vite 8.2.0
+came from the unchanged lockfile. No runtime binary or private source was committed.
+
+At source head, hosted [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39369768853),
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39369768913)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39369769095)
+failed. CI installed successfully then failed formatting and skipped later stages.
+No hosted success is inferred from local checks; no gate change/manual dispatch.
+
+Next: review #83 and #85; #64 B/C are the next implementation checkpoints, followed
+by coordinated #65/#34 and remaining #37 evidence. Retarget #85 after #83 only
+when merge is selected. No deployment, real provider/product activation, account
+change, purchase or spending occurred. This receipt does not grant future merge
+authority or mark wider issue acceptance complete.
+
+The [native hierarchy capture](../store/reviews/locale-contract-64a/roadmap-subissues.jpg)
+is an unedited GitHub UI screenshot taken after the final roadmap prose update;
+the root inspected it. SHA-256 `0d3f5d25a1ba97876c6a3ee522ea07c531a81b0a534b3f320b0cb98de6ce4200`.
+The capture shows all 13 children and #31's existing partial completion badge.
+The source page is public issue #84; no account menu, credentials or private
+records are included. #31/#64/#84 body updates and #83's stacked-PR pointer were
+read back; issue states remain open.
