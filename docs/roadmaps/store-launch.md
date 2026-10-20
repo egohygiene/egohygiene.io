@@ -8,7 +8,10 @@ focused queue, existing issue owners, evidence, dependencies and deferred work.
 The requested native hierarchy was installed on 2026-10-20: #31 and the twelve
 other owners are direct children, while #31 retains #32–#39 and closed history.
 Alan also selected further bounded progress: #64 checkpoint A is in draft #85,
-stacked on unmerged #83. See the current handoff and locale contract receipt.
+stacked on unmerged #83. Alan subsequently selected B: the router-bound locale
+service, language control and interface messages are now implemented in the same
+draft. [B evidence](../store/locale-service-64b.md) records local passes and blocked
+browser startup; C browser/message review is next. See the current handoff.
 The wider M1–M5 proposals below remain historical; no broad rollout, merge or
 deployment is authorized by the execution checkpoint.
 

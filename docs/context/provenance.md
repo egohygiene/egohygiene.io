@@ -944,3 +944,63 @@ The capture shows all 13 children and #31's existing partial completion badge.
 The source page is public issue #84; no account menu, credentials or private
 records are included. #31/#64/#84 body updates and #83's stacked-PR pointer were
 read back; issue states remain open.
+
+## Locale service checkpoint B — 2026-10-20 UTC
+
+Authority: Alan explicitly instructed continuation with #64 B. Recovered the
+pruned scratch repository from GitHub and read root/scoped instructions, current
+state/context/provenance and relevant ADRs. Live #83/#85 remained drafts at
+`8a6258a1011569ac6e531fc124ccb0766f986389` and
+`c71c8c4edd2b39337a2ffc812969e66cfe7be175`; main remained
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`.
+
+[Draft #85](https://github.com/egohygiene/egohygiene.io/pull/85) now includes source
+`ec7bcc1629fd5261dddd2182597f10affadc9140`, tree
+`665d4853f7b565b3584dbac48dd6f21ce862c17c`. The GitHub-created tree exactly matched
+the local staged tree; fetched source was checked clean before final verification.
+The following documentation/evidence commit does not change tested source.
+
+[Receipt](../store/locale-service-64b.md), [commands/results](../store/reviews/locale-service-64b/checks.json)
+and [artifacts](../store/reviews/locale-service-64b/artifacts.json) record the delivery.
+App composition subscribes to the existing router; one browser locale service feeds
+the same shared runtime. Native selection, recoverable preference access, document
+language/direction, locale-preserving internal links, complete interface messages,
+client metadata and counts/prices are connected. [ADR 0009](../architecture/decisions/0009-single-locale-runtime.md)
+records the refinement. Explicit choices persist; shared URLs do not overwrite a
+preference. Unqualified historical URLs resolve the current preference. English
+alone remains public. Test-only partial/expanded/RTL dictionaries prove component
+behavior; catalog text, IDs, schemas, public artwork and provider destinations
+remain unchanged. Preview copy follows the existing compile-time boundary.
+
+Final local pass: 143 tests/22 files, 3 semantic component checks, both type profiles,
+12 portable modules, 46-file Biome, fresh normal/isolated builds and normal artifact
+guards. Two pre-existing Biome warnings and module-loader notices remain. Artifact
+inventory: 16 files/12 references/no findings; 942,164 raw/577,788 level-9 gzip bytes,
+within provisional ceilings; Heartburst bytes unchanged. Independent review found
+one raw artist-preview link; it was fixed before final verification. No remaining
+blocking source finding. Intermediate parallel-edit import/catalog wiring failures
+were superseded by the clean final pass; no gate was weakened.
+
+Node 24.21.0 and pnpm 11.28.5 recovered using official tooling and the existing
+frozen-lockfile/ignore-scripts setup (3770 packages). TypeScript 5.9.3, Vitest 4.1.11,
+Vite 8.2.0, Playwright 1.62.1; unchanged lockfile. Node archive SHA-256
+`fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6`
+matched the official checksum. Runtime binaries and local logs were not committed.
+
+Chrome for Testing 155.0.8059.84 was recovered but its launch was blocked by the
+execution environment denying process-singleton `socket()` with `Operation not
+permitted`. No browser page opened; no actual smoke/reload/keyboard/touch/expanded/
+RTL or physical-device/AT test is claimed. Earlier browser receipts remain dated
+history. C must resolve usable browser execution and perform those journeys plus
+message key/placeholder/source-change review; this checkpoint does not complete C.
+
+Source hosted [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/39427678218),
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/39427678217)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/39427678404)
+failed. CI installed successfully, failed formatting and skipped downstream checks.
+Other failure causes were not re-diagnosed; no manual dispatch or disabled gates.
+
+#64/#37 remain open; #85 remains draft stacked on #83. Next is B sync then C when
+selected, followed by #65/#34 and remaining #37 evidence. No merge, deployment,
+real public translation, account/product activation, provider contact, purchase
+or spending occurred. This checkpoint does not authorize later merges.

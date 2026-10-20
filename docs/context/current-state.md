@@ -1,6 +1,45 @@
 # Current handoff
 
-## Current: native roadmap complete; #64 A in draft #85 — 2026-10-20 UTC
+## Current: #64 B implemented in draft #85 — 2026-10-20 UTC
+
+Alan explicitly selected checkpoint B. Implemented on `feat/locale-contract-64a`
+in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85), still stacked
+on unmerged #83 (`test/store-qualification-37`,
+`8a6258a1011569ac6e531fc124ccb0766f986389`). Main remains
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. No merge authority was added.
+
+Tested source `ec7bcc1629fd5261dddd2182597f10affadc9140`, tree
+`665d4853f7b565b3584dbac48dd6f21ce862c17c`, equals the published/local source;
+final verification began clean. One service now connects router URL/preference
+selection to the existing translation provider, native language selector and
+`html lang`/`dir`. Internal links retain selection; filters/hash and same-page
+selector focus are preserved. Shell/store/detail/gallery/preview/error messages,
+plurals, client metadata and locale formatting are connected. Only English is
+public; catalog translations remain #65/#34. Read the [B receipt](../store/locale-service-64b.md)
+and [ADR 0009 refinement](../architecture/decisions/0009-single-locale-runtime.md).
+
+Local results: 143 unit/component tests in 22 files, 3 semantic component checks,
+2 type profiles, 12-module boundary, 46-file Biome, normal/preview builds and
+normal artifact guards (16 files/12 references/zero findings) passed. Two existing
+Biome warnings and module-loader notices remain. Independent review has no
+remaining blocker. Exact [checks](../store/reviews/locale-service-64b/checks.json)
+and [artifact inventory](../store/reviews/locale-service-64b/artifacts.json) are retained.
+
+**Browser limitation:** Chromium startup is denied `socket()` / `Operation not
+permitted` before any page opens. No actual browser smoke, language navigation,
+expanded/RTL layout, keyboard/touch or physical-device/AT journey was run for B.
+Simulated router/remount tests are not browser evidence. Hosted source CI, dependency
+review and CodeQL failed; CI stopped at repository formatting after installation.
+Local results do not qualify hosting or commerce.
+
+**Next:** sync on B, then select C: actual browser switching/fallback/denied-storage/
+reload/history and expanded/RTL review using a usable browser, plus repeatable
+message key/placeholder and source-change review. Reuse the existing qualification
+host and service. #65/#34 and remaining #37 qualification follow. Review #83/#85
+separately; merge only when instructed and retarget/reconcile #85 after #83.
+Provider/purchase activation remains disabled; no deployment or spending occurred.
+
+## Historical: native roadmap complete; #64 A in draft #85 — 2026-10-20 UTC
 
 Alan approved using the browser to finish native sub-issue links and requested
 further bounded progress while away. [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84)

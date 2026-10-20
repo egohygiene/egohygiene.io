@@ -15,7 +15,7 @@ why this checkpoint adds a provider adapter without adding a framework or engine
 | `q`, `view`, `story` and navigation | Router URL/search parameters | Derive filters on render; retain unrelated query parameters |
 | Gallery selection, size, quantity and displayed mock summary | Local React state | Derive selected objects/eligibility; clear the summary when selection changes |
 | Theme preference and system resolution | One `ThemeProvider` | `useTheme` and semantic variables; storage failure must not block the app |
-| Locale, messages and formatting | One app `I18nProvider` | Current app defaults to English; do not add feature-level locale state |
+| Locale, messages and formatting | App router → one `LocaleProvider` → shared `I18nProvider` | URL/preference/source selection; do not add feature-level locale state |
 | Synthetic normalized offer | Fixture + selected adapter + canonical product | Derive once for the immutable preview input; no fetch/cache/store |
 | Future remote stock, price, variants | Qualified provider service, once implemented | One remote authority and freshness policy; do not copy stock into catalog or component state |
 | Public site configuration | `@egohygiene/config` explicit input parser | Known public fields only; no provider credentials in `VITE_*` or catalog JSON |
@@ -123,7 +123,8 @@ into live checkout by changing `purchaseEnabled`.
 ## Add a locale
 
 The website registry is `src/i18n/config.ts`; production registers English only.
-`src/i18n/resources.ts` still supplies the nine English namespaces. The existing
+`src/i18n/resources.ts` supplies the source namespaces, with Fourthwall preview
+copy included only by the isolated preview build. The existing
 single `I18nProvider` now accepts optional ordered fallback dictionaries and
 `t(key, parameters)`, while plain `t(key)` and safe dotted lookup stay compatible.
 [ADR 0009](decisions/0009-single-locale-runtime.md) defines the contract and
@@ -145,13 +146,20 @@ is implemented. Ordinary React text rendering remains the output boundary.
 
 Pure helpers in `src/i18n/selection.ts` define `lang` URL selection, optional
 `egohygiene.locale` preference and source fallback. They preserve other filters
-and recover from storage denial. They are not yet a browser adapter: #64 B owns
-the language selector, provider state, `html lang`/`dir` and navigation effects;
-C owns browser journeys and the translation key/placeholder review workflow.
+and recover from storage denial. [Checkpoint B](../store/locale-service-64b.md)
+connects the existing data router through app composition to one browser locale
+provider, native language selector and `html lang`/`dir`. Internal `LocaleLink` /
+`LocaleNavLink` consumers retain explicit/non-source selection without changing
+canonical domain paths or external destinations. Only selecting a language saves
+a preference; opening a shared URL does not overwrite it. Back to an unqualified
+URL resolves the current saved preference. C still owns actual browser journeys
+and the translation key/placeholder review workflow.
 `check-locales.ts` still checks four populated English files rather than full
 translation parity. Do not present these pending parts as implemented.
 
-Actual new public languages require reviewed dictionaries and registry entries.
+Actual new public languages require reviewed dictionaries, registry entries and
+a catalog mapping supplied by app composition. Missing partial dictionaries use
+source fallback. The production selector currently lists English only.
 #65/#34 own catalog translations and schema migration; preserve canonical IDs,
 stored currency codes, asset paths and provider destinations. Language selection
 must not imply a new currency or shipping country. #22 owns crawler-visible

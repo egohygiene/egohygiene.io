@@ -71,7 +71,9 @@ and further bounded progress while away. #84 now has its 13 intended native
 children, preserving #31's eight existing children. The next #64 checkpoint A
 is implemented in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85),
 stacked on unmerged #83. Read [ADR 0009](docs/architecture/decisions/0009-single-locale-runtime.md)
-and the [locale contract receipt](docs/store/locale-contract-64a.md). #64 B/C,
+and the [locale contract receipt](docs/store/locale-contract-64a.md). Alan then
+authorized #64 B, implemented in the same draft; its [service receipt](docs/store/locale-service-64b.md)
+records the local passes and blocked Chromium startup. C remains the next checkpoint. #64 C,
 #65/#34 and #37's remaining qualification are still open; no new merge authority
 is inferred from continued implementation.
 Deployment and commerce activation remain separate instructions.

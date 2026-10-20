@@ -1,0 +1,200 @@
+{
+  "startedAt": "2026-10-20T13:07:45.902421+00:00",
+  "sourceCommit": "ec7bcc1629fd5261dddd2182597f10affadc9140",
+  "sourceTree": "665d4853f7b565b3584dbac48dd6f21ce862c17c",
+  "sourceStatus": "",
+  "scope": "Local #64 B source verification; simulated DOM/router tests are not actual browser journeys or hosted/production qualification.",
+  "steps": [
+    {
+      "name": "locale and existing consumer units",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.unit.config.ts",
+        "packages/i18n",
+        "apps/egohygiene.io/src/i18n",
+        "apps/egohygiene.io/src/components",
+        "apps/egohygiene.io/src/pages",
+        "apps/egohygiene.io/src/features/store",
+        "apps/egohygiene.io/src/features/fourthwall-preview",
+        "apps/egohygiene.io/src/features/artist-preview"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 8.057
+    },
+    {
+      "name": "site semantic component checks",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.accessibility.config.ts",
+        "tests/accessibility/site-accessibility.test.tsx"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.755
+    },
+    {
+      "name": "application types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "apps/egohygiene.io/tsconfig.app.json",
+        "--noEmit"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.938
+    },
+    {
+      "name": "i18n package types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "packages/i18n/tsconfig.build.json",
+        "--noEmit"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.345
+    },
+    {
+      "name": "portable boundary",
+      "command": [
+        "node",
+        "scripts/checks/check-store-boundaries.ts"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.528
+    },
+    {
+      "name": "scoped Biome",
+      "command": [
+        "pnpm",
+        "exec",
+        "biome",
+        "check",
+        "apps/egohygiene.io/src/app/providers.tsx",
+        "apps/egohygiene.io/src/components/ErrorBoundary/ErrorBoundary.test.tsx",
+        "apps/egohygiene.io/src/components/ErrorBoundary/ErrorBoundary.tsx",
+        "apps/egohygiene.io/src/components/Footer/Footer.tsx",
+        "apps/egohygiene.io/src/components/Header/Header.tsx",
+        "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.tsx",
+        "apps/egohygiene.io/src/features/artist-preview/ArtistPreviewPage.tsx",
+        "apps/egohygiene.io/src/features/fourthwall-preview/FourthwallPreviewPage.test.tsx",
+        "apps/egohygiene.io/src/features/fourthwall-preview/FourthwallPreviewPage.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtistPage.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtistPage.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtwork.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtworkGallery.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtworkGallery.tsx",
+        "apps/egohygiene.io/src/features/store/StoreCatalogLocale.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreDetailPages.test.tsx",
+        "apps/egohygiene.io/src/features/store/StorePages.tsx",
+        "apps/egohygiene.io/src/features/store/StorefrontPages.tsx",
+        "apps/egohygiene.io/src/features/store/store-artwork-gallery.css",
+        "apps/egohygiene.io/src/features/store/store.css",
+        "apps/egohygiene.io/src/i18n/LanguageSelector.tsx",
+        "apps/egohygiene.io/src/i18n/LocaleLink.tsx",
+        "apps/egohygiene.io/src/i18n/LocaleProvider.test.tsx",
+        "apps/egohygiene.io/src/i18n/LocaleProvider.tsx",
+        "apps/egohygiene.io/src/i18n/locales/en/errors.json",
+        "apps/egohygiene.io/src/i18n/locales/en/fourthwallPreview.json",
+        "apps/egohygiene.io/src/i18n/locales/en/landing.json",
+        "apps/egohygiene.io/src/i18n/locales/en/pages.json",
+        "apps/egohygiene.io/src/i18n/locales/en/shell.json",
+        "apps/egohygiene.io/src/i18n/locales/en/storeArtist.json",
+        "apps/egohygiene.io/src/i18n/locales/en/storeCards.json",
+        "apps/egohygiene.io/src/i18n/resources.ts",
+        "apps/egohygiene.io/src/i18n/selection.ts",
+        "apps/egohygiene.io/src/main.tsx",
+        "apps/egohygiene.io/src/pages/AboutPage.tsx",
+        "apps/egohygiene.io/src/pages/EcosystemPage.tsx",
+        "apps/egohygiene.io/src/pages/HomePage.test.tsx",
+        "apps/egohygiene.io/src/pages/HomePage.tsx",
+        "apps/egohygiene.io/src/pages/NotFoundPage.tsx",
+        "apps/egohygiene.io/src/pages/PageMessages.test.tsx",
+        "apps/egohygiene.io/src/pages/PrivacyPage.tsx",
+        "apps/egohygiene.io/src/pages/ProductPage.tsx",
+        "apps/egohygiene.io/src/pages/RouteErrorPage.tsx",
+        "apps/egohygiene.io/src/pages/TermsPage.tsx",
+        "apps/egohygiene.io/src/styles/app.css",
+        "apps/egohygiene.io/src/styles/shell.css"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 5.847
+    },
+    {
+      "name": "fresh normal build",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@egohygiene/egohygiene.io",
+        "build"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.367
+    },
+    {
+      "name": "normal artifact guards",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/locale-service-64b/artifacts.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.178
+    },
+    {
+      "name": "fresh isolated preview build",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "build"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.765
+    }
+  ],
+  "browserCapability": {
+    "command": [
+      "node",
+      "--input-type=module",
+      "--eval",
+      "import { chromium } from \"@playwright/test\"; const browser = await chromium.launch({headless:true,executablePath:process.env[\"PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH\"]}); await browser.close();"
+    ],
+    "exitCode": 1,
+    "elapsedSeconds": 5.461,
+    "status": "blocked",
+    "reason": "Chromium process-singleton socket() is denied with Operation not permitted before a page can open.",
+    "browser": "Chrome for Testing 155.0.8059.84",
+    "actualJourneys": "Not run: browser startup is unavailable."
+  },
+  "completedAt": "2026-10-20T13:08:16.156174+00:00",
+  "summary": {
+    "unitTests": 143,
+    "unitFiles": 22,
+    "semanticComponentTests": 3,
+    "typeProfiles": 2,
+    "portableModules": 12,
+    "scopedBiomeFiles": 46,
+    "scopedBiomeWarnings": [
+      "Existing StoreCatalogPage cognitive complexity",
+      "Existing store.css selector specificity"
+    ],
+    "builds": [
+      "normal",
+      "isolated-preview"
+    ],
+    "browserJourneys": "blocked before startup",
+    "independentReview": "No remaining blocking finding; one raw artist-preview Link was corrected."
+  }
+}

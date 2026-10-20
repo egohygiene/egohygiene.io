@@ -100,3 +100,20 @@ Native locale/plural behavior follows the [ECMA-402 specification](https://tc39.
 (`Intl.getCanonicalLocales`, `supportedLocalesOf`, `Intl.PluralRules`). No external
 implementation or translation content was copied. This decision reuses the
 repository's existing authored runtime and public English dictionaries.
+
+## Checkpoint B implementation refinement — 2026-10-20
+
+B applies the contract through app composition's subscription to the existing data
+router, with one browser-facing locale provider around the same translation runtime.
+The labelled native selector writes explicit query selection; only that user action
+persists a preference. Shared URLs do not silently overwrite a visitor's preference.
+Internal locale-aware links preserve selection, and explicit destination languages
+win. Absolute/provider destinations remain untouched. Unqualified history entries
+re-resolve the current saved preference; only explicit locale URLs are historical
+language snapshots. Same-page language changes retain selector focus/disclosure.
+
+Source messages are bundled synchronously. Missing partial dictionaries use source
+fallback; missing source configuration is an error. Production registers only
+English; preview messages follow the existing compile-time route boundary. See the
+[B receipt](../../store/locale-service-64b.md) for implementation and verification
+limits, including blocked browser startup. C's browser/message-review work remains.

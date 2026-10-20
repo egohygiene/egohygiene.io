@@ -27,5 +27,6 @@
   "storefrontCurationDecision": "docs/architecture/decisions/0008-curated-storefront-views.md",
   "storeQualificationReview": "docs/store/qualification-37.md",
   "localeContractReview": "docs/store/locale-contract-64a.md",
-  "localeRuntimeDecision": "docs/architecture/decisions/0009-single-locale-runtime.md"
+  "localeRuntimeDecision": "docs/architecture/decisions/0009-single-locale-runtime.md",
+  "localeServiceReview": "docs/store/locale-service-64b.md"
 }
