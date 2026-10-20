@@ -7,6 +7,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { chromium } from "@playwright/test";
+import { installHostBoundary } from "./browser-host.mjs";
+import { runLocaleJourneys } from "./locale-journeys.mjs";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const app = path.join(root, "apps/egohygiene.io");
@@ -18,6 +20,10 @@ const { values } = parseArgs({
   },
 });
 const output = path.resolve(root, values["output-dir"]);
+assert.ok(
+  output.startsWith(`${path.join(root, "test-results")}${path.sep}`),
+  "Evidence must stay under test-results/",
+);
 const port = Number(values.port);
 const origin = `http://127.0.0.1:${port}`;
 // biome-ignore lint/suspicious/noUndeclaredEnvVars: Direct local check, not a cached Turbo task.
@@ -105,28 +111,35 @@ async function qualifyRegional(page, mode, width, route, options, key) {
   const initial = mode === "rtl" ? "٤" : "4";
   const one = mode === "rtl" ? "١" : "1";
   const zero = mode === "rtl" ? "٠" : "0";
-  assert.ok((await status.innerText()).endsWith(initial), `${key}: locale-aware initial count`);
+  assert.ok((await status.innerText()).includes(initial), `${key}: locale-aware initial count`);
   await search.fill("Signal Heart Hoodie");
   await page.waitForFunction(
-    (suffix) => document.querySelector(".store-artist-results").textContent.endsWith(suffix),
+    (suffix) => document.querySelector(".store-artist-results").textContent.includes(suffix),
     one,
   );
   assert.equal(await page.locator(selector).count(), 1);
   const href = await page.locator(`${selector} a`).getAttribute("href");
-  assert.equal(href, "/store/products/signal-heart-hoodie");
+  assert.equal(
+    new URL(href, "http://local.invalid").pathname,
+    "/store/products/signal-heart-hoodie",
+  );
+  assert.equal(
+    new URL(href, "http://local.invalid").searchParams.get("lang"),
+    mode === "rtl" ? "ar" : "qps-Ploc",
+  );
   await search.fill("no-such-fictional-selection");
   await page.waitForFunction(
-    (suffix) => document.querySelector(".store-artist-results").textContent.endsWith(suffix),
+    (suffix) => document.querySelector(".store-artist-results").textContent.includes(suffix),
     zero,
   );
   assert.equal(await page.locator(selector).count(), 0);
   await page.reload({ waitUntil: "networkidle" });
   assert.equal(await search.inputValue(), "no-such-fictional-selection");
-  assert.ok((await status.innerText()).endsWith(zero));
+  assert.ok((await status.innerText()).includes(zero));
   assert.equal(await page.locator(".storefront-empty").count(), 1);
   await page.locator(".store-artist-search button").click();
   await page.waitForFunction(
-    (suffix) => document.querySelector(".store-artist-results").textContent.endsWith(suffix),
+    (suffix) => document.querySelector(".store-artist-results").textContent.includes(suffix),
     initial,
   );
   assert.ok(await search.evaluate((element) => document.activeElement === element));
@@ -142,10 +155,14 @@ async function qualifyRegional(page, mode, width, route, options, key) {
 async function qualify(mode, width, route, options = {}) {
   const key = `${mode}-${width}-${route.name}${options.textScale ? "-root-text-200-percent" : ""}`;
   const viewport = { width, height: width <= 390 ? 844 : 1000 };
-  const page = await browser.newPage({ viewport, reducedMotion: "reduce", colorScheme: "light" });
-  const errors = [];
-  const externalRequests = [];
-  page.on("pageerror", (error) => errors.push(error.message));
+  const page = await browser.newPage({
+    viewport,
+    reducedMotion: "reduce",
+    colorScheme: "light",
+    serviceWorkers: "block",
+  });
+  const boundary = await installHostBoundary(page, { origin, entry });
+  const { errors, blockedRequests: externalRequests } = boundary;
   if (options.textScale) {
     await page.addInitScript(() => {
       addEventListener("DOMContentLoaded", () => {
@@ -153,27 +170,9 @@ async function qualify(mode, width, route, options = {}) {
       });
     });
   }
-  await page.route("**/*", async (request) => {
-    if (
-      new URL(request.request().url()).origin !== origin ||
-      request.request().method() !== "GET"
-    ) {
-      externalRequests.push(request.request().url());
-      return request.abort("blockedbyclient");
-    }
-    const response = await request.fetch({ maxRedirects: 0 });
-    if (response.status() >= 300) {
-      externalRequests.push(`Unexpected HTTP ${response.status()}: ${request.request().url()}`);
-      return request.abort("blockedbyclient");
-    }
-    if (request.request().resourceType() !== "document") return request.fulfill({ response });
-    const html = (await response.text()).replace('src="/src/main.tsx"', `src="/@fs/${entry}"`);
-    assert.ok(html.includes(`src="/@fs/${entry}"`), "Vite document entry must be replaced");
-    return request.fulfill({ response, body: html });
-  });
   try {
     const url = new URL(route.path, origin);
-    url.searchParams.set("qaLocale", mode);
+    url.searchParams.set("lang", mode === "rtl" ? "ar" : "qps-Ploc");
     await page.goto(url.href, { waitUntil: "networkidle" });
     assert.deepEqual(errors, [], `${key}: entry must render`);
     await page.locator(route.selector).first().waitFor();
@@ -237,7 +236,7 @@ async function qualify(mode, width, route, options = {}) {
       });
     }
     assert.deepEqual(errors, [], key);
-    assert.deepEqual(externalRequests, [], key);
+    boundary.assertClean();
     report.results.push({
       key,
       viewport,
@@ -253,6 +252,7 @@ async function qualify(mode, width, route, options = {}) {
           }
         : {}),
       externalRequests,
+      blockedWebSockets: boundary.blockedWebSockets,
       errors,
     });
     const file = captures.get(key);
@@ -309,10 +309,27 @@ try {
     selector: ".eh-button",
     count: 1,
   });
+  report.localeJourneys = await runLocaleJourneys(browser, { origin, entry, output });
   await writeFile(path.join(output, "captures.json"), `${JSON.stringify(report, null, 2)}\n`);
   process.stdout.write(
-    `${report.results.length} layout cases passed; ${report.screens.length} captures saved.\n`,
+    `${report.results.length} layout cases and ${report.localeJourneys.length} locale journeys passed; ${report.screens.length} layout captures saved.\n`,
   );
+} catch (error) {
+  await writeFile(
+    path.join(output, "failure.json"),
+    `${JSON.stringify(
+      {
+        capturedAt: new Date().toISOString(),
+        status: "failed-or-environment-blocked",
+        completedLayoutCases: report.results.length,
+        error: String(error),
+        serverOutput,
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  throw error;
 } finally {
   await browser?.close();
   if (server && server.exitCode === null) {

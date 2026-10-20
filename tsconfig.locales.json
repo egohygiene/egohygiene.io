@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["scripts/checks/check-locales.ts", "scripts/locales/**/*.ts"]
+}

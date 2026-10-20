@@ -1,13 +1,6 @@
 import { createLocaleRegistry, useI18n } from "@egohygiene/i18n";
-import { ThemeProvider } from "@egohygiene/themes";
 import { act, fireEvent, render } from "@testing-library/react";
-import {
-  createMemoryRouter,
-  Outlet,
-  RouterProvider,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { createMemoryRouter, Outlet, RouterProvider } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { AppProviders } from "../app/providers";
@@ -53,35 +46,26 @@ function Probe() {
   );
 }
 
-function FixtureLayout() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  return (
-    <ThemeProvider>
-      <LocaleProvider
-        registry={registry}
-        catalogs={catalogs}
-        search={location.search}
-        onSearchChange={(search) => {
-          void navigate(
-            { pathname: location.pathname, search, hash: location.hash },
-            { preventScrollReset: true },
-          );
-        }}
-      >
-        <Header />
-        <Outlet />
-      </LocaleProvider>
-    </ThemeProvider>
-  );
-}
-
 function setup(entry = "/store?view=design#catalog") {
   const router = createMemoryRouter(
-    [{ element: <FixtureLayout />, children: [{ path: "*", element: <Probe /> }] }],
+    [
+      {
+        element: (
+          <>
+            <Header />
+            <Outlet />
+          </>
+        ),
+        children: [{ path: "*", element: <Probe /> }],
+      },
+    ],
     { initialEntries: [entry] },
   );
-  const result = render(<RouterProvider router={router} />);
+  const result = render(
+    <AppProviders router={router} registry={registry} catalogs={catalogs}>
+      <RouterProvider router={router} />
+    </AppProviders>,
+  );
   return { ...result, router };
 }
 

@@ -80,6 +80,22 @@ try {
     "tsconfig.store-browser.json",
     "--noEmit",
   ]);
+  await run("interface message review types", [
+    environmentRunner,
+    "run",
+    "exec",
+    "tsc",
+    "--project",
+    "tsconfig.locales.json",
+    "--noEmit",
+  ]);
+  await run("interface message and human-review contracts", [
+    "--test",
+    "tests/tooling/locale-catalog.test.mjs",
+  ]);
+  await run("interface messages and translation review freshness", [
+    "scripts/checks/check-locales.ts",
+  ]);
   await run("portable import boundary", ["scripts/checks/check-store-boundaries.ts"]);
   await run("catalog and artifact contracts", [environmentRunner, "run", "catalog:test"]);
   await run("store, preview, theme and locale units", [
@@ -89,6 +105,9 @@ try {
     "apps/egohygiene.io/src/features/store",
     "apps/egohygiene.io/src/features/fourthwall-preview",
     "apps/egohygiene.io/src/features/artist-preview",
+    "apps/egohygiene.io/src/i18n",
+    "apps/egohygiene.io/src/components",
+    "apps/egohygiene.io/src/pages",
     "packages/themes",
     "packages/i18n",
   ]);
@@ -124,7 +143,7 @@ try {
     "--output-dir",
     "test-results/store-qualification/profile/handoff",
   ]);
-  await run("expanded text and synthetic RTL layout", [
+  await run("locale journeys, expanded text and synthetic RTL layout", [
     "tests/storefront-qualification/run.mjs",
     "--output-dir",
     "test-results/store-qualification/profile/layout",
