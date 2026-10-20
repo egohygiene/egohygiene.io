@@ -3,5 +3,49 @@
   "aboutTitle": "About Ego Hygiene",
   "ecosystemTitle": "The Ego Hygiene ecosystem",
   "privacyTitle": "Privacy draft",
-  "termsTitle": "Terms draft"
+  "termsTitle": "Terms draft",
+  "about": {
+    "description": "The ideas behind Ego Hygiene: balance, awareness, empathy, and growth.",
+    "intro": "Ego Hygiene is a framework for building steadier relationships with identity, emotion, creativity, and technology.",
+    "balance": "Balance sits at the center: not as perfection, but as a practice of noticing, adjusting, and reconnecting.",
+    "identity": "The galaxy yin-yang identity represents movement, contrast, and an ongoing effort to bring awareness and empathy into the tools we make.",
+    "progress": "The platform is evolving in public, starting with a small, honest foundation."
+  },
+  "ecosystem": {
+    "description": "Explore the tools and projects taking shape in the Ego Hygiene ecosystem.",
+    "intro": "A typed product registry keeps the current platform honest while preparing the root site to become a gateway later.",
+    "category": "Category",
+    "path": "Path",
+    "repository": "Repository",
+    "status": {
+      "available": "available",
+      "development": "development",
+      "planned": "planned"
+    },
+    "categories": {
+      "knowledge": "knowledge",
+      "engineering": "engineering",
+      "creative": "creative",
+      "platform": "platform",
+      "commerce": "commerce"
+    }
+  },
+  "privacy": {
+    "description": "A provisional explanation of the current website’s privacy practices.",
+    "intro": "This provisional draft is here to explain the current state plainly.",
+    "current": "The first public website is static and does not require sign-in or collect personal data through a backend.",
+    "future": "Future changes will update this page before stronger guarantees are claimed.",
+    "preferences": "The site can save theme and language preferences in your browser. Blocking browser storage does not prevent browsing."
+  },
+  "terms": {
+    "description": "Provisional terms for the Ego Hygiene public website.",
+    "intro": "These terms are provisional and describe a minimal public website release.",
+    "use": "Use the site as informational content only; unfinished products are clearly labeled and may change.",
+    "limits": "No warranties or service-level guarantees are implied by this draft."
+  },
+  "product": {
+    "title": "{{name}} · Ego Hygiene",
+    "reserved": "This route reserves the future gateway path without pretending that a separate deployment exists yet.",
+    "back": "Back to the directory"
+  }
 }

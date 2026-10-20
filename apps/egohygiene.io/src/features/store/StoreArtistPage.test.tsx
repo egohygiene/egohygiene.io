@@ -297,7 +297,7 @@ describe("artist collection", () => {
     const { getByRole, getByText } = renderArtist({ messages });
     expect(getByRole("heading", { level: 1 })).toHaveTextContent("Test artist");
     expect(getByRole("heading", { level: 1 }).querySelector("bdi")).toHaveAttribute("dir", "auto");
-    expect(document.title).toContain(`نص تجريبي · ${resources.storeArtist.title}`);
+    expect(document.title).toContain("نص تجريبي · Test artist · Artist collection");
     expect(
       getByRole("searchbox", {
         name: `نص تجريبي · ${resources.storeArtist.standalone.searchLabel}`,

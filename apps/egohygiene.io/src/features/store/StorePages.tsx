@@ -2,9 +2,9 @@ import { useI18n } from "@egohygiene/i18n";
 import type { StoreCatalog, StoreDesign, StoreEntry, StoreProduct } from "@egohygiene/schemas";
 import { getStorePurchaseAction } from "@egohygiene/schemas";
 import { useEffect } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-
+import { useParams, useSearchParams } from "react-router-dom";
 import { storeCatalog, storefrontCuration } from "../../content/store";
+import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import type { BrowsableStoreEntry, StoreStory, StoreView } from "./domain/index.ts";
 import {
   filterStoreEntries,
@@ -23,16 +23,16 @@ import { StoreArtworkGallery } from "./StoreArtworkGallery";
 import "./store.css";
 
 const views: { value: StoreView; label: string }[] = [
-  { value: "all", label: "Everything" },
-  { value: "product", label: "Objects" },
-  { value: "design", label: "Designs" },
-  { value: "collection", label: "Collections" },
+  { value: "all", label: "storeCards.catalog.views.all" },
+  { value: "product", label: "storeCards.catalog.views.product" },
+  { value: "design", label: "storeCards.catalog.views.design" },
+  { value: "collection", label: "storeCards.catalog.views.collection" },
 ];
 
 const stories: { value: StoreStory; label: string }[] = [
-  { value: "all", label: "Every story" },
-  { value: "connected", label: "Connected worlds" },
-  { value: "standalone", label: "Standalone designs" },
+  { value: "all", label: "storeCards.catalog.stories.all" },
+  { value: "connected", label: "storeCards.catalog.stories.connected" },
+  { value: "standalone", label: "storeCards.catalog.stories.standalone" },
 ];
 
 export function StoreMetadata({
@@ -42,6 +42,8 @@ export function StoreMetadata({
   readonly title: string;
   readonly description: string;
 }) {
+  const { t } = useI18n();
+  const formattedTitle = t("storeCards.metadataTitle", { title });
   useEffect(() => {
     const previousTitle = document.title;
     const existingDescription = document.querySelector<HTMLMetaElement>('meta[name="description"]');
@@ -50,18 +52,22 @@ export function StoreMetadata({
     descriptionElement.name = "description";
     descriptionElement.content = description;
     if (!existingDescription) document.head.append(descriptionElement);
-    document.title = `${title} · Ego Hygiene`;
+    document.title = formattedTitle;
     return () => {
       document.title = previousTitle;
       if (existingDescription) existingDescription.content = previousDescription ?? "";
       else descriptionElement.remove();
     };
-  }, [title, description]);
+  }, [formattedTitle, description]);
   return null;
 }
 
 function Arrow({ diagonal = false }: { readonly diagonal?: boolean }) {
-  return <span aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
+  return (
+    <span className={diagonal ? undefined : "site-directional-icon"} aria-hidden="true">
+      {diagonal ? "↗" : "→"}
+    </span>
+  );
 }
 
 function EntryBadge({ entry }: { readonly entry: BrowsableStoreEntry }) {
@@ -148,13 +154,13 @@ function StoreBreadcrumbs({
   readonly title: string;
   readonly kind: BrowsableStoreEntry["kind"];
 }) {
-  const parentLabel =
-    kind === "product" ? "Objects" : kind === "design" ? "Designs" : "Collections";
+  const { t } = useI18n();
+  const parentLabel = t(`storeCards.catalog.views.${kind}`);
   return (
-    <nav className="store-breadcrumbs" aria-label="Breadcrumb">
+    <nav className="store-breadcrumbs" aria-label={t("storeCards.detail.breadcrumb")}>
       <ol>
         <li>
-          <Link to="/store">Store</Link>
+          <Link to="/store">{t("storeCards.detail.store")}</Link>
         </li>
         <li>
           <Link to={`/store/catalog?view=${kind}#catalog`}>{parentLabel}</Link>
@@ -168,14 +174,17 @@ function StoreBreadcrumbs({
 }
 
 function ContextNotes({ entry }: { readonly entry: BrowsableStoreEntry }) {
+  const { t } = useI18n();
   const contexts = getEntryContexts(storeCatalog, entry);
   if (!contexts.length) return null;
   return (
-    <section className="store-contexts" aria-label="Connected stories">
-      <h2>Part of a bigger story.</h2>
+    <section className="store-contexts" aria-label={t("storeCards.detail.contextLabel")}>
+      <h2>{t("storeCards.detail.contextHeading")}</h2>
       {contexts.map((context) => (
         <div className="store-context" key={context.id}>
-          <span className="store-kicker">{context.contextType}</span>
+          <span className="store-kicker">
+            {t(`storeCards.detail.contextType.${context.contextType}`)}
+          </span>
           <h3>{context.title}</h3>
           <p>{context.description}</p>
         </div>
@@ -184,25 +193,26 @@ function ContextNotes({ entry }: { readonly entry: BrowsableStoreEntry }) {
   );
 }
 
-function StoreMissingPage({ kind }: { readonly kind: string }) {
+function StoreMissingPage({ kind }: { readonly kind: "object" | "design" | "collection" }) {
+  const { t } = useI18n();
   return (
     <div className="store-shell store-missing">
       <StoreMetadata
-        title="Nothing here yet"
-        description="This store page could not be found. Explore the current Ego Hygiene catalog."
+        title={t("storeCards.detail.missingTitle")}
+        description={t("storeCards.detail.missingDescription")}
       />
-      <p className="store-kicker">A little off the map</p>
-      <h1>This {kind} isn’t here.</h1>
-      <p>The link may have changed, or this page may not be ready to share.</p>
+      <p className="store-kicker">{t("storeCards.detail.missingKicker")}</p>
+      <h1>{t(`storeCards.detail.missing.${kind}`)}</h1>
+      <p>{t("storeCards.detail.missingNote")}</p>
       <Link className="store-button" to="/store">
-        Back to the store <Arrow />
+        {t("storeCards.detail.back")} <Arrow />
       </Link>
     </div>
   );
 }
 
 export function StoreCatalogPage() {
-  const { t } = useI18n();
+  const { t, formatNumber } = useI18n();
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") ?? "";
   const selectedView = searchParams.get("view");
@@ -246,59 +256,57 @@ export function StoreCatalogPage() {
       </nav>
       <p className="store-kicker">{t("storeCards.catalogPreview")}</p>
       <StoreMetadata
-        title="Objects with a world inside"
-        description="Explore the Ego Hygiene store: independent designs, music-inspired collections, and objects with a story."
+        title={t("storeCards.catalog.title")}
+        description={t("storeCards.catalog.description")}
       />
       <div className="store-intro-line">
-        <span className="store-kicker">Ego Hygiene / The store</span>
+        <span className="store-kicker">{t("storeCards.catalog.eyebrow")}</span>
         <span className="store-status">
           <span aria-hidden="true" />{" "}
-          {hasLiveProducts ? "Independent worlds. Shared space." : "A small world, taking shape"}
+          {t(
+            hasLiveProducts ? "storeCards.catalog.liveStatus" : "storeCards.catalog.previewStatus",
+          )}
         </span>
       </div>
       <section className="store-hero" aria-labelledby="store-title">
         <div className="store-hero__copy">
-          <p className="store-kicker">Art. Music. Things to carry with you.</p>
-          <h1 id="store-title">
-            Objects with
-            <br />a world <em>inside.</em>
-          </h1>
-          <p className="store-hero__description">
-            Some begin with a song. Some with a feeling. A home for designs that become part of your
-            everyday world.
-          </p>
+          <p className="store-kicker">{t("storeCards.catalog.kicker")}</p>
+          <h1 id="store-title">{t("storeCards.catalog.heading")}</h1>
+          <p className="store-hero__description">{t("storeCards.catalog.introduction")}</p>
           <div className="store-hero__actions">
             <a className="store-button" href="#catalog">
-              Explore the collection <Arrow />
+              {t("storeCards.catalog.exploreCollection")} <Arrow />
             </a>
             <a className="store-text-link" href="#worlds">
-              Meet the worlds <Arrow diagonal />
+              {t("storeCards.catalog.meetWorlds")} <Arrow diagonal />
             </a>
           </div>
           <div className="store-hero__footnote">
-            <span aria-hidden="true">✳</span> Made of stories. Open to becoming.
+            <span aria-hidden="true">✳</span> {t("storeCards.catalog.footnote")}
           </div>
         </div>
         <div className="store-hero__visual">
           <div className="store-art-caption">
-            <span>The design archive</span>
-            <span>Between feeling &amp; form</span>
+            <span>{t("storeCards.catalog.archive")}</span>
+            <span>{t("storeCards.catalog.artCaption")}</span>
           </div>
           {heroDesign ? (
             <>
               <Link
                 className="store-hero__art-link"
                 to={storeEntryPath(heroDesign)}
-                aria-label={`Explore ${heroDesign.title}`}
+                aria-label={t("storeCards.catalog.exploreTitle", { title: heroDesign.title })}
               >
                 <StoreArtwork design={heroDesign} hero />
               </Link>
               <Link className="store-hero__artifact" to={storeEntryPath(heroDesign)}>
                 <div>
                   <span className="store-kicker">
-                    {getEntryContexts(storeCatalog, heroDesign).length
-                      ? "A connected world"
-                      : "A feeling, standing on its own"}
+                    {t(
+                      getEntryContexts(storeCatalog, heroDesign).length
+                        ? "storeCards.catalog.connected"
+                        : "storeCards.catalog.standalone",
+                    )}
                   </span>
                   <h2>{heroDesign.title}</h2>
                 </div>
@@ -312,21 +320,20 @@ export function StoreCatalogPage() {
       </section>
 
       {!hasLiveProducts && (
-        <aside className="store-preview-note" aria-label="Store preview">
+        <aside className="store-preview-note" aria-label={t("storeCards.catalog.previewLabel")}>
           <span className="store-preview-note__mark" aria-hidden="true">
             ↳
           </span>
           <p>
-            <strong>You’re seeing the beginning.</strong> The store is in preview; nothing is
-            available to purchase yet. Sample entries are fictional and labelled in their
-            descriptions.
+            <strong>{t("storeCards.catalog.previewLead")}</strong>{" "}
+            {t("storeCards.catalog.previewDescription")}
           </p>
           {import.meta.env.VITE_STORE_PREVIEW === "true" && (
             <Link className="store-text-link" to="/store/preview/fourthwall">
-              Try the Fourthwall demo <Arrow />
+              {t("storeCards.catalog.previewDemo")} <Arrow />
             </Link>
           )}
-          <span className="store-kicker">Preview edition</span>
+          <span className="store-kicker">{t("storeCards.catalog.previewEdition")}</span>
         </aside>
       )}
 
@@ -334,10 +341,10 @@ export function StoreCatalogPage() {
         <section className="store-pathways" id="worlds" aria-labelledby="store-pathways-heading">
           <div className="store-section-heading">
             <div>
-              <p className="store-kicker">Follow what pulls you in</p>
-              <h2 id="store-pathways-heading">Find a world. Or make your own.</h2>
+              <p className="store-kicker">{t("storeCards.catalog.pathwaysKicker")}</p>
+              <h2 id="store-pathways-heading">{t("storeCards.catalog.pathwaysHeading")}</h2>
             </div>
-            <p>Stories to enter. Designs to live with.</p>
+            <p>{t("storeCards.catalog.pathwaysDescription")}</p>
           </div>
           <div className="store-pathways__grid">
             {firstCollection && (
@@ -346,11 +353,11 @@ export function StoreCatalogPage() {
                   <StoreArtwork design={getEntryDesigns(storeCatalog, firstCollection)[0]} />
                 </div>
                 <div className="store-pathway__copy">
-                  <span className="store-kicker">Enter a collection</span>
+                  <span className="store-kicker">{t("storeCards.catalog.enterCollection")}</span>
                   <h3>{firstCollection.title}</h3>
                   <p>{firstCollection.description}</p>
                   <span className="store-text-link">
-                    Step inside <Arrow />
+                    {t("storeCards.catalog.stepInside")} <Arrow />
                   </span>
                 </div>
               </Link>
@@ -364,14 +371,11 @@ export function StoreCatalogPage() {
                   <StoreArtwork design={standaloneDesign} />
                 </div>
                 <div className="store-pathway__copy">
-                  <span className="store-kicker">An independent design</span>
+                  <span className="store-kicker">{t("storeCards.catalog.independent")}</span>
                   <h3>{standaloneDesign.title}</h3>
-                  <p>
-                    A design can have a life of its own. Discover its artwork and the objects it
-                    could become.
-                  </p>
+                  <p>{t("storeCards.catalog.independentDescription")}</p>
                   <span className="store-text-link">
-                    Follow the design <Arrow />
+                    {t("storeCards.catalog.followDesign")} <Arrow />
                   </span>
                 </div>
               </Link>
@@ -383,14 +387,14 @@ export function StoreCatalogPage() {
       <section className="store-catalog-section" id="catalog" aria-labelledby="catalog-heading">
         <div className="store-section-heading">
           <div>
-            <p className="store-kicker">A growing collection</p>
-            <h2 id="catalog-heading">Find your frequency.</h2>
+            <p className="store-kicker">{t("storeCards.catalog.browseKicker")}</p>
+            <h2 id="catalog-heading">{t("storeCards.catalog.browseHeading")}</h2>
           </div>
-          <p>Wear it. Hold it. Step into it.</p>
+          <p>{t("storeCards.catalog.browseDescription")}</p>
         </div>
         <div className="store-catalog-controls">
           <fieldset className="store-filters">
-            <legend className="store-visually-hidden">Browse by type</legend>
+            <legend className="store-visually-hidden">{t("storeCards.catalog.typeLegend")}</legend>
             {views.map((item) => (
               <button
                 type="button"
@@ -398,12 +402,12 @@ export function StoreCatalogPage() {
                 key={item.value}
                 onClick={() => updateSearch(query, item.value)}
               >
-                {item.label}
+                {t(item.label)}
               </button>
             ))}
           </fieldset>
           <label className="store-search">
-            <span className="store-visually-hidden">Search the store</span>
+            <span className="store-visually-hidden">{t("storeCards.catalog.searchLabel")}</span>
             <svg
               width="18"
               height="18"
@@ -420,13 +424,13 @@ export function StoreCatalogPage() {
               type="search"
               value={query}
               onChange={(event) => updateSearch(event.target.value, view)}
-              placeholder="Find a feeling, a design…"
+              placeholder={t("storeCards.catalog.searchPlaceholder")}
             />
           </label>
         </div>
         <div className="store-catalog-options">
           <label className="store-select">
-            Browse by story
+            {t("storeCards.catalog.storyLabel")}
             <select
               value={story}
               onChange={(event) =>
@@ -439,7 +443,7 @@ export function StoreCatalogPage() {
             >
               {stories.map((item) => (
                 <option key={item.value} value={item.value}>
-                  {item.label}
+                  {t(item.label)}
                 </option>
               ))}
             </select>
@@ -450,27 +454,30 @@ export function StoreCatalogPage() {
               className="store-reset"
               onClick={() => updateSearch("", "all", "all")}
             >
-              Clear filters <span aria-hidden="true">×</span>
+              {t("storeCards.catalog.clearFilters")} <span aria-hidden="true">×</span>
             </button>
           )}
         </div>
         <p className="store-result-count" role="status" aria-live="polite" aria-atomic="true">
-          {entries.length} {entries.length === 1 ? "entry" : "entries"}
-          {query.trim() ? ` matching “${query.trim()}”` : " to explore"}
+          {t(query.trim() ? "storeCards.catalog.matching" : "storeCards.catalog.results", {
+            count: entries.length,
+            formattedCount: formatNumber(entries.length),
+            query: query.trim(),
+          })}
         </p>
         {entries.length ? (
           <StoreGrid entries={entries} emptyMessage="" />
         ) : (
           <div className="store-empty">
             <span aria-hidden="true">✳</span>
-            <h3>A little quiet on this frequency.</h3>
-            <p>No entries match your search. Try a different phrase or explore everything.</p>
+            <h3>{t("storeCards.catalog.emptyHeading")}</h3>
+            <p>{t("storeCards.catalog.emptyDescription")}</p>
             <button
               type="button"
               className="store-button"
               onClick={() => updateSearch("", "all", "all")}
             >
-              Reset search and filters <Arrow />
+              {t("storeCards.catalog.reset")} <Arrow />
             </button>
           </div>
         )}
@@ -482,17 +489,11 @@ export function StoreCatalogPage() {
             <StoreArtwork design={getEntryDesigns(storeCatalog, firstCollection)[0]} />
           </div>
           <div className="store-collection-feature__copy">
-            <p className="store-kicker">A song can become a place</p>
-            <h2 id="collection-feature-heading">
-              More than
-              <br />a single object.
-            </h2>
-            <p>
-              Follow a thread from the artwork to the objects it lives on. Each collection is a
-              small world of its own.
-            </p>
+            <p className="store-kicker">{t("storeCards.catalog.featureKicker")}</p>
+            <h2 id="collection-feature-heading">{t("storeCards.catalog.featureHeading")}</h2>
+            <p>{t("storeCards.catalog.featureDescription")}</p>
             <Link className="store-text-link" to={storeEntryPath(firstCollection)}>
-              Explore {firstCollection.title} <Arrow />
+              {t("storeCards.catalog.exploreTitle", { title: firstCollection.title })} <Arrow />
             </Link>
           </div>
         </section>
@@ -500,33 +501,20 @@ export function StoreCatalogPage() {
 
       <section className="store-worlds" id="store-story" aria-labelledby="store-worlds-heading">
         <div>
-          <p className="store-kicker">One home. Room for many worlds.</p>
-          <h2 id="store-worlds-heading">
-            A feeling doesn’t
-            <br />
-            need a category.
-          </h2>
+          <p className="store-kicker">{t("storeCards.catalog.worldsKicker")}</p>
+          <h2 id="store-worlds-heading">{t("storeCards.catalog.worldsHeading")}</h2>
         </div>
         <div className="store-worlds__copy">
-          <p>
-            Ego Hygiene is the home for this store. Some designs will grow from its own realm;
-            others will find their place through music, characters, and independent collections.
-          </p>
-          <p>
-            There’s room here for Incompris LLC artists, including .play(), and for something that
-            simply felt worth making.
-          </p>
-          <p className="store-worlds__note">
-            Artist collections are still taking shape. Demo entries are fictional and do not
-            represent an artist release.
-          </p>
+          <p>{t("storeCards.catalog.worldsDescription")}</p>
+          <p>{t("storeCards.catalog.worldsCommunity")}</p>
+          <p className="store-worlds__note">{t("storeCards.catalog.worldsNote")}</p>
           <Link className="store-text-link" to="/about">
-            The idea behind Ego Hygiene <Arrow diagonal />
+            {t("storeCards.catalog.aboutLink")} <Arrow diagonal />
           </Link>
         </div>
       </section>
       <div className="store-signoff">
-        <span>Keep a little of your world with you.</span>
+        <span>{t("storeCards.catalog.signoff")}</span>
         <span aria-hidden="true">eh / ∞</span>
       </div>
     </div>
@@ -534,11 +522,12 @@ export function StoreCatalogPage() {
 }
 
 export function StoreProductPage() {
+  const { t, locale } = useI18n();
   const { slug } = useParams();
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "product" && candidate.slug === slug,
   );
-  if (!entry || entry.kind !== "product") return <StoreMissingPage kind="object" />;
+  if (entry?.kind !== "product") return <StoreMissingPage kind="object" />;
   const designs = getEntryDesigns(storeCatalog, entry);
   const collections = getRelatedCollections(storeCatalog, entry);
   const action = getStorePurchaseAction(storeCatalog, entry.id);
@@ -552,15 +541,17 @@ export function StoreProductPage() {
         <div className="store-detail__art">
           <StoreArtworkGallery designs={designs} title={entry.title} />
           <p className="store-art-disclaimer">
-            {designs[0]?.artwork.kind === "image"
-              ? purchase.state === "live"
-                ? "Design artwork. Product finish and fit are shown by the checkout provider."
-                : "Design artwork only. Production details are not confirmed."
-              : "Concept artwork only. This is not a garment, product photograph, or print proof."}
+            {t(
+              designs[0]?.artwork.kind === "image"
+                ? purchase.state === "live"
+                  ? "storeCards.detail.liveArtwork"
+                  : "storeCards.detail.previewArtwork"
+                : "storeCards.detail.conceptArtwork",
+            )}
           </p>
         </div>
         <div className="store-detail__copy">
-          <p className="store-kicker">An object with a story</p>
+          <p className="store-kicker">{t("storeCards.detail.productKicker")}</p>
           <EntryBadge entry={entry} />
           <h1>{entry.title}</h1>
           <p className="store-detail__description">{entry.description}</p>
@@ -569,39 +560,38 @@ export function StoreProductPage() {
               <>
                 {purchase.state === "live" && purchase.displayPrice && (
                   <p className="store-price">
-                    {new Intl.NumberFormat("en-US", {
+                    {new Intl.NumberFormat(locale, {
                       style: "currency",
                       currency: purchase.displayPrice.currency,
                     }).format(purchase.displayPrice.amountMinor / 100)}{" "}
-                    <small>before shipping and tax</small>
+                    <small>{t("storeCards.detail.priceNote")}</small>
                   </p>
                 )}
                 <a className="store-button" href={action.href} rel="external">
-                  {action.label} <Arrow diagonal />
+                  {t("storeCards.detail.shopFourthwall")} <Arrow diagonal />
                 </a>
-                <p>
-                  Choose your options and confirm the current price, shipping, and returns at the
-                  provider’s checkout.
-                </p>
+                <p>{t("storeCards.detail.checkoutNote")}</p>
               </>
             ) : (
               <>
                 <span className="store-purchase-status">
-                  {purchase.state === "preview"
-                    ? "Preview — not for sale yet"
-                    : "Not available to purchase"}
+                  {t(
+                    purchase.state === "preview"
+                      ? "storeCards.detail.previewStatus"
+                      : "storeCards.detail.unavailableStatus",
+                  )}
                 </span>
                 <p>
                   {purchase.state === "unavailable"
                     ? purchase.reason
-                    : "We’re still bringing this idea into the world. Details and ordering will appear here when it’s ready."}
+                    : t("storeCards.detail.previewNote")}
                 </p>
               </>
             )}
           </div>
           <dl className="store-detail-facts">
             <div>
-              <dt>Design</dt>
+              <dt>{t("storeCards.detail.designLabel")}</dt>
               <dd>
                 {designs.map((design, index) => (
                   <span key={design.id}>
@@ -612,19 +602,13 @@ export function StoreProductPage() {
               </dd>
             </div>
             <div>
-              <dt>Availability</dt>
-              <dd>
-                {purchase.state === "live"
-                  ? "Provider checkout"
-                  : purchase.state === "unavailable"
-                    ? "Not available"
-                    : "A work in progress"}
-              </dd>
+              <dt>{t("storeCards.detail.availabilityLabel")}</dt>
+              <dd>{t(`storeCards.detail.availability.${purchase.state}`)}</dd>
             </div>
           </dl>
           {collections[0] && (
             <Link className="store-detail-world" to={storeEntryPath(collections[0])}>
-              <span className="store-kicker">Part of a bigger world</span>
+              <span className="store-kicker">{t("storeCards.detail.biggerWorld")}</span>
               <span>
                 {collections[0].title} <Arrow />
               </span>
@@ -636,15 +620,15 @@ export function StoreProductPage() {
       <section className="store-related" aria-labelledby="product-design-heading">
         <div className="store-section-heading">
           <div>
-            <p className="store-kicker">Where it begins</p>
-            <h2 id="product-design-heading">Behind the object.</h2>
+            <p className="store-kicker">{t("storeCards.detail.originsKicker")}</p>
+            <h2 id="product-design-heading">{t("storeCards.detail.originsHeading")}</h2>
           </div>
         </div>
-        <StoreGrid entries={designs} emptyMessage="Artwork details are on their way." />
+        <StoreGrid entries={designs} emptyMessage={t("storeCards.detail.artworkEmpty")} />
       </section>
       {collections.length > 0 && (
         <section className="store-related" aria-labelledby="product-collections-heading">
-          <h2 id="product-collections-heading">Explore the collection.</h2>
+          <h2 id="product-collections-heading">{t("storeCards.detail.collectionsHeading")}</h2>
           <StoreGrid entries={collections} emptyMessage="" />
         </section>
       )}
@@ -653,11 +637,12 @@ export function StoreProductPage() {
 }
 
 export function StoreDesignPage() {
+  const { t } = useI18n();
   const { slug } = useParams();
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "design" && candidate.slug === slug,
   );
-  if (!entry || entry.kind !== "design") return <StoreMissingPage kind="design" />;
+  if (entry?.kind !== "design") return <StoreMissingPage kind="design" />;
   const products = getDesignProducts(storeCatalog, entry.id);
   const collections = getRelatedCollections(storeCatalog, entry);
   return (
@@ -668,21 +653,20 @@ export function StoreDesignPage() {
         <div className="store-detail__art">
           <StoreArtworkGallery designs={[entry]} title={entry.title} />
           <p className="store-art-disclaimer">
-            {entry.artwork.kind === "placeholder"
-              ? "A visual study standing in for future artwork."
-              : "Design artwork preview."}
+            {t(
+              entry.artwork.kind === "placeholder"
+                ? "storeCards.detail.studyNote"
+                : "storeCards.detail.designNote",
+            )}
           </p>
         </div>
         <div className="store-detail__copy">
-          <p className="store-kicker">A design, finding its form</p>
+          <p className="store-kicker">{t("storeCards.detail.designKicker")}</p>
           <h1>{entry.title}</h1>
           <p className="store-detail__description">{entry.description}</p>
-          <p className="store-detail__note">
-            A design can live on many objects and belong to more than one story. It can also stand
-            entirely on its own.
-          </p>
+          <p className="store-detail__note">{t("storeCards.detail.designIntroduction")}</p>
           <a className="store-button" href="#design-objects">
-            See where it lives <Arrow />
+            {t("storeCards.detail.designLink")} <Arrow />
           </a>
         </div>
       </article>
@@ -694,18 +678,15 @@ export function StoreDesignPage() {
       >
         <div className="store-section-heading">
           <div>
-            <p className="store-kicker">From idea to object</p>
-            <h2 id="design-products-heading">Where this design lives.</h2>
+            <p className="store-kicker">{t("storeCards.detail.productsKicker")}</p>
+            <h2 id="design-products-heading">{t("storeCards.detail.productsHeading")}</h2>
           </div>
         </div>
-        <StoreGrid
-          entries={products}
-          emptyMessage="This design has room to grow. No objects are connected yet."
-        />
+        <StoreGrid entries={products} emptyMessage={t("storeCards.detail.productsEmpty")} />
       </section>
       {collections.length > 0 && (
         <section className="store-related" aria-labelledby="design-collections-heading">
-          <h2 id="design-collections-heading">In good company.</h2>
+          <h2 id="design-collections-heading">{t("storeCards.detail.designCollectionsHeading")}</h2>
           <StoreGrid entries={collections} emptyMessage="" />
         </section>
       )}
@@ -719,7 +700,7 @@ export function StoreCollectionPage() {
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "collection" && candidate.slug === slug,
   );
-  if (!entry || entry.kind !== "collection") return <StoreMissingPage kind="collection" />;
+  if (entry?.kind !== "collection") return <StoreMissingPage kind="collection" />;
   const designs = getEntryDesigns(storeCatalog, entry);
   const products = storeCatalog.entries.filter(
     (candidate): candidate is StoreProduct =>
@@ -735,11 +716,11 @@ export function StoreCollectionPage() {
       <StoreBreadcrumbs title={entry.title} kind={entry.kind} />
       <section className="store-collection-hero" aria-labelledby="collection-heading">
         <div>
-          <p className="store-kicker">A world of its own</p>
+          <p className="store-kicker">{t("storeCards.detail.collectionKicker")}</p>
           <h1 id="collection-heading">{entry.title}</h1>
           <p>{entry.description}</p>
           <a className="store-button" href="#collection-entries">
-            Explore this world <Arrow />
+            {t("storeCards.detail.collectionLink")} <Arrow />
           </a>
         </div>
         <StoreArtworkGallery designs={designs} title={entry.title} />
@@ -752,7 +733,7 @@ export function StoreCollectionPage() {
             {artists.map(({ artist }) => (
               <li key={artist.id}>
                 <Link className="store-text-link" to={`${storeArtistPath(artist)}?view=songs`}>
-                  <bdi dir="auto">{artist.title}</bdi> · {t("storeArtist.collectionSongs")}
+                  {t("storeArtist.collectionSongLink", { artist: artist.title })}
                 </Link>
               </li>
             ))}
@@ -766,13 +747,13 @@ export function StoreCollectionPage() {
       >
         <div className="store-section-heading">
           <div>
-            <p className="store-kicker">Shared threads</p>
-            <h2 id="collection-entries-heading">The pieces of this world.</h2>
+            <p className="store-kicker">{t("storeCards.detail.entriesKicker")}</p>
+            <h2 id="collection-entries-heading">{t("storeCards.detail.entriesHeading")}</h2>
           </div>
         </div>
         <StoreGrid
           entries={entries.filter(isBrowsableEntry)}
-          emptyMessage="This world is still taking shape. Its first designs and objects will appear here."
+          emptyMessage={t("storeCards.detail.entriesEmpty")}
         />
       </section>
     </div>

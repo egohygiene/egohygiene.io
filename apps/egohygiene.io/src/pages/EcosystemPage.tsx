@@ -1,38 +1,43 @@
+import { useI18n } from "@egohygiene/i18n";
 import { Card, Cluster, StatusBadge } from "@egohygiene/ui";
-
+import { PageMetadata } from "../components/PageMetadata/PageMetadata";
 import { products } from "../content/products";
 
 export function EcosystemPage() {
+  const { t } = useI18n();
   return (
     <article className="site-stack">
+      <PageMetadata
+        title={t("pages.ecosystemTitle")}
+        description={t("pages.ecosystem.description")}
+      />
       <header className="site-prose">
-        <h1>The Ego Hygiene ecosystem</h1>
-        <p>
-          A typed product registry keeps the current platform honest while preparing the root site
-          to become a gateway later.
-        </p>
+        <h1>{t("pages.ecosystemTitle")}</h1>
+        <p>{t("pages.ecosystem.intro")}</p>
       </header>
       <div className="site-grid">
         {products.map((product) => (
           <Card key={product.identifier}>
             <Cluster className="site-card-header">
               <h2>{product.name}</h2>
-              <StatusBadge tone={product.status}>{product.status}</StatusBadge>
+              <StatusBadge tone={product.status}>
+                {t(`pages.ecosystem.status.${product.status}`)}
+              </StatusBadge>
             </Cluster>
             <p>{product.description}</p>
             <dl>
               <div>
-                <dt>Category</dt>
-                <dd>{product.category}</dd>
+                <dt>{t("pages.ecosystem.category")}</dt>
+                <dd>{t(`pages.ecosystem.categories.${product.category}`)}</dd>
               </div>
               <div>
-                <dt>Path</dt>
+                <dt>{t("pages.ecosystem.path")}</dt>
                 <dd>{product.path}</dd>
               </div>
             </dl>
             {product.repositoryUrl ? (
               <p>
-                <a href={product.repositoryUrl}>Repository</a>
+                <a href={product.repositoryUrl}>{t("pages.ecosystem.repository")}</a>
               </p>
             ) : null}
           </Card>

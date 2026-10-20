@@ -112,9 +112,9 @@ function loadFixture(purchase: StoreProduct["purchase"] = { state: "preview" }) 
   );
 }
 
-function renderDetail(route: string) {
+function renderDetail(route: string, locale = "en") {
   return renderWithRouter(
-    <I18nProvider locale="en" messages={resources}>
+    <I18nProvider locale={locale} messages={resources}>
       <Routes>
         <Route path="/store/products/:slug" element={<StoreProductPage />} />
         <Route path="/store/collections/:slug" element={<StoreCollectionPage />} />
@@ -204,6 +204,17 @@ describe("purchase presentation", () => {
         "Choose your options and confirm the current price, shipping, and returns at the provider’s checkout.",
       ),
     ).toBeInTheDocument();
+  });
+
+  it("formats the provider currency for the selected locale without changing the handoff", () => {
+    loadFixture(livePurchase);
+    const { getByRole, getByText, container } = renderDetail("/store/products/product-test", "fr");
+    expect(getByText(/25,00.*\$US/)).toHaveTextContent("before shipping and tax");
+    expect(container.querySelector(".store-price")).not.toHaveTextContent("€");
+    expect(getByRole("link", { name: "Shop on Fourthwall" })).toHaveAttribute(
+      "href",
+      fixtureCheckout,
+    );
   });
 
   it("refuses to render a live action if its reviewed route is missing", () => {

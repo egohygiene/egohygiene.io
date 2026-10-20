@@ -2,7 +2,10 @@ import { useI18n } from "@egohygiene/i18n";
 import { Icon } from "@egohygiene/icons";
 import { Container, ThemeToggle } from "@egohygiene/ui";
 import { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+import { LanguageSelector } from "../../i18n/LanguageSelector";
+import { LocaleNavLink as NavLink } from "../../i18n/LocaleLink";
 
 const routes = [
   ["/", "home"],
@@ -81,6 +84,7 @@ function HeaderNavigation() {
                 </li>
               ))}
             </ul>
+            <LanguageSelector />
             <ThemeToggle
               label={t("shell.theme.label")}
               labels={{
@@ -99,6 +103,7 @@ function HeaderNavigation() {
 
 export function Header() {
   const location = useLocation();
-  // A new history entry resets the disclosure, including navigation outside this header.
-  return <HeaderNavigation key={location.key} />;
+  // A route change resets the disclosure. Same-page language changes retain focus
+  // on the native selector, including inside the mobile navigation.
+  return <HeaderNavigation key={location.pathname} />;
 }

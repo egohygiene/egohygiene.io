@@ -1,3 +1,4 @@
+import { I18nProvider } from "@egohygiene/i18n";
 import { fireEvent } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
@@ -25,6 +26,23 @@ describe("HomePage", () => {
       getByRole("img", { name: /A fuchsia heart with radiating black ink splashes/i }),
     ).toHaveAttribute("src", "/store/heartburst/heartburst-light.webp");
     expect(getByText(/purchases are not available yet/i)).toBeInTheDocument();
+  });
+
+  it("lets the artwork accessible message control the placement of its title", () => {
+    const { getByRole } = renderWithRouter(
+      <I18nProvider
+        messages={{
+          ...resources,
+          landing: { ...resources.landing, designActionLabel: "{{title}} — artwork details" },
+        }}
+      >
+        <HomePage />
+      </I18nProvider>,
+    );
+    expect(getByRole("link", { name: "heartburst — artwork details" })).toHaveAttribute(
+      "href",
+      "/store/designs/heartburst",
+    );
   });
 
   it("keeps a store destination available when the feature image fails", () => {

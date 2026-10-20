@@ -162,7 +162,10 @@
   color: var(--color-background);
   background: var(--store-ink);
   cursor: pointer;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .store-button:hover {
@@ -237,7 +240,7 @@
 
 .store-hero__artifact > span:last-child {
   position: absolute;
-  right: 0.5rem;
+  inset-inline-end: 0.5rem;
   bottom: 0.8rem;
   width: 2rem;
   height: 2rem;
@@ -262,7 +265,7 @@
 }
 
 .store-art-caption > span:last-child {
-  text-align: right;
+  text-align: end;
 }
 
 .store-artwork {
@@ -616,7 +619,9 @@
   background: var(--store-card);
   color: var(--color-foreground);
   text-decoration: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .store-card__link:hover {
@@ -641,7 +646,7 @@
 .store-card__badge {
   position: absolute;
   top: 0.75rem;
-  left: 0.75rem;
+  inset-inline-start: 0.75rem;
 }
 
 .store-badge {
@@ -666,7 +671,7 @@
 .store-card__arrow {
   position: absolute;
   top: 0.75rem;
-  right: 0.75rem;
+  inset-inline-end: 0.75rem;
   display: grid;
   place-items: center;
   width: 1.8rem;
@@ -817,8 +822,8 @@
 
 .store-worlds__copy .store-worlds__note {
   font-size: 0.72rem;
-  border-left: 2px solid var(--store-line);
-  padding-left: 1rem;
+  border-inline-start: 2px solid var(--store-line);
+  padding-inline-start: 1rem;
 }
 
 .store-signoff {
@@ -1186,7 +1191,7 @@
 
   .store-card__badge {
     top: 0.4rem;
-    left: 0.4rem;
+    inset-inline-start: 0.4rem;
   }
 
   .store-card__badge .store-badge {
@@ -1286,7 +1291,7 @@
 
   .store-card__badge {
     top: 0.75rem;
-    left: 0.75rem;
+    inset-inline-start: 0.75rem;
   }
 
   .store-card__badge .store-badge {

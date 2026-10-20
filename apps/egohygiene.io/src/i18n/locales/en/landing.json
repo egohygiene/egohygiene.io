@@ -47,5 +47,6 @@
   "ecosystemDescription": "Explore the evolving tools and experiments behind Ego Hygiene, from capturing ideas to making creative work.",
   "ecosystemAction": "Explore the ecosystem",
   "closing": "A work in progress. A world worth creating.",
-  "closingAction": "Read the philosophy"
+  "closingAction": "Read the philosophy",
+  "designActionLabel": "Explore this design: {{title}}"
 }

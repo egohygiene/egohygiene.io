@@ -15,14 +15,21 @@ function findRegisteredLocale(
   }
 }
 
+export function getRequestedLocale(
+  registry: LocaleRegistry,
+  search: string,
+): LocaleDefinition | undefined {
+  const values = new URLSearchParams(search).getAll(localeSearchParameter);
+  return values.length === 1 ? findRegisteredLocale(registry, values[0]) : undefined;
+}
+
 /** URL selection, then an optional saved preference, then the source locale. */
 export function resolveLocaleSelection(
   registry: LocaleRegistry,
   search: string,
   readPreference?: () => string | null,
 ): LocaleDefinition {
-  const values = new URLSearchParams(search).getAll(localeSearchParameter);
-  const requested = values.length === 1 ? findRegisteredLocale(registry, values[0]) : undefined;
+  const requested = getRequestedLocale(registry, search);
   if (requested) return requested;
 
   // The callback also encloses access to window.localStorage itself, whose getter

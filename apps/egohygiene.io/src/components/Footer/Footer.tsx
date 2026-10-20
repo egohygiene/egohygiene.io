@@ -1,6 +1,6 @@
 import { useI18n } from "@egohygiene/i18n";
 import { Container } from "@egohygiene/ui";
-import { NavLink } from "react-router-dom";
+import { LocaleNavLink as NavLink } from "../../i18n/LocaleLink";
 
 export function Footer() {
   const { t } = useI18n();

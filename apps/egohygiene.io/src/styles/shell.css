@@ -61,6 +61,16 @@
 .site-nav {
   gap: clamp(1rem, 3vw, 2.5rem);
   min-inline-size: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.site-language-selector {
+  display: grid;
+  gap: 0.25rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  font-size: 0.85rem;
 }
 
 .site-nav ul,

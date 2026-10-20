@@ -1,13 +1,17 @@
+import { useI18n } from "@egohygiene/i18n";
+
+import { PageMetadata } from "../components/PageMetadata/PageMetadata";
+
 export function PrivacyPage() {
+  const { t } = useI18n();
   return (
     <article className="site-prose">
-      <h1>Privacy draft</h1>
-      <p>This provisional draft is here to explain the current state plainly.</p>
-      <p>
-        The first public website is static and does not require sign-in or collect personal data
-        through a backend.
-      </p>
-      <p>Future changes will update this page before stronger guarantees are claimed.</p>
+      <PageMetadata title={t("pages.privacyTitle")} description={t("pages.privacy.description")} />
+      <h1>{t("pages.privacyTitle")}</h1>
+      <p>{t("pages.privacy.intro")}</p>
+      <p>{t("pages.privacy.current")}</p>
+      <p>{t("pages.privacy.preferences")}</p>
+      <p>{t("pages.privacy.future")}</p>
     </article>
   );
 }

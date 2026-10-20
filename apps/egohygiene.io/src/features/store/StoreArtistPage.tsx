@@ -1,9 +1,9 @@
 import { useI18n } from "@egohygiene/i18n";
 import type { StoreCatalog, StorefrontCuration } from "@egohygiene/schemas";
 import { useRef } from "react";
-import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
-
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 import { storeCatalog, storefrontCuration } from "../../content/store";
+import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import { filterStoreEntries, getCuratedStoreArtist } from "./domain/index.ts";
 import { StoreCard, StoreMetadata } from "./StorePages";
 
@@ -69,7 +69,7 @@ export function StoreArtistPage({
   return (
     <div className="store-shell storefront-page store-artist-page">
       <StoreMetadata
-        title={`${artist.title} · ${t("storeArtist.title")}`}
+        title={t("storeArtist.metadataTitle", { artist: artist.title })}
         description={t("storeArtist.description")}
       />
       <nav className="store-breadcrumbs" aria-label={t("storeArtist.breadcrumb.label")}>
@@ -151,7 +151,10 @@ export function StoreArtistPage({
         </search>
 
         <p className="store-artist-results" role="status">
-          {t("storeArtist.search.resultsLabel")} {formatNumber(entries.length)}
+          {t("storeArtist.search.results", {
+            count: entries.length,
+            formattedCount: formatNumber(entries.length),
+          })}
         </p>
         {entries.length ? (
           <ul className="storefront-grid">

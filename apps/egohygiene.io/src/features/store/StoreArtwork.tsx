@@ -42,7 +42,11 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
     <div
       className={`store-artwork store-artwork--study store-artwork--motif-${motif}${hero ? " store-artwork--hero" : ""}`}
       role="img"
-      aria-label={artwork?.kind === "placeholder" ? `${artwork.label}. ${label}.` : label}
+      aria-label={
+        artwork?.kind === "placeholder"
+          ? t("storeCards.artwork.labelledPlaceholder", { label: artwork.label })
+          : label
+      }
     >
       <svg aria-hidden="true" viewBox="0 0 600 600" fill="none" focusable="false">
         <defs>

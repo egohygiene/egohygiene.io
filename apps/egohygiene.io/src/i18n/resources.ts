@@ -1,5 +1,6 @@
 import common from "./locales/en/common.json";
 import errors from "./locales/en/errors.json";
+import fourthwallPreview from "./locales/en/fourthwallPreview.json";
 import landing from "./locales/en/landing.json";
 import navigation from "./locales/en/navigation.json";
 import pages from "./locales/en/pages.json";
@@ -16,6 +17,8 @@ export const resources = {
   storefront,
   common,
   errors,
+  // The isolated preview's interface copy follows the same build boundary as its route.
+  ...(import.meta.env.VITE_STORE_PREVIEW === "true" ? { fourthwallPreview } : {}),
   navigation,
   pages,
 } as const;
