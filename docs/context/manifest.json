@@ -32,5 +32,6 @@
   "localeReviewCheckpoint": "docs/store/locale-review-64c.md",
   "interfaceMessageWorkflow": "docs/store/interface-message-workflow.md",
   "catalogLocalizationReview": "docs/store/catalog-localization-65a.md",
-  "catalogLocalizationDecision": "docs/architecture/decisions/0010-versioned-catalog-localization.md"
+  "catalogLocalizationDecision": "docs/architecture/decisions/0010-versioned-catalog-localization.md",
+  "catalogPresentationReview": "docs/store/catalog-localization-65b.md"
 }

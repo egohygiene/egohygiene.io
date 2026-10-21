@@ -10,7 +10,7 @@ why this checkpoint adds a provider adapter without adding a framework or engine
 | Data / state | Authority | Consumer behavior |
 | --- | --- | --- |
 | IDs, slugs, artwork revisions, design/product/context relationships | Validated catalog v2 | Derive views through selectors; never replace IDs with provider IDs |
-| Source copy, translations and their review bindings | Canonical entry with explicit `sourceLocale` | Public projection retains current reviewed fields; selected-language rendering/search follows in #65 B |
+| Source copy, translations and their review bindings | Canonical entry with explicit `sourceLocale` | Public projection retains current reviewed fields; pure content selectors resolve presentation fields for the selected language |
 | Creator and rights-holder declarations | Explicit catalog attribution | Default to unknown; do not infer from contexts, curation or collection membership |
 | Public browser catalog | Node loader → `toPublicStoreCatalog` → Vite adapter | Import `src/content/store/index.ts`; no raw authoring JSON imports |
 | Shop and artist selections | Validated storefront curation v1 | Resolve ordered canonical IDs through domain selectors; membership does not imply authorship or purchase eligibility |
@@ -187,12 +187,23 @@ final #37 qualification phase. The validator and journey definitions do not coun
 as a passing browser run.
 
 Actual new public languages require reviewed dictionaries, registry entries and
-a catalog mapping supplied by app composition. Missing partial dictionaries use
-source fallback. The production selector currently lists English only.
-#65 A / #34 establish the v2 catalog contract below; #65 B will connect catalog
-fallback/rendering and search to this existing locale service. Preserve canonical
-IDs, stored currency codes, asset paths and provider destinations. Language
-selection must not imply a new currency or shipping country. #22 owns
+reviewed catalog content. Missing partial dictionaries use source fallback. The
+production registry and selector still enable **English only**; adding translation
+records does not activate a locale. #65 B connects catalog rendering and search to
+this existing service through `features/store/useStoreContent.ts`. It supplies the
+selected content `id` and ordered registry fallback IDs to the portable resolver,
+while `useI18n().locale` remains the selected `formatLocale`. Isolated consumers
+without the website service use their runtime locale and each entry's source,
+without inventing an additional registry or implicit regional fallback.
+
+Preserve canonical IDs, stored currency codes, asset paths, variant mappings and
+provider destinations. Prices format their declared numeric amount/currency using
+the selected formatting locale; there is no exchange-rate conversion, currency
+selector or shipping-country inference. The supported minor-unit currencies keep
+the existing two-decimal policy. Counts use the existing number formatter; future
+actual dates should use the existing date formatter rather than invented catalog
+date fields. Provider checkout totals, shipping, tax, regional eligibility and
+checkout language remain provider authority and require #38 evidence. #22 owns
 crawler-visible locale/canonical outputs before multilingual publication.
 
 ## Add catalog translations or attribution
@@ -222,11 +233,36 @@ Context membership and artist/song/collection selection remain discovery data;
 they never infer ownership or approve selling. All migrated records keep unknown
 attribution until a supported declaration is authored.
 
-Source catalog fields still render unchanged in checkpoint A. Selected-language
-rendering, deterministic fallback and multilingual search remain #65 B; no public
-language is enabled by adding translation data. See the
-[catalog checkpoint](../store/catalog-localization-65a.md) and
+`getStoreEntryContent(entry, selection)` in the portable domain returns only
+presentation fields as `{ value, locale }`, with variant labels retaining their
+canonical `variantId`. It does not clone or rewrite a canonical entry/catalog.
+Keep the original entry for relationship selectors, canonical paths, purchase
+validation and provider normalization; use the returned fields for visible copy,
+artwork alternatives and client metadata inputs. Changing selected language must
+not invalidate review bindings by replacing the source fields being reviewed.
+
+Resolution is per field: selected content locale, explicitly declared fallback
+locales, then the entry's own `sourceLocale`, with stable deduplication. The source
+wins whenever it is first encountered, including before later configured fallbacks.
+Missing, draft and stale translations fall through to the next eligible source;
+only current reviewed fields can display. There is no implicit region matching.
+Consumers retain the resolved `locale` and apply per-field `lang`, so untranslated
+creative names and fallback descriptions have accurate language metadata.
+
+Pass the same `StoreContentSelection` into `filterStoreEntries` for catalog and
+artist search. It searches resolved titles/descriptions of the entry and related
+public designs/contexts, plus original creative titles as source aliases. It does
+not index every translation or replaced source description. Unicode normalization
+is NFKC, followed by explicit selected-language casing and NFKC again; diacritics
+remain meaningful. There is no implicit transliteration or accent removal.
+
+See the [contract checkpoint](../store/catalog-localization-65a.md),
+[rendering/search checkpoint B](../store/catalog-localization-65b.md),
+[ADR 0010](decisions/0010-versioned-catalog-localization.md) and
 [authoring examples](../store/catalog-authoring.md#catalog-translations-and-attribution).
+C's synthetic integration and first-language review proof remains next; actual
+Chromium and broad qualification stay deferred to final #37. These content APIs
+and local checks do not constitute human language review or public activation.
 
 ## Loading and failure behavior
 

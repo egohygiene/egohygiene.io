@@ -80,9 +80,11 @@ stays open. Use the [message workflow](docs/store/interface-message-workflow.md)
 source edits and human translation review. Alan subsequently deferred Chromium,
 unrelated refactoring and broad lint/test/CI work to final #37 and selected further
 implementation. #65 A / #34 is now in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86),
-stacked on #85: read [ADR 0010](docs/architecture/decisions/0010-versioned-catalog-localization.md)
-and the [catalog receipt](docs/store/catalog-localization-65a.md). Next is the sync,
-then #65 B selected-language rendering/search. #84 orders #65/#34, #38 plus relevant
+stacked on #85: read [ADR 0010](docs/architecture/decisions/0010-versioned-catalog-localization.md).
+#65 A is recorded in the [catalog receipt](docs/store/catalog-localization-65a.md).
+Alan then selected B, now implemented in that same draft; read its
+[presentation/search receipt](docs/store/catalog-localization-65b.md). Next is sync,
+then #65 C synthetic integration/authoring proof. #84 orders #65/#34, #38 plus relevant
 #9, #22, then final #37 with #29/#52/#49/#70. Keep focused correctness checks while
 implementing; the deferred browser/hosted failures remain open. No new merge authority
 is inferred from continued implementation.

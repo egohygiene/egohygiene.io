@@ -259,9 +259,13 @@ product or collection. It is a fixture, not an approved language or translation:
 
 Omit `title` when a creative name should remain unchanged. Omitted, draft or stale
 fields leave the source field available as fallback; do not copy source text into
-every locale to conceal missing translations. Checkpoint A establishes the data
-and publication contract. Selecting this content for display and multilingual
-search belongs to #65 B; current pages still render source catalog fields.
+every locale to conceal missing translations. The current renderer resolves each
+field separately: selected content language, declared registry fallback languages,
+then the entry's source language. A source-language field wins as soon as its
+language is encountered, even before later configured fallbacks. Draft or stale
+translations never replace the source. There is no implicit regional fallback
+such as `fr-CA` to `fr`; declare that relationship in the website registry if it
+is intended.
 
 A human-reviewed field uses `review.status: "reviewed"`, a canonical target
 `locale`, a public-safe `reviewedBy` identifier, a valid `reviewedAt` calendar date,
@@ -279,6 +283,37 @@ actual review, or remove the translated field until one is available. See the
 Review metadata is public catalog data. Use a public reviewer handle, not private
 contact details, business records or rights evidence. Structurally valid review
 metadata cannot prove reviewer identity, linguistic quality or publication approval.
+
+The selected content language is the registry's `id`; its `formatLocale` controls
+number, date and price presentation. These may differ for a synthetic locale.
+Catalog renderers keep each field's resolved language and apply `lang` to its
+visible text or artwork alternative. A page can therefore contain reviewed
+translated description text alongside an untranslated creative title, without
+claiming that the title is in the selected interface language.
+
+Search uses resolved titles and descriptions from the entry and its related
+public designs/contexts. Original source titles remain searchable aliases for
+creative names. Unrelated translations, draft/stale translated text and replaced
+source descriptions are not extra hidden search terms. Search normalizes Unicode
+with NFKC and explicit selected-language casing, while retaining diacritics. It
+supports equivalent composed/decomposed forms and compatibility characters; it
+does not invent transliterations or accent-insensitive matches.
+
+Translation data alone does not publish a website language. The real registry
+still enables **English only**; another public language needs reviewed interface
+messages, catalog content and an explicit registry change. Canonical IDs, slugs,
+asset paths, provider destinations and variant mappings remain unchanged across
+languages. Prices format the declared amount and currency using `formatLocale`;
+language selection does not convert currency, select a shipping region or establish
+provider eligibility. Current supported minor-unit currencies keep their existing
+two-decimal policy; expanding currencies requires an explicit exponent policy.
+No catalog dates are added merely to demonstrate date formatting.
+
+See [checkpoint B](catalog-localization-65b.md) for the resolver/rendering/search
+implementation and [ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md)
+for its data boundary. Checkpoint C's synthetic integration and first-language
+review proof remains next; actual Chromium execution and broader qualification
+remain deferred to final #37.
 
 Optional `attribution` defaults to `{ "status": "unknown" }`. A declared record
 uses `status: "declared"` with `creatorIds` and/or `rightsHolderIds` referencing

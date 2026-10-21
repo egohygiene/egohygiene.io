@@ -1,6 +1,60 @@
 # Current handoff
 
-## Current: #65 A / #34 contract saved; final validation deferred — 2026-10-20 UTC
+## Current: #65 B implemented in draft #86 — 2026-10-21 UTC
+
+Alan authorized continuing to B during the 2026-10-20 maintainer session. Recovered
+the pruned checkout from GitHub and refreshed #65/#84, draft #86 at
+`f7b7d7ec6d1b3a43e76e20afda6ed88dab9ddcfd`, draft #85 at
+`9b308a88df4446d54e0558ed35d5dd0f0bbee37e`, draft #83 at
+`8a6258a1011569ac6e531fc124ccb0766f986389`, and main at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. None was merged. #86 remains on
+`feat/catalog-localization-65a`, stacked on #85, which is stacked on #83.
+
+Source `34a807ef173b2ddd547e9735ee344b6ffeba4514`, tree `3081417ada645b33e4976b8ffa8c5269a5204f1a`,
+is published in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86).
+The remote tree equals the tested staged source. Contract/consumer/type/message/
+boundary checks ran before publication; builds/artifact checks ran at the published
+source. This following docs commit records evidence. Read the
+[B receipt](../store/catalog-localization-65b.md), [ADR 0010 refinement](../architecture/decisions/0010-versioned-catalog-localization.md)
+and [authoring workflow](../store/catalog-authoring.md#catalog-translations-and-attribution).
+
+The portable selector resolves current reviewed title/description/artwork/availability/
+variant labels per field and returns actual languages. The existing site service
+supplies selected content locale and explicit fallback chain, separately from
+formatting locale. Canonical data stays unchanged for paths, relationships and
+purchase validation. Cards/details/galleries/context/artist views and client metadata
+use resolved presentation text. Unicode search covers displayed/fallback content
+plus original creative-name aliases; unrelated translations and draft/stale copy
+are excluded. Provider currency, amounts, variant IDs and exact destinations remain
+unchanged; the isolated preview localizes its canonical heading only.
+
+Focused local results: **116 catalog tests + 73 consumer/service tests**, three type
+profiles, 15-module boundary, 377 messages/10 namespaces, normal/preview builds and
+normal artifact checks passed (16 files, 12 references, zero findings). See
+[checks](../store/reviews/catalog-localization-65b/checks.json) and
+[artifacts](../store/reviews/catalog-localization-65b/artifacts.json). Independent
+review found no remaining source blocker. Two early test-only expectations were
+corrected (non-unique search sentinel and Intl nonbreaking whitespace); no weakened
+gate or implementation workaround. Existing runtime/config-loader warnings remain.
+
+**Deferred:** no Chromium, screenshots, broad lint/refactor, full qualification or
+manual CI dispatch. Automatic source CI 39519493216, dependency review 39519493050
+and CodeQL 39519493369 failed; status only was refreshed, with repairs deferred.
+Hosted results are separately recorded in the receipt;
+local passes are not hosted/browser/production qualification. Mixed-language
+interpolated accessible names remain for actual accessibility review. English is
+still the sole public locale; no real translation/product/rights claim, catalog
+entry, provider route, dependency, deployment, order or spending changed.
+
+**Next:** sync on B, then #65 C's reusable bilingual/pseudo catalog integration,
+canonical metadata/link inputs, exact synthetic checkout handoff and first-language
+review guidance. Actual Chromium execution stays deferred to final #37 with
+#29/#52/#49/#70. Then #84 orders #38 plus relevant #9, #22, and the full final
+validation/CI pass. Review and merge the #83 → #85 → #86 draft stack only when
+explicitly instructed; reconcile downstream bases after each merge. #65/#34/#64/
+#37 remain open. Hosting/provider activation and #39 are separate authorization.
+
+## Historical: #65 A / #34 contract saved; final validation deferred — 2026-10-20 UTC
 
 Alan explicitly moved Chromium execution/troubleshooting, unrelated refactoring,
 repository-wide lint/testing and CI repair to the final phase and selected further

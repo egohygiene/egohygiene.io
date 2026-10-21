@@ -4,6 +4,48 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Catalog localization B — 2026-10-21 UTC
+
+Alan selected B after A during the 2026-10-20 maintainer session. Restored the
+pruned checkout from GitHub; refreshed #65/#84 and the unchanged main/#83/#85/#86
+heads recorded in [current state](current-state.md). #86 parent
+`f7b7d7ec6d1b3a43e76e20afda6ed88dab9ddcfd` hosted CI/dependency/CodeQL were failed
+(39472059133 / 39472059144 / 39472059184); causes/repairs remained deferred.
+Pinned Node 24.21.0 archive checksum and pnpm 11.28.5 were verified; frozen install
+with scripts disabled retained manifest/lockfile hashes.
+
+Implementation source `34a807ef173b2ddd547e9735ee344b6ffeba4514`, tree
+`3081417ada645b33e4976b8ffa8c5269a5204f1a`, is in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86),
+stacked on #85/#83. API-created Git tree matched the staged tested tree exactly;
+local checkout adopted that exact commit before fresh builds and artifact inventory.
+This docs commit adds evidence without changing source. Existing public catalog,
+locale service and synthetic test records were the only inputs; no private data,
+new art, real translations, external implementation or provider contact was used.
+
+The [B receipt](../store/catalog-localization-65b.md) and [ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md)
+record pure presentation data distinct from canonical purchase inputs, field-level
+reviewed fallback/language, selected content vs formatting locale, and Unicode search
+with original title aliases. Real source catalog/curation/provider records remain
+unchanged. The brand context message closes the visible label for v2's existing
+brand kind; source inventory now has 377 messages in 10 namespaces.
+
+Final local evidence: 116 catalog tests, 73 consumer/service tests, three types,
+15-module boundary, message checks, normal/preview builds and normal artifacts
+(16 files, 12 asset references, zero findings). Exact commands/log hashes and corrected
+attempts are in [checks](../store/reviews/catalog-localization-65b/checks.json);
+[inventory](../store/reviews/catalog-localization-65b/artifacts.json) pins source and
+public image bytes. Earlier test-only mistakes were a source sentinel also present
+in a related context and whitespace normalization in a currency matcher; corrected
+fixtures/assertions passed without changing implementation/gates. Independent review
+found no remaining blocker; mixed-language accessible-name review remains deferred.
+
+No Chromium retry, screenshots, broad lint/refactor/full qualification, CI dispatch,
+merge, deployment, new public locale, live product, order or spending. Automatically
+triggered source CI 39519493216, dependency review 39519493050 and CodeQL
+39519493369 failed. Status only was refreshed; causes were not re-diagnosed, no
+gate disabled, and local passes do not replace hosted results. Next is sync, then #65 C; #37/#29 own the final deferred validation.
+#65/#34/#64/#37 remain open and all three drafts remain unmerged.
+
 ## Catalog localization A and validation deferral — 2026-10-20 UTC
 
 Alan selected bounded progress and explicitly deferred Chromium, unrelated

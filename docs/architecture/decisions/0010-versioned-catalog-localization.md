@@ -1,9 +1,9 @@
 # ADR 0010 — Versioned catalog localization and explicit attribution
 
 - Date: 2026-10-20
-- Status: Implemented for #65 A / #34 in a draft checkpoint; review pending.
+- Status: Implemented for #65 A/B / #34 in a draft checkpoint; review pending.
 - Scope: Portable catalog data, publication, and migration. Selected-language
-  rendering/search follow in #65 B; browser qualification is deferred to #37.
+  rendering/search is implemented in B; browser qualification is deferred to #37.
 
 ## Context
 
@@ -79,3 +79,36 @@ introduced. Provider and curation manifests keep their independent version 1.
 Existing canonical paths, declared cover order, checkout/artwork guards and disabled
 real purchasing remain intact. See the [checkpoint receipt](../../store/catalog-localization-65a.md)
 and [authoring policy](../../store/catalog-authoring.md#schema-changes).
+
+## Checkpoint B presentation refinement — 2026-10-21 UTC
+
+The maintainer selected B after A. The portable domain returns field-level
+`{ value, locale }` presentation data through `getStoreEntryContent`. Canonical
+entries remain authoritative inputs to relationships, URL generation, curation
+and purchase checks. Do not build a translated catalog whose source text no longer
+matches its translation-review bindings. The feature hook supplies selected locale
+IDs and ordered fallbacks from #64's existing registry; its formatting locale is
+separate and never selects catalog text. Isolated consumers without that service
+can use their translation-runtime locale with source-only fallback.
+
+Fallback is per field: selected locale, explicitly configured fallbacks, then
+entry source, with stable deduplication. Original source wins at its position in
+the chain. No implicit region negotiation or arbitrary available translation is
+used. Only current reviewed fields participate, including canonical variant labels.
+Returned field languages label mixed-language presentation. Public registry
+activation and human review remain separate requirements; English stays the only
+public language for this checkpoint.
+
+Search uses displayed/fallback titles and descriptions plus original creative-name
+title aliases across the same entry/design/context relationships. Normalize query
+and content with NFKC and explicit selected-language casing; retain diacritics.
+Do not index other locales or draft/stale translations merely because they exist.
+Results remain canonical entries in their existing order. Source title aliases
+preserve discoverability of untranslated names without duplicating products.
+
+Provider-declared price formatting retains currency and amount. No new currency,
+regional eligibility, provider language parameter or variant selector is implied.
+Client metadata receives localized text with canonical identities unchanged;
+public rendering/metadata qualification remains #22. See [B receipt](../../store/catalog-localization-65b.md).
+The maintainer deferred actual Chromium/broad validation and CI repair to final
+#37; focused implementation checks continue and do not replace those open gates.
