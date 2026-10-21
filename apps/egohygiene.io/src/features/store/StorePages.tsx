@@ -19,6 +19,7 @@ import {
 } from "./domain/index.ts";
 import { StoreArtwork } from "./StoreArtwork";
 import { StoreArtworkGallery } from "./StoreArtworkGallery";
+import { useStoreContent } from "./useStoreContent";
 
 import "./store.css";
 
@@ -97,6 +98,8 @@ export function StoreCard({
   readonly catalog?: StoreCatalog;
 }) {
   const { t } = useI18n();
+  const { content } = useStoreContent();
+  const presented = content(entry);
   const design = getEntryDesigns(catalog, entry)[0];
   const connected = getEntryContexts(catalog, entry).length > 0;
   return (
@@ -118,8 +121,8 @@ export function StoreCard({
               {t(connected ? "storeCards.connected" : "storeCards.standalone")}
             </span>
           </div>
-          <h3>{entry.title}</h3>
-          <p>{entry.description}</p>
+          <h3 lang={presented.title.locale}>{presented.title.value}</h3>
+          <p lang={presented.description.locale}>{presented.description.value}</p>
           <span className="store-card__action">
             {t(`storeCards.explore.${entry.kind}`)} <Arrow />
           </span>
@@ -149,9 +152,11 @@ function StoreGrid({
 
 function StoreBreadcrumbs({
   title,
+  titleLocale,
   kind,
 }: {
   readonly title: string;
+  readonly titleLocale?: string;
   readonly kind: BrowsableStoreEntry["kind"];
 }) {
   const { t } = useI18n();
@@ -166,7 +171,9 @@ function StoreBreadcrumbs({
           <Link to={`/store/catalog?view=${kind}#catalog`}>{parentLabel}</Link>
         </li>
         <li>
-          <span aria-current="page">{title}</span>
+          <span aria-current="page" lang={titleLocale}>
+            {title}
+          </span>
         </li>
       </ol>
     </nav>
@@ -175,6 +182,7 @@ function StoreBreadcrumbs({
 
 function ContextNotes({ entry }: { readonly entry: BrowsableStoreEntry }) {
   const { t } = useI18n();
+  const { content } = useStoreContent();
   const contexts = getEntryContexts(storeCatalog, entry);
   if (!contexts.length) return null;
   return (
@@ -185,8 +193,8 @@ function ContextNotes({ entry }: { readonly entry: BrowsableStoreEntry }) {
           <span className="store-kicker">
             {t(`storeCards.detail.contextType.${context.contextType}`)}
           </span>
-          <h3>{context.title}</h3>
-          <p>{context.description}</p>
+          <h3 lang={content(context).title.locale}>{content(context).title.value}</h3>
+          <p lang={content(context).description.locale}>{content(context).description.value}</p>
         </div>
       ))}
     </section>
@@ -213,12 +221,13 @@ function StoreMissingPage({ kind }: { readonly kind: "object" | "design" | "coll
 
 export function StoreCatalogPage() {
   const { t, formatNumber } = useI18n();
+  const { content, selection } = useStoreContent();
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") ?? "";
   const selectedView = searchParams.get("view");
   const view = views.find((item) => item.value === selectedView)?.value ?? "all";
   const story = stories.find((item) => item.value === searchParams.get("story"))?.value ?? "all";
-  const entries = filterStoreEntries(storeCatalog, query, view, story);
+  const entries = filterStoreEntries(storeCatalog, query, view, story, selection);
   const hasFilters = query.trim().length > 0 || view !== "all" || story !== "all";
   const products = storeCatalog.entries.filter(
     (entry): entry is StoreProduct => entry.kind === "product",
@@ -295,7 +304,9 @@ export function StoreCatalogPage() {
               <Link
                 className="store-hero__art-link"
                 to={storeEntryPath(heroDesign)}
-                aria-label={t("storeCards.catalog.exploreTitle", { title: heroDesign.title })}
+                aria-label={t("storeCards.catalog.exploreTitle", {
+                  title: content(heroDesign).title.value,
+                })}
               >
                 <StoreArtwork design={heroDesign} hero />
               </Link>
@@ -308,7 +319,7 @@ export function StoreCatalogPage() {
                         : "storeCards.catalog.standalone",
                     )}
                   </span>
-                  <h2>{heroDesign.title}</h2>
+                  <h2 lang={content(heroDesign).title.locale}>{content(heroDesign).title.value}</h2>
                 </div>
                 <Arrow diagonal />
               </Link>
@@ -354,8 +365,12 @@ export function StoreCatalogPage() {
                 </div>
                 <div className="store-pathway__copy">
                   <span className="store-kicker">{t("storeCards.catalog.enterCollection")}</span>
-                  <h3>{firstCollection.title}</h3>
-                  <p>{firstCollection.description}</p>
+                  <h3 lang={content(firstCollection).title.locale}>
+                    {content(firstCollection).title.value}
+                  </h3>
+                  <p lang={content(firstCollection).description.locale}>
+                    {content(firstCollection).description.value}
+                  </p>
                   <span className="store-text-link">
                     {t("storeCards.catalog.stepInside")} <Arrow />
                   </span>
@@ -372,7 +387,9 @@ export function StoreCatalogPage() {
                 </div>
                 <div className="store-pathway__copy">
                   <span className="store-kicker">{t("storeCards.catalog.independent")}</span>
-                  <h3>{standaloneDesign.title}</h3>
+                  <h3 lang={content(standaloneDesign).title.locale}>
+                    {content(standaloneDesign).title.value}
+                  </h3>
                   <p>{t("storeCards.catalog.independentDescription")}</p>
                   <span className="store-text-link">
                     {t("storeCards.catalog.followDesign")} <Arrow />
@@ -493,7 +510,10 @@ export function StoreCatalogPage() {
             <h2 id="collection-feature-heading">{t("storeCards.catalog.featureHeading")}</h2>
             <p>{t("storeCards.catalog.featureDescription")}</p>
             <Link className="store-text-link" to={storeEntryPath(firstCollection)}>
-              {t("storeCards.catalog.exploreTitle", { title: firstCollection.title })} <Arrow />
+              {t("storeCards.catalog.exploreTitle", {
+                title: content(firstCollection).title.value,
+              })}{" "}
+              <Arrow />
             </Link>
           </div>
         </section>
@@ -522,12 +542,14 @@ export function StoreCatalogPage() {
 }
 
 export function StoreProductPage() {
+  const { content } = useStoreContent();
   const { t, locale } = useI18n();
   const { slug } = useParams();
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "product" && candidate.slug === slug,
   );
   if (entry?.kind !== "product") return <StoreMissingPage kind="object" />;
+  const presented = content(entry);
   const designs = getEntryDesigns(storeCatalog, entry);
   const collections = getRelatedCollections(storeCatalog, entry);
   const action = getStorePurchaseAction(storeCatalog, entry.id);
@@ -535,11 +557,19 @@ export function StoreProductPage() {
 
   return (
     <div className="store-shell">
-      <StoreMetadata title={entry.title} description={entry.description} />
-      <StoreBreadcrumbs title={entry.title} kind={entry.kind} />
+      <StoreMetadata title={presented.title.value} description={presented.description.value} />
+      <StoreBreadcrumbs
+        title={presented.title.value}
+        titleLocale={presented.title.locale}
+        kind={entry.kind}
+      />
       <article className="store-detail">
         <div className="store-detail__art">
-          <StoreArtworkGallery designs={designs} title={entry.title} />
+          <StoreArtworkGallery
+            designs={designs}
+            title={presented.title.value}
+            titleLocale={presented.title.locale}
+          />
           <p className="store-art-disclaimer">
             {t(
               designs[0]?.artwork.kind === "image"
@@ -553,8 +583,10 @@ export function StoreProductPage() {
         <div className="store-detail__copy">
           <p className="store-kicker">{t("storeCards.detail.productKicker")}</p>
           <EntryBadge entry={entry} />
-          <h1>{entry.title}</h1>
-          <p className="store-detail__description">{entry.description}</p>
+          <h1 lang={presented.title.locale}>{presented.title.value}</h1>
+          <p className="store-detail__description" lang={presented.description.locale}>
+            {presented.description.value}
+          </p>
           <div className="store-purchase-panel">
             {action.kind === "external" ? (
               <>
@@ -581,9 +613,9 @@ export function StoreProductPage() {
                       : "storeCards.detail.unavailableStatus",
                   )}
                 </span>
-                <p>
+                <p lang={presented.unavailableReason?.locale}>
                   {purchase.state === "unavailable"
-                    ? purchase.reason
+                    ? (presented.unavailableReason?.value ?? purchase.reason)
                     : t("storeCards.detail.previewNote")}
                 </p>
               </>
@@ -596,7 +628,9 @@ export function StoreProductPage() {
                 {designs.map((design, index) => (
                   <span key={design.id}>
                     {index > 0 && ", "}
-                    <Link to={storeEntryPath(design)}>{design.title}</Link>
+                    <Link to={storeEntryPath(design)} lang={content(design).title.locale}>
+                      {content(design).title.value}
+                    </Link>
                   </span>
                 ))}
               </dd>
@@ -609,8 +643,8 @@ export function StoreProductPage() {
           {collections[0] && (
             <Link className="store-detail-world" to={storeEntryPath(collections[0])}>
               <span className="store-kicker">{t("storeCards.detail.biggerWorld")}</span>
-              <span>
-                {collections[0].title} <Arrow />
+              <span lang={content(collections[0]).title.locale}>
+                {content(collections[0]).title.value} <Arrow />
               </span>
             </Link>
           )}
@@ -637,21 +671,31 @@ export function StoreProductPage() {
 }
 
 export function StoreDesignPage() {
+  const { content } = useStoreContent();
   const { t } = useI18n();
   const { slug } = useParams();
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "design" && candidate.slug === slug,
   );
   if (entry?.kind !== "design") return <StoreMissingPage kind="design" />;
+  const presented = content(entry);
   const products = getDesignProducts(storeCatalog, entry.id);
   const collections = getRelatedCollections(storeCatalog, entry);
   return (
     <div className="store-shell">
-      <StoreMetadata title={entry.title} description={entry.description} />
-      <StoreBreadcrumbs title={entry.title} kind={entry.kind} />
+      <StoreMetadata title={presented.title.value} description={presented.description.value} />
+      <StoreBreadcrumbs
+        title={presented.title.value}
+        titleLocale={presented.title.locale}
+        kind={entry.kind}
+      />
       <article className="store-detail">
         <div className="store-detail__art">
-          <StoreArtworkGallery designs={[entry]} title={entry.title} />
+          <StoreArtworkGallery
+            designs={[entry]}
+            title={presented.title.value}
+            titleLocale={presented.title.locale}
+          />
           <p className="store-art-disclaimer">
             {t(
               entry.artwork.kind === "placeholder"
@@ -662,8 +706,10 @@ export function StoreDesignPage() {
         </div>
         <div className="store-detail__copy">
           <p className="store-kicker">{t("storeCards.detail.designKicker")}</p>
-          <h1>{entry.title}</h1>
-          <p className="store-detail__description">{entry.description}</p>
+          <h1 lang={presented.title.locale}>{presented.title.value}</h1>
+          <p className="store-detail__description" lang={presented.description.locale}>
+            {presented.description.value}
+          </p>
           <p className="store-detail__note">{t("storeCards.detail.designIntroduction")}</p>
           <a className="store-button" href="#design-objects">
             {t("storeCards.detail.designLink")} <Arrow />
@@ -695,12 +741,14 @@ export function StoreDesignPage() {
 }
 
 export function StoreCollectionPage() {
+  const { content } = useStoreContent();
   const { t } = useI18n();
   const { slug } = useParams();
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "collection" && candidate.slug === slug,
   );
   if (entry?.kind !== "collection") return <StoreMissingPage kind="collection" />;
+  const presented = content(entry);
   const designs = getEntryDesigns(storeCatalog, entry);
   const products = storeCatalog.entries.filter(
     (candidate): candidate is StoreProduct =>
@@ -712,18 +760,28 @@ export function StoreCollectionPage() {
   );
   return (
     <div className="store-shell">
-      <StoreMetadata title={entry.title} description={entry.description} />
-      <StoreBreadcrumbs title={entry.title} kind={entry.kind} />
+      <StoreMetadata title={presented.title.value} description={presented.description.value} />
+      <StoreBreadcrumbs
+        title={presented.title.value}
+        titleLocale={presented.title.locale}
+        kind={entry.kind}
+      />
       <section className="store-collection-hero" aria-labelledby="collection-heading">
         <div>
           <p className="store-kicker">{t("storeCards.detail.collectionKicker")}</p>
-          <h1 id="collection-heading">{entry.title}</h1>
-          <p>{entry.description}</p>
+          <h1 id="collection-heading" lang={presented.title.locale}>
+            {presented.title.value}
+          </h1>
+          <p lang={presented.description.locale}>{presented.description.value}</p>
           <a className="store-button" href="#collection-entries">
             {t("storeCards.detail.collectionLink")} <Arrow />
           </a>
         </div>
-        <StoreArtworkGallery designs={designs} title={entry.title} />
+        <StoreArtworkGallery
+          designs={designs}
+          title={presented.title.value}
+          titleLocale={presented.title.locale}
+        />
       </section>
       <ContextNotes entry={entry} />
       {artists.length > 0 && (
@@ -733,7 +791,7 @@ export function StoreCollectionPage() {
             {artists.map(({ artist }) => (
               <li key={artist.id}>
                 <Link className="store-text-link" to={`${storeArtistPath(artist)}?view=songs`}>
-                  {t("storeArtist.collectionSongLink", { artist: artist.title })}
+                  {t("storeArtist.collectionSongLink", { artist: content(artist).title.value })}
                 </Link>
               </li>
             ))}

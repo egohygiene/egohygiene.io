@@ -1,11 +1,21 @@
 import type { I18nMessages } from "@egohygiene/i18n";
-import { I18nProvider } from "@egohygiene/i18n";
+import { createLocaleRegistry, I18nProvider } from "@egohygiene/i18n";
 import type { StoreCatalog, StorefrontCuration } from "@egohygiene/schemas";
-import { fireEvent, within } from "@testing-library/react";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { fireEvent, render, within } from "@testing-library/react";
+import {
+  createMemoryRouter,
+  Outlet,
+  Route,
+  RouterProvider,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { describe, expect, it } from "vitest";
 
 import { renderWithRouter } from "#test-utils";
+import { AppProviders } from "../../app/providers";
+import { LanguageSelector } from "../../i18n/LanguageSelector";
 import { resources } from "../../i18n/resources";
 import { createLocaleFixture } from "../../test/locale-fixtures";
 import { StoreArtistPage } from "./StoreArtistPage";
@@ -17,7 +27,9 @@ const fixtureCatalog: StoreCatalog = {
   entries: [
     {
       schemaVersion: 2,
-      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+      sourceLocale: "en",
+      translations: [],
+      attribution: { status: "unknown" },
       kind: "context",
       contextType: "artist",
       id: "artist-test",
@@ -28,7 +40,9 @@ const fixtureCatalog: StoreCatalog = {
     },
     {
       schemaVersion: 2,
-      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+      sourceLocale: "en",
+      translations: [],
+      attribution: { status: "unknown" },
       kind: "context",
       contextType: "song",
       id: "song-test",
@@ -39,7 +53,9 @@ const fixtureCatalog: StoreCatalog = {
     },
     {
       schemaVersion: 2,
-      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+      sourceLocale: "en",
+      translations: [],
+      attribution: { status: "unknown" },
       kind: "design",
       id: "design-test",
       slug: "test-artwork",
@@ -52,7 +68,9 @@ const fixtureCatalog: StoreCatalog = {
     },
     {
       schemaVersion: 2,
-      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+      sourceLocale: "en",
+      translations: [],
+      attribution: { status: "unknown" },
       kind: "product",
       id: "product-shirt",
       slug: "test-shirt",
@@ -65,7 +83,9 @@ const fixtureCatalog: StoreCatalog = {
     },
     {
       schemaVersion: 2,
-      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+      sourceLocale: "en",
+      translations: [],
+      attribution: { status: "unknown" },
       kind: "product",
       id: "product-hoodie",
       slug: "test-hoodie",
@@ -78,7 +98,9 @@ const fixtureCatalog: StoreCatalog = {
     },
     {
       schemaVersion: 2,
-      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+      sourceLocale: "en",
+      translations: [],
+      attribution: { status: "unknown" },
       kind: "collection",
       id: "collection-first",
       slug: "first-song-collection",
@@ -91,7 +113,9 @@ const fixtureCatalog: StoreCatalog = {
     },
     {
       schemaVersion: 2,
-      sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+      sourceLocale: "en",
+      translations: [],
+      attribution: { status: "unknown" },
       kind: "collection",
       id: "collection-second",
       slug: "second-song-collection",
@@ -158,6 +182,83 @@ function renderArtist({
     </I18nProvider>,
     route,
   );
+}
+
+// Engineering translations only; no public language or attribution is approved.
+function translatedArtistCatalog(): StoreCatalog {
+  const catalog = structuredClone(fixtureCatalog);
+  for (const [id, title] of [
+    ["artist-test", "Artiste de démonstration"],
+    ["product-hoodie", "Vêtement de démonstration"],
+  ]) {
+    const entry = catalog.entries.find((candidate) => candidate.id === id);
+    if (!entry || !title) throw new Error("Missing localization fixture entry");
+    entry.translations = [
+      {
+        locale: "fr",
+        fields: {
+          title: {
+            value: title,
+            review: {
+              status: "reviewed",
+              locale: "fr",
+              reviewedBy: "synthetic-reviewer",
+              reviewedAt: "2026-10-20",
+              source: { locale: "en", value: entry.title },
+              value: title,
+            },
+          },
+          description: { value: "DRAFT_ARTIST_DESCRIPTION", review: { status: "draft" } },
+        },
+      },
+    ];
+  }
+  return catalog;
+}
+
+function renderLocalizedArtist(
+  catalog = translatedArtistCatalog(),
+  route = "/store/incompris?lang=fr",
+) {
+  const registry = createLocaleRegistry({
+    sourceLocale: "en",
+    locales: [
+      { id: "en", formatLocale: "en-US", direction: "ltr", label: "English fixture" },
+      // Deliberately different: catalog language follows `id`, not formatting locale.
+      { id: "fr", formatLocale: "ja-JP", direction: "ltr", label: "French fixture" },
+    ],
+  });
+  const router = createMemoryRouter(
+    [
+      {
+        element: (
+          <>
+            <LanguageSelector />
+            <Outlet />
+          </>
+        ),
+        children: [
+          {
+            path: "/store/incompris",
+            element: <IncomprisPage catalog={catalog} curation={fixtureCuration} />,
+          },
+          {
+            path: "/store/incompris/artists/:artistSlug",
+            element: <StoreArtistPage catalog={catalog} curation={fixtureCuration} />,
+          },
+        ],
+      },
+    ],
+    { initialEntries: [route] },
+  );
+  return {
+    router,
+    ...render(
+      <AppProviders router={router} registry={registry} catalogs={{ en: resources }}>
+        <RouterProvider router={router} />
+      </AppProviders>,
+    ),
+  };
 }
 
 describe("artist collection", () => {
@@ -314,5 +415,45 @@ describe("artist collection", () => {
       getByRole("link", { name: `نص تجريبي · ${resources.storeArtist.backLink}` }),
     ).toHaveAttribute("href", "/store/incompris");
     expect(getByText(`نص تجريبي · ${resources.storeArtist.introduction}`)).toBeInTheDocument();
+  });
+  it("uses the selected catalog language for artist entrances and search while retaining canonical destinations", () => {
+    const catalog = translatedArtistCatalog();
+    const original = JSON.stringify(catalog);
+    const { getByRole, getByText, queryByText, router } = renderLocalizedArtist(catalog);
+    const link = getByRole("link", { name: /Artiste de démonstration.*Explore artist collection/ });
+    expect(link).toHaveAttribute("href", "/store/incompris/artists/test-artist?lang=fr");
+    expect(within(link).getByText("Artiste de démonstration")).toHaveAttribute("lang", "fr");
+    expect(within(link).getByText("A fictional artist used only in this test.")).toHaveAttribute(
+      "lang",
+      "en",
+    );
+    fireEvent.click(link);
+    expect(
+      getByRole("heading", { level: 1, name: "Artiste de démonstration" }),
+    ).toBeInTheDocument();
+    expect(document.title).toContain("Artiste de démonstration");
+    expect(queryByText("DRAFT_ARTIST_DESCRIPTION")).not.toBeInTheDocument();
+    expect(getByText("A fictional artist used only in this test.")).toHaveAttribute("lang", "en");
+    fireEvent.change(getByRole("searchbox"), { target: { value: "VÊTEMENT" } });
+    const product = getByRole("link", { name: /Vêtement de démonstration/ });
+    expect(product).toHaveAttribute("href", "/store/products/test-hoodie?lang=fr");
+    expect(getByRole("status")).toHaveTextContent("Results: 1");
+    expect(router.state.location.search).toContain("lang=fr");
+    expect(JSON.stringify(catalog)).toBe(original);
+  });
+
+  it("falls back for stale artist names and keeps the source-language annotation", () => {
+    const catalog = translatedArtistCatalog();
+    const artist = catalog.entries.find((entry) => entry.id === "artist-test");
+    if (!artist) throw new Error("Missing artist fixture");
+    artist.title = "Updated creative name";
+    const { getByRole, queryByText } = renderLocalizedArtist(
+      catalog,
+      "/store/incompris/artists/test-artist?lang=fr",
+    );
+    expect(
+      getByRole("heading", { level: 1, name: "Updated creative name" }).querySelector("bdi"),
+    ).toHaveAttribute("lang", "en");
+    expect(queryByText("Artiste de démonstration")).not.toBeInTheDocument();
   });
 });

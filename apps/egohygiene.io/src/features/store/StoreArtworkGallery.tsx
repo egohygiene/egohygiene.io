@@ -3,17 +3,20 @@ import type { StoreDesign } from "@egohygiene/schemas";
 import { useEffect, useId, useRef, useState } from "react";
 
 import { StoreArtwork } from "./StoreArtwork";
+import { useStoreContent } from "./useStoreContent";
 
 import "./store-artwork-gallery.css";
 
 type StoreArtworkGalleryProps = {
   readonly designs: readonly StoreDesign[];
   readonly title: string;
+  readonly titleLocale?: string;
 };
 
 /** Browse authored artwork without presenting it as a finished product photograph. */
-export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps) {
+export function StoreArtworkGallery({ designs, title, titleLocale }: StoreArtworkGalleryProps) {
   const { t, formatNumber } = useI18n();
+  const { content } = useStoreContent();
   const [selectedId, setSelectedId] = useState<string>();
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -65,7 +68,9 @@ export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps
       </button>
 
       <div className="store-artwork-gallery__caption" aria-live="polite" aria-atomic="true">
-        <span>{selectedDesign.title}</span>
+        <span lang={content(selectedDesign).title.locale}>
+          {content(selectedDesign).title.value}
+        </span>
         {designs.length > 1 && (
           <span>
             {t("storeCards.gallery.position", {
@@ -86,7 +91,9 @@ export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps
               className="store-artwork-gallery__thumbnail"
               key={design.id}
               type="button"
-              aria-label={t("storeCards.gallery.selectLabel", { title: design.title })}
+              aria-label={t("storeCards.gallery.selectLabel", {
+                title: content(design).title.value,
+              })}
               aria-pressed={design.id === selectedDesign.id}
               onClick={() => setSelectedId(design.id)}
             >
@@ -113,7 +120,9 @@ export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps
               <span className="store-artwork-viewer__eyebrow">
                 {t("storeCards.gallery.viewer")}
               </span>
-              <h2 id={viewerTitleId}>{title}</h2>
+              <h2 id={viewerTitleId} lang={titleLocale}>
+                {title}
+              </h2>
             </div>
             <button
               className="store-artwork-viewer__close"
@@ -128,7 +137,9 @@ export function StoreArtworkGallery({ designs, title }: StoreArtworkGalleryProps
           <div className="store-artwork-viewer__art">
             <StoreArtwork design={selectedDesign} />
           </div>
-          <p className="store-artwork-viewer__caption">{selectedDesign.title}</p>
+          <p className="store-artwork-viewer__caption" lang={content(selectedDesign).title.locale}>
+            {content(selectedDesign).title.value}
+          </p>
         </dialog>
       )}
     </div>

@@ -1,4 +1,5 @@
 import type { StoreCatalog, StoreDesign, StoreEntry, StoreProduct } from "@egohygiene/schemas";
+import { getStoreEntryContent, normalizeStoreSearchText, type StoreContentSelection } from "./localization.ts";
 
 export type StoreCollection = Extract<StoreEntry, { kind: "collection" }>;
 export type StoreContext = Extract<StoreEntry, { kind: "context" }>;
@@ -47,16 +48,22 @@ export function filterStoreEntries(
   query: string,
   view: StoreView,
   story: StoreStory = "all",
+  selection?: StoreContentSelection,
 ): BrowsableStoreEntry[] {
-  const terms = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
   return catalog.entries.filter(isBrowsableEntry).filter((entry) => {
     if (view !== "all" && entry.kind !== view) return false;
     const contexts = getEntryContexts(catalog, entry);
     if (story === "connected" && contexts.length === 0) return false;
     if (story === "standalone" && contexts.length > 0) return false;
     const related = [...getEntryDesigns(catalog, entry), ...contexts];
-    const haystack = [entry.title, entry.description, entry.kind, ...related.map((item) => `${item.title} ${item.description}`)]
-      .join(" ").toLocaleLowerCase();
+    const locale = selection?.locale ?? entry.sourceLocale;
+    const terms = normalizeStoreSearchText(query, locale).trim().split(/\s+/).filter(Boolean);
+    const text = [entry, ...related].flatMap((item) => {
+      const content = getStoreEntryContent(item, selection ?? { locale: item.sourceLocale });
+      // Original creative names remain aliases; unrelated translations and hidden copy do not.
+      return [content.title.value, content.description.value, item.title];
+    });
+    const haystack = normalizeStoreSearchText([entry.kind, ...text].join(" "), locale);
     return terms.every((term) => haystack.includes(term));
   });
 }
