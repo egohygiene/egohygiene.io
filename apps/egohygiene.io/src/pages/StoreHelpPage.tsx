@@ -1,6 +1,7 @@
 import { useI18n } from "@egohygiene/i18n";
 
 import { PageMetadata } from "../components/PageMetadata/PageMetadata";
+import { WebsiteFeedback } from "../components/WebsiteFeedback/WebsiteFeedback";
 import { LocaleLink as Link } from "../i18n/LocaleLink";
 
 /** Store guidance only; reviewed order-support links belong to each available product. */
@@ -39,16 +40,18 @@ export function StoreHelpPage() {
       <section aria-labelledby="store-help-website">
         <h2 id="store-help-website">{t("pages.storeHelp.websiteHeading")}</h2>
         <p>{t("pages.storeHelp.website")}</p>
-        <p id="store-help-feedback-warning">{t("pages.storeHelp.feedbackWarning")}</p>
-        <p>
-          <a
-            href="https://github.com/egohygiene/egohygiene.io/issues/new"
-            rel="external"
-            aria-describedby="store-help-feedback-warning"
-          >
-            {t("pages.storeHelp.feedbackLink")}
-          </a>
-        </p>
+        <WebsiteFeedback
+          warning={t("pages.websiteFeedback.warning")}
+          linkLabel={t("pages.storeHelp.feedbackLink")}
+        />
+        <ul>
+          <li>
+            <Link to="/help">{t("pages.help.moreHelp")}</Link>
+          </li>
+          <li>
+            <Link to="/accessibility">{t("pages.help.accessibilityLink")}</Link>
+          </li>
+        </ul>
       </section>
 
       <section aria-labelledby="store-help-policies">

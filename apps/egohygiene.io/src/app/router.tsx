@@ -9,7 +9,9 @@ import {
 } from "../features/store";
 import { RootLayout } from "../layouts/RootLayout";
 import { AboutPage } from "../pages/AboutPage";
+import { AccessibilityPage } from "../pages/AccessibilityPage";
 import { EcosystemPage } from "../pages/EcosystemPage";
+import { HelpPage } from "../pages/HelpPage";
 import { HomePage } from "../pages/HomePage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { PrivacyPage } from "../pages/PrivacyPage";
@@ -52,6 +54,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "about", element: <AboutPage /> },
+      { path: "help", element: <HelpPage /> },
+      { path: "accessibility", element: <AccessibilityPage /> },
       { path: "ecosystem", element: <EcosystemPage /> },
       { path: "privacy", element: <PrivacyPage /> },
       { path: "terms", element: <TermsPage /> },
