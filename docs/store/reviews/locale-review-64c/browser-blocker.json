@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "4ad0dcb90c8190b5b151eb29a6f7cc72f7895444",
+  "sourceTree": "1e789c79674e3c19719fe83afccb5428ac55023b",
+  "capturedAt": "2026-10-20T14:41:07.813Z",
+  "command": [
+    "node",
+    "tests/storefront-qualification/run.mjs",
+    "--output-dir",
+    "test-results/locale-64c-final/browser"
+  ],
+  "status": "environment-blocked-before-first-page",
+  "viteServerReady": true,
+  "chromiumVersion": "155.0.8059.84",
+  "diagnostic": "FATAL:chrome/browser/process_singleton_posix.cc:297 socket() failed: Operation not permitted (1)",
+  "exitSignal": "SIGABRT",
+  "completedLayoutCases": 0,
+  "completedLocaleJourneys": 0,
+  "screenshots": [],
+  "alternateBrowserObservation": "Supported cloud browser could not reach the loopback Vite URL (ERR_CONNECTION_REFUSED). No deployment or tunnel was introduced.",
+  "limits": "No normal/preview browser smoke, actual keyboard/touch/reload/history, denied-storage, expanded/RTL visual or provider qualification ran at this source. Syntax, types, discovery and simulated DOM tests do not replace those journeys."
+}

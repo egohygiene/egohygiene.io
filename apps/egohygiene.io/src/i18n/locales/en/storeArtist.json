@@ -47,12 +47,16 @@
     "clear": "Clear search",
     "resultsLabel": "Results:",
     "emptyHeading": "No matches in this view.",
-    "emptyDescription": "Try another search, clear it, or switch between standalone designs and song collections."
+    "emptyDescription": "Try another search, clear it, or switch between standalone designs and song collections.",
+    "results_one": "Results: {{formattedCount}}",
+    "results_other": "Results: {{formattedCount}}"
   },
   "missing": {
     "title": "Artist collection not found",
     "kicker": "A little off the map",
     "heading": "This artist collection isn’t here.",
     "description": "The link may have changed, or the collection may not be ready to share. Explore Incompris to find the available artist collections."
-  }
+  },
+  "metadataTitle": "{{artist}} · Artist collection",
+  "collectionSongLink": "{{artist}} · Shop by song"
 }

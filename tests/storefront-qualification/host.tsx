@@ -2,30 +2,117 @@
 
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { I18nProvider } from "../../packages/i18n/src/index";
-import { parseStoreCatalog, parseStorefrontCuration } from "../../packages/schemas/src/index";
-import { ThemeProvider } from "../../packages/themes/src/index";
+import { createLocaleRegistry, useI18n } from "../../packages/i18n/src/index";
+import {
+  parseStoreCatalog,
+  parseStorefrontCuration,
+  type StoreDesign,
+} from "../../packages/schemas/src/index";
 import { Button, Spinner } from "../../packages/ui/src/index";
 
 import "../../packages/ui/src/styles/index.css";
+import { AppProviders } from "../../apps/egohygiene.io/src/app/providers";
 import { storeCatalog } from "../../apps/egohygiene.io/src/content/store";
 import { createArtistPreview } from "../../apps/egohygiene.io/src/features/artist-preview/fixture";
+import { FourthwallPreviewPage } from "../../apps/egohygiene.io/src/features/fourthwall-preview/FourthwallPreviewPage";
 import { StoreArtistPage } from "../../apps/egohygiene.io/src/features/store/StoreArtistPage";
+import { StoreArtworkGallery } from "../../apps/egohygiene.io/src/features/store/StoreArtworkGallery";
 import {
   IncomprisPage,
   StorefrontPage,
 } from "../../apps/egohygiene.io/src/features/store/StorefrontPages";
+import {
+  StoreCatalogPage,
+  StoreProductPage,
+} from "../../apps/egohygiene.io/src/features/store/StorePages";
+import { LocaleLink } from "../../apps/egohygiene.io/src/i18n/LocaleLink";
+import fourthwallPreview from "../../apps/egohygiene.io/src/i18n/locales/en/fourthwallPreview.json";
 import { resources } from "../../apps/egohygiene.io/src/i18n/resources";
 import { RootLayout } from "../../apps/egohygiene.io/src/layouts/RootLayout";
+import { NotFoundPage } from "../../apps/egohygiene.io/src/pages/NotFoundPage";
+import { RouteErrorPage } from "../../apps/egohygiene.io/src/pages/RouteErrorPage";
 import { createLocaleFixture } from "../../apps/egohygiene.io/src/test/locale-fixtures";
 import "../../apps/egohygiene.io/src/styles/app.css";
 
-const mode = new URLSearchParams(location.search).get("qaLocale") === "rtl" ? "rtl" : "expanded";
-const locale = createLocaleFixture(resources, mode);
-// Pin the numbering system in this synthetic fixture; Arabic defaults vary by CLDR version.
-const fixtureLocale = mode === "rtl" ? "ar-u-nu-arab" : locale.locale;
-document.documentElement.lang = fixtureLocale;
-document.documentElement.dir = locale.direction;
+// Public configuration stays English-only. These three entries exist only in this host.
+const registry = createLocaleRegistry({
+  sourceLocale: "en",
+  locales: [
+    { id: "en", formatLocale: "en", direction: "ltr", label: "English" },
+    { id: "qps-Ploc", formatLocale: "en", direction: "ltr", label: "Expanded test text" },
+    { id: "ar", formatLocale: "ar-u-nu-arab", direction: "rtl", label: "Synthetic RTL" },
+  ],
+});
+const sourceMessages = {
+  ...resources,
+  fourthwallPreview,
+  qualification: {
+    sourceOnly: "Source fallback stays readable",
+    interpolation: "Hello {{name}} / {{missing}}",
+    cardinal_one: "{{formattedCount}} source item",
+    cardinal_other: "{{formattedCount}} source items",
+    object: { nested: "This object must never reach React" },
+  },
+};
+const catalogs = {
+  en: sourceMessages,
+  "qps-Ploc": {
+    ...createLocaleFixture(sourceMessages, "expanded").messages,
+    // Deliberately partial, to exercise source fallback in a real browser.
+    qualification: { interpolation: "Expanded {{name}} / {{missing}}" },
+  },
+  ...(new URLSearchParams(location.search).has("qaMissingCatalog")
+    ? {}
+    : {
+        ar: {
+          ...createLocaleFixture(sourceMessages, "rtl").messages,
+          qualification: {
+            cardinal_zero: "{{formattedCount}} synthetic zero",
+            cardinal_one: "{{formattedCount}} synthetic one",
+            cardinal_two: "{{formattedCount}} synthetic two",
+            cardinal_few: "{{formattedCount}} synthetic few",
+            cardinal_many: "{{formattedCount}} synthetic many",
+            cardinal_other: "{{formattedCount}} synthetic other",
+          },
+        },
+      }),
+};
+
+function MessageProbe() {
+  const { t, locale, formatNumber } = useI18n();
+  return (
+    <section className="store-shell" aria-label="Message contract fixture">
+      <h1>Local message contract fixture</h1>
+      <p data-probe="format-locale">{locale}</p>
+      <p data-probe="source">{t("qualification.sourceOnly")}</p>
+      <p data-probe="missing">{t("qualification.missing")}</p>
+      <p data-probe="object">{t("qualification.object")}</p>
+      <p data-probe="interpolation">
+        {t("qualification.interpolation", { name: "<strong>Sky</strong>" })}
+      </p>
+      {[0, 1, 2, 3, 11, 100].map((count) => (
+        <p data-probe={`plural-${count}`} key={count}>
+          {t("qualification.cardinal", { count, formattedCount: formatNumber(count) })}
+        </p>
+      ))}
+      <LocaleLink data-probe="internal" to="/store?view=product#catalog">
+        Store fixture
+      </LocaleLink>
+      <LocaleLink data-probe="explicit" to="/store?lang=en#catalog">
+        Explicit English
+      </LocaleLink>
+      <LocaleLink data-probe="external" to="https://example.invalid/never-follow">
+        External fixture (never followed)
+      </LocaleLink>
+    </section>
+  );
+}
+
+const galleryDesigns = storeCatalog.entries.filter(
+  (entry): entry is StoreDesign =>
+    entry.kind === "design" &&
+    ["design-demo-signal-heart", "design-demo-static-bloom"].includes(entry.id),
+);
 const preview = createArtistPreview(storeCatalog);
 const catalog = parseStoreCatalog(
   preview.catalog.entries.map((entry) => ({
@@ -69,7 +156,7 @@ function QualificationLayout() {
   return (
     <>
       <aside className="store-shell store-preview-note" aria-label="Qualification fixture">
-        <strong>LOCAL TEST ONLY · Fictional merchandise · {mode} text</strong>
+        <strong>LOCAL TEST ONLY · Fictional merchandise · synthetic locale qualification</strong>
         <p>
           Synthetic language and longer catalog copy test layout resilience. These examples are not
           real artist selections, translations, products for sale, or production pages.
@@ -85,6 +172,25 @@ const router = createBrowserRouter([
     path: "/",
     element: <QualificationLayout />,
     children: [
+      { index: true, element: <MessageProbe /> },
+      { path: "qualification/messages", element: <MessageProbe /> },
+      {
+        path: "qualification/gallery",
+        element: (
+          <StoreArtworkGallery designs={galleryDesigns} title="Fictional artwork qualification" />
+        ),
+      },
+      {
+        path: "qualification/error",
+        loader: () => {
+          throw new Response("Synthetic route failure", { status: 503 });
+        },
+        errorElement: <RouteErrorPage />,
+      },
+      { path: "qualification/fourthwall", element: <FourthwallPreviewPage /> },
+      { path: "store/catalog", element: <StoreCatalogPage /> },
+      { path: "store/products/:slug", element: <StoreProductPage /> },
+      { path: "*", element: <NotFoundPage /> },
       {
         path: "qualification/shared",
         element: (
@@ -111,9 +217,7 @@ const router = createBrowserRouter([
 const root = document.getElementById("root");
 if (!root) throw new Error("Qualification root is missing");
 createRoot(root).render(
-  <ThemeProvider>
-    <I18nProvider locale={fixtureLocale} messages={locale.messages}>
-      <RouterProvider router={router} />
-    </I18nProvider>
-  </ThemeProvider>,
+  <AppProviders router={router} registry={registry} catalogs={catalogs}>
+    <RouterProvider router={router} />
+  </AppProviders>,
 );

@@ -1,11 +1,11 @@
 import { useI18n } from "@egohygiene/i18n";
 import type { StoreDesign } from "@egohygiene/schemas";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import { PageMetadata } from "../components/PageMetadata/PageMetadata";
 import { landingSelection } from "../content/landing";
 import { storeCatalog } from "../content/store";
 import { storeEntryPath } from "../features/store/domain";
+import { LocaleLink as Link } from "../i18n/LocaleLink";
 
 import "../styles/landing.css";
 
@@ -46,7 +46,7 @@ function FeaturedDesign() {
   return (
     <div className="landing-design">
       <Link
-        aria-label={`${t("landing.designAction")}: ${design.title}`}
+        aria-label={t("landing.designActionLabel", { title: design.title })}
         to={storeEntryPath(design)}
       >
         <figure>
@@ -74,28 +74,13 @@ function FeaturedDesign() {
 }
 
 export function HomePage() {
-  const { t } = useI18n();
+  const { t, formatNumber } = useI18n();
   const title = t("landing.title");
   const description = t("landing.description");
 
-  useEffect(() => {
-    const previousTitle = document.title;
-    const existing = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    const meta = existing ?? document.createElement("meta");
-    const previousDescription = meta.content;
-    meta.name = "description";
-    meta.content = description;
-    if (!existing) document.head.append(meta);
-    document.title = title;
-    return () => {
-      document.title = previousTitle;
-      if (existing) meta.content = previousDescription;
-      else meta.remove();
-    };
-  }, [title, description]);
-
   return (
     <div className="landing-page">
+      <PageMetadata title={title} description={description} />
       <section aria-labelledby="landing-heading" className="landing-hero">
         <div className="landing-hero__copy">
           <p className="landing-kicker">{t("landing.eyebrow")}</p>
@@ -140,7 +125,7 @@ export function HomePage() {
           {pillars.map((pillar, index) => (
             <li key={pillar}>
               <span aria-hidden="true" className="landing-pillar-number">
-                0{index + 1}
+                {formatNumber(index + 1)}
               </span>
               <h3>{t(`landing.pillars.${pillar}.title`)}</h3>
               <p>{t(`landing.pillars.${pillar}.description`)}</p>

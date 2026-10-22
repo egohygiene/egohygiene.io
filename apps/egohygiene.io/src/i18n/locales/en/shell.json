@@ -1,5 +1,6 @@
 {
   "brand": "Ego Hygiene",
+  "language": { "label": "Language" },
   "skipToContent": "Skip to content",
   "navigation": {
     "label": "Primary",

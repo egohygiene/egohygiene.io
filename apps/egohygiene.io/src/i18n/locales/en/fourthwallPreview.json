@@ -1,0 +1,51 @@
+{
+  "title": "Fourthwall tryout",
+  "missing": {
+    "title": "Preview item unavailable",
+    "description": "The Signal Heart catalog example is missing.",
+    "back": "Back to the store"
+  },
+  "intro": {
+    "back": "Explore the store",
+    "notice": "Local tryout · fictional product",
+    "brand": "ego hygiene × fourthwall",
+    "title": "A signal you can wear.",
+    "description": "Try the journey from a design to something tangible. Pick a size, then preview how your selection would travel to checkout."
+  },
+  "artwork": {
+    "caption": "Signal Heart · concept study / 001",
+    "disclaimer": "Placeholder artwork, not a garment photograph."
+  },
+  "details": {
+    "eyebrow": "The standalone collection",
+    "description": "For the parts of you that keep transmitting. A standalone design, with room for its own story.",
+    "fromPrice": "From {{price}}",
+    "priceUnavailable": "Select a size to see its illustrative price",
+    "priceNote": "Illustrative price only · {{currency}}",
+    "priceNoteWithoutCurrency": "Illustrative price only",
+    "material": "Color study: black",
+    "size": "Choose a size",
+    "sizeAvailable": "{{size}}",
+    "sizeUnavailable": "{{size}} — unavailable in this example",
+    "sizeNote": "Example sizes only. XL shows the unavailable state.",
+    "quantity": "Quantity",
+    "preview": "Preview checkout handoff",
+    "selectedHint": "This stays on the page. No cart, payment, or order is created.",
+    "unselectedHint": "Select a size to try the next step. No account needed.",
+    "catalogLink": "See the catalog concept"
+  },
+  "handoff": {
+    "label": "Checkout handoff preview",
+    "eyebrow": "Your selection / mock handoff",
+    "title": "Ready for the next world.",
+    "item": "Item",
+    "variant": "Variant",
+    "quantity": "Quantity",
+    "subtotal": "Illustrative subtotal",
+    "description": "A connected store would open Fourthwall’s hosted checkout here, where shipping, tax, and the final total are confirmed. This tryout sends nothing.",
+    "clear": "Clear the preview",
+    "emptyEyebrow": "From our world to yours",
+    "emptyTitle": "The art stays personal.",
+    "emptyDescription": "Explore here. Once a real product is ready, Fourthwall can take care of the checkout. For now, this is a space to try the flow."
+  }
+}

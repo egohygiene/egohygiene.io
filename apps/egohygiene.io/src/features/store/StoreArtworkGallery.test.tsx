@@ -149,6 +149,32 @@ describe("StoreArtworkGallery", () => {
     expect(document.body.style.overflow).toBe("clip");
   });
 
+  it("uses complete translated labels and locale-formatted positions with source fallback", () => {
+    baseRender(
+      <I18nProvider
+        locale="ar-u-nu-arab"
+        messages={{
+          storeCards: {
+            gallery: {
+              openLabel: "Fixture viewer: {{title}}",
+              selectLabel: "Fixture artwork: {{title}}",
+              position: "{{position}} of {{total}}",
+            },
+          },
+        }}
+        fallbacks={[{ locale: "en", messages: { storeCards } }]}
+      >
+        <StoreArtworkGallery designs={[firstDesign, secondDesign]} title="Two studies" />
+      </I18nProvider>,
+    );
+    expect(screen.getByRole("button", { name: "Fixture viewer: Two studies" })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "Choose artwork" })).toBeInTheDocument();
+    expect(screen.getByText("١ of ٢")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Fixture artwork: Garden artwork" }));
+    expect(screen.getByText("٢ of ٢")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "A lavender flower under a moon" })).toBeInTheDocument();
+  });
+
   it("handles native cancellation and releases the scroll lock when unmounted", () => {
     const { unmount } = render(
       <StoreArtworkGallery designs={[firstDesign]} title="Orbit hoodie" />,

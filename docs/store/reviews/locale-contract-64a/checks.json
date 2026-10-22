@@ -1,0 +1,138 @@
+{
+  "startedAt": "2026-10-20T04:25:22.155952+00:00",
+  "sourceCommit": "bd217fed480fbc6124ad4bf0e23865605c8ef0c7",
+  "sourceTree": "2bf0ba9db2b66da881bc4e61168083179c2d5070",
+  "sourceStatus": "",
+  "scope": "Local #64 checkpoint A contracts and existing UI consumers; no browser journeys, hosted CI, deployed host or real provider qualification.",
+  "steps": [
+    {
+      "name": "locale and existing consumer units",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.unit.config.ts",
+        "packages/i18n",
+        "apps/egohygiene.io/src/i18n",
+        "apps/egohygiene.io/src/components",
+        "apps/egohygiene.io/src/pages",
+        "apps/egohygiene.io/src/features/store",
+        "apps/egohygiene.io/src/features/fourthwall-preview",
+        "apps/egohygiene.io/src/features/artist-preview"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 6.381
+    },
+    {
+      "name": "application types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "apps/egohygiene.io/tsconfig.app.json",
+        "--noEmit"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.568
+    },
+    {
+      "name": "i18n package types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "packages/i18n/tsconfig.build.json",
+        "--noEmit"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.093
+    },
+    {
+      "name": "portable boundary",
+      "command": [
+        "node",
+        "scripts/checks/check-store-boundaries.ts"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.335
+    },
+    {
+      "name": "scoped Biome",
+      "command": [
+        "pnpm",
+        "exec",
+        "biome",
+        "check",
+        "packages/i18n/src/create-i18n.ts",
+        "packages/i18n/src/create-i18n.test.ts",
+        "packages/i18n/src/index.ts",
+        "packages/i18n/src/index.test.tsx",
+        "packages/i18n/src/locale-registry.ts",
+        "packages/i18n/src/locale-registry.test.ts",
+        "packages/i18n/src/react/I18nProvider.tsx",
+        "apps/egohygiene.io/src/i18n/config.ts",
+        "apps/egohygiene.io/src/i18n/selection.ts",
+        "apps/egohygiene.io/src/i18n/selection.test.ts",
+        "apps/egohygiene.io/src/app/providers.tsx"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.691
+    },
+    {
+      "name": "fresh normal build",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@egohygiene/egohygiene.io",
+        "build"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.942
+    },
+    {
+      "name": "normal artifact guards",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/locale-contract-64a/artifacts.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.143,
+      "earlierAttempt": {
+        "name": "normal artifact guards",
+        "command": [
+          "node",
+          "tests/store-qualification/artifacts.mts",
+          "--output",
+          "test-results/locale-contract-64a/artifacts.json"
+        ],
+        "exitCode": 1,
+        "elapsedSeconds": 0.085
+      },
+      "note": "Initial invocation used an output path outside the scanner permitted directory and stopped before scanning. Corrected only the output argument; no source or scanner change."
+    }
+  ],
+  "status": "passed",
+  "completedAt": "2026-10-20T04:27:17.322028+00:00",
+  "environment": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "vitest": "4.1.11",
+    "typescript": "5.9.3",
+    "vite": "8.2.0"
+  },
+  "results": {
+    "unitTests": 128,
+    "unitFiles": 19,
+    "portableModules": 12,
+    "biomeFiles": 11,
+    "biomeInformation": 1,
+    "browserJourneysRun": false,
+    "hostedCISuccessClaimed": false
+  }
+}

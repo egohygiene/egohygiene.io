@@ -1,14 +1,23 @@
 # Store launch: proposed roadmaps, milestones, and sub-issues
 
-## Current execution guide — 2026-10-19
+## Current execution guide — 2026-10-20
 
 Alan requested the remaining storefront sequence and notes as a durable issue.
 [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) now records that
 focused queue, existing issue owners, evidence, dependencies and deferred work.
-Native linking is pending tooling/browser access; the issue's linked checklist
-does not claim the native hierarchy is installed. Preserve #31's existing
-children/history when attaching it beneath #84. This request does not authorize
-creating every M1–M5 proposal below, starting implementation, merging or deploying.
+The requested native hierarchy was installed on 2026-10-20: #31 and the twelve
+other owners are direct children, while #31 retains #32–#39 and closed history.
+Alan also selected further bounded progress: #64 checkpoint A is in draft #85,
+stacked on unmerged #83. Alan subsequently selected B: the router-bound locale
+service, language control and interface messages are now implemented in the same
+draft. [B evidence](../store/locale-service-64b.md) records local passes and blocked
+browser startup. Alan then selected C: [message-review tooling and browser journey
+implementation](../store/locale-review-64c.md) are saved in #85. C acceptance remains
+open because browser startup is still blocked. Run the retained journeys in a
+usable browser before closing C; coordinated #65/#34 follows the sync. See the
+current handoff.
+The wider M1–M5 proposals below remain historical; no broad rollout, merge or
+deployment is authorized by the execution checkpoint.
 
 ## Historical wider proposal — 2026-10-17
 

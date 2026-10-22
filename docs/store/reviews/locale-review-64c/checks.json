@@ -1,0 +1,342 @@
+{
+  "startedAt": "2026-10-20T14:40:00.108306+00:00",
+  "sourceCommit": "4ad0dcb90c8190b5b151eb29a6f7cc72f7895444",
+  "sourceTree": "1e789c79674e3c19719fe83afccb5428ac55023b",
+  "sourceStatus": "",
+  "scope": "Local #64 C message-review and source verification. Browser launch result is recorded separately; test discovery and simulated DOM checks are not browser passes. No hosted CI, deployment, physical-device or provider qualification.",
+  "steps": [
+    {
+      "name": "application catalog and portable-domain types",
+      "command": [
+        "pnpm",
+        "typecheck"
+      ],
+      "startedAt": "2026-10-20T14:40:00.127185+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 7.471
+    },
+    {
+      "name": "browser test and fixture host types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "tsconfig.store-browser.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-20T14:40:07.598249+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 3.861
+    },
+    {
+      "name": "message tooling types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "tsconfig.locales.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-20T14:40:11.459708+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 1.513
+    },
+    {
+      "name": "shared i18n types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "packages/i18n/tsconfig.build.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-20T14:40:12.973299+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 1.475
+    },
+    {
+      "name": "message review contracts",
+      "command": [
+        "node",
+        "--test",
+        "tests/tooling/locale-catalog.test.mjs"
+      ],
+      "startedAt": "2026-10-20T14:40:14.448667+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 1.192
+    },
+    {
+      "name": "message inventory",
+      "command": [
+        "node",
+        "scripts/checks/check-locales.ts",
+        "--inventory",
+        "test-results/locale-64c-final/messages-full.json"
+      ],
+      "startedAt": "2026-10-20T14:40:15.641328+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.135
+    },
+    {
+      "name": "catalog and artifact contracts",
+      "command": [
+        "pnpm",
+        "catalog:test"
+      ],
+      "startedAt": "2026-10-20T14:40:15.777296+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 6.654
+    },
+    {
+      "name": "locale and existing consumers",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.unit.config.ts",
+        "packages/i18n",
+        "packages/themes",
+        "apps/egohygiene.io/src/i18n",
+        "apps/egohygiene.io/src/components",
+        "apps/egohygiene.io/src/pages",
+        "apps/egohygiene.io/src/features/store",
+        "apps/egohygiene.io/src/features/fourthwall-preview",
+        "apps/egohygiene.io/src/features/artist-preview"
+      ],
+      "startedAt": "2026-10-20T14:40:22.432091+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 11.182
+    },
+    {
+      "name": "site semantic component checks",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.accessibility.config.ts",
+        "tests/accessibility/site-accessibility.test.tsx"
+      ],
+      "startedAt": "2026-10-20T14:40:33.614642+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 2.725
+    },
+    {
+      "name": "portable boundary",
+      "command": [
+        "node",
+        "scripts/checks/check-store-boundaries.ts"
+      ],
+      "startedAt": "2026-10-20T14:40:36.340626+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.404
+    },
+    {
+      "name": "scoped Biome",
+      "command": [
+        "pnpm",
+        "exec",
+        "biome",
+        "check",
+        "apps/egohygiene.io/src/app/providers.tsx",
+        "apps/egohygiene.io/src/i18n/LocaleProvider.test.tsx",
+        "scripts/checks/check-locales.ts",
+        "scripts/locales/catalog.ts",
+        "scripts/qualify-store.mjs",
+        "tests/storefront-qualification/browser-host.mjs",
+        "tests/storefront-qualification/host.tsx",
+        "tests/storefront-qualification/locale-journeys.mjs",
+        "tests/storefront-qualification/run.mjs",
+        "tests/tooling/locale-catalog.test.mjs",
+        "tsconfig.locales.json",
+        "tsconfig.store-browser.json"
+      ],
+      "startedAt": "2026-10-20T14:40:36.744739+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.846
+    },
+    {
+      "name": "syntax scripts/qualify-store.mjs",
+      "command": [
+        "node",
+        "--check",
+        "scripts/qualify-store.mjs"
+      ],
+      "startedAt": "2026-10-20T14:40:37.590823+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.054
+    },
+    {
+      "name": "syntax tests/storefront-qualification/run.mjs",
+      "command": [
+        "node",
+        "--check",
+        "tests/storefront-qualification/run.mjs"
+      ],
+      "startedAt": "2026-10-20T14:40:37.645206+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.072
+    },
+    {
+      "name": "syntax tests/storefront-qualification/browser-host.mjs",
+      "command": [
+        "node",
+        "--check",
+        "tests/storefront-qualification/browser-host.mjs"
+      ],
+      "startedAt": "2026-10-20T14:40:37.717602+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.062
+    },
+    {
+      "name": "syntax tests/storefront-qualification/locale-journeys.mjs",
+      "command": [
+        "node",
+        "--check",
+        "tests/storefront-qualification/locale-journeys.mjs"
+      ],
+      "startedAt": "2026-10-20T14:40:37.780475+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.065
+    },
+    {
+      "name": "fresh normal build",
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "startedAt": "2026-10-20T14:40:37.845690+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 2.509
+    },
+    {
+      "name": "normal artifact guards",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/locale-64c-final/artifacts.json"
+      ],
+      "startedAt": "2026-10-20T14:40:40.355313+00:00",
+      "exitCode": 1,
+      "elapsedSeconds": 0.11,
+      "outcome": "Invocation error: output path outside required test-results/store-qualification/. Corrected below; no source or gate change."
+    },
+    {
+      "name": "normal artifact guards (corrected output directory)",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/locale-64c-artifacts.json"
+      ],
+      "startedAt": "2026-10-20T14:40:56.673903+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 0.198
+    },
+    {
+      "name": "fresh isolated preview build",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "build"
+      ],
+      "startedAt": "2026-10-20T14:40:56.872405+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 1.948
+    },
+    {
+      "name": "production browser discovery only",
+      "command": [
+        "pnpm",
+        "test:store",
+        "--list"
+      ],
+      "startedAt": "2026-10-20T14:40:58.821036+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 1.782,
+      "outcome": "Definitions listed only; no browser test execution."
+    },
+    {
+      "name": "isolated preview browser discovery only",
+      "command": [
+        "pnpm",
+        "test:store:preview",
+        "--list"
+      ],
+      "startedAt": "2026-10-20T14:41:00.604083+00:00",
+      "exitCode": 0,
+      "elapsedSeconds": 1.379,
+      "outcome": "Definitions listed only; no browser test execution."
+    },
+    {
+      "name": "actual locale and layout browser attempt",
+      "command": [
+        "node",
+        "tests/storefront-qualification/run.mjs",
+        "--output-dir",
+        "test-results/locale-64c-final/browser"
+      ],
+      "startedAt": "2026-10-20T14:41:01.983429+00:00",
+      "exitCode": 1,
+      "elapsedSeconds": 5.868,
+      "outcome": "Environment blocked before first page: Chromium process-singleton socket denied (EPERM)."
+    }
+  ],
+  "finishedAt": "2026-10-20T14:41:07.852179+00:00",
+  "environment": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11",
+    "playwright": "1.62.1",
+    "chromium": "155.0.8059.84"
+  },
+  "summary": {
+    "messageContractTests": 15,
+    "catalogArtifactTests": 79,
+    "unitComponentTests": 162,
+    "unitComponentFiles": 23,
+    "semanticComponentTests": 3,
+    "typeProfiles": 6,
+    "scopedBiomeFiles": 12,
+    "portableModules": 12,
+    "normalBrowserCasesDiscoveredOnly": 70,
+    "previewBrowserCasesDiscoveredOnly": 6,
+    "layoutCasesPlannedNotRun": 35,
+    "localeJourneysPlannedNotRun": 10,
+    "actualBrowserCasesPassed": 0,
+    "screenshotsProduced": 0
+  },
+  "hosted": {
+    "sourceCommit": "4ad0dcb90c8190b5b151eb29a6f7cc72f7895444",
+    "runs": [
+      {
+        "name": "CI",
+        "id": 39441196907,
+        "conclusion": "failure",
+        "observation": "Install succeeded; repository format:check failed, downstream validation skipped."
+      },
+      {
+        "name": "Dependency review",
+        "id": 39441198023,
+        "conclusion": "failure",
+        "observation": "Failure cause not re-diagnosed in this checkpoint."
+      },
+      {
+        "name": "CodeQL",
+        "id": 39441197808,
+        "conclusion": "failure",
+        "observation": "Failure cause not re-diagnosed in this checkpoint."
+      }
+    ],
+    "manualDispatch": false,
+    "gatesDisabled": false
+  }
+}

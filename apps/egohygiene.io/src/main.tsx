@@ -3,8 +3,9 @@ import { createRoot } from "react-dom/client";
 
 import "@egohygiene/ui/styles.css";
 
-import { AppProviders } from "./app/providers";
 import { App } from "./app/App";
+import { AppProviders } from "./app/providers";
+import { router } from "./app/router";
 import "./styles/app.css";
 
 const rootElement = document.getElementById("root");
@@ -15,7 +16,7 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <AppProviders>
+    <AppProviders router={router}>
       <App />
     </AppProviders>
   </StrictMode>,

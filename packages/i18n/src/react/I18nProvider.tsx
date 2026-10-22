@@ -1,10 +1,16 @@
-import { createContext, useContext, useMemo, type PropsWithChildren } from "react";
+import { createContext, type PropsWithChildren, useContext, useMemo } from "react";
 
-import { getMessage, type I18nMessages } from "../create-i18n";
+import {
+  createTranslator,
+  type I18nDictionary,
+  type I18nMessages,
+  type Translator,
+} from "../create-i18n";
+import { canonicalizeLocale } from "../locale-registry";
 
 interface I18nContextValue {
   readonly locale: string;
-  readonly t: (key: string) => string;
+  readonly t: Translator;
   readonly formatDate: (value: Date) => string;
   readonly formatNumber: (value: number) => string;
   readonly formatRelativeTime: (value: number, unit: Intl.RelativeTimeFormatUnit) => string;
@@ -17,20 +23,28 @@ export function I18nProvider({
   children,
   locale = "en",
   messages,
-}: PropsWithChildren<{ locale?: string; messages: I18nMessages }>) {
-  const value = useMemo<I18nContextValue>(
-    () => ({
-      locale,
-      t: (key) => getMessage(messages, key),
-      formatDate: (value) => new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(value),
-      formatNumber: (value) => new Intl.NumberFormat(locale).format(value),
-      formatRelativeTime: (value, unit) =>
-        new Intl.RelativeTimeFormat(locale, { numeric: "auto" }).format(value, unit),
-      formatList: (value) =>
-        new Intl.ListFormat(locale, { style: "long", type: "conjunction" }).format(value),
-    }),
-    [locale, messages],
-  );
+  fallbacks,
+}: PropsWithChildren<{
+  locale?: string;
+  messages: I18nMessages;
+  fallbacks?: readonly I18nDictionary[];
+}>) {
+  const value = useMemo<I18nContextValue>(() => {
+    const normalizedLocale = canonicalizeLocale(locale);
+    const dates = new Intl.DateTimeFormat(normalizedLocale, { dateStyle: "medium" });
+    const numbers = new Intl.NumberFormat(normalizedLocale);
+    const relativeTimes = new Intl.RelativeTimeFormat(normalizedLocale, { numeric: "auto" });
+    const lists = new Intl.ListFormat(normalizedLocale, { style: "long", type: "conjunction" });
+
+    return {
+      locale: normalizedLocale,
+      t: createTranslator({ locale: normalizedLocale, messages, fallbacks: fallbacks ?? [] }),
+      formatDate: (value) => dates.format(value),
+      formatNumber: (value) => numbers.format(value),
+      formatRelativeTime: (value, unit) => relativeTimes.format(value, unit),
+      formatList: (value) => lists.format(value),
+    };
+  }, [locale, messages, fallbacks]);
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }

@@ -1,6 +1,133 @@
 # Current handoff
 
-## Current: remaining work saved in roadmap #84 — 2026-10-19 UTC
+## Current: #64 C implementation saved; browser acceptance blocked — 2026-10-20 UTC
+
+Alan explicitly selected checkpoint C. Its message-review tooling and authored
+browser journeys are in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85),
+branch `feat/locale-contract-64a`, still stacked on unmerged #83 at
+`8a6258a1011569ac6e531fc124ccb0766f986389`. Main remains
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. No merge was authorized.
+
+Tested source `4ad0dcb90c8190b5b151eb29a6f7cc72f7895444`, tree
+`1e789c79674e3c19719fe83afccb5428ac55023b`, equals the published/local source;
+final verification began clean. The checker validates 376 English messages in
+10 namespaces, placeholders/plural families and explicit fallback. Deterministic
+source/translation hashes detect stale human reviews; inventories cannot approve
+a language. The existing host and simulated service tests use real app composition.
+Ten locale browser journeys join the existing 35 layout cases. Read the
+[C receipt](../store/locale-review-64c.md), [message workflow](../store/interface-message-workflow.md)
+and [ADR 0009](../architecture/decisions/0009-single-locale-runtime.md).
+
+Local passes: 15 message-review tests, 79 catalog/artifact contracts, 162 consumer
+unit/component tests across 23 files, 3 semantic checks, 6 type profiles, 12-module
+boundary, 12-file Biome, four syntax checks, normal/preview builds and artifact
+guards (16 files/12 references/zero findings). Browser discovery listed 70 normal
+and 6 preview cases only. An incorrect artifact output-directory invocation was
+corrected without source/gate changes; both attempts are recorded. Independent
+review's empty unknown-group finding was fixed and tested; no source blocker remains.
+Exact [checks](../store/reviews/locale-review-64c/checks.json) and
+[artifacts](../store/reviews/locale-review-64c/artifacts.json) are retained.
+
+**C remains open:** Vite starts, but Chromium aborts before any page on denied
+process-singleton `socket()` (`Operation not permitted`). The cloud browser cannot
+reach the loopback server either. Zero browser cases or screenshots completed.
+Types, discovery and simulated DOM checks are not browser/layout evidence; earlier
+captures remain historical. Hosted source CI, dependency review and CodeQL failed;
+CI stopped at repository formatting after installation. No gate was disabled.
+
+**Next:** refresh GitHub, run the retained 35 layout + 10 locale journeys in a usable
+Chromium environment, inspect captures and resolve actual failures. Then rerun the
+16-step fresh-build qualification profile for normal/preview/handoff evidence.
+Sync before coordinated #65/#34. Keep #64/#37 open. Review #83/#85 separately; merge
+only when instructed and reconcile/retarget #85 after #83. English remains the sole
+public locale, real artist selections remain empty and providers disabled. No
+deployment, product/account activation, real provider contact or spending occurred.
+
+## Historical: #64 B implemented in draft #85 — 2026-10-20 UTC
+
+Alan explicitly selected checkpoint B. Implemented on `feat/locale-contract-64a`
+in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85), still stacked
+on unmerged #83 (`test/store-qualification-37`,
+`8a6258a1011569ac6e531fc124ccb0766f986389`). Main remains
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. No merge authority was added.
+
+Tested source `ec7bcc1629fd5261dddd2182597f10affadc9140`, tree
+`665d4853f7b565b3584dbac48dd6f21ce862c17c`, equals the published/local source;
+final verification began clean. One service now connects router URL/preference
+selection to the existing translation provider, native language selector and
+`html lang`/`dir`. Internal links retain selection; filters/hash and same-page
+selector focus are preserved. Shell/store/detail/gallery/preview/error messages,
+plurals, client metadata and locale formatting are connected. Only English is
+public; catalog translations remain #65/#34. Read the [B receipt](../store/locale-service-64b.md)
+and [ADR 0009 refinement](../architecture/decisions/0009-single-locale-runtime.md).
+
+Local results: 143 unit/component tests in 22 files, 3 semantic component checks,
+2 type profiles, 12-module boundary, 46-file Biome, normal/preview builds and
+normal artifact guards (16 files/12 references/zero findings) passed. Two existing
+Biome warnings and module-loader notices remain. Independent review has no
+remaining blocker. Exact [checks](../store/reviews/locale-service-64b/checks.json)
+and [artifact inventory](../store/reviews/locale-service-64b/artifacts.json) are retained.
+
+**Browser limitation:** Chromium startup is denied `socket()` / `Operation not
+permitted` before any page opens. No actual browser smoke, language navigation,
+expanded/RTL layout, keyboard/touch or physical-device/AT journey was run for B.
+Simulated router/remount tests are not browser evidence. Hosted source CI, dependency
+review and CodeQL failed; CI stopped at repository formatting after installation.
+Local results do not qualify hosting or commerce.
+
+**Next:** sync on B, then select C: actual browser switching/fallback/denied-storage/
+reload/history and expanded/RTL review using a usable browser, plus repeatable
+message key/placeholder and source-change review. Reuse the existing qualification
+host and service. #65/#34 and remaining #37 qualification follow. Review #83/#85
+separately; merge only when instructed and retarget/reconcile #85 after #83.
+Provider/purchase activation remains disabled; no deployment or spending occurred.
+
+## Historical: native roadmap complete; #64 A in draft #85 — 2026-10-20 UTC
+
+Alan approved using the browser to finish native sub-issue links and requested
+further bounded progress while away. [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84)
+now has direct children #31/#64/#65/#49/#70/#52/#9/#22/#29/#61/#69/#75/#51.
+#31 retains its original eight native children #32–#39, including closed history.
+The roadmap records the execution order separately from this hierarchy.
+
+Implemented **#64 checkpoint A** in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85),
+branch `feat/locale-contract-64a`, stacked on #83's `test/store-qualification-37`
+at `8a6258a1011569ac6e531fc124ccb0766f986389`. Main remains
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`; #83 and #85 remain draft/unmerged.
+
+Tested source `bd217fed480fbc6124ad4bf0e23865605c8ef0c7`, tree
+`2bf0ba9db2b66da881bc4e61168083179c2d5070`, matches the published/local tree.
+The final focused run began clean. Delivered: validated locale registry and
+source-last fallback, safe translation fallback, named text interpolation,
+cardinal plurals, cached Intl formatters, English-only app registration and pure
+URL/preference helpers that tolerate storage denial. No second runtime or
+catalog/schema/provider/dependency change. [ADR 0009](../architecture/decisions/0009-single-locale-runtime.md)
+records the contract; [receipt](../store/locale-contract-64a.md) and
+[commands/results](../store/reviews/locale-contract-64a/checks.json) retain evidence.
+
+Fresh local passes: 128 tests across 19 locale/shell/store/preview files, app and
+i18n package types, 12-module portable boundary, 11-file Biome, normal build and
+artifact guards (16 files/12 references/zero findings). One informational bracket
+key suggestion and existing module-loader notices remain. The artifact command's
+initial output-path rejection was corrected without a source/gate change and is
+recorded. Independent source review found no blocker. Browser/assistive-technology/
+physical-device/provider journeys were not rerun for this contract checkpoint.
+
+At the tested source, hosted CI, dependency review and CodeQL failed. CI passed
+installation then failed formatting and skipped downstream validation. Local
+passes are not hosted/production qualification. English remains the only public
+locale; real artist selections are empty and provider/purchase activation stays
+disabled. No deployment, account change, order or spending occurred.
+
+**Next:** review #83 (including provisional budgets) and stacked #85. Merge only
+when instructed; reconcile/retarget #85 after #83 if merging. Continue #64 B with
+the accessible language control and the single provider's browser/router state,
+`html lang`/`dir`, navigation preservation and remaining interface messages; C
+adds actual locale/fallback/denied-storage browser journeys and message review
+checks. #65/#34 catalog migration and final #37 qualification follow. No real
+second public language is selected by engineering fixtures.
+
+## Historical: remaining work saved in roadmap #84 — 2026-10-19 UTC
 
 Alan requested one roadmap capturing the next issues, their order and discussion
 notes. [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) now

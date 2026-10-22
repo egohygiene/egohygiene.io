@@ -6,7 +6,8 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
-| Remaining work in execution order | [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84): locale, coordinated catalog/migration, qualification, product readiness and release; native hierarchy linking pending |
+| Remaining work in execution order | [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84): locale, coordinated catalog/migration, qualification, product readiness and release; 13 native children with #31 history preserved |
+| Current #64 review checkpoint | [C implementation and browser blocker](../store/locale-review-64c.md), [message workflow](../store/interface-message-workflow.md), [B service](../store/locale-service-64b.md), [A foundation](../store/locale-contract-64a.md), [ADR 0009](../architecture/decisions/0009-single-locale-runtime.md); draft #85 stacked on #83; C acceptance remains open |
 | Current #37 local qualification | [Complete local review and remaining dependencies](../store/qualification-37.md); draft #83, one fresh-build profile and retained evidence |
 | Checkout-handoff closeout | [#37 regression/artifact receipt](../store/checkout-handoff-37c.md), [keyboard/touch journeys](../store/checkout-handoff-37b.md) and [fixture boundary](../store/checkout-handoff-37a.md); bounded slice merged in #82, broader #37 qualification selected next |
 | Artwork ordering | [#54 contract and verification](../store/design-order-54.md); A/B/C merged in #81; #54 closed |

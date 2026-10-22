@@ -29,6 +29,14 @@ main:focus {
   box-shadow: none;
 }
 
+.site-directional-icon {
+  display: inline-block;
+}
+
+.site-directional-icon:dir(rtl) {
+  transform: scaleX(-1);
+}
+
 .site-hero {
   padding-block-start: 4rem;
 }

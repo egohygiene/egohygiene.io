@@ -1,13 +1,16 @@
+import { useI18n } from "@egohygiene/i18n";
+
+import { PageMetadata } from "../components/PageMetadata/PageMetadata";
+
 export function TermsPage() {
+  const { t } = useI18n();
   return (
     <article className="site-prose">
-      <h1>Terms draft</h1>
-      <p>These terms are provisional and describe a minimal public website release.</p>
-      <p>
-        Use the site as informational content only; unfinished products are clearly labeled and may
-        change.
-      </p>
-      <p>No warranties or service-level guarantees are implied by this draft.</p>
+      <PageMetadata title={t("pages.termsTitle")} description={t("pages.terms.description")} />
+      <h1>{t("pages.termsTitle")}</h1>
+      <p>{t("pages.terms.intro")}</p>
+      <p>{t("pages.terms.use")}</p>
+      <p>{t("pages.terms.limits")}</p>
     </article>
   );
 }

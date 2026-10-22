@@ -1,8 +1,7 @@
 import { useI18n } from "@egohygiene/i18n";
 import type { StoreCatalog, StorefrontCuration } from "@egohygiene/schemas";
-import { Link } from "react-router-dom";
-
 import { storeCatalog, storefrontCuration } from "../../content/store";
+import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import type { BrowsableStoreEntry } from "./domain/index.ts";
 import { getCuratedStoreArtists, getCuratedStoreEntries, storeArtistPath } from "./domain/index.ts";
 import { StoreCard, StoreMetadata } from "./StorePages";
