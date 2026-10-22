@@ -10,6 +10,7 @@ export function TermsPage() {
       <h1>{t("pages.termsTitle")}</h1>
       <p>{t("pages.terms.intro")}</p>
       <p>{t("pages.terms.use")}</p>
+      <p>{t("pages.terms.store")}</p>
       <p>{t("pages.terms.limits")}</p>
     </article>
   );

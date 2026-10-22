@@ -6,6 +6,7 @@ import {
   createCheckoutHandoffInputs,
 } from "../checkout-handoff/inputs.ts";
 import { CATALOG_LOCALIZATION_FIXTURE } from "./constants.ts";
+import { qualifySyntheticRoute } from "../store/fixtures/readiness.ts";
 
 export { CATALOG_LOCALIZATION_FIXTURE } from "./constants.ts";
 
@@ -111,7 +112,7 @@ export function createCatalogLocalizationInputs() {
   });
   const collection = fixture.collection;
   entries.push({
-    schemaVersion: 2,
+    schemaVersion: 3,
     sourceLocale: "en",
     visibility: "public",
     attribution: { status: "unknown" },
@@ -134,7 +135,12 @@ export function createCatalogLocalizationInputs() {
     // Match the existing filesystem loader so raw/public fixtures share one deterministic order.
     sources: entries.map((value) => ({ source: `${value.id}.json`, value }))
       .sort((left, right) => left.source < right.source ? -1 : left.source > right.source ? 1 : 0),
-    routes: inputs.routes,
+    // This fixture adds a displayed price, so its fictional readiness review binds that price.
+    routes: inputs.routes.map((route) => qualifySyntheticRoute(
+      route,
+      entries.find((entry) => entry.id === route.productId),
+      entries.filter((entry) => entry.kind === "design" && entry.id === handoff.designId),
+    )),
   };
 }
 

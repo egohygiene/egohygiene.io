@@ -11,6 +11,7 @@ export function PrivacyPage() {
       <p>{t("pages.privacy.intro")}</p>
       <p>{t("pages.privacy.current")}</p>
       <p>{t("pages.privacy.preferences")}</p>
+      <p>{t("pages.privacy.external")}</p>
       <p>{t("pages.privacy.future")}</p>
     </article>
   );

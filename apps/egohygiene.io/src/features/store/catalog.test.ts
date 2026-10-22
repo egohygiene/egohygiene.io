@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { filterStoreEntries } from "./domain/index.ts";
 
 const base = (id: string, title: string) => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,

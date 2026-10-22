@@ -13,7 +13,7 @@ export function createArtistPreview(catalog: StoreCatalog) {
       {
         source: "artist-preview-fixture",
         value: {
-          schemaVersion: 2,
+          schemaVersion: 3,
           sourceLocale: "en",
           kind: "context",
           contextType: "artist",

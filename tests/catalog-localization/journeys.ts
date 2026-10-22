@@ -62,7 +62,7 @@ async function assertProduct(page: Page, locale: Locale) {
     );
   }
   await expect(page).toHaveTitle(new RegExp(expectedTitle(locale)));
-  await expect(page.locator(".store-purchase-panel a[rel=external]")).toHaveAttribute(
+  await expect(page.locator(".store-purchase-panel a.store-button[rel~=external]")).toHaveAttribute(
     "href",
     handoff.checkoutUrl,
   );
@@ -192,12 +192,17 @@ export async function runCatalogLocalizationJourneys(
       for (const product of [handoff.preview, handoff.unavailable]) {
         await visit(page, origin, product.path, locale);
         await expect(page.getByRole("heading", { level: 1 })).toHaveText(product.title);
-        await expect(page.locator(".store-purchase-panel a, .store-price")).toHaveCount(0);
+        await expect(
+          page.locator(".store-purchase-panel a[rel~=external], .store-purchase-panel button, .store-price"),
+        ).toHaveCount(0);
+        await expect(
+          page.locator(".store-purchase-panel a[href^='/store/help']"),
+        ).toHaveAttribute("href", `/store/help?lang=${locale}`);
         if (product.id === handoff.unavailable.id) {
-          await expect(page.locator(".store-purchase-panel p")).toHaveText(
+          await expect(page.locator(".store-purchase-panel p[lang]")).toHaveText(
             "Fictional test item is unavailable.",
           );
-          await expect(page.locator(".store-purchase-panel p")).toHaveAttribute("lang", "en");
+          await expect(page.locator(".store-purchase-panel p[lang]")).toHaveAttribute("lang", "en");
         }
       }
       for (const query of [fixture.draftMarker, fixture.staleMarker]) {
@@ -229,7 +234,7 @@ export async function runCatalogLocalizationJourneys(
     for (const locale of locales) {
       await visit(page, origin, handoff.live.path, locale);
       await assertProduct(page, locale);
-      await page.locator(".store-purchase-panel a[rel=external]").click();
+      await page.locator(".store-purchase-panel a.store-button[rel~=external]").click();
       await expect(page).toHaveURL(handoff.checkoutUrl);
       await expect(
         page.getByRole("heading", { name: "Intercepted checkout destination", exact: true }),

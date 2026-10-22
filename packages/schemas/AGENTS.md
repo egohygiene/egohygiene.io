@@ -8,7 +8,10 @@ contract; infer TypeScript types from them instead of maintaining a second model
 - Preserve catalog IDs, references, artwork revisions and public/draft guards.
   The public projection must validate before filtering; invalid drafts still fail.
 - Live purchase configuration requires the existing reviewed route, product,
-  variant and artwork-revision checks. A disabled provider placeholder or mock
+  variant and artwork-revision checks plus the current catalog v3 readiness
+  qualification and reviewed customer disclosures. See
+  [ADR 0011](../../docs/architecture/decisions/0011-reviewed-product-readiness.md).
+  A disabled provider placeholder or mock
   handoff is not a live approval.
 - Compatible additions need old fixtures to keep parsing. Breaking changes need
   an explicit version/migration and compatible code/data rollback. See

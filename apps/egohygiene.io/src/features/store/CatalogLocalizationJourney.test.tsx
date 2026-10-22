@@ -21,7 +21,7 @@ import {
 } from "./StorePages";
 
 const input = vi.hoisted(() => ({
-  catalog: { schemaVersion: 2, entries: [], checkoutRoutes: [] } as StoreCatalog,
+  catalog: { schemaVersion: 3, entries: [], checkoutRoutes: [] } as StoreCatalog,
 }));
 
 // Replace only the build-time catalog input. Providers, shell, router and pages are real.

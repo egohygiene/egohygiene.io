@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { SYNTHETIC_STORE_DISCLOSURES } from "./fixtures/readiness.ts";
 import { readFile, stat } from "node:fs/promises";
 import { test } from "node:test";
 
@@ -112,7 +113,11 @@ test("all selected languages retain the original exact handoff, variants, curren
   const live = entry(catalog, handoff.live.id);
   assert.ok(live.kind === "product" && live.purchase.state === "live");
   assert.ok(originalProduct.kind === "product" && originalProduct.purchase.state === "live");
-  assert.deepEqual(catalog.checkoutRoutes, original.checkoutRoutes);
+  assert.deepEqual(
+    catalog.checkoutRoutes.map(({ qualification, ...route }) => route),
+    original.checkoutRoutes.map(({ qualification, ...route }) => route),
+  );
+  assert.equal(catalog.checkoutRoutes[0]?.qualification.status, "reviewed");
   assert.deepEqual(live.purchase.variants, originalProduct.purchase.variants);
   const before = structuredClone(catalog);
   for (const locale of ["en", "fr", "fr-CA", "qps-Ploc"]) {
@@ -121,7 +126,7 @@ test("all selected languages retain the original exact handoff, variants, curren
     assert.equal(storeEntryPath(live), handoff.live.path);
     assert.deepEqual(live.purchase.displayPrice, fixture.price);
     const action = getStorePurchaseAction(catalog, live.id);
-    assert.deepEqual(action, { kind: "external", label: "Shop on Fourthwall", href: handoff.checkoutUrl });
+    assert.deepEqual(action, { kind: "external", label: "Shop on Fourthwall", href: handoff.checkoutUrl, disclosures: SYNTHETIC_STORE_DISCLOSURES });
     assert.ok(action.kind === "external");
     // Exercise the retained request policy only. Actual network interception is a deferred browser check.
     assert.equal(decideHandoffRequest({
