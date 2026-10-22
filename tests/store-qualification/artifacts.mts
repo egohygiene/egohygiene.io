@@ -27,14 +27,24 @@ export const LOCAL_REVIEW_BUDGETS: Record<AssetKind | "total", Size> = {
 
 export const EXCLUDED_MARKERS: Marker[] = [
   {
+    label: "catalog language fixture",
+    marker: "test-localization-65c",
+    source: "tests/catalog-localization/constants.ts",
+  },
+  {
+    label: "catalog language qualification host",
+    marker: "Synthetic catalog languages",
+    source: "tests/catalog-localization/host.tsx",
+  },
+  {
     label: "handoff fixture",
     marker: "test-handoff-37a",
-    source: "tests/checkout-handoff/fixture.ts",
+    source: "tests/checkout-handoff/inputs.ts",
   },
   {
     label: "handoff label",
     marker: "Fictional handoff test",
-    source: "tests/checkout-handoff/fixture.ts",
+    source: "tests/checkout-handoff/inputs.ts",
   },
   {
     label: "inert destination",

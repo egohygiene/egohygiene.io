@@ -1,10 +1,15 @@
 {
-  "schemaVersion": 1,
-  "kind": "context",
   "id": "song-demo-static-bloom",
   "slug": "static-bloom-song",
   "title": "Static Bloom",
   "description": "Fictional song used to demonstrate optional connections between music, designs, and products. This is not a real release.",
   "visibility": "public",
+  "schemaVersion": 2,
+  "sourceLocale": "en",
+  "translations": [],
+  "attribution": {
+    "status": "unknown"
+  },
+  "kind": "context",
   "contextType": "song"
 }

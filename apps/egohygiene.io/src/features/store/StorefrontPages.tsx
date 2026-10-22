@@ -5,6 +5,7 @@ import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import type { BrowsableStoreEntry } from "./domain/index.ts";
 import { getCuratedStoreArtists, getCuratedStoreEntries, storeArtistPath } from "./domain/index.ts";
 import { StoreCard, StoreMetadata } from "./StorePages";
+import { useStoreContent } from "./useStoreContent";
 
 import "./storefront.css";
 import "./store-artist.css";
@@ -165,6 +166,7 @@ export function IncomprisPage({
   curation = storefrontCuration,
 }: StorefrontProps) {
   const { t } = useI18n();
+  const { content } = useStoreContent();
   const entries = getCuratedStoreEntries(catalog, curation.incomprisEntryIds);
   const artists = getCuratedStoreArtists(catalog, curation);
 
@@ -202,19 +204,26 @@ export function IncomprisPage({
             <p>{t("storeArtist.entrance.description")}</p>
           </div>
           <ul className="store-artist-list">
-            {artists.map(({ artist }) => (
-              <li key={artist.id}>
-                <Link className="store-artist-link" to={storeArtistPath(artist)}>
-                  <h3>
-                    <bdi dir="auto">{artist.title}</bdi>
-                  </h3>
-                  <p>{artist.description}</p>
-                  <span className="store-text-link">
-                    {t("storeArtist.entrance.link")} <Arrow />
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {artists.map(({ artist }) => {
+              const artistContent = content(artist);
+              return (
+                <li key={artist.id}>
+                  <Link className="store-artist-link" to={storeArtistPath(artist)}>
+                    <h3>
+                      <bdi dir="auto" lang={artistContent.title.locale}>
+                        {artistContent.title.value}
+                      </bdi>
+                    </h3>
+                    <p lang={artistContent.description.locale}>
+                      {artistContent.description.value}
+                    </p>
+                    <span className="store-text-link">
+                      {t("storeArtist.entrance.link")} <Arrow />
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </section>
       )}

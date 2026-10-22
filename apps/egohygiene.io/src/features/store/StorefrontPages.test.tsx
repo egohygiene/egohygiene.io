@@ -22,7 +22,8 @@ const emptyCuration: StorefrontCuration = {
 
 function design(id: string, title: string): StoreDesign {
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    sourceLocale: "en", translations: [], attribution: { status: "unknown" },
     kind: "design",
     id,
     slug: id,
@@ -36,7 +37,7 @@ function design(id: string, title: string): StoreDesign {
 }
 
 const fixtureCatalog: StoreCatalog = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   entries: [design("design-one", "First artwork"), design("design-two", "Second artwork")],
   checkoutRoutes: [],
 };

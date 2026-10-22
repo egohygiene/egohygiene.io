@@ -5,6 +5,10 @@ The catalog accepts artwork previews and placeholders, a few entries at a time. 
 For the end-to-end path from an approved idea to shop, featured artist or song
 placement, follow the [storefront content workflow](storefront-content-workflow.md).
 This page remains the reference for individual JSON records and validation.
+Catalog entries and their assembled envelope now use version 2, with an explicit
+`sourceLocale`. Curation and provider manifests keep their separate version 1
+contracts. See the [catalog localization checkpoint](catalog-localization-65a.md)
+and [ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md).
 
 The first artwork preview is **heartburst**, a standalone ink-splatter heart with no song or product association. Its [display asset and portable visual DNA](../../assets/designs/heartburst/README.md) are separate from the private source pack.
 
@@ -19,7 +23,7 @@ node scripts/store-catalog.mts add-design --slug "my-new-design" --title "My New
 node scripts/store-catalog.mts validate
 ```
 
-The first command creates `my-new-design.design.json` with a generated permanent ID, draft visibility, a placeholder image, and no song, artist, or character requirement. It checks the entire proposed catalog before writing and refuses to overwrite existing files. A duplicate slug or a broken existing entry blocks creation until it is fixed.
+The first command creates `my-new-design.design.json` with version 2, `sourceLocale: "en"`, no translations, unknown attribution, a generated permanent ID, draft visibility, a placeholder image, and no song, artist, or character requirement. It checks the entire proposed catalog before writing and refuses to overwrite existing files. A duplicate slug or a broken existing entry blocks creation until it is fixed.
 
 Edit the generated file to add the description and approved artwork. Keep the generated `id` even if the title or slug changes. Increment `artworkRevision` when replacing the artwork. A changed slug will need redirect handling when public URLs are introduced; keep published slugs stable until that exists.
 
@@ -29,7 +33,7 @@ Validation reports the filename and field path. For example, a missing design re
 
 ## Public build and development boundary
 
-The Vite adapter in `scripts/vite-store-catalog.mts` discovers and validates all authoring entries in Node, then applies the shared `toPublicStoreCatalog` projection. The app imports `virtual:store-catalog` through its existing `content/store/index.ts` entry point. Only public entries and reviewed checkout routes used by public live products become browser module data. Raw entry files, unused routes, and provider research metadata are not imported into the browser graph. Use this adapter in any future browser entry point; do not import the authoring JSON directly.
+The Vite adapter in `scripts/vite-store-catalog.mts` discovers and validates all authoring entries in Node, then applies the shared `toPublicStoreCatalog` projection. The app imports `virtual:store-catalog` through its existing `content/store/index.ts` entry point. Only public entries and reviewed checkout routes used by public live products become browser module data. For each public entry, the projection retains only translated fields whose review still matches the source and translated values; draft and stale translated fields are excluded. Public-safe review bindings remain in the projected records for revalidation. Raw entry files, unused routes, and provider research metadata are not imported into the browser graph. Use this adapter in any future browser entry point; do not import the authoring JSON directly.
 
 This is the same path for normal builds, isolated local previews, live editing, and component tests. No generated catalog file needs committing or regenerating by hand. Records retain deterministic filename order. Invalid drafts still fail validation: filtering is not permission to bypass schema, reference, purchase-route, or artwork-file checks.
 
@@ -63,7 +67,8 @@ Copy this into a new `.product.json` file. Replace `design-replace-with-generate
 
 ```json
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "sourceLocale": "en",
   "kind": "product",
   "id": "product-my-new-design-hoodie",
   "slug": "my-new-design-hoodie",
@@ -102,11 +107,12 @@ to sell. See the [#54 checkpoint](design-order-54.md) for delivery evidence.
 
 ## Add optional context or a collection
 
-For a song, realm, artist, character, or appearance, create a context entry. `contextType` selects one of those five kinds:
+For a song, realm, artist, brand, character, or appearance, create a context entry. `contextType` selects one of those six kinds:
 
 ```json
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "sourceLocale": "en",
   "kind": "context",
   "id": "song-my-new-song",
   "slug": "my-new-song",
@@ -123,7 +129,8 @@ A collection groups any approved combination of designs and products. Copy this 
 
 ```json
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "sourceLocale": "en",
   "kind": "collection",
   "id": "collection-my-new-song",
   "slug": "my-new-song-collection",
@@ -214,22 +221,175 @@ node scripts/store-catalog.mts validate --directory "/path/to/entries" --public-
 
 The public directory is the root that contains `store/`, not the `store/` directory itself. The same optional `--public-directory` flag works with `add-design`. Programmatic callers use `loadCatalog(directory, routes, publicDirectory)` to check a custom catalog's assets, or omit the third argument for schema-only validation of a custom catalog. Calling `loadCatalog()` checks the default catalog against the application's public directory, including during Vite builds. JSON entries are discovered recursively in deterministic path order; catalog-file symlinks are not followed. Every discovered JSON file is treated as a catalog entry.
 
+## Catalog translations and attribution
+
+Keep the existing title, description, artwork text and purchase copy as the source
+content, and set `sourceLocale` to its actual canonical BCP 47 language ID. The
+current catalog uses `"en"`. This field describes authored content; it neither
+registers a public website language nor chooses formatting, currency or shipping.
+
+Optional `translations` live on the same canonical entry and default to an empty
+array. Each record names one different locale and supplies a nonempty `fields`
+object. Supported fields are `title`, `description`, `artworkAlt`, `artworkLabel`,
+`unavailableReason` and `variantLabels`. Artwork fields must match the design's
+image or placeholder kind; unavailable copy must belong to an unavailable product;
+variant labels identify existing live-product variants by their canonical
+`variantId`. Duplicate locale or variant entries and fields without matching
+source content fail validation. There is no translated ID, slug, asset path,
+provider mapping or price field.
+
+For example, this optional property adds one **synthetic draft** description to a
+product or collection. It is a fixture, not an approved language or translation:
+
+```json
+{
+  "translations": [
+    {
+      "locale": "en-XA",
+      "fields": {
+        "description": {
+          "value": "[An expanded fictional description for layout review]",
+          "review": { "status": "draft" }
+        }
+      }
+    }
+  ]
+}
+```
+
+Omit `title` when a creative name should remain unchanged. Omitted, draft or stale
+fields leave the source field available as fallback; do not copy source text into
+every locale to conceal missing translations. The current renderer resolves each
+field separately: selected content language, declared registry fallback languages,
+then the entry's source language. A source-language field wins as soon as its
+language is encountered, even before later configured fallbacks. Draft or stale
+translations never replace the source. There is no implicit regional fallback
+such as `fr-CA` to `fr`; declare that relationship in the website registry if it
+is intended.
+
+A human-reviewed field uses `review.status: "reviewed"`, a canonical target
+`locale`, a public-safe `reviewedBy` identifier, a valid `reviewedAt` calendar date,
+and exact `source` and translated `value` snapshots. The source snapshot includes
+its locale and text; artwork fields also bind `artworkRevision`, and variant labels
+bind `variantId`. Editing either text, the source locale or the bound revision/ID
+makes the record stale. `inspectStoreTranslations(entry)` reports the status of
+present fields; `publicStoreTranslations(entry)` retains only current reviewed
+fields. The schema checks shape and applicability even on drafts. Staleness is a
+review result rather than a malformed-record error, so source edits can proceed
+while the affected translation falls back. Update review bindings only after an
+actual review, or remove the translated field until one is available. See the
+[complete authoring/review example](catalog-localization-65a.md).
+
+Review metadata is public catalog data. Use a public reviewer handle, not private
+contact details, business records or rights evidence. Structurally valid review
+metadata cannot prove reviewer identity, linguistic quality or publication approval.
+
+The selected content language is the registry's `id`; its `formatLocale` controls
+number, date and price presentation. These may differ for a synthetic locale.
+Catalog renderers keep each field's resolved language and apply `lang` to its
+visible text or artwork alternative. A page can therefore contain reviewed
+translated description text alongside an untranslated creative title, without
+claiming that the title is in the selected interface language.
+
+Search uses resolved titles and descriptions from the entry and its related
+public designs/contexts. Original source titles remain searchable aliases for
+creative names. Unrelated translations, draft/stale translated text and replaced
+source descriptions are not extra hidden search terms. Search normalizes Unicode
+with NFKC and explicit selected-language casing, while retaining diacritics. It
+supports equivalent composed/decomposed forms and compatibility characters; it
+does not invent transliterations or accent-insensitive matches.
+
+Translation data alone does not publish a website language. The real registry
+still enables **English only**; another public language needs reviewed interface
+messages, catalog content and an explicit registry change. Canonical IDs, slugs,
+asset paths, provider destinations and variant mappings remain unchanged across
+languages. Prices format the declared amount and currency using `formatLocale`;
+language selection does not convert currency, select a shipping region or establish
+provider eligibility. Current supported minor-unit currencies keep their existing
+two-decimal policy; expanding currencies requires an explicit exponent policy.
+No catalog dates are added merely to demonstrate date formatting.
+
+See [checkpoint B](catalog-localization-65b.md) for the resolver/rendering/search
+implementation and [ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md)
+for its data boundary. Use the [first-language review checklist](catalog-language-review.md)
+for candidate fields, missing/stale diagnostics, human review and separate public
+activation. C's reusable synthetic fixture does not approve a real translation;
+actual Chromium execution and broader qualification remain deferred to final #37.
+
+Optional `attribution` defaults to `{ "status": "unknown" }`. A declared record
+uses `status: "declared"` with `creatorIds` and/or `rightsHolderIds` referencing
+existing artist or brand contexts. At least one list must be nonempty; references
+must be unique, and public entries can reference only public contexts. Keep the
+status unknown unless a supported public declaration exists. Song membership,
+`contextIds`, artist curation and appearance associations do not imply creation or
+ownership. Attribution does not grant sale permission or qualify a checkout route.
+The migration does not infer any rights claim for Heartburst or other records.
+
 ## Schema changes
 
-`packages/schemas/src/store.ts` is the authoritative contract, with TypeScript types derived from it. Both the authoring CLI and storefront adapter use it. Do not create a second hand-maintained model in a component.
+`packages/schemas/src/store.ts` composes the authoritative Zod catalog contract
+with `store-localization.ts`; TypeScript types are derived from those schemas.
+`store-migrations.ts` owns the explicit compatibility operation. Both the authoring
+CLI and storefront adapter use this shared contract. Do not create a second model
+in a component or a translation-specific product catalog.
 
-This is the first version: `schemaVersion: 1`. Unknown versions fail validation. There is no earlier production catalog to migrate, and this checkpoint does not pretend otherwise.
+Current runtime parsing accepts **version 2 only**. Version 1 is accepted solely
+by the explicit migration input schema. Requiring an authored source language is
+the justified breaking change; a parser must not silently assume a language for
+old data. The v1 input contract is retained as compatibility evidence, not an
+alternative current runtime. Other versions fail closed.
 
-The assembled catalog also has a strict envelope: `schemaVersion`, `entries`,
-and `checkoutRoutes` are required and unknown top-level fields are rejected.
-`storeCatalogSchema` validates that envelope and its record shapes; `StoreCatalog`
-is inferred from it. Shape validation alone does not check relationships or
-approve a purchase. `parseStoreCatalog` checks authoring records and their
-references; public projection and live purchase actions revalidate the envelope
-and those relationships before emitting content or a checkout URL. An unsupported
-envelope version is never silently converted to version 1. See the
-[schema audit](schema-audit-34.md) for regression coverage and compatibility.
+The assembled catalog has a strict envelope: `schemaVersion`, `entries`, and
+`checkoutRoutes` are required. `storeCatalogSchema` validates its shape;
+`parseStoreCatalog` checks entry references, translation applicability, attribution
+and live purchase restrictions. Public projection and live purchase actions
+revalidate these relationships before emitting content or a checkout URL.
+Provider and storefront-curation manifests still use version 1, and checkout-route
+records retain their existing shape. Do not bump those unrelated contracts.
 
-For a compatible addition, add an optional field or a defined default, then prove existing version 1 fixtures still parse. A breaking change needs a new version, an explicit migration, and tests showing that permanent IDs, references, visibility, and purchase restrictions survive. Keep the old fixture as evidence. Rollbacks must restore compatible schema code and catalog data together. Avoid changing schema versions automatically just to make a validation error disappear.
+To migrate a retained v1 **envelope** into a new review file:
+
+```sh
+node scripts/store-catalog.mts migrate \
+  --input "/path/to/review/catalog-v1.json" \
+  --output "/path/to/review/catalog-v2.json" \
+  --source-locale "en"
+```
+
+The input is one object containing the v1 `schemaVersion`, `entries` and
+`checkoutRoutes`; it is not an entries directory or an individual record. Supply
+`--source-locale` only after reviewing the actual source language. The migration
+uses that language for every entry, adds empty translations and unknown attribution,
+and preserves IDs, slugs, ordered references, artwork revisions, visibility,
+purchase states and provider mappings. It validates the migrated relationships
+and purchase restrictions before writing. It does not approve a live product.
+
+The output path must not already exist; the CLI refuses to overwrite either it or
+the input. Keep both envelopes outside the discovered entries directory, where
+every JSON file is interpreted as one entry. Review the output before replacing
+the individual authoring records in a PR. The command does not replace those
+files, split the envelope or migrate artwork. Run the ordinary catalog validation
+after applying reviewed entries so artwork files and curation are checked too:
+
+```sh
+node scripts/store-catalog.mts validate
+```
+
+Retain the original v1 input and the code revision that consumes it. Rollback means
+restoring compatible schema/consumer code and those original authoring inputs
+together. There is no automatic v2-to-v1 downgrade: dropping localization or
+attribution fields would discard new authored information. Preserve the v2 work in
+Git when reviewing a rollback. The [checkpoint receipt](catalog-localization-65a.md)
+records the implemented chain and limits; the [earlier audit](schema-audit-34.md)
+remains historical v1 evidence.
+
+Compatible optional/defaulted additions must keep existing **v2** fixtures valid.
+A breaking change needs the next explicit version, a migration from its supported
+predecessor and fixtures proving stable identity, references, visibility and
+purchase restrictions. A future digital product or license offer must receive a
+separate reviewed product/purchase contract and delivery/terms policy through this
+same process. It cannot be represented by adding a download URL or license terms
+to today's physical-product preview/live records. No digital delivery or licensing
+behavior is implemented or authorized by version 2.
 
 The generic preview browser consumes this catalog automatically at `/store/catalog`, with canonical design, product and collection detail pages. Curated shop and artist views use the separate curation manifest. Follow [the next-design session](next-design-session.md) to preview one approved image. Provider onboarding, purchases, and publication remain separate steps.

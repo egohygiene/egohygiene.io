@@ -111,6 +111,7 @@
     "contextHeading": "Part of a bigger story.",
     "contextType": {
       "artist": "artist",
+      "brand": "brand",
       "realm": "realm",
       "song": "song",
       "character": "character",

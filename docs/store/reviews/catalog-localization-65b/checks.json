@@ -1,0 +1,124 @@
+{
+  "recordedAt": "2026-10-21",
+  "maintainerSessionDate": "2026-10-20",
+  "sourceCommit": "34a807ef173b2ddd547e9735ee344b6ffeba4514",
+  "sourceTree": "3081417ada645b33e4976b8ffa8c5269a5204f1a",
+  "publication": "Remote tree exactly matched staged tested source. Combined contract/consumer/type/message/boundary checks ran before publication; normal/preview builds and artifact checks ran at the published source. Documentation followed separately.",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "setup": "Recovered repository after workspace pruning; exact official Node archive checksum verified; frozen-lockfile ignore-scripts install passed with manifest/lockfile unchanged."
+  },
+  "checks": [
+    {
+      "command": "pnpm catalog:test",
+      "result": "passed",
+      "tests": 116,
+      "includes": "12 new presentation/search contracts plus existing localization/migration/public-build/artifact checks",
+      "localLogSha256": "68bae63b6570a8ef40453a8e670afad3071f76bc900d48582aad0b1241ae1d1b"
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts apps/egohygiene.io/src/features/store apps/egohygiene.io/src/features/fourthwall-preview apps/egohygiene.io/src/i18n/LocaleProvider.test.tsx",
+      "result": "passed",
+      "tests": 73,
+      "files": 14,
+      "localLogSha256": "7b7e64360e64838ac63d72a8d8280d1287f85b5faedf77b07581255a97707efd"
+    },
+    {
+      "command": "pnpm typecheck",
+      "result": "passed",
+      "profiles": [
+        "app",
+        "store tooling",
+        "portable domain"
+      ],
+      "localLogSha256": "d1ae92477a5f259436314780b7f07524485b59e4361163911949d51613b5e384"
+    },
+    {
+      "command": "node scripts/checks/check-store-boundaries.ts && node scripts/checks/check-locales.ts",
+      "result": "passed",
+      "portableModules": 15,
+      "sourceMessages": 377,
+      "namespaces": 10,
+      "messageSourceHash": "ab361928c699457f12af44b6f3fa3949d5b02d2de7332c1fa42cda8d82e7879f",
+      "localLogSha256": "a580b0486e10ee363dd7a004ee613aa390e4a6e3fe5a64322b6467b1c327f2ff"
+    },
+    {
+      "command": "pnpm build && node tests/store-qualification/artifacts.mts --output test-results/store-qualification/catalog-65b-artifacts.json",
+      "result": "passed",
+      "artifactFiles": 16,
+      "assetReferences": 12,
+      "findings": 0,
+      "localLogSha256": "09f3a1c67057a7ed2e4defb872a99f3ac94461bbdb334ad74410903c70757bf9"
+    },
+    {
+      "command": "node scripts/store-environment.mjs build",
+      "result": "passed",
+      "output": "apps/egohygiene.io/dist-preview",
+      "localLogSha256": "a66571a58ffb3f80bcdb7f29e26aad16beec7493bfa0a1e40c3ed187e80b3d1f"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "correctedAttempts": [
+    {
+      "scope": "Initial domain test",
+      "result": "failed",
+      "reason": "Negative-search fixture reused a source-description string visible on a related public context; changed to a unique sentinel, with no implementation change. Final twelve tests and combined suite passed."
+    },
+    {
+      "scope": "Initial UI test",
+      "result": "30 passed / 1 failed",
+      "reason": "Text matcher normalized Intl nonbreaking whitespace; assertion changed to compare exact DOM textContent with Intl output. Final31 targeted and73 combined consumer tests passed."
+    }
+  ],
+  "independentReview": {
+    "result": "No remaining source blocker",
+    "limits": "Mixed interface/catalog interpolated accessible names require actual assistive-technology/language review in final qualification."
+  },
+  "unchanged": [
+    "Catalog schema v2 and shipped authoring entries",
+    "Public English-only registry",
+    "Canonical IDs/slugs/asset paths and declared gallery order",
+    "Provider routes/variant mappings/amounts/currencies",
+    "Disabled real purchasing and empty real artist merchandise selections",
+    "Dependencies and lockfile"
+  ],
+  "notRun": [
+    "Chromium/browser journeys/screenshots",
+    "Full qualification profile or broad repository lint/test/refactoring",
+    "Manual hosted CI dispatch/CI repair",
+    "Linguistic approval of a real additional language",
+    "Live hosting/provider qualification, orders or spending"
+  ],
+  "warnings": [
+    "Existing Node module-loader and Vite future config-loader warnings remain; no suppression or unrelated configuration change."
+  ],
+  "limits": "Local checks are not hosted CI, browser/accessibility/layout evidence or production qualification. Actual browser and broad validation/CI work remains with final #37/#29 as explicitly requested.",
+  "hostedSourceRuns": [
+    {
+      "id": 39519493216,
+      "name": "CI",
+      "result": "failure"
+    },
+    {
+      "id": 39519493050,
+      "name": "Dependency review",
+      "result": "failure"
+    },
+    {
+      "id": 39519493369,
+      "name": "CodeQL",
+      "result": "failure"
+    }
+  ],
+  "hostedScope": "Automatically triggered by draft updates; status refreshed only. Causes/repair deferred to final #37/#29; no manual dispatch or disabled gate.",
+  "documentationChecks": {
+    "result": "passed",
+    "localLinkTargets": 240,
+    "json": "Changed JSON/manifest parsed and manifest targets exist",
+    "anchors": "Authoring schema-changes and catalog-translations-and-attribution targets present"
+  }
+}

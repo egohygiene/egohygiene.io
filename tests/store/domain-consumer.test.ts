@@ -23,7 +23,8 @@ import {
 } from "./fixtures/alternate-preview.ts";
 
 const base = (id: string) => ({
-  schemaVersion: 1,
+  schemaVersion: 2,
+  sourceLocale: "en",
   id,
   slug: id,
   title: id,

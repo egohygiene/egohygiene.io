@@ -1,12 +1,23 @@
 {
-  "schemaVersion": 1,
-  "kind": "collection",
   "id": "collection-demo-static-bloom",
   "slug": "static-bloom-collection",
   "title": "The Static Bloom Collection",
   "description": "Fictional collection showing how one song can bring together related artwork and merchandise.",
   "visibility": "public",
-  "designIds": ["design-demo-static-bloom"],
-  "productIds": ["product-demo-static-bloom-mug"],
-  "contextIds": ["song-demo-static-bloom"]
+  "schemaVersion": 2,
+  "sourceLocale": "en",
+  "translations": [],
+  "attribution": {
+    "status": "unknown"
+  },
+  "kind": "collection",
+  "designIds": [
+    "design-demo-static-bloom"
+  ],
+  "productIds": [
+    "product-demo-static-bloom-mug"
+  ],
+  "contextIds": [
+    "song-demo-static-bloom"
+  ]
 }

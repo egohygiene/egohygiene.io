@@ -2,6 +2,8 @@ import { useI18n } from "@egohygiene/i18n";
 import type { StoreDesign } from "@egohygiene/schemas";
 import { useId, useState } from "react";
 
+import { useStoreContent } from "./useStoreContent";
+
 type StoreArtworkProps = {
   readonly design?: StoreDesign | undefined;
   readonly hero?: boolean;
@@ -10,6 +12,8 @@ type StoreArtworkProps = {
 /** Decorative studies are never presented as photographs or approved print artwork. */
 export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
   const { t } = useI18n();
+  const { content } = useStoreContent();
+  const presented = design ? content(design) : undefined;
   const instanceId = useId().replaceAll(":", "");
   const [failedSource, setFailedSource] = useState<string>();
   const artwork = design?.artwork;
@@ -25,7 +29,8 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
     return (
       <div className="store-artwork store-artwork--image">
         <img
-          alt={artwork.alt}
+          alt={presented?.artworkAlt?.value ?? artwork.alt}
+          lang={presented?.artworkAlt?.locale}
           src={artwork.src}
           loading={hero ? "eager" : "lazy"}
           decoding="async"
@@ -44,7 +49,9 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
       role="img"
       aria-label={
         artwork?.kind === "placeholder"
-          ? t("storeCards.artwork.labelledPlaceholder", { label: artwork.label })
+          ? t("storeCards.artwork.labelledPlaceholder", {
+              label: presented?.artworkLabel?.value ?? artwork.label,
+            })
           : label
       }
     >

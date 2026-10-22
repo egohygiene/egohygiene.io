@@ -13,9 +13,19 @@ service, language control and interface messages are now implemented in the same
 draft. [B evidence](../store/locale-service-64b.md) records local passes and blocked
 browser startup. Alan then selected C: [message-review tooling and browser journey
 implementation](../store/locale-review-64c.md) are saved in #85. C acceptance remains
-open because browser startup is still blocked. Run the retained journeys in a
-usable browser before closing C; coordinated #65/#34 follows the sync. See the
-current handoff.
+open. Alan then explicitly deferred Chromium, unrelated refactoring and broad
+lint/testing/CI repair until the final #37 pass, coordinated with #29/#52/#49/#70.
+#65 A / #34 is implemented in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86),
+stacked on #85; see the [catalog receipt](../store/catalog-localization-65a.md).
+Alan then selected #65 B: [selected-language rendering/search](../store/catalog-localization-65b.md)
+is implemented in the same draft. Alan then selected C; [integration/review evidence](../store/catalog-localization-65c.md)
+is saved with reusable fixtures and seven authored browser journeys. Actual browser
+execution/acceptance remains deferred. Next is sync, then bounded #38 readiness.
+The order afterward is #38 plus relevant #9 readiness/disclosures, #22 public
+rendering/metadata, then final #37 validation and CI repair. Hosting/provider
+activation and #39 require separate authorization. Focused correctness checks
+continue during implementation; deferred work is not marked passed or waived.
+See the current handoff for exact revisions and draft-stack status.
 The wider M1–M5 proposals below remain historical; no broad rollout, merge or
 deployment is authorized by the execution checkpoint.
 

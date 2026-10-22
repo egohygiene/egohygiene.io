@@ -77,9 +77,20 @@ records the local passes and blocked Chromium startup. Alan then selected C; its
 [review receipt](docs/store/locale-review-64c.md) records message-review tooling and
 authored browser journeys in #85. Browser startup remains blocked, so C acceptance
 stays open. Use the [message workflow](docs/store/interface-message-workflow.md) for
-source edits and human translation review. Next: run the retained journeys in a
-usable browser and sync; #65/#34 and #37's remaining qualification follow. No new
-merge authority is inferred from continued implementation.
+source edits and human translation review. Alan subsequently deferred Chromium,
+unrelated refactoring and broad lint/test/CI work to final #37 and selected further
+implementation. #65 A / #34 is now in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86),
+stacked on #85: read [ADR 0010](docs/architecture/decisions/0010-versioned-catalog-localization.md).
+#65 A is recorded in the [catalog receipt](docs/store/catalog-localization-65a.md).
+Alan then selected B, now implemented in that same draft; read its
+[presentation/search receipt](docs/store/catalog-localization-65b.md). Alan then selected C;
+its [integration/review receipt](docs/store/catalog-localization-65c.md) records reusable
+fixtures, passing focused local checks and seven authored browser journeys. Chromium
+execution remains deferred, so C browser acceptance stays open. Next after sync is
+#38 readiness preparation plus relevant #9 disclosures, then #22 and final #37 with
+#29/#52/#49/#70 under roadmap #84. Keep focused correctness checks while
+implementing; the deferred browser/hosted failures remain open. No new merge authority
+is inferred from continued implementation.
 Deployment and commerce activation remain separate instructions.
 
 ## Working boundaries

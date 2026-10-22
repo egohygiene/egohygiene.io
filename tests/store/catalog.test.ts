@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 import { getStorePurchaseAction, parseStoreCatalog, toPublicStoreCatalog } from "../../packages/schemas/src/store.ts";
 import { loadCatalog, loadCatalogSources } from "../../scripts/store-catalog.mts";
 
-const base = (id: string) => ({ schemaVersion: 1, id, slug: id, title: id, description: "Fictional test entry", visibility: "public" });
+const base = (id: string) => ({ schemaVersion: 2, sourceLocale: "en", id, slug: id, title: id, description: "Fictional test entry", visibility: "public" });
 const design = () => ({ ...base("design-test"), kind: "design", artworkRevision: 1, artwork: { kind: "placeholder", label: "Test placeholder" }, contextIds: [] });
 const product = () => ({ ...base("product-test"), kind: "product", designIds: ["design-test"], purchase: { state: "preview" } });
 const parse = (...values: unknown[]) => parseStoreCatalog(values.map((value, index) => ({ source: `entry-${index}.json`, value })));
@@ -117,7 +117,7 @@ test("public projection removes routes belonging only to drafts", () => {
   const fixture = liveFixture();
   fixture.art.visibility = "draft";
   fixture.item.visibility = "draft";
-  assert.deepEqual(toPublicStoreCatalog(fixture.catalog()), { schemaVersion: 1, entries: [], checkoutRoutes: [] });
+  assert.deepEqual(toPublicStoreCatalog(fixture.catalog()), { schemaVersion: 2, entries: [], checkoutRoutes: [] });
 });
 
 test("the shipped catalog is discoverable and every mock product is unpurchasable", async () => {

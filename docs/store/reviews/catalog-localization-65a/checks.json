@@ -1,0 +1,119 @@
+{
+  "recordedAt": "2026-10-20",
+  "sourceCommit": "879af7ebf9ffafe5467da892aef2c0eb78e87055",
+  "sourceTree": "f5855f7f768c4863a5a6b3149e83802637a901af",
+  "publication": "Published Git tree equals staged tested source; checks ran before publication on this source. Documentation followed separately.",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5"
+  },
+  "checks": [
+    {
+      "command": "pnpm catalog:test",
+      "result": "passed",
+      "tests": 104,
+      "includes": "24 new localization/migration tests; Vite public translation exclusion and existing catalog/route/artifact contracts",
+      "localLogSha256": "e923f1bb624cac785f4cf851df5f28776f932eed3f4ea5189a4abe64def68049"
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts apps/egohygiene.io/src/features/store apps/egohygiene.io/src/features/fourthwall-preview",
+      "result": "passed",
+      "tests": 57,
+      "files": 10,
+      "localLogSha256": "f29502e8cf0aa2ea4453f88b8bc3d514613594c94623d1ac10e106a79683728b"
+    },
+    {
+      "command": "pnpm typecheck",
+      "result": "passed",
+      "profiles": [
+        "app",
+        "store tooling",
+        "portable domain"
+      ],
+      "localLogSha256": "7d1bc3622f2cce29bf65805d6118b4afef63c429c55b68c2ace19ea5c0cf6540"
+    },
+    {
+      "command": "pnpm exec tsc --project packages/schemas/tsconfig.build.json --noEmit",
+      "result": "passed",
+      "localLogSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "pnpm build && node scripts/checks/check-store-boundaries.ts",
+      "result": "passed",
+      "modules": 14,
+      "localLogSha256": "2472ab90290171d76ea73ae3c35685f3210c4eb4f85d71c802baaf03d6f4611c"
+    },
+    {
+      "command": "Compare ten migrated entry objects to parent git records, removing only version/sourceLocale/translations/attribution additions",
+      "result": "passed",
+      "records": 10
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "correctedAttempts": [
+    {
+      "command": "Initial pnpm typecheck during fixture conversion",
+      "result": "failed",
+      "reason": "Typed fixture defaults absent and migration test import targeted the wrong module; fixed before final checks."
+    },
+    {
+      "command": "Initial pnpm catalog:test",
+      "result": "failed",
+      "passed": 102,
+      "failed": 2,
+      "reason": "Two existing catalog envelope assertions still expected v1; updated to the new current v2 contract, then 104/104 passed."
+    },
+    {
+      "command": "pnpm exec tsc --project packages/schemas/tsconfig.json --noEmit",
+      "result": "failed",
+      "reason": "Wrong config path (TS5058); corrected to existing tsconfig.build.json. No source/gate change."
+    }
+  ],
+  "independentReview": {
+    "result": "No remaining source blocker",
+    "fixed": "Undefined-only translated fields now fail, with regression coverage."
+  },
+  "migration": {
+    "inputRevision": "9b308a88df4446d54e0558ed35d5dd0f0bbee37e",
+    "records": 10,
+    "sourceLocale": "en",
+    "translationCount": 0,
+    "attribution": "unknown for every record",
+    "checkoutRoutes": 0,
+    "rollback": "Restore retained v1 code/data pair; no lossy automatic downgrade."
+  },
+  "notRun": [
+    "Chromium/browser journeys or screenshots",
+    "Full qualification profile",
+    "Repository-wide lint/test/refactoring",
+    "Manual hosted CI dispatch or CI repairs",
+    "Live hosting/provider qualification or orders"
+  ],
+  "limits": "Local checks are not hosted CI, linguistic review, browser evidence or production qualification. User explicitly moved deferred validation to final #37 with #29. English-only public registry and disabled real providers remain.",
+  "hostedSourceRuns": [
+    {
+      "id": 39471602329,
+      "name": "CI",
+      "result": "failure"
+    },
+    {
+      "id": 39471602298,
+      "name": "Dependency review",
+      "result": "failure"
+    },
+    {
+      "id": 39471602591,
+      "name": "CodeQL",
+      "result": "failure"
+    }
+  ],
+  "hostedScope": "Automatically triggered by draft publication; status refreshed only. Causes not re-diagnosed; repair deferred to final #37/#29. No manual dispatch or disabled gate.",
+  "documentationChecks": {
+    "result": "passed",
+    "localLinkTargets": 228,
+    "json": "Changed JSON and context manifest parsed; referenced manifest paths exist."
+  }
+}

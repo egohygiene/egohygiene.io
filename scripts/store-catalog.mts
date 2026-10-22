@@ -5,6 +5,7 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import type { StoreCatalog } from "../packages/schemas/src/store.ts";
 import { parseStoreCatalog, StoreCatalogError } from "../packages/schemas/src/store.ts";
+import { migrateStoreCatalogV1, STORE_SCHEMA_VERSION } from "../packages/schemas/src/index.ts";
 import { parseStoreProviders } from "../packages/schemas/src/store-providers.ts";
 import type { StorefrontCuration } from "../packages/schemas/src/storefront-curation.ts";
 import {
@@ -126,6 +127,7 @@ const usage = [
   "Usage:",
   "  node scripts/store-catalog.mts validate [--directory <path>] [--public-directory <path>] [--curation-file <path>]",
   "  node scripts/store-catalog.mts add-design --slug <slug> --title <title> [--directory <path>] [--public-directory <path>] [--curation-file <path>]",
+  "  node scripts/store-catalog.mts migrate --input <v1-envelope.json> --output <new-v2-envelope.json> --source-locale <locale>",
 ].join("\n");
 
 function errorMessage(error: unknown): string {
@@ -222,8 +224,23 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
   if (command === "--help" && rest.length === 0) {
     return usage;
   }
+  if (command === "migrate") {
+    const options = readOptions(rest, ["--input", "--output", "--source-locale"]);
+    const input = options.get("--input");
+    const output = options.get("--output");
+    const sourceLocale = options.get("--source-locale");
+    if (!input || !output || !sourceLocale) {
+      throw new Error(`migrate requires --input, --output and --source-locale.\n${usage}`);
+    }
+    const migrated = migrateStoreCatalogV1(await readCatalogJson(resolve(input)), { sourceLocale });
+    await writeFile(resolve(output), `${JSON.stringify(migrated, null, 2)}\n`, {
+      encoding: "utf8",
+      flag: "wx",
+    });
+    return `Migrated ${migrated.entries.length} entries to catalog v${STORE_SCHEMA_VERSION}: ${resolve(output)}. Original input retained; review before replacing authoring files.`;
+  }
   if (command !== "validate" && command !== "add-design") {
-    throw new Error(`Expected validate or add-design.\n${usage}`);
+    throw new Error(`Expected validate, add-design or migrate.\n${usage}`);
   }
 
   const options = readOptions(
@@ -259,7 +276,10 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
 
   const source = resolve(directory, `${slug}.design.json`);
   const value = {
-    schemaVersion: 1,
+    schemaVersion: STORE_SCHEMA_VERSION,
+    sourceLocale: "en",
+    translations: [],
+    attribution: { status: "unknown" },
     kind: "design",
     id: `design-${randomUUID()}`,
     slug,

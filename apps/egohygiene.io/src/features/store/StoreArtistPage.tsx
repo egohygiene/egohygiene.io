@@ -6,6 +6,7 @@ import { storeCatalog, storefrontCuration } from "../../content/store";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import { filterStoreEntries, getCuratedStoreArtist } from "./domain/index.ts";
 import { StoreCard, StoreMetadata } from "./StorePages";
+import { useStoreContent } from "./useStoreContent";
 
 import "./storefront.css";
 import "./store-artist.css";
@@ -20,6 +21,7 @@ export function StoreArtistPage({
   curation = storefrontCuration,
 }: StoreArtistPageProps) {
   const { t, formatNumber } = useI18n();
+  const { selection: language, content } = useStoreContent();
   const { artistSlug } = useParams();
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -60,16 +62,19 @@ export function StoreArtistPage({
   }
 
   const { artist } = selection;
+  const artistContent = content(artist);
   const selectedEntries =
     view === "songs" ? selection.songCollections : selection.standaloneEntries;
-  const matchingIds = new Set(filterStoreEntries(catalog, query, "all").map((entry) => entry.id));
+  const matchingIds = new Set(
+    filterStoreEntries(catalog, query, "all", "all", language).map((entry) => entry.id),
+  );
   const entries = selectedEntries.filter((entry) => matchingIds.has(entry.id));
   const hasQuery = query.trim().length > 0;
 
   return (
     <div className="store-shell storefront-page store-artist-page">
       <StoreMetadata
-        title={t("storeArtist.metadataTitle", { artist: artist.title })}
+        title={t("storeArtist.metadataTitle", { artist: artistContent.title.value })}
         description={t("storeArtist.description")}
       />
       <nav className="store-breadcrumbs" aria-label={t("storeArtist.breadcrumb.label")}>
@@ -82,7 +87,9 @@ export function StoreArtistPage({
           </li>
           <li>
             <span aria-current="page">
-              <bdi dir="auto">{artist.title}</bdi>
+              <bdi dir="auto" lang={artistContent.title.locale}>
+                {artistContent.title.value}
+              </bdi>
             </span>
           </li>
         </ol>
@@ -91,9 +98,13 @@ export function StoreArtistPage({
       <header className="storefront-collection-intro store-artist-intro">
         <p className="store-kicker">{t("storeArtist.kicker")}</p>
         <h1>
-          <bdi dir="auto">{artist.title}</bdi>
+          <bdi dir="auto" lang={artistContent.title.locale}>
+            {artistContent.title.value}
+          </bdi>
         </h1>
-        <p className="storefront-lede">{artist.description}</p>
+        <p className="storefront-lede" lang={artistContent.description.locale}>
+          {artistContent.description.value}
+        </p>
         <p className="storefront-artwork-note">{t("storeArtist.introduction")}</p>
       </header>
 

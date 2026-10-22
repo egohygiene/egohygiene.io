@@ -1,13 +1,22 @@
 {
-  "schemaVersion": 1,
-  "kind": "product",
   "id": "product-demo-static-bloom-mug",
   "slug": "static-bloom-mug",
   "title": "Static Bloom Mug",
   "description": "Fictional mug preview featuring the demo song artwork. Materials, price, and fulfillment have not been selected.",
   "visibility": "public",
-  "designIds": ["design-demo-static-bloom"],
-  "contextIds": ["song-demo-static-bloom"],
+  "schemaVersion": 2,
+  "sourceLocale": "en",
+  "translations": [],
+  "attribution": {
+    "status": "unknown"
+  },
+  "kind": "product",
+  "designIds": [
+    "design-demo-static-bloom"
+  ],
+  "contextIds": [
+    "song-demo-static-bloom"
+  ],
   "purchase": {
     "state": "preview"
   }

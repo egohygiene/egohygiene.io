@@ -21,7 +21,7 @@ flowchart TD
 | Store presentation | `features/store/index.ts` | React pages, router integration, metadata effects, artwork and gallery controls |
 | Portable store behavior | `features/store/domain/index.ts` | Pure selectors, canonical paths and synthetic handoff eligibility; only local domain modules and `@egohygiene/schemas` |
 | Synthetic provider normalization | `features/fourthwall-preview/adapter.ts` | Validates unknown provider input with `contract.ts`, maps to the domain contract; no HTTP, React, DOM or credentials |
-| Canonical contracts | `@egohygiene/schemas` | Catalog v1, references, public projection, approved purchase routes and disabled provider research; depends on Zod |
+| Canonical contracts | `@egohygiene/schemas` | Catalog v2, localized content/attribution, references, public projection, approved purchase routes and disabled provider research; depends on Zod |
 | Browser catalog input | `src/content/store/index.ts` | Receives `virtual:store-catalog`; browser consumers must use this entry point |
 | Build / authoring adapter | `scripts/store-catalog.mts`, `vite-store-catalog.mts` | Node filesystem validation, discovery and public projection; Vite integration stays here |
 | UI primitives | `@egohygiene/ui`, `@egohygiene/ui/styles.css` | Semantic component props; themes, icons and utilities; no catalog, provider, app or router imports |

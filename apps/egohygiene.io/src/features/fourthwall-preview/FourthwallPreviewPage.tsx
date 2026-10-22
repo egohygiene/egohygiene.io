@@ -12,6 +12,7 @@ import {
 } from "../store/domain/index.ts";
 import { StoreArtwork } from "../store/StoreArtwork";
 import { StoreMetadata } from "../store/StorePages";
+import { useStoreContent } from "../store/useStoreContent";
 import { fourthwallPreviewAdapter } from "./adapter.ts";
 import { createFourthwallFixture } from "./fixture";
 
@@ -49,6 +50,8 @@ const startingPrice =
 /** Loaded only by the explicit local preview route; all checkout behavior is inert. */
 export function FourthwallPreviewPage() {
   const { locale, t, formatNumber } = useI18n();
+  const { content } = useStoreContent();
+  const productContent = canonicalProduct ? content(canonicalProduct) : undefined;
   const [selectedId, setSelectedId] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [handoff, setHandoff] = useState<MockStoreHandoff>();
@@ -117,7 +120,9 @@ export function FourthwallPreviewPage() {
 
         <section className="fourthwall-preview__details" aria-labelledby="fourthwall-product-title">
           <p className="fourthwall-preview__eyebrow">{t("fourthwallPreview.details.eyebrow")}</p>
-          <h2 id="fourthwall-product-title">{product.name}</h2>
+          <h2 id="fourthwall-product-title" lang={productContent?.title.locale}>
+            {productContent?.title.value ?? product.name}
+          </h2>
           <p>{t("fourthwallPreview.details.description")}</p>
           <p className="fourthwall-preview__price">
             {selected

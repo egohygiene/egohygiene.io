@@ -148,6 +148,11 @@ try {
     "--output-dir",
     "test-results/store-qualification/profile/layout",
   ]);
+  await run("catalog localization and intercepted identity journeys", [
+    "tests/catalog-localization/run.mts",
+    "--output-dir",
+    "test-results/store-qualification/profile/catalog-localization",
+  ]);
   report.status = "passed";
 } catch (error) {
   report.status = "failed";

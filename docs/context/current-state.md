@@ -1,6 +1,160 @@
 # Current handoff
 
-## Current: #64 C implementation saved; browser acceptance blocked — 2026-10-20 UTC
+## Current: #65 C implementation saved; browser acceptance deferred — 2026-10-22 UTC
+
+Alan selected C after B. Recovered the pruned repository and refreshed GitHub:
+#86 remained draft at `1d61e704c66e4d56bd264b9a0ce1603d034dbd2b`, #85 at
+`9b308a88df4446d54e0558ed35d5dd0f0bbee37e`, #83 at
+`8a6258a1011569ac6e531fc124ccb0766f986389`, main at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. None was merged.
+
+C source `729513f2fef60cb7dd967cb7dfe2dde8d5330d24`, tree `84fe4c62da7170b0b505213163972000ac5afcd3`,
+is published in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86),
+branch `feat/catalog-localization-65a`, still stacked on #85/#83. The remote tree
+matches the tested staged source. Normal and isolated build-only checks ran at
+the clean published revision; this following docs commit records evidence.
+
+Read the [C receipt](../store/catalog-localization-65c.md),
+[checks](../store/reviews/catalog-localization-65c/checks.json),
+[build-only report](../store/reviews/catalog-localization-65c/build.json) and
+[first-language checklist](../store/catalog-language-review.md). A reusable synthetic
+French/regional/expanded fixture exercises missing/draft/stale fallback, Unicode
+search, canonical collection/product navigation, client metadata, truthful USD
+formatting and unchanged purchase mappings. Simulated DOM activation captures the
+exact link without navigation. Seven browser journeys reuse the real app and
+existing intercepted-handoff boundary; final #37's runner includes them.
+
+Final focused passes: **18 contracts + 9 simulated DOM cases**, five type profiles,
+runner syntax, normal build and isolated catalog build-only. Normal artifacts:
+16 files, 12 references, zero findings; approved Heartburst bytes unchanged. The
+isolated report explicitly records **zero completed browser journeys**. Independent
+source review found no remaining blocker. The required test-helper split isolates
+pure inputs from Node IO, preserving existing handoff APIs and checks; production
+UI/schema/catalog/registry/providers/dependencies are unchanged.
+
+**Deferred:** actual Chromium, captures, long-text/layout/accessibility acceptance,
+broad lint/testing, unrelated refactoring and CI repair remain final #37/#29 work.
+Source hosted CI 39804875457, dependency review 39804875576 and CodeQL
+39804876445 failed; status only was refreshed. These are retained in the receipt; local results
+are not hosted/browser/production qualification. No real locale or rights approval,
+provider request, product activation, order, merge, deployment or spending occurred.
+Unchanged variant mappings are not proof of selected-variant arrival at checkout.
+
+**Next:** sync on C implementation, then select #38's bounded readiness preparation
+with relevant #9 customer disclosures: reviewed activation records and synthetic
+eligibility guards before real account/artwork/product activation. Then #22 public
+rendering/metadata and final #37/#29/#52/#49/#70 validation/CI follow #84. #65 C,
+#64 C and #37 retain deferred browser acceptance; #65/#34 remain open for review.
+Merge the #83 → #85 → #86 draft stack only when explicitly instructed, reconciling
+downstream bases after each merge. Real hosting/provider activation and #39 remain
+separate authorization.
+
+## Historical: #65 B implemented in draft #86 — 2026-10-21 UTC
+
+Alan authorized continuing to B during the 2026-10-20 maintainer session. Recovered
+the pruned checkout from GitHub and refreshed #65/#84, draft #86 at
+`f7b7d7ec6d1b3a43e76e20afda6ed88dab9ddcfd`, draft #85 at
+`9b308a88df4446d54e0558ed35d5dd0f0bbee37e`, draft #83 at
+`8a6258a1011569ac6e531fc124ccb0766f986389`, and main at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. None was merged. #86 remains on
+`feat/catalog-localization-65a`, stacked on #85, which is stacked on #83.
+
+Source `34a807ef173b2ddd547e9735ee344b6ffeba4514`, tree `3081417ada645b33e4976b8ffa8c5269a5204f1a`,
+is published in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86).
+The remote tree equals the tested staged source. Contract/consumer/type/message/
+boundary checks ran before publication; builds/artifact checks ran at the published
+source. This following docs commit records evidence. Read the
+[B receipt](../store/catalog-localization-65b.md), [ADR 0010 refinement](../architecture/decisions/0010-versioned-catalog-localization.md)
+and [authoring workflow](../store/catalog-authoring.md#catalog-translations-and-attribution).
+
+The portable selector resolves current reviewed title/description/artwork/availability/
+variant labels per field and returns actual languages. The existing site service
+supplies selected content locale and explicit fallback chain, separately from
+formatting locale. Canonical data stays unchanged for paths, relationships and
+purchase validation. Cards/details/galleries/context/artist views and client metadata
+use resolved presentation text. Unicode search covers displayed/fallback content
+plus original creative-name aliases; unrelated translations and draft/stale copy
+are excluded. Provider currency, amounts, variant IDs and exact destinations remain
+unchanged; the isolated preview localizes its canonical heading only.
+
+Focused local results: **116 catalog tests + 73 consumer/service tests**, three type
+profiles, 15-module boundary, 377 messages/10 namespaces, normal/preview builds and
+normal artifact checks passed (16 files, 12 references, zero findings). See
+[checks](../store/reviews/catalog-localization-65b/checks.json) and
+[artifacts](../store/reviews/catalog-localization-65b/artifacts.json). Independent
+review found no remaining source blocker. Two early test-only expectations were
+corrected (non-unique search sentinel and Intl nonbreaking whitespace); no weakened
+gate or implementation workaround. Existing runtime/config-loader warnings remain.
+
+**Deferred:** no Chromium, screenshots, broad lint/refactor, full qualification or
+manual CI dispatch. Automatic source CI 39519493216, dependency review 39519493050
+and CodeQL 39519493369 failed; status only was refreshed, with repairs deferred.
+Hosted results are separately recorded in the receipt;
+local passes are not hosted/browser/production qualification. Mixed-language
+interpolated accessible names remain for actual accessibility review. English is
+still the sole public locale; no real translation/product/rights claim, catalog
+entry, provider route, dependency, deployment, order or spending changed.
+
+**Next:** sync on B, then #65 C's reusable bilingual/pseudo catalog integration,
+canonical metadata/link inputs, exact synthetic checkout handoff and first-language
+review guidance. Actual Chromium execution stays deferred to final #37 with
+#29/#52/#49/#70. Then #84 orders #38 plus relevant #9, #22, and the full final
+validation/CI pass. Review and merge the #83 → #85 → #86 draft stack only when
+explicitly instructed; reconcile downstream bases after each merge. #65/#34/#64/
+#37 remain open. Hosting/provider activation and #39 are separate authorization.
+
+## Historical: #65 A / #34 contract saved; final validation deferred — 2026-10-20 UTC
+
+Alan explicitly moved Chromium execution/troubleshooting, unrelated refactoring,
+repository-wide lint/testing and CI repair to the final phase and selected further
+bounded implementation. [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84)
+records the new order. Existing [#37](https://github.com/egohygiene/egohygiene.io/issues/37)
+coordinates that final pass with #29/#52/#49/#70; no duplicate owner or disabled
+gate was introduced. #64 C's authored journeys remain unrun and acceptance open.
+
+Implemented #65 checkpoint A coordinated with #34 in
+[draft #86](https://github.com/egohygiene/egohygiene.io/pull/86), branch
+`feat/catalog-localization-65a`, stacked on unmerged draft #85 at
+`9b308a88df4446d54e0558ed35d5dd0f0bbee37e`. #85 remains stacked on draft #83 at
+`8a6258a1011569ac6e531fc124ccb0766f986389`; main remains
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. No merge was authorized.
+
+Tested source `879af7ebf9ffafe5467da892aef2c0eb78e87055`, tree `f5855f7f768c4863a5a6b3149e83802637a901af`,
+was published with an exact local/staged-tree comparison. Final focused checks
+ran on that source before publication; the following documentation commit records
+evidence. Strict catalog/entry v2 adds source language, inline reviewed translation
+fields, stale-review diagnostics and separate creator/rights-holder references.
+Public output excludes draft/stale translations. The explicit v1 migration and
+non-overwriting CLI retain originals; all ten shipped entries preserve their old
+fields, IDs, order, art and purchase state. Attribution remains unknown and no
+real translation was added. See [ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md),
+[checkpoint receipt](../store/catalog-localization-65a.md) and
+[authoring policy](../store/catalog-authoring.md#schema-changes).
+
+Focused local results: 104 catalog tests (24 new localization/migration contracts),
+57 store/preview consumer tests in 10 files, app/tooling/domain/schema types, normal
+build and 14-module boundary passed. A Vite emitted-file test proves draft/stale
+translation markers absent from HTML/JS/JSON/source maps. Independent review's
+undefined-only translation-field finding was fixed with a regression. Initial
+fixture-version/default failures were corrected; an incorrect schema tsconfig path
+was corrected without code/gate changes. [Exact evidence](../store/reviews/catalog-localization-65a/checks.json)
+retains those attempts and scope. No Chromium, full qualification, broad lint or
+manual hosted CI run occurred. Automatic source CI 39471602329, dependency review 39471602298 and CodeQL
+39471602591 failed; causes were not re-diagnosed. Hosted failures are unresolved,
+not qualified by local passes. Only source-level/browser-module compatibility is shown.
+
+**Next:** sync on A, then #65 B: selected-language catalog rendering and Unicode
+search, deterministic source fallback, provider-declared price formatting and
+canonical metadata inputs using the existing #64 service. C follows with bounded
+synthetic integration/authoring proof; actual browser execution stays with final
+#37. After #65/#34, continue #38 plus relevant #9 readiness/disclosures, then #22
+public rendering/metadata, then final lint/test/browser/CI review. Hosting/provider
+activation and #39 remain separately authorized work. Review/merge the draft stack
+only when instructed, reconciling each base after its parent changes. English is
+still the only public locale; real artist selections are empty, providers disabled,
+and no deployment, account change, real order or spending occurred.
+
+## Historical: #64 C implementation saved; browser acceptance blocked — 2026-10-20 UTC
 
 Alan explicitly selected checkpoint C. Its message-review tooling and authored
 browser journeys are in [draft #85](https://github.com/egohygiene/egohygiene.io/pull/85),

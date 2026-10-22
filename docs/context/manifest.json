@@ -30,5 +30,10 @@
   "localeRuntimeDecision": "docs/architecture/decisions/0009-single-locale-runtime.md",
   "localeServiceReview": "docs/store/locale-service-64b.md",
   "localeReviewCheckpoint": "docs/store/locale-review-64c.md",
-  "interfaceMessageWorkflow": "docs/store/interface-message-workflow.md"
+  "interfaceMessageWorkflow": "docs/store/interface-message-workflow.md",
+  "catalogLocalizationReview": "docs/store/catalog-localization-65a.md",
+  "catalogLocalizationDecision": "docs/architecture/decisions/0010-versioned-catalog-localization.md",
+  "catalogPresentationReview": "docs/store/catalog-localization-65b.md",
+  "catalogIntegrationReview": "docs/store/catalog-localization-65c.md",
+  "catalogLanguageWorkflow": "docs/store/catalog-language-review.md"
 }

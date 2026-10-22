@@ -12,7 +12,8 @@ import {
 
 function liveCatalog(): StoreCatalog {
   const common = {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    sourceLocale: "en",
     description: "Fictional envelope fixture",
     visibility: "public",
   };
@@ -67,7 +68,7 @@ const project = (value: unknown) => toPublicStoreCatalog(value as StoreCatalog);
 const action = (value: unknown) =>
   getStorePurchaseAction(value as StoreCatalog, "product-envelope");
 
-test("existing version 1 envelopes preserve identities, defaults and reviewed actions without mutation", () => {
+test("current version 2 envelopes preserve identities, defaults and reviewed actions without mutation", () => {
   const catalog = liveCatalog();
   const before = JSON.stringify(catalog);
   assert.deepEqual(storeCatalogSchema.parse(catalog), catalog);
@@ -79,15 +80,15 @@ test("existing version 1 envelopes preserve identities, defaults and reviewed ac
   });
   assert.equal(JSON.stringify(catalog), before);
   assert.deepEqual(catalog.entries[0]?.kind === "design" && catalog.entries[0].contextIds, []);
-  assert.deepEqual(project({ schemaVersion: 1, entries: [], checkoutRoutes: [] }), {
-    schemaVersion: 1,
+  assert.deepEqual(project({ schemaVersion: 2, entries: [], checkoutRoutes: [] }), {
+    schemaVersion: 2,
     entries: [],
     checkoutRoutes: [],
   });
 });
 
 test("publication and live actions reject unsupported, missing and mistyped envelope versions", () => {
-  for (const schemaVersion of [2, 99, undefined, "1", null]) {
+  for (const schemaVersion of [1, 99, undefined, "2", null]) {
     const catalog = { ...liveCatalog(), schemaVersion };
     for (const boundary of [project, action]) {
       assert.throws(
@@ -125,7 +126,8 @@ test("the envelope requires entry and route arrays with valid record shapes", ()
 test("invalid drafts still block projection and live actions before they can be filtered out", () => {
   const catalog = liveCatalog();
   const validDraft = {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    sourceLocale: "en",
     id: "product-draft",
     slug: "draft",
     title: "Draft",

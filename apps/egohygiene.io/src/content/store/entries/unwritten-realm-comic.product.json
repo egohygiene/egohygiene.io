@@ -1,12 +1,19 @@
 {
-  "schemaVersion": 1,
-  "kind": "product",
   "id": "product-demo-unwritten-realm-comic",
   "slug": "unwritten-realm-comic",
   "title": "Unwritten Realm Comic",
   "description": "Fictional future comic example. Page count, print files, price, and printing provider are not confirmed.",
   "visibility": "public",
-  "designIds": ["design-demo-unwritten-realm"],
+  "schemaVersion": 2,
+  "sourceLocale": "en",
+  "translations": [],
+  "attribution": {
+    "status": "unknown"
+  },
+  "kind": "product",
+  "designIds": [
+    "design-demo-unwritten-realm"
+  ],
   "contextIds": [],
   "purchase": {
     "state": "unavailable",
