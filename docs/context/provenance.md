@@ -4,6 +4,59 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Approved roadmap reorganization — 2026-10-22
+
+Authority: Alan approved the complete issue arrangement after reviewing all 50 open
+issues and requested that it be saved before implementation continues. The approved
+split establishes a finite software-setup milestone, then actual product/provider
+integration and launch, with a dedicated bounded refactor/dependency upgrade sweep.
+This is issue/milestone planning and continuity work, not an architecture change.
+
+Refreshed main: `07d25941ceeefa53089afa025b612c6aa54f36c4`. Readiness/disclosure draft
+#87 remains unmerged at `ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6`; its source
+`902be39761f00d73e82ea08d55ff98bc05d8e7c5` and
+[pinned receipt](https://github.com/egohygiene/egohygiene.io/blob/ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6/docs/store/product-readiness-38.md)
+retain implementation and test evidence. Older CI draft #73 remains unmerged at
+`725e021336fe6675e53d0a3374caf0b102627019`. No new passing application/browser/hosted
+result is claimed by this planning update.
+
+Created #88 setup parent, #89 actual hosting/deployed-route qualification, #90
+bounded website essentials, #91 current-route public rendering, and #92 bounded
+code/dependency cleanup. Renamed milestone 1 to **Website/store foundation — ready
+to onboard products** and created milestone 2 **Real products and launch**. The
+[approved map](../roadmaps/store-launch.md) records exact execution order, all open
+issue dispositions, narrow scope transfers and historical preservation.
+
+Verified hierarchy: #84 coordinates #88 and #31; #88 owns 22 setup children;
+#31 retains closed #32/#33/#35 and owns #38/#89/#39. #34/#36/#37 moved from #31 to
+#88 with history intact. Broader #9/#22 remain linked programs outside the setup
+milestone; #47 remains the audit index. #29's actual-host obligations transfer to
+#89; #37's actual-provider/deployed acceptance transfers to #38/#89/#39. None of
+those obligations is recorded complete merely because its owner changes.
+
+Verification on 2026-10-22: refreshed the open-issue collection and native
+sub-issue lists for #84/#88/#31/#34. All 55 open issues match the approved map:
+23 setup, four product/launch, 28 outside. #88's 22 children match the documented
+execution/reconciliation order. #34 has no children; #9/#22 are detached from the
+roadmap parent, and #63/#84 have no milestone. The rendered milestone page confirms
+23 open/ten historical closed in setup and four open/zero closed in product/launch.
+No issues were closed. Existing issue bodies are retained beneath the active scope
+where rewritten, and native transfers preserve their activity history.
+
+Documentation checks: `git diff --check`, relative-link targets, context-manifest
+paths/JSON and the complete 55-issue allocation passed. An independent read-only
+review matched the final GitHub allocation and found no false implementation or CI
+claims. This five-file continuity update is published as a docs-only draft; #84/#88
+link its exact PR/commit receipt. Git history records this documentation revision.
+
+No code, dependencies, assets, commerce configuration or architectural decisions
+changed. No implementation tests, issue closures, merges, manual CI dispatch,
+provider calls, deployment, activation, paid order or spending. Local checks and
+hosted outcomes remain separate, with unresolved failures visible. Next is a sync,
+review of #87 integration, then #90 checkpoint A when selected. Reuse existing
+catalog/locale/provider boundaries and Taskfile/qualification tooling; keep private
+masters and business records outside public Git.
+
 ## Authorized stack merge and local-machine final-pass plan — 2026-10-22
 
 Alan explicitly requested #83 → #85 → #86 merges and a sync afterward. He chose
