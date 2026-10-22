@@ -311,9 +311,10 @@ No catalog dates are added merely to demonstrate date formatting.
 
 See [checkpoint B](catalog-localization-65b.md) for the resolver/rendering/search
 implementation and [ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md)
-for its data boundary. Checkpoint C's synthetic integration and first-language
-review proof remains next; actual Chromium execution and broader qualification
-remain deferred to final #37.
+for its data boundary. Use the [first-language review checklist](catalog-language-review.md)
+for candidate fields, missing/stale diagnostics, human review and separate public
+activation. C's reusable synthetic fixture does not approve a real translation;
+actual Chromium execution and broader qualification remain deferred to final #37.
 
 Optional `attribution` defaults to `{ "status": "unknown" }`. A declared record
 uses `status: "declared"` with `creatorIds` and/or `rightsHolderIds` referencing

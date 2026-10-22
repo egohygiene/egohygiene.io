@@ -13,6 +13,10 @@
     "tests/store/**/*.ts",
     "tests/checkout-handoff/**/*.ts",
     "tests/checkout-handoff/**/*.mts",
+    "tests/catalog-localization/fixture.ts",
+    "tests/catalog-localization/constants.ts",
+    "tests/catalog-localization/journeys.ts",
+    "tests/catalog-localization/**/*.mts",
     "tests/store-qualification/**/*.mts"
   ]
 }

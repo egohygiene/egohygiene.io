@@ -14,6 +14,7 @@
     "tests/e2e/site.spec.ts",
     "tests/e2e/fourthwall-preview.spec.ts",
     "tests/e2e/artist-preview.spec.ts",
-    "tests/storefront-qualification/host.tsx"
+    "tests/storefront-qualification/host.tsx",
+    "tests/catalog-localization/host.tsx"
   ]
 }
