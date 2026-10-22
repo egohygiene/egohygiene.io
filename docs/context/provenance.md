@@ -4,6 +4,46 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Website essentials #90 checkpoint B — 2026-10-22
+
+Authority: Alan selected continued work after A. Implemented the bounded pages
+and navigation, retaining the separate factual/contact review and final browser
+pass. Main was refreshed at `07d25941ceeefa53089afa025b612c6aa54f36c4`.
+
+Draft integration `9f8842553908fb339fa6c43691027a3d98954bac`, tree
+`37c22c29feef57b679e9435205bd12e1b6115ab8`, has ordered parents A
+`a7d5e7062aa62cd09f5cf4299b8591ef04a4ffad` and #87
+`ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6`. AGENTS, context README and
+current-state conflicts were resolved preserving both dated histories; the
+integration diff versus #87 contains seven documentation files only. #94 retains
+branch `docs/website-essentials-90a` and now targets `feat/store-readiness-38`.
+#87/#93/#94/#73 remain unmerged and main unchanged; this is not a PR merge.
+
+Implementation `6f5208d7abcd9882a63f4f157b525f584ce207dd`, tree
+`12d1e3b7312fa0f393cd78d533247632d02dfa88`, changes 13 source/test files for
+Help/Accessibility routes, navigation, locale copy, shared warning/link and focused
+tests. [B receipt](../design/website-essentials-90b.md) links authored check results,
+the original generated artifact report and source-head hosted status. No copied
+artwork, external policy text or private business/customer material was introduced.
+About/privacy/terms copy, dependencies, schemas and real catalog remain unchanged.
+
+Node 24.21.0 / pnpm 11.28.5; frozen offline scripts-disabled preparation reused
+3,770 packages without downloads. One app type profile, 433 English messages /
+10 namespaces, 25 focused tests / six files, normal build and normal-artifact
+scan passed. The first three checks ran before publication on the exact tree
+verified equal to the published source; build/scanner ran at clean source head.
+Scan: 16 files / 12 references / zero findings; 966,182 raw / 583,438 gzip bytes;
+approved Heartburst bytes match. Independent review found no remaining blocker.
+These are local results with explicit simulated-DOM, scanner and provisional-size
+limits, not actual browser, legal, provider or production qualification.
+
+Source hosted failures: CI 39863154582, dependency 39863154652, CodeQL 39863154631.
+Causes were not re-diagnosed; no manual dispatch or gate changes. Chromium,
+responsive/keyboard/AT, broad lint/full-suite/CI repair remain deferred. C must
+record factual/contact dispositions; private feedback remains #90/#9, actual
+order/policy facts #38 and hosting #89. No issue closure, merge into main,
+activation, provider request, paid order, deployment or spending occurred.
+
 ## Website essentials #90 checkpoint A — 2026-10-22
 
 Authority: Alan requested forward progress after the approved issue/milestone

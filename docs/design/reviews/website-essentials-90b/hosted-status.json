@@ -1,0 +1,35 @@
+{
+  "sourceCommit": "6f5208d7abcd9882a63f4f157b525f584ce207dd",
+  "recordedDate": "2026-10-22",
+  "scope": "Read-only source-head workflow-run refresh; causes not re-diagnosed and no manual dispatch or gate changes.",
+  "runs": [
+    {
+      "id": 39863154631,
+      "name": ".github/workflows/codeql.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "6f5208d7abcd9882a63f4f157b525f584ce207dd",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39863154631",
+      "updatedAt": "2026-10-22T22:12:00Z"
+    },
+    {
+      "id": 39863154652,
+      "name": "Dependency review",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "6f5208d7abcd9882a63f4f157b525f584ce207dd",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39863154652",
+      "updatedAt": "2026-10-22T22:12:12Z"
+    },
+    {
+      "id": 39863154582,
+      "name": "CI",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "6f5208d7abcd9882a63f4f157b525f584ce207dd",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39863154582",
+      "updatedAt": "2026-10-22T22:13:06Z"
+    }
+  ],
+  "qualification": "All observed source-head workflows failed. Passing local checks are not hosted CI or production qualification."
+}

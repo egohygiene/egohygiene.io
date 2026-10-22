@@ -21,6 +21,7 @@
   "storefrontOwnershipDecision": "docs/architecture/decisions/0007-canonical-storefront-owner.md",
   "landingShellReview": "docs/design/landing-shell-35.md",
   "websiteEssentialsContract": "docs/design/website-essentials-90a.md",
+  "websiteEssentialsImplementation": "docs/design/website-essentials-90b.md",
   "storefrontCheckpointReview": "docs/design/storefront-62a.md",
   "storefrontArtistCheckpointReview": "docs/design/storefront-62b.md",
   "storefrontFinalCheckpointReview": "docs/design/storefront-62c.md",

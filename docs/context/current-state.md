@@ -1,6 +1,48 @@
 # Current handoff
 
-## Current: website essentials #90 A prepared — 2026-10-22
+## Current: website essentials #90 B implemented — 2026-10-22
+
+Alan selected continued work after A. Refreshed GitHub before editing. Main remains
+`07d25941ceeefa53089afa025b612c6aa54f36c4`; #87, #93, #94 and older #73 remain
+draft/unmerged. [Draft #94](https://github.com/egohygiene/egohygiene.io/pull/94),
+branch `docs/website-essentials-90a`, now targets `feat/store-readiness-38` (#87).
+
+Integration `9f8842553908fb339fa6c43691027a3d98954bac` combines A source
+`a7d5e7062aa62cd09f5cf4299b8591ef04a4ffad` (including #93 history) with #87 head
+`ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6`, preserving dated continuity through
+three documentation conflict resolutions. Its diff from #87 is documentation
+only. This working-draft integration is not a PR merge into main.
+
+Implementation source `6f5208d7abcd9882a63f4f157b525f584ce207dd`, tree
+`12d1e3b7312fa0f393cd78d533247632d02dfa88`, adds `/help` and `/accessibility`,
+footer/store-help/policy navigation and one shared public-feedback warning/link
+component. Existing About and provisional Privacy/Terms copy is retained.
+Catalog, artwork, providers and dependencies are unchanged. Read the
+[B receipt](../design/website-essentials-90b.md) for behavior and evidence.
+
+Local passes: one website app type profile; 433 English messages / 10 namespaces;
+25 focused tests / six files; normal production build; artifact scan of 16 files /
+12 references / zero findings, with approved Heartburst bytes matching. Pinned
+runtime is Node 24.21.0 / pnpm 11.28.5. Unit checks cover the real route table and
+shell in simulated DOM, including locale navigation and denied `localStorage`;
+they do not establish browser, layout, keyboard, all-storage or AT acceptance.
+Type/locale/unit checks preceded publication on the identical verified source
+tree; build/scanner ran at the clean published implementation. The following
+documentation-only commit records that evidence without changing application code.
+
+Hosted source runs failed: CI 39863154582, dependency 39863154652 and
+CodeQL 39863154631. No cause was re-diagnosed, gate disabled or workflow manually
+dispatched. No Chromium, full lint/suite/CI repair or actual-provider/host test ran.
+
+**Next:** sync, then #90 C. Review the actual copy and D1–D4 dispositions: existing
+About retained; private website/accessibility feedback remains an explicit #90/#9
+gap requiring reviewed disposition; accessibility proof stays #49/#70/#37; policy
+facts stay #9/#59/#38/#89. Implementation authorization does not approve unknown
+contacts or commercial terms. Include all six essentials routes in #91 and the
+final Mac qualification. #91 has not started; #90 remains open. No issue closure,
+main merge, real product/language/provider activation, order, deployment or spending.
+
+## Historical: website essentials #90 A prepared — 2026-10-22
 
 Alan selected forward progress after the approved roadmap update. Refreshed main
 `07d25941ceeefa53089afa025b612c6aa54f36c4`, #90/#9/#88/#38 and all open PRs before

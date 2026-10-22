@@ -5,7 +5,23 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
-## Current website essentials checkpoint — 2026-10-22
+## Current website essentials checkpoint B — 2026-10-22
+
+Alan selected continued implementation after A. Help and Accessibility pages,
+locale-aware navigation and consistent public-feedback warnings are implemented
+in [draft #94](https://github.com/egohygiene/egohygiene.io/pull/94), branch
+`docs/website-essentials-90a`, now based on #87's `feat/store-readiness-38`.
+Read the [B receipt](docs/design/website-essentials-90b.md) and current-state for
+exact integration/source revisions. Existing About and provisional policy copy
+remain. Local focused checks passed; source-head hosted workflows failed.
+
+Next is #90 C: copy/contact disposition and bounded review, with browser/manual
+acceptance retained for the final Mac pass. The private-feedback gap remains
+#90/#9; no unknown contact, policy or commerce fact was approved. #87/#93/#94/#73
+remain unmerged; combining draft histories did not change main. No activation,
+deployment or spending occurred. Sync after B before the next checkpoint.
+
+## Historical website essentials checkpoint A — 2026-10-22
 
 Alan selected forward progress after the roadmap update. #90 checkpoint A is
 prepared in the [content/route contract](docs/design/website-essentials-90a.md):

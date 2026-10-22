@@ -238,6 +238,11 @@ artwork was copied. This bounded content plan does not change an existing ADR.
 
 ## B/C handoff and checkpoint evidence
 
+Successor: [checkpoint B](website-essentials-90b.md) implements the two pages and
+navigation using #87. It retains existing About/policy text and records actual
+local evidence. C's factual/contact disposition and browser acceptance remain
+open. The A preparation/review state below is preserved as historical evidence.
+
 A has inventoried the routes and sources, prepared the content/owner matrix and
 written concrete review copy. The copy and D1–D4 choices remain unapproved.
 

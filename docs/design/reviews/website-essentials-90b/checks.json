@@ -1,0 +1,90 @@
+{
+  "sourceCommit": "6f5208d7abcd9882a63f4f157b525f584ce207dd",
+  "sourceTree": "12d1e3b7312fa0f393cd78d533247632d02dfa88",
+  "recordedDate": "2026-10-22",
+  "receiptKind": "Authored summary of observed local command results; no fabricated timing or log hashes.",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5"
+  },
+  "preparation": {
+    "mode": "frozen offline installation with scripts disabled",
+    "cachedPackages": 3770,
+    "downloads": 0,
+    "manifestAndLockfileChanged": false
+  },
+  "scope": "Website essentials pages, navigation, locale/client metadata and public feedback boundaries. Local evidence only.",
+  "checks": [
+    {
+      "id": "app-types",
+      "command": "pnpm exec tsc --project apps/egohygiene.io/tsconfig.app.json --noEmit",
+      "exitCode": 0,
+      "result": "pass",
+      "limit": "One app profile; not all repository or test type profiles."
+    },
+    {
+      "id": "locales",
+      "command": "node scripts/checks/check-locales.ts",
+      "exitCode": 0,
+      "result": "pass",
+      "englishMessages": 433,
+      "namespacesIncludingPreview": 10,
+      "sourceSha256": "7099d1ff622aa5abe7fa0137ef8965e42cf8ad17a150e86a4fba45714022dc46"
+    },
+    {
+      "id": "focused-tests",
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts apps/egohygiene.io/src/pages apps/egohygiene.io/src/components/Footer/Footer.test.tsx apps/egohygiene.io/src/components/Header/Header.test.tsx",
+      "exitCode": 0,
+      "result": "pass",
+      "tests": 25,
+      "files": 6,
+      "newEssentialsCases": 7
+    },
+    {
+      "id": "normal-build",
+      "command": "VITE_STORE_PREVIEW=false pnpm build",
+      "exitCode": 0,
+      "result": "pass",
+      "catalogEntries": 10,
+      "verifiedImages": 1,
+      "modulesTransformed": 194
+    },
+    {
+      "id": "normal-artifacts",
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/website-essentials-90b/artifacts.json",
+      "exitCode": 0,
+      "result": "pass",
+      "files": 16,
+      "assetReferences": 12,
+      "findings": 0,
+      "report": "artifacts.json"
+    },
+    {
+      "id": "source-whitespace",
+      "command": "git diff --cached --check",
+      "exitCode": 0,
+      "result": "pass"
+    }
+  ],
+  "publication": "Type, locale and unit checks ran on the exact staged tree verified equal to the published source tree. Normal build/artifact scan ran on clean published source. Later receipt edits do not change application source.",
+  "additionalEvidence": [
+    "Independent code/test review found no remaining blocker.",
+    "Comparison against #87 confirmed About/privacy/terms copy, manifests, lockfile, real catalog and schemas unchanged."
+  ],
+  "warnings": [
+    "Existing MODULE_TYPELESS_PACKAGE_JSON warning during locale validation.",
+    "Existing Vite native config loader warning during focused tests."
+  ],
+  "testLimits": [
+    "Simulated DOM with actual route table/shell and mocked scrolling; no browser layout/keyboard/assistive-technology proof.",
+    "Denied-storage test blocks localStorage only; sessionStorage remains available.",
+    "External GitHub reporting link inspected, not followed."
+  ],
+  "deferred": [
+    "Chromium, screenshots, responsive/expanded-text/RTL and assistive-technology checks.",
+    "Broad lint/full-suite/CI repair and refactor/dependency sweep.",
+    "Maintainer factual/contact dispositions in #90 C; private feedback gap remains #90/#9.",
+    "Crawler-visible HTML/canonical/sitemap work in #91.",
+    "Actual hosting/provider/product qualification, activation and paid orders."
+  ]
+}
