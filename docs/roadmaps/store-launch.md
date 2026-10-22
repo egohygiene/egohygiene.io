@@ -27,6 +27,12 @@ has no closed issues. No issue was closed by this reorganization.
 
 ### Setup milestone: execution order
 
+Progress 2026-10-22: [#90 checkpoint A](../design/website-essentials-90a.md) now
+records the route inventory, bounded page contract and proposed factual copy.
+Review its D1–D4 choices, then B implements Help/Accessibility using existing
+About, policy and #87 store-help foundations. A does not complete #90 or approve
+the copy. Use this checkpoint for the current next action.
+
 Start by reviewing [draft #87](https://github.com/egohygiene/egohygiene.io/pull/87)'s
 integration status; its readiness/disclosure implementation remains unmerged.
 The existing CI [draft #73](https://github.com/egohygiene/egohygiene.io/pull/73)

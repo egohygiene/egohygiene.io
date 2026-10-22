@@ -1,6 +1,48 @@
 # Current handoff
 
-## Current: approved setup/product roadmap split — 2026-10-22
+## Current: website essentials #90 A prepared — 2026-10-22
+
+Alan selected forward progress after the approved roadmap update. Refreshed main
+`07d25941ceeefa53089afa025b612c6aa54f36c4`, #90/#9/#88/#38 and all open PRs before
+editing. Readiness #87 remains draft/unmerged at
+`ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6`; roadmap #93 remains draft/unmerged at
+`c7eb41f3966e93e015868f81de128c9414f4cafd`; CI #73 remains draft/unmerged at
+`725e021336fe6675e53d0a3374caf0b102627019`.
+
+The [#90 A contract](../design/website-essentials-90a.md) inventories main and #87,
+sets the bounded route/navigation/content ownership, and supplies concrete copy
+for review. `/about` already covers purpose; preserve it and provisional
+`/privacy`/`/terms`, and reuse #87's `/store/help`. Proposed B adds `/help` and
+`/accessibility`, with footer links and a policy-draft index in Help. No duplicate
+Story/Contact/Legal pages, schema, contact backend or framework migration is needed.
+
+The copy is **proposed**, not maintainer-approved. D1–D4 track purpose wording,
+public-only feedback/private contact, accessibility evidence and policy facts.
+The GitHub route requires an account and must not receive private/order details.
+An unavailable private alternative remains a recorded #90/#9 gap; it needs an
+explicit reviewed disposition before #90 closes. Actual commerce facts stay #38.
+Upstream Hygiene registry/ADR-0013 is proposed and Holon's reusable policy adapter
+remains open; no organization-wide adoption is claimed.
+
+This documentation-only checkpoint is based on #93, separate from #87's app
+changes. B must include #87's foundation in its working draft and reconcile all
+dated continuity records. No merge authority or completion is inferred. No
+application routes/messages, assets, dependencies or purchase settings changed.
+
+Documentation validation covers diff whitespace, links, pinned source paths,
+context manifest and independent factual/scope review. Application/browser tests
+were not run. Refreshed head runs all failed: #87 CI39824233656,
+dependency39824233647/CodeQL39824233914; #93 CI39858002820,
+dependency39858002819/CodeQL39858002998. No hosted cause was re-diagnosed, workflow
+manually dispatched or gate changed. Prior local evidence stays at its recorded
+revision and is not a new pass for this checkpoint.
+
+**Next:** review A's copy and D1–D4, then select #90 B. Preserve the deferred final
+Mac/Chromium/lint/CI pass under #37/#29/#52/#49/#70 and generated HTML work under
+#91. #90/#9/#38 remain open. No merge, provider request, real product/language
+activation, deployment, paid order or spending occurred.
+
+## Historical: approved setup/product roadmap split — 2026-10-22
 
 Alan approved the complete two-phase arrangement, including a bounded code cleanup
 and compatible dependency upgrade pass, and asked to update it before continuing.

@@ -4,6 +4,56 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Website essentials #90 checkpoint A — 2026-10-22
+
+Authority: Alan requested forward progress after the approved issue/milestone
+update. Applied #90's one-checkpoint workflow: source inventory, bounded route/
+content contract and concrete copy for maintainer review. No B application work
+or factual-policy approval was inferred from the request.
+
+Exact sources: main `07d25941ceeefa53089afa025b612c6aa54f36c4`; readiness #87 head
+`ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6` (implementation
+`902be39761f00d73e82ea08d55ff98bc05d8e7c5`); roadmap #93 head/base for this draft
+`c7eb41f3966e93e015868f81de128c9414f4cafd`. Both PRs remain unmerged. Live issues
+#90/#9/#88/#38 and the three open PRs were refreshed; #73 also remains unmerged.
+
+The [contract and review copy](../design/website-essentials-90a.md) records the
+complete inventory, source links, proposed navigation, source-backed purpose,
+privacy/terms boundaries, public feedback limitations and D1–D4 review items.
+Read-only parallel audits covered main versus #87 and the upstream organization
+dependencies. Root re-read the pinned Hygiene guide/ADR and Holon blueprint.
+The Hygiene registry remains proposed; Holon's reusable policy source adapter
+remains #11. Compatible meaning does not establish organization-profile adoption.
+No external implementation, policy text, artwork or private material was copied.
+
+Proposed B reuses existing About and #87 store help/disclosures, adding only
+general Help and Accessibility routes plus bounded navigation/copy edits. Public
+GitHub feedback is not private contact/order support; unavailable private feedback
+stays a #90/#9 gap. Actual commerce evidence remains #38 and actual host evidence
+#89/#39. Factual copy remains unapproved until maintainer review is recorded.
+
+Verification passed: diff whitespace, 217 relative documentation links, ten pinned
+website source paths, reference-link definitions and 32 context-manifest paths/JSON.
+Independent application/source and organization-boundary reviews passed after a
+pinned Terms-page link correction and more precise proposed-registry wording.
+No app/browser test
+run or deployed-route verification. Live failed #87 head runs:
+[CI39824233656](https://github.com/egohygiene/egohygiene.io/actions/runs/39824233656),
+[dependency39824233647](https://github.com/egohygiene/egohygiene.io/actions/runs/39824233647),
+[CodeQL39824233914](https://github.com/egohygiene/egohygiene.io/actions/runs/39824233914).
+Failed #93 head runs:
+[CI39858002820](https://github.com/egohygiene/egohygiene.io/actions/runs/39858002820),
+[dependency39858002819](https://github.com/egohygiene/egohygiene.io/actions/runs/39858002819),
+[CodeQL39858002998](https://github.com/egohygiene/egohygiene.io/actions/runs/39858002998).
+No fresh diagnosis, manual dispatch or gate change. These hosted failures and
+unperformed checks are not converted into passes by this documentation checkpoint.
+
+No app/source behavior, dependencies, assets, catalog identities, provider
+configuration or ADR decision changed. No issues closed, PRs merged, provider
+requests, real activation, deployment, orders or spending. Next is A copy/decision
+review, then #90 B against the readiness foundation. Git history and the owning
+draft PR record this checkpoint's documentation revision; issue #90 links it.
+
 ## Approved roadmap reorganization — 2026-10-22
 
 Authority: Alan approved the complete issue arrangement after reviewing all 50 open

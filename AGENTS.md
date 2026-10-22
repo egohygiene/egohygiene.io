@@ -5,7 +5,19 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
-## Current roadmap checkpoint — 2026-10-22
+## Current website essentials checkpoint — 2026-10-22
+
+Alan selected forward progress after the roadmap update. #90 checkpoint A is
+prepared in the [content/route contract](docs/design/website-essentials-90a.md):
+reuse existing About, provisional Privacy/Terms and #87's Store help; B adds
+general Help and Accessibility using the existing page/locale primitives.
+The document contains concrete proposed copy and named factual-review gaps.
+Public GitHub feedback is not private contact or order support. No new copy has
+been approved or implemented. Next is the A review, then B with the #87 foundation
+integrated into its working draft. #87/#93 and the older #73 remain unmerged.
+Read current-state/provenance for the exact bases, hosted failures and limits.
+
+## Historical roadmap checkpoint — 2026-10-22
 
 Alan approved the two-phase issue/milestone arrangement and requested this planning
 update before implementation continues. Use [roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84)
