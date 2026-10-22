@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { I18nProvider } from "../../packages/i18n/src/index";
 import { parseStoreCatalog, parseStorefrontCuration } from "../../packages/schemas/src/index";
 import { ThemeProvider } from "../../packages/themes/src/index";
+import { Button, Spinner } from "../../packages/ui/src/index";
 
 import "../../packages/ui/src/styles/index.css";
 import { storeCatalog } from "../../apps/egohygiene.io/src/content/store";
@@ -21,7 +22,9 @@ import "../../apps/egohygiene.io/src/styles/app.css";
 
 const mode = new URLSearchParams(location.search).get("qaLocale") === "rtl" ? "rtl" : "expanded";
 const locale = createLocaleFixture(resources, mode);
-document.documentElement.lang = locale.locale;
+// Pin the numbering system in this synthetic fixture; Arabic defaults vary by CLDR version.
+const fixtureLocale = mode === "rtl" ? "ar-u-nu-arab" : locale.locale;
+document.documentElement.lang = fixtureLocale;
 document.documentElement.dir = locale.direction;
 const preview = createArtistPreview(storeCatalog);
 const catalog = parseStoreCatalog(
@@ -82,6 +85,16 @@ const router = createBrowserRouter([
     path: "/",
     element: <QualificationLayout />,
     children: [
+      {
+        path: "qualification/shared",
+        element: (
+          <section aria-label="Shared motion fixture">
+            <h1>Shared control qualification</h1>
+            <Button tone="secondary">Synthetic action</Button>
+            <Spinner label="Synthetic loading state" />
+          </section>
+        ),
+      },
       { path: "store", element: <StorefrontPage catalog={catalog} curation={curation} /> },
       {
         path: "store/incompris",
@@ -99,7 +112,7 @@ const root = document.getElementById("root");
 if (!root) throw new Error("Qualification root is missing");
 createRoot(root).render(
   <ThemeProvider>
-    <I18nProvider locale={locale.locale} messages={locale.messages}>
+    <I18nProvider locale={fixtureLocale} messages={locale.messages}>
       <RouterProvider router={router} />
     </I18nProvider>
   </ThemeProvider>,

@@ -1,0 +1,191 @@
+{
+  "startedAt": "2026-10-19T07:44:36.001Z",
+  "sourceCommit": "5e148843998a44ce7c7923c0fd27cf944dce5187",
+  "sourceStatus": "",
+  "node": "v24.21.0",
+  "scope": "Local website contracts, production/isolated-preview browser behavior and synthetic layout qualification. No hosted CI, deployment, real provider or physical-device qualification.",
+  "status": "passed",
+  "steps": [
+    {
+      "name": "application, catalog and portable-domain types",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "typecheck"
+      ],
+      "startedAt": "2026-10-19T07:44:36.015Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 12903
+    },
+    {
+      "name": "browser test types",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "exec",
+        "tsc",
+        "--project",
+        "tsconfig.store-browser.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-19T07:44:48.919Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 9533
+    },
+    {
+      "name": "portable import boundary",
+      "command": [
+        "node",
+        "scripts/checks/check-store-boundaries.ts"
+      ],
+      "startedAt": "2026-10-19T07:44:58.452Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 332
+    },
+    {
+      "name": "catalog and artifact contracts",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "catalog:test"
+      ],
+      "startedAt": "2026-10-19T07:44:58.786Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 13910
+    },
+    {
+      "name": "store, preview, theme and locale units",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "test:unit",
+        "apps/egohygiene.io/src/features/store",
+        "apps/egohygiene.io/src/features/fourthwall-preview",
+        "apps/egohygiene.io/src/features/artist-preview",
+        "packages/themes",
+        "packages/i18n"
+      ],
+      "startedAt": "2026-10-19T07:45:12.696Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 12532
+    },
+    {
+      "name": "website semantic component checks",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.accessibility.config.ts",
+        "tests/accessibility/site-accessibility.test.tsx"
+      ],
+      "startedAt": "2026-10-19T07:45:25.229Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 10275
+    },
+    {
+      "name": "fresh normal build",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-10-19T07:45:35.505Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 9147
+    },
+    {
+      "name": "production artifacts and provisional regression budgets",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/profile/production-artifact.json"
+      ],
+      "startedAt": "2026-10-19T07:45:44.652Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 142
+    },
+    {
+      "name": "production website journeys and accessibility",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "test:store"
+      ],
+      "startedAt": "2026-10-19T07:45:44.795Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 52937
+    },
+    {
+      "name": "fresh isolated preview build",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "build"
+      ],
+      "startedAt": "2026-10-19T07:46:37.732Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 9950
+    },
+    {
+      "name": "isolated Fourthwall and artist journeys",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "test:store:preview"
+      ],
+      "startedAt": "2026-10-19T07:46:47.683Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 26237
+    },
+    {
+      "name": "intercepted checkout handoff",
+      "command": [
+        "node",
+        "tests/checkout-handoff/run.mts",
+        "--output-dir",
+        "test-results/store-qualification/profile/handoff"
+      ],
+      "startedAt": "2026-10-19T07:47:13.921Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 9666
+    },
+    {
+      "name": "expanded text and synthetic RTL layout",
+      "command": [
+        "node",
+        "tests/storefront-qualification/run.mjs",
+        "--output-dir",
+        "test-results/store-qualification/profile/layout"
+      ],
+      "startedAt": "2026-10-19T07:47:23.588Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 37444
+    }
+  ],
+  "finishedAt": "2026-10-19T07:48:01.032Z"
+}

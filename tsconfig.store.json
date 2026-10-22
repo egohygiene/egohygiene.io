@@ -12,6 +12,7 @@
     "scripts/checks/check-store-boundaries.ts",
     "tests/store/**/*.ts",
     "tests/checkout-handoff/**/*.ts",
-    "tests/checkout-handoff/**/*.mts"
+    "tests/checkout-handoff/**/*.mts",
+    "tests/store-qualification/**/*.mts"
   ]
 }

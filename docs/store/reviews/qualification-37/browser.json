@@ -1,0 +1,2236 @@
+{
+  "sourceCommit": "5e148843998a44ce7c7923c0fd27cf944dce5187",
+  "browser": "Chrome for Testing 155.0.8059.84",
+  "playwright": "1.62.1",
+  "statistics": {
+    "startTime": "2026-10-19T07:45:55.613Z",
+    "duration": 42073.545,
+    "expected": 70,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "retryCount": 0,
+  "tests": [
+    {
+      "file": "site.spec.ts",
+      "title": "primary site loads, navigates, and supports theming",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1266,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "mobile navigation closes with Escape and follows the store route",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 661,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "short mobile navigation keeps the theme control reachable",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 617,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "skip link closes the menu and reveals the start of the main content",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 525,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "selected shell, status and purchase text have measured contrast in light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1380,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "keyboard focus is visible on the shell and store in light",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1064,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "selected shell, status and purchase text have measured contrast in dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1180,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "keyboard focus is visible on the shell and store in dark",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 966,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "selected shell, status and purchase text have measured contrast in high-contrast",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1178,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "keyboard focus is visible on the shell and store in high-contrast",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 919,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "forced colors preserve shell and store focus and the modal's semantic controls",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 613,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 320 \u00d7 568 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 533,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 360 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 568,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 390 \u00d7 844 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 521,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 430 \u00d7 932 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 516,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 768 \u00d7 1024 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 530,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 820 \u00d7 1180 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 588,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 1024 \u00d7 768 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 499,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 1280 \u00d7 720 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 516,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 1440 \u00d7 900 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 539,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 1920 \u00d7 1080 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 671,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 2560 \u00d7 1440 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 648,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 359 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 515,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 361 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 506,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 367 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 546,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 369 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 523,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 619 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 511,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 621 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 457,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 639 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 477,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 641 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 494,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 895 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 490,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 897 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 521,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 899 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 516,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "store surfaces reflow at 901 \u00d7 800 CSS pixels",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 486,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "root-text-200-percent preserves menu, filters, purchase status and artwork controls",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1196,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-accessibility.spec.ts",
+      "title": "400-percent-equivalent-reflow preserves menu, filters, purchase status and artwork controls",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 933,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-artist.spec.ts",
+      "title": "Incompris leads to the real artist with truthful empty collections",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 971,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-artist.spec.ts",
+      "title": "artist view and search survive reload and Back without discarding source parameters",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1052,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-artist.spec.ts",
+      "title": "unknown artist routes recover through Incompris",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 294,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-artist.spec.ts",
+      "title": "the artist views support keyboard use and fit a narrow phone",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 542,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-metadata.spec.ts",
+      "title": "SPA navigation and history replace route metadata without duplicate descriptions",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 2402,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-metadata.spec.ts",
+      "title": "direct and reloaded catalog routes expose their own title and description",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1577,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store-metadata.spec.ts",
+      "title": "missing product and artist routes reset metadata when their recovery links are followed",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 927,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "the production store presents a labeled preview and all public catalog entries",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1058,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "search and type filters compose, survive reload, and recover from empty results",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1662,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "story browsing composes with search, persists, and clears without losing unrelated URL state",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 3411,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "world and independent-design pathways support artwork inspection at 1440px",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 6096,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "world and independent-design pathways support artwork inspection at 390px",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 6190,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "a collection leads to its product, shared design, and the collection again",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 4512,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "product, design, and collection deep links survive a full page reload",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1162,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "detail navigation resets scrolling, Back restores it, and section links remain usable",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 3085,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "unknown and mismatched slugs provide a usable route back to the catalog",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1018,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "every mock product is explicit about availability and offers no purchase action",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 810,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "keyboard browsing exposes focus and respects reduced motion",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 953,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "navigation, search, and product detail work on a narrow screen",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1027,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "title": "all themes and detail layouts fit mobile without horizontal scrolling",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1266,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront-journey.spec.ts",
+      "title": "missing artwork preserves a usable card, design page and dismissible viewer",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1552,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront-journey.spec.ts",
+      "title": "filtered catalog history survives a canonical product reload, Back and Forward",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 839,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront-journey.spec.ts",
+      "title": "unknown nested routes and isolated preview routes recover in the normal build",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 866,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront-journey.spec.ts",
+      "title": "the shop hierarchy and canonical artwork remain usable with touch",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 3876,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront.spec.ts",
+      "title": "the curated shop leads through Incompris to the same canonical design",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 764,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront.spec.ts",
+      "title": "catalog examples stay available through their explicitly labeled preview entrance",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 409,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront.spec.ts",
+      "title": "existing filter and section links retain their state at the catalog destination",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 901,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront.spec.ts",
+      "title": "the shop and collection support keyboard navigation with reduced motion",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 804,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "storefront.spec.ts",
+      "title": "the shop and Incompris collection fit narrow, tablet and desktop screens",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 1446,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "theme.spec.ts",
+      "title": "home and store remain usable when storage getter is denied",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 930,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "theme.spec.ts",
+      "title": "home and store remain usable when getItem is denied",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 890,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "theme.spec.ts",
+      "title": "home and store remain usable when setItem is denied",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 903,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "theme.spec.ts",
+      "title": "invalid persisted preferences fall back to the system theme",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 322,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "file": "theme.spec.ts",
+      "title": "manual preferences persist across reload and system mode resumes following the device",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "durationMs": 469,
+          "retry": 0
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "test": "selected shell, status and purchase text have measured contrast in light",
+      "kind": "computed-text-contrast",
+      "samples": [
+        {
+          "path": "/",
+          "text": "Ego Hygiene",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 13.774827427821164,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "Privacy",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "Terms",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Ego Hygiene",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 13.774827427821164,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            254.02745098039216,
+            252.02745098039216,
+            247.7843137254902
+          ],
+          "ratio": 14.656862746008182,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            254.02745098039216,
+            252.02745098039216,
+            247.7843137254902
+          ],
+          "ratio": 14.656862746008182,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            254.02745098039216,
+            252.02745098039216,
+            247.7843137254902
+          ],
+          "ratio": 14.656862746008182,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            254.02745098039216,
+            252.02745098039216,
+            247.7843137254902
+          ],
+          "ratio": 14.656862746008182,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            254.02745098039216,
+            252.02745098039216,
+            247.7843137254902
+          ],
+          "ratio": 14.656862746008182,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            254.02745098039216,
+            252.02745098039216,
+            247.7843137254902
+          ],
+          "ratio": 14.656862746008182,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            254.02745098039216,
+            252.02745098039216,
+            247.7843137254902
+          ],
+          "ratio": 14.656862746008182,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Privacy",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Terms",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Ego Hygiene",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 13.774827427821164,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Preview",
+          "foreground": [
+            33,
+            27,
+            41
+          ],
+          "background": [
+            241,
+            223,
+            235
+          ],
+          "ratio": 13.159471694687575,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Preview \u2014 not for sale yet",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            253,
+            251,
+            247
+          ],
+          "ratio": 14.530202719045175,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "We\u2019re still bringing this idea into the world. Details and ordering will appear here when it\u2019s ready",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            253,
+            251,
+            247
+          ],
+          "ratio": 6.259453785018885,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Design study",
+          "foreground": [
+            33,
+            27,
+            41
+          ],
+          "background": [
+            241,
+            223,
+            235
+          ],
+          "ratio": 13.159471694687575,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Privacy",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Terms",
+          "foreground": [
+            98,
+            92,
+            103
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 5.934046299852526,
+          "outline": "none",
+          "outlineWidth": 3
+        }
+      ]
+    },
+    {
+      "test": "keyboard focus is visible on the shell and store in light",
+      "kind": "computed-focus-contrast",
+      "samples": [
+        {
+          "text": "Ego Hygiene",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 13.774827427821164,
+          "outline": "solid",
+          "outlineWidth": 3
+        },
+        {
+          "text": "SystemLightDarkHigh contrast",
+          "foreground": [
+            41,
+            37,
+            46
+          ],
+          "background": [
+            247,
+            245,
+            239
+          ],
+          "ratio": 13.774827427821164,
+          "outline": "solid",
+          "outlineWidth": 3
+        },
+        {
+          "text": "Everything",
+          "foreground": [
+            103,
+            64,
+            139
+          ],
+          "background": [
+            253,
+            251,
+            247
+          ],
+          "ratio": 7.573363810668283,
+          "outline": "solid",
+          "outlineWidth": 3
+        }
+      ]
+    },
+    {
+      "test": "selected shell, status and purchase text have measured contrast in dark",
+      "kind": "computed-text-contrast",
+      "samples": [
+        {
+          "path": "/",
+          "text": "Ego Hygiene",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 17.707690358241944,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "Privacy",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "Terms",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Ego Hygiene",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 17.707690358241944,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            26.784313725490193,
+            19.14901960784314,
+            45.93333333333333
+          ],
+          "ratio": 16.559999034367763,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            26.784313725490193,
+            19.14901960784314,
+            45.93333333333333
+          ],
+          "ratio": 16.559999034367763,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            26.784313725490193,
+            19.14901960784314,
+            45.93333333333333
+          ],
+          "ratio": 16.559999034367763,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            26.784313725490193,
+            19.14901960784314,
+            45.93333333333333
+          ],
+          "ratio": 16.559999034367763,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            26.784313725490193,
+            19.14901960784314,
+            45.93333333333333
+          ],
+          "ratio": 16.559999034367763,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            26.784313725490193,
+            19.14901960784314,
+            45.93333333333333
+          ],
+          "ratio": 16.559999034367763,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            26.784313725490193,
+            19.14901960784314,
+            45.93333333333333
+          ],
+          "ratio": 16.559999034367763,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Privacy",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Terms",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Ego Hygiene",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 17.707690358241944,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Preview",
+          "foreground": [
+            245,
+            234,
+            246
+          ],
+          "background": [
+            57,
+            42,
+            62
+          ],
+          "ratio": 11.41943846871176,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Preview \u2014 not for sale yet",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            26,
+            19,
+            45
+          ],
+          "ratio": 16.624267511084234,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "We\u2019re still bringing this idea into the world. Details and ordering will appear here when it\u2019s ready",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            26,
+            19,
+            45
+          ],
+          "ratio": 10.041274249252238,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Design study",
+          "foreground": [
+            245,
+            234,
+            246
+          ],
+          "background": [
+            57,
+            42,
+            62
+          ],
+          "ratio": 11.41943846871176,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Privacy",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Terms",
+          "foreground": [
+            203,
+            188,
+            223
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 10.69567576973804,
+          "outline": "none",
+          "outlineWidth": 3
+        }
+      ]
+    },
+    {
+      "test": "keyboard focus is visible on the shell and store in dark",
+      "kind": "computed-focus-contrast",
+      "samples": [
+        {
+          "text": "Ego Hygiene",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 17.707690358241944,
+          "outline": "solid",
+          "outlineWidth": 3
+        },
+        {
+          "text": "SystemLightDarkHigh contrast",
+          "foreground": [
+            249,
+            245,
+            255
+          ],
+          "background": [
+            18,
+            13,
+            31
+          ],
+          "ratio": 17.707690358241944,
+          "outline": "solid",
+          "outlineWidth": 3
+        },
+        {
+          "text": "Everything",
+          "foreground": [
+            255,
+            122,
+            198
+          ],
+          "background": [
+            26,
+            19,
+            45
+          ],
+          "ratio": 7.533217427754008,
+          "outline": "solid",
+          "outlineWidth": 3
+        }
+      ]
+    },
+    {
+      "test": "selected shell, status and purchase text have measured contrast in high-contrast",
+      "kind": "computed-text-contrast",
+      "samples": [
+        {
+          "path": "/",
+          "text": "Ego Hygiene",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 21,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "Privacy",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/",
+          "text": "Terms",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Ego Hygiene",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 21,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            13.176470588235293,
+            13.176470588235293,
+            13.176470588235293
+          ],
+          "ratio": 19.41278004615929,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            13.176470588235293,
+            13.176470588235293,
+            13.176470588235293
+          ],
+          "ratio": 19.41278004615929,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            13.176470588235293,
+            13.176470588235293,
+            13.176470588235293
+          ],
+          "ratio": 19.41278004615929,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            13.176470588235293,
+            13.176470588235293,
+            13.176470588235293
+          ],
+          "ratio": 19.41278004615929,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "planned",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            13.176470588235293,
+            13.176470588235293,
+            13.176470588235293
+          ],
+          "ratio": 19.41278004615929,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            13.176470588235293,
+            13.176470588235293,
+            13.176470588235293
+          ],
+          "ratio": 19.41278004615929,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "development",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            13.176470588235293,
+            13.176470588235293,
+            13.176470588235293
+          ],
+          "ratio": 19.41278004615929,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Privacy",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/ecosystem",
+          "text": "Terms",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Ego Hygiene",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 21,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Preview",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 21,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Preview \u2014 not for sale yet",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 21,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "We\u2019re still bringing this idea into the world. Details and ordering will appear here when it\u2019s ready",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Design study",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 21,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "A space for self-awareness, creative expression, and a little more understanding.",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Privacy",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        },
+        {
+          "path": "/store/products/signal-heart-hoodie",
+          "text": "Terms",
+          "foreground": [
+            245,
+            245,
+            245
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 19.261973035868383,
+          "outline": "none",
+          "outlineWidth": 3
+        }
+      ]
+    },
+    {
+      "test": "keyboard focus is visible on the shell and store in high-contrast",
+      "kind": "computed-focus-contrast",
+      "samples": [
+        {
+          "text": "Ego Hygiene",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 21,
+          "outline": "solid",
+          "outlineWidth": 3
+        },
+        {
+          "text": "SystemLightDarkHigh contrast",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 21,
+          "outline": "solid",
+          "outlineWidth": 3
+        },
+        {
+          "text": "Everything",
+          "foreground": [
+            255,
+            122,
+            198
+          ],
+          "background": [
+            0,
+            0,
+            0
+          ],
+          "ratio": 8.851256860874217,
+          "outline": "solid",
+          "outlineWidth": 3
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "file": "root-text-200-percent.png",
+      "test": "root-text-200-percent preserves menu, filters, purchase status and artwork controls",
+      "sha256": "9b3ad86b3cec92f437a083a72db2978980e9d0b5129a751d772482f1f7c3e65b",
+      "bytes": 446674,
+      "inspected": true,
+      "limits": "Full-page screenshot includes fixed native modal only over the viewport; below it is inert page content. CSS font/reflow probe, not native browser zoom."
+    },
+    {
+      "file": "400-percent-equivalent-reflow.png",
+      "test": "400-percent-equivalent-reflow preserves menu, filters, purchase status and artwork controls",
+      "sha256": "1a916ebedbcd609b81dc14cbb9c99b92bcc8f02bc0be7523feae90570a2b9743",
+      "bytes": 173221,
+      "inspected": true,
+      "limits": "Full-page screenshot includes fixed native modal only over the viewport; below it is inert page content. CSS font/reflow probe, not native browser zoom."
+    }
+  ],
+  "rawReport": {
+    "path": "test-results/store/report.json",
+    "sha256": "493a7a32dbad2d1a2e77f45f8834e208b8880ca8b178807a0d6a7fc57aa9e556",
+    "bytes": 112318,
+    "retained": false,
+    "reason": "Ignored full local diagnostic contains runner paths; selected portable evidence retained here."
+  }
+}

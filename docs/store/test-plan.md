@@ -2,6 +2,22 @@
 
 The mock-store journey suite uses the built website and the versioned preview catalog: heartburst artwork alongside explicitly fictional product examples. It never sends a request to a checkout provider or payment service. Adding a real product is a separate release step: update the fixture assumptions and qualify the selected provider before enabling its purchase link.
 
+## Current qualification profile — 2026-10-19 UTC
+
+Run `node scripts/qualify-store.mjs` with the pinned runtime and an installed
+Chromium. It requires fresh normal/preview builds and runs the selected contract,
+unit, browser, handoff, synthetic layout and artifact checks as one fail-fast
+profile. [The #37 review](qualification-37.md) records its 13 passing steps at
+`5e148843998a44ce7c7923c0fd27cf944dce5187`, exact counts/commands, retained
+captures, proposed size ceilings and the upstream gaps keeping #37 open.
+
+The dated sections below preserve earlier evidence rather than claim current
+coverage counts. In particular, image-failure, first-image, handoff, selected
+contrast and broader viewport checks have since advanced. Native zoom, assistive
+technology, actual migration/locale-fallback features and eventual host/provider
+qualification remain explicit in the current review. The older all-app
+existence-only smoke profile is not this website qualification command.
+
 ## Local commands
 
 From the repository root, after the pinned workspace install:
@@ -14,7 +30,7 @@ pnpm exec playwright test --config playwright.store.config.ts
 
 The suite starts the production preview on `http://127.0.0.1:4173` and requires that port to be free. It does not reuse a possibly stale development server. No GitHub Actions run is needed. Browser installation is a one-time setup on each machine.
 
-## Current journey coverage
+## Historical journey coverage — 18-case baseline
 
 | Journey | Evidence |
 | --- | --- |
@@ -108,7 +124,7 @@ Run the focused suite with `node --test tests/store/public-build.test.ts`; it al
 
 Public Git sources remain public. Vite also copies the public asset directory independently of catalog visibility; only approved public derivatives belong there. This change does not provide private storage or remove already-published data from repository history.
 
-## Remaining release checks
+## Historical remaining release checks — before #62/#37
 
 - Review the first real design and its product imagery at desktop and mobile sizes; the placeholder screenshot inspection does not establish print quality or contrast compliance for future artwork.
 - Qualify approved-artwork rendering with the first real image in the browser. Component tests cover the image-error fallback; browser journeys do not yet exercise an actual image request failure.

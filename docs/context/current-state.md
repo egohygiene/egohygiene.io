@@ -1,6 +1,79 @@
 # Current handoff
 
-## Current: #37 bounded slice complete, review pending — 2026-10-19 UTC
+## Current: remaining work saved in roadmap #84 — 2026-10-19 UTC
+
+Alan requested one roadmap capturing the next issues, their order and discussion
+notes. [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) now
+records review of draft #83, then #64, coordinated #65/#34, remaining local #37
+qualification with #49/#70/#52, #38 readiness with the applicable #9 disclosures,
+#22/#29 release preparation, and final #37/#39 host/product/launch evidence.
+It also records provisional size budgets, local/hosted evidence limits,
+reconciliation of #36/#61/#69/#75/#51, deferred work and the product boundaries.
+
+The linked checklist is saved. **Native hierarchy linking remains pending:**
+the available GitHub connector lacks a sub-issue mutation. The intended structure
+preserves #31's existing #32–#39 children and nests #31 under #84; the remaining
+owners become direct children after refreshing their parent relationships.
+Browser fallback requires approval under the browser tool's instructions.
+
+Refreshed main remains `6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`; draft #83 was
+at `60ff62f060fe2fa4cb461bee21942f49aa59b1a2` before this documentation-only update
+on `test/store-qualification-37`. No new implementation, merge, deployment,
+provider activation or test run is part of this planning checkpoint. The
+qualification evidence below remains pinned to its tested implementation.
+
+**Next:** finish native hierarchy linking, then review #83 and select the first
+bounded #64 checkpoint with Alan. Do not close #37 before its outstanding
+acceptance is evidenced or explicitly rescoped. See the
+[roadmap receipt](provenance.md#remaining-work-roadmap--2026-10-19-utc).
+
+## Historical: #37 local qualification complete in draft #83 — 2026-10-19 UTC
+
+Alan authorized merging #82 and continuing #37 toward completion. #82 merged at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. The next local qualification pass is
+complete in [draft PR #83](https://github.com/egohygiene/egohygiene.io/pull/83),
+branch `test/store-qualification-37`, based on that merge. #83 is unmerged;
+#37 remains open for explicit upstream and qualification dependencies.
+
+Tested implementation: `5e148843998a44ce7c7923c0fd27cf944dce5187`, tree
+`01bfbe2568bfab4470e7f967b0e4e5128107f373`, identical to local source. Its complete
+13-step `node scripts/qualify-store.mjs` run began clean and passed. This following
+commit records evidence/docs only. Read the [review receipt](../store/qualification-37.md),
+[exact commands/results](../store/reviews/qualification-37/checks.json),
+[browser cases/contrast samples](../store/reviews/qualification-37/browser.json)
+and [artifact inventory](../store/reviews/qualification-37/production-artifact.json).
+
+Delivered: required fresh builds, explicit selected browser types, shell/metadata
+journeys, measured text/focus contrast, forced colors, #70 reference/breakpoint
+widths, separate CSS text enlargement/reflow, regional synthetic interactions and
+artifact/credential-pattern/reference/size checks. Shared CSS fixes foreground
+focus outlines and badge text, plus reduced-motion buttons/spinners. The real
+catalog, schemas, public art, providers, dependencies and canonical routes remain
+unchanged. Existing #54/#55/#62, Fourthwall and intercepted handoff work is reused.
+
+Fresh passes: 79 catalog/artifact contracts, 92 focused units, three semantic
+component checks, four type profiles, the 12-module import boundary, 70 production
+browser cases, six preview cases, handoff baseline/two journeys, and 35 synthetic
+layout/interaction/motion cases. Artifact scan: 16 files, 12 local references,
+zero findings. Selected captures were inspected. Environment: Node 24.21.0,
+pnpm 11.28.5, Playwright 1.62.1, Chrome for Testing 155.0.8059.84. This is local
+Chromium evidence, not native zoom, screen-reader or physical-device certification.
+
+**Next:** review #83 and the concrete proposed bundle-size ceilings with Alan.
+To finish #37 as written, the missing #64 locale/fallback contract and coordinated
+#65/#34 catalog translation/version migration need implementation and resulting
+journey fixtures. #37 also retains unsupported-environment and later deployed-host
+checks; #22/#29 own crawler/host work. No arbitrary version bump or pretend
+translation was introduced to close a checkbox. #38 real-provider readiness is
+still unstarted and separate. Broader #49/#52/#70 issues remain open.
+
+Hosted CI, dependency review and CodeQL failed at the tested source head. CI's
+format step failed and later stages were skipped; local passes do not make these
+hosted gates green. No gate change or manual dispatch. Nine provider placeholders
+remain disabled, real checkout routes empty and real `.play()` selections empty.
+No actual provider contact, order, deployment or commerce activation occurred.
+
+## Historical: #37 bounded slice complete, review pending — 2026-10-19 UTC
 
 Alan authorized checkpoint 3 and asked that the draft include everything.
 All three checkpoints of the **bounded intercepted-checkout testing slice** are

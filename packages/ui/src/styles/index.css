@@ -26,8 +26,9 @@ textarea {
 }
 
 :focus-visible {
-  outline: none;
-  box-shadow: var(--focus-shadow);
+  outline: 3px solid var(--color-foreground);
+  outline-offset: 3px;
+  box-shadow: none;
 }
 
 .eh-container {
@@ -107,18 +108,19 @@ textarea {
   padding: 0.25rem 0.7rem;
   font-size: var(--eh-typography-sizeSm);
   border: 1px solid currentColor;
+  color: var(--color-foreground);
 }
 
 .eh-badge--available {
-  color: var(--color-success);
+  border-color: var(--color-success);
 }
 
 .eh-badge--development {
-  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .eh-badge--planned {
-  color: var(--color-warning);
+  border-color: var(--color-warning);
 }
 
 .eh-spinner {
@@ -195,5 +197,19 @@ textarea {
 @keyframes eh-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eh-button {
+    transition: none;
+  }
+
+  .eh-button:hover {
+    transform: none;
+  }
+
+  .eh-spinner {
+    animation: none;
   }
 }

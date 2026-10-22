@@ -1,0 +1,70 @@
+{
+  "sourceCommit": "5e148843998a44ce7c7923c0fd27cf944dce5187",
+  "sourceTree": "01bfbe2568bfab4470e7f967b0e4e5128107f373",
+  "pullRequest": 83,
+  "mergeBeforeWork": {
+    "pullRequest": 82,
+    "commit": "6841b3a9ab20d3be68162da69500bdd7f2ba1ef7"
+  },
+  "profileSteps": 13,
+  "counts": {
+    "catalog": 79,
+    "focusedUnits": 92,
+    "focusedUnitFiles": 13,
+    "semanticComponents": 3,
+    "productionBrowser": 70,
+    "previewBrowser": 6,
+    "layout": 35,
+    "typeProfiles": 4,
+    "portableModules": 12,
+    "handoffJourneys": 2
+  },
+  "scopedBiome": {
+    "files": 13,
+    "exitCode": 0,
+    "warnings": 2,
+    "infos": 2,
+    "detail": "Browser executable override is not declared for Turbo; strict TypeScript index-signature bracket access conflicts with literal-key style suggestion. No rule disabled."
+  },
+  "independentReview": {
+    "source": "No blocker; recommended network/sample-presence hardening included before source publication.",
+    "evidence": "No blocker; file hashes, counts, measured samples, sizes and scope limits checked."
+  },
+  "hosted": [
+    {
+      "name": ".github/workflows/codeql.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39217917918",
+      "sha": "5e148843998a44ce7c7923c0fd27cf944dce5187"
+    },
+    {
+      "name": "CI",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39217917425",
+      "sha": "5e148843998a44ce7c7923c0fd27cf944dce5187"
+    },
+    {
+      "name": "Dependency review",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39217917449",
+      "sha": "5e148843998a44ce7c7923c0fd27cf944dce5187"
+    }
+  ],
+  "limits": [
+    "Actual migration contract (#34) absent",
+    "Locale selection/source-language and catalog translation fallback (#64/#65) absent",
+    "Size ceilings provisional pending review",
+    "CSS root font and short viewport are not native zoom",
+    "Wider browser engines, assistive technology and physical devices untested",
+    "Host/crawler and real-provider qualification remain separate"
+  ],
+  "production": {
+    "providerCount": 9,
+    "providersEnabled": 0,
+    "checkoutRoutes": 0,
+    "realArtistSelections": 0
+  }
+}

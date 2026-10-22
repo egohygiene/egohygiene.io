@@ -57,9 +57,18 @@ Alan subsequently authorized checkpoint 2. Its [journey receipt](docs/store/chec
 records passing actual keyboard/touch link activation and Back/reload checks in
 that same draft. Alan then authorized checkpoint 3; the [regression closeout](docs/store/checkout-handoff-37c.md)
 records fresh passing local checks and normal-artifact isolation. The bounded
-three-checkpoint slice is complete in draft #82. Sync before merging or selecting
-#38; no merge was authorized by the checkpoint instruction.
+three-checkpoint slice merged in #82 on 2026-10-19 at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7` after Alan's explicit instruction.
+Alan selected continued work toward completion of #37, rather than starting #38.
+The [local qualification review](docs/store/qualification-37.md) records the
+complete fresh-build pass in draft #83 and explicit dependency limits. Review
+that draft before merge; its instruction did not authorize merging subsequent PRs.
 #37 remains open; #38 readiness preparation remains a later proposal.
+Alan requested the remaining sequence be saved on 2026-10-19. Use
+[roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) for the current
+ordered queue and notes. Native hierarchy linking is pending; the saved issue
+checklists are not native sub-issue relationships. This planning request does
+not select a new implementation checkpoint or approve a merge.
 Deployment and commerce activation remain separate instructions.
 
 ## Working boundaries

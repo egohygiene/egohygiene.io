@@ -1,0 +1,82 @@
+{
+  "sourceCommit": "5e148843998a44ce7c7923c0fd27cf944dce5187",
+  "sourceTree": "01bfbe2568bfab4470e7f967b0e4e5128107f373",
+  "createdAt": "2026-10-19T07:48:01.032Z",
+  "files": [
+    {
+      "path": "400-percent-equivalent-reflow.png",
+      "bytes": 173221,
+      "sha256": "1a916ebedbcd609b81dc14cbb9c99b92bcc8f02bc0be7523feae90570a2b9743"
+    },
+    {
+      "path": "browser.json",
+      "bytes": 52678,
+      "sha256": "5d3e124c111a3795201c139901ff5030a0f4567e57f6bc1787b87fca5e135362"
+    },
+    {
+      "path": "checks.json",
+      "bytes": 4972,
+      "sha256": "991b6bc305c4bbaecaef21c4b6dad37724f6046b0b5c39bcd514cba0c8c6e217"
+    },
+    {
+      "path": "handoff/baseline.json",
+      "bytes": 1518,
+      "sha256": "8d0ee0a78741a35dd4b918362cb4977115d03beb31319ac3869d2a804282bbc8"
+    },
+    {
+      "path": "handoff/desktop-keyboard-focused.png",
+      "bytes": 70063,
+      "sha256": "0221152974291204394aed9e3aa762ceb2fdef723993b08f7d69aedfb58ebaf8"
+    },
+    {
+      "path": "handoff/journeys.json",
+      "bytes": 3630,
+      "sha256": "4d7ce0be53890b0d171fdb56acd679a63fd89b3c437b701f929b133715270b39"
+    },
+    {
+      "path": "handoff/mobile-touch-live.png",
+      "bytes": 49411,
+      "sha256": "a92c24abc23cdf3b7d8214e766587eb1e1ad9f949b7f03c4b4e072d2cd674dc0"
+    },
+    {
+      "path": "layout/captures.json",
+      "bytes": 18113,
+      "sha256": "8c19d789979dc492e70e977e10f435e0346de94126108de0f2bb1f8d850317c2"
+    },
+    {
+      "path": "layout/expanded-incompris-tablet.jpg",
+      "bytes": 346674,
+      "sha256": "d7bb59cbd2f3b572fe7ee0dec0fc5a5a56208e91d2db5591bdcac2fa967e1afe"
+    },
+    {
+      "path": "layout/expanded-shop-desktop.jpg",
+      "bytes": 440941,
+      "sha256": "19728d9d6edfc7732386df3e6e774db05beeaa0bfc15cc248e54b6b3a5599303"
+    },
+    {
+      "path": "layout/rtl-artist-phone.jpg",
+      "bytes": 248093,
+      "sha256": "75b38e740af3cbba4e6e78ec06e38919a5b6be5f4351d7c8e9c154fc8a337e08"
+    },
+    {
+      "path": "layout/rtl-songs-small-phone.jpg",
+      "bytes": 142081,
+      "sha256": "1c7460713fcd2a55545036f38291337858bf9533ea56d369fe54b7307c078125"
+    },
+    {
+      "path": "production-artifact.json",
+      "bytes": 8040,
+      "sha256": "a5c2ea50de0823aa328fa7322f591a4099e05f2bfd5d5d930f517f2cb7471f5d"
+    },
+    {
+      "path": "review.json",
+      "bytes": 2363,
+      "sha256": "6804ca8c191500abeb280369b8d03e9523ab4cd00a8282fcfcdf9ef6f248ec0a"
+    },
+    {
+      "path": "root-text-200-percent.png",
+      "bytes": 446674,
+      "sha256": "9b3ad86b3cec92f437a083a72db2978980e9d0b5129a751d772482f1f7c3e65b"
+    }
+  ]
+}
