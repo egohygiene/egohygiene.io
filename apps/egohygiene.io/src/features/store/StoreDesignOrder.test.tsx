@@ -10,7 +10,7 @@ import { resources } from "../../i18n/resources";
 import { StoreCard, StoreCollectionPage, StoreProductPage } from "./StorePages";
 
 const fixture = vi.hoisted(() => ({
-  catalog: { schemaVersion: 2, entries: [], checkoutRoutes: [] } as StoreCatalog,
+  catalog: { schemaVersion: 3, entries: [], checkoutRoutes: [] } as StoreCatalog,
 }));
 
 vi.mock("../../content/store", () => ({
@@ -23,7 +23,7 @@ vi.mock("../../content/store", () => ({
 }));
 
 const base = (id: string, title: string) => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,

@@ -6,11 +6,11 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { storeEntryPath } from "../../apps/egohygiene.io/src/features/store/domain/index.ts";
-import { migrateStoreCatalogV1 } from "../../packages/schemas/src/store-migrations.ts";
+import { migrateStoreCatalogV1, migrateStoreCatalogV2 } from "../../packages/schemas/src/store-migrations.ts";
 import {
-  getStorePurchaseAction,
   parseStoreCatalog,
+  parseStoreCatalogV2,
+  type StoreCatalog,
   storeCatalogV1Schema,
   toPublicStoreCatalog,
 } from "../../packages/schemas/src/store.ts";
@@ -86,20 +86,15 @@ test("explicit v1 migration is deterministic, does not mutate input and preserve
     assert.deepEqual(translations, []);
     assert.deepEqual(attribution, { status: "unknown" });
     assert.deepEqual({ ...unchanged, schemaVersion: 1 }, legacy.entries[index]);
-    if (entry.kind !== "context") assert.ok(storeEntryPath(entry).endsWith(`/${entry.slug}`));
   }
-  assert.deepEqual(getStorePurchaseAction(toPublicStoreCatalog(migrated), "product-fixture"), {
-    kind: "external",
-    label: "Shop on Fourthwall",
-    href: legacy.checkoutRoutes[0]?.checkoutUrl,
-  });
   assert.deepEqual(
-    parseStoreCatalog(
-      migrated.entries.map((value) => ({ source: value.id, value })),
-      migrated.checkoutRoutes,
-    ),
+    parseStoreCatalogV2(migrated.entries.map((value) => ({ source: value.id, value })), migrated.checkoutRoutes),
     migrated,
   );
+  assert.throws(() => parseStoreCatalog(
+    migrated.entries.map((value) => ({ source: value.id, value })), migrated.checkoutRoutes,
+  ), /schemaVersion/);
+  assert.throws(() => migrateStoreCatalogV2(migrated), /manual requalification/);
 });
 
 test("migration requires an explicit canonical source locale without inventing translations or rights", () => {
@@ -200,7 +195,7 @@ test("migration cannot launder invalid references, draft visibility or unreviewe
   }
 });
 
-test("v2 parsing and public projection do not silently accept unmigrated v1 data", () => {
+test("current parsing and public projection do not silently accept historical data", () => {
   const legacy = legacyFixture();
   assert.throws(
     () =>
@@ -212,7 +207,7 @@ test("v2 parsing and public projection do not silently accept unmigrated v1 data
   );
   const current = migrateStoreCatalogV1(legacy, { sourceLocale: "en" });
   assert.throws(
-    () => toPublicStoreCatalog({ ...current, schemaVersion: 1 } as unknown as typeof current),
+    () => toPublicStoreCatalog({ ...current, schemaVersion: 1 } as unknown as StoreCatalog),
     /schemaVersion/,
   );
 });
@@ -229,21 +224,21 @@ test("rollback restores the retained v1 source rather than silently discarding v
   assert.equal(JSON.stringify(legacy), retainedSource);
 });
 
-test("migration CLI writes a reviewable v2 envelope while retaining the exact legacy input and refusing overwrite", (context) => {
+test("migration CLI chains v1 through v2 into v3 while retaining the exact legacy input and refusing overwrite", (context) => {
   const directory = mkdtempSync(join(tmpdir(), "store-migration-"));
   context.after(() => rmSync(directory, { recursive: true, force: true }));
   const input = join(directory, "legacy.json");
   const output = join(directory, "current.json");
-  const legacy = legacyFixture();
+  const legacy = legacyNonliveFixture();
   const original = `${JSON.stringify(legacy, null, 2)}\n`;
   writeFileSync(input, original);
   const args = ["migrate", "--input", input, "--output", output, "--source-locale", "en"];
   const result = cli(...args);
   assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /Migrated 3 entries to catalog v2/);
+  assert.match(result.stdout, /Migrated 3 entries to catalog v3/);
   assert.equal(readFileSync(input, "utf8"), original);
   const created = readFileSync(output, "utf8");
-  assert.deepEqual(JSON.parse(created), migrateStoreCatalogV1(legacy, { sourceLocale: "en" }));
+  assert.deepEqual(JSON.parse(created), migrateStoreCatalogV2(migrateStoreCatalogV1(legacy, { sourceLocale: "en" })));
   const repeated = cli(...args);
   assert.equal(repeated.status, 1);
   assert.match(repeated.stderr, /EEXIST|exist/);
@@ -277,4 +272,75 @@ test("migration CLI rejects invalid input and missing source language without cr
     assert.equal(existsSync(output), false);
     assert.equal(readFileSync(input, "utf8"), invalid);
   }
+});
+
+
+function legacyNonliveFixture() {
+  const legacy = legacyFixture();
+  return {
+    ...legacy,
+    entries: legacy.entries.map((entry) => "purchase" in entry
+      ? { ...entry, purchase: { state: "preview" } }
+      : entry),
+  };
+}
+
+test("v2 to v3 migration preserves nonlive identities, data and unused route mappings without approving them", () => {
+  const v2 = migrateStoreCatalogV1(legacyNonliveFixture(), { sourceLocale: "fr" });
+  const before = structuredClone(v2);
+  const current = migrateStoreCatalogV2(v2);
+  assert.deepEqual(current, migrateStoreCatalogV2(v2));
+  assert.deepEqual(v2, before);
+  assert.equal(current.schemaVersion, 3);
+  assert.deepEqual(current.entries.map((entry) => ({ ...entry, schemaVersion: 2 })), v2.entries);
+  assert.deepEqual(current.checkoutRoutes.map(({ qualification, ...route }) => {
+    assert.deepEqual(qualification, { status: "unreviewed" });
+    return route;
+  }), v2.checkoutRoutes);
+  assert.deepEqual(toPublicStoreCatalog(current).checkoutRoutes, []);
+});
+
+test("v2 migration validates original relationships before rejecting live offers for manual requalification", () => {
+  const v2 = migrateStoreCatalogV1(legacyFixture(), { sourceLocale: "en" });
+  const before = structuredClone(v2);
+  assert.throws(() => migrateStoreCatalogV2(v2), /manual requalification/);
+  assert.deepEqual(v2, before);
+  assert.throws(() => migrateStoreCatalogV2({ ...v2, checkoutRoutes: [] }), /Live products require a reviewed route/);
+  assert.throws(() => migrateStoreCatalogV2({ ...v2, entries: v2.entries.slice(1) }), /Expected design reference/);
+  assert.throws(() => migrateStoreCatalogV2({ ...v2, entries: v2.entries.map((entry, index) =>
+    index === 0 ? { ...entry, visibility: "draft" } : entry) }), /Public entries cannot reference draft/);
+  for (const schemaVersion of [1, 3, 99]) {
+    assert.throws(() => migrateStoreCatalogV2({ ...v2, schemaVersion }), /schemaVersion/);
+  }
+  assert.throws(() => migrateStoreCatalogV2({ ...v2, privateNotes: "not allowed" }), /privateNotes/);
+});
+
+test("v2 migration CLI retains source language and refuses live, mismatched version and extra locale inputs", (context) => {
+  const directory = mkdtempSync(join(tmpdir(), "store-migration-v2-"));
+  context.after(() => rmSync(directory, { recursive: true, force: true }));
+  const input = join(directory, "v2.json");
+  const output = join(directory, "v3.json");
+  const v2 = migrateStoreCatalogV1(legacyNonliveFixture(), { sourceLocale: "fr" });
+  const original = `${JSON.stringify(v2, null, 2)}\n`;
+  writeFileSync(input, original);
+  const args = ["migrate", "--from-version", "2", "--input", input, "--output", output];
+  const invalidLocale = cli(...args, "--source-locale", "en");
+  assert.equal(invalidLocale.status, 1);
+  assert.match(invalidLocale.stderr, /applies only to v1/);
+  assert.equal(existsSync(output), false);
+  const invalidVersion = cli("migrate", "--from-version", "99", "--input", input, "--output", output);
+  assert.equal(invalidVersion.status, 1);
+  assert.match(invalidVersion.stderr, /must be 1 or 2/);
+  const result = cli(...args);
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(readFileSync(output, "utf8")), migrateStoreCatalogV2(v2));
+  assert.equal(readFileSync(input, "utf8"), original);
+  rmSync(output);
+  const live = JSON.stringify(migrateStoreCatalogV1(legacyFixture(), { sourceLocale: "en" }));
+  writeFileSync(input, live);
+  const blocked = cli(...args);
+  assert.equal(blocked.status, 1);
+  assert.match(blocked.stderr, /manual requalification/);
+  assert.equal(existsSync(output), false);
+  assert.equal(readFileSync(input, "utf8"), live);
 });

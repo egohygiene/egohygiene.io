@@ -35,5 +35,8 @@
   "catalogLocalizationDecision": "docs/architecture/decisions/0010-versioned-catalog-localization.md",
   "catalogPresentationReview": "docs/store/catalog-localization-65b.md",
   "catalogIntegrationReview": "docs/store/catalog-localization-65c.md",
-  "catalogLanguageWorkflow": "docs/store/catalog-language-review.md"
+  "catalogLanguageWorkflow": "docs/store/catalog-language-review.md",
+  "productReadinessWorkflow": "docs/store/product-readiness.md",
+  "productReadinessDecision": "docs/architecture/decisions/0011-reviewed-product-readiness.md",
+  "productReadinessReview": "docs/store/product-readiness-38.md"
 }

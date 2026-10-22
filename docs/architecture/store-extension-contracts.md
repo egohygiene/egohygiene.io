@@ -9,7 +9,7 @@ why this checkpoint adds a provider adapter without adding a framework or engine
 
 | Data / state | Authority | Consumer behavior |
 | --- | --- | --- |
-| IDs, slugs, artwork revisions, design/product/context relationships | Validated catalog v2 | Derive views through selectors; never replace IDs with provider IDs |
+| IDs, slugs, artwork revisions, design/product/context relationships | Validated catalog v3 | Derive views through selectors; never replace IDs with provider IDs |
 | Source copy, translations and their review bindings | Canonical entry with explicit `sourceLocale` | Public projection retains current reviewed fields; pure content selectors resolve presentation fields for the selected language |
 | Creator and rights-holder declarations | Explicit catalog attribution | Default to unknown; do not infer from contexts, curation or collection membership |
 | Public browser catalog | Node loader → `toPublicStoreCatalog` → Vite adapter | Import `src/content/store/index.ts`; no raw authoring JSON imports |
@@ -28,24 +28,25 @@ checkout route list is empty. `getStorePurchaseAction` still owns actual catalog
 purchase links and revalidates live mappings/artwork approvals. Preview adapters
 produce only inert summaries and cannot activate that path.
 
-Current catalog parsing accepts version `2` only, including required canonical
-`sourceLocale`. Provider and curation manifests retain their independent version
-`1`. Unknown fields and unsupported versions fail validation. Shared Zod schemas
-in `store.ts` compose the localization/review/attribution contract from
-`store-localization.ts`; inferred types and exports remain in
-`@egohygiene/schemas`, not a second app model.
+Current catalog parsing accepts version `3` only. Provider and curation manifests
+retain independent version `1`. Unknown fields/versions fail validation. Shared
+Zod contracts in `store.ts`, `store-localization.ts` and `store-readiness.ts` own
+the inferred types. Reviewed live routes bind the exact offer, variant labels and
+mapping, artwork revision/image source, optional displayed price and three customer
+policy/support links. Missing, unreviewed or stale qualification fails publication
+and runtime purchase validation; successful actions carry the reviewed disclosures.
+Dates are provenance, not an automatic time-to-live. External facts still need
+human requalification. See [ADR 0011](decisions/0011-reviewed-product-readiness.md)
+and [onboarding workflow](../store/product-readiness.md).
 
-`store-migrations.ts` accepts v1 solely through an explicit migration, with the
-reviewed source language supplied by the caller. The CLI writes a new v2 envelope
-without overwriting its input or existing output; it does not silently migrate
-loaders or rewrite individual authoring files. Restore the retained v1 inputs and
-compatible consumer/schema code together on rollback. Compatible optional/defaulted
-v2 additions must preserve existing v2 fixtures; breaking changes need the next
-version and an explicit migration. Future digital or license offers need a reviewed
-product/purchase contract and delivery/terms policy under the same version policy;
-v2 does not implement them. See [catalog authoring](../store/catalog-authoring.md#schema-changes)
-for the runnable migration and [ADR 0010](decisions/0010-versioned-catalog-localization.md)
-for the durable contract. #55's validated public projection remains the build boundary.
+`store-migrations.ts` retains explicit adjacent v1→v2 and v2→v3 functions. The CLI
+writes a new v3 envelope without overwriting input. The second step refuses legacy
+live products rather than manufacturing readiness; retain and deliberately review
+those inputs before requalification. Restore compatible code/data together on
+rollback. See [catalog authoring](../store/catalog-authoring.md#schema-changes).
+Future digital/license products need their own reviewed delivery/terms contract;
+no download purchase capability is introduced here. #55's public projection remains
+the browser build boundary.
 
 The portable import checker follows transitive imports from the store profile,
 including these shared schema modules. It permits Zod for schema validation,

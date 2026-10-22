@@ -1,0 +1,117 @@
+{
+  "startedAt": "2026-10-22T17:32:13.810Z",
+  "sourceCommit": "902be39761f00d73e82ea08d55ff98bc05d8e7c5",
+  "sourceStatus": "",
+  "node": "v24.21.0",
+  "mode": "build-only",
+  "authoredJourneys": [
+    "language-switch-fallback-metadata-gallery",
+    "unicode-search-source-alias-and-stable-links",
+    "unpublished-copy-and-disabled-purchase-states",
+    "exact-intercepted-checkout-across-languages",
+    "expanded-catalog-layout-390",
+    "expanded-catalog-layout-820",
+    "expanded-catalog-layout-1440"
+  ],
+  "status": "built-browser-not-run",
+  "scope": "Synthetic catalog and review records, actual app router/providers/pages, isolated temporary Vite build, reused intercepted checkout boundary. No production catalog or public locale activation.",
+  "limits": "Build-only proves module/projection integration, not browser behavior. Browser mode uses local Chromium emulation, not physical devices, native zoom, screen readers, crawler-visible output or real checkout. Canonical provider/variant mappings are retained; no cart or selected-variant transfer is claimed. No real provider request or order.",
+  "artifact": {
+    "files": 9,
+    "textFiles": 2,
+    "required": [
+      "test-handoff-37a-live",
+      "test-localization-65c-collection",
+      "Éclat café — vêtement fictif pour vérifier les longues présentations",
+      "Éclat canadien — vêtement fictif",
+      "qps-Ploc"
+    ],
+    "excluded": [
+      "test-handoff-37a-draft-sentinel",
+      "TEST_LOCALIZATION_65C_DRAFT",
+      "TEST_LOCALIZATION_65C_STALE"
+    ],
+    "publicEntryCount": 5,
+    "checkoutRoutes": [
+      {
+        "id": "test-handoff-37a-route",
+        "provider": "fourthwall",
+        "productId": "test-handoff-37a-live",
+        "checkoutUrl": "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+        "providerVariantIds": [
+          "test-handoff-37a-provider-variant"
+        ],
+        "artworkRevisions": [
+          {
+            "designId": "test-handoff-37a-design",
+            "revision": 1
+          }
+        ],
+        "disclosures": {
+          "supportUrl": "https://support.example.invalid/synthetic-store",
+          "shippingPolicyUrl": "https://policies.example.invalid/synthetic-shipping",
+          "returnsPolicyUrl": "https://policies.example.invalid/synthetic-returns"
+        },
+        "qualification": {
+          "status": "reviewed",
+          "reviewerId": "test-reviewer",
+          "reviewedAt": "2026-10-22",
+          "evidenceRefs": [
+            "test-only-synthetic-evidence"
+          ],
+          "assessment": {
+            "channel": "fourthwall-catalog",
+            "orderFunding": "deducted-from-sale",
+            "noMerchantAdvance": true,
+            "paidSubscriptionRequired": false,
+            "artworkRights": "reviewed",
+            "productTemplate": "reviewed"
+          },
+          "snapshot": {
+            "route": {
+              "id": "test-handoff-37a-route",
+              "provider": "fourthwall",
+              "productId": "test-handoff-37a-live",
+              "checkoutUrl": "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
+              "providerVariantIds": [
+                "test-handoff-37a-provider-variant"
+              ],
+              "artworkRevisions": [
+                {
+                  "designId": "test-handoff-37a-design",
+                  "revision": 1
+                }
+              ],
+              "disclosures": {
+                "supportUrl": "https://support.example.invalid/synthetic-store",
+                "shippingPolicyUrl": "https://policies.example.invalid/synthetic-shipping",
+                "returnsPolicyUrl": "https://policies.example.invalid/synthetic-returns"
+              }
+            },
+            "variants": [
+              {
+                "id": "test-handoff-37a-variant",
+                "label": "Fictional test size",
+                "providerVariantId": "test-handoff-37a-provider-variant"
+              }
+            ],
+            "displayPrice": {
+              "amountMinor": 3599,
+              "currency": "USD",
+              "authority": "provider-checkout"
+            },
+            "artwork": [
+              {
+                "designId": "test-handoff-37a-design",
+                "revision": 1,
+                "src": "/store/test-handoff-37a/swatch.png"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "completedBrowserJourneys": 0,
+  "finishedAt": "2026-10-22T17:32:14.328Z"
+}

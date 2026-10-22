@@ -5,6 +5,12 @@
 - Scope: Portable catalog data, publication, and migration. Selected-language
   rendering/search is implemented in B; browser qualification is deferred to #37.
 
+## Successor
+
+[ADR 0011](0011-reviewed-product-readiness.md) adds the explicit v2→v3 readiness
+contract. The v2 localization decision and historical evidence below remain intact;
+current parsers use v3 and retain v1→v2 as an adjacent migration.
+
 ## Context
 
 The v1 catalog stores presentation text alongside canonical identities, artwork

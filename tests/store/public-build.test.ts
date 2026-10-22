@@ -13,13 +13,14 @@ import type { StoreCatalog } from "../../packages/schemas/src/store.ts";
 import { getStorePurchaseAction, parseStoreCatalog } from "../../packages/schemas/src/store.ts";
 import { emptyStorefrontCuration } from "../../packages/schemas/src/storefront-curation.ts";
 import { publicStoreCatalog } from "../../scripts/vite-store-catalog.mts";
+import { qualifySyntheticRoute } from "./fixtures/readiness.ts";
 
 const repositoryRoot = fileURLToPath(new URL("../../", import.meta.url));
 const browserEntry = fileURLToPath(
   new URL("../../apps/egohygiene.io/src/content/store/index.ts", import.meta.url),
 );
 const base = (id: string, visibility = "public") => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,
@@ -46,14 +47,14 @@ const product = (id: string, visibility = "public") => ({
     variants: [{ id: "variant-small", label: "Small", providerVariantId: "provider-small" }],
   },
 });
-const route = (id: string) => ({
+const route = (id: string) => qualifySyntheticRoute({
   id: `route-${id}`,
   provider: "fourthwall",
   productId: id,
   checkoutUrl: `https://synthetic-test.fourthwall.com/products/${id}`,
   providerVariantIds: ["provider-small"],
   artworkRevisions: [{ designId: "design-public", revision: 1 }],
-});
+}, product(id), [design("design-public")]);
 
 async function writeJson(file: string, value: unknown) {
   await mkdir(dirname(file), { recursive: true });
@@ -364,10 +365,10 @@ test("the dev server refreshes edits, nested additions, removals, visibility, ro
     () => rm(added),
     async () => !(await transform()).includes("design-new"),
   );
-  const refreshedRoute = {
+  const refreshedRoute = qualifySyntheticRoute({
     ...route("product-public"),
     checkoutUrl: "https://synthetic-test.fourthwall.com/products/updated-destination",
-  };
+  }, product("product-public"), [design("design-public")]);
   await mutate(
     () => writeJson(f.routesFile, [refreshedRoute, route("product-draft")]),
     async () => (await transform()).includes("updated-destination"),

@@ -26,7 +26,7 @@ const translatedTitle = (locale: string, value: string) => ({
   },
 });
 const entry = storeEntrySchema.parse({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   kind: "context",
   contextType: "artist",

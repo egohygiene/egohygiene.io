@@ -4,7 +4,7 @@
   "title": ".play()",
   "description": "A featured artist within the Incompris creative collection. Explore standalone ideas and collections connected to songs as merchandise is added.",
   "visibility": "public",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "translations": [],
   "attribution": {

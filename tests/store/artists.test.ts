@@ -18,7 +18,7 @@ import {
 } from "../../packages/schemas/src/storefront-curation.ts";
 
 const base = (id: string, visibility = "public") => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,
@@ -124,7 +124,7 @@ test("existing curation v1 and optional artist lists default to empty without a 
       songCollectionIds: [],
     },
   ]);
-  assert.equal(catalog.schemaVersion, 2);
+  assert.equal(catalog.schemaVersion, 3);
   const view = getCuratedStoreArtist(catalog, curation, "artist-empty");
   assert.ok(view);
   assert.deepEqual(view.standaloneEntries, []);
