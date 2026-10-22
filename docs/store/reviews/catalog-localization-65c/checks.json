@@ -1,0 +1,239 @@
+{
+  "recordedAt": "2026-10-22",
+  "sourceCommit": "729513f2fef60cb7dd967cb7dfe2dde8d5330d24",
+  "sourceTree": "84fe4c62da7170b0b505213163972000ac5afcd3",
+  "publication": "Remote tree exactly matched staged tested source; contracts, DOM and compiler checks ran before source publication. Normal and isolated build-only checks ran at the clean published source. This later commit contains documentation/evidence only.",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "install": "Frozen lockfile, ignore scripts; 3770 packages; manifests/lockfile unchanged. Official Node archive checksum verified.",
+    "nodeArchiveSha256": "fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6"
+  },
+  "checks": [
+    {
+      "command": [
+        "node",
+        "--test",
+        "tests/store/catalog-localization-fixture.test.ts",
+        "tests/store/checkout-handoff-fixture.test.ts",
+        "tests/store/checkout-handoff-network.test.ts",
+        "tests/store/artifact-qualification.test.ts"
+      ],
+      "startedAt": "2026-10-22T15:25:07.268509+00:00",
+      "elapsedSeconds": 0.52,
+      "exitCode": 0,
+      "logSha256": "964c27c7fc541d76559f755d1b27b1c0a77196c7a23ffa6ff94bda15f931ba8c",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.unit.config.ts",
+        "apps/egohygiene.io/src/features/store/CatalogLocalizationJourney.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreContentLocale.test.tsx"
+      ],
+      "startedAt": "2026-10-22T15:25:07.255444+00:00",
+      "elapsedSeconds": 4.3,
+      "exitCode": 0,
+      "logSha256": "8657180e3a52b44179b502703903582d15682b6592c6ff3e6282c6a79417b200",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "pnpm",
+        "typecheck"
+      ],
+      "startedAt": "2026-10-22T15:25:07.255739+00:00",
+      "elapsedSeconds": 6.52,
+      "exitCode": 0,
+      "logSha256": "d1ae92477a5f259436314780b7f07524485b59e4361163911949d51613b5e384",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "tsconfig.store-browser.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-22T15:25:07.263294+00:00",
+      "elapsedSeconds": 4.51,
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "test-results/catalog-localization-65c/component-tsconfig.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-22T15:25:59.000793+00:00",
+      "elapsedSeconds": 3.14,
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "scripts/qualify-store.mjs"
+      ],
+      "startedAt": "2026-10-22T15:25:58.998044+00:00",
+      "elapsedSeconds": 0.06,
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "node",
+        "tests/catalog-localization/run.mts",
+        "--list"
+      ],
+      "startedAt": "2026-10-22T15:25:07.255443+00:00",
+      "elapsedSeconds": 0.7,
+      "exitCode": 0,
+      "logSha256": "6b299ec146156d57049545ba4bdfb40b88acb01820b1aeb72ea19bd5dd5e3b2b",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "startedAt": "2026-10-22T15:26:48.414163+00:00",
+      "elapsedSeconds": 2.53,
+      "exitCode": 0,
+      "logSha256": "c11a5c15879d91f547e9c01096abad0dac8bc85b67f35c1be818cd5db2cbbbf6",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "node",
+        "tests/catalog-localization/run.mts",
+        "--build-only",
+        "--output-dir",
+        "test-results/catalog-localization"
+      ],
+      "startedAt": "2026-10-22T15:26:48.417477+00:00",
+      "elapsedSeconds": 1.14,
+      "exitCode": 0,
+      "logSha256": "1efa6871c3b8e67a4db4458dc1f0aae5416cb75e58ccfd2e7fc76f3d55b49bad",
+      "result": "passed"
+    },
+    {
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/catalog-65c-artifacts.json"
+      ],
+      "startedAt": "2026-10-22T15:27:13.587438+00:00",
+      "elapsedSeconds": 0.17,
+      "exitCode": 0,
+      "logSha256": "e5488ae81cb6f19455ecbf41ac454412863a26bacd2a890db1700b3f39e5e4dd",
+      "result": "passed"
+    }
+  ],
+  "counts": {
+    "nodeContracts": 18,
+    "simulatedDomCases": 9,
+    "simulatedDomFiles": 2,
+    "newDomCases": 4,
+    "typeProfiles": 5,
+    "authoredBrowserJourneys": 7,
+    "completedBrowserJourneys": 0,
+    "normalArtifactFiles": 16,
+    "normalArtifactReferences": 12,
+    "normalArtifactFindings": 0
+  },
+  "componentTypeProfile": {
+    "path": "test-results/catalog-localization-65c/component-tsconfig.json",
+    "reproduction": "Create the ignored output directory and write the following config before running its recorded tsc command.",
+    "config": {
+      "extends": "../../tsconfig.base.json",
+      "compilerOptions": {
+        "lib": [
+          "ES2022",
+          "DOM",
+          "DOM.Iterable"
+        ],
+        "jsx": "react-jsx",
+        "types": [
+          "node",
+          "vite/client"
+        ]
+      },
+      "include": [
+        "../../.vitest/setup.ts",
+        "../../apps/egohygiene.io/src/vite-env.d.ts",
+        "../../apps/egohygiene.io/src/features/store/CatalogLocalizationJourney.test.tsx"
+      ]
+    }
+  },
+  "authoringValidation": "Both embedded JSON examples parsed against authoritative schemas; exact diagnostic snippet ran on ten entries; reviewed-to-stale source edit verified by authoring agent. No actual human translation review.",
+  "correctedAttempts": [
+    "Initial fixture raw-entry assertion did not account for existing sorted filesystem loader; fixture inputs now use the same deterministic order.",
+    "Initial DOM import reached Node-only loader with a jsdom URL. Split pure test inputs from filesystem IO, preserving existing Node fixture exports. One transient duplicate import during extraction was corrected.",
+    "Initial new DOM test typing omitted existing jest-dom setup and used unsupported getByRole generic; added setup to focused temporary compiler profile and explicit HTMLAnchorElement guard.",
+    "Initial browser-runner compiler findings concerned HTMLCollection iteration, env index access and HTTP2 server union; corrected before final checks. Static review also corrected collection-description selector, browser Intl expectations and moved marker source paths."
+  ],
+  "independentReview": {
+    "result": "No remaining blocking source finding",
+    "limitations": "Browser journeys are authored only; variant mapping and exact link do not prove selected-variant arrival at a provider."
+  },
+  "unchanged": [
+    "Production app behavior and schema v2",
+    "Public English-only registry and shipped catalog/curation/artwork",
+    "Provider routes, disabled real purchasing and empty real artist merchandise selections",
+    "Package manifests and lockfile"
+  ],
+  "notRun": [
+    "Chromium or other browser execution/screenshots/layout/accessibility review",
+    "Full qualification, broad lint/testing, unrelated refactoring or CI repair",
+    "Fourthwall preview build/suite (unchanged by C)",
+    "Manual CI dispatch, merge or deployment",
+    "Human language approval, real provider contact, paid order or spending"
+  ],
+  "warnings": [
+    "Existing Node module-loader and Vite future config-loader notices remain unsuppressed. Runtime archive extraction needed --no-same-owner in this environment."
+  ],
+  "hostedScope": "Automatically triggered source runs; status only refreshed. No manual dispatch or disabled gate. Final #37/#29 retain diagnosis/repair. Local checks are not hosted/browser/production qualification.",
+  "hostedSourceRuns": [
+    {
+      "id": 39804875457,
+      "name": "CI",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 39804875576,
+      "name": "Dependency review",
+      "status": "completed",
+      "conclusion": "failure"
+    },
+    {
+      "id": 39804876445,
+      "name": "CodeQL",
+      "status": "completed",
+      "conclusion": "failure"
+    }
+  ],
+  "documentationChecks": {
+    "result": "passed",
+    "relativeLinkTargets": 242,
+    "json": "Changed JSON parsed and manifest file targets exist",
+    "sourceDiff": "No apps/packages/scripts/tests changes after recorded source commit"
+  }
+}

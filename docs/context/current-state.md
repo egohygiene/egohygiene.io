@@ -1,6 +1,55 @@
 # Current handoff
 
-## Current: #65 B implemented in draft #86 — 2026-10-21 UTC
+## Current: #65 C implementation saved; browser acceptance deferred — 2026-10-22 UTC
+
+Alan selected C after B. Recovered the pruned repository and refreshed GitHub:
+#86 remained draft at `1d61e704c66e4d56bd264b9a0ce1603d034dbd2b`, #85 at
+`9b308a88df4446d54e0558ed35d5dd0f0bbee37e`, #83 at
+`8a6258a1011569ac6e531fc124ccb0766f986389`, main at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. None was merged.
+
+C source `729513f2fef60cb7dd967cb7dfe2dde8d5330d24`, tree `84fe4c62da7170b0b505213163972000ac5afcd3`,
+is published in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86),
+branch `feat/catalog-localization-65a`, still stacked on #85/#83. The remote tree
+matches the tested staged source. Normal and isolated build-only checks ran at
+the clean published revision; this following docs commit records evidence.
+
+Read the [C receipt](../store/catalog-localization-65c.md),
+[checks](../store/reviews/catalog-localization-65c/checks.json),
+[build-only report](../store/reviews/catalog-localization-65c/build.json) and
+[first-language checklist](../store/catalog-language-review.md). A reusable synthetic
+French/regional/expanded fixture exercises missing/draft/stale fallback, Unicode
+search, canonical collection/product navigation, client metadata, truthful USD
+formatting and unchanged purchase mappings. Simulated DOM activation captures the
+exact link without navigation. Seven browser journeys reuse the real app and
+existing intercepted-handoff boundary; final #37's runner includes them.
+
+Final focused passes: **18 contracts + 9 simulated DOM cases**, five type profiles,
+runner syntax, normal build and isolated catalog build-only. Normal artifacts:
+16 files, 12 references, zero findings; approved Heartburst bytes unchanged. The
+isolated report explicitly records **zero completed browser journeys**. Independent
+source review found no remaining blocker. The required test-helper split isolates
+pure inputs from Node IO, preserving existing handoff APIs and checks; production
+UI/schema/catalog/registry/providers/dependencies are unchanged.
+
+**Deferred:** actual Chromium, captures, long-text/layout/accessibility acceptance,
+broad lint/testing, unrelated refactoring and CI repair remain final #37/#29 work.
+Source hosted CI 39804875457, dependency review 39804875576 and CodeQL
+39804876445 failed; status only was refreshed. These are retained in the receipt; local results
+are not hosted/browser/production qualification. No real locale or rights approval,
+provider request, product activation, order, merge, deployment or spending occurred.
+Unchanged variant mappings are not proof of selected-variant arrival at checkout.
+
+**Next:** sync on C implementation, then select #38's bounded readiness preparation
+with relevant #9 customer disclosures: reviewed activation records and synthetic
+eligibility guards before real account/artwork/product activation. Then #22 public
+rendering/metadata and final #37/#29/#52/#49/#70 validation/CI follow #84. #65 C,
+#64 C and #37 retain deferred browser acceptance; #65/#34 remain open for review.
+Merge the #83 → #85 → #86 draft stack only when explicitly instructed, reconciling
+downstream bases after each merge. Real hosting/provider activation and #39 remain
+separate authorization.
+
+## Historical: #65 B implemented in draft #86 — 2026-10-21 UTC
 
 Alan authorized continuing to B during the 2026-10-20 maintainer session. Recovered
 the pruned checkout from GitHub and refreshed #65/#84, draft #86 at

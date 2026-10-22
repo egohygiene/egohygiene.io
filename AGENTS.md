@@ -83,9 +83,12 @@ implementation. #65 A / #34 is now in [draft #86](https://github.com/egohygiene/
 stacked on #85: read [ADR 0010](docs/architecture/decisions/0010-versioned-catalog-localization.md).
 #65 A is recorded in the [catalog receipt](docs/store/catalog-localization-65a.md).
 Alan then selected B, now implemented in that same draft; read its
-[presentation/search receipt](docs/store/catalog-localization-65b.md). Next is sync,
-then #65 C synthetic integration/authoring proof. #84 orders #65/#34, #38 plus relevant
-#9, #22, then final #37 with #29/#52/#49/#70. Keep focused correctness checks while
+[presentation/search receipt](docs/store/catalog-localization-65b.md). Alan then selected C;
+its [integration/review receipt](docs/store/catalog-localization-65c.md) records reusable
+fixtures, passing focused local checks and seven authored browser journeys. Chromium
+execution remains deferred, so C browser acceptance stays open. Next after sync is
+#38 readiness preparation plus relevant #9 disclosures, then #22 and final #37 with
+#29/#52/#49/#70 under roadmap #84. Keep focused correctness checks while
 implementing; the deferred browser/hosted failures remain open. No new merge authority
 is inferred from continued implementation.
 Deployment and commerce activation remain separate instructions.

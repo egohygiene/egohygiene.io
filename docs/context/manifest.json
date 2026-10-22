@@ -33,5 +33,7 @@
   "interfaceMessageWorkflow": "docs/store/interface-message-workflow.md",
   "catalogLocalizationReview": "docs/store/catalog-localization-65a.md",
   "catalogLocalizationDecision": "docs/architecture/decisions/0010-versioned-catalog-localization.md",
-  "catalogPresentationReview": "docs/store/catalog-localization-65b.md"
+  "catalogPresentationReview": "docs/store/catalog-localization-65b.md",
+  "catalogIntegrationReview": "docs/store/catalog-localization-65c.md",
+  "catalogLanguageWorkflow": "docs/store/catalog-language-review.md"
 }

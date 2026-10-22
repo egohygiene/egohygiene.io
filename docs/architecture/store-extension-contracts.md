@@ -260,8 +260,9 @@ See the [contract checkpoint](../store/catalog-localization-65a.md),
 [rendering/search checkpoint B](../store/catalog-localization-65b.md),
 [ADR 0010](decisions/0010-versioned-catalog-localization.md) and
 [authoring examples](../store/catalog-authoring.md#catalog-translations-and-attribution).
-C's synthetic integration and first-language review proof remains next; actual
-Chromium and broad qualification stay deferred to final #37. These content APIs
+[C's reusable integration fixtures](../store/catalog-localization-65c.md) and
+[first-language review checklist](../store/catalog-language-review.md) are retained.
+Actual Chromium and broad qualification stay deferred to final #37. These content APIs
 and local checks do not constitute human language review or public activation.
 
 ## Loading and failure behavior

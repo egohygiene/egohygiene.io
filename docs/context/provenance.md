@@ -4,6 +4,52 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Catalog localization C — 2026-10-22 UTC
+
+Authority: Alan selected the proposed C checkpoint after B, retaining the explicit
+Chromium/broad-validation/CI deferral. Recovered the pruned checkout and pinned
+runtime, read repository/scoped instructions and ADRs, and refreshed the unchanged
+main/#83/#85/#86 stack and live #65/#84/#37. Frozen scripts-disabled installation
+retained manifests/lockfile; official Node archive checksum matched the retained
+runtime receipt. No new merge authority was inferred.
+
+Implementation source `729513f2fef60cb7dd967cb7dfe2dde8d5330d24`, tree `84fe4c62da7170b0b505213163972000ac5afcd3`,
+is in [draft #86](https://github.com/egohygiene/egohygiene.io/pull/86). The API tree
+matched the local staged tree; source was fetched/adopted before clean normal and
+isolated builds. This follow-up only records evidence and continuity. Inputs are
+authored synthetic translations/review bindings plus the existing fictional #37
+swatch/product/route. No private source, artwork master, business record, external
+implementation or actual provider was used. Real catalog/locale/provider inputs
+stay unchanged. No new architectural decision was needed beyond ADR 0010.
+
+The [C receipt](../store/catalog-localization-65c.md) maps six fixture contracts,
+four new simulated journeys, seven authored browser journeys and the
+[first-language workflow](../store/catalog-language-review.md). Shared test inputs
+were split from Node IO to support DOM reuse, with old exports preserved. Static
+review corrected a collection selector, browser Intl expectations and marker
+source paths. Initial fixture ordering/import/compiler setup errors are preserved
+in [checks](../store/reviews/catalog-localization-65c/checks.json), not hidden as
+successful first attempts. Final independent source review has no blocker.
+
+Final focused evidence: 18 contracts, 9 simulated DOM cases across two files,
+five type profiles, runner syntax, normal and isolated build-only checks passed.
+[Normal artifacts](../store/reviews/catalog-localization-65c/artifacts.json): 16
+files, 12 references, zero findings; 950,215 raw/579,950 gzip bytes and unchanged
+approved Heartburst. [Isolated report](../store/reviews/catalog-localization-65c/build.json):
+five public fictional entries, required translated controls, draft/stale exclusions,
+seven definitions and zero browser executions. Existing module-loader warnings
+remain. Authoring JSON examples/diagnostics were validated; no real human review.
+
+Exact synthetic URL and unchanged variant mappings are tested locally; no chosen
+variant transfer, browser interception, external checkout language or fulfillment
+is claimed from this C run. No Chromium/screenshot/AT/layout qualification, full
+suite, broad lint/refactor, CI repair/dispatch, merge, deployment, activation, order
+or spending. Automatic source CI 39804875457, dependency review 39804875576 and CodeQL
+39804876445 failed; status only was refreshed and retained separately in checks;
+local passes do not replace hosted gates. #65 C/#64 C/#37 acceptance stays open.
+Next after sync: #38 readiness/activation-record preparation with relevant #9,
+then #22 and final #37 validation/CI. Existing draft stack stays unmerged.
+
 ## Catalog localization B — 2026-10-21 UTC
 
 Alan selected B after A during the 2026-10-20 maintainer session. Restored the
