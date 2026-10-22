@@ -4,6 +4,54 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Authorized stack merge and local-machine final-pass plan — 2026-10-22
+
+Alan explicitly requested #83 → #85 → #86 merges and a sync afterward. He chose
+#38 readiness/relevant #9 and #22 next, then a final engineering pass run on his
+own machine, with convenient Taskfile wrappers before real-product setup.
+This checkpoint performs the merges and records that sequence; it starts no new
+implementation or product/account work.
+
+Refreshed all PRs and main. Reviewed heads were #83
+`8a6258a1011569ac6e531fc124ccb0766f986389`, #85
+`9b308a88df4446d54e0558ed35d5dd0f0bbee37e`, and #86
+`49ab71e167aeecc8ad93388a0882dd4460ccac80`. Main began at
+`6841b3a9ab20d3be68162da69500bdd7f2ba1ef7`. All heads were unchanged, mergeable,
+and had failed CI/dependency-review/CodeQL outcomes. Read-only review confirmed
+stack ancestry and the existing Taskfile/environment/profile entry points.
+
+Marked each PR ready, used ordinary GitHub merges with its exact expected head,
+and retargeted #85/#86 to main only after their predecessors merged. Results:
+
+- #83 → `96243847f2e4a340081de880e4f288cc5c36339c`.
+- #85 → `5ff82ca05d5fa96e199adf6f90f8abe615a4567d`.
+- #86 → `bb367996a9ab36ffec29cc0fd5aee1b19d80268d`.
+
+Readback confirmed all three merged/closed into main. Fetched main has tree
+`16be01e2d757c0d34ff804f854cf5eb7d774b353`, byte-for-byte identical to #86's
+reviewed head tree. No conflicts, source rewrites, forced updates, gate changes or
+manual CI dispatch occurred. Existing PR-head runs remain failures:
+#83 CI39227416698/dependency39227416469/CodeQL39227416865;
+#85 CI39442495673/dependency39442496380/CodeQL39442495599;
+#86 CI39805646227/dependency39805646399/CodeQL39805647069.
+Integrated-main automatic CI39819588188 and CodeQL39819588752 also failed.
+These are refreshed hosted states, not diagnoses or local-test results.
+
+Continuity/roadmap and ADR delivery-status updates follow on main; decision
+contracts and retained historical receipts are unchanged. Verification covers
+ancestry/tree equality, GitHub readback, 224 relative documentation link targets,
+context-manifest JSON/paths and whitespace.
+No application/browser/full validation was rerun, and no fresh passing CI or
+production qualification is claimed. #34/#64/#65/#37 remain open.
+
+The final pass will reuse existing setup/build/preview/dev/tooling tasks and
+wrap existing lint/type/test/browser/profile commands as useful. Optional
+credential-backed Fourthwall checks remain outside default local validation.
+Actual hosted CI outcomes need separate verification from checks on Alan's machine.
+No private input, provider request, real translation/product activation, deployment,
+order or spending occurred. Sync now, then #38 preparation, #22, local final pass,
+and separately authorized real product/hosting/launch decisions.
+
 ## Catalog localization C — 2026-10-22 UTC
 
 Authority: Alan selected the proposed C checkpoint after B, retaining the explicit

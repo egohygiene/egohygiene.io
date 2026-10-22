@@ -5,6 +5,17 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
+## Current merge checkpoint — 2026-10-22
+
+Alan authorized merging #83, #85 and #86 in order. All three are now merged on
+main, ending at `bb367996a9ab36ffec29cc0fd5aee1b19d80268d`; the integrated tree
+matches reviewed #86 exactly. This supersedes historical draft/stack notes below.
+Read [current state](docs/context/current-state.md) for exact merge provenance.
+Sync before the next implementation: #38 readiness plus relevant #9, then #22,
+then Alan's local-machine final #37 validation/CI work with Taskfile conveniences.
+Real-product setup follows that pass. Browser acceptance and hosted failures stay
+open; merging does not qualify deployment or activate purchases.
+
 ## Start or resume
 
 1. Read [current state](docs/context/current-state.md) and the

@@ -1,7 +1,7 @@
 # ADR 0010 — Versioned catalog localization and explicit attribution
 
 - Date: 2026-10-20
-- Status: Implemented for #65 A/B / #34 in a draft checkpoint; review pending.
+- Status: Merged in PR #86 on 2026-10-22; #65 A/B / #34 and C integration fixtures implemented, browser qualification pending.
 - Scope: Portable catalog data, publication, and migration. Selected-language
   rendering/search is implemented in B; browser qualification is deferred to #37.
 

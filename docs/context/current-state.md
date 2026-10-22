@@ -1,6 +1,51 @@
 # Current handoff
 
-## Current: #65 C implementation saved; browser acceptance deferred — 2026-10-22 UTC
+## Current: #83 → #85 → #86 merged; sync before readiness work — 2026-10-22
+
+Alan explicitly authorized merging all three PRs in order and requested a sync
+before the next work. Refreshed the live heads, bases, mergeability and hosted
+statuses, then merged with ordinary merge commits and exact expected-head checks:
+
+| PR | Reviewed head | Merge on main |
+| --- | --- | --- |
+| [#83](https://github.com/egohygiene/egohygiene.io/pull/83) | `8a6258a1011569ac6e531fc124ccb0766f986389` | `96243847f2e4a340081de880e4f288cc5c36339c` |
+| [#85](https://github.com/egohygiene/egohygiene.io/pull/85) | `9b308a88df4446d54e0558ed35d5dd0f0bbee37e` | `5ff82ca05d5fa96e199adf6f90f8abe615a4567d` |
+| [#86](https://github.com/egohygiene/egohygiene.io/pull/86) | `49ab71e167aeecc8ad93388a0882dd4460ccac80` | `bb367996a9ab36ffec29cc0fd5aee1b19d80268d` |
+
+Retargeted #85 and #86 to main after their respective predecessors merged.
+No source-head change or conflict resolution was necessary. All three GitHub PRs
+read back as merged/closed. Integrated main's tree is exactly
+`16be01e2d757c0d34ff804f854cf5eb7d774b353`, equal to the reviewed #86 head tree.
+The following commit updates continuity only; it is not a new implementation or
+fresh functional-test run. Earlier receipts retain their exact source revisions.
+
+**Agreed sequence after this sync:**
+
+1. #38 bounded readiness records/eligibility guards plus relevant #9 customer
+   disclosures, using synthetic products before real account/artwork activation.
+2. #22 bounded current-route public HTML, metadata, canonical URLs and sitemap.
+3. Stop for Alan to run the integrated site/checks on his own machine. Use final
+   #37 with #29/#52/#49/#70 to diagnose lint, compiler/tests, Chromium and CI issues,
+   wrapping established commands in convenient Taskfile tasks. Local checks and
+   actual hosted CI outcomes remain separate evidence.
+4. Then plan the real product/provider setup, host qualification and #39 launch
+   with the required concrete artwork/account/publication decisions.
+
+Reuse `Taskfile.yml`, `scripts/store-environment.mjs` and
+`scripts/qualify-store.mjs`; do not create a parallel test orchestrator. Existing
+setup/build/preview/dev/tooling tasks remain available. The optional credential-
+backed `fourthwall:check` is separate from ordinary local validation. No new task
+wrappers were implemented during this merge-only checkpoint.
+
+**Still open:** #64/#65 browser acceptance, final #37 qualification and hosted
+failures. All three reviewed PR heads had failed CI/dependency-review/CodeQL runs.
+Integrated-main automatic CI 39819588188 and CodeQL 39819588752 also failed.
+No gate was bypassed/disabled, no workflow manually dispatched, and the merges do
+not turn those results into passes. #34 remains open for acceptance reconciliation.
+No next issue implementation, deployment, provider request, real product/language
+activation, order or spending occurred. The next action is sync, then #38 readiness.
+
+## Historical: #65 C implementation saved; browser acceptance deferred — 2026-10-22 UTC
 
 Alan selected C after B. Recovered the pruned repository and refreshed GitHub:
 #86 remained draft at `1d61e704c66e4d56bd264b9a0ce1603d034dbd2b`, #85 at

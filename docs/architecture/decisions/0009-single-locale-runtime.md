@@ -1,7 +1,7 @@
 # ADR 0009 — One locale registry and the existing translation runtime
 
 - Date: 2026-10-20
-- Status: Selected for #64; A/B and C review tooling are in draft, browser qualification pending.
+- Status: Merged in PR #85 on 2026-10-22; A/B and C review tooling implemented, browser qualification pending.
 - Scope: Shared interface messages and website locale selection. Catalog translations
   remain #65/#34; public rendering and canonical metadata remain #22.
 

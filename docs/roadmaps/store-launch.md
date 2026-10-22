@@ -1,6 +1,23 @@
 # Store launch: proposed roadmaps, milestones, and sub-issues
 
-## Current execution guide — 2026-10-20
+## Current execution guide — 2026-10-22
+
+Alan authorized and completed the #83 → #85 → #86 merge sequence. Main now contains
+qualification tooling, interface localization, catalog v2/migration and localized
+presentation/integration fixtures. See [current state](../context/current-state.md)
+for merge hashes and exact tree equality. Browser acceptance and failed hosted
+checks remain open; the older draft snapshots below are historical.
+
+After the requested sync, proceed through #38 readiness guards/records plus relevant
+#9 disclosures, then #22's bounded public HTML/metadata/sitemap work. Stop at final
+#37 so Alan can run the integrated site on his own machine. Diagnose local lint,
+type/test/Chromium and hosted CI issues with #29/#52/#49/#70, adding convenient
+Taskfile wrappers around existing commands/profile rather than rebuilding them.
+Local passes do not establish hosted CI success. Real-product/provider setup,
+hosting and #39 launch follow that engineering pass and their concrete approvals.
+No implementation beyond the merges or new Taskfile wrappers were started here.
+
+## Historical execution guide — 2026-10-20
 
 Alan requested the remaining storefront sequence and notes as a durable issue.
 [Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) now records that
