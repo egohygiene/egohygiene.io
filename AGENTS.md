@@ -5,7 +5,18 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
-## Current merge checkpoint — 2026-10-22
+## Current readiness checkpoint — 2026-10-22
+
+Alan selected #38 readiness and the applicable #9 customer slice after the merge
+sync. It is implemented in [draft #87](https://github.com/egohygiene/egohygiene.io/pull/87),
+unmerged. Read [current state](docs/context/current-state.md),
+[ADR 0011](docs/architecture/decisions/0011-reviewed-product-readiness.md) and the
+[receipt](docs/store/product-readiness-38.md): current catalog is v3; no real
+product/provider is activated. Next after sync is bounded #22, then the final
+engineering pass on Alan's machine with Taskfile conveniences, then real product
+setup. Chromium and hosted failures remain open. No merge authority is inferred.
+
+## Historical merge checkpoint — 2026-10-22
 
 Alan authorized merging #83, #85 and #86 in order. All three are now merged on
 main, ending at `bb367996a9ab36ffec29cc0fd5aee1b19d80268d`; the integrated tree

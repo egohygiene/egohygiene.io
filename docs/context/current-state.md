@@ -1,6 +1,48 @@
 # Current handoff
 
-## Current: #83 → #85 → #86 merged; sync before readiness work — 2026-10-22
+## Current: #38 readiness / bounded #9 saved in draft #87 — 2026-10-22 UTC
+
+Alan selected readiness preparation and customer disclosures after the ordered
+merges. Refreshed main at `07d25941ceeefa53089afa025b612c6aa54f36c4`, issues
+#38/#9/#84 and open PRs before editing. Only older CI draft #73 was still open.
+
+[Draft #87](https://github.com/egohygiene/egohygiene.io/pull/87), branch
+`feat/store-readiness-38`, targets main and remains unmerged. Source
+`902be39761f00d73e82ea08d55ff98bc05d8e7c5`, tree
+`64a3b39b231e66b4ea427be4a720e09fc573de9d`, implements catalog v3 reviewed readiness,
+explicit adjacent migration, `/store/help`, reviewed policy/support links and
+provisional privacy/terms boundaries. [ADR 0011](../architecture/decisions/0011-reviewed-product-readiness.md),
+[onboarding workflow](../store/product-readiness.md) and
+[receipt](../store/product-readiness-38.md) own details and exact evidence.
+
+Missing/unreviewed/stale qualification cannot create a live link. The snapshot
+binds route/product/variants, labels, artwork paths/revisions, price and customer
+links; currentness is deterministic, not proof of current remote terms or rights.
+V2 live data requires deliberate withdrawal/requalification rather than automatic
+approval. All ten real entries are an exact non-live migration; routes stay empty,
+providers disabled, artwork/curation unchanged and `.play()` merchandise empty.
+
+Local: **138 catalog contracts + 74 focused components passed**, five type profiles,
+locale/boundary checks, normal build and both isolated preview builds. Normal scan:
+16 files / 12 references / zero findings, 959,716 raw / 582,378 gzip bytes; approved
+Heartburst bytes match. Independent review findings were resolved. The updated
+browser definitions were type-checked; **zero Chromium journeys executed**.
+
+Automatic source dependency-review 39823530314 and CodeQL 39823530310 failed;
+CI 39823529875 also failed at receipt refresh. No hosted cause was re-diagnosed,
+manual dispatch or gate change. Local checks are not hosted/production qualification.
+Chromium, broad lint/testing, unrelated refactoring and CI repair remain deferred.
+
+**Next:** sync on #87, then select #22 bounded public HTML/metadata/canonical/sitemap.
+After that, final #37 on Alan's machine with #29/#52/#49/#70 and useful Taskfile
+wrappers over existing environment/qualification commands. Then actual product/
+provider setup and release qualification. No merge, next-issue implementation,
+real account/product/language activation, provider request, order, deployment or
+spending occurred. #38 remains open for actual activation; #9 for wider canonical
+organizational trust/profile/Holon/Relay/accessibility/privacy work. #37/#64/#65
+retain their deferred browser/acceptance gaps. Do not close these from local passes.
+
+## Historical: #83 → #85 → #86 merged; sync before readiness work — 2026-10-22
 
 Alan explicitly authorized merging all three PRs in order and requested a sync
 before the next work. Refreshed the live heads, bases, mergeability and hosted

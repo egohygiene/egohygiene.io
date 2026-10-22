@@ -1,0 +1,31 @@
+{
+  "sourceCommit": "902be39761f00d73e82ea08d55ff98bc05d8e7c5",
+  "scope": "Automatic run status only; no diagnosis, dispatch, retry or configuration change.",
+  "runs": [
+    {
+      "id": 39823530314,
+      "name": "Dependency review",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39823530314",
+      "head_sha": "902be39761f00d73e82ea08d55ff98bc05d8e7c5"
+    },
+    {
+      "id": 39823530310,
+      "name": ".github/workflows/codeql.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39823530310",
+      "head_sha": "902be39761f00d73e82ea08d55ff98bc05d8e7c5"
+    },
+    {
+      "id": 39823529875,
+      "name": "CI",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39823529875",
+      "head_sha": "902be39761f00d73e82ea08d55ff98bc05d8e7c5"
+    }
+  ],
+  "recordedAt": "2026-10-22T17:36:02.949122+00:00"
+}

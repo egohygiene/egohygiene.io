@@ -1,0 +1,187 @@
+{
+  "sourceCommit": "902be39761f00d73e82ea08d55ff98bc05d8e7c5",
+  "sourceTree": "64a3b39b231e66b4ea427be4a720e09fc573de9d",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5"
+  },
+  "scope": "Focused catalog/readiness/migration, store components, type profiles and build isolation. Local results only.",
+  "checks": [
+    {
+      "id": "artifacts",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/readiness-38/artifacts.json"
+      ],
+      "startedAt": "2026-10-22T17:32:36.112239+00:00",
+      "elapsedSeconds": 0.16,
+      "exitCode": 0,
+      "logSha256": "f606e1f2cebfcaf7a25dbf51af5021b8ce54084608c37511f3da6f9a621ef1f9"
+    },
+    {
+      "id": "boundaries",
+      "command": [
+        "node",
+        "scripts/checks/check-store-boundaries.ts"
+      ],
+      "startedAt": "2026-10-22T17:28:18.436980+00:00",
+      "elapsedSeconds": 0.45,
+      "exitCode": 0,
+      "logSha256": "e287994de02a597957edc88489f5a41a1a6ab22fbd3b35776da537d0d03561a5"
+    },
+    {
+      "id": "browser-types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "tsconfig.store-browser.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-22T17:29:17.308198+00:00",
+      "elapsedSeconds": 4.25,
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "build",
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "startedAt": "2026-10-22T17:32:13.016777+00:00",
+      "elapsedSeconds": 2.65,
+      "exitCode": 0,
+      "logSha256": "7d20464b3b2ab4dcd485c281bf0bfb11f2ee43798ffea4c2c9277ed8f05070be"
+    },
+    {
+      "id": "catalog-build-only",
+      "command": [
+        "node",
+        "tests/catalog-localization/run.mts",
+        "--build-only",
+        "--output-dir",
+        "test-results/readiness-38/catalog"
+      ],
+      "startedAt": "2026-10-22T17:32:13.025023+00:00",
+      "elapsedSeconds": 1.34,
+      "exitCode": 0,
+      "logSha256": "45fec3a0f7eb5c4f436cae28bcaad2c078223c6255bf977f6ecd96d1cdea1497"
+    },
+    {
+      "id": "catalog",
+      "command": [
+        "pnpm",
+        "catalog:test"
+      ],
+      "startedAt": "2026-10-22T17:28:18.437002+00:00",
+      "elapsedSeconds": 7.66,
+      "exitCode": 0,
+      "logSha256": "b026203832e66702d86f73cb486577cbfb06b07b1337e67e3e16f3580f2d5ff1"
+    },
+    {
+      "id": "journey-types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "tsconfig.store.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-22T17:30:32.865162+00:00",
+      "elapsedSeconds": 3.54,
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "messages",
+      "command": [
+        "node",
+        "scripts/checks/check-locales.ts"
+      ],
+      "startedAt": "2026-10-22T17:28:18.434558+00:00",
+      "elapsedSeconds": 0.13,
+      "exitCode": 0,
+      "logSha256": "d353fafd690e70244e28ac6c1abc551d01f10376ca829edd08f9585222019bcf"
+    },
+    {
+      "id": "preview-build",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "build"
+      ],
+      "startedAt": "2026-10-22T17:32:13.022882+00:00",
+      "elapsedSeconds": 1.97,
+      "exitCode": 0,
+      "logSha256": "55723113c22746ba2593110cddcafbd261f467a6fcde92b46f1097a7576181b0"
+    },
+    {
+      "id": "schema-types",
+      "command": [
+        "pnpm",
+        "exec",
+        "tsc",
+        "--project",
+        "packages/schemas/tsconfig.build.json",
+        "--noEmit"
+      ],
+      "startedAt": "2026-10-22T17:29:17.307727+00:00",
+      "elapsedSeconds": 1.91,
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "store-components",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.unit.config.ts",
+        "apps/egohygiene.io/src/features/store",
+        "apps/egohygiene.io/src/features/fourthwall-preview/contract.test.ts",
+        "apps/egohygiene.io/src/pages/StoreHelpPage.test.tsx",
+        "apps/egohygiene.io/src/pages/pageMessages.test.tsx",
+        "apps/egohygiene.io/src/components/Footer/Footer.test.tsx"
+      ],
+      "startedAt": "2026-10-22T17:28:18.436795+00:00",
+      "elapsedSeconds": 9.64,
+      "exitCode": 0,
+      "logSha256": "8c24c2c340dbaef3afa559d36bb0d48aff33116850920e5a1963fb5b2a81db52"
+    },
+    {
+      "id": "types",
+      "command": [
+        "pnpm",
+        "typecheck"
+      ],
+      "startedAt": "2026-10-22T17:28:18.437401+00:00",
+      "elapsedSeconds": 12.28,
+      "exitCode": 0,
+      "logSha256": "d1ae92477a5f259436314780b7f07524485b59e4361163911949d51613b5e384"
+    }
+  ],
+  "tests": {
+    "catalogContracts": 138,
+    "focusedComponents": 74,
+    "completedBrowserJourneys": 0
+  },
+  "additionalEvidence": {
+    "productionMigration": "All ten parsed production entries equal migrateStoreCatalogV2 applied to retained main 07d25941ceeefa53089afa025b612c6aa54f36c4 inputs. Real checkout routes empty, provider file byte-identical.",
+    "independentReview": "Exported helper identity mismatch and authored browser selector changes resolved; no remaining blocker found."
+  },
+  "deferred": [
+    "Chromium execution and screenshots",
+    "Broad lint/full test/CI repair",
+    "Manual device, assistive technology and native zoom checks",
+    "Actual provider/account/product eligibility, terms, rights and garment/template approval",
+    "Real checkout, paid sample, fulfillment and physical quality",
+    "Deployment and crawler-visible public HTML qualification"
+  ]
+}
