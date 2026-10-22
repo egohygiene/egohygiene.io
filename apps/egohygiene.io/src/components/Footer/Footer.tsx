@@ -22,6 +22,9 @@ export function Footer() {
                 <NavLink to="/store">{t("shell.footer.store")}</NavLink>
               </li>
               <li>
+                <NavLink to="/store/help">{t("shell.footer.storeHelp")}</NavLink>
+              </li>
+              <li>
                 <NavLink to="/about">{t("shell.navigation.about")}</NavLink>
               </li>
               <li>

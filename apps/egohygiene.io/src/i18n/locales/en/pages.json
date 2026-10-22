@@ -33,15 +33,40 @@
   "privacy": {
     "description": "A provisional explanation of the current website’s privacy practices.",
     "intro": "This provisional draft is here to explain the current state plainly.",
-    "current": "The first public website is static and does not require sign-in or collect personal data through a backend.",
+    "current": "This website does not require sign-in and has no form for submitting order or payment details.",
+    "external": "Checkout and support links can take you to a separate service. Review that service’s privacy information before sharing personal or order details. Website feedback on GitHub is public.",
     "future": "Future changes will update this page before stronger guarantees are claimed.",
     "preferences": "The site can save theme and language preferences in your browser. Blocking browser storage does not prevent browsing."
   },
   "terms": {
     "description": "Provisional terms for the Ego Hygiene public website.",
     "intro": "These terms are provisional and describe a minimal public website release.",
-    "use": "Use the site as informational content only; unfinished products are clearly labeled and may change.",
+    "use": "Product previews and unfinished features are labeled and may change. A design preview is not a product purchase or permission to reuse the artwork.",
+    "store": "Available physical products link to a separate checkout. Before paying, review the actual product, options, total, delivery eligibility, returns policy, and support information there. These website terms do not replace the terms shown for that purchase.",
     "limits": "No warranties or service-level guarantees are implied by this draft."
+  },
+  "storeHelp": {
+    "title": "Store help",
+    "description": "Understand product previews, hosted checkout, delivery information, and where to get help with the Ego Hygiene store.",
+    "intro": "A guide to browsing the store and checking the details before you buy.",
+    "productsHeading": "Products and artwork previews",
+    "products": "The store is for physical products bearing designs. Design pages show the artwork behind those products; they do not offer artwork files for download or a license to reuse them.",
+    "previews": "Products marked Preview or Unavailable cannot be purchased. Fictional examples are labeled in their descriptions and are not real offers.",
+    "images": "Artwork previews and concept images do not show a finished product. A product mockup is not evidence of a received or physically inspected sample. Check the provider’s actual product details before buying.",
+    "checkoutHeading": "Before you buy",
+    "checkout": "An available product’s purchase link takes you to the checkout provider. This website does not take your payment or submit an order for you.",
+    "options": "Choose and confirm the product options at the provider. Check the current price and final total, including shipping, tax, and any other charges, before paying. A price displayed here is not the final checkout total.",
+    "delivery": "Use the shipping and returns links on the available product’s page, then confirm delivery eligibility, timing, and return conditions for your order at the provider. Browsing in a language does not establish delivery to a country.",
+    "ordersHeading": "Help with an order",
+    "orders": "Use the order-support link on the available product’s page. Check your order confirmation for any order-specific support instructions. This website has no order-support form.",
+    "orderPrivacy": "Send order numbers, delivery addresses, and other private details only through the appropriate private support channel. Public website feedback is not an order-support channel.",
+    "websiteHeading": "Website problems and accessibility feedback",
+    "website": "If a page or control is difficult to use, you can report it through the website’s GitHub issues. Include the page URL, what you were trying to do, and what happened. Browser or assistive-technology details can help if you choose to share them.",
+    "feedbackWarning": "GitHub issues are public and require a GitHub account to submit. Do not include order details, payment information, addresses, or other private information. A private website-feedback channel is not published here yet.",
+    "feedbackLink": "Report a website problem on GitHub",
+    "policiesHeading": "Website policy drafts",
+    "policies": "These pages explain the current website and remain provisional. Their presence is not a claim of legal, privacy, security, or accessibility compliance.",
+    "back": "Back to the store"
   },
   "product": {
     "title": "{{name}} · Ego Hygiene",

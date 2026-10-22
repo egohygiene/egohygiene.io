@@ -8,7 +8,20 @@ import {
   validateStoreTranslations,
 } from "./store-localization.ts";
 
-export const STORE_SCHEMA_VERSION = 2;
+import {
+  storeArtworkPathSchema,
+  storeCheckoutRouteFields,
+  storeDisplayPriceSchema,
+  storeQualificationSchema,
+  storeReadinessSnapshotSchema,
+  storeReadinessSnapshotsEqual,
+  storeRouteDisclosuresSchema,
+  storeVariantSchema,
+  type StoreReadinessSnapshot,
+  type StoreRouteDisclosures,
+} from "./store-readiness.ts";
+
+export const STORE_SCHEMA_VERSION = 3;
 const id = storeReferenceIdSchema;
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Use a lowercase URL slug");
 const text = z.string().trim().min(1);
@@ -32,7 +45,7 @@ export const storeArtworkSchema = z.discriminatedUnion("kind", [
   z.strictObject({ kind: z.literal("placeholder"), label: text }),
   z.strictObject({
     kind: z.literal("image"),
-    src: z.string().regex(/^\/store\/(?:[a-z0-9_-]+\/)*[a-z0-9_-]+\.(?:png|jpg|jpeg|webp|avif)$/, "Use an approved local /store/ image derivative"),
+    src: storeArtworkPathSchema,
     alt: text,
   }),
 ]);
@@ -52,12 +65,8 @@ export const storePurchaseSchema = z.discriminatedUnion("state", [
     state: z.literal("live"),
     provider: z.literal("fourthwall"),
     routeId: id,
-    variants: z.array(z.strictObject({ id, label: text, providerVariantId: text })).min(1),
-    displayPrice: z.strictObject({
-      amountMinor: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),
-      currency: z.enum(["USD", "EUR", "GBP", "CAD", "AUD"]),
-      authority: z.literal("provider-checkout"),
-    }).optional(),
+    variants: z.array(storeVariantSchema).min(1),
+    displayPrice: storeDisplayPriceSchema.optional(),
   }),
 ]);
 
@@ -89,18 +98,15 @@ export const storeEntrySchema = z.discriminatedUnion("kind", [
   storeDesignSchema, storeProductSchema, storeCollectionSchema, storeContextSchema,
 ]);
 
-// This is an explicit reviewed destination list, not a provider API or proof of availability.
+// Routes stage offer facts; only a current explicit qualification can authorize a live action.
 export const storeCheckoutRouteSchema = z.strictObject({
-  id,
-  provider: z.literal("fourthwall"),
-  productId: id,
-  checkoutUrl: z.url().regex(
-    /^https:\/\/[a-z0-9]+(?:-[a-z0-9]+)*\.fourthwall\.com\/products\/[a-z0-9][a-z0-9-]*\/?$/,
-    "Use a reviewed HTTPS Fourthwall product URL; custom domains require a later policy change",
-  ),
-  providerVariantIds: z.array(text).min(1),
-  artworkRevisions: z.array(z.strictObject({ designId: id, revision: z.number().int().positive() })).min(1),
+  ...storeCheckoutRouteFields,
+  disclosures: storeRouteDisclosuresSchema.optional(),
+  qualification: storeQualificationSchema.default({ status: "unreviewed" }),
 });
+
+// Historical migration inputs retain their original route contract; no approval is invented.
+export const storeCheckoutRouteV2Schema = z.strictObject(storeCheckoutRouteFields);
 
 /**
  * Validates the versioned envelope and record shapes, not cross-record relationships.
@@ -123,8 +129,23 @@ export const storeEntryV1Schema = z.discriminatedUnion("kind", [
 export const storeCatalogV1Schema = z.strictObject({
   schemaVersion: z.literal(1),
   entries: z.array(storeEntryV1Schema),
-  checkoutRoutes: z.array(storeCheckoutRouteSchema),
+  checkoutRoutes: z.array(storeCheckoutRouteV2Schema),
 });
+
+const v2Base = { ...base, schemaVersion: z.literal(2) };
+export const storeEntryV2Schema = z.discriminatedUnion("kind", [
+  z.strictObject({ ...v2Base, ...designFields }),
+  z.strictObject({ ...v2Base, ...productFields }),
+  z.strictObject({ ...v2Base, ...collectionFields }),
+  z.strictObject({ ...v2Base, kind: z.literal("context"), contextType: legacyContextType.or(z.literal("brand")) }),
+]);
+export const storeCatalogV2Schema = z.strictObject({
+  schemaVersion: z.literal(2),
+  entries: z.array(storeEntryV2Schema),
+  checkoutRoutes: z.array(storeCheckoutRouteV2Schema),
+});
+export type StoreCatalogV2 = z.infer<typeof storeCatalogV2Schema>;
+export type StoreEntryV2 = z.infer<typeof storeEntryV2Schema>;
 
 export type StoreEntry = z.infer<typeof storeEntrySchema>;
 export type StoreDesign = z.infer<typeof storeDesignSchema>;
@@ -144,16 +165,25 @@ export class StoreCatalogError extends Error {
 }
 
 export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []): StoreCatalog {
+  return storeCatalogSchema.parse(parseCatalogVersion(sources, routes, STORE_SCHEMA_VERSION));
+}
+
+/** Historical relationship validation for explicit migrations only; never a storefront runtime. */
+export function parseStoreCatalogV2(sources: StoreSource[], routes: unknown = []): StoreCatalogV2 {
+  return storeCatalogV2Schema.parse(parseCatalogVersion(sources, routes, 2));
+}
+
+function parseCatalogVersion(sources: StoreSource[], routes: unknown, version: 2 | 3) {
   const issues: string[] = [];
-  const records: { source: string; entry: StoreEntry }[] = [];
+  const records: { source: string; entry: StoreEntry | StoreEntryV2 }[] = [];
   for (const source of sources) {
-    const result = storeEntrySchema.safeParse(source.value);
+    const result = (version === 2 ? storeEntryV2Schema : storeEntrySchema).safeParse(source.value);
     if (result.success) records.push({ source: source.source, entry: result.data });
     else for (const issue of result.error.issues) {
       issues.push(`${source.source}:${issue.path.join(".") || "$"}: ${issue.message}`);
     }
   }
-  const routeResult = z.array(storeCheckoutRouteSchema).safeParse(routes);
+  const routeResult = z.array(version === 2 ? storeCheckoutRouteV2Schema : storeCheckoutRouteSchema).safeParse(routes);
   if (!routeResult.success) for (const issue of routeResult.error.issues) {
     issues.push(`checkout-routes:${issue.path.join(".")}: ${issue.message}`);
   }
@@ -234,6 +264,13 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
       issues.push(`${source}:purchase.routeId: Live products require a reviewed route for this product`);
       continue;
     }
+    if (version === STORE_SCHEMA_VERSION) {
+      const currentRoute = storeCheckoutRouteSchema.safeParse(route);
+      if (!currentRoute.success || !isStoreQualificationCurrent(currentRoute.data, entry,
+        records.flatMap(({ entry: candidate }) => candidate.kind === "design" ? [candidate] : []))) {
+        issues.push(`${source}:purchase.routeId: Live products require a current reviewed qualification`);
+      }
+    }
     entry.designIds.forEach((designId, index) => {
       const design = byId.get(designId)?.entry;
       const approved = route.artworkRevisions.find((artwork) => artwork.designId === designId);
@@ -255,7 +292,7 @@ export function parseStoreCatalog(sources: StoreSource[], routes: unknown = []):
     });
   }
   if (issues.length) throw new StoreCatalogError(issues);
-  return { schemaVersion: STORE_SCHEMA_VERSION, entries: records.map(({ entry }) => entry), checkoutRoutes };
+  return { schemaVersion: version, entries: records.map(({ entry }) => entry), checkoutRoutes };
 }
 
 /** Validate the complete runtime envelope before applying the source-aware relationship checks. */
@@ -284,7 +321,7 @@ export function toPublicStoreCatalog(catalog: StoreCatalog): StoreCatalog {
 
 export type StorePurchaseAction =
   | { kind: "disabled"; label: string }
-  | { kind: "external"; label: string; href: string };
+  | { kind: "external"; label: string; href: string; disclosures: StoreRouteDisclosures };
 
 export function getStorePurchaseAction(catalog: StoreCatalog, productId: string): StorePurchaseAction {
   const product = catalog.entries.find((entry) => entry.id === productId);
@@ -299,8 +336,60 @@ export function getStorePurchaseAction(catalog: StoreCatalog, productId: string)
       const validated = validateStoreCatalog(catalog);
       const routeId = product.purchase.routeId;
       const route = validated.checkoutRoutes.find((candidate) => candidate.id === routeId);
-      if (!route) return { kind: "disabled", label: "Unavailable" };
-      return { kind: "external", label: "Shop on Fourthwall", href: route.checkoutUrl };
+      if (!route?.disclosures) return { kind: "disabled", label: "Unavailable" };
+      return { kind: "external", label: "Shop on Fourthwall", href: route.checkoutUrl, disclosures: route.disclosures };
     }
+  }
+}
+
+
+type ReadinessProduct = Pick<StoreProduct, "id" | "designIds" | "purchase">;
+type ReadinessDesign = Pick<StoreDesign, "id" | "artworkRevision" | "artwork">;
+
+/** Capture current public offer facts for human review. This helper never creates an approval. */
+export function getStoreReadinessSnapshot(
+  route: StoreCheckoutRoute,
+  product: ReadinessProduct,
+  designs: readonly ReadinessDesign[],
+): StoreReadinessSnapshot {
+  if (product.purchase.state !== "live") throw new Error("Readiness snapshots require a configured live product");
+  if (route.productId !== product.id || route.id !== product.purchase.routeId || route.provider !== product.purchase.provider) {
+    throw new Error("Readiness snapshots require the exact product and purchase route");
+  }
+  return storeReadinessSnapshotSchema.parse({
+    route: {
+      id: route.id,
+      provider: route.provider,
+      productId: route.productId,
+      checkoutUrl: route.checkoutUrl,
+      providerVariantIds: route.providerVariantIds,
+      artworkRevisions: route.artworkRevisions,
+      disclosures: route.disclosures,
+    },
+    variants: product.purchase.variants,
+    displayPrice: product.purchase.displayPrice ?? null,
+    artwork: product.designIds.map((designId) => {
+      const design = designs.find((candidate) => candidate.id === designId);
+      return {
+        designId,
+        revision: design?.artworkRevision,
+        src: design?.artwork.kind === "image" ? design.artwork.src : undefined,
+      };
+    }),
+  });
+}
+
+/** Current means exact reviewed bindings, not a remote provider/rights check or clock-based expiry. */
+export function isStoreQualificationCurrent(
+  route: StoreCheckoutRoute,
+  product: ReadinessProduct,
+  designs: readonly ReadinessDesign[],
+): boolean {
+  const qualification = storeQualificationSchema.safeParse(route.qualification);
+  if (!qualification.success || qualification.data.status !== "reviewed") return false;
+  try {
+    return storeReadinessSnapshotsEqual(qualification.data.snapshot, getStoreReadinessSnapshot(route, product, designs));
+  } catch {
+    return false;
   }
 }

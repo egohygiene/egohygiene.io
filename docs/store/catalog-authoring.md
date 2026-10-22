@@ -5,10 +5,12 @@ The catalog accepts artwork previews and placeholders, a few entries at a time. 
 For the end-to-end path from an approved idea to shop, featured artist or song
 placement, follow the [storefront content workflow](storefront-content-workflow.md).
 This page remains the reference for individual JSON records and validation.
-Catalog entries and their assembled envelope now use version 2, with an explicit
+Catalog entries and their assembled envelope now use version 3, with an explicit
 `sourceLocale`. Curation and provider manifests keep their separate version 1
 contracts. See the [catalog localization checkpoint](catalog-localization-65a.md)
 and [ADR 0010](../architecture/decisions/0010-versioned-catalog-localization.md).
+[ADR 0011](../architecture/decisions/0011-reviewed-product-readiness.md) adds the
+v3 readiness requirement and explicit adjacent migration.
 
 The first artwork preview is **heartburst**, a standalone ink-splatter heart with no song or product association. Its [display asset and portable visual DNA](../../assets/designs/heartburst/README.md) are separate from the private source pack.
 
@@ -23,7 +25,7 @@ node scripts/store-catalog.mts add-design --slug "my-new-design" --title "My New
 node scripts/store-catalog.mts validate
 ```
 
-The first command creates `my-new-design.design.json` with version 2, `sourceLocale: "en"`, no translations, unknown attribution, a generated permanent ID, draft visibility, a placeholder image, and no song, artist, or character requirement. It checks the entire proposed catalog before writing and refuses to overwrite existing files. A duplicate slug or a broken existing entry blocks creation until it is fixed.
+The first command creates `my-new-design.design.json` with version 3, `sourceLocale: "en"`, no translations, unknown attribution, a generated permanent ID, draft visibility, a placeholder image, and no song, artist, or character requirement. It checks the entire proposed catalog before writing and refuses to overwrite existing files. A duplicate slug or a broken existing entry blocks creation until it is fixed.
 
 Edit the generated file to add the description and approved artwork. Keep the generated `id` even if the title or slug changes. Increment `artworkRevision` when replacing the artwork. A changed slug will need redirect handling when public URLs are introduced; keep published slugs stable until that exists.
 
@@ -67,7 +69,7 @@ Copy this into a new `.product.json` file. Replace `design-replace-with-generate
 
 ```json
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "kind": "product",
   "id": "product-my-new-design-hoodie",
@@ -90,7 +92,7 @@ Preview products need no price, variant, provider, or purchase URL. Their purcha
 }
 ```
 
-Do not add a placeholder checkout link. Live purchases require a reviewed Fourthwall route in `apps/egohygiene.io/src/content/store/checkout-routes.json`, a matching product, approved variant mappings, and image artwork at the route's explicitly reviewed revisions. Changing an artwork revision requires reviewing the route again. That list starts empty. The live-product checkpoint will verify the destination, product, fulfillment arrangement, and variants before adding one. The schema validates configuration consistency; it cannot confirm availability, ownership, image quality, or provider approval remotely.
+Do not add a placeholder checkout link. Live purchases require a reviewed Fourthwall route in `apps/egohygiene.io/src/content/store/checkout-routes.json`, a matching product, approved variant mappings, and image artwork at the route's explicitly reviewed revisions. Changing an artwork revision requires reviewing the route again. That list remains empty. V3 also requires a current reviewed qualification and product-specific shipping, returns and order-support links. Follow [product readiness](product-readiness.md); unreviewed or stale qualification blocks publication and the runtime action. The live-product checkpoint will verify the destination, product, fulfillment arrangement, and variants before adding one. The schema validates configuration consistency; it cannot confirm availability, ownership, image quality, or provider approval remotely.
 
 ## Cover and gallery order
 
@@ -111,7 +113,7 @@ For a song, realm, artist, brand, character, or appearance, create a context ent
 
 ```json
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "kind": "context",
   "id": "song-my-new-song",
@@ -129,7 +131,7 @@ A collection groups any approved combination of designs and products. Copy this 
 
 ```json
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "kind": "collection",
   "id": "collection-my-new-song",
@@ -333,63 +335,61 @@ with `store-localization.ts`; TypeScript types are derived from those schemas.
 CLI and storefront adapter use this shared contract. Do not create a second model
 in a component or a translation-specific product catalog.
 
-Current runtime parsing accepts **version 2 only**. Version 1 is accepted solely
-by the explicit migration input schema. Requiring an authored source language is
-the justified breaking change; a parser must not silently assume a language for
-old data. The v1 input contract is retained as compatibility evidence, not an
-alternative current runtime. Other versions fail closed.
+Current runtime parsing accepts **version 3 only**. V1 and v2 are explicit
+migration inputs, not alternative current runtimes. V2 introduced source-language
+and attribution/translation records. V3 requires reviewed product readiness; it
+must not silently approve previously live data. Unknown versions fail closed.
 
 The assembled catalog has a strict envelope: `schemaVersion`, `entries`, and
 `checkoutRoutes` are required. `storeCatalogSchema` validates its shape;
-`parseStoreCatalog` checks entry references, translation applicability, attribution
-and live purchase restrictions. Public projection and live purchase actions
-revalidate these relationships before emitting content or a checkout URL.
-Provider and storefront-curation manifests still use version 1, and checkout-route
-records retain their existing shape. Do not bump those unrelated contracts.
+`parseStoreCatalog` checks references, translations, attribution and live purchase
+restrictions. Public projection and live purchase actions revalidate all of these.
+Provider and storefront-curation manifests still use version 1.
 
-To migrate a retained v1 **envelope** into a new review file:
+To migrate a retained v2 **envelope** to a new review file:
 
 ```sh
 node scripts/store-catalog.mts migrate \
-  --input "/path/to/review/catalog-v1.json" \
-  --output "/path/to/review/catalog-v2.json" \
-  --source-locale "en"
+  --from-version 2 \
+  --input "/path/to/review/catalog-v2.json" \
+  --output "/path/to/review/catalog-v3.json"
 ```
 
-The input is one object containing the v1 `schemaVersion`, `entries` and
-`checkoutRoutes`; it is not an entries directory or an individual record. Supply
-`--source-locale` only after reviewing the actual source language. The migration
-uses that language for every entry, adds empty translations and unknown attribution,
-and preserves IDs, slugs, ordered references, artwork revisions, visibility,
-purchase states and provider mappings. It validates the migrated relationships
-and purchase restrictions before writing. It does not approve a live product.
+For v1, use `--from-version 1` and `--source-locale "en"` after reviewing the
+actual source language. The CLI applies the explicit v1→v2→v3 chain. The exported
+`migrateStoreCatalogV1` retains its historical v2 result; `migrateStoreCatalogV2`
+performs the next adjacent step. Current parsers do not migrate automatically.
 
-The output path must not already exist; the CLI refuses to overwrite either it or
-the input. Keep both envelopes outside the discovered entries directory, where
-every JSON file is interpreted as one entry. Review the output before replacing
-the individual authoring records in a PR. The command does not replace those
-files, split the envelope or migrate artwork. Run the ordinary catalog validation
-after applying reviewed entries so artwork files and curation are checked too:
+The v2→v3 step refuses any legacy live product. Review and deliberately withdraw
+such products in retained input before migration, preserving their original
+configuration separately. Requalify the exact product/route under v3 afterward.
+There is no fabricated review, implicit approval or silent loss of live variants
+and price. Non-live entries preserve their content, IDs, slugs, references,
+artwork, visibility, translations and attribution. Routes gain an explicit
+unreviewed qualification; no customer policy URLs are guessed.
+
+The input is one envelope, not an entries directory or individual record. Output
+must not already exist; the CLI refuses to overwrite input or output. Keep both
+outside the discovered entries directory, where every JSON file is one entry.
+Review output before replacing individual authoring records in a PR. The command
+does not rewrite those files or migrate artwork. Run ordinary validation after
+applying the reviewed entries so artwork files and curation are also checked:
 
 ```sh
 node scripts/store-catalog.mts validate
 ```
 
-Retain the original v1 input and the code revision that consumes it. Rollback means
-restoring compatible schema/consumer code and those original authoring inputs
-together. There is no automatic v2-to-v1 downgrade: dropping localization or
-attribution fields would discard new authored information. Preserve the v2 work in
-Git when reviewing a rollback. The [checkpoint receipt](catalog-localization-65a.md)
-records the implemented chain and limits; the [earlier audit](schema-audit-34.md)
-remains historical v1 evidence.
+Retain original inputs and compatible consumer/schema code for rollback. There is
+no lossy downgrade that silently discards localization or qualification data.
+Do not roll back to bypass a withdrawn readiness review. Historical v1→v2 evidence
+remains in the [localization receipt](catalog-localization-65a.md); the
+[readiness decision](../architecture/decisions/0011-reviewed-product-readiness.md)
+records the v3 boundary.
 
-Compatible optional/defaulted additions must keep existing **v2** fixtures valid.
-A breaking change needs the next explicit version, a migration from its supported
-predecessor and fixtures proving stable identity, references, visibility and
-purchase restrictions. A future digital product or license offer must receive a
-separate reviewed product/purchase contract and delivery/terms policy through this
-same process. It cannot be represented by adding a download URL or license terms
-to today's physical-product preview/live records. No digital delivery or licensing
-behavior is implemented or authorized by version 2.
+Compatible optional/defaulted additions must keep existing **v3** fixtures valid.
+Breaking changes need an explicit next version, adjacent migration and fixtures
+proving stable identity, references, visibility and purchase restrictions. Digital
+products or licences still require a separate reviewed delivery/terms contract;
+a download URL cannot be added to today's physical-product records.
 
 The generic preview browser consumes this catalog automatically at `/store/catalog`, with canonical design, product and collection detail pages. Curated shop and artist views use the separate curation manifest. Follow [the next-design session](next-design-session.md) to preview one approved image. Provider onboarding, purchases, and publication remain separate steps.

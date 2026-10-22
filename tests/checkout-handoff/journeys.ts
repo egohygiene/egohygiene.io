@@ -176,8 +176,11 @@ export async function runHandoffJourneys(browser: Browser, origin: string, outpu
           }
           await expect(page.locator("a[rel~=external]")).toHaveCount(0);
           await expect(
-            page.locator(".store-purchase-panel a, .store-purchase-panel button, .store-price"),
+            page.locator(".store-purchase-panel a[rel~=external], .store-purchase-panel button, .store-price"),
           ).toHaveCount(0);
+          await expect(
+            page.locator(".store-purchase-panel").getByRole("link", { name: "Store help", exact: true }),
+          ).toHaveAttribute("href", "/store/help");
           await assertNoHorizontalOverflow(page);
         }
         guardedStates.push({ state, entry: product.id, loads: ["SPA navigation", "reload"] });

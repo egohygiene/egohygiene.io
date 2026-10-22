@@ -4,7 +4,7 @@
   "title": "Unwritten Realm Comic",
   "description": "Fictional future comic example. Page count, print files, price, and printing provider are not confirmed.",
   "visibility": "public",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "translations": [],
   "attribution": {

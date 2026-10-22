@@ -39,6 +39,17 @@ Sync after this reorganization; review #87's integration status before selecting
 activate products/providers, deploy or authorize spending. Hosted failures and
 unperformed browser checks remain explicit.
 
+## Historical readiness checkpoint — 2026-10-22
+
+Alan selected #38 readiness and the applicable #9 customer slice after the merge
+sync. It is implemented in [draft #87](https://github.com/egohygiene/egohygiene.io/pull/87),
+unmerged. Read [current state](docs/context/current-state.md),
+[ADR 0011](docs/architecture/decisions/0011-reviewed-product-readiness.md) and the
+[receipt](docs/store/product-readiness-38.md): current catalog is v3; no real
+product/provider is activated. Next after sync is bounded #22, then the final
+engineering pass on Alan's machine with Taskfile conveniences, then real product
+setup. Chromium and hosted failures remain open. No merge authority is inferred.
+
 ## Historical merge checkpoint — 2026-10-22
 
 Alan authorized merging #83, #85 and #86 in order. All three are now merged on

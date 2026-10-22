@@ -11,10 +11,11 @@ import {
   parseStoreCatalog,
   type StoreCatalog,
 } from "../../packages/schemas/src/store.ts";
+import { qualifySyntheticRoute } from "./fixtures/readiness.ts";
 
 // Synthetic language data only; no real copy or reviewer approval is introduced.
 const base = (id: string) => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,
@@ -96,14 +97,14 @@ function liveCatalog() {
       { source: "product.json", value: item },
     ],
     [
-      {
+      qualifySyntheticRoute({
         id: "route-presentation",
         provider: "fourthwall",
         productId: item.id,
         checkoutUrl: "https://synthetic-fixture.fourthwall.com/products/synthetic-item",
         providerVariantIds: ["provider-one", "provider-two"],
         artworkRevisions: [{ designId: "design-presentation", revision: 1 }],
-      },
+      }, item, [design()]),
     ],
   );
 }

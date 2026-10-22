@@ -4,7 +4,7 @@
   "title": "The Static Bloom Collection",
   "description": "Fictional collection showing how one song can bring together related artwork and merchandise.",
   "visibility": "public",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "translations": [],
   "attribution": {

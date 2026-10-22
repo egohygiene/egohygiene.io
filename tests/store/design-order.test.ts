@@ -16,7 +16,7 @@ import {
 import { loadCatalog } from "../../scripts/store-catalog.mts";
 
 const base = (id: string, visibility = "public") => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,

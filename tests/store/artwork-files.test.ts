@@ -19,7 +19,7 @@ function fixture(t: TestContext, artwork: unknown = { kind: "image", src: "/stor
   mkdirSync(directory);
   mkdirSync(join(publicDirectory, "store"), { recursive: true });
   writeFileSync(join(directory, "design.json"), JSON.stringify({
-    schemaVersion: 2,
+    schemaVersion: 3,
     sourceLocale: "en",
     kind: "design",
     id: "design-test",

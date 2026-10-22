@@ -1,3 +1,4 @@
+import { qualifySyntheticRoute, SYNTHETIC_STORE_DISCLOSURES } from "../../../../../tests/store/fixtures/readiness.ts";
 import { I18nProvider } from "@egohygiene/i18n";
 import type { StoreCatalog, StorefrontCuration, StoreProduct } from "@egohygiene/schemas";
 import {
@@ -15,7 +16,7 @@ import { StoreArtistPage } from "./StoreArtistPage";
 import { StoreCollectionPage, StoreProductPage } from "./StorePages";
 
 const fixture = vi.hoisted(() => ({
-  catalog: { schemaVersion: 2, entries: [], checkoutRoutes: [] } as StoreCatalog,
+  catalog: { schemaVersion: 3, entries: [], checkoutRoutes: [] } as StoreCatalog,
   curation: {
     schemaVersion: 1,
     egoHygieneEntryIds: [],
@@ -35,7 +36,7 @@ vi.mock("../../content/store", () => ({
 }));
 
 const base = (id: string, title: string) => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,
@@ -89,14 +90,14 @@ function loadFixture(purchase: StoreProduct["purchase"] = { state: "preview" }) 
     entries.map((value) => ({ source: value.id, value })),
     purchase.state === "live"
       ? [
-          {
+          qualifySyntheticRoute({
             id: "route-test",
             provider: "fourthwall",
             productId: "product-test",
             checkoutUrl: fixtureCheckout,
             providerVariantIds: ["test-size"],
             artworkRevisions: [{ designId: "design-test", revision: 1 }],
-          },
+          }, entries.find((entry) => entry.id === "product-test"), entries.filter((entry) => entry.kind === "design")),
         ]
       : [],
   );
@@ -185,11 +186,12 @@ describe("purchase presentation", () => {
     [{ state: "unavailable", reason: "This sample is paused." }, "Not available to purchase"],
   ] as const)("keeps %j non-purchasable on the canonical page", (purchase, status) => {
     loadFixture(purchase);
-    const { getByText, container } = renderDetail("/store/products/product-test");
+    const { getByRole, getByText, container } = renderDetail("/store/products/product-test");
     expect(getByText(status, { exact: true })).toBeInTheDocument();
     if (purchase.state === "unavailable") expect(getByText(purchase.reason)).toBeInTheDocument();
     expect(container.querySelector('a[rel="external"]')).toBeNull();
     expect(container.querySelector(".store-price")).toBeNull();
+    expect(getByRole("link", { name: "Store help" })).toHaveAttribute("href", "/store/help");
   });
 
   it("renders a reviewed synthetic live action with the provider price authority", () => {
@@ -199,6 +201,15 @@ describe("purchase presentation", () => {
       "href",
       fixtureCheckout,
     );
+    const disclosures = getByRole("list", { name: "Purchase information" });
+    for (const [label, href] of [
+      ["Shipping & delivery", SYNTHETIC_STORE_DISCLOSURES.shippingPolicyUrl],
+      ["Returns & refunds", SYNTHETIC_STORE_DISCLOSURES.returnsPolicyUrl],
+      ["Order support", SYNTHETIC_STORE_DISCLOSURES.supportUrl],
+    ]) {
+      expect(within(disclosures).getByRole("link", { name: label })).toHaveAttribute("href", href);
+    }
+    expect(getByRole("link", { name: "Store help" })).toHaveAttribute("href", "/store/help");
     expect(getByText("$25.00", { exact: false })).toHaveTextContent("before shipping and tax");
     expect(
       getByText(

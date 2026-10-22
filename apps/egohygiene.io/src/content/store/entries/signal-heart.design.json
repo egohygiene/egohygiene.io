@@ -4,7 +4,7 @@
   "title": "Signal Heart",
   "description": "Fictional catalog example: an abstract heart design independent of any song or character. Artwork is a placeholder.",
   "visibility": "public",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "translations": [],
   "attribution": {

@@ -24,7 +24,7 @@ import {
 } from "../../scripts/store-catalog.mts";
 
 const base = (id: string, visibility = "public") => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,
@@ -78,7 +78,7 @@ test("empty lists and unchanged v1 catalog fixtures remain valid", () => {
     emptyStorefrontCuration(),
   );
   assert.deepEqual(getCuratedStoreEntries(catalog, []), []);
-  assert.equal(catalog.schemaVersion, 2);
+  assert.equal(catalog.schemaVersion, 3);
   assert.equal(catalog.entries.length, values.length);
   assert.equal(toPublicStoreCatalog(catalog).entries.length, values.length - 1);
 });

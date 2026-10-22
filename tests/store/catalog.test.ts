@@ -8,8 +8,9 @@ import { fileURLToPath } from "node:url";
 
 import { getStorePurchaseAction, parseStoreCatalog, toPublicStoreCatalog } from "../../packages/schemas/src/store.ts";
 import { loadCatalog, loadCatalogSources } from "../../scripts/store-catalog.mts";
+import { qualifySyntheticRoute, SYNTHETIC_STORE_DISCLOSURES } from "./fixtures/readiness.ts";
 
-const base = (id: string) => ({ schemaVersion: 2, sourceLocale: "en", id, slug: id, title: id, description: "Fictional test entry", visibility: "public" });
+const base = (id: string) => ({ schemaVersion: 3, sourceLocale: "en", id, slug: id, title: id, description: "Fictional test entry", visibility: "public" });
 const design = () => ({ ...base("design-test"), kind: "design", artworkRevision: 1, artwork: { kind: "placeholder", label: "Test placeholder" }, contextIds: [] });
 const product = () => ({ ...base("product-test"), kind: "product", designIds: ["design-test"], purchase: { state: "preview" } });
 const parse = (...values: unknown[]) => parseStoreCatalog(values.map((value, index) => ({ source: `entry-${index}.json`, value })));
@@ -23,11 +24,11 @@ function liveFixture() {
     variants: [{ id: "variant-small", label: "Small", providerVariantId: "provider-small" }],
     displayPrice: { amountMinor: 2500, currency: "USD", authority: "provider-checkout" },
   } };
-  const route = {
+  const route = qualifySyntheticRoute({
     id: "route-test", provider: "fourthwall", productId: "product-test",
     checkoutUrl: "https://test-fixture.fourthwall.com/products/test-item",
     providerVariantIds: ["provider-small"], artworkRevisions: [{ designId: "design-test", revision: 1 }],
-  };
+  }, item, [art]);
   const catalog = () => parseStoreCatalog([{ source: "art.json", value: art }, { source: "item.json", value: item }], [route]);
   return { art, item, route, catalog };
 }
@@ -75,6 +76,7 @@ test("live action requires an approved route, exact product, variants, and artwo
   const fixture = liveFixture();
   assert.deepEqual(getStorePurchaseAction(fixture.catalog(), "product-test"), {
     kind: "external", label: "Shop on Fourthwall", href: fixture.route.checkoutUrl,
+    disclosures: SYNTHETIC_STORE_DISCLOSURES,
   });
   assert.throws(() => parse(fixture.art, fixture.item), /require a reviewed route/);
   fixture.item.purchase.variants[0]!.providerVariantId = "unreviewed-variant";
@@ -117,7 +119,7 @@ test("public projection removes routes belonging only to drafts", () => {
   const fixture = liveFixture();
   fixture.art.visibility = "draft";
   fixture.item.visibility = "draft";
-  assert.deepEqual(toPublicStoreCatalog(fixture.catalog()), { schemaVersion: 2, entries: [], checkoutRoutes: [] });
+  assert.deepEqual(toPublicStoreCatalog(fixture.catalog()), { schemaVersion: 3, entries: [], checkoutRoutes: [] });
 });
 
 test("the shipped catalog is discoverable and every mock product is unpurchasable", async () => {

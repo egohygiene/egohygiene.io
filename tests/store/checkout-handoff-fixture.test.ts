@@ -23,6 +23,7 @@ import {
   createCheckoutHandoffFixture,
   createCheckoutHandoffInputs,
 } from "../checkout-handoff/fixture.ts";
+import { SYNTHETIC_STORE_DISCLOSURES } from "./fixtures/readiness.ts";
 
 test("handoff fixtures project one fictional live product and two disabled purchase states", () => {
   const fixture = CHECKOUT_HANDOFF_FIXTURE;
@@ -39,6 +40,7 @@ test("handoff fixtures project one fictional live product and two disabled purch
     kind: "external",
     label: "Shop on Fourthwall",
     href: fixture.checkoutUrl,
+    disclosures: SYNTHETIC_STORE_DISCLOSURES,
   });
   for (const product of [fixture.preview, fixture.unavailable]) {
     assert.equal(getStorePurchaseAction(catalog, product.id).kind, "disabled");

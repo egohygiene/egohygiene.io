@@ -1340,3 +1340,61 @@ Other failure causes were not re-diagnosed; no manual dispatch or disabled gates
 selected, followed by #65/#34 and remaining #37 evidence. No merge, deployment,
 real public translation, account/product activation, provider contact, purchase
 or spending occurred. This checkpoint does not authorize later merges.
+
+
+## Product readiness and customer disclosures — 2026-10-22 UTC
+
+Authority: Alan selected #38 and #9 after the ordered merges; roadmap #84 limits
+this phase to readiness/customer-disclosure preparation before local-machine final
+engineering and actual product setup. Refreshed live main
+`07d25941ceeefa53089afa025b612c6aa54f36c4`, #38/#9/#84 and the remaining open CI draft
+#73 before editing. Existing instructions, continuity and ADRs were read.
+
+[Draft #87](https://github.com/egohygiene/egohygiene.io/pull/87), branch
+`feat/store-readiness-38`, contains source `902be39761f00d73e82ea08d55ff98bc05d8e7c5`,
+tree `64a3b39b231e66b4ea427be4a720e09fc573de9d`. GitHub-created tree equalled staged
+local source; fetched source was clean before build evidence. This follow-up
+records evidence/continuity only. No merge was authorized or performed.
+
+[Receipt](../store/product-readiness-38.md),
+[checks](../store/reviews/product-readiness-38/checks.json),
+[artifacts](../store/reviews/product-readiness-38/artifacts.json) and
+[isolated build-only report](../store/reviews/product-readiness-38/catalog-build.json)
+retain exact commands/results. [ADR 0011](../architecture/decisions/0011-reviewed-product-readiness.md)
+records the breaking live-readiness boundary and explicit v3 migration. The new
+qualification is inline on the existing route, with public-safe assessment/review
+and exact offer/artwork/price/disclosure bindings. The historical v1→v2 step stays
+available; v2→v3 refuses live offers needing manual requalification. Ten production
+records exactly match the migration from retained main inputs. No real routes,
+provider placeholders, artwork assets, curation selections, dependencies or lockfile
+changed; no real artist association or product/rights approval was added.
+
+Customer work adds `/store/help`, footer/product links and reviewed customer
+shipping/returns/support links through the successful purchase action. Privacy and
+terms remain provisional. Website feedback is public GitHub feedback, distinct from
+order support. No business/contact/provider fact or compliance claim was invented;
+no new provider research was represented as current account qualification.
+
+Final local checks: 138 catalog contracts, 74 focused component tests, five type
+profiles, 406 English messages/10 namespaces, 16 portable modules, normal build,
+existing Fourthwall/artist preview build, isolated catalog build-only and artifact
+scan all passed. Normal output: 16 files/12 references/zero findings; 959,716 raw /
+582,378 level-9 gzip bytes within existing provisional ceilings. Public Heartburst
+bytes match. Node 24.21.0 / pnpm 11.28.5 and lockfile unchanged. Existing Node module
+and Vite native-loader notices remain. Independent review found a helper identity
+gap and deferred-browser selector fallout; both resolved before source publication.
+An intermediate localization route-snapshot mismatch was fixed; final recorded
+checks supersede that failed development run.
+
+Actual Chromium and broad lint/test/refactor/CI work remain deferred to final #37.
+The isolated report explicitly contains zero completed browser journeys. No actual
+provider request, payment, shipment, physical quality, supported-device or deployed
+host evidence is claimed. Automatic source dependency review 39823530314 and
+CodeQL 39823530310 failed; CI 39823529875 also failed at receipt refresh. No
+failure cause re-diagnosis, disabled gate, setting change or manual workflow dispatch.
+
+#38/#9 remain open for real activation and the wider organization program. Next:
+sync on #87, then select bounded #22, then Alan's local-machine engineering pass
+with existing Taskfile/environment/qualification tooling, then actual product/setup.
+No next issue, real account/product/language activation, paid sample, deployment
+or spending occurred. Metadata is not proof of rights, identity or remote facts.

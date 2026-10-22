@@ -9,10 +9,11 @@ import {
   type StoreCatalog,
   toPublicStoreCatalog,
 } from "../../packages/schemas/src/store.ts";
+import { qualifySyntheticRoute, SYNTHETIC_STORE_DISCLOSURES } from "./fixtures/readiness.ts";
 
 // Engineering data only. These records do not approve a real translation or rights claim.
 const base = (id: string) => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,
@@ -74,29 +75,29 @@ function liveFixture() {
       displayPrice: { amountMinor: 2500, currency: "USD", authority: "provider-checkout" },
     },
   };
-  const route = {
+  const route = qualifySyntheticRoute({
     id: "route-fixture",
     provider: "fourthwall",
     productId: item.id,
     checkoutUrl: "https://synthetic-fixture.fourthwall.com/products/synthetic-item",
     providerVariantIds: ["provider-small"],
     artworkRevisions: [{ designId: "design-fixture", revision: 1 }],
-  };
-  const parseItem = (value: unknown = item) =>
+  }, item, [design()]);
+  const parseItem = (value: unknown = item, reviewedRoute = route) =>
     parseStoreCatalog(
       [
         { source: "synthetic-art.json", value: design() },
         { source: "synthetic-item.json", value },
       ],
-      [route],
+      [reviewedRoute],
     );
   return { item, route, parseItem };
 }
 
-test("v2 requires an explicit source locale and defaults to no translations or inferred attribution", () => {
+test("v3 retains explicit source locale and defaults to no translations or inferred attribution", () => {
   const source = design();
   const entry = first(parse(source));
-  assert.equal(entry.schemaVersion, 2);
+  assert.equal(entry.schemaVersion, 3);
   assert.equal(entry.sourceLocale, "en");
   assert.deepEqual(entry.translations, []);
   assert.deepEqual(entry.attribution, { status: "unknown" });
@@ -378,6 +379,7 @@ test("reviewed variant labels preserve amount, currency, canonical product and c
     kind: "external",
     label: "Shop on Fourthwall",
     href: fixture.route.checkoutUrl,
+    disclosures: SYNTHETIC_STORE_DISCLOSURES,
   });
   assert.deepEqual(item.translations[0]?.fields.variantLabels, [label]);
   const changed = {
@@ -391,7 +393,7 @@ test("reviewed variant labels preserve amount, currency, canonical product and c
     fixture.parseItem({
       ...changed,
       translations: [{ locale: "fr", fields: { variantLabels: [label] } }],
-    }),
+    }, qualifySyntheticRoute(fixture.route, changed, [design()])),
   );
   assert.deepEqual(stale.entries[1]?.translations, []);
 });
@@ -410,7 +412,7 @@ test("variant review bindings cannot move approval to a different variant with i
     },
     translations: [{ locale: "fr", fields: { variantLabels: [label] } }],
   };
-  const catalog = fixture.parseItem(item);
+  const catalog = fixture.parseItem(item, qualifySyntheticRoute(fixture.route, item, [design()]));
   const source = catalog.entries[1];
   assert.ok(source);
   assert.deepEqual(inspectStoreTranslations(source), [

@@ -17,6 +17,7 @@ Use full paths/links and titles in issues, handoffs and provenance.
 | [0008 — Curated storefront views](0008-curated-storefront-views.md) | Accepted; #62 checkpoints A/B/C merged in PR #78 on 2026-10-17 | Ordered editorial and artist/song references over one public catalog; merge receipt in current handoff |
 | [0009 — One locale runtime](0009-single-locale-runtime.md) | Merged in #85 on 2026-10-22; browser qualification remains | Registry/runtime plus router-bound selection, native language control and interface messages; C review tooling is merged; browser acceptance remains; English is the only public locale |
 | [0010 — Versioned catalog localization](0010-versioned-catalog-localization.md) | Merged in #86 on 2026-10-22; #65 A/B/C implementation and #34 contract retained | Strict v2 contract/migration plus selected-language presentation/search; C integration fixtures are retained; final browser qualification remains |
+| [0011 — Reviewed product readiness](0011-reviewed-product-readiness.md) | Implemented for review under #38 / bounded #9 | Catalog v3 qualification, adjacent migration and customer disclosures; no actual activation |
 
 This table records a dated delivery snapshot, not live merge status. Refresh the
 [current handoff](../../context/current-state.md) and GitHub before resuming.
