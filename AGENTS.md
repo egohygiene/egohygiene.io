@@ -5,7 +5,29 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
-## Current merge checkpoint — 2026-10-22
+## Current roadmap checkpoint — 2026-10-22
+
+Alan approved the two-phase issue/milestone arrangement and requested this planning
+update before implementation continues. Use [roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84)
+and the [approved issue map](docs/roadmaps/store-launch.md): setup is coordinated
+by [#88](https://github.com/egohygiene/egohygiene.io/issues/88), followed by actual
+products and launch under [#31](https://github.com/egohygiene/egohygiene.io/issues/31).
+The setup queue starts with bounded website essentials #90 and current-route public
+rendering #91, includes the controlled refactor/dependency sweep #92, and ends with
+final #37 qualification on Alan's Mac using existing Taskfile/profile commands.
+#89 owns actual hosting/deployed-route verification; #38/#39 own actual product,
+provider and launch evidence. Broader #9/#22 programs remain outside this sprint.
+
+Read [current state](docs/context/current-state.md) and the
+[provenance ledger](docs/context/provenance.md) before resuming. Readiness/disclosure
+work is in unmerged [draft #87](https://github.com/egohygiene/egohygiene.io/pull/87);
+its catalog v3 contract is not yet on main. Older CI draft #73 also remains open.
+Sync after this reorganization; review #87's integration status before selecting
+#90 checkpoint A. Planning changes do not complete acceptance, merge either draft,
+activate products/providers, deploy or authorize spending. Hosted failures and
+unperformed browser checks remain explicit.
+
+## Historical merge checkpoint — 2026-10-22
 
 Alan authorized merging #83, #85 and #86 in order. All three are now merged on
 main, ending at `bb367996a9ab36ffec29cc0fd5aee1b19d80268d`; the integrated tree
@@ -38,8 +60,11 @@ authorized merging the planning PRs and beginning the first issue, #75. Read its
 [ADR 0007](docs/architecture/decisions/0007-canonical-storefront-owner.md): the
 accepted direction is one website-owned storefront/build; ownership PRs #76
 and store #34 were merged on 2026-10-17.
-The wider milestone creation/reparenting proposal awaits the next sync. Do not
-mistake the preserved separate-store implementation for a second V1 deployment.
+The earlier wider M1–M5 proposal is historical; the approved two-phase arrangement
+above now owns scheduling. Do not mistake the preserved separate-store
+implementation for a second V1 deployment.
+
+## Historical implementation chronology — through 2026-10-22
 
 The #35 landing/shell checkpoint merged in #77. The subsequent #62 discussion
 approved Ego Hygiene as the primary shop, Incompris as its featured collection,

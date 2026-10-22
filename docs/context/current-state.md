@@ -1,6 +1,59 @@
 # Current handoff
 
-## Current: #83 → #85 → #86 merged; sync before readiness work — 2026-10-22
+## Current: approved setup/product roadmap split — 2026-10-22
+
+Alan approved the complete two-phase arrangement, including a bounded code cleanup
+and compatible dependency upgrade pass, and asked to update it before continuing.
+This checkpoint changes planning and continuity only. Main was refreshed at
+`07d25941ceeefa53089afa025b612c6aa54f36c4`; no implementation PR is merged here.
+
+[Roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84) remains the overall
+entry point. [Setup parent #88](https://github.com/egohygiene/egohygiene.io/issues/88)
+coordinates milestone [1 — Website/store foundation — ready to onboard products](https://github.com/egohygiene/egohygiene.io/milestone/1).
+[Product parent #31](https://github.com/egohygiene/egohygiene.io/issues/31) coordinates
+milestone [2 — Real products and launch](https://github.com/egohygiene/egohygiene.io/milestone/2).
+[Audit index #47](https://github.com/egohygiene/egohygiene.io/issues/47) stays outside
+either milestone. The [full approved map](../roadmaps/store-launch.md) accounts
+for all 50 previously open issues plus the five new trackers #88–#92.
+
+The setup execution order is **#90 → #91 → #60 → #50 → #49 → #53 → #56 → #59 →
+#92 → #52 → #29 → #57 → #70 → #37**. Independent fixes can overlap with clear
+ownership. #75/#61/#69/#34/#36/#51/#64/#65 need evidence-backed acceptance
+reconciliation against delivered work and final checks, not automatic closure.
+The final integrated lint/types/tests/Chromium/accessibility run belongs on Alan's
+Mac, with Taskfile conveniences over the existing environment/qualification runners.
+
+Scope transfers are explicit: #90 is bounded website information from broader #9;
+#91 is current-route rendering from broader #22; #92 owns the bounded cleanup/
+upgrade sweep. #29 retains CI/local baseline work while #89 receives actual host,
+deployed deep-link and rollback obligations. #37 retains local qualification;
+actual-provider/customer-policy evidence moves to #38 and deployed visitor/release
+evidence to #89/#39. Remaining organization/content programs stay backlog.
+
+**Open drafts:** [#87](https://github.com/egohygiene/egohygiene.io/pull/87), head
+`ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6`, contains readiness/disclosures and catalog
+v3; it is unmerged. Its source is `902be39761f00d73e82ea08d55ff98bc05d8e7c5`;
+read the [pinned receipt](https://github.com/egohygiene/egohygiene.io/blob/ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6/docs/store/product-readiness-38.md)
+before integration. [#73](https://github.com/egohygiene/egohygiene.io/pull/73), head
+`725e021336fe6675e53d0a3374caf0b102627019`, remains the older CI draft to reconcile
+under #29. Retained local evidence does not establish hosted CI success or
+production/provider qualification; browser and hosted failures remain open.
+
+**Verified planning state:** GitHub readback found 55 open issues: 23 in setup,
+four in product/launch and 28 outside the milestones. #84 has exactly #88/#31;
+#88 has the ordered 22 setup children; #31 retains closed #32/#33/#35 and open
+#38/#39/#89. #9/#22/#63/#84 have no milestone. The milestone page also confirms
+ten retained historical closures in setup and none in product/launch. All prior
+issue bodies/history are retained. Repository continuity is saved separately in
+a docs-only draft; its publication receipt is linked from #84 and #88.
+
+**Next:** sync on the updated roadmap, review #87's integration status, then select
+#90 checkpoint A. No new implementation, application test run, dependency update,
+issue closure, merge, provider request, real product/language activation, order,
+deployment or spending occurred. The setup finish line is software ready to
+onboard real products; actual activation and launch follow under #31.
+
+## Historical: #83 → #85 → #86 merged; sync before readiness work — 2026-10-22
 
 Alan explicitly authorized merging all three PRs in order and requested a sync
 before the next work. Refreshed the live heads, bases, mergeability and hosted
