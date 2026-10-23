@@ -3,6 +3,9 @@ import { URL as NodeUrl } from "node:url";
 import { runInNewContext } from "node:vm";
 
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { StrictMode } from "react";
+import { hydrateRoot } from "react-dom/client";
+import { renderToString } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { ThemeProvider, applyTheme, resolveTheme, themeNames, useTheme } from "./index";
@@ -67,6 +70,45 @@ afterEach(() => {
 });
 
 describe("theme preferences", () => {
+  it.each(["light", "dark", "high-contrast"])(
+    "hydrates stable controls before restoring %s without overwriting the saved preference",
+    async (stored) => {
+      window.localStorage.setItem(storageKey, stored);
+      mockColorScheme(false);
+      document.documentElement.dataset["theme"] = stored;
+      const writes = vi.spyOn(Storage.prototype, "setItem");
+      const errors = vi.fn();
+      const tree = (
+        <StrictMode>
+          <ThemeProvider>
+            <ThemeControls />
+          </ThemeProvider>
+        </StrictMode>
+      );
+      const container = document.createElement("div");
+      container.innerHTML = renderToString(tree);
+      document.body.append(container);
+      const output = container.querySelector("output");
+      expect(output).toHaveTextContent("system:dark");
+      expect(document.documentElement.dataset["theme"]).toBe(stored);
+      expect(writes).not.toHaveBeenCalled();
+      const root = hydrateRoot(container, tree, { onRecoverableError: errors });
+      try {
+        await act(async () => undefined);
+        expect(container.querySelector("output")).toBe(output);
+        expect(output).toHaveTextContent(`${stored}:${stored}`);
+        expect(window.localStorage.getItem(storageKey)).toBe(stored);
+        expect(
+          writes.mock.calls.every(([key, value]) => key !== storageKey || value === stored),
+        ).toBe(true);
+        expect(errors).not.toHaveBeenCalled();
+      } finally {
+        await act(() => root.unmount());
+        container.remove();
+      }
+    },
+  );
+
   it("resolves system themes and applies the document color scheme", () => {
     expect(resolveTheme("system", true)).toBe("dark");
     expect(resolveTheme("system", false)).toBe("light");

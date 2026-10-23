@@ -1,9 +1,14 @@
 import { useI18n } from "@egohygiene/i18n";
 import { Component, type PropsWithChildren, type ReactNode } from "react";
 
+import { PageMetadata } from "../PageMetadata/PageMetadata";
+
 function DefaultErrorFallback() {
   const { t } = useI18n();
-  return <p role="alert">{t("errors.unexpected")}</p>;
+  return <>
+    <PageMetadata title={t("errors.routeTitle")} description={t("errors.routeDescription")} error />
+    <p role="alert">{t("errors.unexpected")}</p>
+  </>;
 }
 
 interface ErrorBoundaryState {
