@@ -60,7 +60,11 @@ afterAll(() => websiteRouter.dispose());
 describe("website essentials journeys (simulated DOM)", () => {
   it.each([
     ["/help", "Help", resources.pages.help.description],
+    ["/about", "About Ego Hygiene", resources.pages.about.description],
     ["/accessibility", "Accessibility", resources.pages.accessibility.description],
+    ["/store/help", "Store help", resources.pages.storeHelp.description],
+    ["/privacy", "Privacy draft", resources.pages.privacy.description],
+    ["/terms", "Terms draft", resources.pages.terms.description],
   ])("registers %s in the real shell with matching client metadata", (path, title, description) => {
     const result = setup(path);
     expect(result.main().getAllByRole("heading", { level: 1 })).toHaveLength(1);

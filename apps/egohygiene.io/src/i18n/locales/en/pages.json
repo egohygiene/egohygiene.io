@@ -36,7 +36,7 @@
     "current": "This website does not require sign-in and has no form for submitting order or payment details.",
     "external": "Checkout and support links can take you to a separate service. Review that service’s privacy information before sharing personal or order details. Website feedback on GitHub is public.",
     "future": "Future changes will update this page before stronger guarantees are claimed.",
-    "preferences": "The site can save theme and language preferences in your browser. Blocking browser storage does not prevent browsing."
+    "preferences": "The site can save theme and language preferences in your browser. If saving is blocked, those preferences may not be remembered on a later visit."
   },
   "terms": {
     "description": "Provisional terms for the Ego Hygiene public website.",
