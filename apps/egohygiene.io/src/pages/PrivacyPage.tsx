@@ -1,6 +1,7 @@
 import { useI18n } from "@egohygiene/i18n";
 
 import { PageMetadata } from "../components/PageMetadata/PageMetadata";
+import { LocaleLink as Link } from "../i18n/LocaleLink";
 
 export function PrivacyPage() {
   const { t } = useI18n();
@@ -13,6 +14,9 @@ export function PrivacyPage() {
       <p>{t("pages.privacy.preferences")}</p>
       <p>{t("pages.privacy.external")}</p>
       <p>{t("pages.privacy.future")}</p>
+      <p>
+        <Link to="/help">{t("pages.help.moreHelp")}</Link>
+      </p>
     </article>
   );
 }

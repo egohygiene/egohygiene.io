@@ -1,0 +1,36 @@
+{
+  "sourceCommit": "4ff01a760399cf0bfc2dff6570ae250d71c2a879",
+  "recordedDate": "2026-10-22",
+  "dateZone": "America/New_York",
+  "scope": "Read-only source-head workflow-run refresh; no cause re-diagnosis, manual dispatch or gate changes.",
+  "runs": [
+    {
+      "id": 39875866901,
+      "name": ".github/workflows/codeql.yml",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "4ff01a760399cf0bfc2dff6570ae250d71c2a879",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39875866901",
+      "updatedAt": "2026-10-23T00:04:38Z"
+    },
+    {
+      "id": 39875866514,
+      "name": "Dependency review",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "4ff01a760399cf0bfc2dff6570ae250d71c2a879",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39875866514",
+      "updatedAt": "2026-10-23T00:04:47Z"
+    },
+    {
+      "id": 39875866505,
+      "name": "CI",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "4ff01a760399cf0bfc2dff6570ae250d71c2a879",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/39875866505",
+      "updatedAt": "2026-10-23T00:05:33Z"
+    }
+  ],
+  "qualification": "Hosted outcomes are separate from local evidence and do not establish production/provider qualification."
+}

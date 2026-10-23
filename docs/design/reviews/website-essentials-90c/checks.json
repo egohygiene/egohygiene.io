@@ -1,0 +1,103 @@
+{
+  "sourceCommit": "4ff01a760399cf0bfc2dff6570ae250d71c2a879",
+  "sourceTree": "bff27721791af1fb39eacd7fc8dc3d880732f9e3",
+  "recordedDate": "2026-10-22",
+  "dateZone": "America/New_York",
+  "receiptKind": "Authored summary of observed local checks. Timing/log hashes are not invented.",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5"
+  },
+  "scope": "Website essentials copy, six-route simulated DOM and retained browser definitions; local evidence only.",
+  "checks": [
+    {
+      "id": "app-types",
+      "command": "pnpm exec tsc --project apps/egohygiene.io/tsconfig.app.json --noEmit",
+      "exitCode": 0,
+      "result": "pass"
+    },
+    {
+      "id": "browser-types",
+      "command": "pnpm exec tsc --project tsconfig.store-browser.json --noEmit",
+      "exitCode": 0,
+      "result": "pass",
+      "performedBy": "parallel test agent"
+    },
+    {
+      "id": "locales",
+      "command": "node scripts/checks/check-locales.ts",
+      "exitCode": 0,
+      "result": "pass",
+      "messages": 433,
+      "namespacesIncludingPreview": 10,
+      "sourceSha256": "fbef47f7d3c51c22d5f8727f9e7c918f9c8dba4f51eff98a860d29c8e40377f8"
+    },
+    {
+      "id": "focused-tests",
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts apps/egohygiene.io/src/pages apps/egohygiene.io/src/components/Footer/Footer.test.tsx apps/egohygiene.io/src/components/Header/Header.test.tsx apps/egohygiene.io/src/i18n/LocaleProvider.test.tsx packages/themes/src/index.test.tsx",
+      "exitCode": 0,
+      "result": "pass",
+      "tests": 54,
+      "files": 8,
+      "essentialsCases": 11
+    },
+    {
+      "id": "browser-discovery",
+      "command": "pnpm exec playwright test --config playwright.store.config.ts tests/e2e/site.spec.ts --grep \"website essentials\" --list --reporter=list",
+      "exitCode": 0,
+      "result": "definitions-listed",
+      "listed": 9,
+      "executed": 0,
+      "performedBy": "parallel test agent"
+    },
+    {
+      "id": "normal-build",
+      "command": "VITE_STORE_PREVIEW=false pnpm build",
+      "exitCode": 0,
+      "result": "pass",
+      "catalogEntries": 10,
+      "verifiedImages": 1,
+      "modulesTransformed": 194
+    },
+    {
+      "id": "normal-artifacts",
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/website-essentials-90c/artifacts.json",
+      "exitCode": 0,
+      "result": "pass",
+      "files": 16,
+      "assetReferences": 12,
+      "findings": 0,
+      "report": "artifacts.json"
+    },
+    {
+      "id": "source-whitespace",
+      "command": "git diff --cached --check",
+      "exitCode": 0,
+      "result": "pass"
+    }
+  ],
+  "publication": "Focused source checks ran before publication. One comment clarifying the normal production runner changed after browser type/discovery checks, with no behavior change. Published source tree matched staging. Build/scanner ran at clean published C source. Later continuity edits do not change app or test code.",
+  "warnings": [
+    "Existing Node MODULE_TYPELESS_PACKAGE_JSON warning.",
+    "Existing Vite native config-loader warning."
+  ],
+  "review": {
+    "correction": "Narrowed inherited whole-browser-storage guarantee to preference persistence.",
+    "codeAndTests": "No blocking finding after correction.",
+    "maintainerContactDisposition": "Pending; interim GitHub arrangement is proposed, not approved."
+  },
+  "limits": [
+    "No Chromium, server or browser journey execution from discovery.",
+    "Simulated DOM is not keyboard/layout/screen-reader proof; scrolling is mocked.",
+    "Denied-storage essentials case blocks localStorage only; no all-storage guarantee.",
+    "Client metadata is not crawler-visible HTML or deployed-host evidence.",
+    "Artifact scan is targeted and size ceilings remain provisional."
+  ],
+  "deferred": [
+    "Maintainer private-contact/copy disposition and #90 acceptance.",
+    "#49 focus/contrast/motion, #70 responsive/zoom/input and #37 final integrated browser/AT run.",
+    "#91 current-route generated HTML/canonicals/sitemap.",
+    "Broad lint/full-suite/refactor/CI repair in scheduled owners.",
+    "#38 actual product/provider/commerce facts; #89 actual host and #39 release qualification."
+  ]
+}

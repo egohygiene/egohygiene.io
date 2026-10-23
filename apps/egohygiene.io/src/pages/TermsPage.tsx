@@ -1,6 +1,7 @@
 import { useI18n } from "@egohygiene/i18n";
 
 import { PageMetadata } from "../components/PageMetadata/PageMetadata";
+import { LocaleLink as Link } from "../i18n/LocaleLink";
 
 export function TermsPage() {
   const { t } = useI18n();
@@ -12,6 +13,9 @@ export function TermsPage() {
       <p>{t("pages.terms.use")}</p>
       <p>{t("pages.terms.store")}</p>
       <p>{t("pages.terms.limits")}</p>
+      <p>
+        <Link to="/help">{t("pages.help.moreHelp")}</Link>
+      </p>
     </article>
   );
 }

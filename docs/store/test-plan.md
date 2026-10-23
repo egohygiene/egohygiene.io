@@ -2,7 +2,21 @@
 
 The mock-store journey suite uses the built website and the versioned preview catalog: heartburst artwork alongside explicitly fictional product examples. It never sends a request to a checkout provider or payment service. Adding a real product is a separate release step: update the fixture assumptions and qualify the selected provider before enabling its purchase link.
 
-## Current qualification profile — 2026-10-19 UTC
+## Website essentials added to final qualification — 2026-10-22
+
+[#90 C](../design/website-essentials-90c.md) retains nine new browser definitions in
+`tests/e2e/site.spec.ts`, already selected by `playwright.store.config.ts` and the
+existing final qualification runner. Six direct/reload cases cover `/help`,
+`/about`, `/accessibility`, `/store/help`, `/privacy` and `/terms`; a hub journey
+preserves language links; desktop/narrow keyboard journeys use Tab/Enter and
+inspect public-feedback boundaries without following external reporting links.
+
+Types and discovery passed; **zero C browser journeys executed**. Keep actual
+keyboard/layout/AT review under #49/#70/#37, raw HTML/canonicals/sitemap under #91
+and actual-host checks under #89. The C receipt has the focused later-run command
+and remaining manual matrix. No extra runner or Taskfile command was introduced.
+
+## Qualification profile — established 2026-10-19 UTC
 
 Run `node scripts/qualify-store.mjs` with the pinned runtime and an installed
 Chromium. It requires fresh normal/preview builds and runs the selected contract,
