@@ -7,6 +7,27 @@ earlier versions; retain dated entries when the current handoff changes.
 
 ## Public rendering #91 checkpoint A — 2026-10-23
 
+Publication: [draft #95](https://github.com/egohygiene/egohygiene.io/pull/95),
+source `f0342a0d52a52a11e3b4579124fa51b19d1a406d`, tree
+`c2c024b7b6bcd017a4bfc3bfbf4baef1d4ed7880`. GitHub-created tree equals local
+staging; fetched source reads clean. The subsequent continuity commit records the
+publication, not another application change. No user work was overwritten.
+
+Checks passed: JSON, 257 relative documentation links, 39 manifest targets, 42
+source hashes against the pinned base, 26 unique routes and the proposed 10/16
+split, plus diff whitespace. Independent review corrected the inventory field to
+canonical contextType and required equal client/SSR public-input snapshots or
+digests. No unresolved blocking A finding remained. Issue #91's A deliverables
+are checked as prepared; B/C remain unchecked. #91/#88/#84 updates were read back
+byte-for-byte, all open, with #90's outstanding disposition retained.
+
+Automatic source workflows failed:
+[CI 39926410428](https://github.com/egohygiene/egohygiene.io/actions/runs/39926410428),
+[dependency review 39926410433](https://github.com/egohygiene/egohygiene.io/actions/runs/39926410433)
+and [CodeQL 39926410517](https://github.com/egohygiene/egohygiene.io/actions/runs/39926410517).
+These are hosted outcomes, not local documentation results; no new diagnosis,
+manual dispatch or gate change. No merge or issue closure occurred.
+
 Authority: Alan asked to proceed with the next issue after the discovery-file
 research. Applied #91's existing one-checkpoint agreement: prepare A and sync
 before B. Recovered the pruned GitHub checkout, read root/scoped context and ADRs,
@@ -51,7 +72,7 @@ Recovered default Node 24.19.0 is below pinned 24.21.0; B must restore the requi
 runtime before application commands. Prerequisite #94 head CI 39876452521 and
 dependency 39876452515 failed; C's prior source CodeQL 39875866901 remains dated
 history. No hosted failure diagnosis, disabled gate or manual workflow dispatch.
-Publication/validation readback is recorded in the final checkpoint entry below.
+Publication/validation readback is recorded at the start of this entry.
 
 No issues closed, main merge, runtime/dependency/catalog/artwork changes, real
 product/provider activation, order, deployment or spending. Next is A review then

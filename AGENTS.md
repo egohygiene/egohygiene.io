@@ -11,7 +11,8 @@ or provider-activation authority.
 Alan selected the next issue after the discovery-file investigation. #91 A now
 records [ADR 0012](docs/architecture/decisions/0012-static-public-route-rendering.md)
 and the [26-route/publication contract](docs/design/public-rendering-91a.md),
-prepared for review on `docs/public-rendering-91a`, based on unmerged #94.
+prepared in [draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
+on `docs/public-rendering-91a`, based on unmerged #94.
 The selected approach reuses React/Vite Data Mode and the existing public catalog;
 B will add static HTML, shared metadata, sitemap and deterministic hydration.
 No renderer or new discovery output is implemented by A.

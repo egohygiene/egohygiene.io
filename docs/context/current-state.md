@@ -3,6 +3,17 @@
 
 ## Current: public rendering #91 A prepared — 2026-10-23
 
+Saved in [draft #95](https://github.com/egohygiene/egohygiene.io/pull/95).
+A documentation source `f0342a0d52a52a11e3b4579124fa51b19d1a406d`, tree
+`c2c024b7b6bcd017a4bfc3bfbf4baef1d4ed7880`, exactly matches local staging.
+This follow-up records publication/evidence only. Validation passed: JSON, 257
+relative links, 39 context targets, 42 pinned source hashes, 26 unique paths,
+proposed 10/16 disposition and whitespace. Independent review corrections are
+included. Issues #91/#88/#84 were updated and their exact bodies/open states read
+back; A checkboxes mean deliverables prepared, not B implementation or approval.
+Automatic A-source workflows all failed: CI 39926410428, dependency review
+39926410433 and CodeQL 39926410517. No cause was re-diagnosed or gate changed.
+
 Alan selected the next issue after the discovery-file discussion. Followed the
 one-checkpoint agreement: A's source inventory, rendering choice and publication
 rules are prepared; B/C have not started. Main is unchanged at

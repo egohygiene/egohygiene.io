@@ -2,6 +2,8 @@
 
 Prepared 2026-10-23 (America/New_York). Status: **A prepared for review; B/C not
 implemented**. Owner: [#91](https://github.com/egohygiene/egohygiene.io/issues/91).
+Draft: [PR #95](https://github.com/egohygiene/egohygiene.io/pull/95), A source
+`f0342a0d52a52a11e3b4579124fa51b19d1a406d`.
 Decision: [ADR 0012](../architecture/decisions/0012-static-public-route-rendering.md).
 
 ## Source and integration
