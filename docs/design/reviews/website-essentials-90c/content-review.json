@@ -1,0 +1,83 @@
+{
+  "sourceCommit": "4ff01a760399cf0bfc2dff6570ae250d71c2a879",
+  "recordedDate": "2026-10-22",
+  "dateZone": "America/New_York",
+  "reviewKind": "Engineering source/copy review; no maintainer policy/contact approval inferred. This inventory is a receipt, not an application route registry.",
+  "messageSource": "apps/egohygiene.io/src/i18n/locales/en/pages.json",
+  "messageFileSha256": "6f5aad4e038ca96b4e24865704ef5fbe8428d6c59e4c76bca66141a237d59551",
+  "routes": [
+    {
+      "path": "/help",
+      "title": "Help",
+      "description": "Find website help, accessibility feedback, store guidance and policy information for Ego Hygiene.",
+      "messageNamespace": "pages.help",
+      "clientMetadata": "source and simulated DOM reviewed",
+      "browserAcceptance": "deferred"
+    },
+    {
+      "path": "/about",
+      "title": "About Ego Hygiene",
+      "description": "The ideas behind Ego Hygiene: balance, awareness, empathy, and growth.",
+      "messageNamespace": "pages.about",
+      "clientMetadata": "source and simulated DOM reviewed",
+      "browserAcceptance": "deferred"
+    },
+    {
+      "path": "/accessibility",
+      "title": "Accessibility",
+      "description": "Current accessibility information, review limitations and ways to report a problem using the Ego Hygiene website.",
+      "messageNamespace": "pages.accessibility",
+      "clientMetadata": "source and simulated DOM reviewed",
+      "browserAcceptance": "deferred"
+    },
+    {
+      "path": "/store/help",
+      "title": "Store help",
+      "description": "Understand product previews, hosted checkout, delivery information, and where to get help with the Ego Hygiene store.",
+      "messageNamespace": "pages.storeHelp",
+      "clientMetadata": "source and simulated DOM reviewed",
+      "browserAcceptance": "deferred"
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy draft",
+      "description": "A provisional explanation of the current website’s privacy practices.",
+      "messageNamespace": "pages.privacy",
+      "clientMetadata": "source and simulated DOM reviewed",
+      "browserAcceptance": "deferred"
+    },
+    {
+      "path": "/terms",
+      "title": "Terms draft",
+      "description": "Provisional terms for the Ego Hygiene public website.",
+      "messageNamespace": "pages.terms",
+      "clientMetadata": "source and simulated DOM reviewed",
+      "browserAcceptance": "deferred"
+    }
+  ],
+  "storageCorrection": {
+    "messageKey": "pages.privacy.preferences",
+    "before": "The site can save theme and language preferences in your browser. Blocking browser storage does not prevent browsing.",
+    "after": "The site can save theme and language preferences in your browser. If saving is blocked, those preferences may not be remembered on a later visit.",
+    "reason": "Narrow to preference persistence; actual whole-browser/all-storage resilience has not been qualified."
+  },
+  "feedback": {
+    "messageKey": "pages.websiteFeedback.warning",
+    "text": "GitHub issues are public and require a GitHub account to submit. Do not include order details, payment information, addresses, or other private information. A private website-feedback channel is not published here yet.",
+    "destination": "https://github.com/egohygiene/egohygiene.io/issues/new",
+    "privateChannelPublished": false,
+    "maintainerDisposition": "pending",
+    "proposedDisposition": "Keep public GitHub defect reports during setup; retain a private accessible alternative as explicit pre-launch work in #9. This is a proposal and does not close #90."
+  },
+  "remainingOwners": {
+    "purposeAndOrganization": "#9",
+    "privateWebsiteAccessibilityFeedback": "#90/#9 pending reviewed disposition",
+    "focusContrastMotion": "#49",
+    "layoutInputZoom": "#70",
+    "integratedBrowserAndAssistiveTechnology": "#37",
+    "generatedHtmlMetadataCanonicalSitemap": "#91",
+    "rightsAndLicensing": "#59",
+    "actualCommercePolicyAndOrderSupportFacts": "#38",
+    "actualHostingAndHostPrivacyFacts": "#89"
+  }
+}

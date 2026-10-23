@@ -1,0 +1,331 @@
+{
+  "capturedAt": "2026-10-23T00:04:49.093Z",
+  "sourceHead": "4ff01a760399cf0bfc2dff6570ae250d71c2a879",
+  "artifactRoot": "apps/egohygiene.io/dist",
+  "result": "pass",
+  "scope": "All emitted paths and selected text formats; hashes and level-9 gzip sizes for every regular file. HTML asset attributes, CSS url(), JS quoted static asset paths, and manifest icons/start_url are resolved locally. No network requests.",
+  "limits": [
+    "Targeted common credential signatures and private-source path checks, not a comprehensive secret or binary metadata audit.",
+    "Computed URLs and browser/deployed-host behavior require journey checks; this scanner does not execute application code.",
+    "Size ceilings are provisional local review regression limits, not maintainer-agreed performance budgets or measured user experience.",
+    "External resource references are inventoried by protocol only, not fetched or qualified."
+  ],
+  "budgetStatus": "provisional-local-review",
+  "gzip": {
+    "level": 9,
+    "meaning": "Sum of separately compressed file bytes; not a server compression or network timing measurement."
+  },
+  "files": [
+    {
+      "path": "assets/index-C7uNV2fU.css",
+      "kind": "css",
+      "bytes": 50259,
+      "gzipBytes": 9851,
+      "sha256": "fb07ee39c3c0f353f6f622de1c439ee93babc2947bf156ec314bdb0df16b93f6"
+    },
+    {
+      "path": "assets/index-PhlC74Nm.js",
+      "kind": "javascript",
+      "bytes": 472942,
+      "gzipBytes": 137228,
+      "sha256": "74c197e6cc97dc74b6489ead093d7d1c977c439f658342e319ac01f0da0bb1dc"
+    },
+    {
+      "path": "CNAME",
+      "kind": "documents",
+      "bytes": 14,
+      "gzipBytes": 34,
+      "sha256": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12"
+    },
+    {
+      "path": "favicon.ico",
+      "kind": "images",
+      "bytes": 15086,
+      "gzipBytes": 11232,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "favicon.png",
+      "kind": "images",
+      "bytes": 3008,
+      "gzipBytes": 3031,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "fonts/atkinson-bold.woff",
+      "kind": "fonts",
+      "bytes": 23780,
+      "gzipBytes": 23749,
+      "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623"
+    },
+    {
+      "path": "fonts/atkinson-regular.woff",
+      "kind": "fonts",
+      "bytes": 22792,
+      "gzipBytes": 22782,
+      "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b"
+    },
+    {
+      "path": "icons/apple-touch-icon.png",
+      "kind": "images",
+      "bytes": 33687,
+      "gzipBytes": 33720,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "icons/icon-192x192.png",
+      "kind": "images",
+      "bytes": 36806,
+      "gzipBytes": 36839,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "icons/icon-512x512.png",
+      "kind": "images",
+      "bytes": 161290,
+      "gzipBytes": 160949,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "icons/NOTICE.txt",
+      "kind": "documents",
+      "bytes": 1574,
+      "gzipBytes": 966,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "index.html",
+      "kind": "documents",
+      "bytes": 1792,
+      "gzipBytes": 831,
+      "sha256": "7f0b85c1936b9491bb59c5e1012342b613c7a7d225fc87d59d22e41474ed8cef"
+    },
+    {
+      "path": "llms.txt",
+      "kind": "documents",
+      "bytes": 661,
+      "gzipBytes": 360,
+      "sha256": "0278fd4ceaf2283f4002156d060eef999785ed17a2634e9ec241c9e68d41ecad"
+    },
+    {
+      "path": "robots.txt",
+      "kind": "documents",
+      "bytes": 68,
+      "gzipBytes": 84,
+      "sha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+    },
+    {
+      "path": "site.webmanifest",
+      "kind": "documents",
+      "bytes": 473,
+      "gzipBytes": 218,
+      "sha256": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e"
+    },
+    {
+      "path": "store/heartburst/heartburst-light.webp",
+      "kind": "images",
+      "bytes": 141978,
+      "gzipBytes": 141581,
+      "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550"
+    }
+  ],
+  "scannedTextFiles": [
+    "assets/index-C7uNV2fU.css",
+    "assets/index-PhlC74Nm.js",
+    "CNAME",
+    "icons/NOTICE.txt",
+    "index.html",
+    "llms.txt",
+    "robots.txt",
+    "site.webmanifest"
+  ],
+  "markerChecks": [
+    {
+      "label": "synthetic readiness evidence",
+      "result": "pass"
+    },
+    {
+      "label": "synthetic customer support",
+      "result": "pass"
+    },
+    {
+      "label": "catalog language fixture",
+      "result": "pass"
+    },
+    {
+      "label": "catalog language qualification host",
+      "result": "pass"
+    },
+    {
+      "label": "handoff fixture",
+      "result": "pass"
+    },
+    {
+      "label": "handoff label",
+      "result": "pass"
+    },
+    {
+      "label": "inert destination",
+      "result": "pass"
+    },
+    {
+      "label": "Fourthwall preview route",
+      "result": "pass"
+    },
+    {
+      "label": "artist preview route",
+      "result": "pass"
+    },
+    {
+      "label": "Fourthwall fixture",
+      "result": "pass"
+    },
+    {
+      "label": "artist fixture",
+      "result": "pass"
+    },
+    {
+      "label": "layout host",
+      "result": "pass"
+    },
+    {
+      "label": "synthetic RTL copy",
+      "result": "pass"
+    }
+  ],
+  "positiveControls": [
+    {
+      "marker": "design-heartburst",
+      "result": "pass"
+    },
+    {
+      "marker": "/store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "marker": "product-demo-signal-heart-hoodie",
+      "result": "pass"
+    }
+  ],
+  "references": [
+    {
+      "from": "assets/index-PhlC74Nm.js",
+      "target": "store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "from": "assets/index-PhlC74Nm.js",
+      "target": "icons/icon-512x512.png",
+      "result": "pass"
+    },
+    {
+      "from": "assets/index-PhlC74Nm.js",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "assets/index-PhlC74Nm.js",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "assets/index-C7uNV2fU.css",
+      "result": "pass"
+    },
+    {
+      "from": "site.webmanifest",
+      "target": "index.html",
+      "result": "pass"
+    },
+    {
+      "from": "site.webmanifest",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "site.webmanifest",
+      "target": "icons/icon-512x512.png",
+      "result": "pass"
+    }
+  ],
+  "externalReferences": [],
+  "publicImageExactMatch": true,
+  "sizes": {
+    "javascript": {
+      "bytes": 472942,
+      "gzipBytes": 137228,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 150000
+      },
+      "result": "pass"
+    },
+    "css": {
+      "bytes": 50259,
+      "gzipBytes": 9851,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 12000
+      },
+      "result": "pass"
+    },
+    "images": {
+      "bytes": 391855,
+      "gzipBytes": 387352,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 500000
+      },
+      "result": "pass"
+    },
+    "fonts": {
+      "bytes": 46572,
+      "gzipBytes": 46531,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 50000
+      },
+      "result": "pass"
+    },
+    "documents": {
+      "bytes": 4582,
+      "gzipBytes": 2493,
+      "limit": {
+        "bytes": 20000,
+        "gzipBytes": 10000
+      },
+      "result": "pass"
+    },
+    "total": {
+      "bytes": 966210,
+      "gzipBytes": 583455,
+      "limit": {
+        "bytes": 1140000,
+        "gzipBytes": 722000
+      },
+      "result": "pass"
+    }
+  },
+  "findings": []
+}

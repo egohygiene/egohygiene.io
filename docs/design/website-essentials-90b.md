@@ -104,6 +104,11 @@ Client metadata is not crawler-visible HTML proof; #91 has not started.
 
 ## C handoff and factual dispositions
 
+Successor: [C review](website-essentials-90c.md) corrects the inherited storage
+overstatement, records six-route review and retains nine browser definitions.
+The B source/results below remain historical; C contact and browser acceptance
+are not automatically completed by that successor.
+
 | A review item | B disposition and remaining owner |
 | --- | --- |
 | D1 — Purpose | Existing About copy retained; no new biography/history or condensed rewrite. Broader history remains #9. |

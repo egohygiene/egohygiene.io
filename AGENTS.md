@@ -5,7 +5,22 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
-## Current website essentials checkpoint B — 2026-10-22
+## Current website essentials checkpoint C — 2026-10-22
+
+Alan authorized C. [Draft #94](https://github.com/egohygiene/egohygiene.io/pull/94)
+now includes the [six-route copy/review receipt](docs/design/website-essentials-90c.md),
+a narrowed privacy-storage sentence and nine browser definitions retained for the
+final Mac pass. Local focused checks passed; zero C browser journeys executed;
+source hosted CI/dependency review/CodeQL failed. The draft still targets #87.
+
+Next is a sync on C and the concrete contact proposal: keep public GitHub reports
+during setup, with a private accessible alternative tracked in #9 before launch.
+That proposal is not maintainer-approved; #90 stays open for the contact/copy
+disposition and deferred browser/manual acceptance. #91 A is next in the approved
+implementation order, not started here. See current-state/provenance for exact
+revisions and owners. #87/#93/#94/#73 remain unmerged; no activation or deployment.
+
+## Historical website essentials checkpoint B — 2026-10-22
 
 Alan selected continued implementation after A. Help and Accessibility pages,
 locale-aware navigation and consistent public-feedback warnings are implemented

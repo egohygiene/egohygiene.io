@@ -27,12 +27,12 @@ has no closed issues. No issue was closed by this reorganization.
 
 ### Setup milestone: execution order
 
-Progress 2026-10-22: [#90 checkpoint B](../design/website-essentials-90b.md)
-implements Help/Accessibility and navigation in draft #94, now based on #87 and
-retaining #93/A history. Local focused checks passed; hosted source runs failed.
-Next is C's actual-copy/contact review using [A's D1–D4](../design/website-essentials-90a.md).
-The private-feedback disposition and final browser/manual acceptance remain open;
-this does not complete #90 or approve unknown policy/contact facts.
+Progress 2026-10-22: [#90 checkpoint C](../design/website-essentials-90c.md)
+records the six-route copy review, one narrowed privacy sentence and nine deferred
+browser definitions in draft #94. Local focused checks passed; hosted source runs
+failed; zero C browser journeys executed. Sync on the proposed interim public
+feedback/private-channel disposition; #90 stays open for that review and final
+browser/manual acceptance. #91 A is next in implementation order, not started here.
 
 [Draft #87](https://github.com/egohygiene/egohygiene.io/pull/87)'s readiness code
 is included in #94's working draft; both PRs and #93 remain unmerged into main.

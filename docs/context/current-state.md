@@ -1,6 +1,48 @@
 # Current handoff
 
-## Current: website essentials #90 B implemented — 2026-10-22
+## Current: website essentials #90 C review prepared — 2026-10-22
+
+Alan authorized checkpoint C. Main remains
+`07d25941ceeefa53089afa025b612c6aa54f36c4`; drafts #87/#93/#94/#73 remain unmerged.
+[PR #94](https://github.com/egohygiene/egohygiene.io/pull/94), branch
+`docs/website-essentials-90a`, still targets `feat/store-readiness-38`. Its shared
+readiness/roadmap ancestry is preserved; no further branch integration occurred.
+
+C source `4ff01a760399cf0bfc2dff6570ae250d71c2a879`, tree
+`bff27721791af1fb39eacd7fc8dc3d880732f9e3`, parent
+`b83583887bfdf0950fe83e575708909eed02a3d9`, changes three files. The inherited
+Privacy guarantee about all browser storage is narrowed to preference persistence.
+The DOM route matrix covers all six information pages. Nine browser journeys are
+authored in the existing `site.spec.ts`, already selected by the normal production
+profile/final runner. No new framework, runner, dependency, CSS or catalog change.
+
+Read the [C receipt](../design/website-essentials-90c.md) for the exact copy review,
+source-bound message record, commands, artifacts and remaining acceptance. Local
+passes: app and browser type profiles; 433 English messages / 10 namespaces;
+54 focused tests / eight files; nine browser definitions discovered; normal build;
+artifact scan of 16 files / 12 references / zero findings with approved artwork
+bytes matching. Build/scanner ran at clean published C source. Runtime remains
+Node 24.21.0 / pnpm 11.28.5. **Zero C Chromium/browser journeys executed.**
+Source hosted failures: CI 39875866505, dependency 39875866514, CodeQL 39875866901.
+No cause re-diagnosis, manual dispatch, gate changes or broad final profile run.
+
+D1 retains existing About copy. D3 retains limited accessibility status with
+actual #49/#70/#37 review pending. D4 retains provisional policy text, with actual
+commerce/support facts in #38, organization/privacy/contacts in #9, rights in #59
+and actual host behavior in #89. #91 receives the six-route rendering inventory;
+#37/#49/#70 retain keyboard, readable-layout, native zoom and AT acceptance.
+
+**Next:** sync on C and D2. Concrete proposal: retain public GitHub defect reports
+during setup, and keep a private accessible website-feedback alternative as
+explicit pre-launch work under #9. Alternatively Alan can supply a destination
+approved for public display. This remains a proposal, not a completed contact
+decision or factual-copy approval; do not close #90 on it. Engineering review is
+prepared, while contact/copy disposition and deferred browser/manual acceptance
+remain open. #91 A is next in the approved implementation sequence and has not
+started. No issue closure, main merge, provider request, real product/language
+activation, order, deployment or spending occurred.
+
+## Historical: website essentials #90 B implemented — 2026-10-22
 
 Alan selected continued work after A. Refreshed GitHub before editing. Main remains
 `07d25941ceeefa53089afa025b612c6aa54f36c4`; #87, #93, #94 and older #73 remain

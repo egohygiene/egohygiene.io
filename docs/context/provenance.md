@@ -4,6 +4,46 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Website essentials #90 checkpoint C — 2026-10-22
+
+Authority: Alan explicitly selected C. Refreshed main/open PRs and owning issues;
+main remains `07d25941ceeefa53089afa025b612c6aa54f36c4`. #94 retains branch
+`docs/website-essentials-90a`, based on #87's `feat/store-readiness-38`; all four
+drafts #87/#93/#94/#73 remain unmerged. Existing draft ancestry is unchanged.
+
+Source `4ff01a760399cf0bfc2dff6570ae250d71c2a879`, tree
+`bff27721791af1fb39eacd7fc8dc3d880732f9e3`, parent B continuity
+`b83583887bfdf0950fe83e575708909eed02a3d9`, changes three source/test files.
+Independent copy review found an inherited all-browser-storage guarantee beyond
+the available evidence. Narrowed it to preference persistence; all other page
+copy retained. Expanded the actual-route DOM matrix to all six information pages
+and added nine deferred browser definitions to the existing guarded site suite.
+Independent source/test review found no remaining blocker after that correction.
+
+The [C receipt](../design/website-essentials-90c.md) links the source-bound copy
+review, authored check receipt, original generated artifacts and hosted snapshot.
+Node 24.21.0 / pnpm 11.28.5; app/browser type profiles, locale validation
+(433 messages / 10 namespaces), 54 focused tests / eight files and nine-definition
+discovery passed. The browser follow-up clarified only a runner comment; no
+behavior changed after checks. Published tree matched staging. Normal build and
+scanner ran at clean source: 16 files / 12 references / zero findings, exact
+approved Heartburst bytes, 966,210 raw / 583,455 level-9 gzip bytes. Original UTC
+artifact capture is 2026-10-23T00:04:49.093Z (2026-10-22 in the client timezone).
+
+Zero C browser executions; no screenshot, actual keyboard/layout/AT or full final
+profile pass is claimed. Source CI 39875866505, dependency 39875866514 and CodeQL
+39875866901 failed. No cause was re-diagnosed, workflow manually dispatched or gate
+changed. Local evidence remains separate from hosted and production qualification.
+
+D1 existing purpose copy retained; D2 interim public-feedback/private-channel
+disposition awaits Alan; D3 browser/accessibility proof stays #49/#70/#37; D4
+unknown policy facts retain #9/#59/#38/#89 ownership. C records explicit route
+handoffs to #37/#49/#70/#91/#89 and commerce fact categories to #38, while #9
+retains the private feedback gap. The proposed pre-launch contact arrangement is
+not approved or a reason to close #90. No private material/contact was inferred or
+published. No issue closure, main merge, deployment, activation, provider request,
+order or spending. Next after sync is #91 A; it is not started here.
+
 ## Website essentials #90 checkpoint B — 2026-10-22
 
 Authority: Alan selected continued work after A. Implemented the bounded pages
