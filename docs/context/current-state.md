@@ -1,6 +1,49 @@
 # Current handoff
 
-## Current: website essentials #90 C review prepared — 2026-10-22
+
+## Current: public rendering #91 A prepared — 2026-10-23
+
+Alan selected the next issue after the discovery-file discussion. Followed the
+one-checkpoint agreement: A's source inventory, rendering choice and publication
+rules are prepared; B/C have not started. Main is unchanged at
+`07d25941ceeefa53089afa025b612c6aa54f36c4`. New branch `docs/public-rendering-91a`
+is based on #94 head `2096c75d381a3027d6b133f2a873f432fe2057a3` (tree
+`2a49c38b5997192fa3d79bed3f72383754fecf19`) and targets its
+`docs/website-essentials-90a` branch. #94 already contains #87/#93 ancestry;
+#87/#93/#94/#73 remain unmerged, with no integration or retarget in this checkpoint.
+
+[ADR 0012](../architecture/decisions/0012-static-public-route-rendering.md) selects
+one shared React Router route definition and a build-only Vite/React static adapter.
+The [A receipt](../design/public-rendering-91a.md) and
+[source-bound inventory](../design/reviews/public-rendering-91a/inventory.json)
+record 26 successful current paths. Proposed output: meaningful HTML for all 26,
+ten sitemap entries and 16 noindex pages for provisional policies, reserved
+product gateways, the generic demo catalog and fictional details. Heartburst
+remains a public artwork preview, independent of garment/purchase approval.
+Catalog paths derive from the validated public projection in B, not this receipt.
+
+B must resolve browser-singleton imports, effect-only metadata and deterministic
+first hydration for theme, locale and URL filters. Preserve existing canonical
+paths, catalog v3, curated artist/song views, preference behavior and purchase
+guards. Corrected the older migration guide's stale v1 assertion; no schema changed.
+The discovery discussion is captured with upstream owners; #91 reconciles existing
+llms.txt/robots and the missing sitemap, not every proposed AI/discovery artifact.
+
+This is documentation/evidence only. Source inventory uses code review and JSON
+parsing, not a fresh catalog-runtime/build/browser pass. The recovered default Node
+24.19.0 is below the required 24.21.0; no application command ran under it. B must
+recover the pinned runtime. Refreshed #94 head CI 39876452521 and dependency review
+39876452515 remain failed; prior source CodeQL failure is separately recorded.
+No cause re-diagnosis, manual dispatch, gate change or hosted/local equivalence.
+
+**Next:** sync on A, then implement B in this draft when selected. #91 stays open;
+#90's contact/copy disposition and deferred browser/manual acceptance stay open.
+Actual host behavior belongs to #89/#39, local Docker/status/MIME to #57, and final
+integrated Chromium/engineering qualification to #37 with the approved #88 owners.
+No new renderer, app behavior, dependency, artwork, catalog, product/provider
+activation, merge, deployment, paid order or spending occurred.
+
+## Historical: website essentials #90 C review prepared — 2026-10-22
 
 Alan authorized checkpoint C. Main remains
 `07d25941ceeefa53089afa025b612c6aa54f36c4`; drafts #87/#93/#94/#73 remain unmerged.

@@ -5,7 +5,24 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
-## Current website essentials checkpoint C — 2026-10-22
+
+## Current public rendering checkpoint A — 2026-10-23
+
+Alan selected the next issue after the discovery-file investigation. #91 A now
+records [ADR 0012](docs/architecture/decisions/0012-static-public-route-rendering.md)
+and the [26-route/publication contract](docs/design/public-rendering-91a.md),
+prepared for review on `docs/public-rendering-91a`, based on unmerged #94.
+The selected approach reuses React/Vite Data Mode and the existing public catalog;
+B will add static HTML, shared metadata, sitemap and deterministic hydration.
+No renderer or new discovery output is implemented by A.
+
+Next: sync on A's architecture and proposed ten-entry sitemap/16 noindex-page
+disposition, then B. Preserve #90's outstanding contact/copy and deferred browser
+acceptance; advancing #91 does not resolve those decisions. Earlier drafts remain
+unmerged, hosted failures remain visible, and final Chromium/lint/CI/refactor work
+retains the approved #88 sequence. See current-state/provenance for exact inputs.
+
+## Historical website essentials checkpoint C — 2026-10-22
 
 Alan authorized C. [Draft #94](https://github.com/egohygiene/egohygiene.io/pull/94)
 now includes the [six-route copy/review receipt](docs/design/website-essentials-90c.md),

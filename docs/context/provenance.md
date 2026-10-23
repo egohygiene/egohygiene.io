@@ -4,6 +4,59 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+
+## Public rendering #91 checkpoint A — 2026-10-23
+
+Authority: Alan asked to proceed with the next issue after the discovery-file
+research. Applied #91's existing one-checkpoint agreement: prepare A and sync
+before B. Recovered the pruned GitHub checkout, read root/scoped context and ADRs,
+and refreshed main, #91/#22/#57/#88/#90, open drafts and prerequisite checks.
+No research artifact from the prior scratch workspace was assumed to survive.
+
+Input main `07d25941ceeefa53089afa025b612c6aa54f36c4`; #94
+`2096c75d381a3027d6b133f2a873f432fe2057a3`, #87
+`ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6`, #93
+`c7eb41f3966e93e015868f81de128c9414f4cafd`, #73
+`725e021336fe6675e53d0a3374caf0b102627019` remain unmerged. New branch
+`docs/public-rendering-91a` starts exactly at #94 and targets its branch; no
+prior PR merge, retarget or source integration occurred.
+
+[ADR 0012](../architecture/decisions/0012-static-public-route-rendering.md) records
+selected build-time React/Vite Data Mode rendering, shared routes/public inputs,
+metadata/canonical/indexing ownership, deterministic first hydration, known missing
+states and local-versus-host acceptance. The
+[A receipt](../design/public-rendering-91a.md) records the complete 26-path inventory
+and proposed ten sitemap/16 noindex disposition. Its
+[JSON evidence](../design/reviews/public-rendering-91a/inventory.json) hashes 42
+inspected source files at the exact base. It is an audit snapshot, not a new route
+configuration or a runtime schema-validation result. B must derive the real build
+inventory through the existing validated public projection and canonical selectors.
+
+Parallel read-only audits reviewed source routes/identities and rendering options.
+The root inspected exact React Router 7.18.2 primary documentation plus React/Vite
+and discovery format guidance; references are in the ADR. No third-party code,
+private creative/business inputs or new assets were copied. The old framework
+migration guide incorrectly called v1 current; corrected it to inherited catalog
+v3/ADR 0011 without changing historical ADRs or any data contract.
+
+The preceding discussion found Holon #7 generation, Hygiene #16 proposed policy,
+Relay #16 validation and Pace #6 rollout. Their roles, experimental-file limits
+and existing website files are captured in A. #91's bounded work reconciles current
+llms.txt and emits the advertised sitemap; broader outputs remain #22/Holon.
+Advancing #91 does not approve #90's pending contact/copy decision or close #90.
+
+Only documentation/evidence checks apply to this checkpoint. No application suite,
+build, catalog runtime, actual browser, Docker/host/provider or purchase test ran.
+Recovered default Node 24.19.0 is below pinned 24.21.0; B must restore the required
+runtime before application commands. Prerequisite #94 head CI 39876452521 and
+dependency 39876452515 failed; C's prior source CodeQL 39875866901 remains dated
+history. No hosted failure diagnosis, disabled gate or manual workflow dispatch.
+Publication/validation readback is recorded in the final checkpoint entry below.
+
+No issues closed, main merge, runtime/dependency/catalog/artwork changes, real
+product/provider activation, order, deployment or spending. Next is A review then
+B; broader engineering/Chromium acceptance remains in the approved final sequence.
+
 ## Website essentials #90 checkpoint C — 2026-10-22
 
 Authority: Alan explicitly selected C. Refreshed main/open PRs and owning issues;
