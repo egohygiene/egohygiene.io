@@ -9,7 +9,11 @@ export function RouteErrorPage() {
   return (
     <main>
       <Container>
-        <PageMetadata title={t("errors.routeTitle")} description={t("errors.routeDescription")} />
+        <PageMetadata
+          error
+          title={t("errors.routeTitle")}
+          description={t("errors.routeDescription")}
+        />
         <h1>{t("errors.routeTitle")}</h1>
         <p>{t("errors.routeDescription")}</p>
         <p>

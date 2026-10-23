@@ -17,13 +17,13 @@ flowchart TD
 
 | Boundary | Public entry point | Owns / allowed dependencies |
 | --- | --- | --- |
-| Website composition | `apps/egohygiene.io/src/app/router.tsx`, `providers.tsx` | Routes, provider composition and preview build flag; may compose features and packages |
+| Website composition | `apps/egohygiene.io/src/app/router.tsx`, `providers.tsx`; browser/static adapters | Shared routes, provider composition and preview flag; browser adapter mounts, build-only `entry-server.tsx` renders; may compose features and packages |
 | Store presentation | `features/store/index.ts` | React pages, router integration, metadata effects, artwork and gallery controls |
 | Portable store behavior | `features/store/domain/index.ts` | Pure selectors, canonical paths and synthetic handoff eligibility; only local domain modules and `@egohygiene/schemas` |
 | Synthetic provider normalization | `features/fourthwall-preview/adapter.ts` | Validates unknown provider input with `contract.ts`, maps to the domain contract; no HTTP, React, DOM or credentials |
 | Canonical contracts | `@egohygiene/schemas` | Catalog v3, localized content/attribution, references, public projection, reviewed product readiness and purchase routes and disabled provider research; depends on Zod |
 | Browser catalog input | `src/content/store/index.ts` | Receives `virtual:store-catalog`; browser consumers must use this entry point |
-| Build / authoring adapter | `scripts/store-catalog.mts`, `vite-store-catalog.mts` | Node filesystem validation, discovery and public projection; Vite integration stays here |
+| Build / authoring adapter | `scripts/store-catalog.mts`, `vite-store-catalog.mts`, `build-public-site.mts` | Node validation/public projection; frozen public module shared by browser/static builds; static output stays behind the Node adapter |
 | UI primitives | `@egohygiene/ui`, `@egohygiene/ui/styles.css` | Semantic component props; themes, icons and utilities; no catalog, provider, app or router imports |
 | Theme and token layers | `@egohygiene/themes`, `@egohygiene/design-tokens` and their CSS exports | React theme preference adapter over semantic CSS variables and generated design tokens |
 | Locale and configuration | `@egohygiene/i18n`, `@egohygiene/config` | App supplies messages/locale and explicit public environment input; do not read provider secrets here |

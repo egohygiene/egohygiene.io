@@ -61,17 +61,27 @@ export function applyTheme(theme: ThemeName): Exclude<ThemeName, "system"> {
 }
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  const [theme, setThemeState] = useState<ThemeName>(readThemePreference);
-  const [resolvedTheme, setResolvedTheme] = useState<Exclude<ThemeName, "system">>(() =>
-    applyTheme(theme),
-  );
+  // Keep rendered controls identical on the server and first hydration. The
+  // website's pre-paint script already applies the visitor's CSS preference.
+  const [theme, setThemeState] = useState<ThemeName>("system");
+  const [resolvedTheme, setResolvedTheme] = useState<Exclude<ThemeName, "system">>("dark");
+  const [preferenceRestored, setPreferenceRestored] = useState(false);
 
   useEffect(() => {
+    const preference = readThemePreference();
+    setThemeState(preference);
+    setResolvedTheme(applyTheme(preference));
+    setPreferenceRestored(true);
+  }, []);
+
+  useEffect(() => {
+    // Never write the default over a saved preference before it has been read.
+    if (!preferenceRestored) return;
     const resolved = applyTheme(theme);
     setResolvedTheme(resolved);
 
     saveThemePreference(theme);
-  }, [theme]);
+  }, [preferenceRestored, theme]);
 
   useEffect(() => {
     if (!isBrowser() || typeof window.matchMedia !== "function") {

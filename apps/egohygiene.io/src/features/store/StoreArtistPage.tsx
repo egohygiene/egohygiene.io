@@ -3,6 +3,7 @@ import type { StoreCatalog, StorefrontCuration } from "@egohygiene/schemas";
 import { useRef } from "react";
 import { useLocation, useParams, useSearchParams } from "react-router-dom";
 import { storeCatalog, storefrontCuration } from "../../content/store";
+import { useBrowserSnapshot } from "../../hooks/useBrowserSnapshot";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import { filterStoreEntries, getCuratedStoreArtist } from "./domain/index.ts";
 import { StoreCard, StoreMetadata } from "./StorePages";
@@ -24,7 +25,9 @@ export function StoreArtistPage({
   const { selection: language, content } = useStoreContent();
   const { artistSlug } = useParams();
   const location = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [browserSearchParams, setSearchParams] = useSearchParams();
+  const browserReady = useBrowserSnapshot();
+  const searchParams = browserReady ? browserSearchParams : new URLSearchParams();
   const searchInput = useRef<HTMLInputElement>(null);
   const selection = getCuratedStoreArtist(catalog, curation, artistSlug ?? "");
   const view = searchParams.get("view") === "songs" ? "songs" : "standalone";

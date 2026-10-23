@@ -1,12 +1,13 @@
 /** Isolated qualification entry. Built only by tests/catalog-localization/run.mts. */
 import { createRoot } from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppProviders } from "../../apps/egohygiene.io/src/app/providers";
-import { router } from "../../apps/egohygiene.io/src/app/router";
+import { routes } from "../../apps/egohygiene.io/src/app/router";
 import "../../packages/ui/src/styles/index.css";
 import "../../apps/egohygiene.io/src/styles/app.css";
 import { catalogLocaleMessages, catalogLocaleRegistry } from "./locales";
 
+const router = createBrowserRouter(routes);
 const root = document.getElementById("root");
 if (!root) throw new Error("Catalog localization qualification root is missing");
 createRoot(root).render(

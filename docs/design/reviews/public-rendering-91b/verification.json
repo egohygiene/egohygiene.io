@@ -1,0 +1,94 @@
+{
+  "sourceCommit": "3860d6062c8759a6bf522f6f50f74adff3266345",
+  "sourceTree": "c718864e270bacf0d1ea943e11face275f32de14",
+  "parent": "487ae3b9fc7be10c81de26d3e2ec529418ea3fae",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "nodeArchiveSha256": "fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6",
+    "install": "frozen lockfile, ignore-scripts; 3770 packages"
+  },
+  "checks": [
+    {
+      "command": "pnpm typecheck",
+      "result": "pass",
+      "scope": "app (including server entry), Node store/build tooling, portable domain"
+    },
+    {
+      "command": "pnpm exec tsc --project tsconfig.store-browser.json --noEmit",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm check",
+      "result": "pass",
+      "scope": "workspace, package exports, 433 English messages/10 namespaces, package cycles, 16-module portable boundary"
+    },
+    {
+      "command": "pnpm catalog:test",
+      "result": "pass",
+      "tests": 144
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts apps/egohygiene.io/src/app/rendering.test.tsx apps/egohygiene.io/src/content/publication.test.ts apps/egohygiene.io/src/components/PageMetadata apps/egohygiene.io/src/pages apps/egohygiene.io/src/features/store apps/egohygiene.io/src/i18n/LocaleProvider.test.tsx packages/themes/src/index.test.tsx",
+      "result": "pass",
+      "files": 20,
+      "tests": 158
+    },
+    {
+      "command": "pnpm build",
+      "result": "pass",
+      "runsAtCleanPublishedSource": 2,
+      "byteIdenticalFiles": 44
+    },
+    {
+      "command": "node scripts/store-environment.mjs build",
+      "result": "pass",
+      "scope": "isolated dist-preview SPA; Fourthwall and artist chunks preserved; no public-routes.json or sitemap"
+    },
+    {
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/public-rendering-91b.json",
+      "result": "fail",
+      "exitCode": 1,
+      "files": 44,
+      "assetReferences": 202,
+      "findings": 3,
+      "findingRules": [
+        "size-budget"
+      ],
+      "report": "production-artifact.json"
+    },
+    {
+      "command": "Read-only raw artifact parsing with JSDOM; no scripts/resources loaded",
+      "result": "pass",
+      "pages": 26,
+      "sitemapEntries": 10,
+      "report": "raw-inspection.json"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "evidenceScope": "Type/unit/catalog checks were run on the source tree published exactly. Builds, artifact qualification and raw inspection ran at its clean published commit. Documentation-only follow-up does not change application output.",
+  "hosted": {
+    "result": "failure",
+    "runs": {
+      "CI": 39947201969,
+      "dependencyReview": 39947201941,
+      "CodeQL": 39947202162
+    },
+    "diagnosedAgain": false,
+    "gatesChanged": false
+  },
+  "notRun": [
+    "Chromium/browser journeys",
+    "HTTP/Caddy/Docker status and MIME qualification",
+    "deployed-host/provider checks",
+    "broad final lint/refactor/engineering profile"
+  ],
+  "artifactSha256": {
+    "production-artifact.json": "5042b318bb3b4a92c1eb7a3f64c0aa25654009831a718356b58da5343a18be2b",
+    "public-routes.json": "693c651dce5ca49f31811da70eba1f1945a99aa867e9d3e3a5d3551a6f7a189b",
+    "raw-inspection.json": "b82a44dd50b5f83947f80c4ebca0000a07fea0bf641d6844b6b38dfb079e9672"
+  }
+}

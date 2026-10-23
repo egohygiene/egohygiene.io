@@ -4,8 +4,12 @@ Inherits [root instructions](../../AGENTS.md). Read the
 [extension contracts](../../docs/architecture/store-extension-contracts.md)
 for the actual module map and examples.
 
-- `src/app/router.tsx` and `providers.tsx` own composition. Feature presentation
-  owns React controls, router integration and browser effects.
+- `src/app/router.tsx` and `providers.tsx` own shared composition; `browser.tsx`
+  mounts the browser adapter and `src/entry-server.tsx` is build-only. Fixed path
+  declarations and publication metadata live in `src/content/publication.ts`.
+  Feature presentation owns React controls, router integration and browser effects.
+  Preserve matching initial hydration; use the shared browser-snapshot hook for
+  browser-only state and never import the browser adapter from the static tree.
 - Store consumers use `src/features/store/domain/index.ts` for pure selectors,
   canonical paths and synthetic handoffs. Provider wire fields stop at their
   adapter; canonical identity and purchase eligibility stay in the domain.

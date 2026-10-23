@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { isAbsolute, relative, resolve, sep } from "node:path";
 
 import type { Plugin } from "vite";
@@ -22,6 +23,40 @@ export interface PublicStoreCatalogOptions {
   readonly routesFile?: string;
   readonly publicDirectory?: string;
   readonly curationFile?: string | null;
+  readonly snapshot?: PublicStoreCatalogSnapshot;
+}
+
+const snapshotBrand = Symbol("validated-public-store-snapshot");
+
+/** An immutable, already validated module shared by the browser and static builds. */
+export interface PublicStoreCatalogSnapshot {
+  readonly [snapshotBrand]: true;
+  readonly moduleCode: string;
+  readonly digest: string;
+}
+
+export async function loadPublicStoreSnapshot(
+  options: Omit<PublicStoreCatalogOptions, "snapshot"> = {},
+): Promise<PublicStoreCatalogSnapshot> {
+  const directory = resolve(options.directory ?? defaultCatalogDirectory);
+  const routesFile = resolve(options.routesFile ?? defaultCheckoutRoutesFile);
+  const publicDirectory = resolve(options.publicDirectory ?? defaultPublicDirectory);
+  const curationFile = options.curationFile === undefined
+    ? curationFileForDirectory(directory)
+    : options.curationFile === null ? null : resolve(options.curationFile);
+  const catalog = toPublicStoreCatalog(await loadCatalog(
+    directory,
+    await readCatalogJson(routesFile),
+    publicDirectory,
+    curationFile,
+  ));
+  const storefrontCuration = await loadStorefrontCuration(catalog, curationFile);
+  const moduleCode = `export const storeCatalog = ${JSON.stringify(catalog)};\nexport const storefrontCuration = ${JSON.stringify(storefrontCuration)};\n`;
+  return Object.freeze({
+    [snapshotBrand]: true as const,
+    moduleCode,
+    digest: createHash("sha256").update(moduleCode).digest("hex"),
+  });
 }
 
 function isWithin(directory: string, file: string): boolean {
@@ -31,6 +66,8 @@ function isWithin(directory: string, file: string): boolean {
 
 /** Validate authoring sources in Node; expose only the public projection to Vite's module graph. */
 export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plugin {
+  if (options.snapshot && options.snapshot[snapshotBrand] !== true)
+    throw new Error("Public catalog snapshots must come from loadPublicStoreSnapshot.");
   const directory = resolve(options.directory ?? defaultCatalogDirectory);
   const routesFile = resolve(options.routesFile ?? defaultCheckoutRoutesFile);
   const publicDirectory = resolve(options.publicDirectory ?? defaultPublicDirectory);
@@ -63,19 +100,11 @@ export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plu
       // Build watchers need these inputs. In serve mode, addWatchFile also creates module
       // dependencies; use the server watcher below so raw authoring files stay out of the graph.
       if (building) for (const input of inputs) this.addWatchFile(input);
-      const catalog = toPublicStoreCatalog(
-        await loadCatalog(
-          directory,
-          await readCatalogJson(routesFile),
-          publicDirectory,
-          curationFile,
-        ),
-      );
-      const storefrontCuration = await loadStorefrontCuration(catalog, curationFile);
+      const snapshot = options.snapshot ?? await loadPublicStoreSnapshot(options);
       // Raw JSON is never a browser import or an emitted asset. No timestamp or absolute path
       // enters this deterministic module, including its optional production source map.
       return {
-        code: `export const storeCatalog = ${JSON.stringify(catalog)};\nexport const storefrontCuration = ${JSON.stringify(storefrontCuration)};\n`,
+        code: snapshot.moduleCode,
         map: { mappings: "" },
       };
     },

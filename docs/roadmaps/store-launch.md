@@ -1,5 +1,54 @@
 # Store launch roadmap and milestone history
 
+## Deployment environments and public construction preview — 2026-10-23
+
+Alan requested issues for local, dev, staging and production deployments, considering
+Pulumi or a simpler alternative, then a publicly viewable production site with an
+under-construction banner. This is a planning addition; the finite #88 setup queue
+and next #91 C checkpoint are unchanged.
+
+After setup/local engineering, [#31](https://github.com/egohygiene/egohygiene.io/issues/31) coordinates:
+
+| Order | Owner | Result |
+| --- | --- | --- |
+| 1 | [#21](https://github.com/egohygiene/egohygiene.io/issues/21) + [#89 A](https://github.com/egohygiene/egohygiene.io/issues/89) | Environment/tool decision and concrete no-paid-plan host selection |
+| 2 | [#96](https://github.com/egohygiene/egohygiene.io/issues/96) | Repeatable local/dev/staging/production commands, artifact identity, promotion and rollback |
+| 3 | [#97](https://github.com/egohygiene/egohygiene.io/issues/97) | Visible accessible construction mode with purchasing disabled; can overlap #96 after the contract |
+| 4 | [#89 B/C](https://github.com/egohygiene/egohygiene.io/issues/89) | Authorized publication and actual production-preview route/asset/HTML/DNS/HTTPS/rollback proof |
+| 5 | [#38](https://github.com/egohygiene/egohygiene.io/issues/38) then [#39](https://github.com/egohygiene/egohygiene.io/issues/39) | Actual product/provider qualification, then commercial/SoundCloud launch |
+
+Production preview does not depend on actual merchandise approval. The real site
+can be online while purchase readiness and providers remain disabled. Site stage,
+deployment environment and product eligibility are separate; a banner cannot
+approve products or enable checkout.
+
+Reuse #52's Taskfile commands, #57's local static serving and applicable #17/Relay
+contracts. Local needs no cloud account; dev/staging can be on demand. Pulumi is
+conditional, not selected merely by naming it. Keep a no-paid-plan/manual path,
+check current host limits during selection, and avoid unnecessary always-on
+resources. Use the normal public artifact, never isolated `dist-preview` fixtures.
+Keep private masters, records, credentials and state out of public Git.
+
+#96/#97 are new linked milestone-2 tasks. #21 remains a broader linked owner
+outside the milestones. Existing native parent links are unchanged; no new native
+links are claimed. [#84](https://github.com/egohygiene/egohygiene.io/issues/84), #31, #88, #21, #89 and #39
+were updated to distinguish production preview from commercial launch. Earlier
+counts and hierarchy snapshots below are dated history, not a fresh full inventory.
+
+No infrastructure, account/DNS change, application implementation, deployment,
+merge, product activation or spending occurs in this planning update. Existing
+artifact-size, hosted-CI and browser limits remain; #89 must record the actual
+publication disposition/evidence. This plan does not qualify the current draft.
+
+## Public rendering checkpoint B — 2026-10-23
+
+[#91 B / draft #95](https://github.com/egohygiene/egohygiene.io/pull/95) implements
+26 generated pages, ten sitemap entries, shared metadata and stable hydration.
+[The receipt](../design/public-rendering-91b.md) records exact local passes and
+remaining aggregate-size/hosted failures. Sync then C; #60 remains next after #91.
+#90 contact/copy and final browser/manual acceptance remain open. The ordered queue
+below is unchanged; no draft is merged or issue closed by this checkpoint.
+
 ## Approved two-phase arrangement — 2026-10-22
 
 Alan approved this full arrangement, including a controlled refactor/dependency
@@ -94,6 +143,11 @@ not passing results. No gates are disabled to close the milestone. Required
 unfinished work stays open or receives an explicit reviewed disposition and owner.
 
 ### Real products and launch milestone
+
+The 2026-10-23 deployment/preview sequence above now precedes actual product
+activation. #96/#97 join milestone 2; #21 supplies its applicable decision. The
+original owners below remain, with #89 able to complete the public-preview host
+work before #38. Commercial release acceptance remains #39.
 
 | Issue | Remaining work |
 | --- | --- |
