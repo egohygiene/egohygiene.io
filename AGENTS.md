@@ -6,6 +6,16 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
+## Deployment planning addition — 2026-10-23
+
+Alan requested environment and public-production-preview issues. The
+[roadmap](docs/roadmaps/store-launch.md) now links #21 + #89 A, #96 deployment
+commands, #97 construction mode, then #89 B/C publication, before #38/#39 commerce.
+This follows the finite #88 setup/local engineering pass; #91 C remains next.
+Pulumi is conditional; retain a no-paid-plan/manual path. A public construction
+preview uses the normal artifact and disabled purchasing, never `dist-preview`.
+This is planning only: no deployment, provisioning, merge or activation.
+
 ## Current public rendering checkpoint B — 2026-10-23
 
 Alan selected B after trying the local preview. [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)

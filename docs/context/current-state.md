@@ -1,7 +1,32 @@
 # Current handoff
 
 
-## Current: public rendering #91 B implemented — 2026-10-23
+## Current planning addition: environments and production preview — 2026-10-23
+
+Alan requested durable issues for local/dev/staging/production deployments and an
+under-construction production site. Created [#96](https://github.com/egohygiene/egohygiene.io/issues/96) for deployment commands
+and [#97](https://github.com/egohygiene/egohygiene.io/issues/97) for the banner/site-stage behavior, both in milestone 2.
+Reused #21 for the environment/IaC decision and #89 for actual host selection and
+publication, updating #84/#31/#88/#39 to keep the early preview separate from
+real-product launch. See the [ordered roadmap](../roadmaps/store-launch.md).
+
+After the finite #88 setup/local engineering pass: #21 + #89 A, then #96/#97,
+then #89 B/C production preview, then #38/#39 commercial readiness/release.
+The website can be public before merchandise is ready; purchasing stays disabled.
+Pulumi remains conditional and a no-paid-plan/manual path is required. Existing
+native parent relationships were preserved; new tasks are linked, not reparented.
+
+Live refresh: main `07d25941ceeefa53089afa025b612c6aa54f36c4`; draft #95 input
+`61dd52d93c5a1b69e7eb2dea4de443a39737a48e`, still based on #94. This docs-only
+follow-up changes no application output. No infrastructure, deployment, account/DNS
+change, merge, product activation or spending. Current implementation and its
+source-bound evidence remain #91 B below; no application suite was rerun.
+
+**Next implementation: #91 C**, including the outstanding artifact-size disposition,
+then #60. The deployment planning request does not reorder #88 or waive hosted CI,
+browser, contact/copy or production-qualification gaps.
+
+## Current implementation: public rendering #91 B implemented — 2026-10-23
 
 [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95), branch
 `docs/public-rendering-91a`, still targets #94's `docs/website-essentials-90a`.

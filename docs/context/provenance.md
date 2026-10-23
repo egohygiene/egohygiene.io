@@ -5,6 +5,40 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Deployment/production-preview planning — 2026-10-23
+
+Authority: Alan asked to create issues for local/dev/staging/production deployments
+using Pulumi or an alternative, followed by a visible under-construction production
+site. This selected issue planning, not deployment or application implementation.
+Read root/context/roadmap and ADR 0007/0012, refreshed GitHub main, draft #95 and
+open issues, and performed an independent read-only scope review before changes.
+
+Reused [#21](https://github.com/egohygiene/egohygiene.io/issues/21) for environment/IaC decisions and
+[#89](https://github.com/egohygiene/egohygiene.io/issues/89) for actual host selection/publication. Created
+[#96](https://github.com/egohygiene/egohygiene.io/issues/96) for repeatable environment deployment commands and
+[#97](https://github.com/egohygiene/egohygiene.io/issues/97) for construction-mode behavior, both in milestone 2.
+Updated #84/#31/#88/#39 and crosslinks to preserve setup order, distinguish early
+public preview from #38/#39 commerce, and reuse #52/#57/#17. #21 remains outside
+the milestones; existing native parent relationships were not changed. New tasks
+are linked in roadmap bodies, without claiming native sub-issue creation.
+
+The [roadmap](../roadmaps/store-launch.md) records the environment/cost/artifact
+boundaries and exact order. Pulumi's [stacks](https://www.pulumi.com/docs/iac/concepts/stacks/)
+and [state/backend documentation](https://www.pulumi.com/docs/iac/concepts/state-and-backends/)
+informed issue references; no host/provider/cost choice was made. A future decision
+belongs in #21's ADR, not a speculative architectural decision here.
+
+Input draft head `61dd52d93c5a1b69e7eb2dea4de443a39737a48e`; main
+`07d25941ceeefa53089afa025b612c6aa54f36c4`. The documentation follow-up stays
+on draft #95 with its existing base and no application edits. Validation is issue
+readback, documentation path/manifest checks and the documentation diff only;
+prior #91 B tests remain source-bound. No fresh application, browser, HTTP,
+hosted-CI or deployment result is claimed. The three artifact-size failures,
+hosted failures and deferred browser/contact acceptance remain visible.
+
+No apply/provisioning, account/DNS change, merge, deployment, product/provider
+activation, paid service or transaction. Next implementation remains #91 C.
+
 ## Public rendering #91 checkpoint B — 2026-10-23
 
 Authority: Alan asked to proceed after trying the local preview. Applied the
