@@ -1,5 +1,14 @@
 # Store launch roadmap and milestone history
 
+## Public rendering checkpoint B — 2026-10-23
+
+[#91 B / draft #95](https://github.com/egohygiene/egohygiene.io/pull/95) implements
+26 generated pages, ten sitemap entries, shared metadata and stable hydration.
+[The receipt](../design/public-rendering-91b.md) records exact local passes and
+remaining aggregate-size/hosted failures. Sync then C; #60 remains next after #91.
+#90 contact/copy and final browser/manual acceptance remain open. The ordered queue
+below is unchanged; no draft is merged or issue closed by this checkpoint.
+
 ## Approved two-phase arrangement — 2026-10-22
 
 Alan approved this full arrangement, including a controlled refactor/dependency

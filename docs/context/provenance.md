@@ -5,6 +5,84 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Public rendering #91 checkpoint B — 2026-10-23
+
+Authority: Alan asked to proceed after trying the local preview. Applied the
+one-checkpoint agreement to B, retaining #90's contact/copy and browser limits.
+Recovered the pruned checkout, read root/scoped context and relevant decisions,
+and refreshed live main, draft heads, issue bodies and workflows before editing.
+Main `07d25941ceeefa53089afa025b612c6aa54f36c4` and the existing draft stack stayed
+unchanged; #95 still targets #94, which includes #87/#93. No merge was inferred.
+
+Implementation source `3860d6062c8759a6bf522f6f50f74adff3266345`, tree
+`c718864e270bacf0d1ea943e11face275f32de14`, parent
+`487ae3b9fc7be10c81de26d3e2ec529418ea3fae`, changes 34 source/config/test files.
+The GitHub-created tree matched local staging; compare-and-fast-forward publication
+updated only `docs/public-rendering-91a`. The fetched implementation was clean.
+This later documentation/evidence update does not alter application output.
+
+[The B receipt](../design/public-rendering-91b.md) records implementation and
+[exact verification](../design/reviews/public-rendering-91b/verification.json).
+[Generated paths/hashes](../design/reviews/public-rendering-91b/public-routes.json),
+[raw inspection](../design/reviews/public-rendering-91b/raw-inspection.json) and the
+[unchanged artifact qualifier's report](../design/reviews/public-rendering-91b/production-artifact.json)
+are source-bound evidence, not another catalog or committed deployable build.
+The original architecture/inventory remains in A and ADR 0012.
+
+Built shared React/Vite Data Mode routes and one immutable validated public
+catalog/curation snapshot. Added build-only static rendering, route identity checks,
+escaped shared metadata, explicit stable-ID indexing dispositions, deterministic
+sitemap/basic llms and route receipts. All 26 current pages plus a noindex 404 are
+rendered; ten enter the sitemap. Existing artwork supplies only the truthful
+Heartburst image. No offer data, new artwork or dependency code was imported.
+Theme/locale/query first hydration is stable, saved preferences restore afterward,
+legacy forwarding waits, and mismatched artifacts use fresh client rendering.
+The server bundle stays temporary and outside public output. Preview isolation,
+canonical IDs, catalog v3 and disabled purchasing remain.
+
+Parallel implementation ownership covered runtime, hydration, metadata and build;
+independent review identified snapshot-failure cleanup and copied-discovery collision
+edges, both fixed and tested. Root added outer-error metadata cleanup and expected
+route-ID checks so future path changes cannot silently emit a missing page. Final
+review found no outstanding implementation blocker; aggregate-size qualification
+findings remain explicit. No unperformed browser/host review was inferred.
+
+Pinned Node 24.21.0 was restored from the official checksum-verified archive;
+pnpm 11.28.5 installed 3,770 packages with frozen lockfile and scripts disabled.
+No source runtime pin/lockfile changed. Local results: types across app/Node/domain
+and browser profiles; workspace/exports, 433 messages/ten namespaces, package cycles
+and 16-module portable boundary; 144 catalog/build tests and 158 focused unit/DOM
+tests in 20 files. Test/type evidence applies to the exact published source tree.
+Two fresh normal builds at its clean commit produced 44 byte-identical files;
+the isolated preview build retained Fourthwall/artist chunks with no normal route
+output. Raw HTML/XML inspection checks 26 pages, ten URLs and 404 metadata without
+executing scripts or requesting assets. Zero Chromium journeys executed.
+
+The existing qualifier exits 1 with three size-budget findings: documents
+317,310 > 20,000 bytes; document gzip 85,496 > 10,000; total 1,286,833 > 1,140,000.
+Across 44 files and 202 asset references, there are no other targeted findings;
+public artwork bytes match. No ceiling or gate was changed. These are complete
+artifact aggregates, not per-page transfer or measured performance. C/final #37
+with #52/#92 must explicitly reconcile them; full local qualification is not green.
+
+Source hosted outcomes are failures:
+[CI 39947201969](https://github.com/egohygiene/egohygiene.io/actions/runs/39947201969),
+[dependency review 39947201941](https://github.com/egohygiene/egohygiene.io/actions/runs/39947201941),
+[CodeQL 39947202162](https://github.com/egohygiene/egohygiene.io/actions/runs/39947202162).
+No re-diagnosis, manual dispatch or disabled gate. They remain distinct from local
+results and actual host/provider qualification.
+
+Next: B sync then #91 C; after #91, #60 in the approved setup sequence. #90's
+contact/copy disposition and final Mac browser/manual acceptance remain open.
+Local static-server status/MIME belongs to #57; deployed origin/deep-link/redirect
+proof to #89/#39. No issue closure, main merge, deployment, real product/provider
+activation, paid order or spending. Issue #91/#88/#84 bodies and open states were read back exactly after updating
+B progress; PR #95 remained draft on the same base with the expected source head.
+Documentation validation passed: 316 relative links, 40 context targets, four
+evidence JSON files, three evidence hashes, route/disposition counts and whitespace.
+Independent evidence review found no blocker. Publication of this continuity update
+is recorded in the draft PR and Git history.
+
 ## Public rendering #91 checkpoint A — 2026-10-23
 
 Publication: [draft #95](https://github.com/egohygiene/egohygiene.io/pull/95),

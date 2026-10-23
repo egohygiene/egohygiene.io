@@ -6,7 +6,22 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current public rendering checkpoint A — 2026-10-23
+## Current public rendering checkpoint B — 2026-10-23
+
+Alan selected B after trying the local preview. [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
+now implements [ADR 0012](docs/architecture/decisions/0012-static-public-route-rendering.md):
+26 generated pages, ten sitemap entries, shared metadata and deterministic hydration.
+Read the [B receipt](docs/design/public-rendering-91b.md) and current-state for the
+exact source, tests and limits. It remains stacked on unmerged #94; main is unchanged.
+
+Next is a B sync, then #91 C when selected. Focused local tests and both builds pass;
+the existing artifact qualifier fails three aggregate size ceilings after adding
+route HTML. Keep those findings and hosted CI/dependency/CodeQL failures visible.
+No gates were changed. Chromium and final engineering remain in the approved #88
+sequence on Alan's Mac. #90 contact/copy and browser/manual acceptance remain open;
+positive preview feedback does not resolve them. No merge, deployment or activation.
+
+## Historical public rendering checkpoint A — 2026-10-23
 
 Alan selected the next issue after the discovery-file investigation. #91 A now
 records [ADR 0012](docs/architecture/decisions/0012-static-public-route-rendering.md)

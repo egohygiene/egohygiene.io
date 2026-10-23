@@ -73,9 +73,14 @@ export function ExamplePage() {
 }
 ```
 
-Register it in `src/app/router.tsx`, under `RootLayout`, before the generic
-`:product` route. The app already supplies theme/i18n providers. Add any new leaf
-message keys to the English dictionaries and use the same key in the page.
+For a fixed page, declare its path, existing message keys and explicit publication
+disposition in `src/content/publication.ts`, then add its component to the fixed
+page map in `src/app/router.tsx`. Both browser and static adapters reuse this route
+tree under `RootLayout`. Dynamic routes need a matching generated inventory and
+expected route identity; new browsable catalog IDs require an explicit indexing
+disposition. The app supplies theme/i18n providers. Add new leaf message keys to
+the English dictionaries and use the same key in the page. Follow ADR 0012 for
+synchronous rendering, public inputs and deterministic first hydration.
 Keep document metadata, navigation and data-loading integration in the React
 adapter. Use the store domain to build canonical detail paths rather than
 constructing provider-derived routes.

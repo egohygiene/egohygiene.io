@@ -1,7 +1,61 @@
 # Current handoff
 
 
-## Current: public rendering #91 A prepared — 2026-10-23
+## Current: public rendering #91 B implemented — 2026-10-23
+
+[Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95), branch
+`docs/public-rendering-91a`, still targets #94's `docs/website-essentials-90a`.
+B source `3860d6062c8759a6bf522f6f50f74adff3266345`, tree
+`c718864e270bacf0d1ea943e11face275f32de14`, parent A continuity
+`487ae3b9fc7be10c81de26d3e2ec529418ea3fae`. The published GitHub tree exactly
+matched local staging; fetched source was clean. This follow-up records evidence
+and continuity without changing application output. Main remains
+`07d25941ceeefa53089afa025b612c6aa54f36c4`; #87/#93/#94/#95/#73 remain unmerged.
+No branch integration or retarget occurred.
+
+Alan asked to proceed after trying the local preview. B implements
+[ADR 0012](../architecture/decisions/0012-static-public-route-rendering.md) and the
+[A contract](../design/public-rendering-91a.md). Read the
+[B implementation/evidence receipt](../design/public-rendering-91b.md): shared
+route objects, one frozen public catalog/curation snapshot for both builds,
+build-only static rendering, consistent metadata/canonicals/social text,
+26 page documents plus a noindex 404, ten-entry sitemap, basic llms.txt and a
+deterministic route receipt. Sixteen provisional/demo/reserved pages remain usable
+but noindex. Heartburst remains approved public artwork, not a garment approval.
+
+Client startup hydrates only a matching generated path; empty/mismatched shells
+render afresh. Source-language/default controls precede restoration of theme,
+locale and URL filters. Legacy redirects wait until hydration; preferences and
+stable IDs survive. Unknown/stale publication policies, route mismatches, render
+failures and unresolved asynchronous content fail generation. No schema, catalog,
+dependency, artwork, real locale, purchase guard or provider changes occurred.
+
+Local passes: app/Node/domain/browser types; workspace/exports/locales/cycles and
+portable boundary; 144 catalog/build-output tests; 158 focused unit/DOM tests in
+20 files. Two normal builds at clean published source produced byte-identical
+44-file artifacts. Isolated preview also built successfully. Raw parsing confirms
+all 26 pages, ten sitemap URLs and missing-page metadata. **Zero Chromium journeys
+ran.** These are local checks, not HTTP/layout/deployed-host acceptance.
+
+The unchanged artifact qualifier **fails**: documents 317,310 bytes versus 20,000;
+documents gzip 85,496 versus 10,000; total artifact 1,286,833 versus 1,140,000.
+Its 44 files/202 references have no other findings, and artwork bytes match source.
+JS/CSS/image/font and total-gzip ceilings pass. The aggregate ceilings predate
+multi-page HTML; retain measured findings for C/final #37 with #52/#92, rather
+than declaring full qualification green or silently changing limits.
+
+Source hosted workflows all failed: CI 39947201969, dependency review 39947201941,
+CodeQL 39947202162. No cause re-diagnosis, manual dispatch or gate change. Broader
+Chromium/lint/CI/refactor qualification retains the approved #88 sequence.
+
+**Next:** sync on B, then #91 C when selected; B's necessary raw-output checks do
+not complete C acceptance. C/local-serving review coordinates with #57; actual
+host/redirect/canonical-origin proof remains #89/#39. After #91, #60 is next in
+#88. #90 contact/copy disposition and browser/manual acceptance remain open;
+positive preview feedback is not blanket approval. No issue closure, merge,
+deployment, provider request, paid order, real purchasing or spending occurred.
+
+## Historical: public rendering #91 A prepared — 2026-10-23
 
 Saved in [draft #95](https://github.com/egohygiene/egohygiene.io/pull/95).
 A documentation source `f0342a0d52a52a11e3b4579124fa51b19d1a406d`, tree
