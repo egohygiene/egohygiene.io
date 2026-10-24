@@ -6,7 +6,22 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current public rendering checkpoint C — 2026-10-24
+## Current ecosystem navigation checkpoint — 2026-10-24
+
+Alan selected #60. [Draft #98](https://github.com/egohygiene/egohygiene.io/pull/98)
+is stacked on unmerged #95. The [receipt](docs/design/ecosystem-links-60.md)
+records the saved A destination contract, B card links/copy and local C evidence.
+All seven cards now open registry-owned local paths; the six status gateways,
+explicit storefront and external repositories remain distinct. 81 focused tests,
+types/checks, normal build and 26-page raw/HTTP verification pass. Eight browser
+cases are retained, not executed. C and #60 remain open for actual browser review.
+
+Read current-state/provenance for exact source, current size findings and hosted
+failures. No budget/gate changed, prior draft merged or deployment activated.
+Next: sync on #60, then #50. Final Mac Chromium/engineering and the saved deployment
+preview sequence keep their approved place; #90/#91 acceptance gaps remain.
+
+## Historical public rendering checkpoint C — 2026-10-24
 
 Alan selected C. [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
 now includes repeatable raw/HTTP verification, per-document size diagnostics,

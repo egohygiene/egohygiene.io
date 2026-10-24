@@ -5,6 +5,71 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Ecosystem navigation #60 — 2026-10-24
+
+Authority: Alan selected #60 after #91 C. Read root/context/scoped instructions,
+registry/router/page sources, dependency/extension rules and relevant locale/static
+rendering decisions; refreshed live #60, main, open drafts and hosted workflows
+before editing. Input #95 `54e8dac7dcc3206dca05efd2951f1233daba9d99`; main remains
+`07d25941ceeefa53089afa025b612c6aa54f36c4`. No existing draft was merged/retargeted.
+
+Created `fix/ecosystem-links-60` and [draft #98](https://github.com/egohygiene/egohygiene.io/pull/98)
+stacked on #95. A's [destination contract](../design/ecosystem-links-60.md) was
+saved first at `a3f655f0af6142a353a900b6516fe6a5a2740bba`. B source
+`b47e7e4165d83feba64ec7320f97943be9140b29`, tree
+`e3da3c89b67ed39d2159b6dd1f73be95ed64b24e`, changes six code/message/test files.
+GitHub-created trees matched local staging; lease-checked publication changed only
+the new issue branch. Clean fetched source generated the fresh normal artifact
+and raw/HTTP/artifact reports. This follow-up changes docs/evidence only.
+
+Two production files implement the fix: existing registry paths feed native
+LocaleLink headings; repository URLs remain native external anchors with distinct
+project/GitHub/external text; source messages explain status pages and browsing.
+Six planned/development gateway destinations remain informational; `/store` still
+selects the explicit curated route. No duplicate registry, route changes, schema,
+dependency, artwork, purchase-state or provider changes. Applies existing ADRs
+0009/0012; no new durable architecture decision is needed. No external code/assets
+were imported.
+
+Ten new DOM/SSR/hydration cases protect seven destinations, locale, Back/return,
+canonical/store route identity, repository separation and initial/native links.
+Existing message tests now provide a router and exercise the repository name
+placeholder. Eight new browser cases plus a strengthened existing recovery case
+reuse the local-only site suite. Independent review found a skip-link fragment
+history expectation, corrected before source publication; no application blocker.
+Browser definitions are compiled/discovered only; zero Chromium journeys executed.
+
+Pinned Node 24.21.0/pnpm 11.28.5; no install or lock/pin change. Local passes:
+81 tests in eight files (33 + 48), app/Node/domain/browser types, workspace/exports,
+433 English messages/ten namespaces, cycles, 16-module domain check and four-file
+Biome. Fresh normal build emits 26 pages/ten sitemap URLs; raw parsing and 52
+known-page HTTP bodies plus four discovery responses pass. No full test profile,
+isolated preview rebuild or actual browser/host qualification is claimed.
+[Verification](../design/reviews/ecosystem-links-60/verification.json) binds commands,
+limits and hashes; [HTTP report](../design/reviews/ecosystem-links-60/raw-http-inspection.json)
+and [artifact summary](../design/reviews/ecosystem-links-60/artifact-summary.json)
+retain actual UTC capture times and exact source SHA.
+
+The unchanged artifact qualifier exits 1 with three existing categories:
+documents 317,615 > 20,000 bytes, document gzip 85,608 > 10,000, total
+1,287,210 > 1,140,000. No other targeted findings across 44 files/202 references;
+public artwork bytes match. Budget/reduction/final disposition remains #52/#92/#37;
+no cap/gate change. Source hosted outcomes all failed:
+[CI 40111860555](https://github.com/egohygiene/egohygiene.io/actions/runs/40111860555),
+[dependency 40111860579](https://github.com/egohygiene/egohygiene.io/actions/runs/40111860579),
+[CodeQL 40111860933](https://github.com/egohygiene/egohygiene.io/actions/runs/40111860933).
+No new hosted diagnosis or manual dispatch; failures stay distinct from local checks.
+
+Documentation checks passed: 288 relative links, 42 manifest paths, three evidence
+JSON files, both evidence hashes and diff whitespace. Independent final source/
+evidence review found no blocking inconsistency.
+
+#60 A/B implemented in draft; C remains open for actual keyboard/reload acceptance
+on Alan's Mac. #90 contact/copy and #91 browser acceptance remain; current serving
+limits stay #57/#89. Next is #60 sync then #50. Existing finite setup/deployment
+preview/product sequence is unchanged. No issue closure, merge, deployment,
+provider/product activation, private data, purchase or spending.
+
 ## Public rendering #91 checkpoint C — 2026-10-24
 
 Authority: Alan explicitly selected C. Recovered the pruned checkout from GitHub,

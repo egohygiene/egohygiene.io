@@ -1,0 +1,124 @@
+{
+  "recordedDate": "2026-10-24",
+  "recordedTimezone": "America/New_York",
+  "issue": 60,
+  "pullRequest": 98,
+  "branch": "fix/ecosystem-links-60",
+  "baseCommit": "54e8dac7dcc3206dca05efd2951f1233daba9d99",
+  "contractCommit": "a3f655f0af6142a353a900b6516fe6a5a2740bba",
+  "sourceCommit": "b47e7e4165d83feba64ec7320f97943be9140b29",
+  "sourceTree": "e3da3c89b67ed39d2159b6dd1f73be95ed64b24e",
+  "mainAtRefresh": "07d25941ceeefa53089afa025b612c6aa54f36c4",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "dependencyChanges": false
+  },
+  "checks": [
+    {
+      "command": "pnpm typecheck",
+      "result": "pass",
+      "scope": "Application, Node catalog tools and portable store domain"
+    },
+    {
+      "command": "pnpm exec tsc --project tsconfig.store-browser.json --noEmit",
+      "result": "pass",
+      "scope": "Browser suite compilation; not execution"
+    },
+    {
+      "command": "pnpm check",
+      "result": "pass",
+      "scope": "Workspace, package exports, 433 English messages/10 namespaces, dependency cycles, 16-module portable boundary",
+      "messageSourceSha256": "04998a1d64e06bb34503336503ee65fd19489d33ad8735241617e1879bf5dc47"
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts apps/egohygiene.io/src/pages/EcosystemPage.test.tsx apps/egohygiene.io/src/pages/PageMessages.test.tsx apps/egohygiene.io/src/app/rendering.test.tsx",
+      "result": "pass",
+      "testFiles": 3,
+      "tests": 33
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts apps/egohygiene.io/src/pages/HomePage.test.tsx apps/egohygiene.io/src/pages/EssentialsPages.test.tsx apps/egohygiene.io/src/pages/StoreHelpPage.test.tsx apps/egohygiene.io/src/content/publication.test.ts apps/egohygiene.io/src/i18n/LocaleProvider.test.tsx",
+      "result": "pass",
+      "testFiles": 5,
+      "tests": 48
+    },
+    {
+      "command": "pnpm test:store --list site.spec.ts",
+      "result": "pass",
+      "discovered": 21,
+      "newDefinitions": 8,
+      "executed": 0
+    },
+    {
+      "command": "pnpm exec biome check apps/egohygiene.io/src/pages/EcosystemPage.tsx apps/egohygiene.io/src/pages/EcosystemPage.test.tsx apps/egohygiene.io/src/pages/PageMessages.test.tsx apps/egohygiene.io/src/i18n/locales/en/pages.json",
+      "result": "pass",
+      "scope": "Four directly edited page/message files; no broad lint/format pass"
+    },
+    {
+      "command": "pnpm build",
+      "result": "pass",
+      "scope": "Fresh normal build at clean published source; 26 pages, ten sitemap entries, noindex 404"
+    },
+    {
+      "command": "node tests/store-qualification/public-rendering.mjs --base-url http://127.0.0.1:4186 --output test-results/store-qualification/ecosystem-60-http.json",
+      "result": "pass",
+      "pages": 26,
+      "knownPageResponses": 52,
+      "discoveryResponses": 4,
+      "scope": "Byte equality, parsing and metadata; no script execution or real browser reload"
+    },
+    {
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/ecosystem-60-artifact.json",
+      "result": "fail",
+      "exitCode": 1,
+      "findings": 3,
+      "scope": "Same pre-existing aggregate document/total budget categories; measured values refreshed"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "uniqueFocusedTestsPassed": 81,
+  "review": {
+    "independentReview": "No blocking application finding; fixed browser Back expectation to retain the native skip-link fragment before publication.",
+    "newArchitectureDecision": false
+  },
+  "hostedWorkflows": [
+    {
+      "name": "CI",
+      "id": 40111860555,
+      "conclusion": "failure"
+    },
+    {
+      "name": "Dependency review",
+      "id": 40111860579,
+      "conclusion": "failure"
+    },
+    {
+      "name": "CodeQL",
+      "id": 40111860933,
+      "conclusion": "failure"
+    }
+  ],
+  "limits": [
+    "A and B implemented in draft; C remains open for actual keyboard/reload browser acceptance.",
+    "Zero Chromium journeys executed; no responsive, assistive-technology, browser performance or final integrated qualification claimed.",
+    "No fresh isolated-preview build or full catalog/full qualification runner was necessary for this page-link change; prior receipts remain source-bound.",
+    "Existing rendering/site test files retain unrelated formatting findings for #29/#92; new blocks reviewed and diff whitespace passes.",
+    "Local Vite fallback/alias/status behavior remains owned by #57/#89; unknown-path HTTP 200 observations are not acceptance passes.",
+    "Hosted outcomes are failures, independently reported from local checks. No new hosted diagnosis or manual dispatch.",
+    "No merge, deployment, provider/product activation, purchase, spending or private data added."
+  ],
+  "evidence": [
+    {
+      "path": "raw-http-inspection.json",
+      "sha256": "caadeeef1e02c3f1c55e546f61b99523bda9b69f26c28e90aa82596227faccfd"
+    },
+    {
+      "path": "artifact-summary.json",
+      "sha256": "bfcd3c755db7cfac7a1a17e87dd59c0174b4da0ad12faea1be285223c49b74d0"
+    }
+  ]
+}
