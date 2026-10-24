@@ -2,6 +2,7 @@ import { useI18n } from "@egohygiene/i18n";
 import { Card, Cluster, StatusBadge } from "@egohygiene/ui";
 import { PageMetadata } from "../components/PageMetadata/PageMetadata";
 import { products } from "../content/products";
+import { LocaleLink } from "../i18n/LocaleLink";
 
 export function EcosystemPage() {
   const { t } = useI18n();
@@ -19,7 +20,9 @@ export function EcosystemPage() {
         {products.map((product) => (
           <Card key={product.identifier}>
             <Cluster className="site-card-header">
-              <h2>{product.name}</h2>
+              <h2>
+                <LocaleLink to={product.path}>{product.name}</LocaleLink>
+              </h2>
               <StatusBadge tone={product.status}>
                 {t(`pages.ecosystem.status.${product.status}`)}
               </StatusBadge>
@@ -37,7 +40,9 @@ export function EcosystemPage() {
             </dl>
             {product.repositoryUrl ? (
               <p>
-                <a href={product.repositoryUrl}>{t("pages.ecosystem.repository")}</a>
+                <a href={product.repositoryUrl}>
+                  {t("pages.ecosystem.repository", { name: product.name })}
+                </a>
               </p>
             ) : null}
           </Card>

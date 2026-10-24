@@ -58,13 +58,133 @@ test("primary site loads, navigates, and supports theming", async ({ page }) => 
   await expect(page.getByRole("heading", { level: 2, name: "Mindcap" })).toBeVisible();
   await page.getByLabel("Theme").selectOption("high-contrast");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "high-contrast");
-  await page.goto("/missing-route");
+  await page.goto("/missing-route?lang=en");
   await expect(page.getByRole("heading", { level: 1, name: /Page not found/i })).toBeVisible();
   await page.reload();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Page not found");
-  await page.getByRole("link", { name: "Return home", exact: true }).click();
-  await expect(page).toHaveURL("/");
+  const recovery = page.getByRole("link", { name: "Return home", exact: true });
+  await expect(recovery).toHaveAttribute("href", "/?lang=en");
+  await recovery.click();
+  await expect(page).toHaveURL("/?lang=en");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("A little more human.");
+});
+
+// #60: retained for the final local Chromium pass, using the same production artifact
+// and local-only request guard. These cases never activate an external repository.
+const ecosystemDestinations = [
+  { name: "Mindcap", path: "/mindcap", status: "development" },
+  { name: "Mindgarden", path: "/mindgarden", status: "planned" },
+  { name: "Renderflow", path: "/renderflow", status: "planned" },
+  { name: "Egolint", path: "/egolint", status: "development" },
+  { name: "Reflector", path: "/reflector", status: "planned" },
+  { name: "Aether", path: "/aether", status: "development" },
+  { name: "Store", path: "/store", status: "development" },
+] as const;
+
+async function expectEcosystemDestination(
+  page: Page,
+  destination: (typeof ecosystemDestinations)[number],
+) {
+  await expect(page).toHaveURL(`${destination.path}?lang=en`);
+  const main = page.getByRole("main");
+  const heading = main.getByRole("heading", { level: 1 });
+  await expect(heading).toHaveCount(1);
+  await expect(heading).toHaveText(
+    destination.path === "/store" ? "The Ego Hygiene store." : destination.name,
+  );
+  await expect(heading).toBeVisible();
+  if (destination.path === "/store") {
+    await expect(
+      main.getByRole("link", { name: "Back to the directory", exact: true }),
+    ).toHaveCount(0);
+    await expect(
+      main.getByRole("heading", { name: "Ego Hygiene merchandise", exact: true }),
+    ).toBeVisible();
+  } else {
+    await expect(main.getByText(destination.status, { exact: true })).toBeVisible();
+    await expect(main.getByText(/A working app is not available here yet/)).toBeVisible();
+    await expect(
+      main.getByRole("link", { name: "Back to the directory", exact: true }),
+    ).toHaveAttribute("href", "/ecosystem?lang=en");
+  }
+  await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    `https://egohygiene.io${destination.path}`,
+  );
+}
+
+test.describe("ecosystem card navigation", () => {
+  for (const destination of ecosystemDestinations) {
+    test(`${destination.name} has a keyboard-reachable local page with direct, reload and Back recovery`, async ({
+      page,
+    }) => {
+      const direct = await page.goto(`${destination.path}?lang=en`);
+      expect(direct?.status()).toBe(200);
+      await expectEcosystemDestination(page, destination);
+
+      await page.goto("/ecosystem?lang=en");
+      const main = page.getByRole("main");
+      const local = main
+        .getByRole("heading", { level: 2, name: destination.name, exact: true })
+        .getByRole("link", { name: destination.name, exact: true });
+      await expect(local).toHaveCount(1);
+      await expect(local).toHaveAttribute("href", `${destination.path}?lang=en`);
+      await page.keyboard.press("Tab");
+      await expect(page.getByRole("link", { name: "Skip to content", exact: true })).toBeFocused();
+      await page.keyboard.press("Enter");
+      await expect(page).toHaveURL("/ecosystem?lang=en#main-content");
+      await expect(main).toBeFocused();
+      await tabToEssential(page, local);
+      await expect(local).toBeInViewport();
+      await page.keyboard.press("Enter");
+      await expectEcosystemDestination(page, destination);
+
+      const reload = await page.reload();
+      expect(reload?.status()).toBe(200);
+      await expectEcosystemDestination(page, destination);
+      if (destination.path !== "/store") {
+        const back = page.getByRole("main").getByRole("link", {
+          name: "Back to the directory",
+          exact: true,
+        });
+        await tabToEssential(page, back);
+        await page.keyboard.press("Enter");
+        await expect(page).toHaveURL("/ecosystem?lang=en");
+        await page.goBack();
+        await expectEcosystemDestination(page, destination);
+      }
+      await page.goBack();
+      // Skip to content created a real fragment history entry before local navigation.
+      await expect(page).toHaveURL("/ecosystem?lang=en#main-content");
+      await expect(local).toHaveAttribute("href", `${destination.path}?lang=en`);
+      await expect(local).toBeVisible();
+    });
+  }
+
+  test("external repository links are separately labelled and retain their original destinations", async ({
+    page,
+  }) => {
+    await page.goto("/ecosystem?lang=en");
+    const main = page.getByRole("main");
+    const repositories = main.getByRole("link", { name: / repository on GitHub \(external\)$/ });
+    await expect(repositories).toHaveCount(2);
+    for (const name of ["Mindcap", "Egolint"]) {
+      const repository = main.getByRole("link", {
+        name: `${name} repository on GitHub (external)`,
+        exact: true,
+      });
+      await expect(repository).toHaveAttribute(
+        "href",
+        `https://github.com/egohygiene/${name.toLowerCase()}`,
+      );
+      await expect(repository).not.toHaveAttribute("target", "_blank");
+      await tabToEssential(page, repository);
+      await expect(repository).toBeInViewport();
+      // Inspect and focus only; the request guard would reject an external navigation.
+      await expect(page).toHaveURL("/ecosystem?lang=en");
+    }
+    await expect(main.locator("h2 a")).toHaveCount(7);
+  });
 });
 
 test("mobile navigation closes with Escape and follows the store route", async ({ page }) => {

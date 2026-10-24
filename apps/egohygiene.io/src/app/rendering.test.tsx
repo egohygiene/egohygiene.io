@@ -137,6 +137,19 @@ describe("public rendering and browser adapter (simulated DOM)", () => {
     },
   );
 
+  it("hydrates ecosystem links before restoring the explicit language query", async () => {
+    const result = await hydrate("/ecosystem", "/ecosystem?lang=en");
+    expect(mounted?.hydrated).toBe(true);
+    expect(result.element.querySelector("main")).toBe(result.main);
+    const links = [...result.element.querySelectorAll("main h2 a")];
+    expect(links).toHaveLength(7);
+    for (const link of links) {
+      expect(new URL(link.getAttribute("href")!, window.location.origin).search).toBe("?lang=en");
+    }
+    expect(document.querySelector('link[rel="canonical"]'))
+      .toHaveAttribute("href", "https://egohygiene.io/ecosystem");
+  });
+
   it("hydrates the unfiltered catalog then restores query and language without rewriting the URL", async () => {
     const result = await hydrate("/store/catalog", "/store/catalog?q=heartburst&lang=en#catalog");
     expect(mounted?.hydrated).toBe(true);
