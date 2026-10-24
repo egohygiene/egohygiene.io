@@ -4,12 +4,14 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 import { publicStoreCatalog, type PublicStoreCatalogOptions } from "../../scripts/vite-store-catalog.mts";
+import { publicPagePreview } from "../../scripts/vite-public-pages.mts";
 
 export function createWebsiteConfig(catalogOptions: PublicStoreCatalogOptions = {}) {
   return defineConfig({
   plugins: [
     react(),
     publicStoreCatalog(catalogOptions),
+    publicPagePreview(),
   ],
   resolve: {
     alias: {

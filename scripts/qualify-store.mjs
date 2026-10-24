@@ -98,10 +98,16 @@ try {
   ]);
   await run("portable import boundary", ["scripts/checks/check-store-boundaries.ts"]);
   await run("catalog and artifact contracts", [environmentRunner, "run", "catalog:test"]);
+  await run("public rendering inspection contracts", [
+    "--test",
+    "tests/tooling/public-rendering.test.mjs",
+  ]);
   await run("store, preview, theme and locale units", [
     environmentRunner,
     "run",
     "test:unit",
+    "apps/egohygiene.io/src/app/rendering.test.tsx",
+    "apps/egohygiene.io/src/content/publication.test.ts",
     "apps/egohygiene.io/src/features/store",
     "apps/egohygiene.io/src/features/fourthwall-preview",
     "apps/egohygiene.io/src/features/artist-preview",
@@ -122,6 +128,11 @@ try {
     "tests/accessibility/site-accessibility.test.tsx",
   ]);
   await run("fresh normal build", [environmentRunner, "run", "build"]);
+  await run("raw public HTML and discovery consistency", [
+    "tests/store-qualification/public-rendering.mjs",
+    "--output",
+    "test-results/store-qualification/profile/public-rendering.json",
+  ]);
   await run("production artifacts and provisional regression budgets", [
     "tests/store-qualification/artifacts.mts",
     "--output",

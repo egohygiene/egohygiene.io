@@ -11,6 +11,7 @@ export default defineConfig({
     "theme.spec.ts",
     "site.spec.ts",
     "store-metadata.spec.ts",
+    "store-public-rendering.spec.ts",
     "store-accessibility.spec.ts",
   ],
   fullyParallel: true,

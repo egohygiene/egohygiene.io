@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import type { BrowserContext } from "@playwright/test";
 
-import { CHECKOUT_HANDOFF_FIXTURE } from "./fixture.ts";
+import { CHECKOUT_HANDOFF_FIXTURE } from "./inputs.ts";
 
 type RequestDetails = {
   url: string;

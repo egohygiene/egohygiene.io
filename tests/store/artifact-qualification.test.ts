@@ -55,6 +55,73 @@ test("artifact qualification measures real bytes and resolves HTML, CSS, JS and 
     report.sizes.total.bytes,
     report.files.reduce((sum, file) => sum + file.bytes, 0),
   );
+  assert.equal(report.documentCosts.documents.length, 1);
+  assert.deepEqual(report.documentCosts.documents[0]?.reachable, {
+    bytes: report.sizes.total.bytes,
+    gzipBytes: report.sizes.total.gzipBytes,
+  });
+});
+
+test("document costs deduplicate shared and cyclic assets without following manifest navigation", async (t) => {
+  const root = await fixture(t);
+  await writeFile(
+    path.join(root, "assets/app.js"),
+    'import "./second.js"; const control = "fictional-positive-control"; const icon = "/assets/icon.svg";',
+  );
+  await writeFile(
+    path.join(root, "assets/second.js"),
+    'import "./app.js"; const icon = "/assets/icon.svg";',
+  );
+  await writeFile(path.join(root, "other.html"), '<script src="/assets/other.js"></script>');
+  await writeFile(path.join(root, "assets/other.js"), 'const unrelated = "other page";');
+  await writeFile(
+    path.join(root, "site.webmanifest"),
+    JSON.stringify({
+      name: "Fictional test",
+      start_url: "/other.html",
+      icons: [{ src: "./assets/icon.svg" }],
+    }),
+  );
+  const report = await qualifyArtifact(root, options);
+  assert.equal(report.result, "pass");
+  const home = report.documentCosts.documents.find(({ path }) => path === "index.html")!;
+  const other = report.documentCosts.documents.find(({ path }) => path === "other.html")!;
+  assert.deepEqual(home.reachableFiles, [
+    "assets/app.css",
+    "assets/app.js",
+    "assets/icon.svg",
+    "assets/second.js",
+    "index.html",
+    "site.webmanifest",
+  ]);
+  assert.deepEqual(home.omittedNavigationTargets, ["other.html"]);
+  assert.deepEqual(other.reachableFiles, ["assets/other.js", "other.html"]);
+  const expected = report.files.filter(({ path }) => home.reachableFiles.includes(path));
+  assert.deepEqual(home.reachable, {
+    bytes: expected.reduce((sum, file) => sum + file.bytes, 0),
+    gzipBytes: expected.reduce((sum, file) => sum + file.gzipBytes, 0),
+  });
+  assert.equal(home.unresolvedLocalReferenceCount, 0);
+});
+
+test("document diagnostics preserve aggregate failures and disclose missing or external resources", async (t) => {
+  const root = await fixture(t);
+  await writeFile(
+    path.join(root, "index.html"),
+    '<script src="/assets/app.js"></script><img src="/missing.webp"><img src="https://example.invalid/art.webp">',
+  );
+  const budgets = structuredClone(LOCAL_REVIEW_BUDGETS);
+  budgets.documents = { bytes: 1, gzipBytes: 1 };
+  const report = await qualifyArtifact(root, { ...options, budgets });
+  const home = report.documentCosts.documents[0]!;
+  assert.equal(report.result, "fail");
+  assert.equal(report.sizes.documents.result, "fail");
+  assert.equal(report.findings.filter(({ rule }) => rule === "size-budget").length, 2);
+  assert.equal(report.findings.filter(({ rule }) => rule === "missing-asset").length, 1);
+  assert.equal(home.unresolvedLocalReferenceCount, 1);
+  assert.equal(home.externalReferenceCount, 1);
+  assert.ok(!home.reachableFiles.includes("missing.webp"));
+  assert.ok(home.reachable.bytes < report.sizes.total.bytes);
 });
 
 test("credential findings omit matched values while detecting private keys and common token shapes", async (t) => {

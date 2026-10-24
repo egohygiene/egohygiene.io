@@ -345,6 +345,51 @@ export async function qualifyArtifact(
       ];
     }),
   ) as Record<AssetKind | "total", Size & { limit: Size; result: "pass" | "fail" }>;
+  const referenceGraph = new Map<string, typeof references>();
+  for (const reference of references) {
+    const outgoing = referenceGraph.get(reference.from) ?? [];
+    outgoing.push(reference);
+    referenceGraph.set(reference.from, outgoing);
+  }
+  const fileSizes = new Map(files.map((file) => [file.path, file]));
+  const documentCosts = files
+    .filter((file) => /\.html?$/i.test(file.path))
+    .map((document) => {
+      const reachable = new Set([document.path]);
+      const pending = [document.path];
+      const omittedNavigationTargets = new Set<string>();
+      let unresolvedLocalReferenceCount = 0;
+      while (pending.length) {
+        for (const reference of referenceGraph.get(pending.pop()!) ?? []) {
+          if (reference.result === "fail") {
+            unresolvedLocalReferenceCount += 1;
+            continue;
+          }
+          // Manifest start_url is navigation, not a resource needed by this page.
+          if (/\.html?$/i.test(reference.target)) {
+            omittedNavigationTargets.add(reference.target);
+            continue;
+          }
+          if (!reachable.has(reference.target)) {
+            reachable.add(reference.target);
+            pending.push(reference.target);
+          }
+        }
+      }
+      const reachableFiles = [...reachable].sort();
+      return {
+        path: document.path,
+        document: { bytes: document.bytes, gzipBytes: document.gzipBytes },
+        reachableFiles,
+        reachable: {
+          bytes: reachableFiles.reduce((sum, file) => sum + fileSizes.get(file)!.bytes, 0),
+          gzipBytes: reachableFiles.reduce((sum, file) => sum + fileSizes.get(file)!.gzipBytes, 0),
+        },
+        omittedNavigationTargets: [...omittedNavigationTargets].sort(),
+        unresolvedLocalReferenceCount,
+        externalReferenceCount: externalReferences.filter(({ from }) => reachable.has(from)).length,
+      };
+    });
   return {
     result: findings.length ? "fail" : "pass",
     scope:
@@ -369,6 +414,17 @@ export async function qualifyArtifact(
     externalReferences,
     publicImageExactMatch,
     sizes,
+    documentCosts: {
+      scope:
+        "Each HTML document plus de-duplicated local files reachable through the scanner's static reference graph. Other HTML navigation targets are excluded, including manifest start_url.",
+      limits: [
+        "Diagnostic only: these measurements do not replace aggregate budgets, findings or the qualification result.",
+        "Quoted JavaScript assets and dynamic imports, manifest icons, and CSS references are included conservatively; they may not be requested on this route.",
+        "Computed URLs and external resources are not measured; unresolved local references remain qualification findings.",
+        "Not an initial-download, cache, compression, network timing or browser-performance measurement.",
+      ],
+      documents: documentCosts,
+    },
     findings,
   };
 }
