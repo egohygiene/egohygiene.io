@@ -1,0 +1,166 @@
+{
+  "sourceCommit": "7d845bb447ccaaba8fe582a654e318e6e8315bf0",
+  "sourceTree": "276ea647aebc0f73887a4eb5ec2d3536d5411452",
+  "parent": "29e24b646c494b9bb915a40d7a4098fa800e1627",
+  "recordedDate": "2026-10-24",
+  "dateTimezone": "America/New_York",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "nodeArchiveSha256": "fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6",
+    "install": "frozen lockfile, ignore-scripts; 3770 packages; no dependency or runtime pin changes"
+  },
+  "checks": [
+    {
+      "command": "pnpm typecheck",
+      "result": "pass",
+      "scope": "app, Node tooling including preview adapter, portable domain"
+    },
+    {
+      "command": "pnpm exec tsc --project tsconfig.store-browser.json --noEmit",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm check",
+      "result": "pass",
+      "messages": 433,
+      "namespaces": 10,
+      "portableModules": 16
+    },
+    {
+      "command": "node --test --test-concurrency=2 tests/store/*.test.ts",
+      "result": "pass",
+      "tests": 152,
+      "includes": "six local Vite preview contract tests; no browser"
+    },
+    {
+      "command": "node --test tests/tooling/public-rendering.test.mjs",
+      "result": "pass",
+      "tests": 14
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts apps/egohygiene.io/src/app/rendering.test.tsx apps/egohygiene.io/src/content/publication.test.ts apps/egohygiene.io/src/components/PageMetadata apps/egohygiene.io/src/pages apps/egohygiene.io/src/features/store apps/egohygiene.io/src/i18n/LocaleProvider.test.tsx packages/themes/src/index.test.tsx",
+      "result": "pass",
+      "tests": 158,
+      "files": 20
+    },
+    {
+      "command": "pnpm test:store --list store-public-rendering.spec.ts",
+      "result": "pass",
+      "definitions": 13,
+      "browserJourneysExecuted": 0
+    },
+    {
+      "command": "pnpm build",
+      "result": "pass",
+      "scope": "clean published source; 44 normal files match saved B artifact hashes"
+    },
+    {
+      "command": "node scripts/store-environment.mjs build",
+      "result": "pass",
+      "scope": "isolated preview retains chunks and SPA output; no generated route receipt/sitemap"
+    },
+    {
+      "command": "pnpm --filter @egohygiene/egohygiene.io preview --host 127.0.0.1 --port 4173 --strictPort",
+      "result": "pass",
+      "scope": "local preview startup, stopped after HTTP inspection"
+    },
+    {
+      "command": "node tests/store-qualification/public-rendering.mjs --base-url http://127.0.0.1:4173 --output test-results/store-qualification/public-rendering-91c-source.json",
+      "result": "pass",
+      "pages": 26,
+      "sitemapEntries": 10,
+      "pageResponses": 52,
+      "discoveryResponses": 4,
+      "report": "raw-http-inspection.json"
+    },
+    {
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/production-artifact-91c-source.json",
+      "result": "fail",
+      "exitCode": 1,
+      "files": 44,
+      "assetReferences": 202,
+      "findings": 3,
+      "findingRules": [
+        "size-budget"
+      ],
+      "report": "production-artifact.json"
+    },
+    {
+      "command": "Scoped Biome formatting and git diff --check",
+      "result": "pass",
+      "scope": "changed verification sources; not repository-wide lint/CI"
+    },
+    {
+      "command": "Independent source and preview-adapter review",
+      "result": "pass",
+      "scope": "symlink-before-read correction included; no remaining blocking finding"
+    }
+  ],
+  "evidenceScope": "Type/catalog/tooling checks ran on the source files published in the exact matching staged tree. Focused app units, normal/preview builds and final raw/HTTP/artifact reports ran at the clean published commit. Subsequent continuity docs do not alter application output.",
+  "failedOrPartialAttempts": [
+    {
+      "scope": "Initial default-concurrency catalog run",
+      "result": "incomplete-evidence",
+      "note": "Log capture ended before final totals; no full pass claimed from it. Complete bounded-concurrency run produced 152 passing tests."
+    },
+    {
+      "scope": "Before local preview adapter",
+      "result": "fail",
+      "report": "preview-regression.json",
+      "note": "Clean /about returned homepage bytes; fixed and rechecked across all 26 pages."
+    }
+  ],
+  "hosted": {
+    "result": "failure",
+    "runs": [
+      {
+        "name": ".github/workflows/codeql.yml",
+        "id": 40107715276,
+        "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40107715276",
+        "status": "completed",
+        "conclusion": "failure",
+        "sourceCommit": "7d845bb447ccaaba8fe582a654e318e6e8315bf0"
+      },
+      {
+        "name": "Dependency review",
+        "id": 40107715175,
+        "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40107715175",
+        "status": "completed",
+        "conclusion": "failure",
+        "sourceCommit": "7d845bb447ccaaba8fe582a654e318e6e8315bf0"
+      },
+      {
+        "name": "CI",
+        "id": 40107715178,
+        "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40107715178",
+        "status": "completed",
+        "conclusion": "failure",
+        "sourceCommit": "7d845bb447ccaaba8fe582a654e318e6e8315bf0"
+      }
+    ],
+    "diagnosedAgain": false,
+    "gatesChanged": false,
+    "manualDispatch": false
+  },
+  "notRun": [
+    "Chromium/browser journeys, visual layout and assistive technology",
+    "Docker/Caddy intended server status/MIME/redirect qualification",
+    "actual deployed host/provider/checkout checks",
+    "broad final lint/refactor/engineering profile"
+  ],
+  "sizeDisposition": {
+    "budgetsChanged": false,
+    "fullQualification": "fail",
+    "owners": {
+      "37": "Review decisions and run integrated browser costs/qualification.",
+      "52": "Review distinct artifact-storage and per-document regression semantics.",
+      "92": "Review justified size reductions including generic catalog/shared payload."
+    }
+  },
+  "artifactSha256": {
+    "raw-http-inspection.json": "0c969feacea3af66a4a00d6bb79bd6f7563951de5af68a6a76f390b0517c3972",
+    "production-artifact.json": "1d2940e97f2faef3dc365fdac03ed51794df4059ca572e3db84bc95f59275de2",
+    "preview-regression.json": "eefa2782d6cbd140bf0faf548167d4b7ae51d007fc15ecc8aa787d060306823a"
+  }
+}

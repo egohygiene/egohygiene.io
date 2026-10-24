@@ -1,0 +1,869 @@
+{
+  "capturedAt": "2026-10-24T15:37:05.271Z",
+  "sourceHead": "7d845bb447ccaaba8fe582a654e318e6e8315bf0",
+  "sourceStatus": "",
+  "scope": "Raw generated documents and discovery consistency. Receipt is a build output, not independent source-route coverage; source route tests and review remain required. No scripts/resources execute. Private/fixture/asset/size checks remain in artifacts.mts.",
+  "result": "pass",
+  "publicInputSha256": "0a42f605bd35e631b908db04f9ec434c5df6ce669adb1688622ec2f250d9dd61",
+  "pages": [
+    {
+      "pathname": "/",
+      "file": "index.html",
+      "canonical": "https://egohygiene.io/",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Public Ego Hygiene introduction.",
+      "htmlSha256": "b10409b753f22fc067b1b2bbe1fb8b7a5b07bc2acfa29f039208c8945be41ab2",
+      "title": "Ego Hygiene — A little more human",
+      "description": "A growing home for self-awareness, creative expression, and thoughtful tools. Explore Ego Hygiene and its community store.",
+      "heading": "A little more human.",
+      "mainTextCharacters": 1599
+    },
+    {
+      "pathname": "/about",
+      "file": "about/index.html",
+      "canonical": "https://egohygiene.io/about",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Public project purpose.",
+      "htmlSha256": "dcd5fbf085cf15cce661cf506e91ee749606cafd58f0a460c58e112a74ef27b9",
+      "title": "About Ego Hygiene",
+      "description": "The ideas behind Ego Hygiene: balance, awareness, empathy, and growth.",
+      "heading": "About Ego Hygiene",
+      "mainTextCharacters": 450
+    },
+    {
+      "pathname": "/accessibility",
+      "file": "accessibility/index.html",
+      "canonical": "https://egohygiene.io/accessibility",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Current accessibility information and review limits.",
+      "htmlSha256": "f14626ef71e3e371e5e1afaad0a689dd29f1994287c2832b6683b335347bc647",
+      "title": "Accessibility",
+      "description": "Current accessibility information, review limitations and ways to report a problem using the Ego Hygiene website.",
+      "heading": "Accessibility",
+      "mainTextCharacters": 1147
+    },
+    {
+      "pathname": "/aether",
+      "file": "aether/index.html",
+      "canonical": "https://egohygiene.io/aether",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "33698fc82a1cc9dada8af9661e1da049a2fbb9925d39ec31f1c0205c865ca032",
+      "title": "Aether · Ego Hygiene",
+      "description": "Infrastructure patterns for shared themes, content, and product gateways.",
+      "heading": "Aether",
+      "mainTextCharacters": 212
+    },
+    {
+      "pathname": "/ecosystem",
+      "file": "ecosystem/index.html",
+      "canonical": "https://egohygiene.io/ecosystem",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Public project directory.",
+      "htmlSha256": "c9595b5fd84ba0b5ecc2078c1302e23bc723c8ce47b303685f304cd780fc45fb",
+      "title": "The Ego Hygiene ecosystem",
+      "description": "Explore the tools and projects taking shape in the Ego Hygiene ecosystem.",
+      "heading": "The Ego Hygiene ecosystem",
+      "mainTextCharacters": 950
+    },
+    {
+      "pathname": "/egolint",
+      "file": "egolint/index.html",
+      "canonical": "https://egohygiene.io/egolint",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "af2b61a6e1f7427f753f618f57b58f4f28d88b442859290381fd61f70add4705",
+      "title": "Egolint · Ego Hygiene",
+      "description": "Engineering checks for reflective, humane, maintainable systems.",
+      "heading": "Egolint",
+      "mainTextCharacters": 204
+    },
+    {
+      "pathname": "/help",
+      "file": "help/index.html",
+      "canonical": "https://egohygiene.io/help",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Current website guidance and feedback limits.",
+      "htmlSha256": "1c4d7e2ea02fe35a039f295f94fa5078fcf92dcaae65f078a4642ecd982151a1",
+      "title": "Help",
+      "description": "Find website help, accessibility feedback, store guidance and policy information for Ego Hygiene.",
+      "heading": "Help",
+      "mainTextCharacters": 1478
+    },
+    {
+      "pathname": "/mindcap",
+      "file": "mindcap/index.html",
+      "canonical": "https://egohygiene.io/mindcap",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "a242fd9e5e4132fa34dc879b881431887c7444d662a53379daf65b1bda496e62",
+      "title": "Mindcap · Ego Hygiene",
+      "description": "A practical reflection space for capturing moments of insight.",
+      "heading": "Mindcap",
+      "mainTextCharacters": 202
+    },
+    {
+      "pathname": "/mindgarden",
+      "file": "mindgarden/index.html",
+      "canonical": "https://egohygiene.io/mindgarden",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "2731ddb984e3afc443cb95fcd0fbe993f4022292fa643197d91d632abac4daec",
+      "title": "Mindgarden · Ego Hygiene",
+      "description": "A calm place to connect ideas, notes, and personal frameworks.",
+      "heading": "Mindgarden",
+      "mainTextCharacters": 201
+    },
+    {
+      "pathname": "/privacy",
+      "file": "privacy/index.html",
+      "canonical": "https://egohygiene.io/privacy",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Provisional policy draft.",
+      "htmlSha256": "30b964470c0b6f7e966f801ff28348db3d152103c83660dffb9695f7007b2d60",
+      "title": "Privacy draft",
+      "description": "A provisional explanation of the current website’s privacy practices.",
+      "heading": "Privacy draft",
+      "mainTextCharacters": 597
+    },
+    {
+      "pathname": "/reflector",
+      "file": "reflector/index.html",
+      "canonical": "https://egohygiene.io/reflector",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "cfadb280fcb23073e64722dc53706bd5a99eb990d825e34222305097563a036a",
+      "title": "Reflector · Ego Hygiene",
+      "description": "Prompts and guided practices for honest self-observation.",
+      "heading": "Reflector",
+      "mainTextCharacters": 195
+    },
+    {
+      "pathname": "/renderflow",
+      "file": "renderflow/index.html",
+      "canonical": "https://egohygiene.io/renderflow",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "4124f9b0bd1b9a46424ad3a2aee6e09622503d6a5cb732e83e95431ab6a32694",
+      "title": "Renderflow · Ego Hygiene",
+      "description": "Creative tooling for motion, graphics, and visual communication.",
+      "heading": "Renderflow",
+      "mainTextCharacters": 203
+    },
+    {
+      "pathname": "/store",
+      "file": "store/index.html",
+      "canonical": "https://egohygiene.io/store",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Curated public storefront; selection does not authorize purchases.",
+      "htmlSha256": "ddce08fc0f231bafa75425be1b39fca6c0786af729c3ec45538539531c11b0bb",
+      "title": "The community store · Ego Hygiene",
+      "description": "The Ego Hygiene community store, with a growing collection of merchandise and selected artwork from Incompris.",
+      "heading": "The Ego Hygiene store.",
+      "mainTextCharacters": 1245
+    },
+    {
+      "pathname": "/store/catalog",
+      "file": "store/catalog/index.html",
+      "canonical": "https://egohygiene.io/store/catalog",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Generic preview browser includes fictional examples.",
+      "htmlSha256": "f9295a9288c3df857ef57f3899ef889d134e649ba79f6e4ab51e4aa5876604a0",
+      "title": "Objects with a world inside · Ego Hygiene",
+      "description": "Explore the Ego Hygiene store: independent designs, music-inspired collections, and objects with a story.",
+      "heading": "Objects with a world inside.",
+      "mainTextCharacters": 3662
+    },
+    {
+      "pathname": "/store/collections/static-bloom-collection",
+      "file": "store/collections/static-bloom-collection/index.html",
+      "canonical": "https://egohygiene.io/store/collections/static-bloom-collection",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional song collection.",
+      "htmlSha256": "d4d1b8f7f6a4404350eb1312debcdbd206d0ef9e5cc05277a6d7778b5bc1718d",
+      "title": "The Static Bloom Collection · Ego Hygiene",
+      "description": "Fictional collection showing how one song can bring together related artwork and merchandise.",
+      "heading": "The Static Bloom Collection",
+      "mainTextCharacters": 869
+    },
+    {
+      "pathname": "/store/designs/heartburst",
+      "file": "store/designs/heartburst/index.html",
+      "canonical": "https://egohygiene.io/store/designs/heartburst",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Approved public artwork preview; no physical product is approved.",
+      "htmlSha256": "ead2af124c017067e47155b633598df0cc3174bbbead53d09af420eb5bdf1044",
+      "title": "heartburst · Ego Hygiene",
+      "description": "An electric fuchsia heart surrounded by black ink splashes, long drips and scattered pastel marks. A standalone design study; garment ideas are still taking shape.",
+      "heading": "heartburst",
+      "mainTextCharacters": 495
+    },
+    {
+      "pathname": "/store/designs/signal-heart",
+      "file": "store/designs/signal-heart/index.html",
+      "canonical": "https://egohygiene.io/store/designs/signal-heart",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional design example.",
+      "htmlSha256": "47bf957f3417b37ace6830147e57b21574772c7583ccfa073bbfd327aa6473ad",
+      "title": "Signal Heart · Ego Hygiene",
+      "description": "Fictional catalog example: an abstract heart design independent of any song or character. Artwork is a placeholder.",
+      "heading": "Signal Heart",
+      "mainTextCharacters": 673
+    },
+    {
+      "pathname": "/store/designs/static-bloom-artwork",
+      "file": "store/designs/static-bloom-artwork/index.html",
+      "canonical": "https://egohygiene.io/store/designs/static-bloom-artwork",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional design example.",
+      "htmlSha256": "c252052954ba5e6a6b4b510a59bd9388651bbf50d22a57b7a6f5db0791c6007c",
+      "title": "Static Bloom Artwork · Ego Hygiene",
+      "description": "Fictional artwork connected to the demo song Static Bloom. The same design can be used on several products.",
+      "heading": "Static Bloom Artwork",
+      "mainTextCharacters": 1045
+    },
+    {
+      "pathname": "/store/designs/unwritten-realm-cover",
+      "file": "store/designs/unwritten-realm-cover/index.html",
+      "canonical": "https://egohygiene.io/store/designs/unwritten-realm-cover",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional design example.",
+      "htmlSha256": "260ff50b8c03924efb920f8778c96b5f241d11018801394ad1ae251101fbc8d2",
+      "title": "Unwritten Realm Cover · Ego Hygiene",
+      "description": "Fictional placeholder cover demonstrating how a future comic can fit the catalog independently of its printing service.",
+      "heading": "Unwritten Realm Cover",
+      "mainTextCharacters": 675
+    },
+    {
+      "pathname": "/store/help",
+      "file": "store/help/index.html",
+      "canonical": "https://egohygiene.io/store/help",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Current store guidance and responsibility distinctions.",
+      "htmlSha256": "66352342c3e3287e3e29f666e5bee2c0cadedeba74a8ad27456eba84bb532fa4",
+      "title": "Store help",
+      "description": "Understand product previews, hosted checkout, delivery information, and where to get help with the Ego Hygiene store.",
+      "heading": "Store help",
+      "mainTextCharacters": 2387
+    },
+    {
+      "pathname": "/store/incompris",
+      "file": "store/incompris/index.html",
+      "canonical": "https://egohygiene.io/store/incompris",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Curated public Incompris collection.",
+      "htmlSha256": "3878a757986ef0b7626470617801a9e14c4b5c60e91b5199eb89ff4535be2c73",
+      "title": "Incompris collection · Ego Hygiene",
+      "description": "Explore the Incompris creative collection within the Ego Hygiene community store.",
+      "heading": "Incompris",
+      "mainTextCharacters": 1141
+    },
+    {
+      "pathname": "/store/incompris/artists/play",
+      "file": "store/incompris/artists/play/index.html",
+      "canonical": "https://egohygiene.io/store/incompris/artists/play",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Explicitly curated public artist destination; selections may be empty.",
+      "htmlSha256": "790cc61cba1450cc0399cc5c5f44842ee9da70ddc019ddc284256e3347b514ec",
+      "title": ".play() · Artist collection · Ego Hygiene",
+      "description": "Explore an Incompris artist’s standalone designs and collections inspired by individual songs.",
+      "heading": ".play()",
+      "mainTextCharacters": 823
+    },
+    {
+      "pathname": "/store/products/signal-heart-hoodie",
+      "file": "store/products/signal-heart-hoodie/index.html",
+      "canonical": "https://egohygiene.io/store/products/signal-heart-hoodie",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional product example; not a real offer.",
+      "htmlSha256": "97eae870dfee32ad7f93d6698fecc377c12730e121609af3ec7552aec896acc6",
+      "title": "Signal Heart Hoodie · Ego Hygiene",
+      "description": "Fictional preview of a black hoodie featuring the standalone Signal Heart design. No manufacturer, sizing, price, or checkout is confirmed.",
+      "heading": "Signal Heart Hoodie",
+      "mainTextCharacters": 770
+    },
+    {
+      "pathname": "/store/products/static-bloom-mug",
+      "file": "store/products/static-bloom-mug/index.html",
+      "canonical": "https://egohygiene.io/store/products/static-bloom-mug",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional product example; not a real offer.",
+      "htmlSha256": "a1f31dcbfcb0562b2c5312e20c9149cb5e07e29d6126c3d247b72b006a5e7d15",
+      "title": "Static Bloom Mug · Ego Hygiene",
+      "description": "Fictional mug preview featuring the demo song artwork. Materials, price, and fulfillment have not been selected.",
+      "heading": "Static Bloom Mug",
+      "mainTextCharacters": 1197
+    },
+    {
+      "pathname": "/store/products/unwritten-realm-comic",
+      "file": "store/products/unwritten-realm-comic/index.html",
+      "canonical": "https://egohygiene.io/store/products/unwritten-realm-comic",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional product example; not a real offer.",
+      "htmlSha256": "843cb648319726de4db0dc9ff6ba145b0057df446afe4cb284a500b3e1d115af",
+      "title": "Unwritten Realm Comic · Ego Hygiene",
+      "description": "Fictional future comic example. Page count, print files, price, and printing provider are not confirmed.",
+      "heading": "Unwritten Realm Comic",
+      "mainTextCharacters": 732
+    },
+    {
+      "pathname": "/terms",
+      "file": "terms/index.html",
+      "canonical": "https://egohygiene.io/terms",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Provisional policy draft.",
+      "htmlSha256": "f63551cad546ee10dcd8120c2f54dffa8aaaeec205a32f179d016cd62a950fe0",
+      "title": "Terms draft",
+      "description": "Provisional terms for the Ego Hygiene public website.",
+      "heading": "Terms draft",
+      "mainTextCharacters": 570
+    }
+  ],
+  "sitemapUrls": [
+    "https://egohygiene.io/",
+    "https://egohygiene.io/about",
+    "https://egohygiene.io/accessibility",
+    "https://egohygiene.io/ecosystem",
+    "https://egohygiene.io/help",
+    "https://egohygiene.io/store",
+    "https://egohygiene.io/store/designs/heartburst",
+    "https://egohygiene.io/store/help",
+    "https://egohygiene.io/store/incompris",
+    "https://egohygiene.io/store/incompris/artists/play"
+  ],
+  "notFound": {
+    "title": "Page not found",
+    "description": "The route you requested is not available yet.",
+    "heading": "Page not found",
+    "mainTextCharacters": 70,
+    "htmlSha256": "545cb2fd87b1705a24362005a38ee804edab755ad823897d03f58112b0f0e4e7"
+  },
+  "http": {
+    "result": "pass",
+    "scope": "Known pages requested twice and compared byte-for-byte, plus discovery output. Repeated HTTP requests are not browser reload/hydration. Extra fallback/alias observations are not acceptance assertions; #57/#89 own server behavior.",
+    "pages": [
+      {
+        "pathname": "/",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "b10409b753f22fc067b1b2bbe1fb8b7a5b07bc2acfa29f039208c8945be41ab2",
+        "attempt": 1
+      },
+      {
+        "pathname": "/",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "b10409b753f22fc067b1b2bbe1fb8b7a5b07bc2acfa29f039208c8945be41ab2",
+        "attempt": 2
+      },
+      {
+        "pathname": "/about",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "dcd5fbf085cf15cce661cf506e91ee749606cafd58f0a460c58e112a74ef27b9",
+        "attempt": 1
+      },
+      {
+        "pathname": "/about",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "dcd5fbf085cf15cce661cf506e91ee749606cafd58f0a460c58e112a74ef27b9",
+        "attempt": 2
+      },
+      {
+        "pathname": "/accessibility",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "f14626ef71e3e371e5e1afaad0a689dd29f1994287c2832b6683b335347bc647",
+        "attempt": 1
+      },
+      {
+        "pathname": "/accessibility",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "f14626ef71e3e371e5e1afaad0a689dd29f1994287c2832b6683b335347bc647",
+        "attempt": 2
+      },
+      {
+        "pathname": "/aether",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "33698fc82a1cc9dada8af9661e1da049a2fbb9925d39ec31f1c0205c865ca032",
+        "attempt": 1
+      },
+      {
+        "pathname": "/aether",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "33698fc82a1cc9dada8af9661e1da049a2fbb9925d39ec31f1c0205c865ca032",
+        "attempt": 2
+      },
+      {
+        "pathname": "/ecosystem",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "c9595b5fd84ba0b5ecc2078c1302e23bc723c8ce47b303685f304cd780fc45fb",
+        "attempt": 1
+      },
+      {
+        "pathname": "/ecosystem",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "c9595b5fd84ba0b5ecc2078c1302e23bc723c8ce47b303685f304cd780fc45fb",
+        "attempt": 2
+      },
+      {
+        "pathname": "/egolint",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "af2b61a6e1f7427f753f618f57b58f4f28d88b442859290381fd61f70add4705",
+        "attempt": 1
+      },
+      {
+        "pathname": "/egolint",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "af2b61a6e1f7427f753f618f57b58f4f28d88b442859290381fd61f70add4705",
+        "attempt": 2
+      },
+      {
+        "pathname": "/help",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "1c4d7e2ea02fe35a039f295f94fa5078fcf92dcaae65f078a4642ecd982151a1",
+        "attempt": 1
+      },
+      {
+        "pathname": "/help",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "1c4d7e2ea02fe35a039f295f94fa5078fcf92dcaae65f078a4642ecd982151a1",
+        "attempt": 2
+      },
+      {
+        "pathname": "/mindcap",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "a242fd9e5e4132fa34dc879b881431887c7444d662a53379daf65b1bda496e62",
+        "attempt": 1
+      },
+      {
+        "pathname": "/mindcap",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "a242fd9e5e4132fa34dc879b881431887c7444d662a53379daf65b1bda496e62",
+        "attempt": 2
+      },
+      {
+        "pathname": "/mindgarden",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "2731ddb984e3afc443cb95fcd0fbe993f4022292fa643197d91d632abac4daec",
+        "attempt": 1
+      },
+      {
+        "pathname": "/mindgarden",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "2731ddb984e3afc443cb95fcd0fbe993f4022292fa643197d91d632abac4daec",
+        "attempt": 2
+      },
+      {
+        "pathname": "/privacy",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "30b964470c0b6f7e966f801ff28348db3d152103c83660dffb9695f7007b2d60",
+        "attempt": 1
+      },
+      {
+        "pathname": "/privacy",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "30b964470c0b6f7e966f801ff28348db3d152103c83660dffb9695f7007b2d60",
+        "attempt": 2
+      },
+      {
+        "pathname": "/reflector",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "cfadb280fcb23073e64722dc53706bd5a99eb990d825e34222305097563a036a",
+        "attempt": 1
+      },
+      {
+        "pathname": "/reflector",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "cfadb280fcb23073e64722dc53706bd5a99eb990d825e34222305097563a036a",
+        "attempt": 2
+      },
+      {
+        "pathname": "/renderflow",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "4124f9b0bd1b9a46424ad3a2aee6e09622503d6a5cb732e83e95431ab6a32694",
+        "attempt": 1
+      },
+      {
+        "pathname": "/renderflow",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "4124f9b0bd1b9a46424ad3a2aee6e09622503d6a5cb732e83e95431ab6a32694",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "ddce08fc0f231bafa75425be1b39fca6c0786af729c3ec45538539531c11b0bb",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "ddce08fc0f231bafa75425be1b39fca6c0786af729c3ec45538539531c11b0bb",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/catalog",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "f9295a9288c3df857ef57f3899ef889d134e649ba79f6e4ab51e4aa5876604a0",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/catalog",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "f9295a9288c3df857ef57f3899ef889d134e649ba79f6e4ab51e4aa5876604a0",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/collections/static-bloom-collection",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "d4d1b8f7f6a4404350eb1312debcdbd206d0ef9e5cc05277a6d7778b5bc1718d",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/collections/static-bloom-collection",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "d4d1b8f7f6a4404350eb1312debcdbd206d0ef9e5cc05277a6d7778b5bc1718d",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/designs/heartburst",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "ead2af124c017067e47155b633598df0cc3174bbbead53d09af420eb5bdf1044",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/designs/heartburst",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "ead2af124c017067e47155b633598df0cc3174bbbead53d09af420eb5bdf1044",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/designs/signal-heart",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "47bf957f3417b37ace6830147e57b21574772c7583ccfa073bbfd327aa6473ad",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/designs/signal-heart",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "47bf957f3417b37ace6830147e57b21574772c7583ccfa073bbfd327aa6473ad",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/designs/static-bloom-artwork",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "c252052954ba5e6a6b4b510a59bd9388651bbf50d22a57b7a6f5db0791c6007c",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/designs/static-bloom-artwork",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "c252052954ba5e6a6b4b510a59bd9388651bbf50d22a57b7a6f5db0791c6007c",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/designs/unwritten-realm-cover",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "260ff50b8c03924efb920f8778c96b5f241d11018801394ad1ae251101fbc8d2",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/designs/unwritten-realm-cover",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "260ff50b8c03924efb920f8778c96b5f241d11018801394ad1ae251101fbc8d2",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/help",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "66352342c3e3287e3e29f666e5bee2c0cadedeba74a8ad27456eba84bb532fa4",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/help",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "66352342c3e3287e3e29f666e5bee2c0cadedeba74a8ad27456eba84bb532fa4",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/incompris",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "3878a757986ef0b7626470617801a9e14c4b5c60e91b5199eb89ff4535be2c73",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/incompris",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "3878a757986ef0b7626470617801a9e14c4b5c60e91b5199eb89ff4535be2c73",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/incompris/artists/play",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "790cc61cba1450cc0399cc5c5f44842ee9da70ddc019ddc284256e3347b514ec",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/incompris/artists/play",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "790cc61cba1450cc0399cc5c5f44842ee9da70ddc019ddc284256e3347b514ec",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/products/signal-heart-hoodie",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "97eae870dfee32ad7f93d6698fecc377c12730e121609af3ec7552aec896acc6",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/products/signal-heart-hoodie",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "97eae870dfee32ad7f93d6698fecc377c12730e121609af3ec7552aec896acc6",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/products/static-bloom-mug",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "a1f31dcbfcb0562b2c5312e20c9149cb5e07e29d6126c3d247b72b006a5e7d15",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/products/static-bloom-mug",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "a1f31dcbfcb0562b2c5312e20c9149cb5e07e29d6126c3d247b72b006a5e7d15",
+        "attempt": 2
+      },
+      {
+        "pathname": "/store/products/unwritten-realm-comic",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "843cb648319726de4db0dc9ff6ba145b0057df446afe4cb284a500b3e1d115af",
+        "attempt": 1
+      },
+      {
+        "pathname": "/store/products/unwritten-realm-comic",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "843cb648319726de4db0dc9ff6ba145b0057df446afe4cb284a500b3e1d115af",
+        "attempt": 2
+      },
+      {
+        "pathname": "/terms",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "f63551cad546ee10dcd8120c2f54dffa8aaaeec205a32f179d016cd62a950fe0",
+        "attempt": 1
+      },
+      {
+        "pathname": "/terms",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "f63551cad546ee10dcd8120c2f54dffa8aaaeec205a32f179d016cd62a950fe0",
+        "attempt": 2
+      }
+    ],
+    "discovery": [
+      {
+        "pathname": "/sitemap.xml",
+        "status": 200,
+        "contentType": "text/xml",
+        "location": null,
+        "htmlSha256": "34cf5b4b5bc8322dc07047268c8715e122a81f2233589e29e7214a97efd7117a"
+      },
+      {
+        "pathname": "/robots.txt",
+        "status": 200,
+        "contentType": "text/plain",
+        "location": null,
+        "htmlSha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+      },
+      {
+        "pathname": "/llms.txt",
+        "status": 200,
+        "contentType": "text/plain",
+        "location": null,
+        "htmlSha256": "e60531c2ab30c1e67de2707c83b802a134fc7579acc8468ac3d6e2b968e3e98d"
+      },
+      {
+        "pathname": "/public-routes.json",
+        "status": 200,
+        "contentType": "application/json",
+        "location": null,
+        "htmlSha256": "693c651dce5ca49f31811da70eba1f1945a99aa867e9d3e3a5d3551a6f7a189b"
+      }
+    ],
+    "observations": [
+      {
+        "pathname": "/store/catalog?q=heart&lang=en",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "f9295a9288c3df857ef57f3899ef889d134e649ba79f6e4ab51e4aa5876604a0",
+        "prerenderedPath": "/store/catalog"
+      },
+      {
+        "pathname": "/store/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "htmlSha256": "ddce08fc0f231bafa75425be1b39fca6c0786af729c3ec45538539531c11b0bb",
+        "prerenderedPath": "/store"
+      },
+      {
+        "pathname": "/missing-route-91c",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "htmlSha256": "b10409b753f22fc067b1b2bbe1fb8b7a5b07bc2acfa29f039208c8945be41ab2",
+        "prerenderedPath": "/"
+      },
+      {
+        "pathname": "/store/products/missing-product-91c",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "htmlSha256": "b10409b753f22fc067b1b2bbe1fb8b7a5b07bc2acfa29f039208c8945be41ab2",
+        "prerenderedPath": "/"
+      },
+      {
+        "pathname": "/assets/missing-91c.js",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "htmlSha256": "b10409b753f22fc067b1b2bbe1fb8b7a5b07bc2acfa29f039208c8945be41ab2",
+        "prerenderedPath": "/"
+      },
+      {
+        "pathname": "/404.html",
+        "status": 200,
+        "contentType": "text/html;charset=utf-8",
+        "location": null,
+        "htmlSha256": "545cb2fd87b1705a24362005a38ee804edab755ad823897d03f58112b0f0e4e7",
+        "prerenderedPath": "/__not-found__"
+      }
+    ]
+  }
+}

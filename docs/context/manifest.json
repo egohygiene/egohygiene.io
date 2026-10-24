@@ -44,5 +44,6 @@
   "productReadinessReview": "docs/store/product-readiness-38.md",
   "publicRenderingContract": "docs/design/public-rendering-91a.md",
   "publicRenderingDecision": "docs/architecture/decisions/0012-static-public-route-rendering.md",
-  "publicRenderingImplementation": "docs/design/public-rendering-91b.md"
+  "publicRenderingImplementation": "docs/design/public-rendering-91b.md",
+  "publicRenderingReview": "docs/design/public-rendering-91c.md"
 }

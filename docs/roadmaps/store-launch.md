@@ -1,5 +1,16 @@
 # Store launch roadmap and milestone history
 
+## Public rendering checkpoint C — 2026-10-24
+
+[#91 C / draft #95](https://github.com/egohygiene/egohygiene.io/pull/95) now records
+[local artifact/HTTP review](../design/public-rendering-91c.md), fixes clean-path
+Vite preview serving, adds raw inspection and per-document size diagnostics, and
+retains 13 browser cases for the Mac pass. All 26 pages and 52 known-path responses
+pass; three aggregate size findings, hosted failures and browser acceptance remain.
+#52/#92/#37 own budget/reduction/final review; #57/#89 own intended server behavior.
+#91 stays open. Sync then #60; setup order and deployment planning are unchanged.
+No merge, deployment or product activation occurred.
+
 ## Deployment environments and public construction preview — 2026-10-23
 
 Alan requested issues for local, dev, staging and production deployments, considering

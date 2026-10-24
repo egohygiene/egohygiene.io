@@ -1,7 +1,7 @@
 # ADR 0012 — Build-time rendering of the existing public routes
 
 - Date: 2026-10-23 (America/New_York).
-- Status: Implemented for checkpoint B review in draft #95; C/browser/host acceptance remains.
+- Status: Implemented and locally reviewed through checkpoint C in draft #95; browser/host acceptance remains.
 - Owner: [#91](https://github.com/egohygiene/egohygiene.io/issues/91), bounded
   current-route slice of [#22](https://github.com/egohygiene/egohygiene.io/issues/22).
 - Source: `2096c75d381a3027d6b133f2a873f432fe2057a3`, unmerged #94 atop #87.
@@ -152,6 +152,15 @@ pinned; broader dependency cleanup belongs to #92.
 ## Delivery, verification and rollback
 
 A remains the architecture/inventory record. [B implementation and evidence](../../design/public-rendering-91b.md) now implement this decision; C reviews freshly generated HTML and locally served responses. B rejects loaders/actions as well as lazy routes in the synchronous renderer, validates each published path against its expected route ID, and uses a frozen public module for both builds. Fixed path declarations also supply route metadata. The build CLI retains normal `dist` and isolated `dist-preview` outputs. Existing aggregate artifact-size ceilings remain unchanged and currently fail after adding route documents; C/final #37 must reconcile those measured findings. Unit/DOM hydration checks are local evidence, not actual Chromium.
+[C's local review](../../design/public-rendering-91c.md) found Vite preview serving
+home HTML for clean directory routes. Its preview-only adapter now uses the
+completed route receipt to validate and rewrite known GET/HEAD paths internally,
+preserving query bytes and canonical browser URLs. This is not a production host
+adapter. Raw/HTTP verification and per-document diagnostic costs now accompany the
+unchanged aggregate gate; browser definitions are retained, not executed. Unknown
+Vite routes/missing assets and 404.html still return HTTP 200; #57/#89 own those
+intended-server obligations. No new budget or deployment policy is selected.
+
 Full Chromium/responsive/keyboard/AT qualification remains #37/#49/#70 on Alan's
 Mac. Local static-server status/MIME behavior belongs with #57; deployed redirects,
 canonical-origin and deep-link checks belong to #89/#39. 404.html alone does not

@@ -1,0 +1,7 @@
+{
+  "inputHead": "29e24b646c494b9bb915a40d7a4098fa800e1627",
+  "scope": "Observed before adding the preview adapter; raw verifier was uncommitted. Generated output matches the B artifact. This is an HTTP regression reproduction, not a passing checkpoint.",
+  "result": "fail",
+  "failure": "HTTP body differs from generated route: /about\n+ actual - expected\n\n+ 'b10409b753f22fc067b1b2bbe1fb8b7a5b07bc2acfa29f039208c8945be41ab2'\n- 'dcd5fbf085cf15cce661cf506e91ee749606cafd58f0a460c58e112a74ef27b9'\n",
+  "resolution": "Known clean paths now rewrite to receipt-verified generated files in local Vite preview. Unknown/status/redirect behavior remains separate."
+}

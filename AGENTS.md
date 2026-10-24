@@ -6,7 +6,22 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Deployment planning addition — 2026-10-23
+## Current public rendering checkpoint C — 2026-10-24
+
+Alan selected C. [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
+now includes repeatable raw/HTTP verification, per-document size diagnostics,
+13 deferred browser cases and a fix for local Vite preview serving home HTML at
+known clean paths. Read the [C receipt](docs/design/public-rendering-91c.md),
+current-state and provenance for exact source/evidence. All 26 generated pages
+and their local clean-path responses pass; the same three aggregate size findings
+and hosted failures remain. No budget was raised or gate disabled.
+
+Chromium, intended Docker/Caddy serving and production-host acceptance stay with
+#37/#57/#89. #91 remains open for deferred browser acceptance; #90 contact/copy
+gaps remain. Next: sync on C, then #60. Existing drafts remain unmerged and the
+deployment/production-preview plan below retains its place after setup.
+
+## Historical deployment planning addition — 2026-10-23
 
 Alan requested environment and public-production-preview issues. The
 [roadmap](docs/roadmaps/store-launch.md) now links #21 + #89 A, #96 deployment
@@ -16,7 +31,7 @@ Pulumi is conditional; retain a no-paid-plan/manual path. A public construction
 preview uses the normal artifact and disabled purchasing, never `dist-preview`.
 This is planning only: no deployment, provisioning, merge or activation.
 
-## Current public rendering checkpoint B — 2026-10-23
+## Historical public rendering checkpoint B — 2026-10-23
 
 Alan selected B after trying the local preview. [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
 now implements [ADR 0012](docs/architecture/decisions/0012-static-public-route-rendering.md):
