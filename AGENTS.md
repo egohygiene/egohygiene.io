@@ -6,7 +6,16 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current ecosystem navigation checkpoint — 2026-10-24
+## Current shared Markdown checkpoint A — 2026-10-25
+
+Alan selected #50. On `fix/content-markdown-50`, based on unmerged #98, checkpoint
+A repairs optional description omission and records [the content contract](docs/design/content-markdown-50.md)
+and [ADR 0013](docs/architecture/decisions/0013-shared-safe-markdown.md). Save this
+checkpoint to a draft before B's shared parser/docs integration. Keep exact source,
+checks and next action in current-state/provenance. Chromium/final engineering
+remain deferred; no merge, deployment or activation is authorized here.
+
+## Historical ecosystem navigation checkpoint — 2026-10-24
 
 Alan selected #60. [Draft #98](https://github.com/egohygiene/egohygiene.io/pull/98)
 is stacked on unmerged #95. The [receipt](docs/design/ecosystem-links-60.md)

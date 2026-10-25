@@ -5,6 +5,33 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Shared content #50 checkpoint A — 2026-10-25
+
+Alan selected #50 and reaffirmed durable notes with checkpoint pushes. Recovered
+GitHub draft #98 `e4e3ec2ece527e707eda0366c2ccee9b8cc6dd92`, read root/context and
+owning source, dependency rules, methodology and ADR practice. Refreshed live #50,
+main and draft heads; main stays `07d25941ceeefa53089afa025b612c6aa54f36c4`.
+No prior draft was merged or retargeted. Created `fix/content-markdown-50`.
+
+Frozen script-disabled installation used pnpm 11.28.5 and checksum-verified official
+Node 24.21.0 archive (SHA-256
+`fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6`). No pin changed.
+Package typecheck reproduced TS2375 for the undefined optional description; A
+omits that property. Existing strict profile passes and four focused tests pass.
+Source review confirms only docs/tests consume the content APIs; the unsafe HTML
+helper is not an active docs sink. Current docs are React text, not executed MDX.
+
+[Contract](../design/content-markdown-50.md) and [ADR 0013](../architecture/decisions/0013-shared-safe-markdown.md)
+record a standard CommonMark-to-HAST parser with literal raw HTML, explicit URL
+policy and shared React/HTML output. Upstream syntax-tree documentation informed
+the design; no code/assets copied. Independent review identified leading-code
+indentation and URL normalization edges to cover in B/C.
+
+Save A before B/C. Existing #98 hosted CI 40112235842, dependency review 40112235847
+and CodeQL 40112235969 all failed; no new diagnosis/dispatch. Prior website sizes
+and deferred Chromium/contact acceptance remain source-bound. No merge, deployment,
+provider/product activation, private data, package publication or spending.
+
 ## Ecosystem navigation #60 — 2026-10-24
 
 Authority: Alan selected #60 after #91 C. Read root/context/scoped instructions,

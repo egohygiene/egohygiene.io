@@ -1,6 +1,29 @@
 # Current handoff
 
-## Current: ecosystem card links #60 A/B implemented — 2026-10-24
+## Current: #50 A contract and optional metadata repair — 2026-10-25
+
+Alan selected #50 after reviewing the current roadmap and reaffirming continuity
+notes with each checkpoint push. Restored the pruned checkout from GitHub and
+refreshed #50, main, open drafts and #98 workflows before editing.
+Working branch `fix/content-markdown-50` is based on unmerged #98 at
+`e4e3ec2ece527e707eda0366c2ccee9b8cc6dd92`; main remains
+`07d25941ceeefa53089afa025b612c6aa54f36c4`. Prior draft branches are unchanged.
+
+[The A contract](../design/content-markdown-50.md) and
+[ADR 0013](../architecture/decisions/0013-shared-safe-markdown.md) select one
+CommonMark tree for framework-independent content and React/HTML consumers.
+A fixes the reproduced optional-description TS2375 by omitting the missing field;
+strict options/profile remain unchanged. Empty/heading-only regressions pass.
+Pinned Node 24.21.0/pnpm 11.28.5, frozen install with scripts disabled; package
+types and four focused tests pass. These are A checks, not B rendering evidence.
+
+Next within selected #50: save A in a draft on #98, then B shared parsing/docs
+integration and C focused local review, with actual Chromium deferred to #37.
+The existing website artifact-size, hosted and browser/contact gaps remain.
+No merge, deployment, product/provider activation, package publication or spending.
+
+
+## Historical: ecosystem card links #60 A/B implemented — 2026-10-24
 
 Alan selected #60 after #91 C. [Draft #98](https://github.com/egohygiene/egohygiene.io/pull/98)
 on `fix/ecosystem-links-60` targets #95's `docs/public-rendering-91a` at

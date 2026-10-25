@@ -16,14 +16,15 @@ export interface MarkdownDocument {
 
 export function parseMarkdownDocument(raw: string, fallbackTitle: string): MarkdownDocument {
   const trimmed = raw.trim();
+  const description = trimmed
+    .split("\n")
+    .find((line) => line.trim().length > 0 && !line.startsWith("#"));
 
   return {
     slug: createSlug(fallbackTitle),
     title: fallbackTitle,
     body: trimmed,
-    description: trimmed
-      .split("\n")
-      .find((line) => line.trim().length > 0 && !line.startsWith("#")),
+    ...(description === undefined ? {} : { description }),
   };
 }
 
