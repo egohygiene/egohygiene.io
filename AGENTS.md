@@ -5,7 +5,65 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
-## Current website essentials checkpoint C — 2026-10-22
+
+## Current public rendering checkpoint C — 2026-10-24
+
+Alan selected C. [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
+now includes repeatable raw/HTTP verification, per-document size diagnostics,
+13 deferred browser cases and a fix for local Vite preview serving home HTML at
+known clean paths. Read the [C receipt](docs/design/public-rendering-91c.md),
+current-state and provenance for exact source/evidence. All 26 generated pages
+and their local clean-path responses pass; the same three aggregate size findings
+and hosted failures remain. No budget was raised or gate disabled.
+
+Chromium, intended Docker/Caddy serving and production-host acceptance stay with
+#37/#57/#89. #91 remains open for deferred browser acceptance; #90 contact/copy
+gaps remain. Next: sync on C, then #60. Existing drafts remain unmerged and the
+deployment/production-preview plan below retains its place after setup.
+
+## Historical deployment planning addition — 2026-10-23
+
+Alan requested environment and public-production-preview issues. The
+[roadmap](docs/roadmaps/store-launch.md) now links #21 + #89 A, #96 deployment
+commands, #97 construction mode, then #89 B/C publication, before #38/#39 commerce.
+This follows the finite #88 setup/local engineering pass; #91 C remains next.
+Pulumi is conditional; retain a no-paid-plan/manual path. A public construction
+preview uses the normal artifact and disabled purchasing, never `dist-preview`.
+This is planning only: no deployment, provisioning, merge or activation.
+
+## Historical public rendering checkpoint B — 2026-10-23
+
+Alan selected B after trying the local preview. [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
+now implements [ADR 0012](docs/architecture/decisions/0012-static-public-route-rendering.md):
+26 generated pages, ten sitemap entries, shared metadata and deterministic hydration.
+Read the [B receipt](docs/design/public-rendering-91b.md) and current-state for the
+exact source, tests and limits. It remains stacked on unmerged #94; main is unchanged.
+
+Next is a B sync, then #91 C when selected. Focused local tests and both builds pass;
+the existing artifact qualifier fails three aggregate size ceilings after adding
+route HTML. Keep those findings and hosted CI/dependency/CodeQL failures visible.
+No gates were changed. Chromium and final engineering remain in the approved #88
+sequence on Alan's Mac. #90 contact/copy and browser/manual acceptance remain open;
+positive preview feedback does not resolve them. No merge, deployment or activation.
+
+## Historical public rendering checkpoint A — 2026-10-23
+
+Alan selected the next issue after the discovery-file investigation. #91 A now
+records [ADR 0012](docs/architecture/decisions/0012-static-public-route-rendering.md)
+and the [26-route/publication contract](docs/design/public-rendering-91a.md),
+prepared in [draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
+on `docs/public-rendering-91a`, based on unmerged #94.
+The selected approach reuses React/Vite Data Mode and the existing public catalog;
+B will add static HTML, shared metadata, sitemap and deterministic hydration.
+No renderer or new discovery output is implemented by A.
+
+Next: sync on A's architecture and proposed ten-entry sitemap/16 noindex-page
+disposition, then B. Preserve #90's outstanding contact/copy and deferred browser
+acceptance; advancing #91 does not resolve those decisions. Earlier drafts remain
+unmerged, hosted failures remain visible, and final Chromium/lint/CI/refactor work
+retains the approved #88 sequence. See current-state/provenance for exact inputs.
+
+## Historical website essentials checkpoint C — 2026-10-22
 
 Alan authorized C. [Draft #94](https://github.com/egohygiene/egohygiene.io/pull/94)
 now includes the [six-route copy/review receipt](docs/design/website-essentials-90c.md),

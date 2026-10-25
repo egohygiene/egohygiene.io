@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "publicOrigin": "https://egohygiene.io",
+  "publicInputSha256": "0a42f605bd35e631b908db04f9ec434c5df6ce669adb1688622ec2f250d9dd61",
+  "routes": [
+    {
+      "pathname": "/",
+      "file": "index.html",
+      "canonical": "https://egohygiene.io/",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Public Ego Hygiene introduction.",
+      "htmlSha256": "b10409b753f22fc067b1b2bbe1fb8b7a5b07bc2acfa29f039208c8945be41ab2"
+    },
+    {
+      "pathname": "/about",
+      "file": "about/index.html",
+      "canonical": "https://egohygiene.io/about",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Public project purpose.",
+      "htmlSha256": "dcd5fbf085cf15cce661cf506e91ee749606cafd58f0a460c58e112a74ef27b9"
+    },
+    {
+      "pathname": "/accessibility",
+      "file": "accessibility/index.html",
+      "canonical": "https://egohygiene.io/accessibility",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Current accessibility information and review limits.",
+      "htmlSha256": "f14626ef71e3e371e5e1afaad0a689dd29f1994287c2832b6683b335347bc647"
+    },
+    {
+      "pathname": "/aether",
+      "file": "aether/index.html",
+      "canonical": "https://egohygiene.io/aether",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "33698fc82a1cc9dada8af9661e1da049a2fbb9925d39ec31f1c0205c865ca032"
+    },
+    {
+      "pathname": "/ecosystem",
+      "file": "ecosystem/index.html",
+      "canonical": "https://egohygiene.io/ecosystem",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Public project directory.",
+      "htmlSha256": "c9595b5fd84ba0b5ecc2078c1302e23bc723c8ce47b303685f304cd780fc45fb"
+    },
+    {
+      "pathname": "/egolint",
+      "file": "egolint/index.html",
+      "canonical": "https://egohygiene.io/egolint",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "af2b61a6e1f7427f753f618f57b58f4f28d88b442859290381fd61f70add4705"
+    },
+    {
+      "pathname": "/help",
+      "file": "help/index.html",
+      "canonical": "https://egohygiene.io/help",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Current website guidance and feedback limits.",
+      "htmlSha256": "1c4d7e2ea02fe35a039f295f94fa5078fcf92dcaae65f078a4642ecd982151a1"
+    },
+    {
+      "pathname": "/mindcap",
+      "file": "mindcap/index.html",
+      "canonical": "https://egohygiene.io/mindcap",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "a242fd9e5e4132fa34dc879b881431887c7444d662a53379daf65b1bda496e62"
+    },
+    {
+      "pathname": "/mindgarden",
+      "file": "mindgarden/index.html",
+      "canonical": "https://egohygiene.io/mindgarden",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "2731ddb984e3afc443cb95fcd0fbe993f4022292fa643197d91d632abac4daec"
+    },
+    {
+      "pathname": "/privacy",
+      "file": "privacy/index.html",
+      "canonical": "https://egohygiene.io/privacy",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Provisional policy draft.",
+      "htmlSha256": "30b964470c0b6f7e966f801ff28348db3d152103c83660dffb9695f7007b2d60"
+    },
+    {
+      "pathname": "/reflector",
+      "file": "reflector/index.html",
+      "canonical": "https://egohygiene.io/reflector",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "cfadb280fcb23073e64722dc53706bd5a99eb990d825e34222305097563a036a"
+    },
+    {
+      "pathname": "/renderflow",
+      "file": "renderflow/index.html",
+      "canonical": "https://egohygiene.io/renderflow",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Reserved ecosystem gateway; no separate deployment is represented.",
+      "htmlSha256": "4124f9b0bd1b9a46424ad3a2aee6e09622503d6a5cb732e83e95431ab6a32694"
+    },
+    {
+      "pathname": "/store",
+      "file": "store/index.html",
+      "canonical": "https://egohygiene.io/store",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Curated public storefront; selection does not authorize purchases.",
+      "htmlSha256": "ddce08fc0f231bafa75425be1b39fca6c0786af729c3ec45538539531c11b0bb"
+    },
+    {
+      "pathname": "/store/catalog",
+      "file": "store/catalog/index.html",
+      "canonical": "https://egohygiene.io/store/catalog",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Generic preview browser includes fictional examples.",
+      "htmlSha256": "f9295a9288c3df857ef57f3899ef889d134e649ba79f6e4ab51e4aa5876604a0"
+    },
+    {
+      "pathname": "/store/collections/static-bloom-collection",
+      "file": "store/collections/static-bloom-collection/index.html",
+      "canonical": "https://egohygiene.io/store/collections/static-bloom-collection",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional song collection.",
+      "htmlSha256": "d4d1b8f7f6a4404350eb1312debcdbd206d0ef9e5cc05277a6d7778b5bc1718d"
+    },
+    {
+      "pathname": "/store/designs/heartburst",
+      "file": "store/designs/heartburst/index.html",
+      "canonical": "https://egohygiene.io/store/designs/heartburst",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Approved public artwork preview; no physical product is approved.",
+      "htmlSha256": "ead2af124c017067e47155b633598df0cc3174bbbead53d09af420eb5bdf1044"
+    },
+    {
+      "pathname": "/store/designs/signal-heart",
+      "file": "store/designs/signal-heart/index.html",
+      "canonical": "https://egohygiene.io/store/designs/signal-heart",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional design example.",
+      "htmlSha256": "47bf957f3417b37ace6830147e57b21574772c7583ccfa073bbfd327aa6473ad"
+    },
+    {
+      "pathname": "/store/designs/static-bloom-artwork",
+      "file": "store/designs/static-bloom-artwork/index.html",
+      "canonical": "https://egohygiene.io/store/designs/static-bloom-artwork",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional design example.",
+      "htmlSha256": "c252052954ba5e6a6b4b510a59bd9388651bbf50d22a57b7a6f5db0791c6007c"
+    },
+    {
+      "pathname": "/store/designs/unwritten-realm-cover",
+      "file": "store/designs/unwritten-realm-cover/index.html",
+      "canonical": "https://egohygiene.io/store/designs/unwritten-realm-cover",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional design example.",
+      "htmlSha256": "260ff50b8c03924efb920f8778c96b5f241d11018801394ad1ae251101fbc8d2"
+    },
+    {
+      "pathname": "/store/help",
+      "file": "store/help/index.html",
+      "canonical": "https://egohygiene.io/store/help",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Current store guidance and responsibility distinctions.",
+      "htmlSha256": "66352342c3e3287e3e29f666e5bee2c0cadedeba74a8ad27456eba84bb532fa4"
+    },
+    {
+      "pathname": "/store/incompris",
+      "file": "store/incompris/index.html",
+      "canonical": "https://egohygiene.io/store/incompris",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Curated public Incompris collection.",
+      "htmlSha256": "3878a757986ef0b7626470617801a9e14c4b5c60e91b5199eb89ff4535be2c73"
+    },
+    {
+      "pathname": "/store/incompris/artists/play",
+      "file": "store/incompris/artists/play/index.html",
+      "canonical": "https://egohygiene.io/store/incompris/artists/play",
+      "robots": "index,follow",
+      "indexable": true,
+      "reason": "Explicitly curated public artist destination; selections may be empty.",
+      "htmlSha256": "790cc61cba1450cc0399cc5c5f44842ee9da70ddc019ddc284256e3347b514ec"
+    },
+    {
+      "pathname": "/store/products/signal-heart-hoodie",
+      "file": "store/products/signal-heart-hoodie/index.html",
+      "canonical": "https://egohygiene.io/store/products/signal-heart-hoodie",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional product example; not a real offer.",
+      "htmlSha256": "97eae870dfee32ad7f93d6698fecc377c12730e121609af3ec7552aec896acc6"
+    },
+    {
+      "pathname": "/store/products/static-bloom-mug",
+      "file": "store/products/static-bloom-mug/index.html",
+      "canonical": "https://egohygiene.io/store/products/static-bloom-mug",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional product example; not a real offer.",
+      "htmlSha256": "a1f31dcbfcb0562b2c5312e20c9149cb5e07e29d6126c3d247b72b006a5e7d15"
+    },
+    {
+      "pathname": "/store/products/unwritten-realm-comic",
+      "file": "store/products/unwritten-realm-comic/index.html",
+      "canonical": "https://egohygiene.io/store/products/unwritten-realm-comic",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Fictional product example; not a real offer.",
+      "htmlSha256": "843cb648319726de4db0dc9ff6ba145b0057df446afe4cb284a500b3e1d115af"
+    },
+    {
+      "pathname": "/terms",
+      "file": "terms/index.html",
+      "canonical": "https://egohygiene.io/terms",
+      "robots": "noindex,follow",
+      "indexable": false,
+      "reason": "Provisional policy draft.",
+      "htmlSha256": "f63551cad546ee10dcd8120c2f54dffa8aaaeec205a32f179d016cd62a950fe0"
+    }
+  ],
+  "notFound": {
+    "file": "404.html",
+    "status": "requires-host-configuration",
+    "robots": "noindex,follow"
+  }
+}

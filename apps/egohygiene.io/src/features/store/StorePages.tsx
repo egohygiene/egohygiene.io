@@ -1,9 +1,10 @@
 import { useI18n } from "@egohygiene/i18n";
 import type { StoreCatalog, StoreDesign, StoreEntry, StoreProduct } from "@egohygiene/schemas";
 import { getStorePurchaseAction } from "@egohygiene/schemas";
-import { useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
+import { PageMetadata } from "../../components/PageMetadata/PageMetadata";
 import { storeCatalog, storefrontCuration } from "../../content/store";
+import { useBrowserSnapshot } from "../../hooks/useBrowserSnapshot";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import type { BrowsableStoreEntry, StoreStory, StoreView } from "./domain/index.ts";
 import {
@@ -45,22 +46,7 @@ export function StoreMetadata({
 }) {
   const { t } = useI18n();
   const formattedTitle = t("storeCards.metadataTitle", { title });
-  useEffect(() => {
-    const previousTitle = document.title;
-    const existingDescription = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    const previousDescription = existingDescription?.content;
-    const descriptionElement = existingDescription ?? document.createElement("meta");
-    descriptionElement.name = "description";
-    descriptionElement.content = description;
-    if (!existingDescription) document.head.append(descriptionElement);
-    document.title = formattedTitle;
-    return () => {
-      document.title = previousTitle;
-      if (existingDescription) existingDescription.content = previousDescription ?? "";
-      else descriptionElement.remove();
-    };
-  }, [formattedTitle, description]);
-  return null;
+  return <PageMetadata title={formattedTitle} description={description} />;
 }
 
 function Arrow({ diagonal = false }: { readonly diagonal?: boolean }) {
@@ -222,7 +208,9 @@ function StoreMissingPage({ kind }: { readonly kind: "object" | "design" | "coll
 export function StoreCatalogPage() {
   const { t, formatNumber } = useI18n();
   const { content, selection } = useStoreContent();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [browserSearchParams, setSearchParams] = useSearchParams();
+  const browserReady = useBrowserSnapshot();
+  const searchParams = browserReady ? browserSearchParams : new URLSearchParams();
   const query = searchParams.get("q") ?? "";
   const selectedView = searchParams.get("view");
   const view = views.find((item) => item.value === selectedView)?.value ?? "all";

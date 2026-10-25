@@ -1,10 +1,10 @@
 import { createLocaleRegistry } from "@egohygiene/i18n";
 import { act, cleanup, fireEvent, render, within } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import { afterAll, afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { AppProviders } from "../app/providers";
-import { router as websiteRouter } from "../app/router";
+import { routes } from "../app/router";
 import { resources } from "../i18n/resources";
 
 const registry = createLocaleRegistry({
@@ -32,7 +32,7 @@ const routers: ReturnType<typeof createMemoryRouter>[] = [];
 
 function setup(path: string) {
   // Use the real route table and shell so a missing registration cannot pass as a page test.
-  const router = createMemoryRouter(websiteRouter.routes, { initialEntries: [path] });
+  const router = createMemoryRouter(routes, { initialEntries: [path] });
   routers.push(router);
   const result = render(
     <AppProviders router={router} registry={registry} catalogs={catalogs}>
@@ -55,7 +55,6 @@ afterEach(() => {
   window.sessionStorage.clear();
 });
 
-afterAll(() => websiteRouter.dispose());
 
 describe("website essentials journeys (simulated DOM)", () => {
   it.each([

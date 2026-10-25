@@ -3,12 +3,15 @@ import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-import { publicStoreCatalog } from "../../scripts/vite-store-catalog.mts";
+import { publicStoreCatalog, type PublicStoreCatalogOptions } from "../../scripts/vite-store-catalog.mts";
+import { publicPagePreview } from "../../scripts/vite-public-pages.mts";
 
-export default defineConfig({
+export function createWebsiteConfig(catalogOptions: PublicStoreCatalogOptions = {}) {
+  return defineConfig({
   plugins: [
     react(),
-    publicStoreCatalog(),
+    publicStoreCatalog(catalogOptions),
+    publicPagePreview(),
   ],
   resolve: {
     alias: {
@@ -24,4 +27,7 @@ export default defineConfig({
     port: 4173,
     strictPort: true,
   },
-});
+  });
+}
+
+export default createWebsiteConfig();

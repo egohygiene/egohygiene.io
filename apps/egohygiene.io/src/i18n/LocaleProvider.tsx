@@ -13,6 +13,7 @@ import {
   useMemo,
 } from "react";
 
+import { useBrowserSnapshot } from "../hooks/useBrowserSnapshot";
 import { localePreferenceKey } from "./config";
 import {
   getRequestedLocale,
@@ -46,14 +47,17 @@ export function LocaleProvider({
   readonly search: string;
   readonly onSearchChange: (search: string) => void;
 }>) {
+  const browserReady = useBrowserSnapshot();
   const selected = useMemo(
     () =>
-      resolveLocaleSelection(registry, search, () =>
-        window.localStorage.getItem(localePreferenceKey),
-      ),
-    [registry, search],
+      browserReady
+        ? resolveLocaleSelection(registry, search, () =>
+            window.localStorage.getItem(localePreferenceKey),
+          )
+        : registry.resolve(),
+    [browserReady, registry, search],
   );
-  const explicitSelection = getRequestedLocale(registry, search) !== undefined;
+  const explicitSelection = browserReady && getRequestedLocale(registry, search) !== undefined;
 
   const setLocale = useCallback(
     (id: string) => {

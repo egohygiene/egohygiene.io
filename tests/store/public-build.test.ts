@@ -12,7 +12,7 @@ import { build, createServer } from "vite";
 import type { StoreCatalog } from "../../packages/schemas/src/store.ts";
 import { getStorePurchaseAction, parseStoreCatalog } from "../../packages/schemas/src/store.ts";
 import { emptyStorefrontCuration } from "../../packages/schemas/src/storefront-curation.ts";
-import { publicStoreCatalog } from "../../scripts/vite-store-catalog.mts";
+import { loadPublicStoreSnapshot, publicStoreCatalog } from "../../scripts/vite-store-catalog.mts";
 import { qualifySyntheticRoute } from "./fixtures/readiness.ts";
 
 const repositoryRoot = fileURLToPath(new URL("../../", import.meta.url));
@@ -138,6 +138,24 @@ async function emittedFiles(root: string): Promise<Record<string, string>> {
   }
   return result;
 }
+
+test("paired builds consume one immutable validated public snapshot even if authoring inputs change", async (t) => {
+  const f = await fixture(t);
+  const inputs = { directory: f.directory, routesFile: f.routesFile, publicDirectory: f.publicDirectory };
+  const snapshot = await loadPublicStoreSnapshot(inputs);
+  assert.ok(Object.isFrozen(snapshot));
+  assert.match(snapshot.digest, /^[a-f0-9]{64}$/);
+  assert.ok(!snapshot.moduleCode.includes("design-draft"));
+  const configuration = { ...f.configuration(), plugins: [publicStoreCatalog({ ...inputs, snapshot })] };
+  await build(configuration);
+  const first = await emittedFiles(f.root);
+  await writeJson(f.entry("design-public"), { ...design("design-public"), title: "CHANGED_AFTER_SNAPSHOT" });
+  await build(configuration);
+  assert.deepEqual(await emittedFiles(f.root), first);
+  assert.notEqual((await loadPublicStoreSnapshot(inputs)).digest, snapshot.digest);
+  await writeJson(f.entry("design-public"), { ...design("design-public"), unknownPrivateField: "PRIVATE_MARKER" });
+  await assert.rejects(loadPublicStoreSnapshot(inputs), /unknownPrivateField/);
+});
 
 test("production artifacts exclude all draft kinds and unused routes while preserving the public live graph", async (t) => {
   const f = await fixture(t);

@@ -1,0 +1,390 @@
+{
+  "sourceRevision": "2096c75d381a3027d6b133f2a873f432fe2057a3",
+  "sourceTree": "2a49c38b5997192fa3d79bed3f72383754fecf19",
+  "reviewDate": "2026-10-23",
+  "timezone": "America/New_York",
+  "method": "Read-only route/selector source review and Python JSON parsing; no fresh runtime catalog validation or route execution. Publication dispositions are proposed for checkpoint A review. This evidence is not build configuration.",
+  "counts": {
+    "fixed": 11,
+    "ecosystemAdditional": 6,
+    "catalogBrowsable": 8,
+    "curatedArtists": 1,
+    "renderedPathsProposed": 26,
+    "sitemapProposed": 10,
+    "noindexProposed": 16
+  },
+  "routes": [
+    {
+      "path": "/",
+      "family": "fixed",
+      "proposedSitemap": true,
+      "reason": "Public landing"
+    },
+    {
+      "path": "/about",
+      "family": "fixed",
+      "proposedSitemap": true,
+      "reason": "Existing purpose"
+    },
+    {
+      "path": "/accessibility",
+      "family": "fixed",
+      "proposedSitemap": true,
+      "reason": "Limited accessibility status"
+    },
+    {
+      "path": "/aether",
+      "family": "ecosystem",
+      "id": "aether",
+      "proposedSitemap": false,
+      "reason": "Reserved gateway page"
+    },
+    {
+      "path": "/ecosystem",
+      "family": "fixed",
+      "proposedSitemap": true,
+      "reason": "Public product directory"
+    },
+    {
+      "path": "/egolint",
+      "family": "ecosystem",
+      "id": "egolint",
+      "proposedSitemap": false,
+      "reason": "Reserved gateway page"
+    },
+    {
+      "path": "/help",
+      "family": "fixed",
+      "proposedSitemap": true,
+      "reason": "Public help"
+    },
+    {
+      "path": "/mindcap",
+      "family": "ecosystem",
+      "id": "mindcap",
+      "proposedSitemap": false,
+      "reason": "Reserved gateway page"
+    },
+    {
+      "path": "/mindgarden",
+      "family": "ecosystem",
+      "id": "mindgarden",
+      "proposedSitemap": false,
+      "reason": "Reserved gateway page"
+    },
+    {
+      "path": "/privacy",
+      "family": "fixed",
+      "proposedSitemap": false,
+      "reason": "Provisional policy"
+    },
+    {
+      "path": "/reflector",
+      "family": "ecosystem",
+      "id": "reflector",
+      "proposedSitemap": false,
+      "reason": "Reserved gateway page"
+    },
+    {
+      "path": "/renderflow",
+      "family": "ecosystem",
+      "id": "renderflow",
+      "proposedSitemap": false,
+      "reason": "Reserved gateway page"
+    },
+    {
+      "path": "/store",
+      "family": "fixed",
+      "proposedSitemap": true,
+      "reason": "Curated storefront"
+    },
+    {
+      "path": "/store/catalog",
+      "family": "fixed",
+      "proposedSitemap": false,
+      "reason": "Generic fictional preview browser"
+    },
+    {
+      "path": "/store/collections/static-bloom-collection",
+      "family": "collection",
+      "id": "collection-demo-static-bloom",
+      "title": "The Static Bloom Collection",
+      "proposedSitemap": false,
+      "reason": "Explicitly fictional example in source/authoring guide"
+    },
+    {
+      "path": "/store/designs/heartburst",
+      "family": "design",
+      "id": "design-heartburst",
+      "title": "heartburst",
+      "proposedSitemap": true,
+      "reason": "Approved public artwork preview; no garment"
+    },
+    {
+      "path": "/store/designs/signal-heart",
+      "family": "design",
+      "id": "design-demo-signal-heart",
+      "title": "Signal Heart",
+      "proposedSitemap": false,
+      "reason": "Explicitly fictional example in source/authoring guide"
+    },
+    {
+      "path": "/store/designs/static-bloom-artwork",
+      "family": "design",
+      "id": "design-demo-static-bloom",
+      "title": "Static Bloom Artwork",
+      "proposedSitemap": false,
+      "reason": "Explicitly fictional example in source/authoring guide"
+    },
+    {
+      "path": "/store/designs/unwritten-realm-cover",
+      "family": "design",
+      "id": "design-demo-unwritten-realm",
+      "title": "Unwritten Realm Cover",
+      "proposedSitemap": false,
+      "reason": "Explicitly fictional example in source/authoring guide"
+    },
+    {
+      "path": "/store/help",
+      "family": "fixed",
+      "proposedSitemap": true,
+      "reason": "Store responsibility and support guidance"
+    },
+    {
+      "path": "/store/incompris",
+      "family": "fixed",
+      "proposedSitemap": true,
+      "reason": "Curated creative collection"
+    },
+    {
+      "path": "/store/incompris/artists/play",
+      "family": "artist",
+      "id": "artist-play",
+      "title": ".play()",
+      "proposedSitemap": true,
+      "reason": "Explicit curated artist; legitimate empty selections"
+    },
+    {
+      "path": "/store/products/signal-heart-hoodie",
+      "family": "product",
+      "id": "product-demo-signal-heart-hoodie",
+      "title": "Signal Heart Hoodie",
+      "proposedSitemap": false,
+      "reason": "Explicitly fictional example in source/authoring guide"
+    },
+    {
+      "path": "/store/products/static-bloom-mug",
+      "family": "product",
+      "id": "product-demo-static-bloom-mug",
+      "title": "Static Bloom Mug",
+      "proposedSitemap": false,
+      "reason": "Explicitly fictional example in source/authoring guide"
+    },
+    {
+      "path": "/store/products/unwritten-realm-comic",
+      "family": "product",
+      "id": "product-demo-unwritten-realm-comic",
+      "title": "Unwritten Realm Comic",
+      "proposedSitemap": false,
+      "reason": "Explicitly fictional example in source/authoring guide"
+    },
+    {
+      "path": "/terms",
+      "family": "fixed",
+      "proposedSitemap": false,
+      "reason": "Provisional policy"
+    }
+  ],
+  "contextOnly": [
+    {
+      "id": "artist-play",
+      "slug": "play",
+      "genericDetailRoute": null,
+      "contextType": "artist"
+    },
+    {
+      "id": "song-demo-static-bloom",
+      "slug": "static-bloom-song",
+      "genericDetailRoute": null,
+      "contextType": "song"
+    }
+  ],
+  "excluded": [
+    "visibility: draft entries and unpublished translation fields",
+    "isolated /store/preview/fourthwall",
+    "isolated /store/preview/artists/:artistSlug",
+    "localization and qualification fixtures",
+    "unknown slugs and error routes",
+    "query/hash permutations as separate generated paths"
+  ],
+  "sourceFiles": [
+    {
+      "path": "apps/egohygiene.io/src/app/router.tsx",
+      "sha256": "a896f24326432a85f570437ed3ef52eb6148fc9f8b9545987ead91c7f54da534"
+    },
+    {
+      "path": "apps/egohygiene.io/src/app/App.tsx",
+      "sha256": "f3addcffcc601c0bb74cca8e3fd51b59f9570e6cc885f009109827551458865a"
+    },
+    {
+      "path": "apps/egohygiene.io/src/app/providers.tsx",
+      "sha256": "3b0b4b1cf17255367585ae88888fca15c440e42d7fef265dda2e8db2557fe4a1"
+    },
+    {
+      "path": "apps/egohygiene.io/src/main.tsx",
+      "sha256": "129f7945ca9bf1d2d030045a744cf098a0c6f62d8247a87282978ea3a59d6683"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/products.ts",
+      "sha256": "9cb62151b6bb6ce262b6da0d79902b162e0157bd8bd9dc0a92b3f82a99188430"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/index.ts",
+      "sha256": "4142b5771036314b65e91567796572240b547c96f4a0b16d92f6387d7d21cc7f"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/storefront-curation.json",
+      "sha256": "74779220be4b513aa9fc87a07087e04c1e327d808151a6c924fe883333284017"
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/domain/catalog.ts",
+      "sha256": "a34356141b3c796a2190d1fb0d0b2ad5fe24cc73e8c8a7896aaac81a2cf5dfba"
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/domain/artists.ts",
+      "sha256": "7a7c9191cda9588e8bda30f4c5ff7a366e42329158cb2624c2af2f0686d72602"
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StoreEntryPage.tsx",
+      "sha256": "002a9dfce4de6a6d596b88949269d3f15ec442feb7c7c926e4c887a92a4938a8"
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StorePages.tsx",
+      "sha256": "6494f4a614d7080e1f8c8370ab1fdebe73d92f095fa4624fe137e4275af958d7"
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StoreArtistPage.tsx",
+      "sha256": "d721ff0143c79f6f16b86a01489b3c9197e82abc6f43b611d831e4bf6288d16c"
+    },
+    {
+      "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.tsx",
+      "sha256": "bae24da577218ef35937063c9e307cf48f302cfeaddcd102c66d3c4bdcd67bc6"
+    },
+    {
+      "path": "apps/egohygiene.io/src/i18n/config.ts",
+      "sha256": "5a9dd69ed98089113d7b33538de5d64c3f435d9d4eaa3d160e73bf6dc5d56e08"
+    },
+    {
+      "path": "apps/egohygiene.io/src/i18n/LocaleProvider.tsx",
+      "sha256": "d53506ee683f0d9e09c0cafac3eaf76335ee476024af05fb246e352c3091477f"
+    },
+    {
+      "path": "apps/egohygiene.io/src/i18n/selection.ts",
+      "sha256": "86e105244c86807b4862fec9951472fe77a73ba8ae38cacc7f57a8ba71a22ee6"
+    },
+    {
+      "path": "apps/egohygiene.io/src/pages/ProductPage.tsx",
+      "sha256": "beeb4f130b1f1c6ce3d2901642f5f11099e4d96ea179d36a7812025b8a5d0285"
+    },
+    {
+      "path": "apps/egohygiene.io/src/pages/NotFoundPage.tsx",
+      "sha256": "a52eb9f2dae443cb9bc5c85cd7e4a060316fba95d7198559d7c9b03c775d0cc8"
+    },
+    {
+      "path": "apps/egohygiene.io/src/pages/RouteErrorPage.tsx",
+      "sha256": "7fe570caca1217461894de5eeeaeed076fd7c3920eb31dd1e2e51684a0e81a4f"
+    },
+    {
+      "path": "apps/egohygiene.io/index.html",
+      "sha256": "9e362d4428f22ae25d29eda508b1ea9a583ef3cd57136ff0bafdc59855886c68"
+    },
+    {
+      "path": "apps/egohygiene.io/package.json",
+      "sha256": "a7437a1ab966d516e5520f8de1cdaaa5c2696e1c4d345a472a1ee5f490791ddb"
+    },
+    {
+      "path": "apps/egohygiene.io/vite.config.ts",
+      "sha256": "48bd21711cc3993c25ce474286b85881e04c09fce1e42da86917407e10d45483"
+    },
+    {
+      "path": "apps/egohygiene.io/public/robots.txt",
+      "sha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+    },
+    {
+      "path": "apps/egohygiene.io/public/llms.txt",
+      "sha256": "0278fd4ceaf2283f4002156d060eef999785ed17a2634e9ec241c9e68d41ecad"
+    },
+    {
+      "path": "apps/egohygiene.io/public/site.webmanifest",
+      "sha256": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e"
+    },
+    {
+      "path": "packages/themes/src/components/ThemeProvider.tsx",
+      "sha256": "b9f21c7f7c0542a5f56f93b9db1f7ad4d882b282113a5eaab67850bb5b41ba66"
+    },
+    {
+      "path": "scripts/store-catalog.mts",
+      "sha256": "8ba31dceb37e80a08574033976a12c6e058edf0171c3d24bcde0d66b29d7b652"
+    },
+    {
+      "path": "scripts/vite-store-catalog.mts",
+      "sha256": "042ce3c1814bf618e256a98e1a79df81c25c2906adcc4be9f973b0da7b189d27"
+    },
+    {
+      "path": "packages/schemas/src/store.ts",
+      "sha256": "519c0fac90387a0dff2506fc3730e6406e53d0bda0ca7297dbdc66649369d1b8"
+    },
+    {
+      "path": "packages/schemas/src/store-localization.ts",
+      "sha256": "caa773888af49b8e2891ce8590398c5329b8561fc1071bb95c39278e3ee04e7e"
+    },
+    {
+      "path": "docs/store/catalog-authoring.md",
+      "sha256": "6214a94711bb04ac8da501a6532bf042fa6af989b32e88c0d2586c884d18d79d"
+    },
+    {
+      "path": "infra/caddy/Caddyfile",
+      "sha256": "c754acf00878e39840d09e042c8c8c701566dacc9b6c898b2b5818da6b13716a"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/heartburst.design.json",
+      "sha256": "e09a3f45578f08bb922dd811e97fe52c2d9a17ef1bee3a4203ab2e1741fc0468"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/play.context.json",
+      "sha256": "7e5b0fb26b7f37a6348d2e85013e9131139e2598613d2f1ff7db158e0a0c0e40"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/signal-heart-hoodie.product.json",
+      "sha256": "200000d205a2184ff317aa3349b08dccf1d729931823954db73713f55962ab63"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/signal-heart.design.json",
+      "sha256": "4b721ea29fd2850b414b3507529da4573dfaaed47402059fed71a53859e93987"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/static-bloom-mug.product.json",
+      "sha256": "994157ace59264302e92e6ac4b9bdd1369c9409b516c5f1f3bd8cbb797c6ed86"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/static-bloom.collection.json",
+      "sha256": "a5e8751b145574619584e483f38dea5623b0b47d210ce55f12e72a160191b5ac"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/static-bloom.context.json",
+      "sha256": "f597015260787ab1152a631a173b3564de4fd6fc17964ac3e3e4b71640044523"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/static-bloom.design.json",
+      "sha256": "9721c0ee15c5461184b4c4d03427b5718f75213ea7bffee2636a0378f1e1133f"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/unwritten-realm-comic.product.json",
+      "sha256": "4d119c5f5b003df4325fd534757985ace23f979c556677d1ac051a570f328b8b"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/store/entries/unwritten-realm.design.json",
+      "sha256": "b662af5ef09c613dfabf3b4f61c7b812441cdae6087d719eba02d06d5a022873"
+    }
+  ]
+}

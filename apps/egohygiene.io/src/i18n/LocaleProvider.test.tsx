@@ -1,6 +1,8 @@
 import { createLocaleRegistry, useI18n } from "@egohygiene/i18n";
 import { act, fireEvent, render } from "@testing-library/react";
-import { createMemoryRouter, Outlet, RouterProvider } from "react-router-dom";
+import { hydrateRoot } from "react-dom/client";
+import { renderToString } from "react-dom/server";
+import { createMemoryRouter, MemoryRouter, Outlet, RouterProvider } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { AppProviders } from "../app/providers";
@@ -75,6 +77,55 @@ afterEach(() => {
 });
 
 describe("website locale service", () => {
+  it.each([
+    ["?lang=ar", "qps-Ploc", "ar", "نص تجريبي"],
+    ["?lang=en", "ar", "en", "Source message"],
+    ["?lang=unknown", "ar", "ar", "نص تجريبي"],
+    ["?lang=en&lang=ar", "qps-Ploc", "qps-Ploc", "[An expanded engineering fixture message]"],
+    ["", "ar", "ar", "نص تجريبي"],
+  ])(
+    "hydrates source HTML before resolving URL %j and saved locale %j",
+    async (search, stored, expected, message) => {
+      window.localStorage.setItem(localePreferenceKey, stored);
+      const errors = vi.fn();
+      const writes = vi.spyOn(Storage.prototype, "setItem");
+      function Tree({ search: query }: { readonly search: string }) {
+        return (
+          <LocaleProvider
+            registry={registry}
+            catalogs={catalogs}
+            search={query}
+            onSearchChange={() => undefined}
+          >
+            <MemoryRouter initialEntries={[`/store${query}`]}>
+              <LanguageSelector />
+              <Probe />
+            </MemoryRouter>
+          </LocaleProvider>
+        );
+      }
+      const container = document.createElement("div");
+      container.innerHTML = renderToString(<Tree search="" />);
+      document.body.append(container);
+      const heading = container.querySelector("h1");
+      expect(heading).toHaveTextContent("Source message");
+      const root = hydrateRoot(container, <Tree search={search} />, { onRecoverableError: errors });
+      try {
+        await act(async () => undefined);
+        expect(container.querySelector("h1")).toBe(heading);
+        expect(heading).toHaveTextContent(message);
+        expect(container.querySelector("select")).toHaveValue(expected);
+        expect(document.documentElement).toHaveAttribute("lang", expected);
+        expect(window.localStorage.getItem(localePreferenceKey)).toBe(stored);
+        expect(writes).not.toHaveBeenCalled();
+        expect(errors).not.toHaveBeenCalled();
+      } finally {
+        await act(() => root.unmount());
+        container.remove();
+      }
+    },
+  );
+
   it("uses the URL ahead of preferences, applies document direction, and falls back per message", () => {
     window.localStorage.setItem(localePreferenceKey, "qps-Ploc");
     const result = setup("/store?lang=ar&view=design#catalog");

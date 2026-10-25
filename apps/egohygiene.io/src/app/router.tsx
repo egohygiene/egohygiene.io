@@ -1,4 +1,7 @@
-import { createBrowserRouter } from "react-router-dom";
+import type { ReactElement } from "react";
+import type { RouteObject } from "react-router-dom";
+
+import { fixedPublicRoutes } from "../content/publication";
 import {
   IncomprisPage,
   StoreArtistPage,
@@ -46,30 +49,41 @@ const previewRoutes =
       ]
     : [];
 
-export const router = createBrowserRouter([
+// The fixed page paths and their publication metadata are declared together.
+// Both adapters consume this route table; importing it never reads a browser global.
+const fixedPages: Record<(typeof fixedPublicRoutes)[number]["page"], ReactElement> = {
+  home: <HomePage />,
+  about: <AboutPage />,
+  help: <HelpPage />,
+  accessibility: <AccessibilityPage />,
+  ecosystem: <EcosystemPage />,
+  privacy: <PrivacyPage />,
+  terms: <TermsPage />,
+  store: <StorePage />,
+  storeHelp: <StoreHelpPage />,
+  incompris: <IncomprisPage />,
+  catalog: <StoreCatalogPage />,
+};
+
+export const routes: RouteObject[] = [
   {
+    id: "root",
     path: "/",
     element: <RootLayout />,
     errorElement: <RouteErrorPage />,
     children: [
-      { index: true, element: <HomePage /> },
-      { path: "about", element: <AboutPage /> },
-      { path: "help", element: <HelpPage /> },
-      { path: "accessibility", element: <AccessibilityPage /> },
-      { path: "ecosystem", element: <EcosystemPage /> },
-      { path: "privacy", element: <PrivacyPage /> },
-      { path: "terms", element: <TermsPage /> },
-      { path: "store", element: <StorePage /> },
-      { path: "store/help", element: <StoreHelpPage /> },
-      { path: "store/incompris", element: <IncomprisPage /> },
-      { path: "store/incompris/artists/:artistSlug", element: <StoreArtistPage /> },
-      { path: "store/catalog", element: <StoreCatalogPage /> },
+      ...fixedPublicRoutes.map(({ path, page }): RouteObject => ({
+        id: `page:${page}`,
+        ...(path === "/" ? { index: true as const } : { path: path.slice(1) }),
+        element: fixedPages[page],
+      })),
+      { id: "artist", path: "store/incompris/artists/:artistSlug", element: <StoreArtistPage /> },
       ...previewRoutes,
-      { path: "store/products/:slug", element: <StoreProductPage /> },
-      { path: "store/designs/:slug", element: <StoreDesignPage /> },
-      { path: "store/collections/:slug", element: <StoreCollectionPage /> },
-      { path: ":product", element: <ProductPage /> },
-      { path: "*", element: <NotFoundPage /> },
+      { id: "store-product", path: "store/products/:slug", element: <StoreProductPage /> },
+      { id: "store-design", path: "store/designs/:slug", element: <StoreDesignPage /> },
+      { id: "store-collection", path: "store/collections/:slug", element: <StoreCollectionPage /> },
+      { id: "ecosystem-product", path: ":product", element: <ProductPage /> },
+      { id: "not-found", path: "*", element: <NotFoundPage /> },
     ],
   },
-]);
+];
