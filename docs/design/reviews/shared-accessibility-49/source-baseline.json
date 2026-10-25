@@ -69,21 +69,13 @@
       "samples": [
         {
           "bodyRadialAlpha": 0,
-          "composedBackgroundSrgb": [
-            0.9004705882352941,
-            0.8406274509803922,
-            0.9816470588235295
-          ],
+          "composedBackgroundSrgb": [0.9004705882352941, 0.8406274509803922, 0.9816470588235295],
           "currentAccentRatio": 3.023365495502091,
           "proposedForegroundRatio": 12.607501910357641
         },
         {
           "bodyRadialAlpha": 0.16,
-          "composedBackgroundSrgb": [
-            0.8536501960784314,
-            0.7644799999999999,
-            0.9682698039215687
-          ],
+          "composedBackgroundSrgb": [0.8536501960784314, 0.7644799999999999, 0.9682698039215687],
           "currentAccentRatio": 2.5759954637496265,
           "proposedForegroundRatio": 10.741958846395644
         }
@@ -107,21 +99,13 @@
       "samples": [
         {
           "bodyRadialAlpha": 0,
-          "composedBackgroundSrgb": [
-            0.16729411764705882,
-            0.10745098039215686,
-            0.26133333333333336
-          ],
+          "composedBackgroundSrgb": [0.16729411764705882, 0.10745098039215686, 0.26133333333333336],
           "currentAccentRatio": 3.7937596369266946,
           "proposedForegroundRatio": 14.556058630494801
         },
         {
           "bodyRadialAlpha": 0.16,
-          "composedBackgroundSrgb": [
-            0.23778196078431368,
-            0.14861176470588233,
-            0.3632062745098039
-          ],
+          "composedBackgroundSrgb": [0.23778196078431368, 0.14861176470588233, 0.3632062745098039],
           "currentAccentRatio": 3.1256658970029454,
           "proposedForegroundRatio": 11.992688101075954
         }
@@ -145,21 +129,13 @@
       "samples": [
         {
           "bodyRadialAlpha": 0,
-          "composedBackgroundSrgb": [
-            0.18,
-            0.15105882352941177,
-            0.007058823529411764
-          ],
+          "composedBackgroundSrgb": [0.18, 0.15105882352941177, 0.007058823529411764],
           "currentAccentRatio": 10.621699170851048,
           "proposedForegroundRatio": 14.995330079487564
         },
         {
           "bodyRadialAlpha": 0.16,
-          "composedBackgroundSrgb": [
-            0.25974901960784313,
-            0.19890823529411766,
-            0.12488156862745099
-          ],
+          "composedBackgroundSrgb": [0.25974901960784313, 0.19890823529411766, 0.12488156862745099],
           "currentAccentRatio": 8.634902394167655,
           "proposedForegroundRatio": 12.190442369149375
         }
@@ -238,11 +214,7 @@
     {
       "sample": "website-light badge foreground on 88% surface card",
       "foreground": "#29252e",
-      "background": [
-        0.9962352941176471,
-        0.9883921568627452,
-        0.9717647058823529
-      ],
+      "background": [0.9962352941176471, 0.9883921568627452, 0.9717647058823529],
       "ratio": 14.658468082525975,
       "threshold": 4.5,
       "passes": true
@@ -250,11 +222,7 @@
     {
       "sample": "website-dark badge foreground on 88% surface card",
       "foreground": "#f9f5ff",
-      "background": [
-        0.10509803921568628,
-        0.07858823529411765,
-        0.18023529411764705
-      ],
+      "background": [0.10509803921568628, 0.07858823529411765, 0.18023529411764705],
       "ratio": 16.47245759708911,
       "threshold": 4.5,
       "passes": true
@@ -262,11 +230,7 @@
     {
       "sample": "website-high-contrast badge foreground on 88% surface card",
       "foreground": "#ffffff",
-      "background": [
-        0.05176470588235294,
-        0.05176470588235294,
-        0.05176470588235294
-      ],
+      "background": [0.05176470588235294, 0.05176470588235294, 0.05176470588235294],
       "ratio": 19.409732640859367,
       "threshold": 4.5,
       "passes": true

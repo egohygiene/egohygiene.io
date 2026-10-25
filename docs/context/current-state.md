@@ -1,16 +1,21 @@
 # Current handoff
 
-## Current: shared accessibility #49 checkpoint A — 2026-10-25
+## Current: shared accessibility #49 checkpoint B — 2026-10-25
 
 Alan selected #49. Live refresh confirms main `07d25941ceeefa53089afa025b612c6aa54f36c4`
 and all prior drafts unchanged. Branch `fix/shared-accessibility-49` starts from
 #101 `f85bee403f12f4400a68fc76294151fefadb00ba`. [Contract](../design/shared-accessibility-49.md)
 records existing #37 repairs, remaining source gaps and bounded B/C work.
 
-A source inventory is saved before implementation. Fresh computed/browser A/C
-acceptance remains deferred under Alan's existing instruction; source calculations
-are not computed browser evidence. Next within this authorized task is B, then
-local C evidence and a sync before #53. #100 C retirement remains open and source
+A was saved first at `d463f3878aa58384823e4d1297313187622e869e` in
+[draft #102](https://github.com/egohygiene/egohygiene.io/pull/102), stacked on #101.
+B implements shared action/focus tokens, solid readable primary/Orbit text, ghost
+text/loading arcs, docs active-link text/underline and shared motion enforcement.
+52 focused tests and affected type/workspace checks pass. Ten browser definitions
+are added, zero executed. Six deliberate `!important` lint warnings remain without
+rule suppression. Fresh computed/browser A/C acceptance stays deferred; source
+calculations are not computed browser evidence. Next is source-bound C build/
+evidence and sync before #53. #100 C retirement remains open and source
 intact. Base hosted CI 40214050673, dependency review 40214050813 and CodeQL
 40214051065 failed; no gates are changed. No merge, deployment or activation.
 

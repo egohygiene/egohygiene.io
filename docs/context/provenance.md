@@ -5,6 +5,27 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Shared accessibility #49 checkpoint B — 2026-10-25
+
+A source inventory/contract was saved first at
+`d463f3878aa58384823e4d1297313187622e869e` in draft #102, stacked on #101.
+B repairs six production CSS files using ADR 0003's existing semantic layer.
+Shared action pairs are explicit; focus uses its safe semantic role; docs selected
+links use foreground/underline; reduced-motion duration/delay/scroll enforcement
+wins later selectors without depending on the website. Existing #37 guards remain.
+Ghost text and loading arcs now inherit the appropriate semantic foreground.
+No tokens/generated files/dependencies/catalog/routes/provider settings changed.
+
+Independent source review found no blocker. Source ratio tests are intentionally
+limited to declared hex/token colors, not a CSS engine or browser measurement.
+35 UI/theme/gallery tests,13 ratio tests and4 site/docs semantic tests pass.
+Affected package/app types, browser definitions, workspace/exports/messages/domain
+checks and scoped formatting pass. Six intentional `noImportantStyles` warnings
+remain for the shared reduced-motion override, without suppression. Ten browser
+definitions are retained (six information-page, four playground); zero executed.
+C will pin B and fresh affected builds. Existing hosted/size/browser gaps remain;
+no merge, deletion, deployment or activation.
+
 ## Shared accessibility #49 checkpoint A — 2026-10-25
 
 Authority: Alan selected #49 after #100 preservation. Read root/context/scoped

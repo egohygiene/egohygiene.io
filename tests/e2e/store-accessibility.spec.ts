@@ -290,3 +290,125 @@ for (const mode of ["root-text-200-percent", "400-percent-equivalent-reflow"] as
     await expect(dialog).toHaveCount(0);
   });
 }
+
+// #49: reuse the production artifact and composed-color helper for the information pages.
+// Definitions are retained for the final local browser pass; discovery is not execution.
+const essentialPaths = ["/help", "/about", "/accessibility", "/store/help", "/privacy", "/terms"];
+
+function essentialFocusTarget(page: Page, path: string) {
+  return path === "/about"
+    ? page.getByRole("navigation", { name: "Footer", exact: true }).getByRole("link", {
+        name: "Help",
+        exact: true,
+      })
+    : page.getByRole("main").getByRole("link").first();
+}
+
+for (const theme of ["light", "dark", "high-contrast"]) {
+  test(`information-page text and forward/reverse focus remain readable in ${theme}`, async ({
+    page,
+  }, testInfo) => {
+    await page.addInitScript((value) => localStorage.setItem("egohygiene-theme", value), theme);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    const evidence = [];
+    for (const path of essentialPaths) {
+      await page.goto(path);
+      await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+      const samples = page.locator("main .site-prose p, main .site-prose a, .site-footer a");
+      expect(await samples.count()).toBeGreaterThan(4);
+      for (const sample of await samples.all()) {
+        const measured = await contrast(sample);
+        expect(measured.ratio, `${path}: ${measured.text}`).toBeGreaterThanOrEqual(4.5);
+        evidence.push({ path, kind: "text", ...measured });
+      }
+
+      await page.keyboard.press("Tab");
+      await expect(page.getByRole("link", { name: "Skip to content", exact: true })).toBeFocused();
+      await page.keyboard.press("Enter");
+      await expect(page.getByRole("main")).toBeFocused();
+      const target = essentialFocusTarget(page, path);
+      await tabTo(page, target);
+      await expect(target).toBeInViewport();
+      await page.keyboard.press("Tab");
+      await expect(target).not.toBeFocused();
+      await page.keyboard.press("Shift+Tab");
+      await expect(target).toBeFocused();
+      await expect(target).toBeInViewport();
+      const focus = await contrast(target, true);
+      expect(focus.outline).toBe("solid");
+      expect(focus.outlineWidth).toBeGreaterThanOrEqual(3);
+      expect(focus.ratio).toBeGreaterThanOrEqual(3);
+      evidence.push({ path, kind: "focus", ...focus });
+      await expect(page.locator("html")).toHaveCSS("scroll-behavior", "auto");
+    }
+    await testInfo.attach("essential-page-computed-contrast", {
+      body: JSON.stringify(evidence, null, 2),
+      contentType: "application/json",
+    });
+  });
+}
+
+test("forced colors retain information-page focus and public-feedback descriptions", async ({
+  page,
+}) => {
+  await page.emulateMedia({ forcedColors: "active", reducedMotion: "reduce" });
+  for (const path of essentialPaths) {
+    await page.goto(path);
+    await page.keyboard.press("Tab");
+    await expect(page.getByRole("link", { name: "Skip to content", exact: true })).toBeFocused();
+    await page.keyboard.press("Enter");
+    const target = essentialFocusTarget(page, path);
+    await tabTo(page, target);
+    await expect(target).toBeFocused();
+    await expect(target).toBeInViewport();
+    const outline = await target.evaluate((element) => {
+      const style = getComputedStyle(element);
+      return { width: Number.parseFloat(style.outlineWidth), style: style.outlineStyle };
+    });
+    expect(outline.width).toBeGreaterThanOrEqual(3);
+    expect(outline.style).toBe("solid");
+    if (["/help", "/accessibility", "/store/help"].includes(path)) {
+      const feedback = page.getByRole("main").getByRole("link", { name: /problem on GitHub/ });
+      await expect(feedback).toHaveAccessibleDescription(
+        /GitHub issues are public.*require a GitHub account.*Do not include order details/,
+      );
+    }
+  }
+});
+
+for (const mode of ["root-text-200-percent", "400-percent-equivalent-reflow"] as const) {
+  test(`information-page content and footer survive ${mode}`, async ({ page }) => {
+    await page.setViewportSize(
+      mode === "root-text-200-percent" ? { width: 768, height: 1024 } : { width: 320, height: 256 },
+    );
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    if (mode === "root-text-200-percent") {
+      await page.addInitScript(() => {
+        addEventListener("DOMContentLoaded", () => {
+          document.documentElement.style.fontSize = "200%";
+        });
+      });
+    }
+    for (const path of ["/help", "/privacy"]) {
+      await page.goto(path);
+      if (mode === "root-text-200-percent") {
+        await expect(page.locator("html")).toHaveCSS("font-size", "32px");
+      }
+      await expect(page.getByRole("main").getByRole("heading", { level: 1 })).toBeVisible();
+      await expect(page.locator("main .site-prose p").first()).toBeVisible();
+      await noOverflow(page);
+      await page.keyboard.press("Tab");
+      await page.keyboard.press("Enter");
+      await expect(page.getByRole("main")).toBeFocused();
+      const footerHelp = page
+        .getByRole("navigation", { name: "Footer", exact: true })
+        .getByRole("link", { name: "Help", exact: true });
+      await tabTo(page, footerHelp);
+      await expect(footerHelp).toBeFocused();
+      await expect(footerHelp).toBeInViewport();
+      await page.keyboard.press("Enter");
+      await expect(page).toHaveURL("/help");
+      await noOverflow(page);
+    }
+  });
+}

@@ -45,12 +45,32 @@ computed colors, keyboard rendering, forced colors and actual motion will be
 collected by the retained browser cases during the final Mac pass. Source sRGB
 calculations do not resolve arbitrary composited/gradient/layout surfaces.
 
-## B — Implementation scope
+## B — Implemented shared-style repair
 
-Repair the theme/UI stylesheet contract and directly affected docs consumer.
-Preserve routes, catalog/public projection, hydration, native controls, accessible
-names and disabled purchase state. Extend existing theme/UI/semantic checks and
-existing production/playground browser definitions; avoid a new test runner.
+Implemented semantic action pairs and focus defaults in the existing themes; solid
+primary Button/Orbit fills, explicit ghost text, foreground loading arcs and
+forced-color borders in shared UI. Docs active navigation uses foreground text and
+an underline. Shared reduced-motion durations/delays/iteration/scroll rules now
+win later ordinary selectors, and the redundant app override is removed. Existing
+spinner and hover guards remain; normal smooth scrolling is preference-gated.
+
+No token primitive, generator, dependency, runtime, schema, catalog, route or
+provider setting changed. The six production CSS files are the implementation.
+Thirteen source-only ratio tests check actual declared theme variables (including
+website light focus), rejecting unsupported colors. They are not a CSS cascade or
+rendering simulation. Existing browser suites gain ten definitions: six production
+information-page cases and four independent shared-playground cases. Browser
+execution remains deferred; docs compositing bounds remain source calculations.
+
+A was published first in [draft #102](https://github.com/egohygiene/egohygiene.io/pull/102)
+at `d463f3878aa58384823e4d1297313187622e869e`, stacked on #101. Independent source
+review found no blocker. UI/theme/gallery units (35), source ratios (13), and
+site/docs semantic checks (4) pass. Five affected app/package type profiles,
+production-browser and temporary playground/source-test types, workspace checks
+and browser discovery pass. Scoped Biome has no errors; six intentional
+`noImportantStyles` warnings remain for the preference-enforcement declarations.
+No lint rule is suppressed or gate changed. C will bind the fresh affected builds
+and final evidence to the published B revision.
 
 ## C — Verification and retained acceptance
 
@@ -70,6 +90,13 @@ hosted and size failures remain; no gates or ceilings are changed.
 After this bounded implementation, sync before #53. #100 C source-repository
 retirement remains separate and open. No merge, deletion, deployment, purchase,
 provider activation or paid service is part of #49.
+
+## Baseline and evidence
+
+[Source baseline](reviews/shared-accessibility-49/source-baseline.json) contains
+exact unrounded before/proposed ratios, paths and assumptions. The high-contrast
+action pair is black on yellow (14.875:1); light/dark use white on accentStrong
+(7.107:1). These are declared-color calculations, not rendered verification.
 
 ## Sources
 

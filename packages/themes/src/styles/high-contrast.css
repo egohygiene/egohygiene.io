@@ -5,6 +5,8 @@
   --color-foreground: var(--eh-color-highContrastForeground);
   --color-muted: #f5f5f5;
   --color-accent: var(--eh-color-highContrastAccent);
+  --color-action-background: var(--eh-color-highContrastAccent);
+  --color-action-foreground: var(--eh-color-highContrastBackground);
   --color-border: #ffffff;
   --surface-shadow: none;
 }
