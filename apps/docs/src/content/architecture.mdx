@@ -4,6 +4,16 @@ Applications depend on shared packages. Shared packages depend on foundational p
 
 ## Direction
 
-- applications → shared product packages
-- shared product packages → foundational packages
-- foundational packages → tokens and utilities
+- Applications consume shared product packages.
+  - The website owns the public storefront and its routes.
+  - The documentation app consumes the shared content contract.
+- Shared product packages consume foundational packages.
+- Foundational packages consume tokens and utilities.
+
+## Documentation content
+
+The docs import repository `.mdx` files as raw text. Those files contain Markdown; they do not execute JSX, imports or embedded JavaScript.
+
+`@egohygiene/content` parses the text once into the shared content tree and applies its HTML and URL policy. The documentation app turns that tree into React elements. It does not inject an HTML string or maintain another Markdown parser.
+
+See the [Package overview](/packages) for the current package boundaries.

@@ -4,10 +4,7 @@
   "repository": "egohygiene/egohygiene.io",
   "pathBase": "repository-root",
   "entrypoint": "AGENTS.md",
-  "scopedInstructions": [
-    "apps/egohygiene.io/AGENTS.md",
-    "packages/schemas/AGENTS.md"
-  ],
+  "scopedInstructions": ["apps/egohygiene.io/AGENTS.md", "packages/schemas/AGENTS.md"],
   "contextMap": "docs/context/README.md",
   "currentState": "docs/context/current-state.md",
   "provenance": "docs/context/provenance.md",
@@ -46,5 +43,8 @@
   "publicRenderingDecision": "docs/architecture/decisions/0012-static-public-route-rendering.md",
   "publicRenderingImplementation": "docs/design/public-rendering-91b.md",
   "publicRenderingReview": "docs/design/public-rendering-91c.md",
-  "ecosystemNavigationReview": "docs/design/ecosystem-links-60.md"
+  "ecosystemNavigationReview": "docs/design/ecosystem-links-60.md",
+  "sharedMarkdownReview": "docs/design/content-markdown-50.md",
+  "sharedMarkdownDecision": "docs/architecture/decisions/0013-shared-safe-markdown.md",
+  "sharedMarkdownEvidence": "docs/design/reviews/content-markdown-50/verification.json"
 }

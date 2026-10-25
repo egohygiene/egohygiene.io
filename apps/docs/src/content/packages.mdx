@@ -1,7 +1,11 @@
 # Package overview
 
-The monorepo keeps packages intentionally small.
+The workspace packages expose source entry points for the applications in this repository. Their presence is not a claim that they are published or stable external APIs.
 
-- `@egohygiene/ui` provides reusable UI primitives.
-- `@egohygiene/themes` manages system, light, dark, and high-contrast themes.
-- `@egohygiene/content` provides a minimal markdown pipeline.
+- `@egohygiene/ui` provides reusable UI primitives and the declared `@egohygiene/ui/styles.css` stylesheet.
+- `@egohygiene/themes` manages system, light, dark and high-contrast themes.
+- `@egohygiene/content` supplies the shared Markdown/document contract, including optional metadata, semantic content and inert raw HTML.
+
+The content package owns parsing and URL rules. The docs app consumes its tree through a React adapter; the HTML-string helper uses the same tree for callers that need serialization. Neither path executes raw HTML or MDX.
+
+See [Local development](/development) for the content and docs typecheck/test commands.

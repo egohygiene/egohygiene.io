@@ -1,10 +1,44 @@
 # Local development
 
-Use `pnpm dev` to run the three applications together.
+Run commands from the repository root after following [Getting started](/getting-started). Use the pinned Node and pnpm versions described there.
 
-## Quality gates
+`pnpm dev` starts only the public website/store. The documentation and playground apps use their own filtered commands; the root command does not start all three together.
 
-- `pnpm lint`
-- `pnpm typecheck`
-- `pnpm test`
-- `pnpm build`
+## Documentation app
+
+Start the documentation development server:
+
+```sh
+pnpm --filter @egohygiene/docs dev
+```
+
+Build the docs into `apps/docs/dist`, then serve that build locally at port 4174:
+
+```sh
+pnpm --filter @egohygiene/docs build
+pnpm --filter @egohygiene/docs preview --host 127.0.0.1
+```
+
+## Focused content checks
+
+The content package and documentation app have their own typechecks. The shared unit-test configuration includes both:
+
+```sh
+pnpm --filter @egohygiene/content typecheck
+pnpm --filter @egohygiene/docs typecheck
+pnpm exec vitest run --config vitest.unit.config.ts packages/content/src apps/docs/src
+```
+
+These checks exercise content behavior and simulated document rendering. They do not establish a completed browser, accessibility or production review.
+
+## Website and wider checks
+
+- `pnpm build` validates the catalog and builds the public website into `apps/egohygiene.io/dist`; it does not build the docs or playground.
+- `pnpm preview --host 127.0.0.1` serves that normal website build locally.
+- `pnpm typecheck` checks the website, Node catalog tooling and portable store domain; it does not replace the docs/package checks above.
+- `pnpm check` checks workspace declarations, exports, interface messages, dependency cycles and portable store boundaries.
+- `pnpm test` runs catalog tests and the shared unit suite.
+- `pnpm lint` checks repository lint rules; `pnpm format:check` checks formatting.
+- `pnpm test:e2e` selects the existing browser configuration, which starts website, docs and playground development servers.
+
+Commands define what to run; this page does not claim all repository checks currently pass. Browser execution and the final integrated engineering review are tracked separately.

@@ -1,6 +1,25 @@
 # Store launch roadmap and milestone history
 
-## Ecosystem navigation checkpoint — 2026-10-24
+## Current #50 local A/B/C checkpoint — 2026-10-25
+
+[Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99) is stacked on
+unmerged #98. Source `1a5fbdf67fe11fb865cee1f4f93046513b0df95c` implements one
+constrained CommonMark tree for docs React/HTML output, omitted optional metadata
+and accurate setup/dev/build guides. [Receipt and limitations](../design/content-markdown-50.md)
+link 64 passing focused tests, strict types, docs build/12 local HTTP responses
+and unchanged hashes for all 44 normal website files. Five docs browser cases
+are retained/typechecked/discovered, not executed. #50 remains open for draft
+review/integration; #37 owns actual browser acceptance, #52 permanent profiles.
+
+Existing three website size findings and failed source hosted gates remain; no
+gates/ceilings changed. Current #90/#91/#60/locale acceptance gaps remain with
+their owners. Next is sync, then **#49**, reusing prior #37 focus/motion repairs.
+Remaining setup order is #53 → #56 → #59 → #92 → #52 → #29 → #57 → #70 → #37.
+Environment/construction-preview and actual-product phases below are unchanged.
+No merge, deployment, provider/product activation, publication or spending.
+
+
+## Historical ecosystem navigation checkpoint — 2026-10-24
 
 [#60 / draft #98](https://github.com/egohygiene/egohygiene.io/pull/98) saves
 [the contract, implementation and local receipt](../design/ecosystem-links-60.md),

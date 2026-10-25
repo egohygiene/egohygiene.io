@@ -6,7 +6,24 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current ecosystem navigation checkpoint — 2026-10-24
+## Current shared Markdown local A/B/C — 2026-10-25
+
+Alan selected #50. [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99)
+is stacked on unmerged #98; A was saved before B. Read [the receipt](docs/design/content-markdown-50.md),
+[verification](docs/design/reviews/content-markdown-50/verification.json),
+[ADR 0013](docs/architecture/decisions/0013-shared-safe-markdown.md), current-state
+and provenance for exact source/history. The shared CommonMark tree now drives
+React docs and safe HTML serialization; optional metadata/commands are corrected.
+64 focused tests, content/docs types and fresh builds pass. Five docs browser cases
+are discovered, zero executed. All 44 website artifact files match #60 exactly;
+existing size and hosted failures remain. No gate changed or production claim.
+
+Next: sync on #50 local delivery, then #49 shared focus/contrast/motion, reusing
+prior #37 fixes. Chromium/final engineering remain deferred; #52 must include docs
+profiles in consolidation. Keep current-state/provenance/roadmap/evidence aligned
+with each checkpoint push. No merge, deployment or product/provider activation.
+
+## Historical ecosystem navigation checkpoint — 2026-10-24
 
 Alan selected #60. [Draft #98](https://github.com/egohygiene/egohygiene.io/pull/98)
 is stacked on unmerged #95. The [receipt](docs/design/ecosystem-links-60.md)

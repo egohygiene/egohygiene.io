@@ -5,6 +5,86 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Shared content #50 checkpoint C and continuity — 2026-10-25
+
+A `7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af` was saved before B. Source
+`1a5fbdf67fe11fb865cee1f4f93046513b0df95c`, tree
+`ea944a6a56a292abaf1666a1d90cf06e2903db38`, was published to draft #99 by a
+lease-checked update; GitHub and local staged trees matched. The fetched source
+was clean. Main/prior drafts remain unchanged; #99 keeps #98 as its base.
+
+[Receipt](../design/content-markdown-50.md) and
+[verification](../design/reviews/content-markdown-50/verification.json) preserve
+source-bound commands/results. 64 focused tests (50 content/14 docs DOM), existing
+strict content/docs types, eight-file Biome and workspace checks pass. Temporary
+docs browser types and five-case discovery pass; zero cases executed. Fresh docs
+build emits 11 files; six app-shell routes and six directly linked assets return
+expected local responses. HTTP is explicitly SPA-shell evidence, not initial
+Markdown, navigation, layout or accessibility proof. The four actual source guides
+and home command accuracy are covered by simulated DOM tests.
+
+An independent read-only source/dependency/security/test review found no blocker.
+A separate normal website build on clean B produces exactly the same 44 files as
+#60 by path/bytes/SHA-256. The existing scanner checks 202 references/artwork and
+fails exactly the same three raw/gzip document/total budgets. No ceiling/gate was
+changed. Narrow lock delta: 89 additions/zero deletions; new serializer 9.0.5 and
+html-void-elements 3.0.0, existing-version direct/peer contexts otherwise. No existing
+version upgrade or lifecycle-script enablement. Upstream MIT packages are declared
+at their consumers; no external implementation/artwork/private record was copied.
+
+Source hosted CI 40207096653, dependency review 40207096571 and CodeQL 40207096735
+were observed failed, without a manual dispatch or new diagnosis/repair. Final read-only evidence review narrowed a docs-test claim to shared-tree React
+semantics: both consumers are tested separately, not by a direct parity assertion.
+C updates ADR 0013, the context entry points, roadmap and review evidence. #50's local A/B/C
+is ready for draft review/integration; Chromium remains with #37, permanent profile
+consolidation with #52, hosted reconciliation with #29. Next is sync then #49,
+reusing earlier shared focus/motion fixes. No merge, deployment, activation,
+publication, purchase or spending. This follow-up changes docs/evidence only.
+
+## Shared content #50 checkpoint B — 2026-10-25
+
+A was durably saved at `7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af` in draft #99
+before shared-renderer edits. B implements the contract/ADR without changing
+compiler strictness, package publication, routes, storefront or purchase state.
+Content and docs work were delegated to disjoint owners; an independent read-only
+review checked URL normalization, metadata, HTML/code escaping, docs examples,
+lock scope and focused tests. No blocking finding remains. No upstream code copied.
+
+50 content + 14 docs DOM tests pass together; strict content/docs types, docs build
+and workspace checks pass. Lock additions are limited to direct consuming-package
+dependencies, two new package versions and existing-version peer contexts. Frozen
+install disables lifecycle scripts; existing warnings are retained. Browser source
+has five discovered journeys, with zero executed. C must record the exact B SHA,
+fresh artifact/HTTP results and current hosted failures before the final sync.
+No prior draft was merged/retargeted, and no deployment or activation occurred.
+
+## Shared content #50 checkpoint A — 2026-10-25
+
+Alan selected #50 and reaffirmed durable notes with checkpoint pushes. Recovered
+GitHub draft #98 `e4e3ec2ece527e707eda0366c2ccee9b8cc6dd92`, read root/context and
+owning source, dependency rules, methodology and ADR practice. Refreshed live #50,
+main and draft heads; main stays `07d25941ceeefa53089afa025b612c6aa54f36c4`.
+No prior draft was merged or retargeted. Created `fix/content-markdown-50`.
+
+Frozen script-disabled installation used pnpm 11.28.5 and checksum-verified official
+Node 24.21.0 archive (SHA-256
+`fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6`). No pin changed.
+Package typecheck reproduced TS2375 for the undefined optional description; A
+omits that property. Existing strict profile passes and four focused tests pass.
+Source review confirms only docs/tests consume the content APIs; the unsafe HTML
+helper is not an active docs sink. Current docs are React text, not executed MDX.
+
+[Contract](../design/content-markdown-50.md) and [ADR 0013](../architecture/decisions/0013-shared-safe-markdown.md)
+record a standard CommonMark-to-HAST parser with literal raw HTML, explicit URL
+policy and shared React/HTML output. Upstream syntax-tree documentation informed
+the design; no code/assets copied. Independent review identified leading-code
+indentation and URL normalization edges to cover in B/C.
+
+Save A before B/C. Existing #98 hosted CI 40112235842, dependency review 40112235847
+and CodeQL 40112235969 all failed; no new diagnosis/dispatch. Prior website sizes
+and deferred Chromium/contact acceptance remain source-bound. No merge, deployment,
+provider/product activation, private data, package publication or spending.
+
 ## Ecosystem navigation #60 — 2026-10-24
 
 Authority: Alan selected #60 after #91 C. Read root/context/scoped instructions,

@@ -1,0 +1,157 @@
+{
+  "capturedAt": "2026-10-25T15:29:22.499222+00:00",
+  "sourceHead": "1a5fbdf67fe11fb865cee1f4f93046513b0df95c",
+  "artifactRoot": "apps/docs/dist",
+  "command": "pnpm --filter @egohygiene/docs build; pnpm --filter @egohygiene/docs preview --host 127.0.0.1",
+  "result": "pass",
+  "documentRequests": 6,
+  "assetRequests": 6,
+  "responses": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 1172,
+      "sha256": "f3d9ebe44bc03183412ce409b0b4fe07d74c1c8b6529cc4db92d0625e1a06668"
+    },
+    {
+      "path": "/getting-started",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 1172,
+      "sha256": "f3d9ebe44bc03183412ce409b0b4fe07d74c1c8b6529cc4db92d0625e1a06668"
+    },
+    {
+      "path": "/development",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 1172,
+      "sha256": "f3d9ebe44bc03183412ce409b0b4fe07d74c1c8b6529cc4db92d0625e1a06668"
+    },
+    {
+      "path": "/architecture",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 1172,
+      "sha256": "f3d9ebe44bc03183412ce409b0b4fe07d74c1c8b6529cc4db92d0625e1a06668"
+    },
+    {
+      "path": "/packages",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 1172,
+      "sha256": "f3d9ebe44bc03183412ce409b0b4fe07d74c1c8b6529cc4db92d0625e1a06668"
+    },
+    {
+      "path": "/missing-document-50",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 1172,
+      "sha256": "f3d9ebe44bc03183412ce409b0b4fe07d74c1c8b6529cc4db92d0625e1a06668"
+    },
+    {
+      "path": "/assets/index-BqbG8aTp.css",
+      "status": 200,
+      "contentType": "text/css",
+      "bytes": 7185,
+      "sha256": "60cac75af8e3966e5f923dffc71d6dd0f5a5a828eec9682013929697edcdc785"
+    },
+    {
+      "path": "/assets/index-CP6o_vfI.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 454302,
+      "sha256": "98a71abb7ee4e6cbb765fa9e8e54b61435c5f58453a27b9178b6e3659298b83f"
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 200,
+      "contentType": "image/x-icon",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "/favicon.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "/icons/apple-touch-icon.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "/site.webmanifest",
+      "status": 200,
+      "contentType": "application/manifest+json",
+      "bytes": 471,
+      "sha256": "5f66398321bbd25c735de7534789c47fc83044391d5583bc6deda8ab5b5e5c66"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/index-BqbG8aTp.css",
+      "bytes": 7185,
+      "sha256": "60cac75af8e3966e5f923dffc71d6dd0f5a5a828eec9682013929697edcdc785"
+    },
+    {
+      "path": "assets/index-CP6o_vfI.js",
+      "bytes": 454302,
+      "sha256": "98a71abb7ee4e6cbb765fa9e8e54b61435c5f58453a27b9178b6e3659298b83f"
+    },
+    {
+      "path": "favicon.ico",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "favicon.png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "icons/NOTICE.txt",
+      "bytes": 1574,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "icons/apple-touch-icon.png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "icons/icon-192x192.png",
+      "bytes": 36806,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "icons/icon-512x512.png",
+      "bytes": 161290,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1172,
+      "sha256": "f3d9ebe44bc03183412ce409b0b4fe07d74c1c8b6529cc4db92d0625e1a06668"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 23,
+      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95"
+    },
+    {
+      "path": "site.webmanifest",
+      "bytes": 471,
+      "sha256": "5f66398321bbd25c735de7534789c47fc83044391d5583bc6deda8ab5b5e5c66"
+    }
+  ],
+  "limits": [
+    "Docs remains a client-rendered SPA; route responses contain the same app shell, not initial Markdown HTML.",
+    "HTTP GETs do not execute JavaScript, establish client navigation, layout or accessibility.",
+    "No Chromium or deployed host was exercised."
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "recordedDate": "2026-10-25",
+  "recordedTimezone": "America/New_York",
+  "capturedAt": "2026-10-25T15:32:00.625595+00:00",
+  "issue": 50,
+  "pullRequest": 99,
+  "branch": "fix/content-markdown-50",
+  "baseCommit": "e4e3ec2ece527e707eda0366c2ccee9b8cc6dd92",
+  "contractCommit": "7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af",
+  "sourceCommit": "1a5fbdf67fe11fb865cee1f4f93046513b0df95c",
+  "sourceTree": "ea944a6a56a292abaf1666a1d90cf06e2903db38",
+  "mainAtRefresh": "07d25941ceeefa53089afa025b612c6aa54f36c4",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "pinsChanged": false
+  },
+  "evidenceBinding": "Focused checks ran on the staged source whose tree exactly matched GitHub B. Fresh docs/website builds and HTTP/artifact checks ran after fetching B with a clean worktree. This evidence commit changes documentation only.",
+  "dependencyDelta": {
+    "newPackageVersions": ["hast-util-to-html@9.0.5", "html-void-elements@3.0.0"],
+    "existingVersionsUpgraded": false,
+    "lockfileAdditions": 89,
+    "lockfileDeletions": 0
+  },
+  "checks": [
+    {
+      "command": "pnpm install --frozen-lockfile --ignore-scripts",
+      "result": "pass",
+      "scope": "Pinned Node 24.21.0/pnpm 11.28.5, 3916 lock entries; lifecycle scripts disabled; existing peer/deprecation warnings retained."
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts packages/content/src/index.test.ts apps/docs/src/components/MarkdownPage.test.tsx",
+      "result": "pass",
+      "testFiles": 2,
+      "tests": 64,
+      "contentTests": 50,
+      "docsDomTests": 14
+    },
+    {
+      "command": "pnpm --filter @egohygiene/content typecheck && pnpm --filter @egohygiene/docs typecheck",
+      "result": "pass",
+      "scope": "Existing strict profiles unchanged; optional metadata omission fixes TS2375."
+    },
+    {
+      "command": "pnpm check",
+      "result": "pass",
+      "scope": "Workspace manifests, package exports, 433 English messages in 10 namespaces, dependency cycles, 16-module portable store boundary."
+    },
+    {
+      "command": "pnpm exec biome check apps/docs/package.json apps/docs/src/components/MarkdownPage.tsx apps/docs/src/components/MarkdownPage.test.tsx apps/docs/src/pages/HomePage.tsx packages/content/package.json packages/content/src/index.ts packages/content/src/index.test.ts tests/e2e/docs.spec.ts",
+      "result": "pass",
+      "files": 8,
+      "scope": "Only edited JSON/TS/TSX files; no broad formatting/lint pass."
+    },
+    {
+      "command": "pnpm exec tsc -p tsconfig.content50-browser.local.json --noEmit",
+      "result": "pass",
+      "scope": "Temporary strict docs-browser profile, removed after check. No browser execution. #52 owns permanent profile consolidation.",
+      "temporaryProfile": {
+        "extends": "./tsconfig.base.json",
+        "compilerOptions": {
+          "lib": ["ES2022", "DOM", "DOM.Iterable"],
+          "types": ["node"]
+        },
+        "include": ["tests/e2e/docs.spec.ts"]
+      }
+    },
+    {
+      "command": "pnpm exec playwright test --project docs --list",
+      "result": "pass",
+      "discovered": 5,
+      "executed": 0
+    },
+    {
+      "command": "pnpm --filter @egohygiene/docs build",
+      "result": "pass",
+      "scope": "Fresh docs SPA build at published source; 11 emitted files.",
+      "evidence": "docs-http.json"
+    },
+    {
+      "command": "pnpm --filter @egohygiene/docs preview --host 127.0.0.1",
+      "result": "pass",
+      "scope": "Local GET smoke: 6 app-shell routes plus 6 directly linked assets, all 200 with expected nonempty content types; no JS/browser execution.",
+      "evidence": "docs-http.json"
+    },
+    {
+      "command": "VITE_STORE_PREVIEW=false pnpm build",
+      "result": "pass",
+      "scope": "Fresh normal public build; all 44 emitted files identical to #60 by paths/bytes/SHA-256.",
+      "evidence": "website-artifact-review.json"
+    },
+    {
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/content50-website-artifacts.json",
+      "result": "fail",
+      "scope": "Exactly the same 3 existing document raw/gzip and total size findings; no other targeted findings, no gates changed.",
+      "evidence": "website-artifact-review.json"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass",
+      "scope": "Source checkpoint whitespace check."
+    }
+  ],
+  "hostedSourceRuns": [
+    {
+      "id": 40207096653,
+      "name": "CI",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "1a5fbdf67fe11fb865cee1f4f93046513b0df95c",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40207096653"
+    },
+    {
+      "id": 40207096571,
+      "name": "Dependency review",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "1a5fbdf67fe11fb865cee1f4f93046513b0df95c",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40207096571"
+    },
+    {
+      "id": 40207096735,
+      "name": "CodeQL",
+      "status": "completed",
+      "conclusion": "failure",
+      "headSha": "1a5fbdf67fe11fb865cee1f4f93046513b0df95c",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40207096735"
+    }
+  ],
+  "review": "Independent read-only parser/docs/dependency/test review found no blocking finding.",
+  "limits": [
+    "Local focused checks are not full engineering, hosted CI, browser or production qualification.",
+    "Five docs browser cases are authored, typechecked and discovered, with zero executed; Chromium remains deferred to #37.",
+    "Docs HTTP responses are the SPA shell, not prerendered Markdown; DOM tests establish selected rendered semantics in simulation only.",
+    "No broad lint/format pass, framework/CI migration, deployed host check, manual screen-reader/zoom review or package publication.",
+    "The same existing website size failures remain for #52/#92/#37 disposition; no ceilings or gates changed.",
+    "Current #90 contact/copy, #91/#60 browser and locale acceptance gaps remain with their owners.",
+    "No merge, deployment, real product/provider activation, private business/artwork data, purchase or spending."
+  ],
+  "nextAction": "Sync on #50 local A/B/C in draft #99; #49 follows in the approved setup order."
+}
