@@ -22,6 +22,7 @@ Use full paths/links and titles in issues, handoffs and provenance.
 
 | [0013 — Shared constrained Markdown](0013-shared-safe-markdown.md) | Implemented/locally verified in #50 draft #99; unmerged, browser acceptance deferred | One CommonMark/HAST boundary for docs React and HTML-helper output; literal HTML, explicit URL policy, strict optional metadata |
 | [0014 — Standalone store retirement](0014-standalone-store-retirement.md) | Migration prepared; source remains intact pending integration and final platform-state checks | Recoverable inactive source/history, MIT notice, public issue/PR records and all16 backlog dispositions before retirement |
+| [0015 — Explicit component styles](0015-explicit-component-styles.md) | Selected/implemented locally for #53; browser acceptance remains | Storybook owns declared package imports; visualization owns its stylesheet over themes; standalone consumer proves isolation |
 
 This table records a dated delivery snapshot, not live merge status. Refresh the
 [current handoff](../../context/current-state.md) and GitHub before resuming.

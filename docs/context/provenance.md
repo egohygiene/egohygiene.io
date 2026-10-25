@@ -5,6 +5,22 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Component styles #53 checkpoint B — 2026-10-25
+
+A was published as `d04eb0d83239dfc509bf0ff4747dc75c1508ca2b` in draft #103 before
+B. The moved Orbit rules preserve #49 semantics and add explicitly scoped inherited
+layout/type defaults. The visualization export declares themes; consumers declare
+its stylesheet. Actual Storybook build exposed missing root workspace links, now
+fixed in package/lock declarations. No external versions changed. Offline frozen
+install lacked registry policy metadata; normal frozen install passed the existing
+policy checks. Nothing was disabled to work around it.
+
+A separate consumer build uses real package exports and no app/UI styles; one
+integration test includes three negative probes. Four browser definitions are
+retained, typechecked/discovered, not executed. Corrected Storybook build, affected
+types, 42 focused units and workspace checks pass. Final C evidence follows on
+clean published B. ADR 0015 records ownership; no deployment or activation.
+
 ## Component styles #53 checkpoint A — 2026-10-25
 
 Alan selected #53 after authorized integration. Main continuity input

@@ -349,6 +349,8 @@
     "@danmarshall/deckgl-typings": "^4.9.28",
     "@date-io/core": "^3.2.0",
     "@date-io/date-fns": "^3.2.1",
+    "@egohygiene/ui": "workspace:*",
+    "@egohygiene/visualizations": "workspace:*",
     "@etchteam/storybook-addon-status": "^8.1.0",
     "@faker-js/faker": "^10.5.0",
     "@playwright/test": "^1.62.1",

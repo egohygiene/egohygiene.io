@@ -1,6 +1,21 @@
 # Current handoff
 
-## Current: #53 checkpoint A — 2026-10-25
+## Current: #53 checkpoint B implementation — 2026-10-25
+
+Draft [#103](https://github.com/egohygiene/egohygiene.io/pull/103) follows saved A
+`d04eb0d83239dfc509bf0ff4747dc75c1508ca2b`. Orbit now owns an explicit stylesheet
+export and themes dependency; playground/Storybook declare its import. Root
+Storybook dependencies are explicit, with no external version upgrades. ADR 0015
+and the package README document this private workspace contract.
+
+The isolated consumer builds without UI/app code/styles; four deferred browser
+cases cover representative stories, standalone themes and provider ownership.
+Local focused units/types, workspace checks and corrected Storybook build pass.
+Save B, then bind the final local evidence to fetched clean B. Actual Chromium
+and manual acceptance stay deferred to #37/#52. Sync before #56; no new PR merge,
+deployment or activation. Earlier merge and hosted/size limitations remain below.
+
+## Prior: #53 checkpoint A — 2026-10-25
 
 After the authorized catch-up merges, #53 starts from main continuity
 `b075e237fb5100b8962217b16e8378542841c51f` on `fix/component-styles-53`.

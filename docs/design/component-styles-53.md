@@ -34,15 +34,23 @@ pass. Two-file Biome passes with two informational bracket-key suggestions retai
 for strict index-signature access. No Chromium or rendered-style pass is claimed.
 Save this reviewable A draft before moving Orbit's rules in B.
 
-## B — Bounded visualization contract
+## B — Implemented visualization contract
 
-Move the existing `.eh-orbit*` rules from UI into the visualization stylesheet;
-retain #49's semantic action colors and dimensions. Include scoped border-box
-sizing that UI previously supplied globally. Declare the themes workspace
-relationship and public stylesheet export; update the existing playground and
-Storybook imports and add a representative Orbit story. Keep the website free
-of visualization CSS when it does not render Orbit. No external dependency
-upgrade, framework change, publication or application behavior change is needed.
+Moved `.eh-orbit*` rules from UI into the public visualization stylesheet, retaining
+#49 semantic action colors/dimensions and explicitly scoping inherited font, color,
+line-height and border-box rules. The package declares its themes dependency;
+playground and Storybook import its stylesheet, with default/compact Orbit stories.
+The website does not import visualization styles. Root Storybook now declares UI
+and visualizations workspace dependencies: the first build exposed those missing
+root links; the corrected build passes. Lock changes are nine added workspace-link
+lines only, with no external version or dependency-policy change.
+
+The standalone fixture uses only React, ReactDOM and public visualization exports,
+with no app/UI imports or resolver aliases. A real Vite build and negative probes
+reject absent Orbit CSS and leaked UI code/styles. Four retained browser cases
+cover all three themes and provider ownership; discovery executes zero browsers.
+See [consumer instructions](../../tests/component-styles/README.md) and
+[ADR 0015](../architecture/decisions/0015-explicit-component-styles.md).
 
 ## C — Verification and remaining acceptance
 

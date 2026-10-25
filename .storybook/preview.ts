@@ -3,6 +3,7 @@ import type { Preview } from "@storybook/react-vite";
 import { useEffect } from "storybook/preview-api";
 
 import "@egohygiene/ui/styles.css";
+import "@egohygiene/visualizations/styles.css";
 
 import { egoHygieneTheme } from "./theme";
 
