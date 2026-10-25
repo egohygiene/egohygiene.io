@@ -5,6 +5,25 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Shared accessibility #49 checkpoint A — 2026-10-25
+
+Authority: Alan selected #49 after #100 preservation. Read root/context/scoped
+instructions, owning themes/UI/app source, extension/dependency contracts and
+ADR 0003; refreshed live issue/main/open drafts and #101 hosted workflows.
+Input #101 `f85bee403f12f4400a68fc76294151fefadb00ba`; main unchanged at
+`07d25941ceeefa53089afa025b612c6aa54f36c4`. Created `fix/shared-accessibility-49`.
+
+Independent read-only source and test audits confirmed #37 already repaired the
+original outline/badge/shared-button/spinner defects. [A contract](../design/shared-accessibility-49.md)
+retains that work and narrows remaining action-gradient, docs-navigation and shared
+motion/focus gaps. Source sRGB calculations are not fresh computed-browser values.
+W3C contrast and MDN forced-color documentation informed the contract; no external
+code/assets copied. No private records or purchasing state touched.
+
+Save A in a draft before B/C. Chromium/manual/native-zoom acceptance stays deferred
+to the final Mac pass. Base hosted CI/dependency/CodeQL failed; no dispatch, repair
+or gate change. No previous draft merged/retargeted, deployment or activation.
+
 ## Standalone store migration/preservation #100 — 2026-10-25
 
 Alan requested migration of useful `egohygiene/store` material before removing the

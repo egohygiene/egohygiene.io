@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "f85bee403f12f4400a68fc76294151fefadb00ba",
+  "evidenceKind": "source-declared-srgb-calculation",
+  "computedBrowserEvidence": false,
+  "browserExecuted": false,
+  "method": "WCAG sRGB relative luminance with channel threshold 0.04045 and contrast (lighter + 0.05)/(darker + 0.05). Alpha/color-mix composition is calculated in sRGB before luminance. Ratios retain Python double precision; no rounded pass/fail comparison.",
+  "limitations": [
+    "No browser computed styles, rendered pixels, keyboard journeys, screen reader or native zoom were measured.",
+    "Gradient endpoints establish concrete failing declared color pairs; they do not locate actual text pixels within the rendered gradient.",
+    "Docs composition bounds assume the declared 18% accent selected-link tint over the body's declared 0\u201316% purple radial tint and opaque theme background; actual element geometry/gradient position is not measured.",
+    "Focus samples evaluate specified flat adjacent surfaces only, not clipping, full area, occlusion, contrast against images or every interactive state.",
+    "Status labels retain explicit words. Colored badge borders are decorative status reinforcement and are not treated as required control boundaries in these samples.",
+    "Forced-colors adjustment is not emulated or measured here. Existing solid outlines preserve a style that the user agent can recolor; browser acceptance remains deferred."
+  ],
+  "sourcePaths": {
+    "palette": "packages/design-tokens/src/tokens/color.json",
+    "sharedUI": "packages/ui/src/styles/index.css",
+    "themeBase": "packages/themes/src/styles/base.css",
+    "darkTheme": "packages/themes/src/styles/dark.css",
+    "highContrastTheme": "packages/themes/src/styles/high-contrast.css",
+    "websiteOverrides": "apps/egohygiene.io/src/styles/app.css",
+    "websiteScroll": "apps/egohygiene.io/src/styles/reset.css",
+    "landingFocus": "apps/egohygiene.io/src/styles/landing.css",
+    "storeFocusMotion": "apps/egohygiene.io/src/features/store/store.css",
+    "docsSelectedLink": "apps/docs/src/styles/app.css",
+    "priorQualification": "docs/store/qualification-37.md"
+  },
+  "gradientEndpointSamples": [
+    {
+      "sample": "Shared primary button/orbit white text against pink endpoint",
+      "foreground": "#ffffff",
+      "background": "#f472b6",
+      "ratio": 2.648497263986977,
+      "threshold": 4.5,
+      "passes": false
+    },
+    {
+      "sample": "Shared primary button/orbit white text against light/dark accent endpoint",
+      "foreground": "#ffffff",
+      "background": "#9b5de5",
+      "ratio": 4.125022473740941,
+      "threshold": 4.5,
+      "passes": false
+    },
+    {
+      "sample": "Shared primary button/orbit white text against website light accent endpoint",
+      "foreground": "#ffffff",
+      "background": "#714b7e",
+      "ratio": 6.977104537606284,
+      "threshold": 4.5,
+      "passes": true
+    },
+    {
+      "sample": "Shared primary button/orbit white text against high-contrast accent endpoint",
+      "foreground": "#ffffff",
+      "background": "#ffd60a",
+      "ratio": 1.4117637713407472,
+      "threshold": 4.5,
+      "passes": false
+    }
+  ],
+  "docsSelectedLinkComposition": [
+    {
+      "theme": "light",
+      "accent": "#9b5de5",
+      "foreground": "#1f1633",
+      "bodyBase": "#f6f1ff",
+      "samples": [
+        {
+          "bodyRadialAlpha": 0,
+          "composedBackgroundSrgb": [
+            0.9004705882352941,
+            0.8406274509803922,
+            0.9816470588235295
+          ],
+          "currentAccentRatio": 3.023365495502091,
+          "proposedForegroundRatio": 12.607501910357641
+        },
+        {
+          "bodyRadialAlpha": 0.16,
+          "composedBackgroundSrgb": [
+            0.8536501960784314,
+            0.7644799999999999,
+            0.9682698039215687
+          ],
+          "currentAccentRatio": 2.5759954637496265,
+          "proposedForegroundRatio": 10.741958846395644
+        }
+      ],
+      "currentRatioBounds": {
+        "min": 2.5759954637496265,
+        "max": 3.023365495502091
+      },
+      "proposedRatioBounds": {
+        "min": 10.741958846395644,
+        "max": 12.607501910357641
+      },
+      "normalTextThreshold": 4.5,
+      "proposedNonColorCue": "underline"
+    },
+    {
+      "theme": "dark",
+      "accent": "#9b5de5",
+      "foreground": "#f9f5ff",
+      "bodyBase": "#120d1f",
+      "samples": [
+        {
+          "bodyRadialAlpha": 0,
+          "composedBackgroundSrgb": [
+            0.16729411764705882,
+            0.10745098039215686,
+            0.26133333333333336
+          ],
+          "currentAccentRatio": 3.7937596369266946,
+          "proposedForegroundRatio": 14.556058630494801
+        },
+        {
+          "bodyRadialAlpha": 0.16,
+          "composedBackgroundSrgb": [
+            0.23778196078431368,
+            0.14861176470588233,
+            0.3632062745098039
+          ],
+          "currentAccentRatio": 3.1256658970029454,
+          "proposedForegroundRatio": 11.992688101075954
+        }
+      ],
+      "currentRatioBounds": {
+        "min": 3.1256658970029454,
+        "max": 3.7937596369266946
+      },
+      "proposedRatioBounds": {
+        "min": 11.992688101075954,
+        "max": 14.556058630494801
+      },
+      "normalTextThreshold": 4.5,
+      "proposedNonColorCue": "underline"
+    },
+    {
+      "theme": "high-contrast",
+      "accent": "#ffd60a",
+      "foreground": "#ffffff",
+      "bodyBase": "#000000",
+      "samples": [
+        {
+          "bodyRadialAlpha": 0,
+          "composedBackgroundSrgb": [
+            0.18,
+            0.15105882352941177,
+            0.007058823529411764
+          ],
+          "currentAccentRatio": 10.621699170851048,
+          "proposedForegroundRatio": 14.995330079487564
+        },
+        {
+          "bodyRadialAlpha": 0.16,
+          "composedBackgroundSrgb": [
+            0.25974901960784313,
+            0.19890823529411766,
+            0.12488156862745099
+          ],
+          "currentAccentRatio": 8.634902394167655,
+          "proposedForegroundRatio": 12.190442369149375
+        }
+      ],
+      "currentRatioBounds": {
+        "min": 8.634902394167655,
+        "max": 10.621699170851048
+      },
+      "proposedRatioBounds": {
+        "min": 12.190442369149375,
+        "max": 14.995330079487564
+      },
+      "normalTextThreshold": 4.5,
+      "proposedNonColorCue": "underline"
+    }
+  ],
+  "flatFocusSamples": [
+    {
+      "sample": "Shared default foreground outline against light background",
+      "foreground": "#1f1633",
+      "background": "#f6f1ff",
+      "ratio": 15.51789464106358,
+      "threshold": 3,
+      "passes": true
+    },
+    {
+      "sample": "Shared foreground outline against dark background",
+      "foreground": "#f9f5ff",
+      "background": "#120d1f",
+      "ratio": 17.707690358241944,
+      "threshold": 3,
+      "passes": true
+    },
+    {
+      "sample": "Shared foreground outline against high-contrast background",
+      "foreground": "#ffffff",
+      "background": "#000000",
+      "ratio": 21.0,
+      "threshold": 3,
+      "passes": true
+    },
+    {
+      "sample": "Website light landing/store focus against body",
+      "foreground": "#67408b",
+      "background": "#f7f5ef",
+      "ratio": 7.179650659885426,
+      "threshold": 3,
+      "passes": true
+    },
+    {
+      "sample": "Website dark landing/store focus against body",
+      "foreground": "#ff7ac6",
+      "background": "#120d1f",
+      "ratio": 8.024165968397591,
+      "threshold": 3,
+      "passes": true
+    },
+    {
+      "sample": "Website high-contrast landing/store focus against body",
+      "foreground": "#ff7ac6",
+      "background": "#000000",
+      "ratio": 8.851256860874217,
+      "threshold": 3,
+      "passes": true
+    },
+    {
+      "sample": "Landing dark-section light focus against dark surface",
+      "foreground": "#fff8f3",
+      "background": "#1c1925",
+      "ratio": 16.43690665717746,
+      "threshold": 3,
+      "passes": true
+    }
+  ],
+  "badgeForegroundSamples": [
+    {
+      "sample": "website-light badge foreground on 88% surface card",
+      "foreground": "#29252e",
+      "background": [
+        0.9962352941176471,
+        0.9883921568627452,
+        0.9717647058823529
+      ],
+      "ratio": 14.658468082525975,
+      "threshold": 4.5,
+      "passes": true
+    },
+    {
+      "sample": "website-dark badge foreground on 88% surface card",
+      "foreground": "#f9f5ff",
+      "background": [
+        0.10509803921568628,
+        0.07858823529411765,
+        0.18023529411764705
+      ],
+      "ratio": 16.47245759708911,
+      "threshold": 4.5,
+      "passes": true
+    },
+    {
+      "sample": "website-high-contrast badge foreground on 88% surface card",
+      "foreground": "#ffffff",
+      "background": [
+        0.05176470588235294,
+        0.05176470588235294,
+        0.05176470588235294
+      ],
+      "ratio": 19.409732640859367,
+      "threshold": 4.5,
+      "passes": true
+    }
+  ],
+  "proposedSemanticActionPairs": [
+    {
+      "sample": "Proposed action pair light and dark: white on accentStrong",
+      "foreground": "#ffffff",
+      "background": "#7b2cbf",
+      "ratio": 7.107125237726438,
+      "threshold": 4.5,
+      "passes": true
+    },
+    {
+      "sample": "Proposed action pair high-contrast: black on yellow",
+      "foreground": "#000000",
+      "background": "#ffd60a",
+      "ratio": 14.875009846765208,
+      "threshold": 4.5,
+      "passes": true
+    }
+  ],
+  "proposedSemanticFocus": "Map shared --color-focus to --color-foreground by default; retain website's measured light focus override and deliberate light outline on the landing dark section. Light/dark/high-contrast theme switches must resolve the alias on the actual theme host.",
+  "motionCascadeFindings": [
+    {
+      "finding": "Prior #37 fixes are already present",
+      "detail": "Shared .eh-button has explicit reduced-motion transition:none and hover transform:none; .eh-spinner animation:none. Badge foreground and 3px solid shared focus outline are also already repaired. Preserve these rather than re-implementing them."
+    },
+    {
+      "finding": "Base universal preference is specificity-sensitive",
+      "detail": "packages/themes/src/styles/base.css applies 0.01ms durations, one animation iteration and scroll-behavior:auto using universal selectors with no !important. Later element/class rules can override these declarations. No animation-delay or transition-delay reset is present."
+    },
+    {
+      "finding": "Website document scrolling is already locally repaired",
+      "detail": "reset.css declares html scroll-behavior:smooth; app.css later declares html scroll-behavior:auto within reduced motion. This website-specific override wins the earlier html rule. The base universal rule alone would lose to html."
+    },
+    {
+      "finding": "Store transitions have feature-level preference guards",
+      "detail": "store.css disables transitions under .store-shell and separately removes hover artwork transforms. Keep necessary transform suppression when consolidating the duration/scroll policy."
+    },
+    {
+      "finding": "Bounded consolidation recommendation",
+      "detail": "Move the authoritative duration/delay/scroll preference override into themes/base.css with !important declarations; make ordinary smooth scrolling opt-in under prefers-reduced-motion:no-preference; retain explicit spinner and hover-transform behavior. Remove only the now-redundant website duration/scroll override. Test consuming stylesheet ordering without claiming browser execution."
+    }
+  ]
+}

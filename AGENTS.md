@@ -6,6 +6,15 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
+## Current shared accessibility #49 — 2026-10-25
+
+Alan authorized #49. Read [the repair contract](docs/design/shared-accessibility-49.md)
+and current-state/provenance. Reuse #37's existing fixes; repair remaining shared
+primary/action text, docs active-navigation contrast, semantic focus and shared
+motion enforcement. A is source inventory; fresh computed-browser acceptance is
+explicitly deferred to the final Mac pass. Save the checkpoint before B. Branch
+`fix/shared-accessibility-49` is based on unmerged #101. No merge or activation.
+
 ## Current standalone store preservation — 2026-10-25
 
 Alan requested migration of useful `egohygiene/store` material before removing it.

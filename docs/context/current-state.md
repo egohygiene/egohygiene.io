@@ -1,5 +1,19 @@
 # Current handoff
 
+## Current: shared accessibility #49 checkpoint A — 2026-10-25
+
+Alan selected #49. Live refresh confirms main `07d25941ceeefa53089afa025b612c6aa54f36c4`
+and all prior drafts unchanged. Branch `fix/shared-accessibility-49` starts from
+#101 `f85bee403f12f4400a68fc76294151fefadb00ba`. [Contract](../design/shared-accessibility-49.md)
+records existing #37 repairs, remaining source gaps and bounded B/C work.
+
+A source inventory is saved before implementation. Fresh computed/browser A/C
+acceptance remains deferred under Alan's existing instruction; source calculations
+are not computed browser evidence. Next within this authorized task is B, then
+local C evidence and a sync before #53. #100 C retirement remains open and source
+intact. Base hosted CI 40214050673, dependency review 40214050813 and CodeQL
+40214051065 failed; no gates are changed. No merge, deployment or activation.
+
 ## Current: standalone store preservation / #100 — 2026-10-25
 
 After #50, Alan clarified the separate `egohygiene/store` repository and requested
