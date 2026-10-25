@@ -5,6 +5,42 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Shared content #50 checkpoint C and continuity — 2026-10-25
+
+A `7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af` was saved before B. Source
+`1a5fbdf67fe11fb865cee1f4f93046513b0df95c`, tree
+`ea944a6a56a292abaf1666a1d90cf06e2903db38`, was published to draft #99 by a
+lease-checked update; GitHub and local staged trees matched. The fetched source
+was clean. Main/prior drafts remain unchanged; #99 keeps #98 as its base.
+
+[Receipt](../design/content-markdown-50.md) and
+[verification](../design/reviews/content-markdown-50/verification.json) preserve
+source-bound commands/results. 64 focused tests (50 content/14 docs DOM), existing
+strict content/docs types, eight-file Biome and workspace checks pass. Temporary
+docs browser types and five-case discovery pass; zero cases executed. Fresh docs
+build emits 11 files; six app-shell routes and six directly linked assets return
+expected local responses. HTTP is explicitly SPA-shell evidence, not initial
+Markdown, navigation, layout or accessibility proof. The four actual source guides
+and home command accuracy are covered by simulated DOM tests.
+
+An independent read-only source/dependency/security/test review found no blocker.
+A separate normal website build on clean B produces exactly the same 44 files as
+#60 by path/bytes/SHA-256. The existing scanner checks 202 references/artwork and
+fails exactly the same three raw/gzip document/total budgets. No ceiling/gate was
+changed. Narrow lock delta: 89 additions/zero deletions; new serializer 9.0.5 and
+html-void-elements 3.0.0, existing-version direct/peer contexts otherwise. No existing
+version upgrade or lifecycle-script enablement. Upstream MIT packages are declared
+at their consumers; no external implementation/artwork/private record was copied.
+
+Source hosted CI 40207096653, dependency review 40207096571 and CodeQL 40207096735
+were observed failed, without a manual dispatch or new diagnosis/repair. Final read-only evidence review narrowed a docs-test claim to shared-tree React
+semantics: both consumers are tested separately, not by a direct parity assertion.
+C updates ADR 0013, the context entry points, roadmap and review evidence. #50's local A/B/C
+is ready for draft review/integration; Chromium remains with #37, permanent profile
+consolidation with #52, hosted reconciliation with #29. Next is sync then #49,
+reusing earlier shared focus/motion fixes. No merge, deployment, activation,
+publication, purchase or spending. This follow-up changes docs/evidence only.
+
 ## Shared content #50 checkpoint B — 2026-10-25
 
 A was durably saved at `7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af` in draft #99

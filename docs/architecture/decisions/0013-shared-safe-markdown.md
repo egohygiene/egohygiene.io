@@ -1,7 +1,7 @@
 # ADR 0013 — One constrained Markdown tree for documentation
 
 - Date: 2026-10-25 (America/New_York).
-- Status: Selected for local implementation in the #50 draft; B/C pending.
+- Status: Implemented and locally verified in draft #99; unmerged, final browser acceptance deferred.
 - Owner: [#50](https://github.com/egohygiene/egohygiene.io/issues/50), docs/content
   slice of #18. No shared-package publication or website rendering migration.
 - Input: `e4e3ec2ece527e707eda0366c2ccee9b8cc6dd92` (unmerged #98).
@@ -29,8 +29,8 @@ before rendering. This is a string-to-constrained-content boundary, not a claim
 that HAST, serializers or JSX runtimes sanitize arbitrary input by themselves.
 
 Links allow HTTP(S), mailto and relative/query/fragment references; images allow
-HTTP(S) and relative references. Scheme-relative URLs, controls, backslashes and
-other schemes are rejected. Keep unsafe link labels without a destination and
+HTTP(S) and relative references. Empty URLs, scheme-relative URLs, whitespace,
+controls, backslashes and other schemes are rejected. Keep unsafe link labels without a destination and
 replace unsafe images with their alt text. Allowed links/images can still refer
 to external resources: this does not make them trusted or private. Parsing has
 no I/O, and current docs remain checked-in public text.

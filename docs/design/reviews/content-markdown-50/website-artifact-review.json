@@ -1,0 +1,139 @@
+{
+  "startedAt": "2026-10-25T15:29:35.308Z",
+  "sourceHead": "1a5fbdf67fe11fb865cee1f4f93046513b0df95c",
+  "sourceTree": "ea944a6a56a292abaf1666a1d90cf06e2903db38",
+  "sourceStatusAtStart": "",
+  "node": "v24.21.0",
+  "pnpm": "11.28.5",
+  "scope": "Local normal website build, complete artifact hash comparison and static artifact scanner only. No Chromium, hosted CI or production qualification.",
+  "environment": {
+    "VITE_STORE_PREVIEW": "false"
+  },
+  "steps": [
+    {
+      "command": ["pnpm", "build"],
+      "startedAt": "2026-10-25T15:29:35.842Z",
+      "finishedAt": "2026-10-25T15:29:39.088Z",
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/content50-website-artifacts.json"
+      ],
+      "startedAt": "2026-10-25T15:29:39.095Z",
+      "finishedAt": "2026-10-25T15:29:39.286Z",
+      "exitCode": 1
+    }
+  ],
+  "artifactComparison": {
+    "baseline": "docs/design/reviews/ecosystem-links-60/artifact-summary.json",
+    "baselineSourceHead": "b47e7e4165d83feba64ec7320f97943be9140b29",
+    "baselineFileCount": 44,
+    "currentFileCount": 44,
+    "matchingFileCount": 44,
+    "missingFiles": [],
+    "extraFiles": [],
+    "changedFiles": [],
+    "exactMatch": true,
+    "method": "Enumerated every regular file beneath apps/egohygiene.io/dist; compared relative path sets, byte sizes and SHA-256 digests against all entries in the recorded #60 manifest."
+  },
+  "artifactScanner": {
+    "capturedAt": "2026-10-25T15:29:39.278Z",
+    "sourceHead": "1a5fbdf67fe11fb865cee1f4f93046513b0df95c",
+    "result": "fail",
+    "exitCode": 1,
+    "reportPath": "test-results/store-qualification/content50-website-artifacts.json",
+    "fileCount": 44,
+    "assetReferenceCount": 202,
+    "findings": [
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "bytes: 317615 exceeds 20000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "gzipBytes: 85608 exceeds 10000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "total",
+        "detail": "bytes: 1287210 exceeds 1140000."
+      }
+    ],
+    "exactPriorFindings": true,
+    "sizes": {
+      "javascript": {
+        "bytes": 480909,
+        "gzipBytes": 139154,
+        "limit": {
+          "bytes": 500000,
+          "gzipBytes": 150000
+        },
+        "result": "pass"
+      },
+      "css": {
+        "bytes": 50259,
+        "gzipBytes": 9851,
+        "limit": {
+          "bytes": 60000,
+          "gzipBytes": 12000
+        },
+        "result": "pass"
+      },
+      "images": {
+        "bytes": 391855,
+        "gzipBytes": 387352,
+        "limit": {
+          "bytes": 500000,
+          "gzipBytes": 500000
+        },
+        "result": "pass"
+      },
+      "fonts": {
+        "bytes": 46572,
+        "gzipBytes": 46531,
+        "limit": {
+          "bytes": 60000,
+          "gzipBytes": 50000
+        },
+        "result": "pass"
+      },
+      "documents": {
+        "bytes": 317615,
+        "gzipBytes": 85608,
+        "limit": {
+          "bytes": 20000,
+          "gzipBytes": 10000
+        },
+        "result": "fail"
+      },
+      "total": {
+        "bytes": 1287210,
+        "gzipBytes": 668496,
+        "limit": {
+          "bytes": 1140000,
+          "gzipBytes": 722000
+        },
+        "result": "fail"
+      }
+    },
+    "exactPriorSizes": true,
+    "publicImageExactMatch": true
+  },
+  "sourceHeadAtEnd": "1a5fbdf67fe11fb865cee1f4f93046513b0df95c",
+  "finishedAt": "2026-10-25T15:29:39.289Z",
+  "buildSummary": {
+    "catalogEntries": 10,
+    "verifiedImageFiles": 1,
+    "publicPages": 26,
+    "sitemapEntries": 10,
+    "noindex404Artifact": true
+  },
+  "sourceStatusImmediatelyAfterValidation": "clean",
+  "logs": "Transient command logs were not committed; compact results and the existing baseline artifact manifest are retained here."
+}

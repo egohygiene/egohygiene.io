@@ -90,3 +90,51 @@ Five retained docs browser journeys are discovered, not executed. C will bind
 fresh build/HTTP and normal website artifact evidence to the published B source,
 check browser definitions with a temporary strict profile, and refresh hosted
 status. This is local implementation evidence, not final browser qualification.
+
+## C — Local verification and handoff
+
+Published B source is `1a5fbdf67fe11fb865cee1f4f93046513b0df95c`, tree
+`ea944a6a56a292abaf1666a1d90cf06e2903db38`. The GitHub tree matched local staging;
+fetched source was clean. This follow-up changes documentation/evidence only.
+[Machine-readable checks](reviews/content-markdown-50/verification.json),
+[docs HTTP/artifact evidence](reviews/content-markdown-50/docs-http.json) and
+[normal website comparison](reviews/content-markdown-50/website-artifact-review.json)
+pin the exact source, commands, scope and limits.
+
+| Verification | Result and boundary |
+| --- | --- |
+| Content contracts | 50 passing tests: empty/heading/code-only metadata, caller identity, retained indentation, common/nested/reference syntax, literal HTML/fenced/attribute payloads, safe destinations and 18 unsafe URL forms across direct/reference links/images |
+| Docs simulated DOM | 14 passing tests: four actual guides, correct commands, semantic code/links/lists/nesting, literal payloads, shared-tree React semantics, empty documents, duplicate blocks and home guidance |
+| Strict types | Existing content/docs profiles pass; temporary docs-browser profile passes without changing repository compiler flags |
+| Workspace and scoped style checks | Workspace/exports/433 messages/cycles/16-module boundary pass; eight edited JSON/TS/TSX files pass Biome; no broad lint/format claim |
+| Docs build/HTTP | Fresh build passes; 11 files recorded. Six local routes and six directly linked assets return 200 and expected nonempty content types |
+| Normal website build | Passes; all 44 files exactly match the prior #60 paths, sizes and SHA-256 hashes |
+| Browser definitions | Five docs journeys discovered and typechecked; zero executed |
+| Artifact qualification | Fails exactly the same three existing size categories; 202 references and public artwork bytes unchanged |
+| Hosted source status | CI 40207096653, dependency review 40207096571 and CodeQL 40207096735 failed |
+
+Docs remains a client-rendered SPA. Its six HTTP routes return the same app shell,
+including the missing route; HTTP does not establish rendered Markdown or client
+not-found behavior. The DOM suite verifies selected semantic output in simulation.
+The five retained `tests/e2e/docs.spec.ts` journeys cover four direct/reloaded docs
+routes and home/navigation/missing-route recovery, with local successful GET-only
+requests and WebSockets closed. Execute them in the existing docs Playwright
+project during #37; the existing configuration starts all three app dev servers.
+This does not qualify the docs production host. #52 should include docs browser
+types in its permanent consolidated profiles; the exact temporary JSON profile
+used here is retained in verification.json. No new test orchestrator was added.
+
+Normal artifact failures remain documents **317,615 / 20,000** bytes, document gzip
+**85,608 / 10,000**, total **1,287,210 / 1,140,000**. No ceilings/gates changed and
+no other targeted artifact finding appeared. This docs-only change did not alter
+the website output. #52/#92/#37 retain budget/final engineering disposition;
+#29 owns hosted reconciliation. Current hosted failures were observed, not repaired
+or manually dispatched. Focused local passes are not hosted/production approval.
+
+A/B and the requested local C tests/examples are delivered in draft #99. Keep #50
+open for review/integration and record actual Chromium acceptance in the final
+pass. Next: sync, then **#49 shared focus/contrast/reduced-motion review**, reusing
+prior #37 fixes instead of rebuilding them. The approved order thereafter is
+#53 → #56 → #59 → #92 → #52 → #29 → #57 → #70 → #37, followed by the already
+recorded environment/construction-preview and real-product phases. No merge,
+deployment, activation, purchase, publication, private records or spending.

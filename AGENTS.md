@@ -6,15 +6,22 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current shared Markdown checkpoint B — 2026-10-25
+## Current shared Markdown local A/B/C — 2026-10-25
 
-Alan selected all bounded #50 checkpoints. [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99)
-is stacked on unmerged #98. A was published before B's shared CommonMark/HAST
-parser, docs React adapter and safe HTML serializer. Read [the receipt](docs/design/content-markdown-50.md),
+Alan selected #50. [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99)
+is stacked on unmerged #98; A was saved before B. Read [the receipt](docs/design/content-markdown-50.md),
+[verification](docs/design/reviews/content-markdown-50/verification.json),
 [ADR 0013](docs/architecture/decisions/0013-shared-safe-markdown.md), current-state
-and provenance. 64 focused tests and content/docs types pass. C evidence binding
-and hosted refresh are next; actual Chromium/final engineering remain deferred.
-Sync after #50; #49 follows in the roadmap. No merge, deployment or activation.
+and provenance for exact source/history. The shared CommonMark tree now drives
+React docs and safe HTML serialization; optional metadata/commands are corrected.
+64 focused tests, content/docs types and fresh builds pass. Five docs browser cases
+are discovered, zero executed. All 44 website artifact files match #60 exactly;
+existing size and hosted failures remain. No gate changed or production claim.
+
+Next: sync on #50 local delivery, then #49 shared focus/contrast/motion, reusing
+prior #37 fixes. Chromium/final engineering remain deferred; #52 must include docs
+profiles in consolidation. Keep current-state/provenance/roadmap/evidence aligned
+with each checkpoint push. No merge, deployment or product/provider activation.
 
 ## Historical ecosystem navigation checkpoint — 2026-10-24
 

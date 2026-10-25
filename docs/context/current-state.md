@@ -1,6 +1,49 @@
 # Current handoff
 
-## Current: #50 B shared Markdown implemented — 2026-10-25
+## Current: #50 local A/B/C delivered — 2026-10-25
+
+Alan authorized all bounded #50 work. [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99)
+on `fix/content-markdown-50` targets #98's `fix/ecosystem-links-60`. A was saved
+first at `7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af`; B source is
+`1a5fbdf67fe11fb865cee1f4f93046513b0df95c`, tree
+`ea944a6a56a292abaf1666a1d90cf06e2903db38`. Published/staged trees matched and
+fresh build evidence used clean fetched source. This follow-up changes docs only.
+Main remains `07d25941ceeefa53089afa025b612c6aa54f36c4`; #99/#98/#95/#94/#93/#87/#73
+are draft/unmerged. No prior branch was modified or retargeted.
+
+Read [the #50 receipt](../design/content-markdown-50.md),
+[verification](../design/reviews/content-markdown-50/verification.json) and
+[ADR 0013](../architecture/decisions/0013-shared-safe-markdown.md). One private
+CommonMark/HAST boundary now drives docs React and the escaped HTML helper;
+HTML/code stay literal, original decoded URLs use one policy, source indentation
+and caller identity are preserved, missing descriptions are omitted. Four docs
+guides/home guidance match the real pinned setup and scoped commands. Only two
+new dependency versions were added; no existing version or toolchain pin upgraded.
+
+Local passes: 50 content +14 docs DOM tests, unchanged strict content/docs types,
+temporary browser-definition types, scoped eight-file Biome, workspace checks,
+frozen script-disabled install and docs/normal website builds. Six docs app-shell
+routes and six linked assets pass loopback HTTP. Docs remains a client-rendered
+SPA: these GETs are not initial Markdown HTML or browser navigation evidence.
+Five browser definitions are retained/discovered, **zero executed**. #52 should
+include docs types/journeys in permanent profiles; #37 executes Chromium later.
+All 44 website files exactly match #60 by path/size/hash, and artwork bytes match.
+
+The artifact scanner still fails exactly three existing ceilings: documents
+317,615/20,000 bytes; document gzip 85,608/10,000; total 1,287,210/1,140,000.
+Source hosted CI 40207096653, dependency review 40207096571 and CodeQL 40207096735
+failed. No gates/ceilings changed or workflow manually dispatched. Local focused
+checks are not full engineering, hosted, browser, accessibility or production
+qualification. #90 contact/copy, #91/#60/locale browser acceptance remains open.
+
+Next: sync on #50 draft/local delivery, then **#49 shared focus/contrast/motion**,
+reusing #37's prior fixes. Remaining setup order: #53 → #56 → #59 → #92 → #52 →
+#29 → #57 → #70 → #37. The later #21/#89 A → #96/#97 → #89 B/C construction
+preview → #38/#39 real products/release sequence remains unchanged. #50 stays open
+for review/integration; no merge, deployment, product/provider activation, private
+records, package publication, paid service, purchase or spending.
+
+## Historical: #50 B shared Markdown implemented — 2026-10-25
 
 [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99) stacks on unmerged
 #98. A contract/optional metadata fix was saved at

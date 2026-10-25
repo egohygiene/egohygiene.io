@@ -20,7 +20,7 @@ Use full paths/links and titles in issues, handoffs and provenance.
 | [0011 — Reviewed product readiness](0011-reviewed-product-readiness.md) | Implemented for review under #38 / bounded #9 | Catalog v3 qualification, adjacent migration and customer disclosures; no actual activation |
 | [0012 — Static public route rendering](0012-static-public-route-rendering.md) | Implemented and locally reviewed through #91 C in draft #95; browser/host acceptance remains | Shared React/Vite routes and frozen public inputs, 26 rendered pages/ten sitemap entries, shared metadata and deterministic hydration; local raw/HTTP checks and preview-route fix recorded in C; aggregate-size, hosted and browser gaps remain |
 
-| [0013 — Shared constrained Markdown](0013-shared-safe-markdown.md) | Selected for #50 local implementation; A contract saved before B/C | One CommonMark/HAST boundary for docs React and HTML-helper output; literal HTML, explicit URL policy, strict optional metadata |
+| [0013 — Shared constrained Markdown](0013-shared-safe-markdown.md) | Implemented/locally verified in #50 draft #99; unmerged, browser acceptance deferred | One CommonMark/HAST boundary for docs React and HTML-helper output; literal HTML, explicit URL policy, strict optional metadata |
 
 This table records a dated delivery snapshot, not live merge status. Refresh the
 [current handoff](../../context/current-state.md) and GitHub before resuming.
