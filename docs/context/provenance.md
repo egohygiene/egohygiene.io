@@ -5,6 +5,23 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Shared content #50 checkpoint B — 2026-10-25
+
+A was durably saved at `7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af` in draft #99
+before shared-renderer edits. B implements the contract/ADR without changing
+compiler strictness, package publication, routes, storefront or purchase state.
+Content and docs work were delegated to disjoint owners; an independent read-only
+review checked URL normalization, metadata, HTML/code escaping, docs examples,
+lock scope and focused tests. No blocking finding remains. No upstream code copied.
+
+50 content + 14 docs DOM tests pass together; strict content/docs types, docs build
+and workspace checks pass. Lock additions are limited to direct consuming-package
+dependencies, two new package versions and existing-version peer contexts. Frozen
+install disables lifecycle scripts; existing warnings are retained. Browser source
+has five discovered journeys, with zero executed. C must record the exact B SHA,
+fresh artifact/HTTP results and current hosted failures before the final sync.
+No prior draft was merged/retargeted, and no deployment or activation occurred.
+
 ## Shared content #50 checkpoint A — 2026-10-25
 
 Alan selected #50 and reaffirmed durable notes with checkpoint pushes. Recovered

@@ -6,14 +6,15 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current shared Markdown checkpoint A — 2026-10-25
+## Current shared Markdown checkpoint B — 2026-10-25
 
-Alan selected #50. On `fix/content-markdown-50`, based on unmerged #98, checkpoint
-A repairs optional description omission and records [the content contract](docs/design/content-markdown-50.md)
-and [ADR 0013](docs/architecture/decisions/0013-shared-safe-markdown.md). Save this
-checkpoint to a draft before B's shared parser/docs integration. Keep exact source,
-checks and next action in current-state/provenance. Chromium/final engineering
-remain deferred; no merge, deployment or activation is authorized here.
+Alan selected all bounded #50 checkpoints. [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99)
+is stacked on unmerged #98. A was published before B's shared CommonMark/HAST
+parser, docs React adapter and safe HTML serializer. Read [the receipt](docs/design/content-markdown-50.md),
+[ADR 0013](docs/architecture/decisions/0013-shared-safe-markdown.md), current-state
+and provenance. 64 focused tests and content/docs types pass. C evidence binding
+and hosted refresh are next; actual Chromium/final engineering remain deferred.
+Sync after #50; #49 follows in the roadmap. No merge, deployment or activation.
 
 ## Historical ecosystem navigation checkpoint — 2026-10-24
 

@@ -1,6 +1,26 @@
 # Current handoff
 
-## Current: #50 A contract and optional metadata repair — 2026-10-25
+## Current: #50 B shared Markdown implemented — 2026-10-25
+
+[Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99) stacks on unmerged
+#98. A contract/optional metadata fix was saved at
+`7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af` before B. Main and prior drafts remain
+unchanged. [The receipt](../design/content-markdown-50.md) and
+[ADR 0013](../architecture/decisions/0013-shared-safe-markdown.md) explain the shared
+CommonMark/HAST boundary, literal HTML, original-URL policy and dependency scope.
+
+B replaces content/docs splitters, preserves source indentation/caller identity,
+and corrects all four guides and home commands. 50 content + 14 docs DOM tests,
+strict package/docs types, docs build and workspace checks pass locally. Frozen
+install passes; two new dependency versions, no existing version upgrades.
+
+Next in #50: pin C evidence to this published B source; docs loopback shell/asset
+smoke, normal website artifact comparison, browser-definition types/discovery and
+hosted-status refresh. Actual Chromium remains deferred to #37. Then sync on #50;
+#49 is next in the approved setup order. No merge, deployment, provider/product
+activation, package publication, paid service or spending.
+
+## Historical: #50 A contract and optional metadata repair — 2026-10-25
 
 Alan selected #50 after reviewing the current roadmap and reaffirming continuity
 notes with each checkpoint push. Restored the pruned checkout from GitHub and

@@ -1,9 +1,31 @@
 # Getting started
 
-Install dependencies with `corepack enable` and `pnpm install --frozen-lockfile`.
+Run these commands from the repository root. Use Node **24.21.0** and pnpm **11.28.5**, the versions declared in `.tool-versions` and `package.json`. The supported Node range is `>=24.21.0 <25`.
 
-## Run the applications
+## Install dependencies
 
-- `pnpm --filter @egohygiene/egohygiene.io dev`
-- `pnpm --filter @egohygiene/docs dev`
-- `pnpm --filter @egohygiene/playground dev`
+Activate the pinned tools with your existing version manager, then check them and install the locked dependencies:
+
+```sh
+node --version
+pnpm --version
+pnpm install --frozen-lockfile --ignore-scripts
+```
+
+If pnpm is not on your path, npm can run the exact version without a global installation:
+
+```sh
+npm exec --yes --ignore-scripts --package=pnpm@11.28.5 -- pnpm install --frozen-lockfile --ignore-scripts
+```
+
+For the remaining examples, either use the pinned pnpm on your path or replace the leading `pnpm` with `npm exec --yes --ignore-scripts --package=pnpm@11.28.5 -- pnpm`. A frozen-lockfile failure needs matching repository manifests and lockfile; do not remove the frozen flag to hide it.
+
+## Run one application
+
+Each command starts its own application. Use separate terminals when you need more than one:
+
+- Website/store: `pnpm dev` or `pnpm --filter @egohygiene/egohygiene.io dev` at port 5173.
+- Documentation: `pnpm --filter @egohygiene/docs dev` at port 5174.
+- Playground: `pnpm --filter @egohygiene/playground dev` at port 5175.
+
+Stop a server with **Ctrl+C**. See [Local development](/development) for build, preview and check commands.

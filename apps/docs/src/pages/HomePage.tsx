@@ -1,20 +1,27 @@
+import { Link } from "react-router-dom";
+
 export function HomePage() {
   return (
     <article className="docs-prose">
       <h1>Documentation</h1>
       <p>
-        This repository contains the primary Ego Hygiene website, a documentation app, a playground
-        app, and shared packages.
+        This repository contains the public Ego Hygiene website/store, a documentation app, a
+        playground app, and shared packages.
+      </p>
+      <p>
+        <Link to="/getting-started">Read the setup instructions</Link> for the pinned Node and pnpm
+        versions and a locked dependency installation.
       </p>
       <ul>
         <li>
-          Install with <code>pnpm install --frozen-lockfile</code>.
+          <code>pnpm dev</code> starts the website/store.
         </li>
         <li>
-          Run the site with <code>pnpm --filter @egohygiene/egohygiene.io dev</code>.
+          <code>pnpm --filter @egohygiene/docs dev</code> starts this documentation app.
         </li>
         <li>
-          Run tests with <code>pnpm test</code> and <code>pnpm test:e2e</code>.
+          <Link to="/development">Read the development guide</Link> for separate app builds, content
+          checks and the scope of wider tests.
         </li>
       </ul>
     </article>

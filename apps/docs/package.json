@@ -14,6 +14,7 @@
     "@egohygiene/themes": "workspace:*",
     "@egohygiene/ui": "workspace:*",
     "@egohygiene/utilities": "workspace:*",
+    "hast-util-to-jsx-runtime": "2.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-router-dom": "7.18.2"

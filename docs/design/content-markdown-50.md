@@ -50,7 +50,7 @@ The selected B contract is:
 See [ADR 0013](../architecture/decisions/0013-shared-safe-markdown.md) for rationale,
 alternatives, trust boundaries and migration constraints.
 
-## B/C — Planned local delivery
+## B/C — Original delivery plan (A)
 
 Save A to a draft PR before B. Replace both splitters, update package guidance,
 and correct docs installation/dev/build examples against current scripts. Root
@@ -64,3 +64,29 @@ Retain browser definitions in the existing suite for the final Mac pass. Chromiu
 is deferred: DOM and HTTP are not browser/layout/keyboard acceptance. Keep known
 website artifact-size and hosted failures visible. No merge, deployment, provider
 activation, private content, package publication, purchase or spending.
+
+## B — Shared implementation saved in draft #99
+
+A was published first as `7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af` in
+[draft #99](https://github.com/egohygiene/egohygiene.io/pull/99), based on #98.
+B replaces both splitters with the selected shared tree and updates all four
+checked-in docs guides, home guidance and package README. The helper remains an
+HTML-string API but now uses the standard serializer. Docs creates React elements
+from the same tree without an HTML sink. Original decoded direct/reference URLs
+are checked before conversion normalizes them; empty URLs are also rejected.
+
+Direct pins are `mdast-util-from-markdown` 2.0.3, `mdast-util-to-hast` 13.2.1,
+`mdast-util-to-string` 4.0.0, `hast-util-to-html` 9.0.5, `@types/hast` 3.0.5 and
+internal `@types/mdast` 4.0.4 in content, plus `hast-util-to-jsx-runtime` 2.3.6 in
+docs. Only the serializer and `html-void-elements` 3.0.0 add package versions;
+remaining lock additions use existing versions/peer contexts. No existing
+resolution or runtime/toolchain pin is upgraded. Frozen script-disabled install
+passes with 3,916 lock entries. Existing peer/deprecation warnings remain.
+
+Pre-publication checks pass: 50 content and 14 docs DOM tests, unchanged strict
+content/docs type profiles, docs production build, workspace/exports/locale/cycle/
+portable-boundary checks. Independent read-only review found no blocking issue.
+Five retained docs browser journeys are discovered, not executed. C will bind
+fresh build/HTTP and normal website artifact evidence to the published B source,
+check browser definitions with a temporary strict profile, and refresh hosted
+status. This is local implementation evidence, not final browser qualification.
