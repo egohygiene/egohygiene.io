@@ -5,6 +5,48 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Standalone store migration/preservation #100 — 2026-10-25
+
+Alan requested migration of useful `egohygiene/store` material before removing the
+separate repository. Read both repos' instructions/continuity, refreshed source
+main/branches/all 35 issue-or-PR records/all19 PR details/comments/reviews/releases,
+website main/open drafts and the existing ownership decisions before editing.
+Created #100 and `docs/store-retirement` from #99
+`f901ed6e064f8045eea5d9e1633a43707b96e924`; prior branches/main remain unchanged.
+
+Source main `5786fd40bfe40b0d338eb96087355b98f7e16d42`, tree
+`65404b0dda75c001cc2192125c090c908c3572d4`, contains 111 files. Independent comparison
+found runtime/tests/scripts unchanged since the earlier #75 source review.
+Unique async/provider/cart code remains inactive recoverable reference, with
+explicit existing defects/adoption owners. Original MIT notice stays intact;
+website #59 licensing reconciliation remains open. No private Incompris source or
+business/artwork masters were copied. No provider call or real-product change.
+
+[Handoff](../migration/store-retirement/README.md), [manifest](../migration/store-retirement/manifest.json)
+and [verification](../migration/store-retirement/verification.json) record the
+self-contained Git bundle (35 commits,28 named refs), compressed normalized public
+GitHub records (16 issues,19 PRs,11 comments and review activity), all 16original issue
+bodies/comments and individual backlog dispositions. Historical source URLs are
+retained as provenance; local records remain readable after URL retirement.
+No native issue transfer/closure is claimed. Existing #38/#61/#37/etc owners are
+reused; optional product research does not become a #88 setup blocker.
+
+Offline restore, fsck, ref/commit/source-tree and 111 file/hash/license checks pass;
+corruption/count/digest negative probes reject invalid copies. Six targeted
+credential patterns found no matches in 192 reachable Git blobs or exported record
+text; no LFS pointers/submodule files were found. This limited scan is not a full
+secret/rights audit. No attachment URLs were found in captured conversation text;
+no releases/tags were observed. Wiki endpoint access failed despite enabled wiki
+metadata. Wiki/settings/projects/integrations/actions and other uncaptured service
+state remain explicit retirement gaps. GitHub archive/delete is not exposed by
+current tools; no source mutation/destructive operation was attempted.
+
+ADR 0014 advances the prior preservation decision toward retirement, contingent on
+integrated destination and complete final handoff. This checkpoint updates the
+context/roadmap for resumption. #100 C remains open; #49 is next functional work.
+No application tests/Chromium/hosted qualification are newly claimed. Prior #50
+and broader size/CI/browser/product/deployment limitations remain unchanged.
+
 ## Shared content #50 checkpoint C and continuity — 2026-10-25
 
 A `7f6a17b152fa4a57eea2ee88c2bb3a8cd05699af` was saved before B. Source

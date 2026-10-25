@@ -66,3 +66,13 @@ ownership or release needs justify its additional boundaries.
 Validation for this checkpoint is source review and documentation/link/context
 checks. Current CI failures remain recorded; no fresh browser/provider tests,
 license repair, code migration, purchase or deployment are claimed.
+
+## Retirement follow-up — 2026-10-25
+
+Alan subsequently requested consolidation of useful material before removing the
+separate repository. [ADR 0014](0014-standalone-store-retirement.md) and
+[#100](https://github.com/egohygiene/egohygiene.io/issues/100) record that follow-up.
+The recoverable source/backlog handoff is prepared; source retirement is not yet
+complete. The website remains the canonical owner and no cart/provider code is
+automatically activated by preservation. Earlier statements that this ownership
+choice itself did not authorize retirement remain historically accurate.

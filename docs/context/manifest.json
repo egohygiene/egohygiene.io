@@ -46,5 +46,8 @@
   "ecosystemNavigationReview": "docs/design/ecosystem-links-60.md",
   "sharedMarkdownReview": "docs/design/content-markdown-50.md",
   "sharedMarkdownDecision": "docs/architecture/decisions/0013-shared-safe-markdown.md",
-  "sharedMarkdownEvidence": "docs/design/reviews/content-markdown-50/verification.json"
+  "sharedMarkdownEvidence": "docs/design/reviews/content-markdown-50/verification.json",
+  "storeRetirementHandoff": "docs/migration/store-retirement/README.md",
+  "storeRetirementManifest": "docs/migration/store-retirement/manifest.json",
+  "storeRetirementDecision": "docs/architecture/decisions/0014-standalone-store-retirement.md"
 }
