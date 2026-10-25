@@ -5,6 +5,29 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Completed stack merge catch-up — 2026-10-25
+
+Authority: Alan requested merging whatever PRs were needed to catch up, then #53.
+Read root/current/context/provenance and refreshed open PR heads/bases, issue #53,
+repository merge methods/rulesets and pre-merge checks. Independent local merge
+review confirmed #94 already incorporates #93 through `9f88425`; #87/#94 merges
+produce their exact reviewed trees. The #73 branch instead has 18 substantive
+conflicts and is left for scheduled #29/#52 reconciliation.
+
+Merged #87/#94/#95/#98/#99/#101/#102 in order with merge commits and expected head
+SHAs; successors were retargeted to main. GitHub reports #93 indirectly merged
+once its head became reachable. [Receipt](merges-2026-10-25.json) records every
+head/merge. Final main `f9a687d8636a3e62b4fb103a9faf0d897b3d9319` has tree
+`1150fd61778520cbdc7fa3371773af1b50b5e487`, exactly matching #102's reviewed tree.
+This main continuity update changes docs only; no new app checks were necessary
+for identical source. #53 starts next in its own branch.
+
+Pre-merge validation/dependency checks remain failures; local evidence is still
+source-bound. No ruleset/gate changed, workflow dispatched, Chromium run or full
+qualification claim. #100 backup is integrated but source retirement/wiki/platform
+work remains open. No private records, provider/product activation, deployment or
+spending. Deferred issue acceptance is preserved, not silently completed by merges.
+
 ## Shared accessibility #49 local checkpoint C — 2026-10-25
 
 B `de42f5ed5fbeeeb2456cfd380177898f7afb9048`, tree

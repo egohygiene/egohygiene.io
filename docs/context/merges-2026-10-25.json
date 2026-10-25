@@ -1,0 +1,65 @@
+{
+  "recordedDate": "2026-10-25",
+  "recordedTimezone": "America/New_York",
+  "authorization": "Alan authorized catching up existing PR merges, then starting #53.",
+  "mainBefore": "07d25941ceeefa53089afa025b612c6aa54f36c4",
+  "mainAfter": "f9a687d8636a3e62b4fb103a9faf0d897b3d9319",
+  "tree": "1150fd61778520cbdc7fa3371773af1b50b5e487",
+  "reviewedHead": "6c022ab984d3952f087de0008da83c6891488140",
+  "reviewedTreeIdentical": true,
+  "method": "merge commits, expected head SHA checked; successors retargeted to main sequentially",
+  "orderedMerges": [
+    {
+      "pr": 87,
+      "head": "ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6",
+      "merge": "cdb4b731dc13cbfb037079d12d2e1f39ca80edcd"
+    },
+    {
+      "pr": 94,
+      "head": "2096c75d381a3027d6b133f2a873f432fe2057a3",
+      "merge": "f305116597549658074e9966419360b6b04f451c"
+    },
+    {
+      "pr": 95,
+      "head": "54e8dac7dcc3206dca05efd2951f1233daba9d99",
+      "merge": "a4e4a961208ecf969141ef9c3b68f5aed729e388"
+    },
+    {
+      "pr": 98,
+      "head": "e4e3ec2ece527e707eda0366c2ccee9b8cc6dd92",
+      "merge": "73b1f95b35e942b8c6075942b30185ffe29fd213"
+    },
+    {
+      "pr": 99,
+      "head": "f901ed6e064f8045eea5d9e1633a43707b96e924",
+      "merge": "1d354939cf6d85115c9ef95e4f28851c4e5ecf2a"
+    },
+    {
+      "pr": 101,
+      "head": "f85bee403f12f4400a68fc76294151fefadb00ba",
+      "merge": "08cbc782ef4b6de2e800d9abd89fbf4dc43dd928"
+    },
+    {
+      "pr": 102,
+      "head": "6c022ab984d3952f087de0008da83c6891488140",
+      "merge": "f9a687d8636a3e62b4fb103a9faf0d897b3d9319"
+    }
+  ],
+  "indirectMerge": {
+    "pr": 93,
+    "head": "c7eb41f3966e93e015868f81de128c9414f4cafd",
+    "incorporatedBy": 94,
+    "verifiedGitHubMerged": true
+  },
+  "deferred": {
+    "pr": 73,
+    "reason": "Stale CI draft conflicts with current runtime/schemas/tooling/tests; reconciliation remains #29/#52 under approved final engineering sequence.",
+    "conflictingFiles": 18
+  },
+  "limitations": [
+    "Pre-merge validation/dependency checks failed; merge does not make hosted CI green.",
+    "Browser/manual acceptance, size budgets and actual product/deployment qualification remain open.",
+    "Store preservation now integrated; #100 C wiki/platform/cutover/deletion work remains.",
+    "No gate/ruleset change, browser execution, deployment or commerce activation."
+  ]
+}

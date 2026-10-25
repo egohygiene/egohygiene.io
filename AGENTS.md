@@ -6,6 +6,22 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
+## Current merge catch-up and #53 selection — 2026-10-25
+
+Alan authorized catching up completed PRs and starting #53. #87/#94/#95/#98/#99/
+#101/#102 merged in dependency order; #93 was incorporated by #94 and GitHub
+confirms it merged. Main ends at `f9a687d8636a3e62b4fb103a9faf0d897b3d9319`, whose
+tree exactly matches reviewed #102. [Merge receipt](docs/context/merges-2026-10-25.json)
+and current-state/provenance retain exact heads. #73 remains deferred for stale
+CI-conflict reconciliation under #29/#52. No checks/gates were bypassed or changed;
+failed hosted results and deferred browser/acceptance work stay open. #100's
+preservation is integrated, but source repo retirement remains incomplete.
+
+Next authorized work: #53 Storybook and standalone styles, starting from merged
+main. Preserve #49 fixes; keep final Chromium/manual checks on Alan's Mac and
+retain focused local checks, reviewable checkpoints and continuity. No deployment,
+real product/provider activation or source-repository deletion is implied.
+
 ## Current shared accessibility #49 — 2026-10-25
 
 Alan authorized #49. [Draft #102](https://github.com/egohygiene/egohygiene.io/pull/102)

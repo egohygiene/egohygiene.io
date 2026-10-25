@@ -1,5 +1,17 @@
 # Store launch roadmap and milestone history
 
+## Catch-up merged, #53 selected — 2026-10-25
+
+Alan authorized integration then #53. #87/#93/#94/#95/#98/#99/#101/#102 are now
+merged; [the receipt](../context/merges-2026-10-25.json) preserves order and exact
+heads. Merged tree equals reviewed #102; no implementation was changed by conflict
+resolution. Old CI draft #73 remains for #29/#52 due to substantial current-code
+conflicts. Browser/manual/hosted/size acceptance gaps remain with existing owners.
+#100 preservation is integrated, but old store retirement remains incomplete.
+
+Next: **#53**, then #56/#59/#92/#52/#29/#57/#70/#37; later environment/construction
+preview and actual-product phases are unchanged. No deployment or activation.
+
 ## Current shared accessibility delivery — 2026-10-25
 
 [#49 / draft #102](https://github.com/egohygiene/egohygiene.io/pull/102) applies the

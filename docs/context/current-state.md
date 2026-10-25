@@ -1,5 +1,35 @@
 # Current handoff
 
+## Current: catch-up merges complete, #53 selected — 2026-10-25
+
+Alan explicitly authorized merging completed PRs, then starting #53. Merged
+#87 → #94 → #95 → #98 → #99 → #101 → #102 using merge commits and expected-head
+checks. #94 already contains #93's roadmap ancestry; GitHub subsequently confirms
+#93 merged. No source branch was rewritten. Final merged main:
+`f9a687d8636a3e62b4fb103a9faf0d897b3d9319`; tree
+`1150fd61778520cbdc7fa3371773af1b50b5e487` exactly matches reviewed #102
+`6c022ab984d3952f087de0008da83c6891488140`. [Exact merge receipt](merges-2026-10-25.json).
+This continuity follow-up is documentation only.
+
+The older #73 CI draft remains open: its stale history has 18 content conflicts
+against current code. Reconcile it under already scheduled #29/#52, without
+broadening #53 into a CI repair. All refreshed pre-merge validation/dependency
+checks failed; prior source reports also retain CodeQL failures. GitHub accepted
+the merges without a gate/ruleset change. No new hosted/browser/production pass is
+inferred. Issue acceptance remains open where browser/manual facts are missing.
+
+#100 destination preservation is now integrated. Wiki/platform-state disposition,
+source delta/cutover and final repository retirement remain open; old store remains
+intact. #38/#9 actual product/contact/policy facts and #90/#91/#60/#49/locale browser
+acceptance remain with their existing owners. No product/provider/deployment state
+was activated.
+
+Next authorized task: **#53** canonical Storybook styles/theme ownership and an
+explicit standalone visualization style contract. Branch `fix/component-styles-53`
+starts from the merged main snapshot. Save A before B, retain local focused checks
+and deferred Chromium; sync after delivery before #56. Remaining approved queue
+#56/#59/#92/#52/#29/#57/#70/#37 and later environment/real-product phases unchanged.
+
 ## Current: shared accessibility #49 local delivery — 2026-10-25
 
 Alan authorized #49. [Draft #102](https://github.com/egohygiene/egohygiene.io/pull/102),

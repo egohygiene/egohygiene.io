@@ -4,7 +4,10 @@
   "repository": "egohygiene/egohygiene.io",
   "pathBase": "repository-root",
   "entrypoint": "AGENTS.md",
-  "scopedInstructions": ["apps/egohygiene.io/AGENTS.md", "packages/schemas/AGENTS.md"],
+  "scopedInstructions": [
+    "apps/egohygiene.io/AGENTS.md",
+    "packages/schemas/AGENTS.md"
+  ],
   "contextMap": "docs/context/README.md",
   "currentState": "docs/context/current-state.md",
   "provenance": "docs/context/provenance.md",
@@ -51,5 +54,6 @@
   "storeRetirementManifest": "docs/migration/store-retirement/manifest.json",
   "storeRetirementDecision": "docs/architecture/decisions/0014-standalone-store-retirement.md",
   "sharedAccessibilityReview": "docs/design/shared-accessibility-49.md",
-  "sharedAccessibilityEvidence": "docs/design/reviews/shared-accessibility-49/verification.json"
+  "sharedAccessibilityEvidence": "docs/design/reviews/shared-accessibility-49/verification.json",
+  "mergeCatchup20261025": "docs/context/merges-2026-10-25.json"
 }
