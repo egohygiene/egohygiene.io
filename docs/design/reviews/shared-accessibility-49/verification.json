@@ -1,0 +1,215 @@
+{
+  "recordedDate": "2026-10-25",
+  "recordedTimezone": "America/New_York",
+  "capturedAt": "2026-10-25T19:49:50.065190+00:00",
+  "issue": 49,
+  "pullRequest": 102,
+  "branch": "fix/shared-accessibility-49",
+  "baseCommit": "f85bee403f12f4400a68fc76294151fefadb00ba",
+  "contractCommit": "d463f3878aa58384823e4d1297313187622e869e",
+  "sourceCommit": "de42f5ed5fbeeeb2456cfd380177898f7afb9048",
+  "sourceTree": "a29cd7707e62b0a08ca4ec73c169283fb1cf8cb3",
+  "mainAtRefresh": "07d25941ceeefa53089afa025b612c6aa54f36c4",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "pinsChanged": false,
+    "dependenciesChanged": false
+  },
+  "evidenceBinding": "Focused checks ran on staged B source; only equivalent selector/formatting changes followed. Published tree exactly matches staging. Three fresh builds and artifact/CSS checks ran after fetching B with a clean tree. C changes documentation/evidence only.",
+  "checks": [
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts packages/ui/src packages/themes/src apps/egohygiene.io/src/app/navigation.test.tsx apps/egohygiene.io/src/features/store/StoreArtworkGallery.test.tsx",
+      "result": "pass",
+      "testFiles": 6,
+      "tests": 35,
+      "scope": "UI, theme and artwork-gallery regression tests; the specified navigation.test.tsx path does not exist and contributed no tests. Run occurred before the new ratio-test file was added."
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts packages/themes/src/contrast.test.ts",
+      "result": "pass",
+      "testFiles": 1,
+      "tests": 13,
+      "scope": "Source-declared token/CSS ratio contracts, not browser/cascade measurements."
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.accessibility.config.ts tests/accessibility/site-accessibility.test.tsx tests/accessibility/docs-accessibility.test.tsx",
+      "result": "pass",
+      "testFiles": 2,
+      "tests": 4,
+      "scope": "JSDOM semantics, not rendered CSS/accessibility certification."
+    },
+    {
+      "command": "pnpm exec tsc --project packages/themes/tsconfig.build.json --noEmit",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm exec tsc --project packages/ui/tsconfig.build.json --noEmit",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm exec tsc --project apps/egohygiene.io/tsconfig.app.json --noEmit",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm exec tsc --project apps/docs/tsconfig.app.json --noEmit",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm exec tsc --project apps/playground/tsconfig.app.json --noEmit",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm exec tsc --project tsconfig.store-browser.json --noEmit",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm exec tsc --project <temporary-playground-browser-profile> --noEmit",
+      "result": "pass",
+      "scope": "Existing browser profile extended with only tests/e2e/playground.spec.ts, Node ambient types and local node_modules/@types; #52 owns permanent profile consolidation."
+    },
+    {
+      "command": "pnpm exec tsc --project <temporary-source-test-profile> --noEmit",
+      "result": "pass",
+      "scope": "Extends tsconfig.vitest.json with only packages/themes/src/contrast.test.ts."
+    },
+    {
+      "command": "pnpm check",
+      "result": "pass",
+      "scope": "Workspace, exports, 433 English messages/10 namespaces, cycles, portable store boundary16modules. Existing module-type warnings retained."
+    },
+    {
+      "command": "pnpm exec biome check <six-edited-CSS-files> tests/e2e/playground.spec.ts tests/e2e/store-accessibility.spec.ts packages/themes/src/contrast.test.ts",
+      "result": "pass-with-warnings",
+      "warnings": 6,
+      "scope": "Six intentional noImportantStyles diagnostics in preference-enforcement declarations. No suppression, unsafe fixer or rule/gate change."
+    },
+    {
+      "command": "pnpm exec playwright test --config playwright.store.config.ts store-accessibility.spec.ts --list",
+      "result": "discovery-only",
+      "discovered": 38,
+      "added": 6,
+      "executed": 0
+    },
+    {
+      "command": "pnpm exec playwright test --project playground --list",
+      "result": "discovery-only",
+      "discovered": 5,
+      "added": 4,
+      "executed": 0
+    },
+    {
+      "command": "pnpm build",
+      "exitCode": 0,
+      "durationSeconds": 3.067,
+      "result": "pass"
+    },
+    {
+      "command": "pnpm --filter @egohygiene/docs build",
+      "exitCode": 0,
+      "durationSeconds": 1.157,
+      "result": "pass"
+    },
+    {
+      "command": "pnpm --filter @egohygiene/playground build",
+      "exitCode": 0,
+      "durationSeconds": 1.047,
+      "result": "pass"
+    },
+    {
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/a49-production-artifact.json",
+      "result": "fail-existing-budget-categories",
+      "exitCode": 1,
+      "findings": 3,
+      "evidence": "artifact-summary.json",
+      "invocationNote": "An initial output outside the script-owned directory was rejected before inspection; the corrected command above ran normally."
+    }
+  ],
+  "compiledCssArtifacts": {
+    "egohygiene.io": {
+      "regularFiles": 44,
+      "linkedCss": [
+        {
+          "path": "assets/index-BAJqdTmU.css",
+          "bytes": 50776,
+          "sha256": "f2a149a55e1d92131c34fe703393b61f020bdf19fe60bc8001057b898790584f"
+        }
+      ],
+      "scope": "Emitted entry CSS exists and includes shared action/motion declarations; not browser cascade or rendered proof."
+    },
+    "docs": {
+      "regularFiles": 11,
+      "linkedCss": [
+        {
+          "path": "assets/index-B7wKhW72.css",
+          "bytes": 7874,
+          "sha256": "e428e0b801b06ea2b7665d18d890c5b4c7d4dc1ed2afde8c9622140e4a6fd094"
+        }
+      ],
+      "scope": "Emitted entry CSS exists and includes shared action/motion declarations; not browser cascade or rendered proof."
+    },
+    "playground": {
+      "regularFiles": 11,
+      "linkedCss": [
+        {
+          "path": "assets/index-DgAluiwM.css",
+          "bytes": 7364,
+          "sha256": "fb61293bc107efac032f924a80ce67baec46d4df3f1275e011f215e34b594a85"
+        }
+      ],
+      "scope": "Emitted entry CSS exists and includes shared action/motion declarations; not browser cascade or rendered proof."
+    }
+  },
+  "sourceContrast": {
+    "actionLightDark": 7.107125237726438,
+    "actionHighContrast": 14.875009846765208,
+    "browserComputed": false,
+    "baseline": "source-baseline.json"
+  },
+  "hosted": {
+    "sourceCommit": "de42f5ed5fbeeeb2456cfd380177898f7afb9048",
+    "result": "failure",
+    "runs": [
+      {
+        "id": 40227707743,
+        "name": "CI",
+        "conclusion": "failure"
+      },
+      {
+        "id": 40227707737,
+        "name": "Dependency review",
+        "conclusion": "failure"
+      },
+      {
+        "id": 40227708014,
+        "name": "CodeQL",
+        "conclusion": "failure"
+      }
+    ],
+    "manualDispatch": false,
+    "gateChanged": false,
+    "newDiagnosisOrRepair": false
+  },
+  "remainingAcceptance": [
+    "Fresh A computed colors/motion on home/ecosystem/store and six information pages across themes.",
+    "Execute production and shared-only playground journeys on the final Mac pass; #52 must include playground/docs profiles.",
+    "Native browser zoom, wider engines/physical devices, screen-reader announcements and manual contrast/focus review.",
+    "Docs active-navigation source composition has analytical evidence; actual rendered gradient positions need visual/browser review.",
+    "Source ratio checks cover flat declared pairs; forced-colors assertions are retained definitions, not measured system-color outcomes.",
+    "Existing artifact document/raw+gzip and total-raw budgets remain failing; not production qualification."
+  ],
+  "testTotals": {
+    "focusedTestsPassed": 52,
+    "newBrowserDefinitions": 10,
+    "browserTestsExecuted": 0
+  },
+  "independentReview": {
+    "source": "No blocking shared CSS/token issue found; existing #37 repairs preserved.",
+    "limits": "Generic explicit forced-color palette can be outranked by more-specific store/nested-spinner selectors; automatic system-color adjustment remains enabled.",
+    "browserDefinitions": "Read-only review at exact B verified six page selectors/names, feedback descriptions, Tab/reverse Tab flows, shared theme/style assumptions and retained forced-color/motion expectations; no blocker. No execution."
+  },
+  "evidenceHashes": {
+    "source-baseline.json": "42d14b9ee527bccb0834e8f3a15d31750ffc657989b595c61e13481adb924861",
+    "artifact-summary.json": "585a60ad217ed37e8799ec6c012c2a649ea1b4b3f92750e454460ca0c09f5fca"
+  }
+}

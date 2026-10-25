@@ -1,6 +1,22 @@
 # Store launch roadmap and milestone history
 
-## Current store-repository preservation detour — 2026-10-25
+## Current shared accessibility delivery — 2026-10-25
+
+[#49 / draft #102](https://github.com/egohygiene/egohygiene.io/pull/102) applies the
+existing theme/UI architecture to readable action text, semantic focus, docs
+selected navigation and shared motion enforcement. [Receipt](../design/shared-accessibility-49.md)
+pins B `de42f5ed5fbeeeb2456cfd380177898f7afb9048` and local C evidence:52 focused
+tests, affected types and three fresh builds pass. Ten added browser definitions
+are retained; zero executed. A computed-browser/C actual acceptance stays open
+for final #37/#70, with playground/docs profile inclusion under #52.
+
+Source hosted gates fail; the same three document/total artifact budget categories
+remain. No gate/ceiling changed. Draft #102 is stacked on #101, previous drafts
+unmerged. Next after sync: **#53** (Storybook/standalone styles), then #56/#59/#92/
+#52/#29/#57/#70/#37. Later environment/construction-preview and real products stay
+in their approved order. #100 C retirement remains open; no merge or deletion.
+
+## Prior store-repository preservation detour — 2026-10-25
 
 Alan requested migration of useful `egohygiene/store` material before removing
 the separate repo. [#100](https://github.com/egohygiene/egohygiene.io/issues/100)

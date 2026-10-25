@@ -8,14 +8,17 @@ or provider-activation authority.
 
 ## Current shared accessibility #49 — 2026-10-25
 
-Alan authorized #49. Read [the repair contract](docs/design/shared-accessibility-49.md)
-and current-state/provenance. Reuse #37's existing fixes; repair remaining shared
-primary/action text, docs active-navigation contrast, semantic focus and shared
-motion enforcement. A is source inventory; fresh computed-browser acceptance is
-explicitly deferred to the final Mac pass. Save the checkpoint before B. Branch
-`fix/shared-accessibility-49` is based on unmerged #101. No merge or activation.
+Alan authorized #49. [Draft #102](https://github.com/egohygiene/egohygiene.io/pull/102)
+is stacked on unmerged #101. Read [the receipt](docs/design/shared-accessibility-49.md),
+[verification](docs/design/reviews/shared-accessibility-49/verification.json), current-state
+and provenance. B repairs shared action/focus/motion and docs active-link contrast,
+reusing #37 fixes. 52 focused tests, types and three fresh builds pass; ten added
+browser definitions are retained, zero executed. A computed-browser/C manual
+acceptance remains open for the final Mac pass. Source hosted gates and the same
+three artifact budget categories fail; no gates changed. Sync, then #53. No merge,
+retirement, deployment or provider activation. #100 C remains separate/open.
 
-## Current standalone store preservation — 2026-10-25
+## Prior standalone store preservation — 2026-10-25
 
 Alan requested migration of useful `egohygiene/store` material before removing it.
 [#100](https://github.com/egohygiene/egohygiene.io/issues/100) owns the detour on

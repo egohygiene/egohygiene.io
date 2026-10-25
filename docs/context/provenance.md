@@ -5,6 +5,36 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Shared accessibility #49 local checkpoint C — 2026-10-25
+
+B `de42f5ed5fbeeeb2456cfd380177898f7afb9048`, tree
+`a29cd7707e62b0a08ca4ec73c169283fb1cf8cb3`, was published with a lease-checked
+branch update after A. The published tree matched staging; fresh website/docs/
+playground builds and artifact inspection ran on clean fetched source. This C
+commit changes only documentation/evidence. Prior branches/main remain unchanged.
+
+[Receipt](../design/shared-accessibility-49.md) and [verification](../design/reviews/shared-accessibility-49/verification.json)
+retain 52 focused test passes, affected type/workspace/scoped checks and emitted
+CSS hashes for all three apps. Source-color calculations explicitly exclude
+browser/cascade proof. Six intentional important-style lint warnings remain;
+no rule suppressed or unsafe fix applied. Ten browser definitions are added:
+38 production accessibility and 5 playground cases discovered total, zero executed.
+Independent CSS/token and browser-definition reviews found no blocker.
+
+Normal artifact check covers44 files/202 references and preserves public artwork;
+three existing budget categories fail:document raw 317,615>20,000, document
+gzip 85,673>10,000 and total raw 1,287,727>1,140,000. CSS remains within its limits.
+Source hosted CI 40227707743, dependency 40227707737 and CodeQL 40227708014 failed;
+no new diagnosis, dispatch or gate change. The initial artifact-output path was
+rejected by the script's directory guard; corrected invocation ran normally.
+
+B implemented/local C evidence delivered in draft #102. A computed-browser and
+C actual keyboard/rendering/native-zoom/screen-reader acceptance remain open for
+#37/#70; #52 owns permanent playground/docs profile consolidation. Updated context,
+ADR 0003 refinement and roadmap for AI resumption. Next sync, then #53. #100 C
+retirement remains separate/open. No merge, deletion, deployment, product/provider
+activation, private records or paid service.
+
 ## Shared accessibility #49 checkpoint B — 2026-10-25
 
 A source inventory/contract was saved first at
@@ -18,7 +48,7 @@ No tokens/generated files/dependencies/catalog/routes/provider settings changed.
 
 Independent source review found no blocker. Source ratio tests are intentionally
 limited to declared hex/token colors, not a CSS engine or browser measurement.
-35 UI/theme/gallery tests,13 ratio tests and4 site/docs semantic tests pass.
+35 UI/theme/gallery tests, 13 ratio tests and 4 site/docs semantic tests pass.
 Affected package/app types, browser definitions, workspace/exports/messages/domain
 checks and scoped formatting pass. Six intentional `noImportantStyles` warnings
 remain for the shared reduced-motion override, without suppression. Ten browser

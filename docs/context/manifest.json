@@ -49,5 +49,7 @@
   "sharedMarkdownEvidence": "docs/design/reviews/content-markdown-50/verification.json",
   "storeRetirementHandoff": "docs/migration/store-retirement/README.md",
   "storeRetirementManifest": "docs/migration/store-retirement/manifest.json",
-  "storeRetirementDecision": "docs/architecture/decisions/0014-standalone-store-retirement.md"
+  "storeRetirementDecision": "docs/architecture/decisions/0014-standalone-store-retirement.md",
+  "sharedAccessibilityReview": "docs/design/shared-accessibility-49.md",
+  "sharedAccessibilityEvidence": "docs/design/reviews/shared-accessibility-49/verification.json"
 }

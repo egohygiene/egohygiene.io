@@ -6,7 +6,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
-| Current shared accessibility | [#49 repair contract](../design/shared-accessibility-49.md); source A saved before implementation, computed/browser acceptance deferred, reuses #37 |
+| Current shared accessibility | [#49 receipt](../design/shared-accessibility-49.md) and [source-bound evidence](../design/reviews/shared-accessibility-49/verification.json); draft #102 on #101, 52 focused tests/three builds pass; B implemented, A/C browser acceptance deferred, #53 next |
 | Prior standalone store preservation | [#100 handoff](../migration/store-retirement/README.md), [all 16 issue dispositions](../migration/store-retirement/backlog.md), [recovery evidence](../migration/store-retirement/verification.json) and [ADR 0014](../architecture/decisions/0014-standalone-store-retirement.md); source remains intact pending integration/wiki/platform-state review, #49 next functional work |
 | Prior shared Markdown checkpoint | [#50 contract and delivery receipt](../design/content-markdown-50.md), [ADR 0013](../architecture/decisions/0013-shared-safe-markdown.md); draft #99 on #98, shared parser/React/HTML contract, 64 focused tests and [source-bound C evidence](../design/reviews/content-markdown-50/verification.json); Chromium deferred, #49 next |
 | Prior ecosystem navigation checkpoint | [#60 destination contract, implementation and local evidence](../design/ecosystem-links-60.md); draft #98 on #95, seven local card links, separate repositories, 81 focused tests; C browser acceptance remains; #50 is linked above |

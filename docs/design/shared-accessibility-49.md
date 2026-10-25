@@ -91,6 +91,46 @@ After this bounded implementation, sync before #53. #100 C source-repository
 retirement remains separate and open. No merge, deletion, deployment, purchase,
 provider activation or paid service is part of #49.
 
+## C — Local delivery receipt
+
+Tested B source: `de42f5ed5fbeeeb2456cfd380177898f7afb9048`, tree
+`a29cd7707e62b0a08ca4ec73c169283fb1cf8cb3`. [Verification](reviews/shared-accessibility-49/verification.json)
+records exact commands, scope and artifacts. Published/local staged trees matched;
+fresh builds ran after fetching B into a clean checkout. This follow-up changes
+documentation/evidence only.
+
+| Check | Result |
+| --- | --- |
+| UI/theme/gallery, declared-color contracts, site/docs semantics | 52 pass across 9 files; no rendered CSS claim |
+| Five affected package/app types, browser and source-test types | Pass; temporary playground profile is recorded for #52 |
+| Workspace/exports/messages/cycles/domain checks | Pass; existing module-type warnings retained |
+| Scoped Biome | No errors; six deliberate `!important` warnings, no suppression |
+| Website, docs and playground fresh builds | Pass; 26 website pages/10 sitemap entries, 44/11/11 regular output files |
+| Emitted entry CSS references and shared declarations | Pass for all three builds; hashes retained |
+| Existing production accessibility definitions | 38 discovered, including six added; zero executed |
+| Shared-only playground definitions | Five discovered, including four added; zero executed |
+| Normal artifact qualifier | 44 files/202 references; three existing budget categories fail |
+
+[Artifact summary](reviews/shared-accessibility-49/artifact-summary.json) retains
+per-file hashes and limits. Documents: 317,615/20,000 raw bytes and 85,673/10,000 gzip;
+total: 1,287,727/1,140,000 raw. CSS is 50,776/60,000 raw and 9,895/12,000 gzip and passes.
+Public artwork identity and targeted fixture/private-marker checks pass. This is a
+bounded artifact scanner, not a complete security or deployment review.
+
+Source hosted [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/40227707743),
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/40227707737)
+and [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/40227708014)
+all failed. No workflow was manually dispatched or gate changed; no new diagnosis
+or fix is claimed. Local passes do not establish hosted or production readiness.
+
+Independent source and browser-definition review found no blocking mismatch.
+**B is implemented; A's fresh computed-browser inventory and C's browser/manual
+acceptance stay open.** #49 remains open in draft. The existing #37/#70 pass must
+execute both production and shared-only playground cases; #52 owns permanent
+compiler/profile inclusion (including docs). Next functional issue after sync is
+#53: Storybook and standalone consumers loading declared styles. Source repository
+retirement under #100 C remains separate and incomplete.
+
 ## Baseline and evidence
 
 [Source baseline](reviews/shared-accessibility-49/source-baseline.json) contains
