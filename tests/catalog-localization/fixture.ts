@@ -21,6 +21,7 @@ export async function createCatalogLocalizationFixture() {
     for (const { source, value } of inputs.sources) {
       await writeFile(join(fixture.directory, source), `${JSON.stringify(value, null, 2)}\n`);
     }
+    await writeFile(fixture.routesFile, `${JSON.stringify(inputs.routes, null, 2)}\n`);
     const catalog = toPublicStoreCatalog(
       await loadCatalog(fixture.directory, inputs.routes, fixture.publicDirectory, fixture.curationFile),
     );

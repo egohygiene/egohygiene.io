@@ -1,3 +1,4 @@
+import { qualifySyntheticRoute } from "../../../../../tests/store/fixtures/readiness.ts";
 import { createLocaleRegistry } from "@egohygiene/i18n";
 import type { StoreCatalog, StoreProduct, StoreTranslatedText } from "@egohygiene/schemas";
 import { emptyStorefrontCuration, parseStoreCatalog } from "@egohygiene/schemas";
@@ -16,7 +17,7 @@ import {
 } from "./StorePages";
 
 const fixture = vi.hoisted(() => ({
-  catalog: { schemaVersion: 2, entries: [], checkoutRoutes: [] } as StoreCatalog,
+  catalog: { schemaVersion: 3, entries: [], checkoutRoutes: [] } as StoreCatalog,
 }));
 vi.mock("../../content/store", () => ({
   get storeCatalog() {
@@ -64,7 +65,7 @@ const reviewed = (
   },
 });
 const base = (id: string, title: string) => ({
-  schemaVersion: 2,
+  schemaVersion: 3,
   sourceLocale: "en",
   id,
   slug: id,
@@ -190,7 +191,7 @@ function loadFixture(purchase: StoreProduct["purchase"] = livePurchase) {
     entries.map((value) => ({ source: value.id, value })),
     purchase.state === "live"
       ? [
-          {
+          qualifySyntheticRoute({
             id: "route-localized",
             provider: "fourthwall",
             productId: "product-original",
@@ -200,7 +201,7 @@ function loadFixture(purchase: StoreProduct["purchase"] = livePurchase) {
               { designId: "design-first", revision: 1 },
               { designId: "design-second", revision: 2 },
             ],
-          },
+          }, entries.find((entry) => entry.id === "product-original"), entries.filter((entry) => entry.kind === "design")),
         ]
       : [],
   );

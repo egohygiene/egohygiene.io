@@ -15,6 +15,7 @@ import { NotFoundPage } from "../pages/NotFoundPage";
 import { PrivacyPage } from "../pages/PrivacyPage";
 import { ProductPage } from "../pages/ProductPage";
 import { RouteErrorPage } from "../pages/RouteErrorPage";
+import { StoreHelpPage } from "../pages/StoreHelpPage";
 import { StorePage } from "../pages/StorePage";
 import { TermsPage } from "../pages/TermsPage";
 
@@ -55,6 +56,7 @@ export const router = createBrowserRouter([
       { path: "privacy", element: <PrivacyPage /> },
       { path: "terms", element: <TermsPage /> },
       { path: "store", element: <StorePage /> },
+      { path: "store/help", element: <StoreHelpPage /> },
       { path: "store/incompris", element: <IncomprisPage /> },
       { path: "store/incompris/artists/:artistSlug", element: <StoreArtistPage /> },
       { path: "store/catalog", element: <StoreCatalogPage /> },

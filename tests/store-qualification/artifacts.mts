@@ -27,6 +27,16 @@ export const LOCAL_REVIEW_BUDGETS: Record<AssetKind | "total", Size> = {
 
 export const EXCLUDED_MARKERS: Marker[] = [
   {
+    label: "synthetic readiness evidence",
+    marker: "test-only-synthetic-evidence",
+    source: "tests/store/fixtures/readiness.ts",
+  },
+  {
+    label: "synthetic customer support",
+    marker: "support.example.invalid/synthetic-store",
+    source: "tests/store/fixtures/readiness.ts",
+  },
+  {
     label: "catalog language fixture",
     marker: "test-localization-65c",
     source: "tests/catalog-localization/constants.ts",

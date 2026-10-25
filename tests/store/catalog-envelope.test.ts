@@ -9,16 +9,16 @@ import {
   storeCatalogSchema,
   toPublicStoreCatalog,
 } from "../../packages/schemas/src/store.ts";
+import { qualifySyntheticRoute, SYNTHETIC_STORE_DISCLOSURES } from "./fixtures/readiness.ts";
 
 function liveCatalog(): StoreCatalog {
   const common = {
-    schemaVersion: 2,
+    schemaVersion: 3,
     sourceLocale: "en",
     description: "Fictional envelope fixture",
     visibility: "public",
   };
-  return parseStoreCatalog(
-    [
+  const sources = [
       {
         source: "design.json",
         value: {
@@ -50,16 +50,16 @@ function liveCatalog(): StoreCatalog {
           },
         },
       },
-    ],
-    [
-      {
+    ];
+  return parseStoreCatalog(sources, [
+      qualifySyntheticRoute({
         id: "route-envelope",
         provider: "fourthwall",
         productId: "product-envelope",
         checkoutUrl: "https://fixture.fourthwall.com/products/envelope",
         providerVariantIds: ["provider-small"],
         artworkRevisions: [{ designId: "design-envelope", revision: 1 }],
-      },
+      }, sources[1]?.value, [sources[0]?.value]),
     ],
   );
 }
@@ -68,7 +68,7 @@ const project = (value: unknown) => toPublicStoreCatalog(value as StoreCatalog);
 const action = (value: unknown) =>
   getStorePurchaseAction(value as StoreCatalog, "product-envelope");
 
-test("current version 2 envelopes preserve identities, defaults and reviewed actions without mutation", () => {
+test("current version 3 envelopes preserve identities, defaults and reviewed actions without mutation", () => {
   const catalog = liveCatalog();
   const before = JSON.stringify(catalog);
   assert.deepEqual(storeCatalogSchema.parse(catalog), catalog);
@@ -77,18 +77,19 @@ test("current version 2 envelopes preserve identities, defaults and reviewed act
     kind: "external",
     label: "Shop on Fourthwall",
     href: "https://fixture.fourthwall.com/products/envelope",
+    disclosures: SYNTHETIC_STORE_DISCLOSURES,
   });
   assert.equal(JSON.stringify(catalog), before);
   assert.deepEqual(catalog.entries[0]?.kind === "design" && catalog.entries[0].contextIds, []);
-  assert.deepEqual(project({ schemaVersion: 2, entries: [], checkoutRoutes: [] }), {
-    schemaVersion: 2,
+  assert.deepEqual(project({ schemaVersion: 3, entries: [], checkoutRoutes: [] }), {
+    schemaVersion: 3,
     entries: [],
     checkoutRoutes: [],
   });
 });
 
 test("publication and live actions reject unsupported, missing and mistyped envelope versions", () => {
-  for (const schemaVersion of [1, 99, undefined, "2", null]) {
+  for (const schemaVersion of [1, 2, 99, undefined, "3", null]) {
     const catalog = { ...liveCatalog(), schemaVersion };
     for (const boundary of [project, action]) {
       assert.throws(
@@ -126,7 +127,7 @@ test("the envelope requires entry and route arrays with valid record shapes", ()
 test("invalid drafts still block projection and live actions before they can be filtered out", () => {
   const catalog = liveCatalog();
   const validDraft = {
-    schemaVersion: 2,
+    schemaVersion: 3,
     sourceLocale: "en",
     id: "product-draft",
     slug: "draft",

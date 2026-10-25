@@ -22,11 +22,11 @@ import { StoreArtistPage } from "./StoreArtistPage";
 import { IncomprisPage } from "./StorefrontPages";
 
 const fixtureCatalog: StoreCatalog = {
-  schemaVersion: 2,
+  schemaVersion: 3,
   checkoutRoutes: [],
   entries: [
     {
-      schemaVersion: 2,
+      schemaVersion: 3,
       sourceLocale: "en",
       translations: [],
       attribution: { status: "unknown" },
@@ -39,7 +39,7 @@ const fixtureCatalog: StoreCatalog = {
       visibility: "public",
     },
     {
-      schemaVersion: 2,
+      schemaVersion: 3,
       sourceLocale: "en",
       translations: [],
       attribution: { status: "unknown" },
@@ -52,7 +52,7 @@ const fixtureCatalog: StoreCatalog = {
       visibility: "public",
     },
     {
-      schemaVersion: 2,
+      schemaVersion: 3,
       sourceLocale: "en",
       translations: [],
       attribution: { status: "unknown" },
@@ -67,7 +67,7 @@ const fixtureCatalog: StoreCatalog = {
       artwork: { kind: "placeholder", label: "Test artwork" },
     },
     {
-      schemaVersion: 2,
+      schemaVersion: 3,
       sourceLocale: "en",
       translations: [],
       attribution: { status: "unknown" },
@@ -82,7 +82,7 @@ const fixtureCatalog: StoreCatalog = {
       purchase: { state: "preview" },
     },
     {
-      schemaVersion: 2,
+      schemaVersion: 3,
       sourceLocale: "en",
       translations: [],
       attribution: { status: "unknown" },
@@ -97,7 +97,7 @@ const fixtureCatalog: StoreCatalog = {
       purchase: { state: "preview" },
     },
     {
-      schemaVersion: 2,
+      schemaVersion: 3,
       sourceLocale: "en",
       translations: [],
       attribution: { status: "unknown" },
@@ -112,7 +112,7 @@ const fixtureCatalog: StoreCatalog = {
       contextIds: ["artist-test", "song-test"],
     },
     {
-      schemaVersion: 2,
+      schemaVersion: 3,
       sourceLocale: "en",
       translations: [],
       attribution: { status: "unknown" },

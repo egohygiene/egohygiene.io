@@ -4,7 +4,7 @@
   "title": "Static Bloom",
   "description": "Fictional song used to demonstrate optional connections between music, designs, and products. This is not a real release.",
   "visibility": "public",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "translations": [],
   "attribution": {

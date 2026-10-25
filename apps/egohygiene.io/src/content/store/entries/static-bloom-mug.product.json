@@ -4,7 +4,7 @@
   "title": "Static Bloom Mug",
   "description": "Fictional mug preview featuring the demo song artwork. Materials, price, and fulfillment have not been selected.",
   "visibility": "public",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "sourceLocale": "en",
   "translations": [],
   "attribution": {

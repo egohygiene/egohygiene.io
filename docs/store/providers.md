@@ -43,8 +43,8 @@ The existing purchase contract remains separate in [`store.ts`](../../packages/s
 
 1. Select a product and a particular channel. Recheck eligibility, current costs, customer support, returns, shipping destinations, and who pays fulfillment charges.
 2. Complete account, payout, and product setup with the owner. Use approved artwork and real variants; keep production masters and account details private.
-3. For the supported Fourthwall path, add the verified product route, artwork revision approvals, and variant mapping. For another provider, first implement and test its narrow hosted-link contract and destination policy.
-4. Add an explicit provider activation contract when the first channel is actually ready. Keep unsupported channels disabled. Test the resulting purchase action before changing product state to `live`.
+3. For the supported Fourthwall path, add the verified product route, artwork revision approvals, variant mapping and reviewed customer policy/support destinations. For another provider, first implement and test its narrow hosted-link contract and destination policy.
+4. Use the catalog v3 reviewed qualification contract described in [product readiness](product-readiness.md) and [ADR 0011](../architecture/decisions/0011-reviewed-product-readiness.md). Review its exact snapshot and public-safe evidence references; research placeholders do not activate it. Keep unsupported channels disabled and test the resulting purchase action.
 5. Check the actual hosted destination and shipping/price disclosure. Any paid proof order needs an agreed budget. Product publication and SoundCloud linkage are later launch steps.
 
 Do not model these placeholders as automatic failover or fulfillment routing. Live providers can differ in product construction, sizing, price, artwork templates, shipping, and returns. Changing a product's channel requires review, not a silent retry through another manufacturer.
