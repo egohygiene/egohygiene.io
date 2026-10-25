@@ -1,0 +1,472 @@
+{
+  "capturedAt": "2026-10-25T19:48:24.013Z",
+  "sourceHead": "de42f5ed5fbeeeb2456cfd380177898f7afb9048",
+  "artifactRoot": "apps/egohygiene.io/dist",
+  "result": "fail",
+  "scope": "All emitted paths and selected text formats; hashes and level-9 gzip sizes for every regular file. HTML asset attributes, CSS url(), JS quoted static asset paths, and manifest icons/start_url are resolved locally. No network requests.",
+  "limits": [
+    "Targeted common credential signatures and private-source path checks, not a comprehensive secret or binary metadata audit.",
+    "Computed URLs and browser/deployed-host behavior require journey checks; this scanner does not execute application code.",
+    "Size ceilings are provisional local review regression limits, not maintainer-agreed performance budgets or measured user experience.",
+    "External resource references are inventoried by protocol only, not fetched or qualified."
+  ],
+  "budgetStatus": "provisional-local-review",
+  "gzip": {
+    "level": 9,
+    "meaning": "Sum of separately compressed file bytes; not a server compression or network timing measurement."
+  },
+  "publicImageExactMatch": true,
+  "sizes": {
+    "javascript": {
+      "bytes": 480909,
+      "gzipBytes": 139154,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 150000
+      },
+      "result": "pass"
+    },
+    "css": {
+      "bytes": 50776,
+      "gzipBytes": 9895,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 12000
+      },
+      "result": "pass"
+    },
+    "images": {
+      "bytes": 391855,
+      "gzipBytes": 387352,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 500000
+      },
+      "result": "pass"
+    },
+    "fonts": {
+      "bytes": 46572,
+      "gzipBytes": 46531,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 50000
+      },
+      "result": "pass"
+    },
+    "documents": {
+      "bytes": 317615,
+      "gzipBytes": 85673,
+      "limit": {
+        "bytes": 20000,
+        "gzipBytes": 10000
+      },
+      "result": "fail"
+    },
+    "total": {
+      "bytes": 1287727,
+      "gzipBytes": 668605,
+      "limit": {
+        "bytes": 1140000,
+        "gzipBytes": 722000
+      },
+      "result": "fail"
+    }
+  },
+  "findings": [
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "bytes: 317615 exceeds 20000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "gzipBytes: 85673 exceeds 10000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "total",
+      "detail": "bytes: 1287727 exceeds 1140000."
+    }
+  ],
+  "fileCount": 44,
+  "referenceCount": 202,
+  "files": [
+    {
+      "path": "404.html",
+      "kind": "documents",
+      "bytes": 6035,
+      "gzipBytes": 1968,
+      "sha256": "0547c6fc02692e62035361dea1dd0fc780e531d8fcbac93ac9db82456660c2c2"
+    },
+    {
+      "path": "about/index.html",
+      "kind": "documents",
+      "bytes": 6686,
+      "gzipBytes": 2219,
+      "sha256": "1ba29314d969e9d18c3fd434d09f968c1c910cb7e0a2d91b0fd5cc0fc306b7b4"
+    },
+    {
+      "path": "accessibility/index.html",
+      "kind": "documents",
+      "bytes": 7968,
+      "gzipBytes": 2634,
+      "sha256": "e2f1b688edde7429a6d350863fcdb56427035b3265be98a2b78e70fe2ca818cd"
+    },
+    {
+      "path": "aether/index.html",
+      "kind": "documents",
+      "bytes": 6497,
+      "gzipBytes": 2096,
+      "sha256": "5eb5774ca93d78ca99d3f8eadb17d1649f331be4e8cdd037b1c3b3ed8e789377"
+    },
+    {
+      "path": "assets/index-BAJqdTmU.css",
+      "kind": "css",
+      "bytes": 50776,
+      "gzipBytes": 9895,
+      "sha256": "f2a149a55e1d92131c34fe703393b61f020bdf19fe60bc8001057b898790584f"
+    },
+    {
+      "path": "assets/index-DGtQ5CMK.js",
+      "kind": "javascript",
+      "bytes": 480909,
+      "gzipBytes": 139154,
+      "sha256": "b75bffe07e4757f0d03c7781b6c2736d7ba6ddda02c19bb61b5700834a759f7a"
+    },
+    {
+      "path": "CNAME",
+      "kind": "documents",
+      "bytes": 14,
+      "gzipBytes": 34,
+      "sha256": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12"
+    },
+    {
+      "path": "ecosystem/index.html",
+      "kind": "documents",
+      "bytes": 9277,
+      "gzipBytes": 2621,
+      "sha256": "97ab634c2d749ce103852f020ca6bd39d4a3ad8579edef98ce6adc5a1df215e9"
+    },
+    {
+      "path": "egolint/index.html",
+      "kind": "documents",
+      "bytes": 6468,
+      "gzipBytes": 2099,
+      "sha256": "b9f6d15dd490fbb927711f58d03771b426a6114673b6c1219c9c88d20dc51c8b"
+    },
+    {
+      "path": "favicon.ico",
+      "kind": "images",
+      "bytes": 15086,
+      "gzipBytes": 11232,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "favicon.png",
+      "kind": "images",
+      "bytes": 3008,
+      "gzipBytes": 3031,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "fonts/atkinson-bold.woff",
+      "kind": "fonts",
+      "bytes": 23780,
+      "gzipBytes": 23749,
+      "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623"
+    },
+    {
+      "path": "fonts/atkinson-regular.woff",
+      "kind": "fonts",
+      "bytes": 22792,
+      "gzipBytes": 22782,
+      "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b"
+    },
+    {
+      "path": "help/index.html",
+      "kind": "documents",
+      "bytes": 8527,
+      "gzipBytes": 2788,
+      "sha256": "00d603f48b183348b38b1b2e3c993215890de013b11519173fc63a9b16f520c9"
+    },
+    {
+      "path": "icons/apple-touch-icon.png",
+      "kind": "images",
+      "bytes": 33687,
+      "gzipBytes": 33720,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "icons/icon-192x192.png",
+      "kind": "images",
+      "bytes": 36806,
+      "gzipBytes": 36839,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "icons/icon-512x512.png",
+      "kind": "images",
+      "bytes": 161290,
+      "gzipBytes": 160949,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "icons/NOTICE.txt",
+      "kind": "documents",
+      "bytes": 1574,
+      "gzipBytes": 966,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "index.html",
+      "kind": "documents",
+      "bytes": 11211,
+      "gzipBytes": 3436,
+      "sha256": "1f982acb3105ea8321d4dcd3c82855d8c98c034bdca877a4cb64d03962a959f7"
+    },
+    {
+      "path": "llms.txt",
+      "kind": "documents",
+      "bytes": 2398,
+      "gzipBytes": 1029,
+      "sha256": "e60531c2ab30c1e67de2707c83b802a134fc7579acc8468ac3d6e2b968e3e98d"
+    },
+    {
+      "path": "mindcap/index.html",
+      "kind": "documents",
+      "bytes": 6460,
+      "gzipBytes": 2094,
+      "sha256": "a789508ec838cdc93d96b740e55328e98856e430bfce29e71795efa9e0b509ed"
+    },
+    {
+      "path": "mindgarden/index.html",
+      "kind": "documents",
+      "bytes": 6473,
+      "gzipBytes": 2098,
+      "sha256": "012671db11b4c53d701545bc8358faf99729c233d633aa8b46475936e68482b6"
+    },
+    {
+      "path": "privacy/index.html",
+      "kind": "documents",
+      "bytes": 6862,
+      "gzipBytes": 2318,
+      "sha256": "8933e1f1f9797d218688fdeef23f474ac20459f8ff385dffb5ccfead5c837084"
+    },
+    {
+      "path": "public-routes.json",
+      "kind": "documents",
+      "bytes": 9941,
+      "gzipBytes": 2227,
+      "sha256": "4508b476305e238299b1ba55067064daad0c69b43a55c737a4c9a8e4db307ffd"
+    },
+    {
+      "path": "reflector/index.html",
+      "kind": "documents",
+      "bytes": 6446,
+      "gzipBytes": 2095,
+      "sha256": "948f943a090d0f13d07f4ce59bc0f804f95027dc6055cc58c568ecaf1ceed956"
+    },
+    {
+      "path": "renderflow/index.html",
+      "kind": "documents",
+      "bytes": 6481,
+      "gzipBytes": 2095,
+      "sha256": "396d016227ced430dfc6ef59d7c2c6ca98bfc03d5b029533d98734e0605105d5"
+    },
+    {
+      "path": "robots.txt",
+      "kind": "documents",
+      "bytes": 68,
+      "gzipBytes": 84,
+      "sha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+    },
+    {
+      "path": "site.webmanifest",
+      "kind": "documents",
+      "bytes": 473,
+      "gzipBytes": 218,
+      "sha256": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e"
+    },
+    {
+      "path": "sitemap.xml",
+      "kind": "documents",
+      "bytes": 693,
+      "gzipBytes": 221,
+      "sha256": "34cf5b4b5bc8322dc07047268c8715e122a81f2233589e29e7214a97efd7117a"
+    },
+    {
+      "path": "store/catalog/index.html",
+      "kind": "documents",
+      "bytes": 42139,
+      "gzipBytes": 6270,
+      "sha256": "d8bb2ddfcc7b910210ab14288d75cd45d6e8e647fa74d6761342ea194d1224cc"
+    },
+    {
+      "path": "store/collections/static-bloom-collection/index.html",
+      "kind": "documents",
+      "bytes": 17427,
+      "gzipBytes": 3799,
+      "sha256": "163752dc04b56099245d3b0d0b5106493cd68e5373399762b2d49532966166eb"
+    },
+    {
+      "path": "store/designs/heartburst/index.html",
+      "kind": "documents",
+      "bytes": 9354,
+      "gzipBytes": 2750,
+      "sha256": "a1e69032675e9ceb174fcaea081bd79be8d4adb00696e24de37e1c0c6aeed910"
+    },
+    {
+      "path": "store/designs/signal-heart/index.html",
+      "kind": "documents",
+      "bytes": 14060,
+      "gzipBytes": 3682,
+      "sha256": "7cd6d3403da1ab16577b60420954376b7d7ed39cf89ef21d34366d6736880daf"
+    },
+    {
+      "path": "store/designs/static-bloom-artwork/index.html",
+      "kind": "documents",
+      "bytes": 17846,
+      "gzipBytes": 3937,
+      "sha256": "79daa676a1d230448a8e90734a8ac37b227aa9597d59c241689ce171e749ac8e"
+    },
+    {
+      "path": "store/designs/unwritten-realm-cover/index.html",
+      "kind": "documents",
+      "bytes": 13864,
+      "gzipBytes": 3733,
+      "sha256": "2731283431d8a1d147e2cd05467f339e984460865ceafcda567af0e6c2f809a3"
+    },
+    {
+      "path": "store/heartburst/heartburst-light.webp",
+      "kind": "images",
+      "bytes": 141978,
+      "gzipBytes": 141581,
+      "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550"
+    },
+    {
+      "path": "store/help/index.html",
+      "kind": "documents",
+      "bytes": 9716,
+      "gzipBytes": 3209,
+      "sha256": "0f30476a4626cdb459527a8c5e9b15354aef61cf1ccfa0a29ed54d8f0fb56a71"
+    },
+    {
+      "path": "store/incompris/artists/play/index.html",
+      "kind": "documents",
+      "bytes": 8760,
+      "gzipBytes": 2773,
+      "sha256": "625b8fbed459e31ff7c66eb4a8bac8df8e0576e9ae1ae3a5ce722090d9ff3049"
+    },
+    {
+      "path": "store/incompris/index.html",
+      "kind": "documents",
+      "bytes": 9822,
+      "gzipBytes": 3042,
+      "sha256": "8060137806784738b1a49ba8e595a814867ef77086592eb3ba1d80194a144eb7"
+    },
+    {
+      "path": "store/index.html",
+      "kind": "documents",
+      "bytes": 10361,
+      "gzipBytes": 3177,
+      "sha256": "f8e4f7aa789502fa3a0f3a7133c87bb4526170d5bfcd81d570eb9171f2347b96"
+    },
+    {
+      "path": "store/products/signal-heart-hoodie/index.html",
+      "kind": "documents",
+      "bytes": 14458,
+      "gzipBytes": 3798,
+      "sha256": "5637f2f68a351ed0d8b74677ae1ca3dfdee0670f547a26f01b5428d9de85363b"
+    },
+    {
+      "path": "store/products/static-bloom-mug/index.html",
+      "kind": "documents",
+      "bytes": 18420,
+      "gzipBytes": 4086,
+      "sha256": "b0a3f8c641198710e7766acb074226679bcb676caf1b544b7f29fd61dbe56449"
+    },
+    {
+      "path": "store/products/unwritten-realm-comic/index.html",
+      "kind": "documents",
+      "bytes": 14076,
+      "gzipBytes": 3797,
+      "sha256": "5fa6daef5f5078c4343511ebaeb4729966a66529321f62381c9e436dc2242359"
+    },
+    {
+      "path": "terms/index.html",
+      "kind": "documents",
+      "bytes": 6760,
+      "gzipBytes": 2280,
+      "sha256": "26341a1233f63bef6d56ab0ab8e1b6efd8446399fb51cc2cb3dd546fdeb02bcf"
+    }
+  ],
+  "markerChecks": [
+    {
+      "label": "synthetic readiness evidence",
+      "result": "pass"
+    },
+    {
+      "label": "synthetic customer support",
+      "result": "pass"
+    },
+    {
+      "label": "catalog language fixture",
+      "result": "pass"
+    },
+    {
+      "label": "catalog language qualification host",
+      "result": "pass"
+    },
+    {
+      "label": "handoff fixture",
+      "result": "pass"
+    },
+    {
+      "label": "handoff label",
+      "result": "pass"
+    },
+    {
+      "label": "inert destination",
+      "result": "pass"
+    },
+    {
+      "label": "Fourthwall preview route",
+      "result": "pass"
+    },
+    {
+      "label": "artist preview route",
+      "result": "pass"
+    },
+    {
+      "label": "Fourthwall fixture",
+      "result": "pass"
+    },
+    {
+      "label": "artist fixture",
+      "result": "pass"
+    },
+    {
+      "label": "layout host",
+      "result": "pass"
+    },
+    {
+      "label": "synthetic RTL copy",
+      "result": "pass"
+    }
+  ],
+  "positiveControls": [
+    {
+      "marker": "design-heartburst",
+      "result": "pass"
+    },
+    {
+      "marker": "/store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "marker": "product-demo-signal-heart-hoodie",
+      "result": "pass"
+    }
+  ]
+}

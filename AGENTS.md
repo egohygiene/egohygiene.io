@@ -6,7 +6,19 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current standalone store preservation — 2026-10-25
+## Current shared accessibility #49 — 2026-10-25
+
+Alan authorized #49. [Draft #102](https://github.com/egohygiene/egohygiene.io/pull/102)
+is stacked on unmerged #101. Read [the receipt](docs/design/shared-accessibility-49.md),
+[verification](docs/design/reviews/shared-accessibility-49/verification.json), current-state
+and provenance. B repairs shared action/focus/motion and docs active-link contrast,
+reusing #37 fixes. 52 focused tests, types and three fresh builds pass; ten added
+browser definitions are retained, zero executed. A computed-browser/C manual
+acceptance remains open for the final Mac pass. Source hosted gates and the same
+three artifact budget categories fail; no gates changed. Sync, then #53. No merge,
+retirement, deployment or provider activation. #100 C remains separate/open.
+
+## Prior standalone store preservation — 2026-10-25
 
 Alan requested migration of useful `egohygiene/store` material before removing it.
 [#100](https://github.com/egohygiene/egohygiene.io/issues/100) owns the detour on

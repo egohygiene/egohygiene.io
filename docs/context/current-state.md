@@ -1,6 +1,41 @@
 # Current handoff
 
-## Current: standalone store preservation / #100 — 2026-10-25
+## Current: shared accessibility #49 local delivery — 2026-10-25
+
+Alan authorized #49. [Draft #102](https://github.com/egohygiene/egohygiene.io/pull/102),
+branch `fix/shared-accessibility-49`, targets #101's `docs/store-retirement`.
+A was saved first at `d463f3878aa58384823e4d1297313187622e869e`; B source is
+`de42f5ed5fbeeeb2456cfd380177898f7afb9048`, tree
+`a29cd7707e62b0a08ca4ec73c169283fb1cf8cb3`. Published/staged trees matched;
+fresh builds used clean fetched B. This C update changes documentation only.
+Main remains `07d25941ceeefa53089afa025b612c6aa54f36c4`; earlier drafts unchanged.
+
+[Receipt](../design/shared-accessibility-49.md), [verification](../design/reviews/shared-accessibility-49/verification.json)
+and ADR 0003 follow-up record shared semantic action/focus pairs, solid readable
+primary/Orbit labels, ghost/loading foregrounds, docs selected-link text/underline
+and resilient shared reduced-motion enforcement. Existing #37 guards are retained.
+No dependencies, generated tokens, routes/catalog/provider settings changed.
+
+52 focused tests, five affected package/app types, scoped browser/source-test types,
+workspace checks and fresh website/docs/playground builds pass. Ten new browser
+definitions are typechecked/discovered; zero executed. Six deliberate important-
+style lint warnings remain, no suppression. Artifact inspection:44 files/202 refs;
+three existing categories fail (documents 317,615/20,000 raw; 85,673/10,000 gzip;
+total 1,287,727/1,140,000 raw). Source hosted CI 40227707743, dependency 40227707737
+and CodeQL 40227708014 failed. No gate/budget changed or workflow dispatched.
+
+B implementation/local C evidence is ready for review. #49 remains open: A's fresh
+computed-browser inventory and C keyboard/contrast/forced-color/motion/layout,
+native zoom and screen-reader acceptance remain with the final Mac #37/#70 pass.
+#52 must include the independent playground and docs profiles. Source calculations
+and JSDOM checks are not browser evidence or accessibility certification.
+
+Next: sync, then **#53** Storybook/standalone consumer style loading. Remaining
+queue #56/#59/#92/#52/#29/#57/#70/#37 and later environment/real-product phases
+stay unchanged. #100 C remains open; old store intact. No merge, deletion,
+deployment, purchase or product/provider activation.
+
+## Prior: standalone store preservation / #100 — 2026-10-25
 
 After #50, Alan clarified the separate `egohygiene/store` repository and requested
 migration of useful material before removing it. [#100](https://github.com/egohygiene/egohygiene.io/issues/100)

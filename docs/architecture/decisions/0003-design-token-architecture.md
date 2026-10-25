@@ -39,3 +39,16 @@ does not certify that all current CSS already meets that contract.
   keyboard navigation and reduced motion; use existing theme tests and stories.
 - Roll back source token changes and their generated files together. No catalog
   schema migration is required for a visual token change.
+
+## Shared accessibility refinement — 2026-10-25
+
+#49 applies this existing boundary: `--color-action-background` and
+`--color-action-foreground` are a reviewed pair; action text must not assume white
+against every theme accent. `--color-focus` defaults to foreground while explicit
+surface overrides remain possible. Current primary controls use solid fills.
+The shared theme layer enforces reduced-motion durations/delays and automatic
+scrolling even when consuming selectors are more specific; component-level hover
+and spinner guards remain. The preference uses deliberate `!important` declarations
+to outrank ordinary author styles, without opting out of forced-color adjustment.
+[Receipt and remaining browser acceptance](../../design/shared-accessibility-49.md)
+record implementation/evidence; this refinement is not accessibility certification.

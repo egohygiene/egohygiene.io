@@ -7,7 +7,9 @@
   --color-muted: var(--eh-color-muted);
   --color-accent: var(--eh-color-accent);
   --color-border: var(--eh-color-border);
-  --color-focus: var(--eh-color-focus);
+  --color-focus: var(--color-foreground);
+  --color-action-background: var(--eh-color-accentStrong);
+  --color-action-foreground: var(--eh-color-surface);
   --color-success: var(--eh-color-success);
   --color-warning: var(--eh-color-warning);
   --color-danger: var(--eh-color-danger);
@@ -28,12 +30,15 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* A user preference must survive later component selectors and shorthand rules. */
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-    scroll-behavior: auto;
-    transition-duration: 0.01ms;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
   }
 }

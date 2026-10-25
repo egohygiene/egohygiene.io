@@ -28,7 +28,9 @@
 
 .docs-nav a.active {
   background: color-mix(in srgb, var(--color-accent) 18%, transparent);
-  color: var(--color-accent);
+  color: var(--color-foreground);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .docs-prose {
