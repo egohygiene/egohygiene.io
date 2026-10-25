@@ -1,6 +1,23 @@
 # Store launch roadmap and milestone history
 
-## Current #50 local A/B/C checkpoint — 2026-10-25
+## Current store-repository preservation detour — 2026-10-25
+
+Alan requested migration of useful `egohygiene/store` material before removing
+the separate repo. [#100](https://github.com/egohygiene/egohygiene.io/issues/100)
+and [the handoff](../migration/store-retirement/README.md) preserve35 commits,
+28 named refs,111 source files,16 open issue requirements and19 PR records with captured
+discussions. Offline recovery passes; source remains intact pending destination
+integration and wiki/other GitHub state disposition. Async/cart code is inactive
+reference; no competing storefront or new provider activation.
+
+[The individual backlog map](../migration/store-retirement/backlog.md) reuses
+existing owners and keeps optional product/commerce research outside #88's finite
+setup sprint. This detour does not change the functional queue: **#49 remains
+next**, then #53/#56/#59/#92/#52/#29/#57/#70/#37, followed by the already recorded
+environment/construction-preview and real-product phases. No merge or deletion.
+
+
+## Prior #50 local A/B/C checkpoint — 2026-10-25
 
 [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99) is stacked on
 unmerged #98. Source `1a5fbdf67fe11fb865cee1f4f93046513b0df95c` implements one

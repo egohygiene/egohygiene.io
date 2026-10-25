@@ -1,6 +1,45 @@
 # Current handoff
 
-## Current: #50 local A/B/C delivered — 2026-10-25
+## Current: standalone store preservation / #100 — 2026-10-25
+
+After #50, Alan clarified the separate `egohygiene/store` repository and requested
+migration of useful material before removing it. [#100](https://github.com/egohygiene/egohygiene.io/issues/100)
+owns this bounded detour; branch `docs/store-retirement` starts from draft #99 at
+`f901ed6e064f8045eea5d9e1633a43707b96e924`. Main and all prior drafts are unchanged.
+No source repository was deleted/archived, no issue was silently closed, and no
+cart/provider/deployment code was activated. #49 remains next functional work.
+
+Read [the handoff](../migration/store-retirement/README.md),
+[backlog](../migration/store-retirement/backlog.md),
+[verification](../migration/store-retirement/verification.json) and
+[ADR 0014](../architecture/decisions/0014-standalone-store-retirement.md).
+Source main `5786fd40bfe40b0d338eb96087355b98f7e16d42`, tree
+`65404b0dda75c001cc2192125c090c908c3572d4`, has 111 files. Runtime code is unchanged
+from the earlier #75 audit. A 224,880-byte self-contained Git bundle preserves
+35 commits/28 named refs (7 branches,19 PR heads,2 PR merge refs; HEAD also named).
+A compressed public GitHub export retains 16 issue/19 PR records,11 conversation
+comments and captured review activity. Original16 issue bodies/comments are also
+readable in Markdown; each has an existing website owner or distinct deferred
+research disposition. Original MIT notice is preserved; private Incompris sources
+are excluded. Unique async/cart code is recoverable inactive reference only.
+
+Local offline recovery passes: bundle/record checksums, fresh mirror clone/fsck,
+all refs/commits,111 source-file paths/modes/blob IDs/sizes/SHA-256 and license bytes.
+Three negative probes reject corruption/count/digest mismatches. Reachable Git
+blobs contain no LFS pointers/submodule files and no matches for six targeted
+credential patterns; this is not a comprehensive secrets/rights audit. No new
+application/browser/hosted passes are claimed; #50 evidence and prior size/CI gaps
+retain their source-bound limits.
+
+Next: review/integrate the preservation draft, refresh source deltas and complete
+#100 C before retirement. Wiki is enabled but could not be read; its content/state
+is unverified. Settings/projects/integrations/actions and other uncaptured GitHub
+state need explicit disposition. Current GitHub tools do not expose repo deletion/
+archive administration. Do not delete while the destination is draft-only or call
+a Git bundle a complete GitHub service backup. Functional setup then resumes #49,
+with the existing #88 order and later environment/real-product phases unchanged.
+
+## Prior functional checkpoint: #50 local A/B/C delivered — 2026-10-25
 
 Alan authorized all bounded #50 work. [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99)
 on `fix/content-markdown-50` targets #98's `fix/ecosystem-links-60`. A was saved

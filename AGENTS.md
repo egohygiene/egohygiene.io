@@ -6,7 +6,20 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current shared Markdown local A/B/C — 2026-10-25
+## Current standalone store preservation — 2026-10-25
+
+Alan requested migration of useful `egohygiene/store` material before removing it.
+[#100](https://github.com/egohygiene/egohygiene.io/issues/100) owns the detour on
+`docs/store-retirement`, based on unmerged #99. Read [the handoff](docs/migration/store-retirement/README.md),
+[verification](docs/migration/store-retirement/verification.json),
+[ADR 0014](docs/architecture/decisions/0014-standalone-store-retirement.md), current-state
+and provenance. Source/history, original MIT notice and all 16 open issue requirements
+are preserved; unique cart/provider code is inactive reference, not active adoption.
+Offline recovery passes. Source remains intact: destination integration and wiki/
+other platform-state disposition are required before retirement. #49 remains next
+functional setup work. No merge, deletion, deployment or activation was performed.
+
+## Prior shared Markdown local A/B/C — 2026-10-25
 
 Alan selected #50. [Draft #99](https://github.com/egohygiene/egohygiene.io/pull/99)
 is stacked on unmerged #98; A was saved before B. Read [the receipt](docs/design/content-markdown-50.md),
