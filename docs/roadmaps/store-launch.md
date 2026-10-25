@@ -1,6 +1,167 @@
-# Store launch: proposed roadmaps, milestones, and sub-issues
+# Store launch roadmap and milestone history
 
-## Current execution guide — 2026-10-22
+## Approved two-phase arrangement — 2026-10-22
+
+Alan approved this full arrangement, including a controlled refactor/dependency
+upgrade sweep, and requested the planning update before implementation continues.
+It supersedes earlier execution order and M1–M5 proposals below. Historical issues,
+receipts and closed work remain available; reorganization does not complete work.
+
+| Tracker | Ownership |
+| --- | --- |
+| [#84](https://github.com/egohygiene/egohygiene.io/issues/84) | Overall roadmap across both phases; outside either milestone |
+| [#88](https://github.com/egohygiene/egohygiene.io/issues/88) | Setup parent in [milestone 1 — Website/store foundation — ready to onboard products](https://github.com/egohygiene/egohygiene.io/milestone/1) |
+| [#31](https://github.com/egohygiene/egohygiene.io/issues/31) | Actual-product/launch parent in [milestone 2 — Real products and launch](https://github.com/egohygiene/egohygiene.io/milestone/2) |
+| [#47](https://github.com/egohygiene/egohygiene.io/issues/47) | Audit index; outside either milestone |
+
+Five issues are new: #88 setup parent, #89 hosting, #90 website essentials, #91
+current-route rendering, and #92 cleanup/upgrades. The approved allocation covers
+all **50 previously open issues plus these five**: 23 open setup issues including
+#88, four open product/launch issues including #31, and 28 outside the milestones
+(the two cross-phase indexes plus 26 broader backlog issues). Existing closed
+milestone history is retained, not counted as newly completed work.
+
+GitHub readback on 2026-10-22 verified all 55 open issue assignments and native
+parent links. Milestone 1 also retains ten previously closed issues; milestone 2
+has no closed issues. No issue was closed by this reorganization.
+
+### Setup milestone: execution order
+
+Progress 2026-10-22: [#90 checkpoint C](../design/website-essentials-90c.md)
+records the six-route copy review, one narrowed privacy sentence and nine deferred
+browser definitions in draft #94. Local focused checks passed; hosted source runs
+failed; zero C browser journeys executed. Sync on the proposed interim public
+feedback/private-channel disposition; #90 stays open for that review and final
+browser/manual acceptance. #91 A is next in implementation order, not started here.
+
+[Draft #87](https://github.com/egohygiene/egohygiene.io/pull/87)'s readiness code
+is included in #94's working draft; both PRs and #93 remain unmerged into main.
+The existing CI [draft #73](https://github.com/egohygiene/egohygiene.io/pull/73)
+remains for reconciliation under #29. No merge is performed by this planning update.
+
+| Order | Issue | Bounded deliverable |
+| --- | --- | --- |
+| 1 | [#90](https://github.com/egohygiene/egohygiene.io/issues/90) | Website help/contact, story, accessibility information and policy structure; bounded slice of broader #9 |
+| 2 | [#91](https://github.com/egohygiene/egohygiene.io/issues/91) | Useful generated HTML, metadata, canonical URLs and sitemap for current routes; bounded slice of broader #22 |
+| 3 | [#60](https://github.com/egohygiene/egohygiene.io/issues/60) | Ecosystem cards navigate to their actual local pages |
+| 4 | [#50](https://github.com/egohygiene/egohygiene.io/issues/50) | Safe shared content contract and semantic Markdown/docs rendering |
+| 5 | [#49](https://github.com/egohygiene/egohygiene.io/issues/49) | Shared focus, contrast and reduced-motion repair |
+| 6 | [#53](https://github.com/egohygiene/egohygiene.io/issues/53) | Explicit styling contracts in Storybook and standalone components |
+| 7 | [#56](https://github.com/egohygiene/egohygiene.io/issues/56) | Generated-output removal and intentional scaffold disposition |
+| 8 | [#59](https://github.com/egohygiene/egohygiene.io/issues/59) | Licensing declarations and asset provenance based on reviewed decisions |
+| 9 | [#92](https://github.com/egohygiene/egohygiene.io/issues/92) | Bounded code cleanup and justified compatible dependency upgrades |
+| 10 | [#52](https://github.com/egohygiene/egohygiene.io/issues/52) | Explicit compiler/build/test profiles and convenient Taskfile commands |
+| 11 | [#29](https://github.com/egohygiene/egohygiene.io/issues/29) | Local lint/format/CI/CodeQL baseline and reconciliation of draft #73 |
+| 12 | [#57](https://github.com/egohygiene/egohygiene.io/issues/57) | Bounded Docker build context and local static-server qualification |
+| 13 | [#70](https://github.com/egohygiene/egohygiene.io/issues/70) | Responsive, expanded-text, zoom and input-method qualification |
+| 14 | [#37](https://github.com/egohygiene/egohygiene.io/issues/37) | Final integrated local contract/journey/accessibility/regression evidence on Alan's Mac |
+
+Independent fixes can overlap when ownership does not conflict. Every implementation
+still receives focused correctness checks; the full integrated run follows the
+cleanup and tooling work. Use `Taskfile.yml`, `scripts/store-environment.mjs` and
+`scripts/qualify-store.mjs` rather than adding a parallel test orchestrator.
+
+#92's checkpoints are inventory/baseline, small reviewed refactors and compatible
+updates, then before/after verification and documentation. It owns remaining
+concrete duplication, cohesion, types, error handling, unused code and dependency
+review. #50/#53/#56/#52/#29 retain their specific defects. Full lab isolation and
+evaluation (#15/#16), framework migrations, package publication and organization
+platform migrations remain separate programs. A necessary major change receives a
+separate concrete proposal before expanding this sweep.
+
+### Setup milestone: acceptance reconciliation
+
+The following eight open issues join the same milestone and parent #88. Compare
+acceptance with the delivered code/receipts and final checks. Preserve working
+foundations, resolve genuine residual gaps, and close only with evidence.
+
+| Issue | Existing work to reconcile |
+| --- | --- |
+| [#75](https://github.com/egohygiene/egohygiene.io/issues/75) | One authoritative website-owned storefront |
+| [#61](https://github.com/egohygiene/egohygiene.io/issues/61) | Reusable commerce foundation and Fourthwall preview |
+| [#69](https://github.com/egohygiene/egohygiene.io/issues/69) | Architecture boundaries and extension contracts |
+| [#34](https://github.com/egohygiene/egohygiene.io/issues/34) | Catalog schemas, validation and explicit migrations |
+| [#36](https://github.com/egohygiene/egohygiene.io/issues/36) | Catalog/product presentation and truthful purchase states |
+| [#51](https://github.com/egohygiene/egohygiene.io/issues/51) | Safe translation lookup behavior |
+| [#64](https://github.com/egohygiene/egohygiene.io/issues/64) | Interface localization and deferred browser acceptance |
+| [#65](https://github.com/egohygiene/egohygiene.io/issues/65) | Catalog localization and deferred browser acceptance |
+
+**Setup finish line:** the software is ready to onboard real products. Included
+work has evidence-backed acceptance, repeatable local commands and an integrated
+revision checked on Alan's machine. Actual hosted CI outcomes stay distinct from
+local equivalents; unsupported service/configuration blockers remain explicit,
+not passing results. No gates are disabled to close the milestone. Required
+unfinished work stays open or receives an explicit reviewed disposition and owner.
+
+### Real products and launch milestone
+
+| Issue | Remaining work |
+| --- | --- |
+| [#31](https://github.com/egohygiene/egohygiene.io/issues/31) | Coordinate the actual product/provider/host/release phase and preserve Store v1 history |
+| [#38](https://github.com/egohygiene/egohygiene.io/issues/38) | Approve one physical product/artwork combination, qualify the provider, configure variants/pricing/regions/customer policies, and verify actual checkout handoff |
+| [#89](https://github.com/egohygiene/egohygiene.io/issues/89) | Select/configure the actual host, verify deployed routes/assets/canonicals and record rollback |
+| [#39](https://github.com/egohygiene/egohygiene.io/issues/39) | Publish the qualified product/site and verify SoundCloud and the real visitor journey |
+
+#89 receives #29's hosting/deployment obligations and #37's actual-host checks.
+#29 retains CI/local baseline work; #37 retains final software qualification.
+#38/#39 receive actual-provider and released customer-journey acceptance from #37;
+commerce-specific policy facts from #9/#90 are finalized under #38. These are scope
+transfers, not passing evidence. Synthetic handoff, actual provider verification,
+product publishing, deployment, a paid order and physical sample quality remain
+separate actions and evidence levels. No paid CI/hosting prerequisite is introduced.
+
+### Broader backlog outside these milestones
+
+| Issue | Program retained |
+| --- | --- |
+| [#3](https://github.com/egohygiene/egohygiene.io/issues/3) | Product-domain architecture migration |
+| [#5](https://github.com/egohygiene/egohygiene.io/issues/5) | Reusable launch/directory-submission playbook |
+| [#7](https://github.com/egohygiene/egohygiene.io/issues/7) | Federated Mind Garden |
+| [#8](https://github.com/egohygiene/egohygiene.io/issues/8) | Eligible public llms.txt registrations |
+| [#9](https://github.com/egohygiene/egohygiene.io/issues/9) | Organization-wide help/accessibility/story/trust program; #90 owns the bounded setup slice |
+| [#10](https://github.com/egohygiene/egohygiene.io/issues/10) | Product presentation |
+| [#11](https://github.com/egohygiene/egohygiene.io/issues/11) | Blog and RSS |
+| [#12](https://github.com/egohygiene/egohygiene.io/issues/12) | Official social/community channels |
+| [#13](https://github.com/egohygiene/egohygiene.io/issues/13) | Privacy-conscious analytics and sustainability information |
+| [#14](https://github.com/egohygiene/egohygiene.io/issues/14) | Funding/donation/support model |
+| [#15](https://github.com/egohygiene/egohygiene.io/issues/15) | Isolated frontend capability laboratory |
+| [#16](https://github.com/egohygiene/egohygiene.io/issues/16) | Opt-in dependency exploration profile |
+| [#17](https://github.com/egohygiene/egohygiene.io/issues/17) | Organization release-convention adoption |
+| [#18](https://github.com/egohygiene/egohygiene.io/issues/18) | Reusable package stabilization/publication |
+| [#19](https://github.com/egohygiene/egohygiene.io/issues/19) | Reusable consent package |
+| [#20](https://github.com/egohygiene/egohygiene.io/issues/20) | Holon consumer migration |
+| [#21](https://github.com/egohygiene/egohygiene.io/issues/21) | Infrastructure-as-code evaluation |
+| [#22](https://github.com/egohygiene/egohygiene.io/issues/22) | Broader content-first rendering program; #91 owns current-route setup work |
+| [#23](https://github.com/egohygiene/egohygiene.io/issues/23) | Framework-neutral knowledge package |
+| [#24](https://github.com/egohygiene/egohygiene.io/issues/24) | Provenance-aware legacy-code extraction |
+| [#25](https://github.com/egohygiene/egohygiene.io/issues/25) | Experiment lab and promotion lifecycle |
+| [#26](https://github.com/egohygiene/egohygiene.io/issues/26) | Historical ADR backfill and continuous capture |
+| [#27](https://github.com/egohygiene/egohygiene.io/issues/27) | Organization Intelligence control plane |
+| [#28](https://github.com/egohygiene/egohygiene.io/issues/28) | Interactive ecosystem map |
+| [#30](https://github.com/egohygiene/egohygiene.io/issues/30) | Hosted roadmap projections |
+| [#63](https://github.com/egohygiene/egohygiene.io/issues/63) | Additional motion, galleries and immersive interaction |
+
+### Hierarchy and continuity
+
+Verified native hierarchy: #84 has setup #88 and product/launch #31 as its two
+children. #88 has the 14 execution issues and eight reconciliation issues above
+as 22 direct children. #34/#36/#37 moved from #31 to #88; #31 retains closed
+#32/#33/#35 and the three open phase-two children #38/#89/#39. Broader #9/#22
+are linked program owners, not setup blockers. #47 remains a linked audit index.
+Keep one native parent per issue and preserve history when moving it.
+
+Retain one canonical catalog and website-owned storefront, stable URLs/IDs, curated
+artist/song browsing and disabled real purchase defaults. Real .play() selections
+stay intentionally empty; Heartburst display approval is not garment approval.
+Private masters, credentials and business/customer records stay out of public Git.
+
+Next is a sync on the completed planning update, review of #87's integration state,
+then #90 checkpoint A when selected. No application work, tests, dependency updates,
+issue closures, merges, actual provider requests, deployment or spending occur in
+this planning checkpoint. [Current state](../context/current-state.md) and
+[provenance](../context/provenance.md) own the live handoff and verification receipt.
+
+## Historical execution guide — earlier 2026-10-22
 
 Alan authorized and completed the #83 → #85 → #86 merge sequence. Main now contains
 qualification tooling, interface localization, catalog v2/migration and localized

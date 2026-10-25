@@ -5,7 +5,72 @@ subtrees. Follow the current task and existing session authorization. Context
 snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
-## Current readiness checkpoint — 2026-10-22
+## Current website essentials checkpoint C — 2026-10-22
+
+Alan authorized C. [Draft #94](https://github.com/egohygiene/egohygiene.io/pull/94)
+now includes the [six-route copy/review receipt](docs/design/website-essentials-90c.md),
+a narrowed privacy-storage sentence and nine browser definitions retained for the
+final Mac pass. Local focused checks passed; zero C browser journeys executed;
+source hosted CI/dependency review/CodeQL failed. The draft still targets #87.
+
+Next is a sync on C and the concrete contact proposal: keep public GitHub reports
+during setup, with a private accessible alternative tracked in #9 before launch.
+That proposal is not maintainer-approved; #90 stays open for the contact/copy
+disposition and deferred browser/manual acceptance. #91 A is next in the approved
+implementation order, not started here. See current-state/provenance for exact
+revisions and owners. #87/#93/#94/#73 remain unmerged; no activation or deployment.
+
+## Historical website essentials checkpoint B — 2026-10-22
+
+Alan selected continued implementation after A. Help and Accessibility pages,
+locale-aware navigation and consistent public-feedback warnings are implemented
+in [draft #94](https://github.com/egohygiene/egohygiene.io/pull/94), branch
+`docs/website-essentials-90a`, now based on #87's `feat/store-readiness-38`.
+Read the [B receipt](docs/design/website-essentials-90b.md) and current-state for
+exact integration/source revisions. Existing About and provisional policy copy
+remain. Local focused checks passed; source-head hosted workflows failed.
+
+Next is #90 C: copy/contact disposition and bounded review, with browser/manual
+acceptance retained for the final Mac pass. The private-feedback gap remains
+#90/#9; no unknown contact, policy or commerce fact was approved. #87/#93/#94/#73
+remain unmerged; combining draft histories did not change main. No activation,
+deployment or spending occurred. Sync after B before the next checkpoint.
+
+## Historical website essentials checkpoint A — 2026-10-22
+
+Alan selected forward progress after the roadmap update. #90 checkpoint A is
+prepared in the [content/route contract](docs/design/website-essentials-90a.md):
+reuse existing About, provisional Privacy/Terms and #87's Store help; B adds
+general Help and Accessibility using the existing page/locale primitives.
+The document contains concrete proposed copy and named factual-review gaps.
+Public GitHub feedback is not private contact or order support. No new copy has
+been approved or implemented. Next is the A review, then B with the #87 foundation
+integrated into its working draft. #87/#93 and the older #73 remain unmerged.
+Read current-state/provenance for the exact bases, hosted failures and limits.
+
+## Historical roadmap checkpoint — 2026-10-22
+
+Alan approved the two-phase issue/milestone arrangement and requested this planning
+update before implementation continues. Use [roadmap #84](https://github.com/egohygiene/egohygiene.io/issues/84)
+and the [approved issue map](docs/roadmaps/store-launch.md): setup is coordinated
+by [#88](https://github.com/egohygiene/egohygiene.io/issues/88), followed by actual
+products and launch under [#31](https://github.com/egohygiene/egohygiene.io/issues/31).
+The setup queue starts with bounded website essentials #90 and current-route public
+rendering #91, includes the controlled refactor/dependency sweep #92, and ends with
+final #37 qualification on Alan's Mac using existing Taskfile/profile commands.
+#89 owns actual hosting/deployed-route verification; #38/#39 own actual product,
+provider and launch evidence. Broader #9/#22 programs remain outside this sprint.
+
+Read [current state](docs/context/current-state.md) and the
+[provenance ledger](docs/context/provenance.md) before resuming. Readiness/disclosure
+work is in unmerged [draft #87](https://github.com/egohygiene/egohygiene.io/pull/87);
+its catalog v3 contract is not yet on main. Older CI draft #73 also remains open.
+Sync after this reorganization; review #87's integration status before selecting
+#90 checkpoint A. Planning changes do not complete acceptance, merge either draft,
+activate products/providers, deploy or authorize spending. Hosted failures and
+unperformed browser checks remain explicit.
+
+## Historical readiness checkpoint — 2026-10-22
 
 Alan selected #38 readiness and the applicable #9 customer slice after the merge
 sync. It is implemented in [draft #87](https://github.com/egohygiene/egohygiene.io/pull/87),
@@ -49,8 +114,11 @@ authorized merging the planning PRs and beginning the first issue, #75. Read its
 [ADR 0007](docs/architecture/decisions/0007-canonical-storefront-owner.md): the
 accepted direction is one website-owned storefront/build; ownership PRs #76
 and store #34 were merged on 2026-10-17.
-The wider milestone creation/reparenting proposal awaits the next sync. Do not
-mistake the preserved separate-store implementation for a second V1 deployment.
+The earlier wider M1–M5 proposal is historical; the approved two-phase arrangement
+above now owns scheduling. Do not mistake the preserved separate-store
+implementation for a second V1 deployment.
+
+## Historical implementation chronology — through 2026-10-22
 
 The #35 landing/shell checkpoint merged in #77. The subsequent #62 discussion
 approved Ego Hygiene as the primary shop, Incompris as its featured collection,

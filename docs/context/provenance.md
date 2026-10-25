@@ -4,6 +4,189 @@ Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+## Website essentials #90 checkpoint C — 2026-10-22
+
+Authority: Alan explicitly selected C. Refreshed main/open PRs and owning issues;
+main remains `07d25941ceeefa53089afa025b612c6aa54f36c4`. #94 retains branch
+`docs/website-essentials-90a`, based on #87's `feat/store-readiness-38`; all four
+drafts #87/#93/#94/#73 remain unmerged. Existing draft ancestry is unchanged.
+
+Source `4ff01a760399cf0bfc2dff6570ae250d71c2a879`, tree
+`bff27721791af1fb39eacd7fc8dc3d880732f9e3`, parent B continuity
+`b83583887bfdf0950fe83e575708909eed02a3d9`, changes three source/test files.
+Independent copy review found an inherited all-browser-storage guarantee beyond
+the available evidence. Narrowed it to preference persistence; all other page
+copy retained. Expanded the actual-route DOM matrix to all six information pages
+and added nine deferred browser definitions to the existing guarded site suite.
+Independent source/test review found no remaining blocker after that correction.
+
+The [C receipt](../design/website-essentials-90c.md) links the source-bound copy
+review, authored check receipt, original generated artifacts and hosted snapshot.
+Node 24.21.0 / pnpm 11.28.5; app/browser type profiles, locale validation
+(433 messages / 10 namespaces), 54 focused tests / eight files and nine-definition
+discovery passed. The browser follow-up clarified only a runner comment; no
+behavior changed after checks. Published tree matched staging. Normal build and
+scanner ran at clean source: 16 files / 12 references / zero findings, exact
+approved Heartburst bytes, 966,210 raw / 583,455 level-9 gzip bytes. Original UTC
+artifact capture is 2026-10-23T00:04:49.093Z (2026-10-22 in the client timezone).
+
+Zero C browser executions; no screenshot, actual keyboard/layout/AT or full final
+profile pass is claimed. Source CI 39875866505, dependency 39875866514 and CodeQL
+39875866901 failed. No cause was re-diagnosed, workflow manually dispatched or gate
+changed. Local evidence remains separate from hosted and production qualification.
+
+D1 existing purpose copy retained; D2 interim public-feedback/private-channel
+disposition awaits Alan; D3 browser/accessibility proof stays #49/#70/#37; D4
+unknown policy facts retain #9/#59/#38/#89 ownership. C records explicit route
+handoffs to #37/#49/#70/#91/#89 and commerce fact categories to #38, while #9
+retains the private feedback gap. The proposed pre-launch contact arrangement is
+not approved or a reason to close #90. No private material/contact was inferred or
+published. No issue closure, main merge, deployment, activation, provider request,
+order or spending. Next after sync is #91 A; it is not started here.
+
+## Website essentials #90 checkpoint B — 2026-10-22
+
+Authority: Alan selected continued work after A. Implemented the bounded pages
+and navigation, retaining the separate factual/contact review and final browser
+pass. Main was refreshed at `07d25941ceeefa53089afa025b612c6aa54f36c4`.
+
+Draft integration `9f8842553908fb339fa6c43691027a3d98954bac`, tree
+`37c22c29feef57b679e9435205bd12e1b6115ab8`, has ordered parents A
+`a7d5e7062aa62cd09f5cf4299b8591ef04a4ffad` and #87
+`ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6`. AGENTS, context README and
+current-state conflicts were resolved preserving both dated histories; the
+integration diff versus #87 contains seven documentation files only. #94 retains
+branch `docs/website-essentials-90a` and now targets `feat/store-readiness-38`.
+#87/#93/#94/#73 remain unmerged and main unchanged; this is not a PR merge.
+
+Implementation `6f5208d7abcd9882a63f4f157b525f584ce207dd`, tree
+`12d1e3b7312fa0f393cd78d533247632d02dfa88`, changes 13 source/test files for
+Help/Accessibility routes, navigation, locale copy, shared warning/link and focused
+tests. [B receipt](../design/website-essentials-90b.md) links authored check results,
+the original generated artifact report and source-head hosted status. No copied
+artwork, external policy text or private business/customer material was introduced.
+About/privacy/terms copy, dependencies, schemas and real catalog remain unchanged.
+
+Node 24.21.0 / pnpm 11.28.5; frozen offline scripts-disabled preparation reused
+3,770 packages without downloads. One app type profile, 433 English messages /
+10 namespaces, 25 focused tests / six files, normal build and normal-artifact
+scan passed. The first three checks ran before publication on the exact tree
+verified equal to the published source; build/scanner ran at clean source head.
+Scan: 16 files / 12 references / zero findings; 966,182 raw / 583,438 gzip bytes;
+approved Heartburst bytes match. Independent review found no remaining blocker.
+These are local results with explicit simulated-DOM, scanner and provisional-size
+limits, not actual browser, legal, provider or production qualification.
+
+Source hosted failures: CI 39863154582, dependency 39863154652, CodeQL 39863154631.
+Causes were not re-diagnosed; no manual dispatch or gate changes. Chromium,
+responsive/keyboard/AT, broad lint/full-suite/CI repair remain deferred. C must
+record factual/contact dispositions; private feedback remains #90/#9, actual
+order/policy facts #38 and hosting #89. No issue closure, merge into main,
+activation, provider request, paid order, deployment or spending occurred.
+
+## Website essentials #90 checkpoint A — 2026-10-22
+
+Authority: Alan requested forward progress after the approved issue/milestone
+update. Applied #90's one-checkpoint workflow: source inventory, bounded route/
+content contract and concrete copy for maintainer review. No B application work
+or factual-policy approval was inferred from the request.
+
+Exact sources: main `07d25941ceeefa53089afa025b612c6aa54f36c4`; readiness #87 head
+`ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6` (implementation
+`902be39761f00d73e82ea08d55ff98bc05d8e7c5`); roadmap #93 head/base for this draft
+`c7eb41f3966e93e015868f81de128c9414f4cafd`. Both PRs remain unmerged. Live issues
+#90/#9/#88/#38 and the three open PRs were refreshed; #73 also remains unmerged.
+
+The [contract and review copy](../design/website-essentials-90a.md) records the
+complete inventory, source links, proposed navigation, source-backed purpose,
+privacy/terms boundaries, public feedback limitations and D1–D4 review items.
+Read-only parallel audits covered main versus #87 and the upstream organization
+dependencies. Root re-read the pinned Hygiene guide/ADR and Holon blueprint.
+The Hygiene registry remains proposed; Holon's reusable policy source adapter
+remains #11. Compatible meaning does not establish organization-profile adoption.
+No external implementation, policy text, artwork or private material was copied.
+
+Proposed B reuses existing About and #87 store help/disclosures, adding only
+general Help and Accessibility routes plus bounded navigation/copy edits. Public
+GitHub feedback is not private contact/order support; unavailable private feedback
+stays a #90/#9 gap. Actual commerce evidence remains #38 and actual host evidence
+#89/#39. Factual copy remains unapproved until maintainer review is recorded.
+
+Verification passed: diff whitespace, 217 relative documentation links, ten pinned
+website source paths, reference-link definitions and 32 context-manifest paths/JSON.
+Independent application/source and organization-boundary reviews passed after a
+pinned Terms-page link correction and more precise proposed-registry wording.
+No app/browser test
+run or deployed-route verification. Live failed #87 head runs:
+[CI39824233656](https://github.com/egohygiene/egohygiene.io/actions/runs/39824233656),
+[dependency39824233647](https://github.com/egohygiene/egohygiene.io/actions/runs/39824233647),
+[CodeQL39824233914](https://github.com/egohygiene/egohygiene.io/actions/runs/39824233914).
+Failed #93 head runs:
+[CI39858002820](https://github.com/egohygiene/egohygiene.io/actions/runs/39858002820),
+[dependency39858002819](https://github.com/egohygiene/egohygiene.io/actions/runs/39858002819),
+[CodeQL39858002998](https://github.com/egohygiene/egohygiene.io/actions/runs/39858002998).
+No fresh diagnosis, manual dispatch or gate change. These hosted failures and
+unperformed checks are not converted into passes by this documentation checkpoint.
+
+No app/source behavior, dependencies, assets, catalog identities, provider
+configuration or ADR decision changed. No issues closed, PRs merged, provider
+requests, real activation, deployment, orders or spending. Next is A copy/decision
+review, then #90 B against the readiness foundation. Git history and the owning
+draft PR record this checkpoint's documentation revision; issue #90 links it.
+
+## Approved roadmap reorganization — 2026-10-22
+
+Authority: Alan approved the complete issue arrangement after reviewing all 50 open
+issues and requested that it be saved before implementation continues. The approved
+split establishes a finite software-setup milestone, then actual product/provider
+integration and launch, with a dedicated bounded refactor/dependency upgrade sweep.
+This is issue/milestone planning and continuity work, not an architecture change.
+
+Refreshed main: `07d25941ceeefa53089afa025b612c6aa54f36c4`. Readiness/disclosure draft
+#87 remains unmerged at `ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6`; its source
+`902be39761f00d73e82ea08d55ff98bc05d8e7c5` and
+[pinned receipt](https://github.com/egohygiene/egohygiene.io/blob/ba4cc9270ed8b0dd3ae9dd650400e4c67a2d20e6/docs/store/product-readiness-38.md)
+retain implementation and test evidence. Older CI draft #73 remains unmerged at
+`725e021336fe6675e53d0a3374caf0b102627019`. No new passing application/browser/hosted
+result is claimed by this planning update.
+
+Created #88 setup parent, #89 actual hosting/deployed-route qualification, #90
+bounded website essentials, #91 current-route public rendering, and #92 bounded
+code/dependency cleanup. Renamed milestone 1 to **Website/store foundation — ready
+to onboard products** and created milestone 2 **Real products and launch**. The
+[approved map](../roadmaps/store-launch.md) records exact execution order, all open
+issue dispositions, narrow scope transfers and historical preservation.
+
+Verified hierarchy: #84 coordinates #88 and #31; #88 owns 22 setup children;
+#31 retains closed #32/#33/#35 and owns #38/#89/#39. #34/#36/#37 moved from #31 to
+#88 with history intact. Broader #9/#22 remain linked programs outside the setup
+milestone; #47 remains the audit index. #29's actual-host obligations transfer to
+#89; #37's actual-provider/deployed acceptance transfers to #38/#89/#39. None of
+those obligations is recorded complete merely because its owner changes.
+
+Verification on 2026-10-22: refreshed the open-issue collection and native
+sub-issue lists for #84/#88/#31/#34. All 55 open issues match the approved map:
+23 setup, four product/launch, 28 outside. #88's 22 children match the documented
+execution/reconciliation order. #34 has no children; #9/#22 are detached from the
+roadmap parent, and #63/#84 have no milestone. The rendered milestone page confirms
+23 open/ten historical closed in setup and four open/zero closed in product/launch.
+No issues were closed. Existing issue bodies are retained beneath the active scope
+where rewritten, and native transfers preserve their activity history.
+
+Documentation checks: `git diff --check`, relative-link targets, context-manifest
+paths/JSON and the complete 55-issue allocation passed. An independent read-only
+review matched the final GitHub allocation and found no false implementation or CI
+claims. This five-file continuity update is published as a docs-only draft; #84/#88
+link its exact PR/commit receipt. Git history records this documentation revision.
+
+No code, dependencies, assets, commerce configuration or architectural decisions
+changed. No implementation tests, issue closures, merges, manual CI dispatch,
+provider calls, deployment, activation, paid order or spending. Local checks and
+hosted outcomes remain separate, with unresolved failures visible. Next is a sync,
+review of #87 integration, then #90 checkpoint A when selected. Reuse existing
+catalog/locale/provider boundaries and Taskfile/qualification tooling; keep private
+masters and business records outside public Git.
+
 ## Authorized stack merge and local-machine final-pass plan — 2026-10-22
 
 Alan explicitly requested #83 → #85 → #86 merges and a sync afterward. He chose

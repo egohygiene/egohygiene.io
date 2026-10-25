@@ -36,7 +36,7 @@
     "current": "This website does not require sign-in and has no form for submitting order or payment details.",
     "external": "Checkout and support links can take you to a separate service. Review that service’s privacy information before sharing personal or order details. Website feedback on GitHub is public.",
     "future": "Future changes will update this page before stronger guarantees are claimed.",
-    "preferences": "The site can save theme and language preferences in your browser. Blocking browser storage does not prevent browsing."
+    "preferences": "The site can save theme and language preferences in your browser. If saving is blocked, those preferences may not be remembered on a later visit."
   },
   "terms": {
     "description": "Provisional terms for the Ego Hygiene public website.",
@@ -62,7 +62,6 @@
     "orderPrivacy": "Send order numbers, delivery addresses, and other private details only through the appropriate private support channel. Public website feedback is not an order-support channel.",
     "websiteHeading": "Website problems and accessibility feedback",
     "website": "If a page or control is difficult to use, you can report it through the website’s GitHub issues. Include the page URL, what you were trying to do, and what happened. Browser or assistive-technology details can help if you choose to share them.",
-    "feedbackWarning": "GitHub issues are public and require a GitHub account to submit. Do not include order details, payment information, addresses, or other private information. A private website-feedback channel is not published here yet.",
     "feedbackLink": "Report a website problem on GitHub",
     "policiesHeading": "Website policy drafts",
     "policies": "These pages explain the current website and remain provisional. Their presence is not a claim of legal, privacy, security, or accessibility compliance.",
@@ -72,5 +71,37 @@
     "title": "{{name}} · Ego Hygiene",
     "reserved": "This route reserves the future gateway path without pretending that a separate deployment exists yet.",
     "back": "Back to the directory"
+  },
+  "websiteFeedback": {
+    "warning": "GitHub issues are public and require a GitHub account to submit. Do not include order details, payment information, addresses, or other private information. A private website-feedback channel is not published here yet.",
+    "link": "Report a website problem on GitHub"
+  },
+  "help": {
+    "title": "Help",
+    "description": "Find website help, accessibility feedback, store guidance and policy information for Ego Hygiene.",
+    "intro": "Find your way around the website, report a problem, or learn how the store works.",
+    "exploreHeading": "Explore Ego Hygiene",
+    "explore": "Read About Ego Hygiene for the ideas behind the project. Visit the store to explore designs and clearly labelled product previews. Store help explains product availability, checkout and where to find order support.",
+    "accessibilityLink": "Accessibility information",
+    "feedbackHeading": "Website feedback",
+    "feedback": "To report a website problem, share the page address, what you were trying to do and what happened. Remove any private information from links or screenshots. Browser or assistive-technology details are optional; share them only if you are comfortable doing so.",
+    "ordersHeading": "Help with an order",
+    "orders": "Public website feedback is not an order-support channel. For an available product, use its order-support link and any instructions in your order confirmation. Send private order details only through the appropriate private support channel. This website has no order-support form.",
+    "storeHelpLink": "Read store help",
+    "policiesHeading": "Website policy drafts",
+    "policies": "The privacy and terms pages describe the current website and remain provisional. They are not a claim that legal, privacy, security or accessibility review is complete. Product-specific policies belong with the actual offer.",
+    "moreHelp": "More website help"
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "description": "Current accessibility information, review limitations and ways to report a problem using the Ego Hygiene website.",
+    "intro": "We are working to make this website easier to use. Accessibility review is ongoing. We have not completed an assessment of every page, browser or assistive technology.",
+    "usingHeading": "Using this website",
+    "using": "The website includes a Skip to content link and theme controls. These can help with navigation and appearance, but they do not establish that every page or control is accessible.",
+    "reviewHeading": "Review in progress",
+    "review": "Keyboard and focus behavior, contrast, reduced motion, zoom and smaller-screen layouts still need a complete review. Testing with assistive technologies is also incomplete. We will update this information as those checks are completed.",
+    "feedbackHeading": "Report a barrier",
+    "feedback": "If a page or control is difficult to use, tell us which page you visited, what you were trying to do and what happened. You can include browser or assistive-technology details if you choose. Do not include private information.",
+    "feedbackLink": "Report an accessibility problem on GitHub"
   }
 }

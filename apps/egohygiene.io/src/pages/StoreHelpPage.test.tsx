@@ -75,6 +75,14 @@ describe("store help disclosures", () => {
       "href",
       "/store?lang=qps-Ploc",
     );
+    expect(result.getByRole("link", { name: "More website help" })).toHaveAttribute(
+      "href",
+      "/help?lang=qps-Ploc",
+    );
+    expect(result.getByRole("link", { name: "Accessibility information" })).toHaveAttribute(
+      "href",
+      "/accessibility?lang=qps-Ploc",
+    );
     expect(result.getByRole("link", { name: "Translated public feedback link" })).toHaveAttribute(
       "href",
       "https://github.com/egohygiene/egohygiene.io/issues/new",
