@@ -1,0 +1,159 @@
+{
+  "recordedDate": "2026-10-25",
+  "capturedAt": "2026-10-25T21:47:38.745159+00:00",
+  "issue": 53,
+  "pullRequest": 103,
+  "branch": "fix/component-styles-53",
+  "baseCommit": "b075e237fb5100b8962217b16e8378542841c51f",
+  "contractCommit": "d04eb0d83239dfc509bf0ff4747dc75c1508ca2b",
+  "sourceCommit": "67f1b3a1f693f69999e515fc52b93f43afbcd308",
+  "sourceTree": "3764e26158e59802172e99b211c3f4b7b71ec330",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "storybook": "10.5.9",
+    "vite": "8.2.0",
+    "externalVersionsChanged": false,
+    "lockDelta": "9 workspace-link lines only"
+  },
+  "evidenceBinding": "A saved before B. Published B tree equals staged tree. Fresh standalone, Storybook/app builds, focused units and browser discovery ran on fetched clean B. C modifies documentation/evidence only. Affected types, workspace checks and scoped formatting ran on equivalent staged implementation before publication.",
+  "checks": [
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts packages/ui/src packages/themes/src packages/visualizations/src",
+      "result": "pass",
+      "files": 7,
+      "tests": 42
+    },
+    {
+      "command": "node --test tests/component-styles/consumer.test.mjs",
+      "result": "pass",
+      "tests": 1,
+      "negativeProbes": 3,
+      "modules": 16,
+      "evidence": "consumer-build.json"
+    },
+    {
+      "command": "pnpm exec tsc --project <affected-config> --noEmit",
+      "result": "pass",
+      "configs": [
+        "packages/visualizations/tsconfig.build.json",
+        "packages/visualizations/tsconfig.storybook.json",
+        "packages/ui/tsconfig.storybook.json",
+        "apps/playground/tsconfig.app.json"
+      ]
+    },
+    {
+      "command": "pnpm exec tsc --project <temporary-component-styles-profile> --noEmit",
+      "result": "pass",
+      "scope": "Extends tsconfig.base.json; DOM/DOM.Iterable/ES2022, react-jsx, Node types; includes fixture main.tsx, styles.spec.ts, root component-styles Playwright config and vite/client.d.ts. Absolute local paths only in temporary config. #52 owns permanent profiles."
+    },
+    {
+      "command": "pnpm check",
+      "result": "pass",
+      "scope": "workspace/exports/messages/cycles/store-boundary; existing module-type warnings retained"
+    },
+    {
+      "command": "pnpm exec biome check <edited-production-and-fixture-files>",
+      "result": "pass",
+      "scope": "7 production files plus 7 fixture/config files; strict bracket-key informational diagnostics retained"
+    },
+    {
+      "command": "pnpm exec storybook build --config-dir .storybook --output-dir .cache/storybook --disable-telemetry",
+      "result": "pass",
+      "entries": 18,
+      "verifiedStories": [
+        "components-button--primary",
+        "components-themetoggle--default",
+        "visualizations-orbit--default",
+        "visualizations-orbit--compact"
+      ],
+      "css": [
+        {
+          "path": ".cache/storybook/assets/iframe-BnAlaqtD.css",
+          "bytes": 9793,
+          "sha256": "1e82df7373456426ba9e9cc8616d8f7a3163030c4a011041b1f12e1886fbdf36"
+        }
+      ],
+      "warnings": [
+        "Existing unmatched MDX/app story globs",
+        "Native config ESM/CommonJS warning",
+        "Large Storybook chunk warning"
+      ]
+    },
+    {
+      "command": "pnpm --filter @egohygiene/playground build",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm --filter @egohygiene/docs build",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm build",
+      "result": "pass-on-sequential-retry",
+      "pages": 26,
+      "sitemapEntries": 10,
+      "note": "Initial run concurrent with Storybook failed on a sitemap.xml output collision. Sequential retry on unchanged clean B passed; cause not established. Preserve for #52 fresh-output/concurrency investigation, not a fixed defect claim."
+    },
+    {
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/a53-production-artifact.json",
+      "result": "fail-existing-budget-categories",
+      "exitCode": 1,
+      "files": 44,
+      "references": 202,
+      "findings": 3,
+      "evidence": "artifact-summary.json"
+    },
+    {
+      "command": "pnpm exec playwright test --config playwright.component-styles.config.ts --list",
+      "result": "discovery-only",
+      "discovered": 4,
+      "executed": 0
+    }
+  ],
+  "preliminaryFailures": [
+    {
+      "check": "offline frozen install",
+      "finding": "Missing cached registry metadata required by existing supply-chain policy; regular frozen --ignore-scripts install passed policy for 3916 entries. No policy disabled."
+    },
+    {
+      "check": "initial Storybook build",
+      "finding": "Canonical UI CSS could not resolve from root; explicit root UI/visualization workspace dependencies fixed it. Corrected clean B build passes."
+    }
+  ],
+  "hosted": {
+    "sourceCommit": "67f1b3a1f693f69999e515fc52b93f43afbcd308",
+    "result": "failure",
+    "manualDispatch": false,
+    "gateChanged": false,
+    "runs": [
+      {
+        "id": 40236889418,
+        "name": "Dependency review",
+        "conclusion": "failure"
+      },
+      {
+        "id": 40236889419,
+        "name": "CI",
+        "conclusion": "failure"
+      },
+      {
+        "id": 40236889504,
+        "name": "CodeQL workflow",
+        "conclusion": "failure"
+      }
+    ]
+  },
+  "independentReview": "No blocker in styles, package contracts, preview hook ownership or isolated build proof. Browser ownership case reloads between stories; same-document switching remains untested.",
+  "remainingAcceptance": [
+    "Execute the four retained Chromium cases and inspect light/dark/high-contrast renders on the final Mac pass (#37/#52).",
+    "Exercise same-document Storybook story switching/theme ownership; retained iframe reload test does not cover that transition.",
+    "Actual computed geometry/contrast, focus/motion and visual/manual/accessibility acceptance are not proved by builds or source tests.",
+    "Investigate the preliminary website output collision under #52; use sequential builds for this saved evidence.",
+    "Existing size categories, broad lint/compiler/CI reconciliation and stale #73 conflicts remain with #52/#29/#92."
+  ],
+  "evidenceHashes": {
+    "artifact-summary.json": "0b903a4a8bdf0dad6b73f93e89070ba9566589def15effde01da9f8f31b5c6ff",
+    "consumer-build.json": "5e7c9530e676ff6467417db553550fb3dd79d97766e026621d80303d8361d38b"
+  }
+}

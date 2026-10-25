@@ -1,5 +1,20 @@
 # Store launch roadmap and milestone history
 
+## Current #53 local delivery — 2026-10-25
+
+[Draft #103](https://github.com/egohygiene/egohygiene.io/pull/103) delivers canonical
+Storybook CSS/theme ownership and an independent visualization stylesheet contract.
+[Receipt and remaining acceptance](../design/component-styles-53.md): A/B saved;
+42 units/one isolated consumer test, affected checks and fresh builds pass. Four
+browser cases are retained, zero executed. Actual C remains #37/#52. Existing
+hosted/size failures and a preliminary build-output collision stay explicit.
+
+Prior #87/#93/#94/#95/#98/#99/#101/#102 are merged; #73 retains 18 conflicts for
+#29/#52. #90/#100 were reopened after automatic merge closure to preserve their
+incomplete acceptance. Next after sync: **#56 → #59 → #92 → #52 → #29 → #57 →
+#70 → #37**. Later environment/construction-preview and actual-product phases
+remain unchanged; old store intact, no deployment or activation.
+
 ## Catch-up merged, #53 selected — 2026-10-25
 
 Alan authorized integration then #53. #87/#93/#94/#95/#98/#99/#101/#102 are now

@@ -32,7 +32,7 @@ The ThemeToggle story retains its real provider, disables preview ownership and
 uses an explicit optional-prop story type. Existing strict UI Storybook types
 pass. Two-file Biome passes with two informational bracket-key suggestions retained
 for strict index-signature access. No Chromium or rendered-style pass is claimed.
-Save this reviewable A draft before moving Orbit's rules in B.
+A was saved in draft #103 before B moved Orbit's rules.
 
 ## B — Implemented visualization contract
 
@@ -52,20 +52,47 @@ cover all three themes and provider ownership; discovery executes zero browsers.
 See [consumer instructions](../../tests/component-styles/README.md) and
 [ADR 0015](../architecture/decisions/0015-explicit-component-styles.md).
 
-## C — Verification and remaining acceptance
+## C — Local evidence and remaining acceptance
 
-Use a small isolated Vite consumer built only from declared visualization imports
-and React. Verify its emitted CSS and module ownership locally; retain actual
-computed-style/theme browser definitions without executing Chromium. Build
-Storybook into ignored `.cache/storybook`, preserving tracked historical output
-for #56. Verify current story index and CSS assets, and run affected tests/types.
-Record exact implementation SHA, commands, artifacts and limits.
+A `d04eb0d83239dfc509bf0ff4747dc75c1508ca2b` was saved before B. Published B is
+`67f1b3a1f693f69999e515fc52b93f43afbcd308`, tree
+`3764e26158e59802172e99b211c3f4b7b71ec330`, in [draft #103](https://github.com/egohygiene/egohygiene.io/pull/103).
+Published/staged trees match; fresh artifact checks used clean fetched B. This C
+follow-up changes documentation/evidence only. [Exact verification](reviews/component-styles-53/verification.json).
 
-Actual story/standalone computed dimensions, ring layout, theme colors, focus and
-motion plus visual review remain for Alan's final Mac pass (#37/#52). Build success
-alone is not rendered or accessibility proof. Existing hosted CI and size findings
-remain explicit; no paid services, remote workflow dispatch or gate changes.
-Next after delivery/sync: #56 tracked generated-artifact cleanup.
+| Local check | Result |
+| --- | --- |
+| UI/themes/visualization unit tests | 42 pass across seven files |
+| Isolated declared consumer | One integration test/three negative probes pass; 16 modules, 4,202-byte CSS; no UI/app imports |
+| Affected source/story/fixture types, workspace checks | Pass; existing module-type warnings retained |
+| Scoped formatting | Pass; strict bracket-key informational diagnostics retained |
+| Storybook | Fresh ignored build passes; 18 index entries and required Button/ThemeToggle/Orbit IDs/CSS verified |
+| Docs/playground | Fresh builds pass |
+| Website | Sequential retry passes: 26 pages/ten sitemap entries |
+| Browser definitions | Four discovered/typechecked; zero executed |
+| Normal artifact qualifier | 44 files/202 references; same three budget categories fail |
+
+The first website build, concurrent with Storybook, failed on a `sitemap.xml`
+output collision. Sequential retry on unchanged clean B passed. Cause is not
+established; #52 retains fresh-output/concurrency investigation. Initial Storybook
+resolution failure was fixed by declared root workspace links. Initial offline
+install lacked registry policy metadata; regular frozen install passed existing
+policy checks. No policy or gate was disabled.
+
+[Artifact summary](reviews/component-styles-53/artifact-summary.json) records documents
+317,615 raw /85,589 gzip and total1,287,246 raw against unchanged20,000/10,000/
+1,140,000 limits. Website CSS is50,295 bytes (481 fewer than #49); size reduction
+is not qualification. Source hosted CI40236889419, dependency40236889418 and
+CodeQL40236889504 failed. Storybook retains missing-glob, config-module and large-
+chunk warnings. No hosted pass, accessibility certification or production claim.
+
+C actual computed dimensions/rings/theme colors/focus/motion and visual review
+remain for Alan's final Mac pass (#37/#52). Retained provider coverage reloads the
+iframe; same-document story switching must also be checked. The [consumer receipt](reviews/component-styles-53/consumer-build.json)
+proves source-workspace imports/build output only, not npm packaging or rendering.
+
+Issue #53 stays open; sync before **#56** tracked generated-artifact cleanup.
+No new PR merge, deployment, real product/provider activation or purchasing.
 
 ## Sources
 

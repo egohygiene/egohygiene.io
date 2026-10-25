@@ -1,6 +1,30 @@
 # Current handoff
 
-## Current: #53 checkpoint B implementation — 2026-10-25
+## Current: #53 implementation and local review — 2026-10-25
+
+Draft [#103](https://github.com/egohygiene/egohygiene.io/pull/103) contains A/B and
+local C evidence, based on main `b075e237fb5100b8962217b16e8378542841c51f`.
+Source B `67f1b3a1f693f69999e515fc52b93f43afbcd308` (tree
+`3764e26158e59802172e99b211c3f4b7b71ec330`) owns explicit visualization CSS/themes,
+canonical Storybook imports, three toolbar themes and provider-story ownership.
+[Receipt](../design/component-styles-53.md), [evidence](../design/reviews/component-styles-53/verification.json)
+and ADR 0015 preserve decisions, exact checks and reproducible consumer commands.
+
+42 units plus one isolated build-contract test pass; affected types/checks and
+fresh Storybook/docs/playground/website builds pass. Four browser cases are
+retained, zero executed. The website needed a sequential retry after one output
+collision; #52 retains investigation. Three artifact-budget categories and source
+hosted CI/dependency/CodeQL fail; no gates changed. C actual rendering/visual review
+and same-document story switching stay with #37/#52. #53 remains open.
+
+Catch-up PRs #87/#93/#94/#95/#98/#99/#101/#102 are merged; #73 stays deferred for
+18 content conflicts under #29/#52. Reopened merge-auto-closed #90 and #100 to
+retain contact/copy/browser and retirement gaps. Old store remains intact. Main
+contains the merge receipt; #103 remains draft and unmerged. This C follow-up is
+documentation/evidence only. Next: sync, then **#56**; remaining order unchanged.
+No deployment, publication, spending or real product/provider activation.
+
+## Prior: #53 checkpoint B implementation — 2026-10-25
 
 Draft [#103](https://github.com/egohygiene/egohygiene.io/pull/103) follows saved A
 `d04eb0d83239dfc509bf0ff4747dc75c1508ca2b`. Orbit now owns an explicit stylesheet
