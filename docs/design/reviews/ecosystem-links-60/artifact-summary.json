@@ -1,0 +1,393 @@
+{
+  "capturedAt": "2026-10-24T16:31:04.815Z",
+  "sourceHead": "b47e7e4165d83feba64ec7320f97943be9140b29",
+  "artifactRoot": "apps/egohygiene.io/dist",
+  "result": "fail",
+  "publicImageExactMatch": true,
+  "sizes": {
+    "javascript": {
+      "bytes": 480909,
+      "gzipBytes": 139154,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 150000
+      },
+      "result": "pass"
+    },
+    "css": {
+      "bytes": 50259,
+      "gzipBytes": 9851,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 12000
+      },
+      "result": "pass"
+    },
+    "images": {
+      "bytes": 391855,
+      "gzipBytes": 387352,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 500000
+      },
+      "result": "pass"
+    },
+    "fonts": {
+      "bytes": 46572,
+      "gzipBytes": 46531,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 50000
+      },
+      "result": "pass"
+    },
+    "documents": {
+      "bytes": 317615,
+      "gzipBytes": 85608,
+      "limit": {
+        "bytes": 20000,
+        "gzipBytes": 10000
+      },
+      "result": "fail"
+    },
+    "total": {
+      "bytes": 1287210,
+      "gzipBytes": 668496,
+      "limit": {
+        "bytes": 1140000,
+        "gzipBytes": 722000
+      },
+      "result": "fail"
+    }
+  },
+  "findings": [
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "bytes: 317615 exceeds 20000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "gzipBytes: 85608 exceeds 10000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "total",
+      "detail": "bytes: 1287210 exceeds 1140000."
+    }
+  ],
+  "scope": "Selected artifact-qualifier fields, complete findings and file manifest. Static reachability details are not repeated; no budgets or gates changed. Not a browser performance measurement.",
+  "fileCount": 44,
+  "assetReferenceCount": 202,
+  "files": [
+    {
+      "path": "404.html",
+      "kind": "documents",
+      "bytes": 6035,
+      "gzipBytes": 1967,
+      "sha256": "75bc5f180e27c94a1e76a66e600e5137a9f75827da151e22806991d6298cde28"
+    },
+    {
+      "path": "about/index.html",
+      "kind": "documents",
+      "bytes": 6686,
+      "gzipBytes": 2217,
+      "sha256": "2b303dd99afaf03fa6e3c06de46344a199ba2a2333cc9976b00840480d7ece9a"
+    },
+    {
+      "path": "accessibility/index.html",
+      "kind": "documents",
+      "bytes": 7968,
+      "gzipBytes": 2632,
+      "sha256": "0981260af03210f0ce51ac08db9344861d833b3f47565d9e423addf577a45a8b"
+    },
+    {
+      "path": "aether/index.html",
+      "kind": "documents",
+      "bytes": 6497,
+      "gzipBytes": 2094,
+      "sha256": "d3bb39a3a134aecb92254aa25aa76053c7b352dcd95b9071bacc26ca4e8afcc7"
+    },
+    {
+      "path": "assets/index-C7uNV2fU.css",
+      "kind": "css",
+      "bytes": 50259,
+      "gzipBytes": 9851,
+      "sha256": "fb07ee39c3c0f353f6f622de1c439ee93babc2947bf156ec314bdb0df16b93f6"
+    },
+    {
+      "path": "assets/index-cA8-7Ojy.js",
+      "kind": "javascript",
+      "bytes": 480909,
+      "gzipBytes": 139154,
+      "sha256": "b75bffe07e4757f0d03c7781b6c2736d7ba6ddda02c19bb61b5700834a759f7a"
+    },
+    {
+      "path": "CNAME",
+      "kind": "documents",
+      "bytes": 14,
+      "gzipBytes": 34,
+      "sha256": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12"
+    },
+    {
+      "path": "ecosystem/index.html",
+      "kind": "documents",
+      "bytes": 9277,
+      "gzipBytes": 2619,
+      "sha256": "29777d14b9bc6c8de5c4679c4bf00b199862a5ea0a69d2f2f23897eeff568328"
+    },
+    {
+      "path": "egolint/index.html",
+      "kind": "documents",
+      "bytes": 6468,
+      "gzipBytes": 2096,
+      "sha256": "c182e6e4c6b7b39d8691aa165302261f39e55e447d4afe4500e523f0c0eb4627"
+    },
+    {
+      "path": "favicon.ico",
+      "kind": "images",
+      "bytes": 15086,
+      "gzipBytes": 11232,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "favicon.png",
+      "kind": "images",
+      "bytes": 3008,
+      "gzipBytes": 3031,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "fonts/atkinson-bold.woff",
+      "kind": "fonts",
+      "bytes": 23780,
+      "gzipBytes": 23749,
+      "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623"
+    },
+    {
+      "path": "fonts/atkinson-regular.woff",
+      "kind": "fonts",
+      "bytes": 22792,
+      "gzipBytes": 22782,
+      "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b"
+    },
+    {
+      "path": "help/index.html",
+      "kind": "documents",
+      "bytes": 8527,
+      "gzipBytes": 2786,
+      "sha256": "7aa4703c3f83ec90b7eb99d16c9564e4d699af9d88ddc1c2fb04976e6a897419"
+    },
+    {
+      "path": "icons/apple-touch-icon.png",
+      "kind": "images",
+      "bytes": 33687,
+      "gzipBytes": 33720,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "icons/icon-192x192.png",
+      "kind": "images",
+      "bytes": 36806,
+      "gzipBytes": 36839,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "icons/icon-512x512.png",
+      "kind": "images",
+      "bytes": 161290,
+      "gzipBytes": 160949,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "icons/NOTICE.txt",
+      "kind": "documents",
+      "bytes": 1574,
+      "gzipBytes": 966,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "index.html",
+      "kind": "documents",
+      "bytes": 11211,
+      "gzipBytes": 3431,
+      "sha256": "eb7015bcb53556dee13169958ed8ab7fd5da2c96fa50c6f5c2c371ae89a64c58"
+    },
+    {
+      "path": "llms.txt",
+      "kind": "documents",
+      "bytes": 2398,
+      "gzipBytes": 1029,
+      "sha256": "e60531c2ab30c1e67de2707c83b802a134fc7579acc8468ac3d6e2b968e3e98d"
+    },
+    {
+      "path": "mindcap/index.html",
+      "kind": "documents",
+      "bytes": 6460,
+      "gzipBytes": 2092,
+      "sha256": "2ab4b354eca8c0b02ab59bc4c1f6ff8a3b0b0048cbab56b67d3a514acba18c54"
+    },
+    {
+      "path": "mindgarden/index.html",
+      "kind": "documents",
+      "bytes": 6473,
+      "gzipBytes": 2096,
+      "sha256": "67ce6f31d91202af467fd117f3fd4903752cfc53d4593d4c02797b3e1b2be817"
+    },
+    {
+      "path": "privacy/index.html",
+      "kind": "documents",
+      "bytes": 6862,
+      "gzipBytes": 2316,
+      "sha256": "289ae6afe094cb4e771eb7f26853b315bb391340aa7d3ab76ca51b4a1f47dcda"
+    },
+    {
+      "path": "public-routes.json",
+      "kind": "documents",
+      "bytes": 9941,
+      "gzipBytes": 2227,
+      "sha256": "af89d3f746e12990826e6e73ed33116a18794d6a7c3c36d74bbb0549add3d7bf"
+    },
+    {
+      "path": "reflector/index.html",
+      "kind": "documents",
+      "bytes": 6446,
+      "gzipBytes": 2092,
+      "sha256": "3a03880ad111ba8352e496586e8a7c043988526ea5bf80cb95b8299db2adeb65"
+    },
+    {
+      "path": "renderflow/index.html",
+      "kind": "documents",
+      "bytes": 6481,
+      "gzipBytes": 2093,
+      "sha256": "774e11758cb0260c34acf0a8d999974ef348b5d540b576f3fbe6744ee9429a64"
+    },
+    {
+      "path": "robots.txt",
+      "kind": "documents",
+      "bytes": 68,
+      "gzipBytes": 84,
+      "sha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+    },
+    {
+      "path": "site.webmanifest",
+      "kind": "documents",
+      "bytes": 473,
+      "gzipBytes": 218,
+      "sha256": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e"
+    },
+    {
+      "path": "sitemap.xml",
+      "kind": "documents",
+      "bytes": 693,
+      "gzipBytes": 221,
+      "sha256": "34cf5b4b5bc8322dc07047268c8715e122a81f2233589e29e7214a97efd7117a"
+    },
+    {
+      "path": "store/catalog/index.html",
+      "kind": "documents",
+      "bytes": 42139,
+      "gzipBytes": 6268,
+      "sha256": "a1b1e5d7525ff98beff06f71bde4b2f1dfa6c3e785cd50cb0d01f86669859573"
+    },
+    {
+      "path": "store/collections/static-bloom-collection/index.html",
+      "kind": "documents",
+      "bytes": 17427,
+      "gzipBytes": 3797,
+      "sha256": "a1725e6935aa6a171d356adf2a1fe2585eaff180e5a9366349bccf51633d7a9f"
+    },
+    {
+      "path": "store/designs/heartburst/index.html",
+      "kind": "documents",
+      "bytes": 9354,
+      "gzipBytes": 2747,
+      "sha256": "bbf0c0354e76a78d8cbb52a99dc2f0b2a96f2f88caece269872efd93999b63d2"
+    },
+    {
+      "path": "store/designs/signal-heart/index.html",
+      "kind": "documents",
+      "bytes": 14060,
+      "gzipBytes": 3679,
+      "sha256": "71ec23a4d630fc3abda171fe343f26914bd8c96caec1f0d629b9b04220e5db7a"
+    },
+    {
+      "path": "store/designs/static-bloom-artwork/index.html",
+      "kind": "documents",
+      "bytes": 17846,
+      "gzipBytes": 3935,
+      "sha256": "317aa0b487ca8ed9f010a3305e9b45b10a391f4299f20753b4f6a545b01aa449"
+    },
+    {
+      "path": "store/designs/unwritten-realm-cover/index.html",
+      "kind": "documents",
+      "bytes": 13864,
+      "gzipBytes": 3731,
+      "sha256": "638a677543c1024372594799bc6547c8d957a8160607ded416554191a709f51c"
+    },
+    {
+      "path": "store/heartburst/heartburst-light.webp",
+      "kind": "images",
+      "bytes": 141978,
+      "gzipBytes": 141581,
+      "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550"
+    },
+    {
+      "path": "store/help/index.html",
+      "kind": "documents",
+      "bytes": 9716,
+      "gzipBytes": 3208,
+      "sha256": "257c23cb97e8d370d86152f3ee19d0a45f1af227a531cc6742a61a91aba5206e"
+    },
+    {
+      "path": "store/incompris/artists/play/index.html",
+      "kind": "documents",
+      "bytes": 8760,
+      "gzipBytes": 2771,
+      "sha256": "56852c40079eca4364e19c39ff650b3760184414335183b5fdbbb280f79a5afc"
+    },
+    {
+      "path": "store/incompris/index.html",
+      "kind": "documents",
+      "bytes": 9822,
+      "gzipBytes": 3040,
+      "sha256": "ff02b1da4f6b06e8681b7c1af78c0bf8a30a696481487a7b60bafb949f75ea42"
+    },
+    {
+      "path": "store/index.html",
+      "kind": "documents",
+      "bytes": 10361,
+      "gzipBytes": 3175,
+      "sha256": "c376b32775d66dd925b92f997a053ee0be1a7617975157a3e4301c8440f589a9"
+    },
+    {
+      "path": "store/products/signal-heart-hoodie/index.html",
+      "kind": "documents",
+      "bytes": 14458,
+      "gzipBytes": 3794,
+      "sha256": "d4c6816c190b2775c0e3fb336414fe1bd2948437f2a773355e1b8002f907f25b"
+    },
+    {
+      "path": "store/products/static-bloom-mug/index.html",
+      "kind": "documents",
+      "bytes": 18420,
+      "gzipBytes": 4083,
+      "sha256": "d759dea9fab5560b026eb9e8d8c1070629849dcb76c889c8e604a7a5b1a8ee2c"
+    },
+    {
+      "path": "store/products/unwritten-realm-comic/index.html",
+      "kind": "documents",
+      "bytes": 14076,
+      "gzipBytes": 3793,
+      "sha256": "28600b1cccc46ad759a969de5fed5701fdc8c7bc9ec74ed4d23d03812bc82d3f"
+    },
+    {
+      "path": "terms/index.html",
+      "kind": "documents",
+      "bytes": 6760,
+      "gzipBytes": 2277,
+      "sha256": "40fcffdb3ec9008db813d84399498dfbe2544cfa85539e876901670acb9fe5fa"
+    }
+  ]
+}

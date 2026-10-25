@@ -1,5 +1,19 @@
 # Store launch roadmap and milestone history
 
+## Ecosystem navigation checkpoint — 2026-10-24
+
+[#60 / draft #98](https://github.com/egohygiene/egohygiene.io/pull/98) saves
+[the contract, implementation and local receipt](../design/ecosystem-links-60.md),
+stacked on unmerged #95. A/B add seven registry-derived native local links,
+separately labelled repository anchors and honest visitor-facing status copy.
+81 focused tests, types/checks, normal build and all 26 raw/HTTP pages pass.
+Eight new browser cases are retained; C remains open for real keyboard/reload
+acceptance. The same three budget categories and source hosted workflows fail;
+no gates changed. #90/#91 gaps and the final Mac pass remain.
+
+Next: #60 sync, then #50. Existing setup order, environment/public-preview and
+real-product tracks are unchanged. No merge, deployment or activation occurred.
+
 ## Public rendering checkpoint C — 2026-10-24
 
 [#91 C / draft #95](https://github.com/egohygiene/egohygiene.io/pull/95) now records

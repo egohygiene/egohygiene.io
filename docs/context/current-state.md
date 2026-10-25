@@ -1,7 +1,48 @@
 # Current handoff
 
+## Current: ecosystem card links #60 A/B implemented — 2026-10-24
 
-## Current: public rendering #91 C locally reviewed — 2026-10-24
+Alan selected #60 after #91 C. [Draft #98](https://github.com/egohygiene/egohygiene.io/pull/98)
+on `fix/ecosystem-links-60` targets #95's `docs/public-rendering-91a` at
+`54e8dac7dcc3206dca05efd2951f1233daba9d99`. A's destination contract was saved in
+that draft at `a3f655f0af6142a353a900b6516fe6a5a2740bba` before B implementation.
+Source `b47e7e4165d83feba64ec7320f97943be9140b29`, tree
+`e3da3c89b67ed39d2159b6dd1f73be95ed64b24e`, changes six code/message/test files.
+Published tree equals local staging; fetched source was clean. Main remains
+`07d25941ceeefa53089afa025b612c6aa54f36c4`; #98/#95/#94/#93/#87/#73 stay unmerged.
+
+Read the [#60 receipt](../design/ecosystem-links-60.md) and
+[verification](../design/reviews/ecosystem-links-60/verification.json). Every
+registry card now has one native locale-aware heading link. Six paths remain
+honest project status pages; `/store` retains the explicit curated storefront.
+External repository labels now name their project, GitHub and external context;
+URLs remain unchanged. Directory/gateway copy is visitor-facing. No registry,
+route/schema/dependency/catalog/purchase change or new architecture abstraction.
+
+Local checks passed: 81 focused tests in eight files; application/Node/domain and
+browser types; workspace/exports/433 messages/cycles/portable boundaries; four-file
+Biome; normal build; all 26 raw pages/ten sitemap entries and 52 known-page plus
+four discovery HTTP responses. Eight new browser definitions are discovered within
+21 site cases, **zero executed**. Independent review corrected the skip-link
+fragment in the retained Back expectation. C stays open for real keyboard/reload
+acceptance on Alan's Mac. Prior #90/#91 acceptance gaps remain.
+
+Artifact qualification still fails exactly three existing budget categories:
+documents 317,615/20,000 bytes, document gzip 85,608/10,000, total
+1,287,210/1,140,000. No other targeted findings across 44 files/202 references;
+artwork bytes match. No ceilings/gates changed. Source hosted CI 40111860555,
+dependency review 40111860579 and CodeQL 40111860933 failed. Focused local passes
+are not full engineering, hosted CI, browser or production qualification.
+
+Next: sync on #60 A/B and local C evidence, then **#50 shared content/Markdown
+contract** in #88's approved order. #60 remains open for browser acceptance and
+integration. #52/#92/#37 own size/final disposition; #49/#70 browser/accessibility,
+#57/#89 intended server/host. Deployment preview #21/#96/#97/#89 follows setup;
+real commerce #38/#39 follows separately. No merge, deployment, activation or spending.
+
+
+
+## Historical: public rendering #91 C locally reviewed — 2026-10-24
 
 Alan authorized C. [Draft #95](https://github.com/egohygiene/egohygiene.io/pull/95)
 remains on `docs/public-rendering-91a`, based on unmerged #94. Source

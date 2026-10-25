@@ -21,6 +21,7 @@ const messages = {
     },
     ecosystem: {
       ...resources.pages.ecosystem,
+      repository: "Translated repository {{name}} (external)",
       status: { ...resources.pages.ecosystem.status, development: "Translated development" },
       categories: { ...resources.pages.ecosystem.categories, knowledge: "Translated knowledge" },
     },
@@ -81,12 +82,18 @@ describe("page interface messages", () => {
 
   it("translates registry status/category labels while keeping creative names intact", () => {
     const { getAllByText, getByRole } = render(
-      <I18nProvider messages={messages}>
-        <EcosystemPage />
-      </I18nProvider>,
+      <MemoryRouter>
+        <I18nProvider messages={messages}>
+          <EcosystemPage />
+        </I18nProvider>
+      </MemoryRouter>,
     );
     expect(getAllByText("Translated development").length).toBeGreaterThan(0);
     expect(getAllByText("Translated knowledge").length).toBeGreaterThan(0);
     expect(getByRole("heading", { name: "Mindcap" })).toBeInTheDocument();
+    expect(getByRole("link", { name: "Translated repository Mindcap (external)" })).toHaveAttribute(
+      "href",
+      "https://github.com/egohygiene/mindcap",
+    );
   });
 });

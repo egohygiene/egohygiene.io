@@ -13,10 +13,10 @@
   },
   "ecosystem": {
     "description": "Explore the tools and projects taking shape in the Ego Hygiene ecosystem.",
-    "intro": "A typed product registry keeps the current platform honest while preparing the root site to become a gateway later.",
+    "intro": "Explore our projects and open their pages for the current status. Visit the store to browse designs and product previews.",
     "category": "Category",
     "path": "Path",
-    "repository": "Repository",
+    "repository": "{{name}} repository on GitHub (external)",
     "status": {
       "available": "available",
       "development": "development",
@@ -69,7 +69,7 @@
   },
   "product": {
     "title": "{{name}} · Ego Hygiene",
-    "reserved": "This route reserves the future gateway path without pretending that a separate deployment exists yet.",
+    "reserved": "This page shares the project’s current status. A working app is not available here yet.",
     "back": "Back to the directory"
   },
   "websiteFeedback": {
