@@ -6,6 +6,15 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
+## Current #53 checkpoint A — 2026-10-25
+
+Alan authorized #53 after catch-up merges. Read [the style contract](docs/design/component-styles-53.md)
+and current-state/provenance. Storybook now imports canonical UI CSS, includes
+high-contrast and gives each story one theme owner; A is saved before extracting
+Orbit's own stylesheet in B. Branch `fix/component-styles-53` starts from main
+continuity `b075e237fb5100b8962217b16e8378542841c51f`. Browser execution stays deferred;
+keep focused local checks. No deployment or activation. Prior merge details below.
+
 ## Current merge catch-up and #53 selection — 2026-10-25
 
 Alan authorized catching up completed PRs and starting #53. #87/#94/#95/#98/#99/

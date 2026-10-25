@@ -1,5 +1,21 @@
 # Current handoff
 
+## Current: #53 checkpoint A — 2026-10-25
+
+After the authorized catch-up merges, #53 starts from main continuity
+`b075e237fb5100b8962217b16e8378542841c51f` on `fix/component-styles-53`.
+[Contract](../design/component-styles-53.md) records explicit stylesheet/theme/provider
+ownership. A imports canonical UI styles into Storybook, adds high-contrast and
+makes the toolbar opt out for the real ThemeProvider/ThemeToggle story. A single
+always-called effect avoids conditional-hook ownership. No runtime provider change.
+
+Existing UI Storybook types and scoped Biome pass (two informational strict-key
+suggestions); no browser execution. Save A as a draft before B moves Orbit CSS
+into an explicit themes-dependent visualization export, then add standalone
+consumer proof and local C evidence. Sync afterward before #56. Existing #73/
+#29/#52, browser/size/hosted and #100 retirement gaps remain. No merge of this new
+work, deployment, purchasing or provider activation is implied.
+
 ## Current: catch-up merges complete, #53 selected — 2026-10-25
 
 Alan explicitly authorized merging completed PRs, then starting #53. Merged

@@ -5,6 +5,22 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Component styles #53 checkpoint A — 2026-10-25
+
+Alan selected #53 after authorized integration. Main continuity input
+`b075e237fb5100b8962217b16e8378542841c51f`; branch `fix/component-styles-53`.
+Refreshed live issue and source; independent style/provider review confirmed no
+canonical preview CSS and Orbit rules owned accidentally by UI. Installed
+Storybook10.5.9 public addon helpers/types and upstream CSS/theme docs informed
+[the contract](../design/component-styles-53.md), without upstream code/assets copied.
+
+A adds canonical UI CSS, all three toolbar themes and a stable always-called
+effect with an internal provider-story opt-out. ThemeToggle's real provider keeps
+sole control in its story; stale inline color-scheme is removed on return to a
+normal story. Strict UI Storybook types and scoped Biome pass (two informational
+key suggestions). No browser/build pass is inferred. Save A before B/C; prior
+browser/hosted/size limits remain, no runtime provider change or activation.
+
 ## Completed stack merge catch-up — 2026-10-25
 
 Authority: Alan requested merging whatever PRs were needed to catch up, then #53.
