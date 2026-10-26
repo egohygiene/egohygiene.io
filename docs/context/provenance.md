@@ -5,6 +5,28 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## #104 integration and #59 audit A — 2026-10-25
+
+Alan authorized #104 merge then #59. Refreshed live refs/checks/instructions; reviewed
+head `9ee3c160b5d583b459296333685b1cb8c29c3b55` merged at
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d`, tree
+`341afdcbccdd352ac018dbf57aa8e5a7abc9249a` unchanged. Validate40258147958 and
+ dependency40258147955 failed; no gates/ruleset changed. #56 integrates its prior
+source-bound345-test/four-build evidence, not a new hosted/browser pass.
+
+Independent code/asset audits traced actual license history and55 binary/four
+inline-SVG source files. MSW2.15.0 tarball integrity/worker identity and its exact
+MIT notice are verified; identity/Heartburst hashes match existing records. Old
+Atkinson1.002 embedded terms and pinned Astro blob equality are recorded; full
+historical standalone-license retrieval remains unverified. No private source
+or artwork master fetched. Apache/OSI primary texts inform concrete choices,
+not owner approval. [Audit](../legal/licensing-59.md) records exact lineage/limits.
+
+Save A before B notice/provenance changes and inactive choice patches. Existing
+root LICENSE and metadata remain until owner selection. Closed#32 private-merch
+B/C work is not completed by public-store#100; retain separate owner routing
+under#31/#59. No history rewritten, private records copied or real service activated.
+
 ## Source hygiene #56 fresh-checkout C — 2026-10-25
 
 Published B `2697f5a967a950d7e4abb3d77615478a83567c0c` matched staged tree

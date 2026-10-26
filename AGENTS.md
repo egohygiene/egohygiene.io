@@ -6,7 +6,18 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current #56 local delivery — 2026-10-25
+## Current #59 licensing audit — 2026-10-25
+
+#104 is merged at `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; Alan selected #59.
+Read [the audit/inventories](docs/legal/licensing-59.md), current-state/provenance.
+Initial README-era MIT and current Apache metadata differ; no final software grant
+is inferred. Prepare concrete alternatives before requesting owner selection.
+Preserve third-party notices and exact font terms, artwork display/production
+boundaries and private masters. #32 private-merch obligations are distinct from
+public-store #100. Save A before B, retain evidence/unknowns, no deployment or
+provider activation. #92 follows resolution/sync; prior qualification gaps remain.
+
+## Prior #56 local delivery — 2026-10-25
 
 #103 is merged; #56 A/B/C local work is in [draft #104](https://github.com/egohygiene/egohygiene.io/pull/104),
 source `2697f5a967a950d7e4abb3d77615478a83567c0c`. Read [the receipt](docs/development/source-hygiene-56.md),

@@ -62,5 +62,8 @@
   "componentStylesConsumer": "tests/component-styles/README.md",
   "sourceHygieneReview": "docs/development/source-hygiene-56.md",
   "sourceHygieneEvidence": "docs/development/reviews/source-hygiene-56/verification.json",
-  "sourceHygieneScaffolds": "docs/development/reviews/source-hygiene-56/scaffolds.md"
+  "sourceHygieneScaffolds": "docs/development/reviews/source-hygiene-56/scaffolds.md",
+  "licensingReview": "docs/legal/licensing-59.md",
+  "licensingCodeInventory": "docs/legal/reviews/licensing-59/code-inventory.json",
+  "licensingAssetInventory": "docs/legal/reviews/licensing-59/asset-inventory.json"
 }

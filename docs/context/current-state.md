@@ -1,5 +1,23 @@
 # Current handoff
 
+## Current: #104 merged; #59 audit checkpoint A — 2026-10-25
+
+Alan authorized merging #104, completed at
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d` with the exact reviewed tree, then #59.
+Branch `docs/licensing-provenance-59` starts there. [Audit](../legal/licensing-59.md)
+and code/asset inventories identify the initial README-era MIT notice versus
+current empty LICENSE/Apache metadata, exact MSW notice gap,55 binary assets and
+four inline SVG sources. Existing identity/Heartburst hashes match; no private
+source or master fetched. Old Atkinson binaries have custom embedded terms, not
+an inferred modern OFL license; full historical license retrieval remains a gap.
+
+Save A before safe notice/provenance changes and concrete inactive MIT/Apache
+alignment patches. First-party license choice remains Alan's decision; root
+LICENSE/metadata stay unchanged until selected. Private merch#32 is separate from
+public store#100: remaining private obligations stay visible under#31/#59, without
+silently reopening32 or importing private content. No deployment/activation.
+Existing hosted/size/browser gaps remain; no gates changed. #92 follows #59 sync.
+
 ## Current: #56 local A/B/C delivered — 2026-10-25
 
 [Draft #104](https://github.com/egohygiene/egohygiene.io/pull/104) on
