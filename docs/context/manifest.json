@@ -70,5 +70,8 @@
   "thirdPartyNotices": "THIRD_PARTY_NOTICES.md",
   "licensingProposals": "docs/legal/proposals/README.md",
   "fontProvenance": "assets/fonts/atkinson/provenance.json",
-  "licensingVerification": "docs/legal/reviews/licensing-59/verification.json"
+  "licensingVerification": "docs/legal/reviews/licensing-59/verification.json",
+  "boundedSweepReview": "docs/development/bounded-sweep-92.md",
+  "boundedSweepBaseline": "docs/development/reviews/bounded-sweep-92/baseline.json",
+  "boundedSweepEvidence": "docs/development/reviews/bounded-sweep-92/verification.json"
 }

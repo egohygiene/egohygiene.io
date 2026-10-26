@@ -1,5 +1,53 @@
 # Context provenance ledger
 
+## #92 C local evidence — 2026-10-26
+
+Tested B `a5e99afb060da64928bcf38cc1901e3b34889bb7` in draft #106.
+[Exact verification](../development/reviews/bounded-sweep-92/verification.json):
+344 units/152 catalog tests, check/types and normal/preview builds pass; all 27
+HTML documents equivalent after bundle-name normalization, CSS/public assets
+byte-identical. Baseline independently recovered with all 45 hashes matching.
+JS +191 raw bytes; no performance gain claimed. Four browser cases discovered,
+zero executed. Native Storybook OS failure stays distinct from a passing temporary
+build-only compatibility probe; no repository/runtime security policy changed.
+
+Three budget findings and hosted validate 40272250681/dependency 40272250520 failures
+remain. #52 receives native Storybook/profile/freshness follow-ups, #15/#16 retain
+optional peers/install isolation. This evidence-only checkpoint does not merge,
+apply a license, activate providers or qualify production. #52 then #29 authorized.
+
+## #92 B implementation and dependency boundary — 2026-10-26
+
+Draft #106 saved A `0999d984a427021975ded11d596b552a615061e0` before source changes.
+Feature-local card/metadata ownership, localized value reuse and per-call selector
+lookups preserve public contracts. A stylesheet entry retains gallery-before-base
+ordering; final output comparison follows. [Dependency receipt](../development/reviews/bounded-sweep-92/dependency-change.json)
+records nine Storybook 10.6.2 pins, seven obsolete direct removals and unchanged
+other direct versions/14 child importers. Frozen script-disabled install passes.
+
+Native Storybook import hits an independently reproduced OS interface-enumeration
+restriction on both Node runtimes. Upstream 10.6.3 retains the same call; do not
+remove the security fix for this environment. [Evidence](../development/reviews/bounded-sweep-92/storybook-environment.json)
+distinguishes installed version facts, failed native CLI and any future limited
+static-build probe. Licensing and main merges remain for next sync; no deployment.
+
+## Overnight authorization and #92 A baseline — 2026-10-26
+
+Alan requested several roadmap issues while away and a next-sync licensing/merge
+review. Live main `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`, draft #105
+`2b9ebe5d3aba4f7cccb277252d15a48325ff205d`, old #73
+`725e021336fe6675e53d0a3374caf0b102627019` were refreshed. The checkout was recovered
+from GitHub; no prior scratch artifact was treated as current evidence. Working
+#92 branches from #105; no merge/license selection inferred.
+
+[Audit/baseline](../development/bounded-sweep-92.md) records source-bound fresh
+frozen install, Node 24.21.0/pnpm 11.28.5, passing checks/types/341 units/152 catalog
+contracts and normal/static Storybook builds. Three size findings remain. Independent
+source/dependency/profile/CI audits preserve distinct owners and external limits.
+Official Storybook advisory/release supports the targeted same-major update;
+no broad upgrade or insecure compatibility flag is selected. Save A before B.
+
+
 ## #59 bounded verification and remaining owner choice — 2026-10-25
 
 Published B `e366e07b078070f805fd70d8036950ac81bd336e`, tree

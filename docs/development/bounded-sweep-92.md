@@ -1,0 +1,142 @@
+# Bounded application and dependency sweep — #92
+
+Recorded 2026-10-26 (America/New_York). Alan authorized several roadmap issues
+while away, with licensing reconciliation and merges deferred to the next sync.
+Selected order: #92, #52, then #29. No deployment, browser execution, license
+choice, provider activation or private-source migration is part of this work.
+
+## A — Audited source and baseline
+
+Main remains `89fc70440f9c3cf32d37a6da83c7a2b969efa97d` (#104 merged, #56 closed).
+The working input is unmerged #105 head `2b9ebe5d3aba4f7cccb277252d15a48325ff205d`;
+branch `refactor/bounded-sweep-92` is stacked on `docs/licensing-provenance-59`.
+The licensing draft's notices/proposals remain intact and inactive. Old CI draft
+#73 is not merged; #29 will preserve its useful changes against current source.
+
+The [dependency audit](reviews/bounded-sweep-92/dependency-audit.json) preserves all
+400 root declarations (252 runtime/148 development), 14 child manifests and exact
+lock/install observations. These counts are not browser bundle measurements.
+The [code audit](reviews/bounded-sweep-92/code-audit.json) separates concrete
+maintenance work from speculative architecture. [Baseline](reviews/bounded-sweep-92/baseline.json):
+frozen script-disabled install with Node 24.21.0/pnpm 11.28.5, workspace/boundary
+checks, existing site/catalog/domain types, 341 unit tests and 152 catalog tests
+pass. Normal website and static Storybook builds pass. The website emits 26 pages,
+10 sitemap entries and a noindex 404; 45 files/202 asset references are inspected.
+[Artifact check](reviews/bounded-sweep-92/baseline-artifact.json) still fails the same
+three document/raw-total budgets. No threshold changed. Browser runs remain zero.
+
+## B — Selected improvements and limits
+
+| Candidate | Disposition and reason |
+| --- | --- |
+| Shared StoreCard/StoreMetadata in the 813-line page module | Extract existing feature-local components and update the three sibling consumers; preserve props, DOM, locale links and CSS. No new package or generic component system. |
+| Repeated design/context resolution during search | Reuse a lookup/resolved designs within one filter call where this simplifies actual repeated work; preserve result identity/order, visibility, Unicode/localized search and malformed-input behavior. No persistent cache. |
+| Repeated localized value resolution in rendered contexts/gallery | Bind existing pure presentation once per element where touched; no new state. |
+| Storybook 10.5.9 | Pin the nine existing Storybook 10 packages to synchronized 10.6.2, the same-major security fix; verify installed peer ranges and configured story/static consumers. Keep secure defaults; no Storybook 11 migration. |
+| Seven unreferenced consolidated Storybook 8 direct dependencies | Remove only after source/config/documented-consumer search; record exact names/lockfile changes and retained optional integrations. |
+| Broad root experiment dependency inventory | Keep under #15/#16; root install scope and emitted website bytes are separate measurements. No blind removal or broad latest-version update. |
+| Inline SVG externalization, lazy routes, browser validation stripping | Defer; these alter rendering or contract boundaries and need measured visual/hydration review. Purchase/readiness validation stays intact. |
+| Compiler/test freshness and CI policy | Existing owners #52/#29; consume their findings after this draft, don't duplicate them here. |
+
+The official [Storybook advisory](https://github.com/storybookjs/storybook/security/advisories/GHSA-f2ph-cmg5-wxc8)
+includes installed Storybook/addon-vitest 10.5.9; it concerns the development
+server, not a built static Storybook. [Release 10.6.2](https://github.com/storybookjs/storybook/releases/tag/v10.6.2)
+patches it and GHSA-px85-f4q5-jh77. The upgrade retains restricted iframe/messaging
+defaults; no insecure compatibility flag is enabled. Dependency work will record
+exact importer/transitive changes and any remaining optional-integration mismatch.
+Change the existing dev command from all-interface binding to explicit loopback
+127.0.0.1 and use its supported long port flag. No remote/LAN integration is required
+by configured consumers. This targeted update is not a complete dependency security certification.
+
+## C — Verification contract and handoff
+
+Save A as a draft before B. Verify affected storefront/localization/artwork units,
+portable catalog/order/search/readiness contracts, type/boundary checks, normal
+and isolated-preview builds, and upgraded static Storybook. Compare route HTML,
+public data/assets and emitted sizes with baseline; record expected bundler naming
+changes rather than claim byte equivalence where absent. Do not loosen artifact
+budgets to obtain a pass. Recheck a frozen install after dependency changes.
+
+Maintain the existing canonical URLs/IDs, schema/migration version, declared
+artwork order, curated selections, locale/hydration boundary and disabled purchase
+states. Keep private artwork/records out of the repo. No actual browser behavior
+is qualified by source, unit, build or discovery checks.
+
+A new architectural layer is unnecessary: ADRs 0005/0008/0009/0011/0012/0015 still
+apply. Revert the bounded source and dependency/lock changes together to roll back;
+no catalog/data migration is introduced. Final #37 acceptance stays on Alan's Mac.
+After this reviewable draft: #52 profiles, then #29 current validation/CI repair;
+#57/#70 and final #37 remain in the saved queue. All merges wait for morning sync.
+
+## B — Implementation checkpoint
+
+A was saved in [draft #106](https://github.com/egohygiene/egohygiene.io/pull/106) at
+`0999d984a427021975ded11d596b552a615061e0` before changes. Shared card/metadata now
+have feature-local owners; shared arrow/badge markup is reused and localized
+presentation is bound once where repeated. Private selector helpers reuse one ID
+lookup and resolved designs within each invocation, never across mutable inputs.
+The blank-query shortcut was deliberately omitted to preserve malformed-locale
+rejection. Three regression cases cover whitespace/identity/order, changes between
+calls/visibility and malformed locale inputs.
+
+A common `store-presentation.css` explicitly imports gallery then base styles.
+The first extraction reordered those unchanged rules; this entry preserves the
+previous cascade order without coupling the card to the gallery component. C must
+compare the final CSS/HTML output. No design, token, catalog or readiness data changes.
+
+[Dependency change receipt](reviews/bounded-sweep-92/dependency-change.json): nine
+Storybook packages are pinned to 10.6.2; seven unused legacy declarations removed,
+400→393 root declarations, lockfile 13,034 bytes smaller. All other direct versions
+and 14 child importers are unchanged; new lock entries belong to the selected
+Storybook closure. A frozen `--ignore-scripts` install passes. The dev script now
+binds loopback and uses `--port`; no insecure flag is enabled.
+
+[Environment finding](reviews/bounded-sweep-92/storybook-environment.json): native
+Storybook 10.6.2 import fails here because `os.networkInterfaces()` is denied by
+the execution environment. Both available Node releases reproduce the bare OS
+failure; upstream 10.6.3/current inspected source retains the same call, so no
+unrelated upgrade is used as a workaround. The supported native build remains a
+required later check. Any temporary build-only compatibility probe must be labeled
+separately and cannot qualify dev-server/host/origin behavior. The top-level
+`storybook --version` probe invoked Storybook's CLI-cache runner; on-disk package
+metadata is the version evidence. Repository lifecycle policy remains unchanged.
+
+The broad 21 experimental peer-warning groups remain #15/#16; none names the
+selected 10.6.2 family as the unmet peer. Actual browser/Storybook acceptance stays
+open. Source-bound C results follow this implementation checkpoint; no merge or
+license decision is made by saving it.
+
+## C — Source-bound local review
+
+Tested implementation `a5e99afb060da64928bcf38cc1901e3b34889bb7`, tree
+`c3bf7448ae29dc84a56947e370d0e931ab0cb686`.
+[Verification](reviews/bounded-sweep-92/verification.json) and
+[artifact comparison](reviews/bounded-sweep-92/artifact-comparison.json) preserve the
+actual results: workspace/boundary checks, existing site/catalog/domain types,
+344 units/45 files and 152 catalog tests pass. Normal and isolated preview builds
+pass. Four component browser cases are discovered; zero browsers executed.
+
+The recovered baseline worktree reproduced all 45 original artifact hashes.
+All 27 generated HTML documents match after replacing only hashed JS/CSS bundle
+filenames. CSS is byte-identical (50,295 bytes), as are public images/fonts/notices,
+sitemap and other unchanged public files. JS grows 191 bytes to 481,100 raw bytes;
+no bundle/performance reduction is claimed. The 26-path inventory is retained.
+The common style entry restored the original cascade after the preliminary
+extraction changed rule order. Catalog/schema/artwork/readiness data is unchanged.
+
+Native Storybook still fails on OS interface enumeration. A separate temporary
+build-only probe catches only that independently reproduced system error and
+supplies an empty interface list; static compilation succeeds under that probe.
+It is not committed, not a supported command, and not native/dev-server/host-origin
+security proof. Native Storybook and actual browser checks remain #52/#37 acceptance.
+The security fix is retained and no insecure flag is enabled.
+
+Artifact qualification remains failed in three categories: documents 319972 raw /
+86947 independently gzipped bytes, total 1289794 raw bytes. Source hosted validate
+40272250681 and dependency-review 40272250520 fail. No gates/thresholds changed.
+This C receipt is documentation only; full local/hosted/production acceptance is
+not inferred. #92 remains open for review and the explicit native/browser gaps.
+
+Next authorized issue is #52's complete compiler/test/freshness profiles, then
+#29's adaptation of old #73 CI repairs. All new PRs stay draft for the next sync;
+#105 licensing choice, font/private-source dispositions and main merges wait.

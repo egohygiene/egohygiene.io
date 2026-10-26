@@ -1,0 +1,31 @@
+{
+  "beforeFiles": 45,
+  "afterFiles": 45,
+  "exactUnchangedFiles": [
+    "CNAME",
+    "assets/index-DUxeAQ23.css",
+    "favicon.ico",
+    "favicon.png",
+    "fonts/NOTICE.txt",
+    "fonts/atkinson-bold.woff",
+    "fonts/atkinson-regular.woff",
+    "icons/NOTICE.txt",
+    "icons/apple-touch-icon.png",
+    "icons/icon-192x192.png",
+    "icons/icon-512x512.png",
+    "llms.txt",
+    "robots.txt",
+    "site.webmanifest",
+    "sitemap.xml",
+    "store/heartburst/heartburst-light.webp"
+  ],
+  "normalizedHtmlDocuments": 27,
+  "htmlNormalization": "Only hashed emitted index JS/CSS filenames replaced; markup/copy/IDs/metadata remain compared.",
+  "normalizedHtmlMismatches": [],
+  "cssByteIdentical": true,
+  "cssBytes": 50295,
+  "oldJavascriptBytes": 480909,
+  "newJavascriptBytes": 481100,
+  "routeInventoryBefore": 26,
+  "routeInventoryAfter": 26
+}

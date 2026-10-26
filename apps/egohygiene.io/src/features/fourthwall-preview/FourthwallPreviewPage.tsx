@@ -11,12 +11,12 @@ import {
   STORE_PREVIEW_MAX_QUANTITY,
 } from "../store/domain/index.ts";
 import { StoreArtwork } from "../store/StoreArtwork";
-import { StoreMetadata } from "../store/StorePages";
+import { StoreMetadata } from "../store/StoreMetadata";
 import { useStoreContent } from "../store/useStoreContent";
 import { fourthwallPreviewAdapter } from "./adapter.ts";
 import { createFourthwallFixture } from "./fixture";
 
-import "../store/store.css";
+import "../store/store-presentation.css";
 import "./fourthwall-preview.css";
 
 const canonicalProduct = storeCatalog.entries.find(

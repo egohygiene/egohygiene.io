@@ -5,7 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { StoreArtwork } from "./StoreArtwork";
 import { useStoreContent } from "./useStoreContent";
 
-import "./store-artwork-gallery.css";
+import "./store-presentation.css";
 
 type StoreArtworkGalleryProps = {
   readonly designs: readonly StoreDesign[];
@@ -44,6 +44,7 @@ export function StoreArtworkGallery({ designs, title, titleLocale }: StoreArtwor
   }, [isViewerOpen, hasArtwork]);
 
   if (!selectedDesign) return <StoreArtwork />;
+  const selectedContent = content(selectedDesign);
 
   return (
     <div className="store-artwork-gallery">
@@ -68,8 +69,8 @@ export function StoreArtworkGallery({ designs, title, titleLocale }: StoreArtwor
       </button>
 
       <div className="store-artwork-gallery__caption" aria-live="polite" aria-atomic="true">
-        <span lang={content(selectedDesign).title.locale}>
-          {content(selectedDesign).title.value}
+        <span lang={selectedContent.title.locale}>
+          {selectedContent.title.value}
         </span>
         {designs.length > 1 && (
           <span>
@@ -137,8 +138,8 @@ export function StoreArtworkGallery({ designs, title, titleLocale }: StoreArtwor
           <div className="store-artwork-viewer__art">
             <StoreArtwork design={selectedDesign} />
           </div>
-          <p className="store-artwork-viewer__caption" lang={content(selectedDesign).title.locale}>
-            {content(selectedDesign).title.value}
+          <p className="store-artwork-viewer__caption" lang={selectedContent.title.locale}>
+            {selectedContent.title.value}
           </p>
         </dialog>
       )}
