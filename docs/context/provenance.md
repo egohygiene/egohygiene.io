@@ -5,6 +5,24 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## #103 integration and source hygiene #56 A — 2026-10-25
+
+Authority: Alan approved closing the prerequisite PR through integration and
+continuing. Recovered the pruned checkout from GitHub, read instructions/context,
+refreshed main/#103/#53/#56 and checks. #103 was ready/mergeable at reviewed
+`b31b30551ef13766524178f364ea466e0e4f9f1f`; merge commit
+`3a7527697fd9726279f809ca89235f2fbf5ac88e` has the identical tree
+`68faf30731958a2ace4255068eff1db310b8df7f`. Validate40237198491 and dependency
+40237198486 failed; no rule/gate changed. #53 C remains open.
+
+Two independent read-only audits inventoried66 tracked generated outputs and61
+zero-byte files, with hashes/consumers/owners in the [#56 contract](../development/source-hygiene-56.md).
+Selected26 obsolete paths for removal, retaining35 required/future files. No
+license, ADR history, implementation or passing test is inferred from emptiness.
+Fresh merged-source website/docs/playground/Storybook baseline builds pass; their
+artifacts are local comparison inputs, not hosted/browser acceptance. Save A in
+its own draft before B/C. No external code/assets copied or real services activated.
+
 ## Component styles #53 local checkpoint C — 2026-10-25
 
 B `67f1b3a1f693f69999e515fc52b93f43afbcd308`, tree

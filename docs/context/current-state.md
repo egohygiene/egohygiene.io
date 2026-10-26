@@ -1,5 +1,21 @@
 # Current handoff
 
+## Current: #103 merged; #56 checkpoint A — 2026-10-25
+
+Alan authorized #103 integration as the prerequisite, then continued #56. Merge
+`3a7527697fd9726279f809ca89235f2fbf5ac88e` exactly matches reviewed #103's tree.
+#53 C browser/visual acceptance remains open; refreshed hosted checks failed and
+no gate changed. #73 remains for #29/#52. Branch `chore/source-hygiene-56` starts
+from this merge after recovering a fresh clone from GitHub.
+
+[Source hygiene contract](../development/source-hygiene-56.md) and its per-file
+inventories classify66 generated outputs (8,545,235bytes) and61 empty files.
+Remove26 confirmed obsolete stubs; retain21 required/incomplete and14 intentional
+future paths with owners. Preserve reserved ADRs, licensing/governance gaps,
+token source exports, MSW, fixtures and historical evidence. Save A as a draft
+before B cleanup, then fresh-checkout C. Next after delivery/sync is #59.
+No deployment, activation, private material or repository history rewrite.
+
 ## Current: #53 implementation and local review — 2026-10-25
 
 Draft [#103](https://github.com/egohygiene/egohygiene.io/pull/103) contains A/B and

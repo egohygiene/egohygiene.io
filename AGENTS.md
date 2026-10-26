@@ -6,7 +6,18 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current #53 local delivery — 2026-10-25
+## Current #56 source hygiene — 2026-10-25
+
+#103 merged at `3a7527697fd9726279f809ca89235f2fbf5ac88e` with the reviewed tree;
+#53 actual browser acceptance remains open. Alan selected #56 next. Read
+[the contract and inventories](docs/development/source-hygiene-56.md), current-state
+and provenance. Preserve canonical generated tokens, MSW/fixtures, reviewed evidence
+and #100's bundle; empty required/future files are not automatically obsolete.
+Save A before removal, keep exact dispositions, and prove B in a clean checkout.
+Chromium/CI/refactor work remains deferred; no gate changes or deployment. Sync
+on local #56 delivery before #59. #73/#90/#100 acceptance gaps stay open.
+
+## Prior #53 local delivery — 2026-10-25
 
 Read [the receipt](docs/design/component-styles-53.md), [verification](docs/design/reviews/component-styles-53/verification.json),
 current-state/provenance and ADR 0015. A/B and local C are saved in draft #103;
