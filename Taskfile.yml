@@ -43,3 +43,48 @@ tasks:
     cmds:
       - task: setup:store
       - node scripts/store-environment.mjs run exec node --env-file-if-exists=apps/egohygiene.io/.env.local scripts/check-fourthwall.mjs
+
+  typecheck:all:
+    desc: "Check explicit application, workspace, tooling, unit, browser, story and locale types"
+    cmds:
+      - node scripts/store-environment.mjs run typecheck:all
+
+  test:unit:
+    desc: "Run application and workspace unit tests"
+    cmds:
+      - node scripts/store-environment.mjs run test:unit
+
+  test:semantic:
+    desc: "Run DOM semantic checks; browser accessibility is separate"
+    cmds:
+      - node scripts/store-environment.mjs run test:semantic
+
+  test:smoke:
+    desc: "Build all three apps freshly and verify their artifacts"
+    cmds:
+      - node scripts/store-environment.mjs run test:smoke
+
+  test:components:
+    desc: "Build and verify the isolated stylesheet consumer"
+    cmds:
+      - node scripts/store-environment.mjs run test:components
+
+  test:browser:discover:
+    desc: "Check all maintained Playwright suites are selected; no browser execution"
+    cmds:
+      - node scripts/store-environment.mjs run test:browser:discover
+
+  test:e2e:
+    desc: "Run site, docs and playground journeys against fresh local dev servers"
+    cmds:
+      - node scripts/store-environment.mjs run test:e2e
+
+  test:components:browser:
+    desc: "Build fresh Storybook and standalone consumer, then run component browser checks"
+    cmds:
+      - node scripts/store-environment.mjs run test:components:browser
+
+  qualify:local:
+    desc: "Run the strict integrated local store profile, including browser checks"
+    cmds:
+      - node scripts/store-environment.mjs run qualify:local

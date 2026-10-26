@@ -67,12 +67,20 @@ describe("reviewed public route inventory", () => {
     ).toThrow(/Stale.*design-heartburst/);
   });
 
-  it("does not enumerate an additional private or draft record", () => {
+  it("does not enumerate a draft or a deliberately malformed visibility", () => {
+    const malformedVisibility: StoreDesign = {
+      ...heartburst,
+      id: "malformed-artwork",
+      slug: "malformed-artwork",
+      // Exercise the defensive runtime boundary; "private" is not a valid schema value.
+      // @ts-expect-error Deliberately malformed input must never become a public route.
+      visibility: "private",
+    };
     const catalog: StoreCatalog = {
       ...storeCatalog,
       entries: [
         ...storeCatalog.entries,
-        { ...heartburst, id: "private-artwork", slug: "private-artwork", visibility: "private" },
+        malformedVisibility,
         { ...heartburst, id: "draft-artwork", slug: "draft-artwork", visibility: "draft" },
       ],
     };

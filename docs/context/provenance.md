@@ -1,5 +1,19 @@
 # Context provenance ledger
 
+## #52 B implementation — 2026-10-26
+
+Saved A `25ab678b7d713c2b0232f8d8903c7d3e7f3152ae` in draft #107 before changes.
+Explicit noEmit profiles retain strictness/schema/domain boundaries; source/test
+fixes address real alias/API/type mismatches. Existing qualifier now enforces fresh
+all-app smoke with source/invocation/artifact identity; four-profile browser
+discovery rejects omitted files and empty maintained projects. Default development
+servers use strict loopback ports without reuse. Commands/Task wrappers preserve
+the pinned runtime; no new dependency or orchestration framework.
+
+Implementation checks are preliminary working-tree evidence; C will identify the
+published source. Native Storybook, unchanged artifact budgets and browser/manual
+acceptance remain distinct. #29 follows; no license choice or main merge.
+
 ## #52 A compiler/profile baseline — 2026-10-26
 
 Input #106 head `c5935ae45d582af19a4175db1f1e05168393e0f6`; fresh tools/unit/browser

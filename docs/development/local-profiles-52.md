@@ -71,3 +71,28 @@ no lock/second build architecture is assumed here.
 After source-bound C evidence, continue #29 against this profile contract and
 preserve/supersede useful #73 work without merging its stale source wholesale.
 All draft integration, licensing and unresolved acceptance return to morning sync.
+
+## B — Implemented profiles
+
+A was saved in [draft #107](https://github.com/egohygiene/egohygiene.io/pull/107) at
+`25ab678b7d713c2b0232f8d8903c7d3e7f3152ae` before implementation. Tooling, unit and
+browser configs now include their maintained inputs under unchanged strict base
+options. Narrow fixture/API typing fixes preserve runtime assertions. The unused
+references-only config is removed; `typecheck:all` explicitly composes the fast
+site/domain checks, all 14 workspaces, tooling/tests/browsers/stories/locales.
+
+The existing qualifier owns fresh all-app smoke. It clears only the three app
+`dist` directories, builds sequentially and supplies an invocation-bound receipt
+to the consumer. Source and emitted-file identities plus HTML/module/style checks
+reject stale, changed, incomplete and failed prerequisites. Failure-path contracts
+exercise the actual runner. Browser discovery compares all four real configurations
+with maintained spec files and nonempty projects; the independent Node consumer
+is explicitly mapped to its separate command. Default app browser servers now use
+strict loopback ports and cannot reuse a previously running instance.
+
+[Commands and scope](../../tests/README.md) and Taskfile wrappers expose each slice
+through the existing pinned runtime adapter. The full qualifier uses complete type,
+tooling and unit scopes while preserving artifact and browser gates. Separate
+default-app and component browsers are explicitly available; #29 will wire all
+intended scopes into CI. No Chromium was executed during implementation. C records
+clean-source verification separately; native Storybook/budget/manual gaps remain.
