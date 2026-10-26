@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-10-25",
+  "recordedTimezone": "America/New_York",
+  "sourceHead": "e366e07b078070f805fd70d8036950ac81bd336e",
+  "sourceTree": "755e2b224e73ccb81c8ab6115c1d99a8c13c5d2e",
+  "auditHead": "90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c",
+  "mergedPrerequisite": "89fc70440f9c3cf32d37a6da83c7a2b969efa97d",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "vite": "8.2.0"
+  },
+  "result": "bounded-local-notice-proposal-verification-passed; final-license-alignment-open",
+  "checks": [
+    {
+      "name": "asset/notice/local-reference review",
+      "result": "pass",
+      "evidence": "asset-verification.json",
+      "countsAre": "Assertions, not unit or browser tests"
+    },
+    {
+      "name": "both proposals in isolated temporary repositories",
+      "result": "pass",
+      "evidence": "proposal-verification.json"
+    },
+    {
+      "name": "pnpm build",
+      "result": "pass",
+      "catalogEntries": 10,
+      "verifiedImages": 1,
+      "publicPages": 26,
+      "sitemapEntries": 10,
+      "noindex404": true
+    },
+    {
+      "name": "normal artifact comparison",
+      "result": "pass",
+      "comparison": {
+        "baselineFiles": 44,
+        "afterFiles": 45,
+        "unchanged": 44,
+        "changed": [],
+        "removed": [],
+        "added": [
+          "fonts/NOTICE.txt"
+        ],
+        "fontNoticeExact": true,
+        "mswWorkerInWebsiteArtifact": false,
+        "mswNoticeInWebsiteArtifact": false
+      }
+    },
+    {
+      "name": "artifact qualification",
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/licensing-59.json",
+      "result": "fail",
+      "exitCode": 1,
+      "evidence": "artifact-summary.json",
+      "disposition": "Same three existing document/raw-total budget categories; new notice adds 2357 raw bytes and 1335 independently gzipped bytes. No budget/gate changed."
+    },
+    {
+      "name": "git diff --check and active license/package guards",
+      "result": "pass"
+    }
+  ],
+  "hostedChecks": [
+    {
+      "name": "validate",
+      "result": "failure",
+      "runId": 40260560022,
+      "jobId": 121371837955
+    },
+    {
+      "name": "dependency-review",
+      "result": "failure",
+      "runId": 40260560048,
+      "jobId": 121371837876
+    }
+  ],
+  "unperformed": [
+    "No unit/type/browser suites rerun for notice/docs-only changes; prior source-bound results are not relabeled as new tests.",
+    "No deployment, actual host/provider/commerce qualification, package publication, private source fetch or repository retirement.",
+    "No complete transitive-dependency license audit."
+  ],
+  "remaining": [
+    "Owner first-party software-license selection and resulting active LICENSE/metadata alignment.",
+    "Authoritative full historical Atkinson distribution-license evidence or reviewed alternative disposition.",
+    "Maintainer disposition of historical private-merch #32 preservation/adaptation/retirement obligations under #31/#59; public #100 remains separate.",
+    "Existing artifact budgets, failed hosted validation/dependency review and deferred Chromium/manual acceptance remain with roadmap owners."
+  ]
+}

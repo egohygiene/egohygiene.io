@@ -6,7 +6,40 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current #56 local delivery — 2026-10-25
+## Current #59 verified draft — 2026-10-25
+
+#104 merged, #56 closed. Draft #105 contains audit A, notice/proposal B and bounded
+local evidence at `e366e07b078070f805fd70d8036950ac81bd336e`. Read [the audit](docs/legal/licensing-59.md),
+[verification](docs/legal/reviews/licensing-59/verification.json), current-state and
+provenance. Normal build and all asset/notice/isolated-proposal checks pass; 44 old
+artifact files unchanged, font notice added. Existing size/hosted/browser gaps remain.
+Next is Alan's choice of [inactive license proposal](docs/legal/proposals/README.md),
+then its application/durable decision/final alignment. #59 remains open for that
+choice and old-font/private-merch dispositions. Neither patch is an active grant.
+#92 follows resolution/sync; no merge, deployment or activation is implied.
+
+## Current #59 notice/proposal checkpoint — 2026-10-25
+
+A is saved in draft #105; B adds verified independent notices, provenance guidance
+and inactive MIT/Apache-2.0 alternatives. Read [the audit](docs/legal/licensing-59.md),
+[licensing scope](LICENSING.md) and [proposals](docs/legal/proposals/README.md).
+Do not apply either patch until Alan selects it; final #59 alignment remains open.
+Verify notice/hash/link/proposal/build evidence, then sync on that choice and
+font/private-merch dispositions. #104 merged, #56 closed; #92 follows resolution.
+No deployment or provider activation; earlier qualification gaps remain.
+
+## Current #59 licensing audit — 2026-10-25
+
+#104 is merged at `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; Alan selected #59.
+Read [the audit/inventories](docs/legal/licensing-59.md), current-state/provenance.
+Initial README-era MIT and current Apache metadata differ; no final software grant
+is inferred. Prepare concrete alternatives before requesting owner selection.
+Preserve third-party notices and exact font terms, artwork display/production
+boundaries and private masters. #32 private-merch obligations are distinct from
+public-store #100. Save A before B, retain evidence/unknowns, no deployment or
+provider activation. #92 follows resolution/sync; prior qualification gaps remain.
+
+## Prior #56 local delivery — 2026-10-25
 
 #103 is merged; #56 A/B/C local work is in [draft #104](https://github.com/egohygiene/egohygiene.io/pull/104),
 source `2697f5a967a950d7e4abb3d77615478a83567c0c`. Read [the receipt](docs/development/source-hygiene-56.md),

@@ -1,5 +1,73 @@
 # Current handoff
 
+## Current: #59 verified draft; owner license selection next — 2026-10-25
+
+#104 merged at `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; #56 closed completed.
+[Draft #105](https://github.com/egohygiene/egohygiene.io/pull/105) on
+`docs/licensing-provenance-59` saved A `90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c`
+before notice/proposal B `e366e07b078070f805fd70d8036950ac81bd336e`.
+[Audit and remaining acceptance](../legal/licensing-59.md) and
+[verification](../legal/reviews/licensing-59/verification.json) retain exact sources.
+
+Verified independent MSW/font notices, 55 binary/four inline SVG source identities,
+font terms, local references/JSON and both inactive license patches. Isolated
+applications produce exact source texts/aligned metadata; mixed application is
+rejected. Active LICENSE remains empty and package metadata unchanged. Normal
+build passes: all 44 previous artifact files are byte-identical; only the 2357-byte
+font notice is added. Root MSW worker/notice are not part of this website artifact.
+No unit/type/browser suite rerun for notice/docs-only changes.
+
+Artifact qualification still fails the same three budget categories: documents
+319972 raw/86924 gzip bytes and total 1289603 raw bytes. Source-head hosted validate
+40260560022 and dependency-review 40260560048 failed. No gates changed; browser,
+hosted, performance and production acceptance are not inferred from local success.
+
+Next: Alan selects one [reviewable software-license proposal](../legal/proposals/README.md),
+then apply that choice, record its durable decision and complete final declaration
+alignment. #59 stays open for that selection, the old-font full-license evidence/
+reviewed disposition and maintainer reconciliation of private #32 obligations.
+#31/#32/#59 visibly retain those obligations; #32 remains closed, public #100 stays
+separate. #92 follows resolution/sync. Draft #105 is unmerged; no deployment,
+provider activation, private-source fetch, source-store retirement or new grant.
+
+## Current: #59 notices and inactive proposals — 2026-10-25
+
+[Draft #105](https://github.com/egohygiene/egohygiene.io/pull/105), branch
+`docs/licensing-provenance-59`, saved audit A at
+`90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c` before B. #104 is merged at
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; #56 is closed completed.
+[Audit](../legal/licensing-59.md), [scope](../../LICENSING.md),
+[notices](../../THIRD_PARTY_NOTICES.md) and [inactive proposals](../legal/proposals/README.md)
+now preserve verified MSW terms, exact old-font embedded terms and separate
+creative/archive boundaries. Contributor provenance guidance and the historical
+MIT record are retained. No active LICENSE, package metadata or asset bytes change.
+
+#31/#32/#59 live tracker receipts keep incomplete private-merch B/C work visible;
+#32 stays closed, #100 public-store obligations stay separate. Next: verify both
+proposal applications in isolation, all inventory/notice hashes, local links and
+normal build copying. Then sync on Alan's software-license selection and remaining
+font/private-publication dispositions. #59 final alignment remains open; #92 is
+next after resolution/sync. Prior hosted/size/browser gaps remain; no deployment,
+provider activation, private-source fetch or source-repository retirement.
+
+## Current: #104 merged; #59 audit checkpoint A — 2026-10-25
+
+Alan authorized merging #104, completed at
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d` with the exact reviewed tree, then #59.
+Branch `docs/licensing-provenance-59` starts there. [Audit](../legal/licensing-59.md)
+and code/asset inventories identify the initial README-era MIT notice versus
+current empty LICENSE/Apache metadata, exact MSW notice gap,55 binary assets and
+four inline SVG sources. Existing identity/Heartburst hashes match; no private
+source or master fetched. Old Atkinson binaries have custom embedded terms, not
+an inferred modern OFL license; full historical license retrieval remains a gap.
+
+Save A before safe notice/provenance changes and concrete inactive MIT/Apache
+alignment patches. First-party license choice remains Alan's decision; root
+LICENSE/metadata stay unchanged until selected. Private merch#32 is separate from
+public store#100: remaining private obligations stay visible under#31/#59, without
+silently reopening32 or importing private content. No deployment/activation.
+Existing hosted/size/browser gaps remain; no gates changed. #92 follows #59 sync.
+
 ## Current: #56 local A/B/C delivered — 2026-10-25
 
 [Draft #104](https://github.com/egohygiene/egohygiene.io/pull/104) on

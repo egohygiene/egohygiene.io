@@ -1,9 +1,73 @@
 # Context provenance ledger
 
+## #59 bounded verification and remaining owner choice — 2026-10-25
+
+Published B `e366e07b078070f805fd70d8036950ac81bd336e`, tree
+`755e2b224e73ccb81c8ab6115c1d99a8c13c5d2e`, is the tested source in draft #105.
+[Verification](../legal/reviews/licensing-59/verification.json),
+[asset/reference checks](../legal/reviews/licensing-59/asset-verification.json),
+[isolated patch checks](../legal/reviews/licensing-59/proposal-verification.json)
+and [artifact summary](../legal/reviews/licensing-59/artifact-summary.json) record
+actual results. Exact notices/hashes, 55 binary/four inline sources and links/JSON
+pass. Both proposed license diffs apply independently to isolated copies; mixed
+application is rejected, active LICENSE/package metadata untouched.
+
+Node 24.21.0/pnpm 11.28.5 normal build validates 10 entries/one image and produces
+26 pages/10 sitemap entries/noindex 404. All 44 pre-change output files match;
+only fonts/NOTICE.txt is added (2357 raw/1335 independently gzipped bytes). MSW
+root public assets are not copied into this website artifact. Artifact check
+retains three size findings: documents 319972 raw/86924 gzip, total 1289603 raw.
+No ceiling/gate changed. Source hosted validate 40260560022 and dependency-review
+40260560048 failed; no hosted qualification claimed. Prior unit/browser results
+are not new evidence here; zero browsers executed, no deployment or private fetch.
+
+Final license alignment remains open: issue #59 requires the missing owner choice
+before applying it. The complete old-font license record and private #32 B/C
+preservation/publication dispositions remain explicit. Live #31/#32/#59 receipts
+preserve those gaps independently of #100; no completion/retirement is inferred.
+This follow-up only saves evidence/continuity, not a new implementation or grant.
+
+## #59 checkpoint B — notices and reviewable alternatives (2026-10-25)
+
+A was published first in draft #105 at `90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c`.
+B preserves byte-exact MSW MIT notice from verified npm 2.15.0 and exact embedded
+Atkinson 1.002 terms with asset-local provenance. The full historical font license
+remains unverified. [Independent notice index](../../THIRD_PARTY_NOTICES.md),
+[licensing scope](../../LICENSING.md) and contributor guidance avoid inferring
+creative/product permission. Both [inactive patches](../legal/proposals/README.md)
+are concrete proposals; neither is applied. The initial MIT file is retained as
+README-era history, not evidence that the later app was historically MIT.
+
+#31/#32/#59 were updated with the private migration gap and distinct ownership;
+#32 remains closed. No new private content was inspected/published. B verification
+will be recorded against its published implementation commit before final sync.
+
 Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
+
+## #104 integration and #59 audit A — 2026-10-25
+
+Alan authorized #104 merge then #59. Refreshed live refs/checks/instructions; reviewed
+head `9ee3c160b5d583b459296333685b1cb8c29c3b55` merged at
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d`, tree
+`341afdcbccdd352ac018dbf57aa8e5a7abc9249a` unchanged. Validate40258147958 and
+ dependency40258147955 failed; no gates/ruleset changed. #56 integrates its prior
+source-bound345-test/four-build evidence, not a new hosted/browser pass.
+
+Independent code/asset audits traced actual license history and55 binary/four
+inline-SVG source files. MSW2.15.0 tarball integrity/worker identity and its exact
+MIT notice are verified; identity/Heartburst hashes match existing records. Old
+Atkinson1.002 embedded terms and pinned Astro blob equality are recorded; full
+historical standalone-license retrieval remains unverified. No private source
+or artwork master fetched. Apache/OSI primary texts inform concrete choices,
+not owner approval. [Audit](../legal/licensing-59.md) records exact lineage/limits.
+
+Save A before B notice/provenance changes and inactive choice patches. Existing
+root LICENSE and metadata remain until owner selection. Closed#32 private-merch
+B/C work is not completed by public-store#100; retain separate owner routing
+under#31/#59. No history rewritten, private records copied or real service activated.
 
 ## Source hygiene #56 fresh-checkout C — 2026-10-25
 

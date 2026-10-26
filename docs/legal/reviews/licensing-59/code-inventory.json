@@ -1,0 +1,80 @@
+{
+  "scope": "Read-only bounded code/research licensing audit for website issue #59; no private source fetched and no repository edits.",
+  "website": {
+    "root_license": "LICENSE is empty; blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "root_metadata": "package.json: license Apache-2.0; private true",
+    "child_manifests": "14 tracked child package.json files: all private true, none declare license",
+    "initial_commit": "5e3fd943e63a741834d02aff70da7ec06b93b090",
+    "initial_scope": [
+      ".gitignore",
+      "LICENSE",
+      "README.md"
+    ],
+    "initial_license": {
+      "id": "MIT",
+      "copyright": "Copyright (c) 2026 Ego Hygiene",
+      "blob": "25f52dc63ff2c47f22d679b04f3fd071c085d8fe",
+      "bytes": 1068,
+      "sha256": "1deb55b00af813e1c8f086e851d0e1ed2084ea942a54996f069df05cd0561372"
+    },
+    "conflict_introduced": "872f8a866ed7b23451d2ff1f92bde6546630268f empties LICENSE and introduces package.json Apache-2.0 declaration",
+    "authority": "Historical declarations conflict. No explicit owner decision selecting the final current software license found; subsequent ADR0007 and issue59 continue to call it unresolved.",
+    "important_limit": "Initial MIT snapshot contains no application source. Do not label the entire current website as previously MIT."
+  },
+  "msw": {
+    "repo_path": "public/mockServiceWorker.js",
+    "version": "2.15.0",
+    "introduced_commit": "5192a8c12e137e097cd19ab74f1aa99b0b8b32da",
+    "package_path": "package/lib/mockServiceWorker.js",
+    "bytes": 9666,
+    "sha256": "26171599d94d5445297303f3a1f1cedec26835ea3d0057dcfa92ec520cb35cca",
+    "byte_identical": true,
+    "tarball": "https://registry.npmjs.org/msw/-/msw-2.15.0.tgz",
+    "tarball_integrity_verified": "sha512-2wQAmKkQKxRuXvYJxVhPGG0wZNBQyD06oJvxqw90XqLvptdqxdlHrFUfEteKkpaNORX3Xzc+HtEl/q0nfmN2wQ==",
+    "upstream_tag_commit": "49d9d47f613b072f8d20e1a025feaee7c5382b2b",
+    "upstream_license_url": "https://github.com/mswjs/msw/blob/49d9d47f613b072f8d20e1a025feaee7c5382b2b/LICENSE.md",
+    "license_file": "public/mockServiceWorker.LICENSE.txt (proposed notice destination)",
+    "license": "MIT",
+    "copyright": "Copyright (c) 2018\u2013present Artem Zakharchenko",
+    "license_bytes": 1085,
+    "license_sha256": "be7690d23425cbcf147da49a90e7c86009e614a51ba60127392546f75166e959",
+    "notice_gap": "Tracked generated worker has attribution header but no full MIT permission/copyright notice; no tracked corresponding MSW license found.",
+    "recommendation": "Retain exact MIT notice with vendored worker/provenance and cover any build distribution that includes it; do not edit generated worker. Root public placement and workerDirectory metadata alone do not establish current website deployment inclusion."
+  },
+  "public_store": {
+    "ledger": "docs/migration/store-retirement/README.md",
+    "notice": "docs/migration/store-retirement/LICENSE-MIT.txt",
+    "source_commit": "5786fd40bfe40b0d338eb96087355b98f7e16d42",
+    "bundle": "docs/migration/store-retirement/store-source.bundle",
+    "status": "Inactive preservation with complete original MIT Copyright (c) 2026 Ego Hygiene; not relicensed by website metadata. #100 owns outstanding source retirement. Archive is not active website build input."
+  },
+  "private_merch": {
+    "ledger": "docs/migration/store-v1-consolidation.md",
+    "source_main": "5907d90b59a87aa94b34210637e9a754c4caf6e4",
+    "research_head": "dfb459eb15fc034936a0541945725233fdc284c3",
+    "license_blob": "8481c5bb868eb457fc739d7f86ab62ab05af4739",
+    "license": "MIT Copyright 2025 incomprisllc",
+    "research_path": "merch/00_system/research/2026-10-09-provider-scout.md",
+    "research_blob": "7e5db8c9347ba7788b71087929ae1fd42f1b2c2f",
+    "proposed_destination": "docs/research/merch/2026-10-09-provider-scout.md",
+    "status": "Public ledger checkpoint A only; B/C are not started. Research adaptation is explicitly not copied. #32 closed state is not proof of its remaining migration obligations. #75 canonical ownership and #100 public-store preservation do not complete the separate private-merch migration.",
+    "recommendation": "Clarify durable disposition and owner for historical unfinished private-merch B/C obligations without fetching private content or reopening closed issues silently; retain notice if substantial reviewed source is later imported."
+  },
+  "bounded_changes": [
+    "Restore verified MSW third-party notice/provenance",
+    "Document exact root-license history and unresolved authority",
+    "Maintain imported MIT notices independently of eventual website software license",
+    "Publish concrete inactive alternatives for owner review: MIT restoration plus metadata alignment, or Apache-2.0 text plus metadata confirmation, with explicit asset/third-party scope exclusions"
+  ],
+  "approval_needed": [
+    "Owner choice of current first-party software license; historical metadata does not resolve it",
+    "Any new asset/publication/trademark grant beyond existing explicit permissions"
+  ],
+  "limitations": [
+    "Not a complete dependency SBOM, compatibility legal opinion, or copyright ownership adjudication",
+    "No private source, attachments, production or installed package dependency tree inspected",
+    "No claim that MSW worker is served in the current application build"
+  ],
+  "sourceHead": "89fc70440f9c3cf32d37a6da83c7a2b969efa97d",
+  "observationScope": "Baseline at sourceHead; notice gaps are historical findings, with subsequent dispositions in docs/legal/licensing-59.md."
+}
