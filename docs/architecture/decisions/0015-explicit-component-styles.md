@@ -1,6 +1,6 @@
 # ADR 0015: Explicit component stylesheet ownership
 
-- Status: selected for #53 local implementation; draft integration and browser acceptance remain
+- Status: implemented in #103, merged 2026-10-25; browser acceptance remains
 - Recorded: 2026-10-25
 - Scope: Storybook, UI and visualization workspace consumers
 - Foundation: [ADR 0003](0003-design-token-architecture.md), which remains in force

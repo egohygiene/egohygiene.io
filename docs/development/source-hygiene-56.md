@@ -27,7 +27,8 @@ test results; add only `/storybook-static/` for legacy command output. The expli
 Storybook command will align with #53's ignored output and retained browser profile.
 
 There are **61 zero-byte files**, down from the earlier audit's71. Every current
-path is classified in the [scaffold inventory](reviews/source-hygiene-56/scaffold-inventory.json):
+path is classified in the [readable disposition table](reviews/source-hygiene-56/scaffolds.md)
+and [machine-readable inventory](reviews/source-hygiene-56/scaffold-inventory.json):
 
 | Classification | Count | Planned action |
 | --- | ---: | --- |
@@ -58,19 +59,42 @@ No implementation, public assets, token files, package versions or lockfile chan
 
 ## C — Clean-checkout proof
 
-C will use a fresh checkout of published B, with removed outputs absent before
-install. Use pinned Node24.21.0/pnpm11.28.5 and a frozen script-disabled install.
-Run source export/boundary checks, affected types/tests and sequential fresh
-website/docs/playground/Storybook builds. Regenerate utility declarations, exercise
-#53's isolated consumer, and compare discovery and emitted app bytes with the
-fresh merged-main baseline. Existing smoke is only supplementary existence proof
-when all three app artifacts are freshly built. Confirm Git remains clean and
-all rebuilt output is ignored; never rely on an existing `dist` or runner receipt.
+Published B `2697f5a967a950d7e4abb3d77615478a83567c0c`, tree
+`d27295f399faf0496382f9c8b27d70161d9c2b8b`, exactly matched staging. C used a fresh
+detached checkout with no dependencies, caches, app output or removed roots,
+then a frozen script-disabled install using Node24.21.0/pnpm11.28.5. This evidence
+follow-up changes documentation only. [Exact verification](reviews/source-hygiene-56/verification.json).
 
-The earlier #53 concurrent website/Storybook collision remains #52's investigation;
-builds here are sequential. Chromium, broad lint/compiler/CI reconciliation,
-intended hosting and deployment remain with their existing owners. No new generic
-cleanup framework, dependency upgrade or permissive ignore glob is introduced.
+| Fresh-checkout check | Result |
+| --- | --- |
+| Workspace/export/boundary checks and six selected type configs | Pass |
+| Root unit suite | 341 tests /45 files pass |
+| Sequential website/docs/playground/Storybook builds | Pass; website26 pages/ten sitemap entries, Storybook18 entries |
+| Utility declaration regeneration | Pass; output ignored, source exports still authoritative |
+| Isolated #53 consumer | One test/three negative probes pass |
+| Existing all-app build smoke | Three pass after fresh builds; existence proof only |
+| Unit/default-browser/component-browser discovery | Same341/31/4 tests before and after; zero browser execution |
+| Source/index/ignore checks | Git stays clean; output roots untracked; all seven ignore probes pass |
+| Historical recovery | All66 old output blobs readable with saved hashes |
+
+All66 files across the website/docs/playground artifacts match the fresh merged-
+main baseline byte-for-byte. Storybook59/62 files match, including story index and
+all preview assets. Its `project.json` timestamp/discovery statistic and two minified
+addon manager bundles differ; no full-byte or browser-equivalence claim. See
+[artifact comparison](reviews/source-hygiene-56/artifact-comparison.json). Discovery
+comparison normalizes checkout paths and ordering while preserving multiplicity.
+
+The existing normal-artifact scanner still fails three budget categories: documents
+317,615/20,000 raw,85,589/10,000 gzip, total1,287,246/1,140,000 raw. Its44 files/202
+asset references and [findings](reviews/source-hygiene-56/artifact-summary.json) are
+unchanged in substance. B hosted CI40257317928, dependency40257317842 and
+CodeQL40257317937 failed. No gates/ceilings changed. Existing Storybook unmatched-
+glob/large-chunk and module-type warnings remain. Builds are sequential; the prior
+#53 concurrent-output collision remains #52's investigation, not a fixed claim.
+
+Local A/B/C is complete in draft #104; integration/review remains. Chromium, broad
+lint/compiler/CI reconciliation, intended hosting and actual product activation
+remain outside #56. No new generic cleanup framework or dependency upgrade.
 
 ## Reproduction and rollback
 

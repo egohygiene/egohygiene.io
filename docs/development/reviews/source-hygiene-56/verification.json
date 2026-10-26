@@ -1,0 +1,208 @@
+{
+  "recordedDate": "2026-10-25",
+  "recordedTimezone": "America/New_York",
+  "capturedAt": "2026-10-26T02:12:31.513551+00:00",
+  "issue": 56,
+  "pullRequest": 104,
+  "branch": "chore/source-hygiene-56",
+  "baseCommit": "3a7527697fd9726279f809ca89235f2fbf5ac88e",
+  "baseTree": "68faf30731958a2ace4255068eff1db310b8df7f",
+  "prerequisite": {
+    "pr": 103,
+    "reviewedHead": "b31b30551ef13766524178f364ea466e0e4f9f1f",
+    "merge": "3a7527697fd9726279f809ca89235f2fbf5ac88e",
+    "reviewedAndMergedTreesEqual": true,
+    "browserAcceptanceOpen": true
+  },
+  "contractCommit": "f7311c089b2197658851eff166ceb6486aa3cd9d",
+  "sourceCommit": "2697f5a967a950d7e4abb3d77615478a83567c0c",
+  "sourceTree": "d27295f399faf0496382f9c8b27d70161d9c2b8b",
+  "evidenceBinding": "A inventory saved before B. Published/staged B tree matched. C ran in a detached fresh worktree of fetched B, initially no node_modules, caches, app outputs or removed generated roots. Frozen install, checks and sequential builds ran there; Git remained clean. This follow-up changes documentation/evidence only.",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "versionsChanged": false,
+    "lockfileChanged": false,
+    "install": "pnpm install --frozen-lockfile --ignore-scripts",
+    "installResult": "pass"
+  },
+  "changes": {
+    "generatedFilesRemoved": 66,
+    "generatedBytesRemoved": 8545235,
+    "obsoleteEmptyStubsRemoved": 26,
+    "requiredIncompleteRetained": 21,
+    "intentionalFutureRetained": 14,
+    "newIgnore": "/storybook-static/",
+    "storybookOutput": ".cache/storybook",
+    "runtimeBehaviorChanged": false,
+    "gitHistoryRewritten": false
+  },
+  "checks": [
+    {
+      "command": "pnpm check",
+      "result": "pass",
+      "scope": "workspace/exports/433 messages/10 namespaces/cycles/portable store boundary16 modules; module-type warnings retained"
+    },
+    {
+      "command": "pnpm typecheck",
+      "result": "pass",
+      "configs": [
+        "apps/egohygiene.io/tsconfig.app.json",
+        "tsconfig.store.json",
+        "tsconfig.store-domain.json"
+      ]
+    },
+    {
+      "command": "pnpm exec tsc --project <affected-package>/tsconfig.build.json --noEmit",
+      "result": "pass",
+      "packages": [
+        "api-client",
+        "i18n",
+        "utilities"
+      ]
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.unit.config.ts",
+      "result": "pass",
+      "files": 45,
+      "tests": 341
+    },
+    {
+      "command": "pnpm build",
+      "result": "pass",
+      "pages": 26,
+      "sitemapEntries": 10
+    },
+    {
+      "command": "pnpm --filter @egohygiene/docs build",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm --filter @egohygiene/playground build",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm storybook:build",
+      "result": "pass",
+      "output": ".cache/storybook",
+      "entries": 18
+    },
+    {
+      "command": "pnpm exec tsc --project packages/utilities/tsconfig.build.json",
+      "result": "pass",
+      "scope": "Regenerates ignored declarations/map; private source export does not require these files"
+    },
+    {
+      "command": "node --test tests/component-styles/consumer.test.mjs",
+      "result": "pass",
+      "tests": 1,
+      "negativeProbes": 3,
+      "evidence": "consumer-build.json"
+    },
+    {
+      "command": "pnpm exec vitest run --config vitest.smoke.config.ts",
+      "result": "pass",
+      "tests": 3,
+      "scope": "Supplementary existence checks after all three apps were freshly built, not route/browser qualification"
+    },
+    {
+      "command": "pnpm exec vitest list --config vitest.unit.config.ts --json",
+      "result": "discovery-identical",
+      "tests": 341,
+      "files": 45,
+      "evidence": "discovery-comparison.json"
+    },
+    {
+      "command": "pnpm exec playwright test --list",
+      "result": "discovery-identical",
+      "tests": 31,
+      "files": 3,
+      "executed": 0
+    },
+    {
+      "command": "pnpm exec playwright test --config playwright.component-styles.config.ts --list",
+      "result": "discovery-identical",
+      "tests": 4,
+      "files": 1,
+      "executed": 0
+    },
+    {
+      "command": "git status --short; git ls-files <removed-output-roots>; git check-ignore --verbose -- <output-paths>",
+      "result": "pass",
+      "scope": "Clean after checks/builds; no tracked output roots; seven ignore probes; exact35 retained empty paths and26 removed stubs verified",
+      "evidence": "clean-finish.json"
+    },
+    {
+      "command": "git cat-file blob <inventoried-blob>",
+      "result": "pass",
+      "scope": "All66 historical output blobs remain readable and match saved sizes/SHA-256; no restore or history rewrite"
+    },
+    {
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/a56-production-artifact.json",
+      "result": "fail-existing-budget-categories",
+      "exitCode": 1,
+      "files": 44,
+      "references": 202,
+      "findings": 3,
+      "evidence": "artifact-summary.json"
+    }
+  ],
+  "artifactComparison": {
+    "baselineSource": "3a7527697fd9726279f809ca89235f2fbf5ac88e",
+    "allThreeAppFiles": 66,
+    "appFilesByteIdentical": true,
+    "storybookFiles": 62,
+    "storybookByteIdentical": 59,
+    "storybookDifferences": [
+      "project.json: generation timestamp and portable-story discovery statistic1\u21920",
+      "sb-addons/storybook-4/manager-bundle.js: generated/minified binding differences",
+      "sb-addons/themes-3/manager-bundle.js: generated/minified binding differences"
+    ],
+    "storybookRuntimeEquivalenceNotClaimed": true,
+    "storybookStoryIndexAndPreviewAssetsIdentical": true,
+    "evidence": "artifact-comparison.json"
+  },
+  "hosted": {
+    "sourceCommit": "2697f5a967a950d7e4abb3d77615478a83567c0c",
+    "result": "failure",
+    "runs": [
+      {
+        "id": 40257317928,
+        "name": "CI",
+        "conclusion": "failure"
+      },
+      {
+        "id": 40257317842,
+        "name": "Dependency review",
+        "conclusion": "failure"
+      },
+      {
+        "id": 40257317937,
+        "name": "CodeQL workflow",
+        "conclusion": "failure"
+      }
+    ],
+    "manualDispatch": false,
+    "gateChanged": false
+  },
+  "independentReview": "No blocker found in precise deletions, retained contracts/assets, exports/consumers, narrow ignores or root profile ownership.",
+  "limits": [
+    "Zero Chromium runs; discovery and existing source-bound screenshots are not current visual/browser acceptance.",
+    "#53 sequential-build prerequisite used; no concurrent-build experiment or fix for its earlier sitemap collision.",
+    "#52/#29/#92 retain broad compiler/lint/profile/CI reconciliation, size-budget disposition and stale #73 conflicts.",
+    "Storybook output is not wholly byte-reproducible; three generated files differ and browser equivalence is not established.",
+    "Retained governance/license/ADR/future scaffolds are classified but incomplete; no policy, license, ADR history or feature was fabricated."
+  ],
+  "next": "Review/sync #104 local A/B/C, then #59 licensing and asset provenance; new draft not merged.",
+  "evidenceHashes": {
+    "artifact-comparison.json": "1a39583737c166a81ada44b9d7e48ce5e75e9b59bd42887f9f9408ca69028be7",
+    "artifact-summary.json": "a5120bab5f4c22cf1450b71e6b6d3f1ed39106fd83977f5d813c181c4c4e9db5",
+    "clean-finish.json": "ef3c1be64bc7869d6daa048537fc4b22ffb5fa42cc04f1a0e059c7425993bd32",
+    "clean-start.json": "072c0dcaab22d108b521b36115432f1d6195342d27623f3633a575593702b809",
+    "consumer-build.json": "06dfce49ea34b3423b6f3f3360577eb48df7916686e6c8a12a38431622fbf4ba",
+    "discovery-comparison.json": "45bc60b31d052760e5005bac159f167650b8a83b93aec015969f9edc05b46f17",
+    "generated-inventory.json": "2dcb24cbe9353245865189ad3d7ac885ab67c228854de0933acb4b2c6e5eb4a6",
+    "scaffold-inventory.json": "339e3b5b7b445adcafcc54d3bb05786dadfc207ae241aa64564f99ebab78ccb4",
+    "scaffolds.md": "2d2d27865bd952f9b48b03184ee8250ceadeff71873e098926722f8db6f422d0"
+  }
+}

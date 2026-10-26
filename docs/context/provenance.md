@@ -5,6 +5,32 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Source hygiene #56 fresh-checkout C — 2026-10-25
+
+Published B `2697f5a967a950d7e4abb3d77615478a83567c0c` matched staged tree
+`d27295f399faf0496382f9c8b27d70161d9c2b8b`. A detached fresh checkout began without
+node_modules/caches/app output/removed output roots. Frozen script-disabled install
+used pinned Node24.21.0/pnpm11.28.5, with no version/lockfile/policy change. Selected
+source types/checks,341 units/45files,three fresh-build smoke checks and one isolated
+consumer integration test (three negative probes) pass. Website/docs/playground/
+Storybook builds ran sequentially; utility declarations regenerated into ignored dist.
+
+[Verification](../development/reviews/source-hygiene-56/verification.json) preserves
+source-bound hashes/discovery/cleanliness and limits. All66 app artifact files match
+fresh merged-main baseline; Storybook59/62 match, with timestamp/discovery stats and
+two generated addon manager bundles differing. Unit341/default-browser31/component4
+discovery is unchanged after normalizing paths/order; multiplicity preserved. Zero
+browsers executed. Seven ignore checks, all35 retained empty paths and26 removed
+stubs pass; Git remains clean and all66 historical output blobs retain saved hashes.
+
+Same three artifact budget categories and B hosted CI40257317928/dependency
+40257317842/CodeQL40257317937 fail. No gate/ceiling changed or workflow dispatched.
+No concurrent-build experiment, browser equivalence or full qualification claimed.
+Independent deletion/consumer review found no blocker. Local A/B/C complete in draft
+#104; this follow-up is docs/evidence only. Next sync then #59. Existing incomplete
+policy/license/ADR/future contracts retain their owners; ADR not required for applying
+existing source/output boundaries. No history rewrite, private records or activation.
+
 ## Source hygiene #56 B — 2026-10-25
 
 A `f7311c089b2197658851eff166ceb6486aa3cd9d` was published in draft #104 before

@@ -59,5 +59,8 @@
   "componentStylesReview": "docs/design/component-styles-53.md",
   "componentStylesEvidence": "docs/design/reviews/component-styles-53/verification.json",
   "componentStylesDecision": "docs/architecture/decisions/0015-explicit-component-styles.md",
-  "componentStylesConsumer": "tests/component-styles/README.md"
+  "componentStylesConsumer": "tests/component-styles/README.md",
+  "sourceHygieneReview": "docs/development/source-hygiene-56.md",
+  "sourceHygieneEvidence": "docs/development/reviews/source-hygiene-56/verification.json",
+  "sourceHygieneScaffolds": "docs/development/reviews/source-hygiene-56/scaffolds.md"
 }
