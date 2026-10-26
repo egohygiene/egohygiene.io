@@ -6,6 +6,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
+| Overnight cleanup/profile/CI batch | [#92 contract and baseline](../development/bounded-sweep-92.md); #92 → #52 → #29 selected, #59 licensing and all merges await next sync |
 | Licensing/provenance audit | [#59 audit](../legal/licensing-59.md) and [asset inventory](../legal/reviews/licensing-59/asset-inventory.json); #104 merged, draft #105 has [verified notices/proposals](../legal/reviews/licensing-59/verification.json) and [inactive choices](../legal/proposals/README.md); final license selection and recorded evidence gaps remain open |
 | Source hygiene delivery | [#56 receipt](../development/source-hygiene-56.md), [verification](../development/reviews/source-hygiene-56/verification.json) and [all empty-file dispositions](../development/reviews/source-hygiene-56/scaffolds.md); merged #104, fresh-checkout local A/B/C complete; current #59 work is linked above |
 | Component style delivery | [#53 receipt](../design/component-styles-53.md), [verification](../design/reviews/component-styles-53/verification.json), [ADR 0015](../architecture/decisions/0015-explicit-component-styles.md) and [consumer commands](../../tests/component-styles/README.md); merged #103, actual browser acceptance deferred; #56 local delivery is linked above |

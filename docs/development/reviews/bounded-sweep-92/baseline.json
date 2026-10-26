@@ -1,0 +1,110 @@
+{
+  "sourceHead": "2b9ebe5d3aba4f7cccb277252d15a48325ff205d",
+  "node": "v24.21.0",
+  "pnpm": "11.28.5",
+  "checks": [
+    {
+      "name": "check",
+      "command": [
+        "pnpm",
+        "check"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "types",
+      "command": [
+        "pnpm",
+        "typecheck"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "unit",
+      "command": [
+        "pnpm",
+        "test:unit"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "catalog",
+      "command": [
+        "node",
+        "--test",
+        "--test-concurrency=2",
+        "tests/store/artifact-qualification.test.ts",
+        "tests/store/artists.test.ts",
+        "tests/store/artwork-files.test.ts",
+        "tests/store/catalog-envelope.test.ts",
+        "tests/store/catalog-localization-fixture.test.ts",
+        "tests/store/catalog-localization.test.ts",
+        "tests/store/catalog-migration.test.ts",
+        "tests/store/catalog-presentation.test.ts",
+        "tests/store/catalog.test.ts",
+        "tests/store/checkout-handoff-fixture.test.ts",
+        "tests/store/checkout-handoff-network.test.ts",
+        "tests/store/curation.test.ts",
+        "tests/store/design-order.test.ts",
+        "tests/store/domain-consumer.test.ts",
+        "tests/store/fourthwall-check.test.ts",
+        "tests/store/providers.test.ts",
+        "tests/store/public-build.test.ts",
+        "tests/store/public-page-preview.test.ts",
+        "tests/store/public-rendering-build.test.ts",
+        "tests/store/readiness.test.ts"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "artifact",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/night92-baseline.json"
+      ],
+      "exitCode": 1
+    },
+    {
+      "name": "frozen-install",
+      "command": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "storybook-static-build",
+      "command": [
+        "pnpm",
+        "storybook:build"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "counts": {
+    "unitTests": 341,
+    "unitFiles": 45,
+    "catalogTests": 152,
+    "browserExecutions": 0,
+    "websitePages": 26,
+    "sitemapEntries": 10,
+    "websiteArtifactFiles": 45
+  },
+  "limits": [
+    "Artifact qualifier retains three existing document/total size findings.",
+    "Baseline is PR105 head; main and PR105 remain unmerged with licensing unresolved.",
+    "No current Chromium or production/host/provider qualification."
+  ]
+}

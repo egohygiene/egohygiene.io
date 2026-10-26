@@ -1,5 +1,24 @@
 # Current handoff
 
+## Current: overnight #92 → #52 → #29 batch — 2026-10-26
+
+Alan authorized several issues while asleep, with licensing reconciliation and
+merges at the next sync. Main stays `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`;
+#105 remains draft at `2b9ebe5d3aba4f7cccb277252d15a48325ff205d`, used as #92's input.
+Branch `refactor/bounded-sweep-92` stacks on that draft; neither license patch is
+applied. [#92 audit/baseline and selected changes](../development/bounded-sweep-92.md)
+cover feature-local component ownership, bounded lookup reuse and a source-backed
+Storybook 10 security update, with obsolete direct-package cleanup only if verified.
+
+Fresh install, check/site types, 341 units/152 catalog tests, website/static
+Storybook builds pass at the input. Existing three artifact-size findings remain.
+#52 baseline separately finds incomplete/failing tooling/unit types and missing
+profile/fresh-build coverage; #29 will adapt useful old #73 fixes to current code.
+Save A before each implementation; retain exact-revision evidence and draft links.
+No Chromium, merge, deployment, provider activation or new licensing grant.
+Morning review: licensing/remaining evidence and ordered draft integration.
+
+
 ## Current: #59 verified draft; owner license selection next — 2026-10-25
 
 #104 merged at `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; #56 closed completed.

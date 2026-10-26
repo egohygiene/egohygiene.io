@@ -1,5 +1,22 @@
 # Context provenance ledger
 
+## Overnight authorization and #92 A baseline — 2026-10-26
+
+Alan requested several roadmap issues while away and a next-sync licensing/merge
+review. Live main `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`, draft #105
+`2b9ebe5d3aba4f7cccb277252d15a48325ff205d`, old #73
+`725e021336fe6675e53d0a3374caf0b102627019` were refreshed. The checkout was recovered
+from GitHub; no prior scratch artifact was treated as current evidence. Working
+#92 branches from #105; no merge/license selection inferred.
+
+[Audit/baseline](../development/bounded-sweep-92.md) records source-bound fresh
+frozen install, Node 24.21.0/pnpm 11.28.5, passing checks/types/341 units/152 catalog
+contracts and normal/static Storybook builds. Three size findings remain. Independent
+source/dependency/profile/CI audits preserve distinct owners and external limits.
+Official Storybook advisory/release supports the targeted same-major update;
+no broad upgrade or insecure compatibility flag is selected. Save A before B.
+
+
 ## #59 bounded verification and remaining owner choice — 2026-10-25
 
 Published B `e366e07b078070f805fd70d8036950ac81bd336e`, tree
