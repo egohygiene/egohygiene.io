@@ -17,6 +17,7 @@ environment helper; equivalent `pnpm` commands assume the correct runtime is act
 | `task test:components:browser` / `pnpm test:components:browser` | Fresh native Storybook and independent consumer builds, followed by the component browser profile. Requires Chromium. |
 | `task ci:check` / `pnpm ci:check` | Formatting/lint, all compiler/contract scopes, fresh all-app smoke, raw rendering, unchanged artifact budgets and native Storybook build. No browser execution. |
 | `task ci:browser` / `pnpm ci:browser` | Independent fresh app/preview/Storybook/consumer prerequisites, all four Playwright profiles and custom intercepted/layout/catalog journeys. Requires Chromium. |
+| `task qualify:static` / `pnpm qualify:static` | Explicit local Docker context/image/Caddy profile; requires Docker Desktop/Engine with BuildKit. Fresh normal image, real context probes, image-extracted artifact checks and loopback HTTP. Containers are cleaned up; strict budget failures remain. See [#57](../docs/development/static-serving-57.md). |
 | `task qualify:local` / `pnpm qualify:local` | Complete sequential non-browser and browser qualification. Requires Chromium; stops at the first failed gate. Each profile owns fresh prerequisites. |
 
 The smoke consumer is intentionally not a standalone `vitest` shortcut: its receipt

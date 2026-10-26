@@ -1,0 +1,140 @@
+{
+  "source": "9a44a48031e9715cb2c3d8945a6cb2cc800c2a37",
+  "sourceStatus": "",
+  "checks": [
+    {
+      "name": "format",
+      "command": ["pnpm", "format:check"],
+      "exitCode": 0,
+      "elapsedSeconds": 0.7
+    },
+    {
+      "name": "lint",
+      "command": ["pnpm", "lint"],
+      "exitCode": 0,
+      "elapsedSeconds": 4.69
+    },
+    {
+      "name": "tooling",
+      "command": ["pnpm", "test:tooling"],
+      "exitCode": 0,
+      "elapsedSeconds": 5.26
+    },
+    {
+      "name": "tooling-types",
+      "command": ["pnpm", "typecheck:tooling"],
+      "exitCode": 0,
+      "elapsedSeconds": 4.15
+    },
+    {
+      "name": "boundaries",
+      "command": ["pnpm", "check"],
+      "exitCode": 0,
+      "elapsedSeconds": 1.32
+    },
+    {
+      "name": "normal-build",
+      "command": ["pnpm", "build"],
+      "exitCode": 0,
+      "elapsedSeconds": 3.43
+    },
+    {
+      "name": "raw-public",
+      "command": [
+        "node",
+        "tests/store-qualification/public-rendering.mjs",
+        "--output",
+        "test-results/store-qualification/static-57-public.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.84
+    },
+    {
+      "name": "artifacts",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/static-57-artifacts.json"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 0.25
+    },
+    {
+      "name": "docker-profile",
+      "command": ["pnpm", "qualify:static"],
+      "exitCode": 1,
+      "elapsedSeconds": 1.89
+    }
+  ],
+  "node": "24.21.0",
+  "pnpm": "11.28.5",
+  "toolingTests": {
+    "passed": 101,
+    "newTests": 35,
+    "scope": "15 context export-validator tests,14 HTTP verifier tests,6 mocked Docker orchestration tests; actual Docker matching/image proof remains pending."
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 85,
+    "infos": 44,
+    "changeFromInput": 0
+  },
+  "normalArtifact": {
+    "files": 45,
+    "generatedRoutes": 26,
+    "sitemapEntries": 10,
+    "exactPriorHashes": true,
+    "budgetFindings": [
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "bytes: 319972 exceeds 20000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "gzipBytes: 86939 exceeds 10000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "total",
+        "detail": "bytes: 1289796 exceeds 1140000."
+      }
+    ]
+  },
+  "nativeCaddy": {
+    "result": "pass",
+    "version": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+    "requests": 388,
+    "configSha256": "b91683412db2f3471121009da7c46decb6dc20bece21cb43f0f19368955e8497",
+    "scope": "Actual official Linux native Caddy HTTP against a fresh normal app artifact. Not Docker, Alpine, Mac, browser, hosted CI or deployment proof.",
+    "artifactPathWithSpaces": true,
+    "ownedProcessStopped": true
+  },
+  "task": {
+    "yamlAndPackageTarget": "pass",
+    "execution": "not run; Task binary unavailable"
+  },
+  "docker": {
+    "preflight": "failed clearly: Docker unavailable",
+    "contextEngine": "not run",
+    "lockedAlpineInstall": "not run",
+    "imageAndContainer": "not run",
+    "macArm64": "not run"
+  },
+  "unchanged": {
+    "lockfile": true,
+    "websiteSource": true,
+    "artworkFontsNotices": true,
+    "licenseChoice": "unselected",
+    "purchasing": "disabled"
+  },
+  "notClaimed": [
+    "Complete local qualification",
+    "Hosted CI success",
+    "Browser hydration/accessibility or physical devices",
+    "Docker context/image/Caddy-in-container acceptance",
+    "Production deployment or launch"
+  ]
+}

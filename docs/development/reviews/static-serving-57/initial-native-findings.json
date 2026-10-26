@@ -1,0 +1,24 @@
+[
+  {
+    "scope": "Clean original B; missing CNAME MIME",
+    "source": {
+      "commit": "462d8ef13719841dc879eab531bc77355a24f3eb",
+      "digest": "7f6505381a693db745e9fb3fea5a37bfa150ad70d27ef58d7d00412fded8acb8",
+      "files": 774
+    },
+    "configSha256": "6f7c19919b48b3dd122387aca0f4bac0ed88f6883acd74a820fdc59cae4cdf58",
+    "result": "fail",
+    "failure": "AssertionError [ERR_ASSERTION]: GET MIME: /CNAME"
+  },
+  {
+    "scope": "Original B plus uncommitted CNAME header correction; missing webmanifest MIME",
+    "source": {
+      "commit": "462d8ef13719841dc879eab531bc77355a24f3eb",
+      "digest": "ddca8005a20081575f7b807d893c99b1d17fd28d0d97939a15a35ce4e9032198",
+      "files": 774
+    },
+    "configSha256": "0f231e0f89cccc312deeeaae15307ee338b2a16cb03a1d516e615a02088eb7fc",
+    "result": "fail",
+    "failure": "AssertionError [ERR_ASSERTION]: GET MIME: /site.webmanifest"
+  }
+]

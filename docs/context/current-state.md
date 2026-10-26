@@ -1,5 +1,19 @@
 # Current handoff
 
+## Current: #57 native proof saved; Docker walkthrough remains — 2026-10-26
+
+[Draft #109](https://github.com/egohygiene/egohygiene.io/pull/109) stacks on #108. [Receipt](../development/static-serving-57.md) and [verification](../development/reviews/static-serving-57/verification.json) pin corrected source `9a44a48031e9715cb2c3d8945a6cb2cc800c2a37`. 101 tooling tests, tooling types/checks, normal build/raw and 388 actual Linux-native Caddy HTTP requests pass; all 45 artifact hashes match prior #29 controlled output. Native checks caught and fixed missing CNAME/webmanifest types. Three budgets fail; output investigations remain unresolved. Docker profile fails clearly before execution because Docker is absent; Task/Mac/container/browser acceptance remains pending. Hosted CodeQL succeeds; CI logs confirm the artifact gate fails (three findings), and dependency review reports unsupported repository/Dependency graph configuration. Browser steps are skipped.
+
+Next: sync/walk through `task setup:store` and `task qualify:static` on Alan's Mac; #57 stays open for actual Docker B/C, then #70 and final #37. #105→#106→#107→#108→#109 remain drafts, old #73 awaits supersession review, main remains `89fc7044`. Licensing choices and prior acceptance gaps remain open. No deployment, merge, retirement or provider/purchase activation.
+
+## Current: #57 implementation ready for exact-source verification — 2026-10-26
+
+[Draft #109](https://github.com/egohygiene/egohygiene.io/pull/109) saves A `06a792a6c644d491acb60db0ae217513c8721450` before default-deny context, Caddy canonical/404 behavior and the explicit `qualify:static` profile. [Contract/walkthrough](../development/static-serving-57.md). Native Caddy 2.11.7 can run here; Docker/Task cannot. Next C pins fresh build/HTTP and failure-path evidence, preserving actual container/Mac acceptance for later. Main/earlier drafts/license choices and pre-existing qualification gaps remain unchanged.
+
+## Current: #57 selected, audit saved before implementation — 2026-10-26
+
+Alan selected #57 with local testing together afterward. [Contract](../development/static-serving-57.md) records default-deny context and generated-route Caddy serving, based on unmerged #108 `4faaebeb50b4202e8aaf9ee0012db0f836939f79`. Main remains `89fc7044`. Docker/Caddy binaries are absent; bounded source/verifier checks precede explicit Mac image/server acceptance. Next B implementation, then C evidence and sync. Licensing, prior drafts, output/budget/native/browser/hosted gaps remain open. No merge or deployment.
+
 ## Current: overnight drafts ready for morning reconciliation — 2026-10-26
 
 Read the [compact handoff](overnight-2026-10-26.md). #105 → #106 → #107 → #108

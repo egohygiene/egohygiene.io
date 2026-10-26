@@ -15,8 +15,8 @@ import {
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const { values } = parseArgs({ options: { profile: { type: "string", default: "full" } } });
-if (!["full", "smoke", "ci-check", "ci-browser"].includes(values.profile))
-  throw new Error("Use --profile full, smoke, ci-check or ci-browser.");
+if (!["full", "smoke", "ci-check", "ci-browser", "static-server"].includes(values.profile))
+  throw new Error("Use --profile full, smoke, ci-check, ci-browser or static-server.");
 const profile = values.profile;
 const output = path.join(
   root,
@@ -37,13 +37,15 @@ const report = {
   }).stdout.trim(),
   node: process.version,
   scope:
-    profile === "smoke"
-      ? "Fresh website/docs/playground HTML and emitted-file smoke checks. No JavaScript execution, browser, hosted CI or deployment qualification."
-      : profile === "ci-check"
-        ? "Non-browser format, lint, types, contracts, fresh builds, raw rendering and artifact budgets. No browser, hosted CI or deployment qualification."
-        : profile === "ci-browser"
-          ? "Local application, production/isolated-preview, component and intercepted browser journeys. No hosted CI, deployment, real provider or physical-device qualification."
-          : "Complete local non-browser checks and fresh application, store, component and intercepted browser journeys. No hosted CI, deployment, real provider or physical-device qualification.",
+    profile === "static-server"
+      ? "Local Docker context, normal image and Caddy HTTP checks; requires a local Docker engine. Browser, hosted CI and deployment are separate."
+      : profile === "smoke"
+        ? "Fresh website/docs/playground HTML and emitted-file smoke checks. No JavaScript execution, browser, hosted CI or deployment qualification."
+        : profile === "ci-check"
+          ? "Non-browser format, lint, types, contracts, fresh builds, raw rendering and artifact budgets. No browser, hosted CI or deployment qualification."
+          : profile === "ci-browser"
+            ? "Local application, production/isolated-preview, component and intercepted browser journeys. No hosted CI, deployment, real provider or physical-device qualification."
+            : "Complete local non-browser checks and fresh application, store, component and intercepted browser journeys. No hosted CI, deployment, real provider or physical-device qualification.",
   status: "running",
   steps: [],
 };
@@ -206,7 +208,13 @@ async function browserChecks() {
 await mkdir(output, { recursive: true });
 await saveReport();
 try {
-  if (profile === "smoke") {
+  if (profile === "static-server") {
+    await run("local Docker and static serving", [
+      "scripts/static-server.mjs",
+      "--output-dir",
+      path.relative(root, output),
+    ]);
+  } else if (profile === "smoke") {
     await freshBuildSmoke();
   } else {
     if (profile === "full" || profile === "ci-check") await nonBrowserChecks();

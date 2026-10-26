@@ -1,0 +1,28 @@
+{
+  "source": "https://github.com/caddyserver/caddy/releases/tag/v2.11.7",
+  "releaseId": 402353292,
+  "asset": "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_linux_amd64.tar.gz",
+  "expectedArchiveSha256": "727b91701a392de6ebc5027509f548bf39979e5216340d0faed8fa5e69c84f8b",
+  "actualArchiveSha256": "727b91701a392de6ebc5027509f548bf39979e5216340d0faed8fa5e69c84f8b",
+  "binaryVersion": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+  "configSha256": "4b2b79bbddd2ace38dfa1ba1a4c4dabfe219185b0a6e0a6b78887727ed10f7da",
+  "scope": "Temporary official Linux native Caddy, no container or production execution. Synthetic fixture checks precede source-bound app qualification.",
+  "syntheticHttpAssertions": 63,
+  "syntheticObservationOnlyRequests": 4,
+  "initialImplementationFindings": [
+    "auto_https off does not make a hostname address plaintext; use explicit http:// in the site address",
+    "Caddyfile quoted backslash-n is literal; agreed health body is exactly ok, without newline"
+  ],
+  "sources": [
+    "https://caddyserver.com/docs/caddyfile/directives/file_server",
+    "https://caddyserver.com/docs/caddyfile/matchers",
+    "https://caddyserver.com/docs/caddyfile/directives/uri",
+    "https://caddyserver.com/docs/caddyfile/directives/handle_errors",
+    "https://caddyserver.com/docs/caddyfile/directives/route",
+    "https://github.com/caddyserver/caddy/security/advisories/GHSA-4xrr-hq4w-6vf4",
+    "https://github.com/caddyserver/caddy-docker/blob/master/2.11/alpine/Dockerfile"
+  ],
+  "configSha256Scope": "Initial synthetic-fixture configuration, preceding explicit metadata MIME fixes",
+  "finalSource": "9a44a48031e9715cb2c3d8945a6cb2cc800c2a37",
+  "finalConfigSha256": "b91683412db2f3471121009da7c46decb6dc20bece21cb43f0f19368955e8497"
+}

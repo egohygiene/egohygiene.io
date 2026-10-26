@@ -96,7 +96,8 @@
     "test:browser:discover": "node scripts/check-browser-discovery.mjs",
     "qualify:local": "node scripts/qualify-store.mjs",
     "ci:check": "node scripts/qualify-store.mjs --profile ci-check",
-    "ci:browser": "node scripts/qualify-store.mjs --profile ci-browser"
+    "ci:browser": "node scripts/qualify-store.mjs --profile ci-browser",
+    "qualify:static": "node scripts/qualify-store.mjs --profile static-server"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.24.1",
