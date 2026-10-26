@@ -16,6 +16,14 @@ http://{$EGOHYGIENE_HTTP_ADDRESS::80} {
 		path_regexp slashAlias ^/[^/]+(?:/[^/]+)*/$
 		file {path}index.html
 	}
+	@domainFile {
+		path /CNAME
+		file {path}
+	}
+	@webManifest {
+		path /site.webmanifest
+		file {path}
+	}
 	@generatedPage file {path}/index.html
 	@unsupportedMethod not method GET HEAD
 
@@ -24,6 +32,8 @@ http://{$EGOHYGIENE_HTTP_ADDRESS::80} {
 			header Allow "GET, HEAD"
 			respond "Method not allowed" 405
 		}
+		header @domainFile Content-Type "text/plain; charset=utf-8"
+		header @webManifest Content-Type "application/manifest+json"
 		respond /healthz "ok" 200
 
 		route /index.html {

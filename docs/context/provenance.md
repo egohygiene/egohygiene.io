@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## #57 native MIME correction — 2026-10-26
+
+Published B `462d8ef13719841dc879eab531bc77355a24f3eb` passed fresh build/raw inspection, 99 tooling tests and preserved all 45 prior artifact hashes. Actual native Caddy rejected missing Content-Type on CNAME, then the web manifest. Explicit existing-file headers and two negative regressions fix those observed gaps without weakening the verifier. Corrected working-tree HTTP passes 388 requests; C will verify the published correction. Three size findings remain; the Docker profile fails clearly at unavailable Docker. Earlier failed attempts remain evidence, not passes.
+
 ## #57 B local serving implementation — 2026-10-26
 
 A `06a792a6c644d491acb60db0ae217513c8721450` precedes the bounded context, Node/pnpm assertions, Caddy 2.11.7 canonical/404 adapter and explicit existing-qualifier static-server profile in draft #109. Real Docker exports, invocation-owned image/container, source identity, exact artifact/HTTP checks and ownership-checked cleanup are prepared. [Receipt](../development/static-serving-57.md) retains the staged-source-only build and native-versus-container boundaries; C will pin final evidence. No license choice, merge, deployment or checkout activation.

@@ -88,7 +88,10 @@ export async function inspectStaticResponses(artifactRoot, publicReport, baseUrl
     for (const method of ["GET", "HEAD"]) {
       const response = await request(category, pathname, method);
       assert.equal(response.status, expectedStatus, `${method} status: ${pathname}`);
-      assert.ok(types.includes(response.contentType), `${method} MIME: ${pathname}`);
+      assert.ok(
+        types.includes(response.contentType),
+        `${method} MIME: ${pathname} (${response.contentType || "missing"})`,
+      );
       assert.equal(response.location, null, `Unexpected redirect: ${pathname}`);
       if (method === "GET")
         assert.equal(

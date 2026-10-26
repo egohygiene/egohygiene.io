@@ -163,3 +163,15 @@ Licensing #59, old #73 disposition, #52's output investigations, existing artifa
 budgets, Storybook/browser and hosted gaps remain open. After #57 sync, #70 then
 final #37 on Alan's Mac remain the setup path. Checkpoint C will record exact
 published-source checks and remaining runtime acceptance.
+
+### Native HTTP findings before checkpoint C
+
+The first full native run at B `462d8ef13719841dc879eab531bc77355a24f3eb`
+rejected `/CNAME` because Caddy emitted no Content-Type. A subsequent uncommitted
+correction exposed the same gap for `/site.webmanifest`; all 18 non-HTML files
+were then inspected. Explicit file-existence-matched headers now serve CNAME as
+text/plain and the web manifest as application/manifest+json, independent of the
+host MIME database. The verifier retains its requirements and adds two negative
+regressions. A corrected working-tree run passes all 388 requests over 26 generated
+routes, including an artifact path with spaces. Final C pins this correction to a
+published clean source instead of treating that working-tree run as final evidence.

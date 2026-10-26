@@ -31,6 +31,8 @@ async function fixture(t, change = (_request, response) => response) {
     ["/assets/app.css", { body: "body { color: black; }", type: "text/css" }],
     ["/icons/example.png", { body: Buffer.from([137, 80, 78, 71]), type: "image/png" }],
     ["/robots.txt", { body: "User-agent: *\n", type: "text/plain" }],
+    ["/CNAME", { body: "example.invalid\n", type: "text/plain" }],
+    ["/site.webmanifest", { body: "{}\n", type: "application/manifest+json" }],
   ]);
   for (const [file, { body }] of files) {
     const full = path.join(root, file.slice(1));
@@ -143,6 +145,13 @@ test("static HTTP inspector rejects concrete serving regressions", async (t) => 
       (answer) => ({ ...answer, headers: { "content-type": "text/html" } }),
       /MIME/,
     ],
+    ...["/CNAME", "/site.webmanifest"].map((pathname) => [
+      `missing MIME for ${pathname}`,
+      pathname,
+      "GET",
+      (answer) => ({ ...answer, headers: {} }),
+      /MIME/,
+    ]),
     [
       "missing page succeeds",
       "/missing-route-57",
