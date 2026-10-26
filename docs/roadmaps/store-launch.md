@@ -1,5 +1,21 @@
 # Store launch roadmap and milestone history
 
+## Current #59 verified draft — 2026-10-25
+
+[Draft #105](https://github.com/egohygiene/egohygiene.io/pull/105) records #59 audit,
+independent notices, contributor scope and [two inactive license proposals](../legal/proposals/README.md).
+[Bounded verification](../legal/reviews/licensing-59/verification.json) passes on
+B `e366e07b078070f805fd70d8036950ac81bd336e`: exact assets/notices/proposal results,
+normal build and 44 unchanged prior artifact files; font notice is the only output
+addition. Existing three size categories and two source hosted checks fail; no
+browser run or gate change. #104 is merged and #56 closed completed.
+
+Next: sync on software-license selection and the old-font/private-merch dispositions;
+#59 final alignment remains open. Then **#92 → #52 → #29 → #57 → #70 → #37**.
+The later environment/construction-preview and actual-product phases are unchanged.
+#31/#32 retain private-source obligations distinct from public #100; no retirement,
+deployment or provider activation. #105 remains draft/unmerged.
+
 ## Current #59 draft and #104 integration — 2026-10-25
 
 #104 merged at `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; #56 closed completed.

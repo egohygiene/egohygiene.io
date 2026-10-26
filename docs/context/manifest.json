@@ -69,5 +69,6 @@
   "licensingScope": "LICENSING.md",
   "thirdPartyNotices": "THIRD_PARTY_NOTICES.md",
   "licensingProposals": "docs/legal/proposals/README.md",
-  "fontProvenance": "assets/fonts/atkinson/provenance.json"
+  "fontProvenance": "assets/fonts/atkinson/provenance.json",
+  "licensingVerification": "docs/legal/reviews/licensing-59/verification.json"
 }

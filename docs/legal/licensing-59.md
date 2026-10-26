@@ -80,7 +80,49 @@ sources. Applying a proposal is a separate step after selection. This fulfills
 the issue's requirement to prepare a reviewable diff before asking for a missing
 licensing decision. Unselected patches must never be applied together.
 
-## C — Verification and remaining decision
+## C — Bounded verification delivered; final alignment open
+
+Checked published B `e366e07b078070f805fd70d8036950ac81bd336e`, tree
+`755e2b224e73ccb81c8ab6115c1d99a8c13c5d2e`, using Node 24.21.0/pnpm 11.28.5.
+[Machine-readable receipt](reviews/licensing-59/verification.json) links the exact
+asset, proposal and artifact results.
+
+- All 55 binary assets and four inline SVG source files still match their recorded
+  sizes, SHA-256 and Git blobs; exact font metadata/notice terms, local target paths
+  and changed JSON pass. Local links were checked for file existence; external URL
+  availability and all heading fragments are not certified by that check.
+- Both patches apply successfully in isolated temporary repositories and produce
+  the exact source license text. MIT changes only the package license field;
+  Apache leaves metadata alone. Independent scope text is unchanged. Applying both
+  is rejected. Active root LICENSE is still empty, package metadata unchanged.
+- `pnpm build` passes, validates 10 catalog entries/one image and generates 26
+  pages, 10 sitemap entries and the noindex 404. All 44 previous artifact files
+  are byte-identical; only `fonts/NOTICE.txt` is added and matches its source.
+  The root MSW worker and adjacent notice are absent from this website artifact;
+  future worker copying/distribution must retain its complete notice.
+- The artifact qualifier still exits 1 with the same three size categories:
+  documents 319972 raw/86924 independently gzipped bytes; total 1289603 raw bytes.
+  New font notice adds 2357 raw/1335 gzip bytes. No ceiling was raised.
+- Source-head hosted validate run 40260560022 and dependency-review 40260560048
+  failed. No gate changed. Notice/docs-only work did not rerun unit/types/browser
+  suites; prior results are not relabeled as this source's runtime qualification.
+
+### Remaining before #59 completion
+
+1. Alan chooses Apache-2.0 or MIT, then apply exactly that patch, record the durable
+   decision, align current-status/contributor references and recheck active metadata.
+2. Obtain authoritative full historical Atkinson distribution-license evidence,
+   or record a reviewed alternative disposition. Preserving embedded text alone
+   does not establish complete redistribution readiness.
+3. Confirm the private #32 unfinished-work disposition under #31/#59 with the
+   maintainer. No migration/attachment backup/private retirement is claimed here.
+
+The audit inventory and safe notices/proposals are delivered; these remaining
+acceptance items keep #59 and draft #105 open. No new software license, merchandise
+approval, source archive retirement, provider activation or deployment occurred.
+
+### Saved verification plan and constraints
+
 
 Check all inventory hashes/declared provenance, exact notice bytes, links/JSON,
 proposal applicability and the actual files each patch changes. Build affected

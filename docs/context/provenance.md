@@ -1,5 +1,32 @@
 # Context provenance ledger
 
+## #59 bounded verification and remaining owner choice — 2026-10-25
+
+Published B `e366e07b078070f805fd70d8036950ac81bd336e`, tree
+`755e2b224e73ccb81c8ab6115c1d99a8c13c5d2e`, is the tested source in draft #105.
+[Verification](../legal/reviews/licensing-59/verification.json),
+[asset/reference checks](../legal/reviews/licensing-59/asset-verification.json),
+[isolated patch checks](../legal/reviews/licensing-59/proposal-verification.json)
+and [artifact summary](../legal/reviews/licensing-59/artifact-summary.json) record
+actual results. Exact notices/hashes, 55 binary/four inline sources and links/JSON
+pass. Both proposed license diffs apply independently to isolated copies; mixed
+application is rejected, active LICENSE/package metadata untouched.
+
+Node 24.21.0/pnpm 11.28.5 normal build validates 10 entries/one image and produces
+26 pages/10 sitemap entries/noindex 404. All 44 pre-change output files match;
+only fonts/NOTICE.txt is added (2357 raw/1335 independently gzipped bytes). MSW
+root public assets are not copied into this website artifact. Artifact check
+retains three size findings: documents 319972 raw/86924 gzip, total 1289603 raw.
+No ceiling/gate changed. Source hosted validate 40260560022 and dependency-review
+40260560048 failed; no hosted qualification claimed. Prior unit/browser results
+are not new evidence here; zero browsers executed, no deployment or private fetch.
+
+Final license alignment remains open: issue #59 requires the missing owner choice
+before applying it. The complete old-font license record and private #32 B/C
+preservation/publication dispositions remain explicit. Live #31/#32/#59 receipts
+preserve those gaps independently of #100; no completion/retirement is inferred.
+This follow-up only saves evidence/continuity, not a new implementation or grant.
+
 ## #59 checkpoint B — notices and reviewable alternatives (2026-10-25)
 
 A was published first in draft #105 at `90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c`.

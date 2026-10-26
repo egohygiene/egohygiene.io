@@ -1,5 +1,35 @@
 # Current handoff
 
+## Current: #59 verified draft; owner license selection next — 2026-10-25
+
+#104 merged at `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; #56 closed completed.
+[Draft #105](https://github.com/egohygiene/egohygiene.io/pull/105) on
+`docs/licensing-provenance-59` saved A `90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c`
+before notice/proposal B `e366e07b078070f805fd70d8036950ac81bd336e`.
+[Audit and remaining acceptance](../legal/licensing-59.md) and
+[verification](../legal/reviews/licensing-59/verification.json) retain exact sources.
+
+Verified independent MSW/font notices, 55 binary/four inline SVG source identities,
+font terms, local references/JSON and both inactive license patches. Isolated
+applications produce exact source texts/aligned metadata; mixed application is
+rejected. Active LICENSE remains empty and package metadata unchanged. Normal
+build passes: all 44 previous artifact files are byte-identical; only the 2357-byte
+font notice is added. Root MSW worker/notice are not part of this website artifact.
+No unit/type/browser suite rerun for notice/docs-only changes.
+
+Artifact qualification still fails the same three budget categories: documents
+319972 raw/86924 gzip bytes and total 1289603 raw bytes. Source-head hosted validate
+40260560022 and dependency-review 40260560048 failed. No gates changed; browser,
+hosted, performance and production acceptance are not inferred from local success.
+
+Next: Alan selects one [reviewable software-license proposal](../legal/proposals/README.md),
+then apply that choice, record its durable decision and complete final declaration
+alignment. #59 stays open for that selection, the old-font full-license evidence/
+reviewed disposition and maintainer reconciliation of private #32 obligations.
+#31/#32/#59 visibly retain those obligations; #32 remains closed, public #100 stays
+separate. #92 follows resolution/sync. Draft #105 is unmerged; no deployment,
+provider activation, private-source fetch, source-store retirement or new grant.
+
 ## Current: #59 notices and inactive proposals — 2026-10-25
 
 [Draft #105](https://github.com/egohygiene/egohygiene.io/pull/105), branch
