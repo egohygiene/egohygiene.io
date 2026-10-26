@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-10-26",
+  "recordedTimezone": "America/New_York",
+  "sourceHead": "2b9ebe5d3aba4f7cccb277252d15a48325ff205d",
+  "mainHead": "89fc70440f9c3cf32d37a6da83c7a2b969efa97d",
+  "scope": "Read-only #29 reconciliation audit; no repository edits, workflow dispatches, settings changes, browser execution or merge.",
+  "oldDraft": {
+    "number": 73,
+    "branch": "fix/ci-baseline",
+    "head": "725e021336fe6675e53d0a3374caf0b102627019",
+    "commonAncestorWithMain": "db634b887ede348ce85d9c03af789467ab535dcf",
+    "status": "Open draft; no merge/rebase performed. Prior 18-conflict receipt remains historical rather than a fresh merge experiment."
+  },
+  "liveChecks": [
+    {
+      "name": "CI",
+      "runId": 40261041909,
+      "jobId": 121373292747,
+      "result": "failure",
+      "observed": "Frozen script-disabled install succeeds; pnpm format:check fails; lint/types/tests/build/browser/check steps skipped."
+    },
+    {
+      "name": "dependency-review",
+      "runId": 40261041900,
+      "jobId": 121373292769,
+      "result": "failure",
+      "observed": "Action step fails; latest detailed logs not retrievable through connector. Recorded historical unsupported repository/dependency-graph error is not newly confirmed by this read."
+    },
+    {
+      "name": "CodeQL workflow",
+      "runId": 40261041996,
+      "result": "failure",
+      "jobs": 0,
+      "observed": "Workflow run fails before any job; current source calls upstream own test workflow as reusable despite upstream on block having no workflow_call."
+    }
+  ],
+  "usefulOldWork": [
+    {
+      "paths": [
+        ".github/workflows/codeql.yml"
+      ],
+      "disposition": "port",
+      "detail": "Use existing documented init@v4/analyze@v4 actions for javascript-typescript and build-mode none; preserve triggers/permissions. Current upstream v4 workflow still lacks workflow_call."
+    },
+    {
+      "paths": [
+        "biome.jsonc"
+      ],
+      "disposition": "port narrowly",
+      "detail": "Exclude canonical generated token .ts/.css from direct format/lint and exact upstream public/mockServiceWorker.js from analysis; keep generators/source checks and no broader rule weakening."
+    },
+    {
+      "paths": [
+        "package.json",
+        ".github/workflows/ci.yml"
+      ],
+      "disposition": "adapt after #52",
+      "detail": "Reintroduce shared ci:check and ci:browser commands using new explicit #52 profiles/fresh prerequisites. Include tooling, production store, isolated preview, docs/playground and component-style suites as scoped. Do not copy obsolete limited chains verbatim."
+    },
+    {
+      "paths": [
+        ".github/workflows/ci.yml"
+      ],
+      "disposition": "retain useful intent",
+      "detail": "Bound timeout and cancel superseded same-ref CI runs; fresh runner browser installation includes system dependencies. No manual dispatch."
+    },
+    {
+      "paths": [
+        "apps/egohygiene.io/src/features/store/StoreArtworkGallery.tsx",
+        "apps/egohygiene.io/src/features/store/store-artwork-gallery.css",
+        "package.json"
+      ],
+      "disposition": "already integrated in newer form",
+      "detail": "Current gallery uses fieldset and decorative SVG aria-hidden, and Storybook emits .cache/storybook with telemetry disabled. Preserve current locale/ordering/gallery/theme work instead of overwriting from old draft."
+    },
+    {
+      "paths": [
+        "apps",
+        "packages",
+        "scripts",
+        "tests"
+      ],
+      "disposition": "regenerate formatting against current files",
+      "detail": "Old draft changed 45 files, mostly formatting plus narrow lint repairs. Run current formatter/linter to identify remaining defects; do not apply stale full-file copies or old runtime code."
+    },
+    {
+      "paths": [
+        "docs/development/ci-baseline.md",
+        "docs/context/current-state.md",
+        "docs/context/provenance.md"
+      ],
+      "disposition": "preserve history, supersede with new receipt",
+      "detail": "Old source-specific successes remain valid history only; current states and counts must be fresh."
+    }
+  ],
+  "proposedSequence": [
+    "Save #29 A diagnosis/old-PR disposition before implementation; consume #92 and #52 reviewed branch heads.",
+    "Port narrow generated/vendor policy and CodeQL configuration; format current source and repair genuine first-party lint diagnostics without suppressing checks.",
+    "Map workflow to #52 local commands and bounded fresh artifacts; preserve disabled deployment and deferred Chromium preference.",
+    "Run local format/lint/types/tests/build/workflow syntax as appropriate, capture command failures and discovery separately. Do not raise size budgets to make green.",
+    "Read automatic hosted results separately after draft push; retain dependency-review configuration as external maintainer obligation unless a fresh diagnostic establishes an in-repo fix.",
+    "Record explicit supersession of #73 in new PR/issue, but leave old PR closure/merges for morning reconciliation unless parent obtains scope to close superseded draft."
+  ],
+  "scopeRecommendation": "A bounded #29 port is suitable after #92/#52 and can be saved as a third draft. Full hosted/external acceptance and Chromium remain open; no need to wait on first-party license selection to prepare configuration.",
+  "publicSources": [
+    "https://github.com/egohygiene/egohygiene.io/pull/73",
+    "https://github.com/egohygiene/egohygiene.io/issues/29",
+    "https://github.com/egohygiene/egohygiene.io/actions/runs/40261041909",
+    "https://github.com/egohygiene/egohygiene.io/actions/runs/40261041900",
+    "https://github.com/egohygiene/egohygiene.io/actions/runs/40261041996",
+    "https://raw.githubusercontent.com/github/codeql-action/v4/.github/workflows/codeql.yml",
+    "https://raw.githubusercontent.com/github/codeql-action/v4/init/action.yml",
+    "https://docs.github.com/en/code-security/reference/code-scanning/workflow-configuration-options",
+    "https://raw.githubusercontent.com/actions/dependency-review-action/v4/README.md",
+    "https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/reviewing-dependency-changes-in-a-pull-request",
+    "https://github.com/github/codeql-action/blob/9b3254085494b55a0f7c4c2b3d2d52cc712ce370/.github/workflows/codeql.yml"
+  ],
+  "limits": [
+    "No installed-dependency local formatting/lint execution by this audit; parent owns installation/baseline.",
+    "Connector rejected job logs/annotations and workflow-name subresource URLs; supported runs/jobs endpoints supplied conclusions and step outcomes.",
+    "No security administration state was read or changed; historical graph-enabled report is not current configuration proof.",
+    "Public primary documentation confirms supported configuration patterns, not this repository hosted qualification."
+  ],
+  "currentCodeqlV4": {
+    "tagObject": "793b778da9c9275a0f276522b27cb5fc14bba279",
+    "commit": "9b3254085494b55a0f7c4c2b3d2d52cc712ce370",
+    "ownWorkflowReusable": false,
+    "checked": "2026-10-26"
+  },
+  "freshPreparation": {
+    "sourceHead": "25ab678b7d713c2b0232f8d8903c7d3e7f3152ae",
+    "scope": "Read-only preparation during #52 B; counts are preliminary, not exact committed-source qualification.",
+    "formatErrors": 108,
+    "lintErrors": 6,
+    "lintWarnings": 91,
+    "lintInfos": 47,
+    "authoredLintErrors": [
+      {
+        "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.tsx",
+        "rule": "lint/suspicious/useIterableCallbackReturn",
+        "fix": "Use block callback to call undo without returning its value; preserve reverse cleanup order."
+      },
+      {
+        "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.test.tsx",
+        "rule": "lint/suspicious/useIterableCallbackReturn",
+        "fix": "Use block callback to dispose router without returning its value."
+      }
+    ],
+    "vendoredLintErrors": {
+      "path": "public/mockServiceWorker.js",
+      "count": 4,
+      "rule": "lint/nursery/noFloatingPromises",
+      "fix": "Keep exact upstream bytes and port old73 exact-file exclusion, not source edit or rule suppression."
+    },
+    "formatPlan": "Port exact generated.ts/generated.css/MSW exclusions first, then format current authored source and JSON without semantic changes. Confirm evidence JSON retains parsed values and verify source/asset hashes where byte-bound. Do not apply old runtime files wholesale.",
+    "latestHosted": [
+      {
+        "name": "CI",
+        "runId": 40273224445,
+        "jobId": 121410384263,
+        "result": "failure",
+        "failureStep": "pnpm format:check"
+      },
+      {
+        "name": "dependency-review",
+        "runId": 40273224420,
+        "result": "failure"
+      },
+      {
+        "name": "CodeQL",
+        "runId": 40273224580,
+        "result": "failure",
+        "sameInvalidWorkflowCall": true
+      }
+    ],
+    "after52": [
+      "Snapshot published #52 C tree and refresh live workflows/runs before #29 A.",
+      "Map ci:check onto existing #52 typecheck:all, non-browser test/build/check commands, retaining separate strict artifact qualification status.",
+      "Map ci:browser onto explicit supported #52 browser profile with fresh prerequisite builds and all four maintained Playwright configs. Do not silently omit docs/playground/component styles or replace real browser execution with discovery.",
+      "Keep normal Storybook failure in this sandbox explicit; no network-interface shim in supported code.",
+      "Add Taskfile ci wrappers through existing pinned environment runner; avoid a second orchestration layer.",
+      "Use CodeQL init/analyze; retain security permissions and triggers. Leave dependency-review gate intact until actual external configuration is resolved.",
+      "Verify current source formatting/behavior, existing tests, browser discovery and workflow syntax. No local Chromium, manual dispatch or merge.",
+      "Record old73 preservation and supersession plan; morning review handles merges and any old-draft closure."
+    ]
+  },
+  "inheritedWholeFileExemptions": {
+    "recordedOn": "2026-10-26",
+    "sourceHead": "25ab678b7d713c2b0232f8d8903c7d3e7f3152ae",
+    "scope": "Read-only four-file lint probe while #52 B is in flight. Temporary config is current biome.jsonc with only the inherited four-file linter-disabled override removed; explicit VCS root points at the existing checkout. No repository edits.",
+    "biome": "2.5.9",
+    "exitCode": 0,
+    "summary": {
+      "changed": 0,
+      "unchanged": 4,
+      "matches": 0,
+      "duration": 8762681,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0,
+      "skipped": 0,
+      "suggestedFixesSkipped": 0,
+      "diagnosticsNotPrinted": 0,
+      "scannerDuration": 600015
+    },
+    "diagnostics": [],
+    "recommendation": "Remove the entire obsolete four-file linter-disabled override in #29; all four pass current unchanged lint rules without source changes. Keep intentional script noConsole scope and exact generated/vendor treatment separate.",
+    "files": [
+      "apps/egohygiene.io/src/content/products.test.ts",
+      "apps/egohygiene.io/src/pages/EcosystemPage.tsx",
+      "apps/egohygiene.io/src/pages/HomePage.tsx",
+      "apps/egohygiene.io/src/pages/ProductPage.tsx"
+    ]
+  },
+  "selectedInput": "3d44df671069300e13324fb3f17e3762986e7892",
+  "freshSavedSourceBaseline": {
+    "sourceHead": "3d44df671069300e13324fb3f17e3762986e7892",
+    "formatErrors": 110,
+    "lintErrors": 6,
+    "lintWarnings": 91,
+    "lintInfos": 44,
+    "protectedFiles": 79,
+    "protectedFormatCandidates": [
+      "packages/design-tokens/src/generated.css",
+      "packages/design-tokens/src/generated.ts",
+      "public/mockServiceWorker.js"
+    ],
+    "authoredErrors": [
+      {
+        "severity": "error",
+        "category": "lint/suspicious/useIterableCallbackReturn",
+        "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.test.tsx",
+        "message": "This callback passed to forEach() iterable method should not return a value."
+      },
+      {
+        "severity": "error",
+        "category": "lint/suspicious/useIterableCallbackReturn",
+        "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.tsx",
+        "message": "This callback passed to forEach() iterable method should not return a value."
+      }
+    ],
+    "preservationPolicy": "Keep protected source/archive/license/asset bytes exact. Only generated token TS/CSS and MSW need new exact-path formatter/linter exclusion; remaining protected paths are not current format failures."
+  },
+  "liveRefresh": {
+    "main": "89fc70440f9c3cf32d37a6da83c7a2b969efa97d",
+    "pr73": "725e021336fe6675e53d0a3374caf0b102627019",
+    "pr107": "3d44df671069300e13324fb3f17e3762986e7892",
+    "allDraftsUnmerged": true
+  },
+  "selectedCIContract": {
+    "ciCheck": "Existing strict artifact qualifier remains an active gate after complete types/nonbrowser tests/fresh builds. Existing budget failures remain failures; no green claim.",
+    "ciBrowser": "Independent fresh normal/preview/Storybook/consumer prerequisites, all four Playwright configurations plus current custom journeys; no Chromium executed during this overnight pass.",
+    "runner": "Extend existing qualifier profiles if needed; no second orchestration framework.",
+    "unresolved52": "First clean-source smoke rejected replaced homepage client shell; controlled builds and unchanged-source repeats passed. Cause unknown; retain #52/#37 investigation without retry masking."
+  }
+}

@@ -1,5 +1,16 @@
 # Context provenance ledger
 
+## #29 A reconciliation boundary — 2026-10-26
+
+Input #107 C `3d44df671069300e13324fb3f17e3762986e7892`; live main still
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d`. [Audit](../development/ci-baseline-29.md)
+separates authored/generated findings, unsupported CodeQL workflow reuse and actual
+source-bound hosted failures from historical dependency-review configuration logs.
+Useful #73 intent will be ported against current source; stale runtime files and
+old pass claims will not replace newer work. Four obsolete full-file lint exemptions
+pass existing rules unchanged. Save A before source/config edits. #52 output/native/
+budget/browser gaps persist; no license selection, deployment or merge.
+
 ## #52 C published-source verification — 2026-10-26
 
 Tested clean B `47c25784b6853a415257a88150e2851d0b147e7a` in draft #107.

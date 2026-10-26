@@ -1,5 +1,16 @@
 # Current handoff
 
+## Current: #29 audit saved before CI repair — 2026-10-26
+
+The overnight batch reaches #29 from #107 C
+`3d44df671069300e13324fb3f17e3762986e7892`, on `fix/ci-current-29`.
+[Contract/audit](../development/ci-baseline-29.md) records current format/lint,
+invalid CodeQL workflow use, separate dependency-review limitations and deliberate
+porting of useful old #73 work. Save A before B; retain source-specific evidence.
+Use #52 profiles, strict artifact/native prerequisites and all browser selections.
+Chromium remains deferred; #52's intermittent output finding remains unresolved.
+No license choice or merge; #105/#106/#107/#73 remain open and main unchanged.
+
 ## Current: #52 local evidence saved; #29 next — 2026-10-26
 
 Draft #107 tested B `47c25784b6853a415257a88150e2851d0b147e7a`.
