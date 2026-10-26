@@ -38,9 +38,7 @@
         "provider": "fourthwall",
         "productId": "test-handoff-37a-live",
         "checkoutUrl": "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
-        "providerVariantIds": [
-          "test-handoff-37a-provider-variant"
-        ],
+        "providerVariantIds": ["test-handoff-37a-provider-variant"],
         "artworkRevisions": [
           {
             "designId": "test-handoff-37a-design",
@@ -56,9 +54,7 @@
           "status": "reviewed",
           "reviewerId": "test-reviewer",
           "reviewedAt": "2026-10-22",
-          "evidenceRefs": [
-            "test-only-synthetic-evidence"
-          ],
+          "evidenceRefs": ["test-only-synthetic-evidence"],
           "assessment": {
             "channel": "fourthwall-catalog",
             "orderFunding": "deducted-from-sale",
@@ -73,9 +69,7 @@
               "provider": "fourthwall",
               "productId": "test-handoff-37a-live",
               "checkoutUrl": "https://test-handoff-37a.fourthwall.com/products/test-handoff-37a-fictional-live",
-              "providerVariantIds": [
-                "test-handoff-37a-provider-variant"
-              ],
+              "providerVariantIds": ["test-handoff-37a-provider-variant"],
               "artworkRevisions": [
                 {
                   "designId": "test-handoff-37a-design",

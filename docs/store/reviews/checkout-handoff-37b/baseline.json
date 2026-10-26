@@ -4,11 +4,7 @@
   "browser": "155.0.8059.84",
   "node": "24.21.0",
   "fixture": "test-handoff-37a",
-  "renderedStates": [
-    "live",
-    "preview",
-    "unavailable"
-  ],
+  "renderedStates": ["live", "preview", "unavailable"],
   "decodedImage": {
     "width": 1,
     "authoredTestSwatch": true

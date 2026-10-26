@@ -45,12 +45,7 @@
       "steps": [
         {
           "name": "fresh normal website build",
-          "command": [
-            "node",
-            "scripts/store-environment.mjs",
-            "run",
-            "build"
-          ],
+          "command": ["node", "scripts/store-environment.mjs", "run", "build"],
           "startedAt": "2026-10-26T05:25:07.716Z",
           "status": "passed",
           "exitCode": 0,

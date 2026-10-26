@@ -55,7 +55,6 @@ afterEach(() => {
   window.sessionStorage.clear();
 });
 
-
 describe("website essentials journeys (simulated DOM)", () => {
   it.each([
     ["/help", "Help", resources.pages.help.description],
@@ -93,7 +92,9 @@ describe("website essentials journeys (simulated DOM)", () => {
       expect(feedback).toHaveAccessibleDescription(/GitHub issues are public/);
       expect(feedback).toHaveAccessibleDescription(/require a GitHub account/);
       expect(feedback).toHaveAccessibleDescription(/Do not include order details/);
-      expect(feedback).toHaveAccessibleDescription(/private website-feedback channel is not published/);
+      expect(feedback).toHaveAccessibleDescription(
+        /private website-feedback channel is not published/,
+      );
       expect(result.getByRole("main").querySelector("form")).toBeNull();
       if (path !== "/accessibility") {
         const orders = within(result.main().getByRole("region", { name: "Help with an order" }));
@@ -125,7 +126,10 @@ describe("website essentials journeys (simulated DOM)", () => {
     );
     const feedback = result.main().getByRole("link", { name: "Translated accessibility report" });
     expect(feedback).toHaveAccessibleDescription("Translated public/account warning");
-    expect(feedback).toHaveAttribute("href", "https://github.com/egohygiene/egohygiene.io/issues/new");
+    expect(feedback).toHaveAttribute(
+      "href",
+      "https://github.com/egohygiene/egohygiene.io/issues/new",
+    );
     await act(async () =>
       fireEvent.click(result.main().getByRole("link", { name: "More website help" })),
     );

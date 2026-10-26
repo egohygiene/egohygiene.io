@@ -1,4 +1,7 @@
-import { qualifySyntheticRoute, SYNTHETIC_STORE_DISCLOSURES } from "../../../../../tests/store/fixtures/readiness.ts";
+import {
+  qualifySyntheticRoute,
+  SYNTHETIC_STORE_DISCLOSURES,
+} from "../../../../../tests/store/fixtures/readiness.ts";
 import { I18nProvider } from "@egohygiene/i18n";
 import type { StoreCatalog, StorefrontCuration, StoreProduct } from "@egohygiene/schemas";
 import {
@@ -90,14 +93,18 @@ function loadFixture(purchase: StoreProduct["purchase"] = { state: "preview" }) 
     entries.map((value) => ({ source: value.id, value })),
     purchase.state === "live"
       ? [
-          qualifySyntheticRoute({
-            id: "route-test",
-            provider: "fourthwall",
-            productId: "product-test",
-            checkoutUrl: fixtureCheckout,
-            providerVariantIds: ["test-size"],
-            artworkRevisions: [{ designId: "design-test", revision: 1 }],
-          }, entries.find((entry) => entry.id === "product-test"), entries.filter((entry) => entry.kind === "design")),
+          qualifySyntheticRoute(
+            {
+              id: "route-test",
+              provider: "fourthwall",
+              productId: "product-test",
+              checkoutUrl: fixtureCheckout,
+              providerVariantIds: ["test-size"],
+              artworkRevisions: [{ designId: "design-test", revision: 1 }],
+            },
+            entries.find((entry) => entry.id === "product-test"),
+            entries.filter((entry) => entry.kind === "design"),
+          ),
         ]
       : [],
   );
@@ -169,10 +176,7 @@ describe("canonical detail journey", () => {
     );
     fireEvent.click(within(returns).getByRole("link", { name: "second artist · Shop by song" }));
     expect(getByRole("heading", { level: 1 })).toHaveTextContent("second artist");
-    expect(getByRole("link", { name: "Shop by song" })).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
+    expect(getByRole("link", { name: "Shop by song" })).toHaveAttribute("aria-current", "page");
     expect(getByRole("link", { name: /Test song collection/ })).toHaveAttribute(
       "href",
       "/store/collections/collection-test",

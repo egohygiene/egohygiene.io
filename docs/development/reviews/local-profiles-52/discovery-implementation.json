@@ -119,10 +119,7 @@
             "cases": 6
           }
         ],
-        "files": [
-          "tests/e2e/artist-preview.spec.ts",
-          "tests/e2e/fourthwall-preview.spec.ts"
-        ]
+        "files": ["tests/e2e/artist-preview.spec.ts", "tests/e2e/fourthwall-preview.spec.ts"]
       },
       {
         "config": "playwright.component-styles.config.ts",
@@ -133,9 +130,7 @@
             "cases": 4
           }
         ],
-        "files": [
-          "tests/component-styles/styles.spec.ts"
-        ]
+        "files": ["tests/component-styles/styles.spec.ts"]
       }
     ],
     "uniqueFiles": 14

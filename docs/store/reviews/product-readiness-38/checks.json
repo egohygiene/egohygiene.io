@@ -22,10 +22,7 @@
     },
     {
       "id": "boundaries",
-      "command": [
-        "node",
-        "scripts/checks/check-store-boundaries.ts"
-      ],
+      "command": ["node", "scripts/checks/check-store-boundaries.ts"],
       "startedAt": "2026-10-22T17:28:18.436980+00:00",
       "elapsedSeconds": 0.45,
       "exitCode": 0,
@@ -33,14 +30,7 @@
     },
     {
       "id": "browser-types",
-      "command": [
-        "pnpm",
-        "exec",
-        "tsc",
-        "--project",
-        "tsconfig.store-browser.json",
-        "--noEmit"
-      ],
+      "command": ["pnpm", "exec", "tsc", "--project", "tsconfig.store-browser.json", "--noEmit"],
       "startedAt": "2026-10-22T17:29:17.308198+00:00",
       "elapsedSeconds": 4.25,
       "exitCode": 0,
@@ -48,10 +38,7 @@
     },
     {
       "id": "build",
-      "command": [
-        "pnpm",
-        "build"
-      ],
+      "command": ["pnpm", "build"],
       "startedAt": "2026-10-22T17:32:13.016777+00:00",
       "elapsedSeconds": 2.65,
       "exitCode": 0,
@@ -73,10 +60,7 @@
     },
     {
       "id": "catalog",
-      "command": [
-        "pnpm",
-        "catalog:test"
-      ],
+      "command": ["pnpm", "catalog:test"],
       "startedAt": "2026-10-22T17:28:18.437002+00:00",
       "elapsedSeconds": 7.66,
       "exitCode": 0,
@@ -84,14 +68,7 @@
     },
     {
       "id": "journey-types",
-      "command": [
-        "pnpm",
-        "exec",
-        "tsc",
-        "--project",
-        "tsconfig.store.json",
-        "--noEmit"
-      ],
+      "command": ["pnpm", "exec", "tsc", "--project", "tsconfig.store.json", "--noEmit"],
       "startedAt": "2026-10-22T17:30:32.865162+00:00",
       "elapsedSeconds": 3.54,
       "exitCode": 0,
@@ -99,10 +76,7 @@
     },
     {
       "id": "messages",
-      "command": [
-        "node",
-        "scripts/checks/check-locales.ts"
-      ],
+      "command": ["node", "scripts/checks/check-locales.ts"],
       "startedAt": "2026-10-22T17:28:18.434558+00:00",
       "elapsedSeconds": 0.13,
       "exitCode": 0,
@@ -110,11 +84,7 @@
     },
     {
       "id": "preview-build",
-      "command": [
-        "node",
-        "scripts/store-environment.mjs",
-        "build"
-      ],
+      "command": ["node", "scripts/store-environment.mjs", "build"],
       "startedAt": "2026-10-22T17:32:13.022882+00:00",
       "elapsedSeconds": 1.97,
       "exitCode": 0,
@@ -157,10 +127,7 @@
     },
     {
       "id": "types",
-      "command": [
-        "pnpm",
-        "typecheck"
-      ],
+      "command": ["pnpm", "typecheck"],
       "startedAt": "2026-10-22T17:28:18.437401+00:00",
       "elapsedSeconds": 12.28,
       "exitCode": 0,

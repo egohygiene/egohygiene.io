@@ -5,7 +5,11 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import type { StoreCatalog } from "../packages/schemas/src/store.ts";
 import { parseStoreCatalog, StoreCatalogError } from "../packages/schemas/src/store.ts";
-import { migrateStoreCatalogV1, migrateStoreCatalogV2, STORE_SCHEMA_VERSION } from "../packages/schemas/src/index.ts";
+import {
+  migrateStoreCatalogV1,
+  migrateStoreCatalogV2,
+  STORE_SCHEMA_VERSION,
+} from "../packages/schemas/src/index.ts";
 import { parseStoreProviders } from "../packages/schemas/src/store-providers.ts";
 import type { StorefrontCuration } from "../packages/schemas/src/storefront-curation.ts";
 import {
@@ -231,15 +235,21 @@ export async function runCatalogCommand(args: string[]): Promise<string> {
     const output = options.get("--output");
     const sourceLocale = options.get("--source-locale");
     const fromVersion = options.get("--from-version") ?? "1";
-    if (!["1", "2"].includes(fromVersion)) throw new Error(`--from-version must be 1 or 2.\n${usage}`);
+    if (!["1", "2"].includes(fromVersion))
+      throw new Error(`--from-version must be 1 or 2.\n${usage}`);
     if (!input || !output || (fromVersion === "1" && !sourceLocale)) {
       throw new Error(`migrate requires --input, --output and --source-locale for v1.\n${usage}`);
     }
     if (fromVersion === "2" && sourceLocale !== undefined) {
-      throw new Error("--source-locale applies only to v1 migration; v2 source languages are retained");
+      throw new Error(
+        "--source-locale applies only to v1 migration; v2 source languages are retained",
+      );
     }
     const original = await readCatalogJson(resolve(input));
-    const v2 = fromVersion === "1" ? migrateStoreCatalogV1(original, { sourceLocale: sourceLocale! }) : original;
+    const v2 =
+      fromVersion === "1"
+        ? migrateStoreCatalogV1(original, { sourceLocale: sourceLocale! })
+        : original;
     const migrated = migrateStoreCatalogV2(v2);
     await writeFile(resolve(output), `${JSON.stringify(migrated, null, 2)}\n`, {
       encoding: "utf8",

@@ -7,7 +7,11 @@ import { loadCatalog } from "../../scripts/store-catalog.mts";
 import { CHECKOUT_HANDOFF_FIXTURE, createCheckoutHandoffInputs } from "./inputs.ts";
 
 // Preserve existing Node callers while browser/component tests can import pure inputs directly.
-export { CHECKOUT_HANDOFF_FIXTURE, createCheckoutHandoffCatalog, createCheckoutHandoffInputs } from "./inputs.ts";
+export {
+  CHECKOUT_HANDOFF_FIXTURE,
+  createCheckoutHandoffCatalog,
+  createCheckoutHandoffInputs,
+} from "./inputs.ts";
 
 // Authored deterministic test image: one RGBA pixel (#7c3aedff), not product artwork.
 const swatchPng = Buffer.from(

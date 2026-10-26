@@ -8,28 +8,19 @@
   "checks": [
     {
       "name": "check",
-      "command": [
-        "pnpm",
-        "check"
-      ],
+      "command": ["pnpm", "check"],
       "exitCode": 0,
       "qualification": "native command"
     },
     {
       "name": "types",
-      "command": [
-        "pnpm",
-        "typecheck"
-      ],
+      "command": ["pnpm", "typecheck"],
       "exitCode": 0,
       "qualification": "native command"
     },
     {
       "name": "unit",
-      "command": [
-        "pnpm",
-        "test:unit"
-      ],
+      "command": ["pnpm", "test:unit"],
       "exitCode": 0,
       "qualification": "native command"
     },
@@ -65,38 +56,25 @@
     },
     {
       "name": "build",
-      "command": [
-        "pnpm",
-        "build"
-      ],
+      "command": ["pnpm", "build"],
       "exitCode": 0,
       "qualification": "native command"
     },
     {
       "name": "preview-build",
-      "command": [
-        "node",
-        "scripts/store-environment.mjs",
-        "build"
-      ],
+      "command": ["node", "scripts/store-environment.mjs", "build"],
       "exitCode": 0,
       "qualification": "native command"
     },
     {
       "name": "storybook-native",
-      "command": [
-        "pnpm",
-        "storybook:build"
-      ],
+      "command": ["pnpm", "storybook:build"],
       "exitCode": 1,
       "qualification": "native command"
     },
     {
       "name": "storybook-build-only-compat",
-      "command": [
-        "pnpm",
-        "storybook:build"
-      ],
+      "command": ["pnpm", "storybook:build"],
       "exitCode": 0,
       "qualification": "limited build-only OS compatibility probe, not native startup or host/origin security evidence"
     },

@@ -16,45 +16,21 @@
       "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623",
       "gitBlob": "e7f8977eca89348892bc93330dc44763d2bcb5ed",
       "fontMetadata": {
-        "0": [
-          "© 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."
-        ],
-        "1": [
-          "Atkinson Hyperlegible"
-        ],
-        "2": [
-          "Bold"
-        ],
-        "3": [
-          "1.002;    ;AtkinsonHyperlegible-Bold"
-        ],
-        "4": [
-          "Atkinson Hyperlegible Bold"
-        ],
-        "5": [
-          "Version 1.002"
-        ],
-        "6": [
-          "AtkinsonHyperlegible-Bold"
-        ],
-        "8": [
-          "Applied Design Works"
-        ],
-        "9": [
-          "Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"
-        ],
-        "11": [
-          "https://www.BrailleInstitute.org/"
-        ],
-        "12": [
-          "http://helloapplied.com"
-        ],
+        "0": ["© 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."],
+        "1": ["Atkinson Hyperlegible"],
+        "2": ["Bold"],
+        "3": ["1.002;    ;AtkinsonHyperlegible-Bold"],
+        "4": ["Atkinson Hyperlegible Bold"],
+        "5": ["Version 1.002"],
+        "6": ["AtkinsonHyperlegible-Bold"],
+        "8": ["Applied Design Works"],
+        "9": ["Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"],
+        "11": ["https://www.BrailleInstitute.org/"],
+        "12": ["http://helloapplied.com"],
         "13": [
           "Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required."
         ],
-        "14": [
-          "https://www.BrailleInstitute.org/"
-        ]
+        "14": ["https://www.BrailleInstitute.org/"]
       },
       "matchingUpstreamPath": "examples/blog/public/fonts/atkinson-bold.woff"
     },
@@ -64,45 +40,21 @@
       "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b",
       "gitBlob": "bbe09c5843e554b1f763c5df8e4dfcb2b151a445",
       "fontMetadata": {
-        "0": [
-          "© 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."
-        ],
-        "1": [
-          "Atkinson Hyperlegible"
-        ],
-        "2": [
-          "Regular"
-        ],
-        "3": [
-          "1.002;    ;AtkinsonHyperlegible-Regular"
-        ],
-        "4": [
-          "Atkinson Hyperlegible Regular"
-        ],
-        "5": [
-          "Version 1.002"
-        ],
-        "6": [
-          "AtkinsonHyperlegible-Regular"
-        ],
-        "8": [
-          "Applied Design Works"
-        ],
-        "9": [
-          "Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"
-        ],
-        "11": [
-          "https://www.BrailleInstitute.org/"
-        ],
-        "12": [
-          "http://helloapplied.com"
-        ],
+        "0": ["© 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."],
+        "1": ["Atkinson Hyperlegible"],
+        "2": ["Regular"],
+        "3": ["1.002;    ;AtkinsonHyperlegible-Regular"],
+        "4": ["Atkinson Hyperlegible Regular"],
+        "5": ["Version 1.002"],
+        "6": ["AtkinsonHyperlegible-Regular"],
+        "8": ["Applied Design Works"],
+        "9": ["Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"],
+        "11": ["https://www.BrailleInstitute.org/"],
+        "12": ["http://helloapplied.com"],
         "13": [
           "Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required."
         ],
-        "14": [
-          "https://www.BrailleInstitute.org/"
-        ]
+        "14": ["https://www.BrailleInstitute.org/"]
       },
       "matchingUpstreamPath": "examples/blog/public/fonts/atkinson-regular.woff"
     }

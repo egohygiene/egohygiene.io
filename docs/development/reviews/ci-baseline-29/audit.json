@@ -37,31 +37,22 @@
   ],
   "usefulOldWork": [
     {
-      "paths": [
-        ".github/workflows/codeql.yml"
-      ],
+      "paths": [".github/workflows/codeql.yml"],
       "disposition": "port",
       "detail": "Use existing documented init@v4/analyze@v4 actions for javascript-typescript and build-mode none; preserve triggers/permissions. Current upstream v4 workflow still lacks workflow_call."
     },
     {
-      "paths": [
-        "biome.jsonc"
-      ],
+      "paths": ["biome.jsonc"],
       "disposition": "port narrowly",
       "detail": "Exclude canonical generated token .ts/.css from direct format/lint and exact upstream public/mockServiceWorker.js from analysis; keep generators/source checks and no broader rule weakening."
     },
     {
-      "paths": [
-        "package.json",
-        ".github/workflows/ci.yml"
-      ],
+      "paths": ["package.json", ".github/workflows/ci.yml"],
       "disposition": "adapt after #52",
       "detail": "Reintroduce shared ci:check and ci:browser commands using new explicit #52 profiles/fresh prerequisites. Include tooling, production store, isolated preview, docs/playground and component-style suites as scoped. Do not copy obsolete limited chains verbatim."
     },
     {
-      "paths": [
-        ".github/workflows/ci.yml"
-      ],
+      "paths": [".github/workflows/ci.yml"],
       "disposition": "retain useful intent",
       "detail": "Bound timeout and cancel superseded same-ref CI runs; fresh runner browser installation includes system dependencies. No manual dispatch."
     },
@@ -75,12 +66,7 @@
       "detail": "Current gallery uses fieldset and decorative SVG aria-hidden, and Storybook emits .cache/storybook with telemetry disabled. Preserve current locale/ordering/gallery/theme work instead of overwriting from old draft."
     },
     {
-      "paths": [
-        "apps",
-        "packages",
-        "scripts",
-        "tests"
-      ],
+      "paths": ["apps", "packages", "scripts", "tests"],
       "disposition": "regenerate formatting against current files",
       "detail": "Old draft changed 45 files, mostly formatting plus narrow lint repairs. Run current formatter/linter to identify remaining defects; do not apply stale full-file copies or old runtime code."
     },

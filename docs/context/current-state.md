@@ -1,5 +1,15 @@
 # Current handoff
 
+## Current: #29 implementation saved for local verification — 2026-10-26
+
+Draft #108 saved A `0a34ca245597f323c2e1bf3f06a9d947b5462a1d` before current
+format/lint repair and supported CodeQL/shared CI profiles. [Receipt](../development/ci-baseline-29.md)
+and [commands](../../tests/README.md) describe strict ci:check/ci:browser/full scopes.
+Four obsolete lint exemptions are removed; original protected bytes and license
+choices remain unchanged. Next is exact-source C and separate automatic-hosted
+refresh. #52 output/native/budget/browser gaps remain; old #73 and all new drafts
+await morning review. No main merge, license selection or deployment.
+
 ## Current: #29 audit saved before CI repair — 2026-10-26
 
 The overnight batch reaches #29 from #107 C

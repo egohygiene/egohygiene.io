@@ -42,9 +42,7 @@
         "unchanged": 44,
         "changed": [],
         "removed": [],
-        "added": [
-          "fonts/NOTICE.txt"
-        ],
+        "added": ["fonts/NOTICE.txt"],
         "fontNoticeExact": true,
         "mswWorkerInWebsiteArtifact": false,
         "mswNoticeInWebsiteArtifact": false

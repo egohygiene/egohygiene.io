@@ -193,11 +193,14 @@ export async function runCatalogLocalizationJourneys(
         await visit(page, origin, product.path, locale);
         await expect(page.getByRole("heading", { level: 1 })).toHaveText(product.title);
         await expect(
-          page.locator(".store-purchase-panel a[rel~=external], .store-purchase-panel button, .store-price"),
+          page.locator(
+            ".store-purchase-panel a[rel~=external], .store-purchase-panel button, .store-price",
+          ),
         ).toHaveCount(0);
-        await expect(
-          page.locator(".store-purchase-panel a[href^='/store/help']"),
-        ).toHaveAttribute("href", `/store/help?lang=${locale}`);
+        await expect(page.locator(".store-purchase-panel a[href^='/store/help']")).toHaveAttribute(
+          "href",
+          `/store/help?lang=${locale}`,
+        );
         if (product.id === handoff.unavailable.id) {
           await expect(page.locator(".store-purchase-panel p[lang]")).toHaveText(
             "Fictional test item is unavailable.",

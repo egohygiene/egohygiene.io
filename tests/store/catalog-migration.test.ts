@@ -6,7 +6,10 @@ import { join } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { migrateStoreCatalogV1, migrateStoreCatalogV2 } from "../../packages/schemas/src/store-migrations.ts";
+import {
+  migrateStoreCatalogV1,
+  migrateStoreCatalogV2,
+} from "../../packages/schemas/src/store-migrations.ts";
 import {
   parseStoreCatalog,
   parseStoreCatalogV2,
@@ -88,12 +91,20 @@ test("explicit v1 migration is deterministic, does not mutate input and preserve
     assert.deepEqual({ ...unchanged, schemaVersion: 1 }, legacy.entries[index]);
   }
   assert.deepEqual(
-    parseStoreCatalogV2(migrated.entries.map((value) => ({ source: value.id, value })), migrated.checkoutRoutes),
+    parseStoreCatalogV2(
+      migrated.entries.map((value) => ({ source: value.id, value })),
+      migrated.checkoutRoutes,
+    ),
     migrated,
   );
-  assert.throws(() => parseStoreCatalog(
-    migrated.entries.map((value) => ({ source: value.id, value })), migrated.checkoutRoutes,
-  ), /schemaVersion/);
+  assert.throws(
+    () =>
+      parseStoreCatalog(
+        migrated.entries.map((value) => ({ source: value.id, value })),
+        migrated.checkoutRoutes,
+      ),
+    /schemaVersion/,
+  );
   assert.throws(() => migrateStoreCatalogV2(migrated), /manual requalification/);
 });
 
@@ -238,7 +249,10 @@ test("migration CLI chains v1 through v2 into v3 while retaining the exact legac
   assert.match(result.stdout, /Migrated 3 entries to catalog v3/);
   assert.equal(readFileSync(input, "utf8"), original);
   const created = readFileSync(output, "utf8");
-  assert.deepEqual(JSON.parse(created), migrateStoreCatalogV2(migrateStoreCatalogV1(legacy, { sourceLocale: "en" })));
+  assert.deepEqual(
+    JSON.parse(created),
+    migrateStoreCatalogV2(migrateStoreCatalogV1(legacy, { sourceLocale: "en" })),
+  );
   const repeated = cli(...args);
   assert.equal(repeated.status, 1);
   assert.match(repeated.stderr, /EEXIST|exist/);
@@ -274,14 +288,13 @@ test("migration CLI rejects invalid input and missing source language without cr
   }
 });
 
-
 function legacyNonliveFixture() {
   const legacy = legacyFixture();
   return {
     ...legacy,
-    entries: legacy.entries.map((entry) => "purchase" in entry
-      ? { ...entry, purchase: { state: "preview" } }
-      : entry),
+    entries: legacy.entries.map((entry) =>
+      "purchase" in entry ? { ...entry, purchase: { state: "preview" } } : entry,
+    ),
   };
 }
 
@@ -292,11 +305,17 @@ test("v2 to v3 migration preserves nonlive identities, data and unused route map
   assert.deepEqual(current, migrateStoreCatalogV2(v2));
   assert.deepEqual(v2, before);
   assert.equal(current.schemaVersion, 3);
-  assert.deepEqual(current.entries.map((entry) => ({ ...entry, schemaVersion: 2 })), v2.entries);
-  assert.deepEqual(current.checkoutRoutes.map(({ qualification, ...route }) => {
-    assert.deepEqual(qualification, { status: "unreviewed" });
-    return route;
-  }), v2.checkoutRoutes);
+  assert.deepEqual(
+    current.entries.map((entry) => ({ ...entry, schemaVersion: 2 })),
+    v2.entries,
+  );
+  assert.deepEqual(
+    current.checkoutRoutes.map(({ qualification, ...route }) => {
+      assert.deepEqual(qualification, { status: "unreviewed" });
+      return route;
+    }),
+    v2.checkoutRoutes,
+  );
   assert.deepEqual(toPublicStoreCatalog(current).checkoutRoutes, []);
 });
 
@@ -305,14 +324,31 @@ test("v2 migration validates original relationships before rejecting live offers
   const before = structuredClone(v2);
   assert.throws(() => migrateStoreCatalogV2(v2), /manual requalification/);
   assert.deepEqual(v2, before);
-  assert.throws(() => migrateStoreCatalogV2({ ...v2, checkoutRoutes: [] }), /Live products require a reviewed route/);
-  assert.throws(() => migrateStoreCatalogV2({ ...v2, entries: v2.entries.slice(1) }), /Expected design reference/);
-  assert.throws(() => migrateStoreCatalogV2({ ...v2, entries: v2.entries.map((entry, index) =>
-    index === 0 ? { ...entry, visibility: "draft" } : entry) }), /Public entries cannot reference draft/);
+  assert.throws(
+    () => migrateStoreCatalogV2({ ...v2, checkoutRoutes: [] }),
+    /Live products require a reviewed route/,
+  );
+  assert.throws(
+    () => migrateStoreCatalogV2({ ...v2, entries: v2.entries.slice(1) }),
+    /Expected design reference/,
+  );
+  assert.throws(
+    () =>
+      migrateStoreCatalogV2({
+        ...v2,
+        entries: v2.entries.map((entry, index) =>
+          index === 0 ? { ...entry, visibility: "draft" } : entry,
+        ),
+      }),
+    /Public entries cannot reference draft/,
+  );
   for (const schemaVersion of [1, 3, 99]) {
     assert.throws(() => migrateStoreCatalogV2({ ...v2, schemaVersion }), /schemaVersion/);
   }
-  assert.throws(() => migrateStoreCatalogV2({ ...v2, privateNotes: "not allowed" }), /privateNotes/);
+  assert.throws(
+    () => migrateStoreCatalogV2({ ...v2, privateNotes: "not allowed" }),
+    /privateNotes/,
+  );
 });
 
 test("v2 migration CLI retains source language and refuses live, mismatched version and extra locale inputs", (context) => {
@@ -328,7 +364,15 @@ test("v2 migration CLI retains source language and refuses live, mismatched vers
   assert.equal(invalidLocale.status, 1);
   assert.match(invalidLocale.stderr, /applies only to v1/);
   assert.equal(existsSync(output), false);
-  const invalidVersion = cli("migrate", "--from-version", "99", "--input", input, "--output", output);
+  const invalidVersion = cli(
+    "migrate",
+    "--from-version",
+    "99",
+    "--input",
+    input,
+    "--output",
+    output,
+  );
   assert.equal(invalidVersion.status, 1);
   assert.match(invalidVersion.stderr, /must be 1 or 2/);
   const result = cli(...args);

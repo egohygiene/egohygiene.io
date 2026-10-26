@@ -64,3 +64,36 @@ At the morning sync, reconcile #59 licensing/font/private-merch obligations, rev
 #105 → #106 → #107 → this draft, and decide #73 supersession. Follow remaining
 setup/qualification owners before any environment, construction preview or real
 product activation. No issue with unresolved acceptance is automatically closed.
+
+## B — Current-source repair
+
+A was saved in [draft #108](https://github.com/egohygiene/egohygiene.io/pull/108) at
+`0a34ca245597f323c2e1bf3f06a9d947b5462a1d` before implementation. Current source
+formatting is normalized; two metadata cleanup callbacks now use explicit block
+bodies. Exact generated-token/MSW exclusions preserve original bytes, and four
+obsolete full-file exemptions are removed. Existing warning severities remain.
+
+The existing qualifier now provides `ci-check` and `ci-browser`; `full` composes
+both. The former includes every non-browser gate and stops at the unchanged
+artifact ceilings before native Storybook if they fail. The independent browser
+profile rebuilds all prerequisites and includes default site/docs/playground,
+production, preview, component and custom intercepted/layout/catalog journeys.
+Taskfile and GitHub CI invoke those same commands. Catalog tests use two workers
+for bounded resource use, matching prior complete receipts without losing cases.
+
+CodeQL uses supported init/analyze actions with JavaScript/TypeScript build-mode
+none. Dependency review remains unchanged. CI cancels superseded same-ref runs
+and has a bounded timeout; it retains frozen, script-disabled dependency install.
+Independent review found that the default Playwright output directory was the
+whole `test-results` tree, which would erase the running qualifier report. Its
+output is now isolated under `test-results/apps`; discovery rejects any project
+output directory overlapping the qualifier receipt namespace. This is a distinct
+pre-execution finding, not the cause of #52's earlier non-browser output anomaly.
+
+Five mocked-command checks cover complete selection and strict prerequisite/gate
+fail-stop behavior; they are not actual browser or hosted results. See the
+[command matrix](../../tests/README.md). Exact published-source C follows.
+
+Old #73's useful intent is incorporated in current form; its old successes remain
+history. It stays open pending morning supersession/integration review. No license
+patch, asset, deployment/provider or artifact-budget policy is changed.

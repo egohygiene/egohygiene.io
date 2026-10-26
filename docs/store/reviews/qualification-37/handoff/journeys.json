@@ -15,15 +15,7 @@
       "hasTouch": false,
       "input": "Tab and Enter",
       "screenshot": "desktop-keyboard-focused.png",
-      "keyboardTabCounts": [
-        11,
-        0,
-        11,
-        12,
-        6,
-        11,
-        7
-      ],
+      "keyboardTabCounts": [11, 0, 11, 12, 6, 11, 7],
       "liveProduct": "test-handoff-37a-live",
       "canonicalProductPath": "/store/products/test-handoff-37a-fictional-live",
       "directProductLoad": true,
@@ -41,18 +33,12 @@
         {
           "state": "preview",
           "entry": "test-handoff-37a-preview",
-          "loads": [
-            "SPA navigation",
-            "reload"
-          ]
+          "loads": ["SPA navigation", "reload"]
         },
         {
           "state": "unavailable",
           "entry": "test-handoff-37a-unavailable",
-          "loads": [
-            "SPA navigation",
-            "reload"
-          ]
+          "loads": ["SPA navigation", "reload"]
         }
       ],
       "interceptedDestinations": [
@@ -92,18 +78,12 @@
         {
           "state": "preview",
           "entry": "test-handoff-37a-preview",
-          "loads": [
-            "SPA navigation",
-            "reload"
-          ]
+          "loads": ["SPA navigation", "reload"]
         },
         {
           "state": "unavailable",
           "entry": "test-handoff-37a-unavailable",
-          "loads": [
-            "SPA navigation",
-            "reload"
-          ]
+          "loads": ["SPA navigation", "reload"]
         }
       ],
       "interceptedDestinations": [

@@ -75,14 +75,18 @@ function liveFixture() {
       displayPrice: { amountMinor: 2500, currency: "USD", authority: "provider-checkout" },
     },
   };
-  const route = qualifySyntheticRoute({
-    id: "route-fixture",
-    provider: "fourthwall",
-    productId: item.id,
-    checkoutUrl: "https://synthetic-fixture.fourthwall.com/products/synthetic-item",
-    providerVariantIds: ["provider-small"],
-    artworkRevisions: [{ designId: "design-fixture", revision: 1 }],
-  }, item, [design()]);
+  const route = qualifySyntheticRoute(
+    {
+      id: "route-fixture",
+      provider: "fourthwall",
+      productId: item.id,
+      checkoutUrl: "https://synthetic-fixture.fourthwall.com/products/synthetic-item",
+      providerVariantIds: ["provider-small"],
+      artworkRevisions: [{ designId: "design-fixture", revision: 1 }],
+    },
+    item,
+    [design()],
+  );
   const parseItem = (value: unknown = item, reviewedRoute = route) =>
     parseStoreCatalog(
       [
@@ -390,10 +394,13 @@ test("reviewed variant labels preserve amount, currency, canonical product and c
     },
   };
   const stale = toPublicStoreCatalog(
-    fixture.parseItem({
-      ...changed,
-      translations: [{ locale: "fr", fields: { variantLabels: [label] } }],
-    }, qualifySyntheticRoute(fixture.route, changed, [design()])),
+    fixture.parseItem(
+      {
+        ...changed,
+        translations: [{ locale: "fr", fields: { variantLabels: [label] } }],
+      },
+      qualifySyntheticRoute(fixture.route, changed, [design()]),
+    ),
   );
   assert.deepEqual(stale.entries[1]?.translations, []);
 });

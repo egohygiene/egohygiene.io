@@ -55,11 +55,7 @@
     {
       "command": "pnpm exec tsc --project <affected-package>/tsconfig.build.json --noEmit",
       "result": "pass",
-      "packages": [
-        "api-client",
-        "i18n",
-        "utilities"
-      ]
+      "packages": ["api-client", "i18n", "utilities"]
     },
     {
       "command": "pnpm exec vitest run --config vitest.unit.config.ts",

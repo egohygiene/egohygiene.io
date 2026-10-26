@@ -31,7 +31,9 @@ const input = {
 function requireSynchronousRoutes(definitions: RouteObject[]) {
   for (const route of definitions) {
     if (route.lazy || route.loader || route.action) {
-      throw new Error(`Static public route requires asynchronous rendering review: ${route.id ?? route.path}`);
+      throw new Error(
+        `Static public route requires asynchronous rendering review: ${route.id ?? route.path}`,
+      );
     }
     if (route.children) requireSynchronousRoutes(route.children);
   }
@@ -39,10 +41,14 @@ function requireSynchronousRoutes(definitions: RouteObject[]) {
 
 export function listPublicPages() {
   return getPublicRoutes(input).map((page) => {
-    const expectedRoute = page.kind === "page" ? `page:${page.page}`
-      : page.kind === "ecosystem" ? "ecosystem-product"
-      : page.kind === "artist" ? "artist"
-      : `store-${storeCatalog.entries.find((entry) => entry.id === page.entryId)?.kind}`;
+    const expectedRoute =
+      page.kind === "page"
+        ? `page:${page.page}`
+        : page.kind === "ecosystem"
+          ? "ecosystem-product"
+          : page.kind === "artist"
+            ? "artist"
+            : `store-${storeCatalog.entries.find((entry) => entry.id === page.entryId)?.kind}`;
     const matches = matchRoutes(routes, page.path);
     if (matches?.at(-1)?.route.id !== expectedRoute) {
       throw new Error(`Public path does not resolve to its declared page: ${page.path}`);
@@ -77,7 +83,9 @@ export async function renderPublicPage(pathname: string) {
   const markup = renderToString(
     <StrictMode>
       <AppProviders>
-        <App><StaticRouterProvider router={router} context={context} hydrate={false} /></App>
+        <App>
+          <StaticRouterProvider router={router} context={context} hydrate={false} />
+        </App>
       </AppProviders>
     </StrictMode>,
     { identifierPrefix },

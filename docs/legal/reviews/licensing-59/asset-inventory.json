@@ -156,42 +156,20 @@
         "0": [
           "\u00a9 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."
         ],
-        "1": [
-          "Atkinson Hyperlegible"
-        ],
-        "2": [
-          "Bold"
-        ],
-        "3": [
-          "1.002;    ;AtkinsonHyperlegible-Bold"
-        ],
-        "4": [
-          "Atkinson Hyperlegible Bold"
-        ],
-        "5": [
-          "Version 1.002"
-        ],
-        "6": [
-          "AtkinsonHyperlegible-Bold"
-        ],
-        "8": [
-          "Applied Design Works"
-        ],
-        "9": [
-          "Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"
-        ],
-        "11": [
-          "https://www.BrailleInstitute.org/"
-        ],
-        "12": [
-          "http://helloapplied.com"
-        ],
+        "1": ["Atkinson Hyperlegible"],
+        "2": ["Bold"],
+        "3": ["1.002;    ;AtkinsonHyperlegible-Bold"],
+        "4": ["Atkinson Hyperlegible Bold"],
+        "5": ["Version 1.002"],
+        "6": ["AtkinsonHyperlegible-Bold"],
+        "8": ["Applied Design Works"],
+        "9": ["Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"],
+        "11": ["https://www.BrailleInstitute.org/"],
+        "12": ["http://helloapplied.com"],
         "13": [
           "Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required."
         ],
-        "14": [
-          "https://www.BrailleInstitute.org/"
-        ]
+        "14": ["https://www.BrailleInstitute.org/"]
       },
       "upstreamByteIdentity": "Git blob matches pinned Astro template, not proof of actual acquisition route."
     },
@@ -208,42 +186,20 @@
         "0": [
           "\u00a9 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."
         ],
-        "1": [
-          "Atkinson Hyperlegible"
-        ],
-        "2": [
-          "Regular"
-        ],
-        "3": [
-          "1.002;    ;AtkinsonHyperlegible-Regular"
-        ],
-        "4": [
-          "Atkinson Hyperlegible Regular"
-        ],
-        "5": [
-          "Version 1.002"
-        ],
-        "6": [
-          "AtkinsonHyperlegible-Regular"
-        ],
-        "8": [
-          "Applied Design Works"
-        ],
-        "9": [
-          "Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"
-        ],
-        "11": [
-          "https://www.BrailleInstitute.org/"
-        ],
-        "12": [
-          "http://helloapplied.com"
-        ],
+        "1": ["Atkinson Hyperlegible"],
+        "2": ["Regular"],
+        "3": ["1.002;    ;AtkinsonHyperlegible-Regular"],
+        "4": ["Atkinson Hyperlegible Regular"],
+        "5": ["Version 1.002"],
+        "6": ["AtkinsonHyperlegible-Regular"],
+        "8": ["Applied Design Works"],
+        "9": ["Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"],
+        "11": ["https://www.BrailleInstitute.org/"],
+        "12": ["http://helloapplied.com"],
         "13": [
           "Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required."
         ],
-        "14": [
-          "https://www.BrailleInstitute.org/"
-        ]
+        "14": ["https://www.BrailleInstitute.org/"]
       },
       "upstreamByteIdentity": "Git blob matches pinned Astro template, not proof of actual acquisition route."
     },
@@ -765,10 +721,7 @@
       "sha256": "86c2ee40feefceb6083e8198ee66e29c4d83c548095b26271554b4eaf299be9e",
       "gitBlob": "e9fb8f405a58abe0ad1551aae9ae68e5bd4b32a4",
       "group": "review-evidence",
-      "sourceRecords": [
-        "docs/identity/verification.md",
-        "docs/identity/README.md"
-      ],
+      "sourceRecords": ["docs/identity/verification.md", "docs/identity/README.md"],
       "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
       "dimensions": {
         "width": 1100,
@@ -858,10 +811,7 @@
       "sha256": "1e7caea48d5e215e37ba1690c3df3375f8eb038985a5e47862b4d7af865d893d",
       "gitBlob": "335cab47482018600458ecf86553b5ce8b30241f",
       "group": "review-evidence",
-      "sourceRecords": [
-        "docs/store/test-plan.md",
-        "assets/designs/heartburst/README.md"
-      ],
+      "sourceRecords": ["docs/store/test-plan.md", "assets/designs/heartburst/README.md"],
       "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
       "dimensions": {
         "width": 1440,
@@ -875,10 +825,7 @@
       "sha256": "ec20e90ace42ea34c037a842f88012508886d7398b8a057cc9ddad7d0e235881",
       "gitBlob": "cd207402ed361a2e7d2475ec0c4fa9e08582be15",
       "group": "review-evidence",
-      "sourceRecords": [
-        "docs/store/test-plan.md",
-        "assets/designs/heartburst/README.md"
-      ],
+      "sourceRecords": ["docs/store/test-plan.md", "assets/designs/heartburst/README.md"],
       "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
       "dimensions": {
         "width": 390,
@@ -892,10 +839,7 @@
       "sha256": "0726edcb9199cbdadc6061c87dcaca9433418b36f2bb966e12dcf0e7e72e936d",
       "gitBlob": "3c517cd512b328c5da0853b1f2862802bb4cdf2f",
       "group": "review-evidence",
-      "sourceRecords": [
-        "docs/store/test-plan.md",
-        "assets/designs/heartburst/README.md"
-      ],
+      "sourceRecords": ["docs/store/test-plan.md", "assets/designs/heartburst/README.md"],
       "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
       "dimensions": {
         "width": 1440,

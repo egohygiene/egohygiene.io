@@ -41,15 +41,15 @@ export async function loadPublicStoreSnapshot(
   const directory = resolve(options.directory ?? defaultCatalogDirectory);
   const routesFile = resolve(options.routesFile ?? defaultCheckoutRoutesFile);
   const publicDirectory = resolve(options.publicDirectory ?? defaultPublicDirectory);
-  const curationFile = options.curationFile === undefined
-    ? curationFileForDirectory(directory)
-    : options.curationFile === null ? null : resolve(options.curationFile);
-  const catalog = toPublicStoreCatalog(await loadCatalog(
-    directory,
-    await readCatalogJson(routesFile),
-    publicDirectory,
-    curationFile,
-  ));
+  const curationFile =
+    options.curationFile === undefined
+      ? curationFileForDirectory(directory)
+      : options.curationFile === null
+        ? null
+        : resolve(options.curationFile);
+  const catalog = toPublicStoreCatalog(
+    await loadCatalog(directory, await readCatalogJson(routesFile), publicDirectory, curationFile),
+  );
   const storefrontCuration = await loadStorefrontCuration(catalog, curationFile);
   const moduleCode = `export const storeCatalog = ${JSON.stringify(catalog)};\nexport const storefrontCuration = ${JSON.stringify(storefrontCuration)};\n`;
   return Object.freeze({
@@ -100,7 +100,7 @@ export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plu
       // Build watchers need these inputs. In serve mode, addWatchFile also creates module
       // dependencies; use the server watcher below so raw authoring files stay out of the graph.
       if (building) for (const input of inputs) this.addWatchFile(input);
-      const snapshot = options.snapshot ?? await loadPublicStoreSnapshot(options);
+      const snapshot = options.snapshot ?? (await loadPublicStoreSnapshot(options));
       // Raw JSON is never a browser import or an emitted asset. No timestamp or absolute path
       // enters this deterministic module, including its optional production source map.
       return {

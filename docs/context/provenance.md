@@ -1,5 +1,18 @@
 # Context provenance ledger
 
+## #29 B current-source validation repair — 2026-10-26
+
+A `0a34ca245597f323c2e1bf3f06a9d947b5462a1d` saved the baseline before edits in
+draft #108. Formatter normalization and two callback lint fixes retain rules; exact
+generated/vendor files preserve bytes and four obsolete full-file exemptions end.
+The existing qualifier owns complete ci-check/ci-browser/full profiles and fresh
+prerequisites; Taskfile/CI share these entry points. Supported CodeQL init/analyze
+replaces invalid workflow reuse; dependency review remains strict and unchanged.
+Catalog execution is bounded to two workers. Mocked child-command tests prove
+selection/fail-stop only, not browser behavior. C will pin actual published-source
+evidence. Existing size/native/output/hosted gaps and old #73 review remain open;
+no license choice, merge, deployment or activation.
+
 ## #29 A reconciliation boundary — 2026-10-26
 
 Input #107 C `3d44df671069300e13324fb3f17e3762986e7892`; live main still

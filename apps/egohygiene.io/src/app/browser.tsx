@@ -13,12 +13,15 @@ export function mountBrowserApp(rootElement: HTMLElement, options: RootOptions =
   const app = (
     <StrictMode>
       <AppProviders router={router}>
-        <App><RouterProvider router={router} /></App>
+        <App>
+          <RouterProvider router={router} />
+        </App>
       </AppProviders>
     </StrictMode>
   );
-  const hydrate = rootElement.hasChildNodes()
-    && rootElement.getAttribute(prerenderedPathAttribute) === window.location.pathname;
+  const hydrate =
+    rootElement.hasChildNodes() &&
+    rootElement.getAttribute(prerenderedPathAttribute) === window.location.pathname;
   const rootOptions = { ...options, identifierPrefix };
   const root = hydrate
     ? hydrateRoot(rootElement, app, rootOptions)
