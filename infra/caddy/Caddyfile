@@ -1,7 +1,69 @@
-:80 {
-  root * /srv
-  try_files {path} /index.html
-  file_server
+{
+	admin off
+	auto_https off
+}
 
-  respond /healthz 200
+http://{$EGOHYGIENE_HTTP_ADDRESS::80} {
+	root * "{$EGOHYGIENE_PUBLIC_ROOT:/srv}"
+
+	# The normal build emits directory/index.html for each canonical page.
+	# Preserve the application’s no-trailing-slash URLs and query bytes.
+	@indexAlias {
+		path_regexp indexAlias ^/[^/]+(?:/[^/]+)*/index[.]html$
+		file {path}
+	}
+	@slashAlias {
+		path_regexp slashAlias ^/[^/]+(?:/[^/]+)*/$
+		file {path}index.html
+	}
+	@generatedPage file {path}/index.html
+	@unsupportedMethod not method GET HEAD
+
+	route {
+		handle @unsupportedMethod {
+			header Allow "GET, HEAD"
+			respond "Method not allowed" 405
+		}
+		respond /healthz "ok" 200
+
+		route /index.html {
+			uri strip_suffix index.html
+			redir {uri} 308
+		}
+		route @indexAlias {
+			uri strip_suffix /index.html
+			redir {uri} 308
+		}
+		route @slashAlias {
+			uri strip_suffix /
+			redir {uri} 308
+		}
+
+		error /404.html 404
+		rewrite @generatedPage {file_match.relative}
+		file_server {
+			disable_canonical_uris
+		}
+	}
+
+	handle_errors 404 {
+		# Missing asset requests must never receive a successful SPA fallback.
+		@assetDirectory path /assets /assets/* /fonts /fonts/* /icons /icons/*
+		@assetFile {
+			path_regexp assetFile [.]([^/]+)$
+			not path *.html
+		}
+		handle @assetDirectory {
+			respond "Not found" 404
+		}
+		handle @assetFile {
+			respond "Not found" 404
+		}
+		handle {
+			rewrite * /404.html
+			file_server {
+				status 404
+			}
+		}
+	}
 }

@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## #57 B local serving implementation — 2026-10-26
+
+A `06a792a6c644d491acb60db0ae217513c8721450` precedes the bounded context, Node/pnpm assertions, Caddy 2.11.7 canonical/404 adapter and explicit existing-qualifier static-server profile in draft #109. Real Docker exports, invocation-owned image/container, source identity, exact artifact/HTTP checks and ownership-checked cleanup are prepared. [Receipt](../development/static-serving-57.md) retains the staged-source-only build and native-versus-container boundaries; C will pin final evidence. No license choice, merge, deployment or checkout activation.
+
 ## #57 A serving contract — 2026-10-26
 
 Input #108 `4faaebeb50b4202e8aaf9ee0012db0f836939f79`; live main remains `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`. Alan authorized #57 before later local testing. Source audit found unbounded Docker context and blanket SPA fallback; [contract](../development/static-serving-57.md) records precise replacements and evidence limits. Docker/Caddy executables are absent. No container, HTTP, browser, merge or license claim is made by A.

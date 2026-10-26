@@ -19,6 +19,10 @@
     "test": {
       "dependsOn": ["^test"],
       "outputs": []
+    },
+    "//#qualify:static": {
+      "cache": false,
+      "passThroughEnv": ["DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_CONFIG"]
     }
   }
 }

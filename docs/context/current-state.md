@@ -1,5 +1,9 @@
 # Current handoff
 
+## Current: #57 implementation ready for exact-source verification — 2026-10-26
+
+[Draft #109](https://github.com/egohygiene/egohygiene.io/pull/109) saves A `06a792a6c644d491acb60db0ae217513c8721450` before default-deny context, Caddy canonical/404 behavior and the explicit `qualify:static` profile. [Contract/walkthrough](../development/static-serving-57.md). Native Caddy 2.11.7 can run here; Docker/Task cannot. Next C pins fresh build/HTTP and failure-path evidence, preserving actual container/Mac acceptance for later. Main/earlier drafts/license choices and pre-existing qualification gaps remain unchanged.
+
 ## Current: #57 selected, audit saved before implementation — 2026-10-26
 
 Alan selected #57 with local testing together afterward. [Contract](../development/static-serving-57.md) records default-deny context and generated-route Caddy serving, based on unmerged #108 `4faaebeb50b4202e8aaf9ee0012db0f836939f79`. Main remains `89fc7044`. Docker/Caddy binaries are absent; bounded source/verifier checks precede explicit Mac image/server acceptance. Next B implementation, then C evidence and sync. Licensing, prior drafts, output/budget/native/browser/hosted gaps remain open. No merge or deployment.

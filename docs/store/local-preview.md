@@ -49,7 +49,8 @@ You do not have to install pnpm globally. The helper uses `pnpm` already on your
 | `task build:store` | Prepare and build the isolated preview without starting a server. |
 | `task dev:store` | Prepare dependencies and open `/store` at port 5173 with live reload while editing. |
 | `task fourthwall:check` | Check optional Fourthwall credentials with read-only requests; see the [connection guide](fourthwall-local-setup.md). |
-| `task test:store:tooling` | Run the setup helper's focused tests without a dependency installation. |
+| `task test:store:tooling` | Run tooling and failure-path tests using installed dependencies. |
+| `task qualify:static` | Build and verify the normal website in local Docker/Caddy; requires a running local Docker engine. |
 | `task --list` | Show all available public tasks. |
 
 Both servers bind to `127.0.0.1` and refuse to silently switch to another port. If a previous server is using the port, stop it with Ctrl+C or choose an explicit alternative:
@@ -102,3 +103,5 @@ After setup, `task typecheck:all`, `task test:smoke` and
 browser-discovery profiles. Discovery executes no browser. See the
 [complete command/scope table](../../tests/README.md) before running
 `task qualify:local` or the independent browser tasks on your machine.
+
+For intended static-server behavior, use [the #57 walkthrough](../development/static-serving-57.md). `task qualify:static` verifies a fresh normal image, while `task preview:store` remains the isolated Vite demonstration.

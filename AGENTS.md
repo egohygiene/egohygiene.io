@@ -1,5 +1,9 @@
 # Agent entry point
 
+## Current #57 implementation — 2026-10-26
+
+A is saved in [draft #109](https://github.com/egohygiene/egohygiene.io/pull/109); B implements bounded context, pinned local Caddy behavior and `task qualify:static`. Read [the contract/command](docs/development/static-serving-57.md). Next C verifies published source, then sync; native Caddy is now available for bounded HTTP proof, Docker/Task remain unavailable. Keep these scopes distinct. Earlier drafts/license choices remain pending; no merge or deployment.
+
 ## Current #57 local serving work — 2026-10-26
 
 Alan selected #57, with actual local testing together afterward. Read [the contract](docs/development/static-serving-57.md). Work stacks on unmerged #108; #105–#108 and license choices remain pending. Save A before implementation, keep a bounded context and normal artifact, then preserve exact verification/runtime gaps. Docker/Caddy are absent here; no browser/container/host pass is inferred. No merge or deployment.

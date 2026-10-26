@@ -65,3 +65,101 @@ is authorized by this implementation checkpoint.
 - [Caddy route ordering](https://caddyserver.com/docs/caddyfile/directives/route)
 - [Caddy file server](https://caddyserver.com/docs/caddyfile/directives/file_server)
 - [Caddy error handling](https://caddyserver.com/docs/caddyfile/directives/handle_errors)
+
+## Checkpoint B: implementation and local command
+
+Draft [#109](https://github.com/egohygiene/egohygiene.io/pull/109) saves A at
+`06a792a6c644d491acb60db0ae217513c8721450` before source edits. The root
+`.dockerignore` admits the normal website build inputs and all 14 existing
+workspace manifests. Late exclusions cover nested local/auth files, generated
+outputs, tests and recognized artwork-master/key/certificate categories. This is
+path-based control, not a claim to detect every secret in arbitrary source text.
+The original `.npmrc` peer policy is explicit in Docker's install flags instead of
+copying possible local registry credentials. No dependency or lockfile changed.
+
+The image asserts Node 24.21.0/pnpm 11.28.5 and retains frozen, script-disabled
+installation. It now uses `node:24.21.0-alpine` and `caddy:2.11.7-alpine`, verified
+against their official image listings. Caddy 2.11.7 includes the file-matcher
+sanitization correction absent from the previous 2.10 line; see the
+[upstream advisory](https://github.com/caddyserver/caddy/security/advisories/GHSA-4xrr-hq4w-6vf4).
+These patch tags remain mutable; qualification records the built image ID and
+architecture. This is not digest-pinned or bit-reproducible container proof.
+
+Caddy uses generated file existence for route resolution, explicit canonical
+308 redirects and genuine missing-resource status. `healthz` returns exactly
+`ok`; GET and HEAD are supported, other methods receive 405. The optional
+`EGOHYGIENE_HTTP_ADDRESS` and `EGOHYGIENE_PUBLIC_ROOT` support native local checks;
+Docker defaults remain HTTP port 80 and `/srv`. This local HTTP adapter disables
+Caddy's admin endpoint and automatic HTTPS. Production TLS/origin decisions are
+still #89; copying this file alone does not complete deployment.
+
+From this draft checkout, with Node, Task and local Docker Desktop/Engine running:
+
+```sh
+task setup:store
+task qualify:static
+```
+
+With the pinned pnpm already active, `pnpm qualify:static` is equivalent. The
+existing `scripts/qualify-store.mjs --profile static-server` calls one bounded
+Docker adapter. It is an explicit profile, separate from the existing non-browser,
+browser and combined profiles, which do not silently gain a Docker requirement.
+Its optional root Turbo task is uncached and declares Docker client configuration.
+
+The command:
+
+1. Resolves a local Unix socket/Windows named pipe and pins the default builder.
+   Remote daemon/builder overrides are rejected or cleared without changing the
+   user's stored Docker context or builder selection.
+2. Uses Docker's actual context export target on a harmless representative fixture,
+   checking included source plus excluded local/master/test sentinels. No Gitignore
+   approximation is used as Docker evidence.
+3. Exports the actual checkout context, verifies required manifests/source/notices,
+   excluded categories and exact bytes, then performs a fresh no-cache image build.
+   Registry access and the existing large dependency install may take several minutes.
+4. Creates an invocation-owned container, copies its exact `/srv` artifact for
+   the existing raw-HTML and artifact scanners, and starts that image on a random
+   loopback-only port. It never reuses a previously running server or host `dist`.
+5. Checks every generated page and emitted asset, GET/HEAD, alias/query behavior,
+   health, missing routes/products/assets/preview paths and unsupported methods.
+   Source identity is checked again before acceptance.
+6. Removes only the container carrying this invocation's label, including failure
+   and ordinary interruption paths. The image/build cache remains available locally;
+   no broad image, cache or volume prune is performed.
+
+Read `test-results/store-qualification/static-server/checks.json` and
+`static-server.json`; the latter contains source/image/context/file hashes and HTTP
+results. Build logs and the image-extracted artifact remain beside those reports.
+These are local diagnostics, not automatically published records. A failed context,
+install, image or non-budget artifact check stops downstream serving checks.
+Existing size-budget findings are retained: HTTP checks may pass while the overall
+command exits nonzero for budgets. Neither the existing ceiling nor its gate is
+removed. The profile does not run Chromium, validate provider checkout or establish
+hosted CI success.
+
+## Local walkthrough and recovery
+
+The Mac walkthrough must execute the complete command and inspect its exact source,
+image architecture, context probe and actual Caddy results. Native Linux HTTP proof
+and synthetic verifier tests do not satisfy Docker engine/Alpine/Apple Silicon
+acceptance. Task command selection can be checked here, but the Task executable and
+Docker engine must actually run on the target machine before those passes are claimed.
+
+For a visual look after qualification, take the exact image ID from the
+report's `image.id` field and run it locally (replace the placeholder):
+
+```sh
+docker run --rm --publish "127.0.0.1:8080:80" "sha256:IMAGE_ID_FROM_REPORT"
+```
+
+Visit `http://127.0.0.1:8080/`; Ctrl+C stops that foreground container. The automatic
+qualification container is already removed. Keep any prior reviewed image ID before
+rebuilding; local rollback is stopping the new container and starting that earlier
+ID on the same loopback mapping. No registry publication, DNS change or deployment
+rollback is performed here. If cleanup reports a failure, inspect its explicitly
+named invocation container before removing it; never prune unrelated containers.
+
+Licensing #59, old #73 disposition, #52's output investigations, existing artifact
+budgets, Storybook/browser and hosted gaps remain open. After #57 sync, #70 then
+final #37 on Alan's Mac remain the setup path. Checkpoint C will record exact
+published-source checks and remaining runtime acceptance.
