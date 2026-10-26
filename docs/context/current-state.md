@@ -1,5 +1,25 @@
 # Current handoff
 
+## Current: #59 notices and inactive proposals — 2026-10-25
+
+[Draft #105](https://github.com/egohygiene/egohygiene.io/pull/105), branch
+`docs/licensing-provenance-59`, saved audit A at
+`90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c` before B. #104 is merged at
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; #56 is closed completed.
+[Audit](../legal/licensing-59.md), [scope](../../LICENSING.md),
+[notices](../../THIRD_PARTY_NOTICES.md) and [inactive proposals](../legal/proposals/README.md)
+now preserve verified MSW terms, exact old-font embedded terms and separate
+creative/archive boundaries. Contributor provenance guidance and the historical
+MIT record are retained. No active LICENSE, package metadata or asset bytes change.
+
+#31/#32/#59 live tracker receipts keep incomplete private-merch B/C work visible;
+#32 stays closed, #100 public-store obligations stay separate. Next: verify both
+proposal applications in isolation, all inventory/notice hashes, local links and
+normal build copying. Then sync on Alan's software-license selection and remaining
+font/private-publication dispositions. #59 final alignment remains open; #92 is
+next after resolution/sync. Prior hosted/size/browser gaps remain; no deployment,
+provider activation, private-source fetch or source-repository retirement.
+
 ## Current: #104 merged; #59 audit checkpoint A — 2026-10-25
 
 Alan authorized merging #104, completed at

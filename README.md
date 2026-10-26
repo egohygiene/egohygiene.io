@@ -87,3 +87,11 @@ pnpm catalog:test
 ## Deployment and remaining work
 
 Local build verification does not establish production hosting. [Issue #29](https://github.com/egohygiene/egohygiene.io/issues/29) owns host configuration, SPA rewrites, remote CI, and deployment. The wider dependency lab, Storybook, formatting/lint cleanup, and separate product gateways remain independent workstreams. Private package publishing remains disabled.
+
+
+## Licensing and provenance
+
+See [current licensing status and scope](LICENSING.md), [third-party notices](THIRD_PARTY_NOTICES.md)
+and [contributor requirements](CONTRIBUTING.md#source-and-asset-provenance). The root
+software declaration is under review in #59; software, creative assets and imported
+archives have distinct terms. A display preview does not approve a garment or sale.

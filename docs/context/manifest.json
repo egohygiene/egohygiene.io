@@ -65,5 +65,9 @@
   "sourceHygieneScaffolds": "docs/development/reviews/source-hygiene-56/scaffolds.md",
   "licensingReview": "docs/legal/licensing-59.md",
   "licensingCodeInventory": "docs/legal/reviews/licensing-59/code-inventory.json",
-  "licensingAssetInventory": "docs/legal/reviews/licensing-59/asset-inventory.json"
+  "licensingAssetInventory": "docs/legal/reviews/licensing-59/asset-inventory.json",
+  "licensingScope": "LICENSING.md",
+  "thirdPartyNotices": "THIRD_PARTY_NOTICES.md",
+  "licensingProposals": "docs/legal/proposals/README.md",
+  "fontProvenance": "assets/fonts/atkinson/provenance.json"
 }

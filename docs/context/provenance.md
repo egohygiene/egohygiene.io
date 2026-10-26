@@ -1,5 +1,20 @@
 # Context provenance ledger
 
+## #59 checkpoint B — notices and reviewable alternatives (2026-10-25)
+
+A was published first in draft #105 at `90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c`.
+B preserves byte-exact MSW MIT notice from verified npm 2.15.0 and exact embedded
+Atkinson 1.002 terms with asset-local provenance. The full historical font license
+remains unverified. [Independent notice index](../../THIRD_PARTY_NOTICES.md),
+[licensing scope](../../LICENSING.md) and contributor guidance avoid inferring
+creative/product permission. Both [inactive patches](../legal/proposals/README.md)
+are concrete proposals; neither is applied. The initial MIT file is retained as
+README-era history, not evidence that the later app was historically MIT.
+
+#31/#32/#59 were updated with the private migration gap and distinct ownership;
+#32 remains closed. No new private content was inspected/published. B verification
+will be recorded against its published implementation commit before final sync.
+
 Recorded 2026-10-13. This ledger routes to evidence without duplicating asset
 masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.

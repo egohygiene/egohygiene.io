@@ -1,5 +1,19 @@
 # Store launch roadmap and milestone history
 
+## Current #59 draft and #104 integration — 2026-10-25
+
+#104 merged at `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; #56 closed completed.
+[Draft #105](https://github.com/egohygiene/egohygiene.io/pull/105) saves #59 audit A
+before notice/proposal B. [Audit and choices](../legal/licensing-59.md): verified
+third-party notices, exact older font evidence, separate creative/archive scopes
+and two inactive first-party license alternatives. No license choice is inferred.
+#31/#32/#59 now preserve the separate private-merch gaps; public #100 is distinct.
+
+Next: finish bounded verification and sync on the concrete license choice and
+remaining evidence dispositions, then **#92 → #52 → #29 → #57 → #70 → #37**.
+Final Chromium/manual/hosted/size gaps remain, followed by the approved deployment
+preview and real-product phases. No deployment, purchase activation or retirement.
+
 ## Current #56 local delivery after #103 integration — 2026-10-25
 
 #103 merged at `3a7527697fd9726279f809ca89235f2fbf5ac88e`; #53 C browser acceptance

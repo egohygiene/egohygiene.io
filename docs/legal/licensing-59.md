@@ -45,7 +45,27 @@ those obligations. Keep unfinished private preservation/adaptation/retirement
 visible under overall launch coordinator #31, with publication/rights review #59.
 Do not publish raw private attachment links or imply the old ledger is a new audit.
 
-## B — Concrete changes to prepare after saving A
+## B — Notice/proposal implementation
+
+A was saved in [draft #105](https://github.com/egohygiene/egohygiene.io/pull/105) at
+`90a1a69cc42dcd8bdb2730e7b0dc2af691bd110c` before B. The following are now prepared:
+
+- [MSW notice](../../public/mockServiceWorker.LICENSE.txt), copied byte-for-byte
+  from the verified package license; generated worker remains unchanged.
+- [Font notice](../../apps/egohygiene.io/public/fonts/NOTICE.txt) with exact embedded
+  terms and [asset-local provenance](../../assets/fonts/atkinson/provenance.json).
+  Full historical distribution-license evidence remains unresolved.
+- [Licensing status/scope](../../LICENSING.md), [independent notice index](../../THIRD_PARTY_NOTICES.md)
+  and [contributor guidance](../../CONTRIBUTING.md#source-and-asset-provenance).
+- [Two inactive, mutually exclusive proposal patches](proposals/README.md), exact
+  historical MIT text and canonical Apache-2.0 text. Neither is an active grant.
+
+Live #31/#32/#59 tracker receipts now retain the private migration obligations.
+This records an explicit incomplete-work disposition; it does not approve the
+unperformed private migration or alter #32's closed state.
+
+### Saved A implementation plan (historical)
+
 
 Restore source-backed third-party notices and public provenance/contributor
 instructions. Preserve active root LICENSE and metadata until the owner chooses.

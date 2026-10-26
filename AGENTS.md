@@ -6,6 +6,16 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
+## Current #59 notice/proposal checkpoint — 2026-10-25
+
+A is saved in draft #105; B adds verified independent notices, provenance guidance
+and inactive MIT/Apache-2.0 alternatives. Read [the audit](docs/legal/licensing-59.md),
+[licensing scope](LICENSING.md) and [proposals](docs/legal/proposals/README.md).
+Do not apply either patch until Alan selects it; final #59 alignment remains open.
+Verify notice/hash/link/proposal/build evidence, then sync on that choice and
+font/private-merch dispositions. #104 merged, #56 closed; #92 follows resolution.
+No deployment or provider activation; earlier qualification gaps remain.
+
 ## Current #59 licensing audit — 2026-10-25
 
 #104 is merged at `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; Alan selected #59.
