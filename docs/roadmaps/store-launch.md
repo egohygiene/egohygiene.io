@@ -1,5 +1,9 @@
 # Store launch roadmap and milestone history
 
+## Current #57 local serving delivery — 2026-10-26
+
+[Draft #109](https://github.com/egohygiene/egohygiene.io/pull/109) adds bounded Docker inputs, Caddy canonical/404/MIME behavior and `task qualify:static` on unmerged #108. [Receipt](../development/static-serving-57.md): 101 tooling checks and 388 actual native HTTP requests pass; 45 normal artifacts unchanged. Actual Docker/Task/Mac acceptance remains open; three budgets and prior output/browser/hosted gaps persist. Next local walkthrough/sync, then #70 → #37. #105–#109 remain drafts; #59 licensing is still pending. Later environment/construction-preview and real-product phases retain their existing order.
+
 ## Current overnight draft batch — 2026-10-26
 
 [Morning review handoff](../context/overnight-2026-10-26.md) links #105 licensing,

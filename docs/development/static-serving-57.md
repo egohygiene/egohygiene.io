@@ -175,3 +175,48 @@ host MIME database. The verifier retains its requirements and adds two negative
 regressions. A corrected working-tree run passes all 388 requests over 26 generated
 routes, including an artifact path with spaces. Final C pins this correction to a
 published clean source instead of treating that working-tree run as final evidence.
+
+## Checkpoint C: published-source results and remaining acceptance
+
+Tested correction: `9a44a48031e9715cb2c3d8945a6cb2cc800c2a37`, clean source,
+Node 24.21.0 / pnpm 11.28.5. [Exact checks](reviews/static-serving-57/verification.json),
+[HTTP evidence](reviews/static-serving-57/native-http.json),
+[artifact results](reviews/static-serving-57/artifact.json),
+[unchanged hashes](reviews/static-serving-57/artifact-comparison.json),
+[source-closure probe](reviews/static-serving-57/source-closure.json),
+[binary provenance](reviews/static-serving-57/caddy-provenance.json),
+[initial findings](reviews/static-serving-57/initial-native-findings.json) and
+[Docker preflight](reviews/static-serving-57/docker-preflight.json) retain scope.
+
+- Formatting, lint with zero errors, tooling types and workspace/import/locale
+  checks pass. Existing 85 warnings and 44 infos are unchanged.
+- All 101 tooling tests pass: 35 new context/HTTP/orchestration cases plus 66
+  existing cases. Fake Docker commands prove selection/fail-stop/cleanup, not an
+  engine run; HTTP verifier fixtures are separate from actual Caddy evidence.
+- Fresh normal build and raw inspection pass: 26 generated routes and ten sitemap
+  entries. All 45 artifact files exactly match the prior #29 controlled output.
+- Verified official Linux Caddy 2.11.7 passes config validation and 388 actual
+  loopback HTTP requests against this fresh artifact, including a path with spaces.
+  All generated pages, 18 non-HTML assets, aliases/query bytes, GET/HEAD, health,
+  noindex missing pages, plain missing assets and unsupported methods are covered.
+  The invocation-owned native process was stopped afterward.
+- The same three artifact budgets fail (documents 319,972 raw / 86,939 gzip bytes;
+  total 1,289,796 raw bytes). No ceiling or gate changed. The earlier output
+  anomalies were not reproduced by these builds; this does not establish their cause
+  or close their #52/#29 investigation.
+- `pnpm qualify:static` stops clearly at unavailable Docker and writes a failure
+  receipt. Actual context-engine probes, frozen Alpine install, image/container
+  execution and Mac architecture acceptance remain unperformed. Task YAML/command
+  selection passes; the Task binary itself was unavailable. No browser ran.
+- [Hosted snapshot](reviews/static-serving-57/hosted.json): CodeQL succeeds,
+  dependency review and CI fail on this source. Retrieved CI logs confirm the
+  artifact gate stops with 45 files/202 references/three findings after raw HTML
+  passes; browser steps are skipped. Dependency logs freshly confirm unsupported
+  repository/Dependency graph configuration, not a vulnerability finding. No workflow
+  was manually dispatched and no repository security setting was changed.
+
+Checkpoint A and implementation are delivered in draft #109. #57 stays open until
+its actual Docker B/C acceptance runs on Alan's Mac. The next sync can walk through
+`task setup:store` then `task qualify:static`; #70 and final integrated #37 follow.
+No earlier draft was merged. Main, the license decision, source-store retirement,
+private records, deployment and real purchase/provider activation are unchanged.

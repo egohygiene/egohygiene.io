@@ -1,5 +1,11 @@
 # Context provenance ledger
 
+## #57 C source-bound native serving evidence — 2026-10-26
+
+Corrected published source `9a44a48031e9715cb2c3d8945a6cb2cc800c2a37` is clean and tested with Node 24.21.0/pnpm 11.28.5. [Verification](../development/reviews/static-serving-57/verification.json): 101 tooling tests, types/boundaries, fresh normal build/raw pass; 45 artifact hashes exactly match #29 controlled source. [Native HTTP](../development/reviews/static-serving-57/native-http.json) records 388 requests / 26 routes using checksum-verified Caddy 2.11.7 and the unchanged artifact, including root paths with spaces. Initial missing CNAME/webmanifest MIME findings and their correction remain recorded. Three budget failures are unchanged; no claim that earlier output anomalies are fixed.
+
+[Docker preflight](../development/reviews/static-serving-57/docker-preflight.json) fails at missing Docker before image/context execution. Task selection/YAML passes, actual Task/Mac/Alpine/container/browser remains unperformed. [Hosted snapshot](../development/reviews/static-serving-57/hosted.json) records CodeQL success, dependency and CI failure on the corrected source; retrieved logs confirm the artifact gate (45files/202references/three findings) and unsupported Dependency graph configuration. Browser steps are skipped; no full hosted pass is claimed. #109 remains draft, #57 open for local walkthrough, main/earlier drafts/licensing unchanged. No merge, deployment, retirement or activation.
+
 ## #57 native MIME correction — 2026-10-26
 
 Published B `462d8ef13719841dc879eab531bc77355a24f3eb` passed fresh build/raw inspection, 99 tooling tests and preserved all 45 prior artifact hashes. Actual native Caddy rejected missing Content-Type on CNAME, then the web manifest. Explicit existing-file headers and two negative regressions fix those observed gaps without weakening the verifier. Corrected working-tree HTTP passes 388 requests; C will verify the published correction. Three size findings remain; the Docker profile fails clearly at unavailable Docker. Earlier failed attempts remain evidence, not passes.
@@ -217,7 +223,7 @@ under#31/#59. No history rewritten, private records copied or real service activ
 Published B `2697f5a967a950d7e4abb3d77615478a83567c0c` matched staged tree
 `d27295f399faf0496382f9c8b27d70161d9c2b8b`. A detached fresh checkout began without
 node_modules/caches/app output/removed output roots. Frozen script-disabled install
-used pinned Node24.21.0/pnpm11.28.5, with no version/lockfile/policy change. Selected
+used pinned Node 24.21.0/pnpm 11.28.5, with no version/lockfile/policy change. Selected
 source types/checks,341 units/45files,three fresh-build smoke checks and one isolated
 consumer integration test (three negative probes) pass. Website/docs/playground/
 Storybook builds ran sequentially; utility declarations regenerated into ignored dist.

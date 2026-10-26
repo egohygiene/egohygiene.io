@@ -6,7 +6,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
-| Local static serving | [#57 contract](../development/static-serving-57.md): bounded context, generated-route Caddy behavior and explicit local runtime verification |
+| Local static serving | [#57 contract](../development/static-serving-57.md): draft #109: 101 tooling tests/388 native HTTP checks pass; Docker/Task/Mac acceptance remains open |
 | Morning reconciliation | [2026-10-26 handoff](overnight-2026-10-26.md): ordered drafts, licensing, output/budget/native/browser/hosted gaps and next issues |
 | Current CI repair | [#29 contract and audit](../development/ci-baseline-29.md); draft #108 has local evidence and a hosted CodeQL pass; CI/dependency and other acceptance remain open; old #73 preserved |
 | Local compiler/test profiles | [#52 contract and baseline](../development/local-profiles-52.md); draft #107 has local C evidence and an unresolved intermittent output finding; #29 follows |
