@@ -1,0 +1,169 @@
+{
+  "sourceCommit": "47c25784b6853a415257a88150e2851d0b147e7a",
+  "sourceStatus": "clean",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5"
+  },
+  "checks": [
+    {
+      "name": "types",
+      "command": "pnpm typecheck:all",
+      "exitCode": 0,
+      "elapsedSeconds": 35.13
+    },
+    {
+      "name": "checks",
+      "command": "pnpm check",
+      "exitCode": 0,
+      "elapsedSeconds": 1.29
+    },
+    {
+      "name": "units",
+      "command": "pnpm test:unit",
+      "exitCode": 0,
+      "elapsedSeconds": 16.05
+    },
+    {
+      "name": "catalog",
+      "command": "node --test --test-concurrency=2 tests/store/*.test.ts",
+      "exitCode": 0,
+      "elapsedSeconds": 7.57
+    },
+    {
+      "name": "tooling",
+      "command": "pnpm test:tooling",
+      "exitCode": 0,
+      "elapsedSeconds": 3.62
+    },
+    {
+      "name": "semantic",
+      "command": "pnpm test:semantic",
+      "exitCode": 0,
+      "elapsedSeconds": 2.65
+    },
+    {
+      "name": "consumer",
+      "command": "pnpm test:components",
+      "exitCode": 0,
+      "elapsedSeconds": 1.02
+    },
+    {
+      "name": "discovery",
+      "command": "pnpm test:browser:discover",
+      "exitCode": 0,
+      "elapsedSeconds": 2.95
+    },
+    {
+      "name": "smoke",
+      "command": "pnpm test:smoke",
+      "exitCode": 1,
+      "elapsedSeconds": 9.87
+    },
+    {
+      "name": "public-rendering",
+      "command": "node tests/store-qualification/public-rendering.mjs --output test-results/night52-public-rendering.json",
+      "exitCode": 1,
+      "elapsedSeconds": 0.57
+    },
+    {
+      "name": "artifacts",
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/night52-artifacts.json",
+      "exitCode": 1,
+      "elapsedSeconds": 0.1
+    },
+    {
+      "name": "storybook-native",
+      "command": "pnpm storybook:build",
+      "exitCode": 1,
+      "elapsedSeconds": 0.95
+    }
+  ],
+  "endingStatus": "",
+  "recordedAt": "2026-10-26T05:32:42.331419+00:00",
+  "status": "bounded local verification with unresolved native/output/budget/browser/hosted acceptance",
+  "counts": {
+    "unitTests": 344,
+    "unitFiles": 45,
+    "catalogTests": 152,
+    "toolingTests": 58,
+    "semanticTests": 4,
+    "isolatedConsumerTests": 1,
+    "smokeTests": 3,
+    "browserProfiles": [
+      31,
+      106,
+      6,
+      4
+    ],
+    "uniqueBrowserSpecFiles": 14,
+    "browserExecutions": 0
+  },
+  "corrections": [
+    {
+      "name": "public-rendering",
+      "command": "node tests/store-qualification/public-rendering.mjs --output test-results/store-qualification/night52-public-rendering.json",
+      "exitCode": 0
+    },
+    {
+      "name": "artifacts",
+      "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/night52-artifacts.json",
+      "exitCode": 1
+    }
+  ],
+  "smokeRepeats": [
+    {
+      "name": "named",
+      "command": "pnpm test:smoke",
+      "exitCode": 0,
+      "elapsedSeconds": 9.69
+    },
+    {
+      "name": "direct",
+      "command": "node scripts/qualify-store.mjs --profile smoke",
+      "exitCode": 0,
+      "elapsedSeconds": 9.26
+    }
+  ],
+  "hosted": {
+    "sourceCommit": "47c25784b6853a415257a88150e2851d0b147e7a",
+    "runs": [
+      {
+        "id": 40274165769,
+        "name": ".github/workflows/codeql.yml",
+        "status": "completed",
+        "conclusion": "failure",
+        "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40274165769"
+      },
+      {
+        "id": 40274165698,
+        "name": "Dependency review",
+        "status": "completed",
+        "conclusion": "failure",
+        "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40274165698"
+      },
+      {
+        "id": 40274165740,
+        "name": "CI",
+        "status": "completed",
+        "conclusion": "failure",
+        "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40274165740"
+      }
+    ],
+    "scope": "Read-only refresh of automatic runs; no dispatch or settings changes. Local results do not substitute for hosted results."
+  },
+  "taskfile": {
+    "yamlAndScriptTargets": "pass",
+    "taskBinaryExecution": "not run; Task binary unavailable here"
+  },
+  "inactiveLicenseProposals": "Both git apply --check pass; neither applied.",
+  "limits": [
+    "Initial published-source smoke failed correctly on a replaced homepage shell; unchanged-source named/direct repeats pass. Cause remains unestablished; see output-investigation.json. No retry workaround or inferred fix.",
+    "The initial raw/artifact calls used a disallowed report output directory and were rejected; corrected commands below supply actual qualification, distinct from CLI misuse.",
+    "Native Storybook still fails with ERR_SYSTEM_ERROR / uv_interface_addresses; no supported shim or native browser proof.",
+    "Artifact qualifier retains three existing size failures; no ceiling changed.",
+    "No full qualifier, Chromium or manual accessibility execution; standalone commands are not an integrated profile pass.",
+    "Hosted outcomes remain failures; no manual dispatch or settings change.",
+    "Vite emits a future native-config module-classification warning; no root ESM reclassification or warning suppression."
+  ]
+}

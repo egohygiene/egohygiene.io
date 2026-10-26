@@ -35,7 +35,7 @@ describe("catalog interface messages", () => {
         name: "heartburst",
       }),
     ).toBeInTheDocument();
-    expect(getByRole("button", { name: "Everything", exact: true })).toBeInTheDocument();
+    expect(getByRole("button", { name: "Everything" })).toBeInTheDocument();
     fireEvent.change(getByRole("searchbox", { name: "Fixture search" }), {
       target: { value: "no-matching-artwork" },
     });

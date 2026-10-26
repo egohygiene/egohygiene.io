@@ -7,13 +7,10 @@
   },
   "include": [
     "apps/egohygiene.io/src/vite-env.d.ts",
-    "playwright.store.config.ts",
-    "playwright.store-preview.config.ts",
-    "tests/e2e/store*.spec.ts",
-    "tests/e2e/theme.spec.ts",
-    "tests/e2e/site.spec.ts",
-    "tests/e2e/fourthwall-preview.spec.ts",
-    "tests/e2e/artist-preview.spec.ts",
+    "playwright*.ts",
+    "tests/e2e/**/*.spec.ts",
+    "tests/component-styles/**/*.ts",
+    "tests/component-styles/**/*.tsx",
     "tests/storefront-qualification/host.tsx",
     "tests/catalog-localization/host.tsx"
   ]

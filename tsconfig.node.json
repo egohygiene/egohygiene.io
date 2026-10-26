@@ -2,21 +2,17 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "composite": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "noEmit": false,
-    "outDir": "dist-node",
-    "types": ["node"]
+    "types": ["node", "vite/client"]
   },
   "include": [
     "vite.config.ts",
-    "vitest.workspace.ts",
-    "playwright.config.ts",
-    ".storybook/**/*.ts",
-    "scripts/**/*.ts"
-  ],
-  "exclude": ["dist", "node_modules"]
+    "vitest*.ts",
+    "playwright*.ts",
+    "knip.config.ts",
+    ".storybook/main.ts",
+    "apps/*/vite.config.ts",
+    "scripts/**/*.ts",
+    "scripts/**/*.mts",
+    "packages/*/scripts/**/*.ts"
+  ]
 }

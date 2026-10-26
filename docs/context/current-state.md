@@ -1,5 +1,42 @@
 # Current handoff
 
+## Current: #52 local evidence saved; #29 next — 2026-10-26
+
+Draft #107 tested B `47c25784b6853a415257a88150e2851d0b147e7a`.
+[Receipt](../development/local-profiles-52.md) and [verification](../development/reviews/local-profiles-52/verification.json)
+record passing complete types/checks, 344 units/152 catalog/58 tooling/four semantic/
+one consumer checks. Browser discovery covers 31/106/6/4 cases, zero executed.
+Fresh smoke initially caught a replaced homepage shell; controlled unchanged-source
+named/direct repeats pass. [Cause remains unresolved](../development/reviews/local-profiles-52/output-investigation.json); do not call retry a fix.
+All45 final website artifacts match #92 B exactly. Native Storybook, three budgets,
+hosted failures and manual/browser acceptance remain open. Next authorized work is
+#29 CI/formatting and deliberate #73 reconciliation; no licensing choice or merge.
+
+## Current: #52 implementation saved for verification — 2026-10-26
+
+[Draft #107](https://github.com/egohygiene/egohygiene.io/pull/107) stacks on #106;
+A `25ab678b7d713c2b0232f8d8903c7d3e7f3152ae` preceded strict compiler repairs,
+fresh all-app smoke, browser inventory protection and named Taskfile profiles.
+Read [the receipt](../development/local-profiles-52.md) and [commands](../../tests/README.md).
+Next is exact-source C verification, then #29 formatting/CI reconciliation. Native
+Storybook, three artifact ceilings and actual browser/manual acceptance stay open.
+No licensing choice or merge; main remains `89fc7044`.
+
+## Current: #52 audit/contract saved for implementation — 2026-10-26
+
+The overnight batch proceeds to #52 from #106 head
+`c5935ae45d582af19a4175db1f1e05168393e0f6`. Branch `fix/local-profiles-52` stacks on
+`refactor/bounded-sweep-92`; #105/#106 remain draft. [Contract and inventories](../development/local-profiles-52.md)
+record 58 tooling/27 unit compiler diagnostics, incomplete passing browser types,
+all 14 workspace/three story-profile passes, and 31/106/6/4 browser discovery counts.
+No browsers executed. Save A before compiler/profile/fresh-smoke implementation.
+
+Reuse existing qualifier/runners and pinned Taskfile adapter; no new orchestrator,
+strictness reduction or budget increase. Native Storybook OS limitation and three
+artifact failures remain explicit. Next after #52 evidence is #29 CI/#73 repair.
+Main remains89fc7044; licensing, merges, deployment and activation are not selected.
+
+
 ## Current: #92 delivered in draft; #52 next — 2026-10-26
 
 The authorized overnight batch is #92 → #52 → #29; licensing and merges wait

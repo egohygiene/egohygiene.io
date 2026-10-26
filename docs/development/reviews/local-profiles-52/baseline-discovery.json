@@ -1,0 +1,769 @@
+[
+  {
+    "config": "playwright.config.ts",
+    "exitCode": 0,
+    "tests": 31,
+    "files": 3,
+    "discovery": [
+      {
+        "file": "site.spec.ts",
+        "title": "primary site loads, navigates, and supports theming",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "mobile navigation closes with Escape and follows the store route",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "short mobile navigation keeps the theme control reachable",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "skip link closes the menu and reveals the start of the main content",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Mindcap has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Mindgarden has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Renderflow has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Egolint has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Reflector has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Aether has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Store has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "external repository links are separately labelled and retain their original destinations",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/help loads directly, reloads and returns to Help through the footer",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/about loads directly, reloads and returns to Help through the footer",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/accessibility loads directly, reloads and returns to Help through the footer",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/store/help loads directly, reloads and returns to Help through the footer",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/privacy loads directly, reloads and returns to Help through the footer",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/terms loads directly, reloads and returns to Help through the footer",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "the Help hub and return links preserve the language URL across every essential destination",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "keyboard journeys at 1280px separate public feedback from order help",
+        "project": "site"
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "keyboard journeys at 390px separate public feedback from order help",
+        "project": "site"
+      },
+      {
+        "file": "docs.spec.ts",
+        "title": "docs /getting-started renders semantic Markdown on direct entry and reload",
+        "project": "docs"
+      },
+      {
+        "file": "docs.spec.ts",
+        "title": "docs /development renders semantic Markdown on direct entry and reload",
+        "project": "docs"
+      },
+      {
+        "file": "docs.spec.ts",
+        "title": "docs /architecture renders semantic Markdown on direct entry and reload",
+        "project": "docs"
+      },
+      {
+        "file": "docs.spec.ts",
+        "title": "docs /packages renders semantic Markdown on direct entry and reload",
+        "project": "docs"
+      },
+      {
+        "file": "docs.spec.ts",
+        "title": "docs home navigation and missing-page recovery reach the current guides",
+        "project": "docs"
+      },
+      {
+        "file": "playground.spec.ts",
+        "title": "playground app loads shared components",
+        "project": "playground"
+      },
+      {
+        "file": "playground.spec.ts",
+        "title": "shared action text and changing motion preferences work independently in light",
+        "project": "playground"
+      },
+      {
+        "file": "playground.spec.ts",
+        "title": "shared action text and changing motion preferences work independently in dark",
+        "project": "playground"
+      },
+      {
+        "file": "playground.spec.ts",
+        "title": "shared action text and changing motion preferences work independently in high-contrast",
+        "project": "playground"
+      },
+      {
+        "file": "playground.spec.ts",
+        "title": "forced colors preserve shared controls, loading status and readable visualization text",
+        "project": "playground"
+      }
+    ]
+  },
+  {
+    "config": "playwright.store.config.ts",
+    "exitCode": 0,
+    "tests": 106,
+    "files": 9,
+    "discovery": [
+      {
+        "file": "site.spec.ts",
+        "title": "primary site loads, navigates, and supports theming",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "mobile navigation closes with Escape and follows the store route",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "short mobile navigation keeps the theme control reachable",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "skip link closes the menu and reveals the start of the main content",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Mindcap has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Mindgarden has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Renderflow has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Egolint has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Reflector has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Aether has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "Store has a keyboard-reachable local page with direct, reload and Back recovery",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "external repository links are separately labelled and retain their original destinations",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/help loads directly, reloads and returns to Help through the footer",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/about loads directly, reloads and returns to Help through the footer",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/accessibility loads directly, reloads and returns to Help through the footer",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/store/help loads directly, reloads and returns to Help through the footer",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/privacy loads directly, reloads and returns to Help through the footer",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "/terms loads directly, reloads and returns to Help through the footer",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "the Help hub and return links preserve the language URL across every essential destination",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "keyboard journeys at 1280px separate public feedback from order help",
+        "project": ""
+      },
+      {
+        "file": "site.spec.ts",
+        "title": "keyboard journeys at 390px separate public feedback from order help",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "selected shell, status and purchase text have measured contrast in light",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "keyboard focus is visible on the shell and store in light",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "selected shell, status and purchase text have measured contrast in dark",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "keyboard focus is visible on the shell and store in dark",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "selected shell, status and purchase text have measured contrast in high-contrast",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "keyboard focus is visible on the shell and store in high-contrast",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "forced colors preserve shell and store focus and the modal's semantic controls",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 320 \u00d7 568 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 360 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 390 \u00d7 844 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 430 \u00d7 932 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 768 \u00d7 1024 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 820 \u00d7 1180 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 1024 \u00d7 768 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 1280 \u00d7 720 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 1440 \u00d7 900 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 1920 \u00d7 1080 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 2560 \u00d7 1440 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 359 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 361 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 367 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 369 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 619 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 621 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 639 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 641 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 895 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 897 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 899 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "store surfaces reflow at 901 \u00d7 800 CSS pixels",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "root-text-200-percent preserves menu, filters, purchase status and artwork controls",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "400-percent-equivalent-reflow preserves menu, filters, purchase status and artwork controls",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "information-page text and forward/reverse focus remain readable in light",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "information-page text and forward/reverse focus remain readable in dark",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "information-page text and forward/reverse focus remain readable in high-contrast",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "forced colors retain information-page focus and public-feedback descriptions",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "information-page content and footer survive root-text-200-percent",
+        "project": ""
+      },
+      {
+        "file": "store-accessibility.spec.ts",
+        "title": "information-page content and footer survive 400-percent-equivalent-reflow",
+        "project": ""
+      },
+      {
+        "file": "store-artist.spec.ts",
+        "title": "Incompris leads to the real artist with truthful empty collections",
+        "project": ""
+      },
+      {
+        "file": "store-artist.spec.ts",
+        "title": "artist view and search survive reload and Back without discarding source parameters",
+        "project": ""
+      },
+      {
+        "file": "store-artist.spec.ts",
+        "title": "unknown artist routes recover through Incompris",
+        "project": ""
+      },
+      {
+        "file": "store-artist.spec.ts",
+        "title": "the artist views support keyboard use and fit a narrow phone",
+        "project": ""
+      },
+      {
+        "file": "store-metadata.spec.ts",
+        "title": "SPA navigation and history replace route metadata without duplicate descriptions",
+        "project": ""
+      },
+      {
+        "file": "store-metadata.spec.ts",
+        "title": "direct and reloaded catalog routes expose their own title and description",
+        "project": ""
+      },
+      {
+        "file": "store-metadata.spec.ts",
+        "title": "missing product and artist routes reset metadata when their recovery links are followed",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "catalog hydration reuses raw content before restoring theme, language and query state",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "artist song selection hydrates without assigning merchandise and survives reload",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "client navigation and history replace canonical, indexing and artwork social metadata",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "unknown and isolated-preview paths replace fallback metadata and recover",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "legacy catalog URLs forward after hydration while preserving query, language and fragment",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "/ serves meaningful route HTML and identity before scripts",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "/store serves meaningful route HTML and identity before scripts",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "/store/incompris/artists/play serves meaningful route HTML and identity before scripts",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "/store/designs/heartburst serves meaningful route HTML and identity before scripts",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "/store/products/static-bloom-mug serves meaningful route HTML and identity before scripts",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "/store/collections/static-bloom-collection serves meaningful route HTML and identity before scripts",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "/help serves meaningful route HTML and identity before scripts",
+        "project": ""
+      },
+      {
+        "file": "store-public-rendering.spec.ts",
+        "title": "/privacy serves meaningful route HTML and identity before scripts",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "the production store presents a labeled preview and all public catalog entries",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "search and type filters compose, survive reload, and recover from empty results",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "story browsing composes with search, persists, and clears without losing unrelated URL state",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "world and independent-design pathways support artwork inspection at 1440px",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "world and independent-design pathways support artwork inspection at 390px",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "a collection leads to its product, shared design, and the collection again",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "product, design, and collection deep links survive a full page reload",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "detail navigation resets scrolling, Back restores it, and section links remain usable",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "unknown and mismatched slugs provide a usable route back to the catalog",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "every mock product is explicit about availability and offers no purchase action",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "keyboard browsing exposes focus and respects reduced motion",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "navigation, search, and product detail work on a narrow screen",
+        "project": ""
+      },
+      {
+        "file": "store.spec.ts",
+        "title": "all themes and detail layouts fit mobile without horizontal scrolling",
+        "project": ""
+      },
+      {
+        "file": "storefront-journey.spec.ts",
+        "title": "missing artwork preserves a usable card, design page and dismissible viewer",
+        "project": ""
+      },
+      {
+        "file": "storefront-journey.spec.ts",
+        "title": "filtered catalog history survives a canonical product reload, Back and Forward",
+        "project": ""
+      },
+      {
+        "file": "storefront-journey.spec.ts",
+        "title": "unknown nested routes and isolated preview routes recover in the normal build",
+        "project": ""
+      },
+      {
+        "file": "storefront-journey.spec.ts",
+        "title": "the shop hierarchy and canonical artwork remain usable with touch",
+        "project": ""
+      },
+      {
+        "file": "storefront.spec.ts",
+        "title": "the curated shop leads through Incompris to the same canonical design",
+        "project": ""
+      },
+      {
+        "file": "storefront.spec.ts",
+        "title": "catalog examples stay available through their explicitly labeled preview entrance",
+        "project": ""
+      },
+      {
+        "file": "storefront.spec.ts",
+        "title": "existing filter and section links retain their state at the catalog destination",
+        "project": ""
+      },
+      {
+        "file": "storefront.spec.ts",
+        "title": "the shop and collection support keyboard navigation with reduced motion",
+        "project": ""
+      },
+      {
+        "file": "storefront.spec.ts",
+        "title": "the shop and Incompris collection fit narrow, tablet and desktop screens",
+        "project": ""
+      },
+      {
+        "file": "theme.spec.ts",
+        "title": "home and store remain usable when storage getter is denied",
+        "project": ""
+      },
+      {
+        "file": "theme.spec.ts",
+        "title": "home and store remain usable when getItem is denied",
+        "project": ""
+      },
+      {
+        "file": "theme.spec.ts",
+        "title": "home and store remain usable when setItem is denied",
+        "project": ""
+      },
+      {
+        "file": "theme.spec.ts",
+        "title": "invalid persisted preferences fall back to the system theme",
+        "project": ""
+      },
+      {
+        "file": "theme.spec.ts",
+        "title": "manual preferences persist across reload and system mode resumes following the device",
+        "project": ""
+      }
+    ]
+  },
+  {
+    "config": "playwright.store-preview.config.ts",
+    "exitCode": 0,
+    "tests": 6,
+    "files": 2,
+    "discovery": [
+      {
+        "file": "artist-preview.spec.ts",
+        "title": "fictional artist search is limited to the selected view and preserves URL state",
+        "project": ""
+      },
+      {
+        "file": "artist-preview.spec.ts",
+        "title": "standalone and song browsing reach the same product and support deep links and Back",
+        "project": ""
+      },
+      {
+        "file": "artist-preview.spec.ts",
+        "title": "populated artist views fit a phone and retain canonical destinations",
+        "project": ""
+      },
+      {
+        "file": "artist-preview.spec.ts",
+        "title": "song search and direct links survive reload and touch navigation",
+        "project": ""
+      },
+      {
+        "file": "fourthwall-preview.spec.ts",
+        "title": "local Fourthwall tryout selects variants without leaving the site at 1440px",
+        "project": ""
+      },
+      {
+        "file": "fourthwall-preview.spec.ts",
+        "title": "local Fourthwall tryout selects variants without leaving the site at 390px",
+        "project": ""
+      }
+    ]
+  },
+  {
+    "config": "playwright.component-styles.config.ts",
+    "exitCode": 0,
+    "tests": 4,
+    "files": 1,
+    "discovery": [
+      {
+        "file": "styles.spec.ts",
+        "title": "declared consumer and representative stories have real styles in light",
+        "project": ""
+      },
+      {
+        "file": "styles.spec.ts",
+        "title": "declared consumer and representative stories have real styles in dark",
+        "project": ""
+      },
+      {
+        "file": "styles.spec.ts",
+        "title": "declared consumer and representative stories have real styles in high-contrast",
+        "project": ""
+      },
+      {
+        "file": "styles.spec.ts",
+        "title": "provider-owned ThemeToggle and toolbar-owned stories do not compete",
+        "project": ""
+      }
+    ]
+  }
+]

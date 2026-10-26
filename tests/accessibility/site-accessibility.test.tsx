@@ -27,11 +27,11 @@ describe("primary site accessibility", () => {
       "href",
       "/ecosystem",
     );
-    for (const link of getAllByRole("link", { name: "Explore the store", exact: true })) {
+    for (const link of getAllByRole("link", { name: "Explore the store" })) {
       expect(link).toHaveAttribute("href", "/store");
     }
     expect(
-      getByRole("link", { name: "Explore this design: heartburst", exact: true }),
+      getByRole("link", { name: "Explore this design: heartburst" }),
     ).toHaveAttribute("href", "/store/designs/heartburst");
     expect(
       getByRole("img", { name: "Ego Hygiene’s cyan and magenta yin-yang symbol" }),
