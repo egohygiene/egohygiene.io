@@ -1,5 +1,19 @@
 # Context provenance ledger
 
+## #52 C published-source verification — 2026-10-26
+
+Tested clean B `47c25784b6853a415257a88150e2851d0b147e7a` in draft #107.
+[Exact receipt](../development/reviews/local-profiles-52/verification.json) records
+all type/check passes, 344 units/152 catalog/58 tooling/four semantic/one consumer
+test and unchanged 31/106/6/4 browser discovery (zero execution). The first fresh
+smoke rejected a replaced client shell; subsequent unchanged-source named/direct
+runs pass. Writer/cause remains unestablished; [investigation](../development/reviews/local-profiles-52/output-investigation.json) preserves both outcomes.
+Final45 artifact hashes equal #92 B; raw26 routes pass, existing three budgets fail.
+Native Storybook and automatic source-hosted runs fail separately. Initial rejected
+report-directory invocations are corrected explicitly, not counted as product bugs.
+Task YAML validates, Task execution unavailable; inactive license patches apply-check
+without being applied. #29 follows; #52 acceptance gaps and all merges remain open.
+
 ## #52 B implementation — 2026-10-26
 
 Saved A `25ab678b7d713c2b0232f8d8903c7d3e7f3152ae` in draft #107 before changes.

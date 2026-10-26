@@ -96,3 +96,35 @@ tooling and unit scopes while preserving artifact and browser gates. Separate
 default-app and component browsers are explicitly available; #29 will wire all
 intended scopes into CI. No Chromium was executed during implementation. C records
 clean-source verification separately; native Storybook/budget/manual gaps remain.
+
+## C — Published-source checks and remaining gaps
+
+Tested B `47c25784b6853a415257a88150e2851d0b147e7a`, clean checkout.
+[Verification](reviews/local-profiles-52/verification.json): `typecheck:all` and
+workspace/locale/boundary checks pass; 344 units, 152 catalog, 58 tooling, four
+semantic and one isolated consumer test pass. Discovery is 31/106/6/4 across
+14 unique browser spec files; no browsers executed. Task YAML and command targets
+validate, but the Task binary is unavailable here.
+
+The first published-source smoke correctly failed: the homepage had become a
+1,862-byte client shell after public rendering reported success. Read the exact
+[output investigation](reviews/local-profiles-52/output-investigation.json). No
+responsible application writer was found. Controlled sequential builds preserved
+the expected root digest after every step; unchanged-source named and direct smoke
+repeats both pass three tests. This is an unresolved intermittent output finding,
+not a demonstrated fix or reproducibility qualification. Keep it with #52/#37; the
+prior #53 collision is relevant history, not a proven identical cause. No retry
+workaround, lock or weakened assertion was introduced.
+
+After those builds, raw inspection passes all 26 routes and all 45 website artifact
+files are byte-identical to #92 B. Existing artifact limits still fail documents
+319,972 raw/86,947 gzip bytes and total 1,289,794 raw bytes. Native Storybook fails
+with the same OS interface error. Initial raw/artifact commands were rejected for
+an incorrectly chosen report directory; the corrected commands/results are listed
+separately. No complete qualifier/browser/hosted/production pass is claimed.
+
+Automatic source-B CI40274165740, dependency-review40274165698 and
+CodeQL40274165769 fail. #29 now owns the supported formatting/workflow repair;
+#52 remains open for output investigation, reviewed size policy and actual browser/
+manual/native acceptance. Both inactive software-license patches still check cleanly.
+Licensing selection, draft review and ordered integration wait for morning sync.

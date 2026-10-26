@@ -1,5 +1,17 @@
 # Current handoff
 
+## Current: #52 local evidence saved; #29 next — 2026-10-26
+
+Draft #107 tested B `47c25784b6853a415257a88150e2851d0b147e7a`.
+[Receipt](../development/local-profiles-52.md) and [verification](../development/reviews/local-profiles-52/verification.json)
+record passing complete types/checks, 344 units/152 catalog/58 tooling/four semantic/
+one consumer checks. Browser discovery covers 31/106/6/4 cases, zero executed.
+Fresh smoke initially caught a replaced homepage shell; controlled unchanged-source
+named/direct repeats pass. [Cause remains unresolved](../development/reviews/local-profiles-52/output-investigation.json); do not call retry a fix.
+All45 final website artifacts match #92 B exactly. Native Storybook, three budgets,
+hosted failures and manual/browser acceptance remain open. Next authorized work is
+#29 CI/formatting and deliberate #73 reconciliation; no licensing choice or merge.
+
 ## Current: #52 implementation saved for verification — 2026-10-26
 
 [Draft #107](https://github.com/egohygiene/egohygiene.io/pull/107) stacks on #106;

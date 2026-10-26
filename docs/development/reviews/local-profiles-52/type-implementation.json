@@ -1,0 +1,534 @@
+{
+  "schemaVersion": 1,
+  "baselineHead": "c5935ae45d582af19a4175db1f1e05168393e0f6",
+  "parentHead": "25ab678b7d713c2b0232f8d8903c7d3e7f3152ae",
+  "implementationState": "Checks of the uncommitted working-tree implementation before parent publication; owned hashes below bind this portion. Parent performs published-source final verification.",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "typescript": "5.9.3"
+  },
+  "changes": {
+    "tooling": "No-emission Preserve/Bundler tools profile includes maintained native TypeScript scripts and tool configs; browser Storybook config checked by existing story profiles.",
+    "vitest": "Exact runtime test-utils/themes aliases and explicit unit/semantic/smoke roots; smoke helper and MTS paths included.",
+    "browser": "All maintained Playwright configs/e2e/component fixtures included.",
+    "obsolete": "Unused references-only tsconfig.typecheck.json removed; replacement is parent-owned explicit typecheck:all composition.",
+    "typeFixes": "Throwing React fixture never return, explicit malformed visibility test boundary, valid Testing Library role options, immutable tuple typing, ES2022 copy/reverse and dataset bracket access, newly covered token script name parameter."
+  },
+  "preservation": {
+    "baseStrictnessUnchanged": true,
+    "portableDomainDomFree": true,
+    "schemaVisibilityUnchanged": true,
+    "rootPackageModuleTypeUnchanged": true,
+    "deliberatelyMalformedVisibilityTestRetained": true,
+    "noBrowserExecution": true
+  },
+  "checks": [
+    {
+      "name": "tooling",
+      "command": "pnpm exec tsc --project tsconfig.node.json --noEmit",
+      "exitCode": 0,
+      "elapsedSeconds": 3.23,
+      "diagnosticCount": 0
+    },
+    {
+      "name": "vitest",
+      "command": "pnpm exec tsc --project tsconfig.vitest.json --noEmit",
+      "exitCode": 0,
+      "elapsedSeconds": 5.26,
+      "diagnosticCount": 0
+    },
+    {
+      "name": "browser",
+      "command": "pnpm exec tsc --project tsconfig.store-browser.json --noEmit",
+      "exitCode": 0,
+      "elapsedSeconds": 4.39,
+      "diagnosticCount": 0
+    },
+    {
+      "name": "domain",
+      "command": "pnpm exec tsc --project tsconfig.store-domain.json --noEmit",
+      "exitCode": 0,
+      "elapsedSeconds": 2.18,
+      "diagnosticCount": 0
+    },
+    {
+      "name": "locales",
+      "command": "pnpm exec tsc --project tsconfig.locales.json --noEmit",
+      "exitCode": 0,
+      "elapsedSeconds": 1.39,
+      "diagnosticCount": 0
+    },
+    {
+      "name": "workspaces",
+      "command": "pnpm typecheck:workspaces",
+      "exitCode": 0,
+      "elapsedSeconds": 7.07,
+      "diagnosticCount": 0
+    },
+    {
+      "name": "story-site",
+      "command": "pnpm exec tsc --project apps/egohygiene.io/tsconfig.storybook.json --noEmit",
+      "exitCode": 0,
+      "elapsedSeconds": 2.09,
+      "diagnosticCount": 0
+    },
+    {
+      "name": "story-ui",
+      "command": "pnpm exec tsc --project packages/ui/tsconfig.storybook.json --noEmit",
+      "exitCode": 0,
+      "elapsedSeconds": 2.29,
+      "diagnosticCount": 0
+    },
+    {
+      "name": "story-visualizations",
+      "command": "pnpm exec tsc --project packages/visualizations/tsconfig.storybook.json --noEmit",
+      "exitCode": 0,
+      "elapsedSeconds": 2.75,
+      "diagnosticCount": 0
+    }
+  ],
+  "helperFollowup": {
+    "commands": [
+      "pnpm exec tsc --project tsconfig.node.json --noEmit",
+      "pnpm exec tsc --project tsconfig.vitest.json --noEmit",
+      "pnpm exec tsc --project tsconfig.store-browser.json --noEmit"
+    ],
+    "result": "pass after scripts/build-smoke.mts and new smoke test were present"
+  },
+  "focusedRegression": {
+    "units": {
+      "files": 9,
+      "tests": 78,
+      "result": "pass"
+    },
+    "semanticAccessibility": {
+      "files": 2,
+      "tests": 4,
+      "result": "pass",
+      "scope": "Simulated DOM semantics; not browser or accessibility certification"
+    }
+  },
+  "coverage": {
+    "tsconfig.node.json": {
+      "rootFiles": [
+        "vite.config.ts",
+        "vitest.accessibility.config.ts",
+        "vitest.smoke.config.ts",
+        "vitest.unit.config.ts",
+        "vitest.workspace.ts",
+        "playwright.component-styles.config.ts",
+        "playwright.config.ts",
+        "playwright.store-preview.config.ts",
+        "playwright.store.config.ts",
+        "knip.config.ts",
+        ".storybook/main.ts",
+        "apps/docs/vite.config.ts",
+        "apps/egohygiene.io/vite.config.ts",
+        "apps/playground/vite.config.ts",
+        "scripts/checks/check-circular-dependencies.ts",
+        "scripts/checks/check-locales.ts",
+        "scripts/checks/check-package-exports.ts",
+        "scripts/checks/check-store-boundaries.ts",
+        "scripts/checks/check-workspace.ts",
+        "scripts/generators/create-app.ts",
+        "scripts/generators/create-component.ts",
+        "scripts/generators/create-package.ts",
+        "scripts/locales/catalog.ts",
+        "scripts/release/prepare-release.ts",
+        "scripts/build-public-site.mts",
+        "scripts/build-smoke.mts",
+        "scripts/public-site-output.mts",
+        "scripts/store-catalog.mts",
+        "scripts/vite-public-pages.mts",
+        "scripts/vite-store-catalog.mts",
+        "packages/design-tokens/scripts/build-tokens.ts",
+        "packages/icons/scripts/generate-icons.ts",
+        "packages/schemas/scripts/generate-types.ts"
+      ],
+      "rootFileCount": 33,
+      "compilerOptions": {
+        "target": "es2022",
+        "lib": [
+          "es2022"
+        ],
+        "useDefineForClassFields": true,
+        "module": "preserve",
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
+        "verbatimModuleSyntax": true,
+        "resolveJsonModule": true,
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "types": [
+          "node",
+          "vite/client"
+        ],
+        "strict": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUncheckedSideEffectImports": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noEmit": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolvePackageJsonExports": true,
+        "resolvePackageJsonImports": true,
+        "preserveConstEnums": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "strictBuiltinIteratorReturn": true,
+        "alwaysStrict": true,
+        "useUnknownInCatchVariables": true
+      }
+    },
+    "tsconfig.vitest.json": {
+      "rootFiles": [
+        ".vitest/setup.ts",
+        ".vitest/test-utils.tsx",
+        "apps/docs/src/vite-env.d.ts",
+        "apps/egohygiene.io/src/vite-env.d.ts",
+        "apps/playground/src/vite-env.d.ts",
+        "apps/egohygiene.io/src/content/products.test.ts",
+        "apps/egohygiene.io/src/content/publication.test.ts",
+        "apps/egohygiene.io/src/features/artist-preview/fixture.test.ts",
+        "apps/egohygiene.io/src/features/fourthwall-preview/contract.test.ts",
+        "apps/egohygiene.io/src/features/store/catalog.test.ts",
+        "apps/egohygiene.io/src/i18n/selection.test.ts",
+        "apps/docs/src/components/MarkdownPage.test.tsx",
+        "apps/egohygiene.io/src/app/rendering.test.tsx",
+        "apps/egohygiene.io/src/components/ErrorBoundary/ErrorBoundary.test.tsx",
+        "apps/egohygiene.io/src/components/Footer/Footer.test.tsx",
+        "apps/egohygiene.io/src/components/Header/Header.test.tsx",
+        "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.test.tsx",
+        "apps/egohygiene.io/src/components/SkipLink/SkipLink.test.tsx",
+        "apps/egohygiene.io/src/features/fourthwall-preview/FourthwallCatalogLocale.test.tsx",
+        "apps/egohygiene.io/src/features/fourthwall-preview/FourthwallPreviewPage.test.tsx",
+        "apps/egohygiene.io/src/features/store/CatalogLocalizationJourney.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtistPage.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtwork.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtworkGallery.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreCatalogLocale.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreContentLocale.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreDesignOrder.test.tsx",
+        "apps/egohygiene.io/src/features/store/StoreDetailPages.test.tsx",
+        "apps/egohygiene.io/src/features/store/StorefrontPages.test.tsx",
+        "apps/egohygiene.io/src/features/store/useStoreContent.test.tsx",
+        "apps/egohygiene.io/src/i18n/LocaleProvider.test.tsx",
+        "apps/egohygiene.io/src/pages/EcosystemPage.test.tsx",
+        "apps/egohygiene.io/src/pages/EssentialsPages.test.tsx",
+        "apps/egohygiene.io/src/pages/HomePage.test.tsx",
+        "apps/egohygiene.io/src/pages/PageMessages.test.tsx",
+        "apps/egohygiene.io/src/pages/StoreHelpPage.test.tsx",
+        "packages/api-client/src/index.test.ts",
+        "packages/config/src/index.test.ts",
+        "packages/content/src/index.test.ts",
+        "packages/i18n/src/create-i18n.test.ts",
+        "packages/i18n/src/locale-registry.test.ts",
+        "packages/themes/src/contrast.test.ts",
+        "packages/utilities/src/index.test.ts",
+        "packages/i18n/src/index.test.tsx",
+        "packages/themes/src/index.test.tsx",
+        "packages/ui/src/index.test.tsx",
+        "packages/ui/src/components/Button/Button.test.tsx",
+        "packages/ui/src/components/Spinner/Spinner.test.tsx",
+        "packages/ui/src/components/VisuallyHidden/VisuallyHidden.test.tsx",
+        "packages/visualizations/src/index.test.tsx",
+        "tests/accessibility/docs-accessibility.test.tsx",
+        "tests/accessibility/site-accessibility.test.tsx",
+        "scripts/build-smoke.mts",
+        "tests/smoke/build.test.ts"
+      ],
+      "rootFileCount": 54,
+      "compilerOptions": {
+        "target": "es2022",
+        "lib": [
+          "es2022",
+          "dom",
+          "dom.iterable"
+        ],
+        "useDefineForClassFields": true,
+        "module": "preserve",
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
+        "verbatimModuleSyntax": true,
+        "resolveJsonModule": true,
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "types": [
+          "node",
+          "vite/client"
+        ],
+        "strict": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUncheckedSideEffectImports": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noEmit": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "jsx": "react-jsx",
+        "paths": {
+          "#test-utils": [
+            "./.vitest/test-utils.tsx"
+          ],
+          "@egohygiene/themes": [
+            "./packages/themes/src/index.ts"
+          ]
+        },
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolvePackageJsonExports": true,
+        "resolvePackageJsonImports": true,
+        "preserveConstEnums": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "strictBuiltinIteratorReturn": true,
+        "alwaysStrict": true,
+        "useUnknownInCatchVariables": true
+      }
+    },
+    "tsconfig.store-browser.json": {
+      "rootFiles": [
+        "apps/egohygiene.io/src/vite-env.d.ts",
+        "playwright.component-styles.config.ts",
+        "playwright.config.ts",
+        "playwright.store-preview.config.ts",
+        "playwright.store.config.ts",
+        "tests/e2e/artist-preview.spec.ts",
+        "tests/e2e/docs.spec.ts",
+        "tests/e2e/fourthwall-preview.spec.ts",
+        "tests/e2e/playground.spec.ts",
+        "tests/e2e/site.spec.ts",
+        "tests/e2e/store-accessibility.spec.ts",
+        "tests/e2e/store-artist.spec.ts",
+        "tests/e2e/store-metadata.spec.ts",
+        "tests/e2e/store-public-rendering.spec.ts",
+        "tests/e2e/store.spec.ts",
+        "tests/e2e/storefront-journey.spec.ts",
+        "tests/e2e/storefront.spec.ts",
+        "tests/e2e/theme.spec.ts",
+        "tests/component-styles/styles.spec.ts",
+        "tests/component-styles/consumer/main.tsx",
+        "tests/storefront-qualification/host.tsx",
+        "tests/catalog-localization/host.tsx"
+      ],
+      "rootFileCount": 22,
+      "compilerOptions": {
+        "target": "es2022",
+        "lib": [
+          "es2022",
+          "dom",
+          "dom.iterable"
+        ],
+        "useDefineForClassFields": true,
+        "module": "preserve",
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
+        "verbatimModuleSyntax": true,
+        "resolveJsonModule": true,
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "types": [
+          "node",
+          "vite/client"
+        ],
+        "strict": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUncheckedSideEffectImports": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noEmit": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "jsx": "react-jsx",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolvePackageJsonExports": true,
+        "resolvePackageJsonImports": true,
+        "preserveConstEnums": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "strictBuiltinIteratorReturn": true,
+        "alwaysStrict": true,
+        "useUnknownInCatchVariables": true
+      }
+    },
+    "tsconfig.store-domain.json": {
+      "rootFiles": [
+        "apps/egohygiene.io/src/features/store/domain/artists.ts",
+        "apps/egohygiene.io/src/features/store/domain/catalog.ts",
+        "apps/egohygiene.io/src/features/store/domain/curation.ts",
+        "apps/egohygiene.io/src/features/store/domain/index.ts",
+        "apps/egohygiene.io/src/features/store/domain/localization.ts",
+        "apps/egohygiene.io/src/features/store/domain/preview.ts",
+        "apps/egohygiene.io/src/features/fourthwall-preview/adapter.ts",
+        "apps/egohygiene.io/src/features/fourthwall-preview/contract.ts",
+        "apps/egohygiene.io/src/features/fourthwall-preview/fixture.ts"
+      ],
+      "rootFileCount": 9,
+      "compilerOptions": {
+        "target": "es2022",
+        "lib": [
+          "es2022"
+        ],
+        "useDefineForClassFields": true,
+        "module": "preserve",
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
+        "verbatimModuleSyntax": true,
+        "resolveJsonModule": true,
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "types": [],
+        "strict": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUncheckedSideEffectImports": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noEmit": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolvePackageJsonExports": true,
+        "resolvePackageJsonImports": true,
+        "preserveConstEnums": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "strictBuiltinIteratorReturn": true,
+        "alwaysStrict": true,
+        "useUnknownInCatchVariables": true
+      }
+    }
+  },
+  "ownedFiles": [
+    {
+      "path": "tsconfig.node.json",
+      "deleted": false,
+      "sha256": "f53f336a43ba1c9579c47c1725d097750f042e8b76007185a4f77da250676db2"
+    },
+    {
+      "path": "tsconfig.vitest.json",
+      "deleted": false,
+      "sha256": "ed8099b2534734bc18ccec8e473bca2dae2f938343cef91202a0bc67aa4a12e6"
+    },
+    {
+      "path": "tsconfig.store-browser.json",
+      "deleted": false,
+      "sha256": "36d5a96237189313fbf0b5f04ee2d52e124137c6c95d1d5c490fafbc3dd4f504"
+    },
+    {
+      "path": "tsconfig.typecheck.json",
+      "deleted": true
+    },
+    {
+      "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+      "deleted": false,
+      "sha256": "179faf8a320547bac931b35795017c2a923366c8cb30c22b753c5f5130c24711"
+    },
+    {
+      "path": "apps/egohygiene.io/src/components/ErrorBoundary/ErrorBoundary.test.tsx",
+      "deleted": false,
+      "sha256": "fc92140250184d07e49c7b6b970ee60475b8ae167d19dd5e6ab68dffdedcc78c"
+    },
+    {
+      "path": "apps/egohygiene.io/src/components/Footer/Footer.test.tsx",
+      "deleted": false,
+      "sha256": "6d07d61133d1b9d761d8a58a7acec18b94b3779f89c3721f26cda0e493cef350"
+    },
+    {
+      "path": "apps/egohygiene.io/src/content/publication.test.ts",
+      "deleted": false,
+      "sha256": "b9c03d793384f46c677a5bae71181472e1fd1b3e89da96953d3292f490f94515"
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StoreCatalogLocale.test.tsx",
+      "deleted": false,
+      "sha256": "6083b689f930e424c3017de01a790748decac896e7c7d7ed0a49ce6e2b961746"
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StoreDesignOrder.test.tsx",
+      "deleted": false,
+      "sha256": "19830ae01fcc8b4b5e2e24da39a273ba8cef2ea733f05ad80ed393cf964fcc74"
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StoreDetailPages.test.tsx",
+      "deleted": false,
+      "sha256": "f71fc46587aa55ea17102520d3d14d51a04f8f81cbdab5957e7d6d2ee027c46f"
+    },
+    {
+      "path": "apps/egohygiene.io/src/pages/EcosystemPage.test.tsx",
+      "deleted": false,
+      "sha256": "5f0d44eb46fb45860cfa2c0ecbe6c9544b50bcd6843c9a88f499cc63c210d8cd"
+    },
+    {
+      "path": "apps/egohygiene.io/src/pages/EssentialsPages.test.tsx",
+      "deleted": false,
+      "sha256": "f7fe3483e5546975516fbe1d415634dcc810f4241592a429aed724932713acb0"
+    },
+    {
+      "path": "tests/accessibility/site-accessibility.test.tsx",
+      "deleted": false,
+      "sha256": "35f49d26900ca238513de6b9b6a83f504daa88c278b10975d9081bb9520a3023"
+    },
+    {
+      "path": "packages/design-tokens/scripts/build-tokens.ts",
+      "deleted": false,
+      "sha256": "80af31eb4eefe730d9f94036ed9845fb7edd83bb2f30aba788eac1ad2172a7ed"
+    }
+  ],
+  "coordinatedPath": "Initial process.env bracket changes in playwright.config.ts were superseded by parent-owned strict fresh-server edits; parent owns final runner diff.",
+  "limitations": [
+    "No native Storybook build, Chromium/manual or hosted verification; current sandbox networking and artifact-budget limits unchanged.",
+    "No package/Taskfile/orchestrator/smoke edits by this worker.",
+    "The compiler diagnostics were repaired with concrete config/fixture corrections; no strictness flags disabled.",
+    "Vite warns about native-config future module behavior; no warning suppression or root ESM reclassification."
+  ]
+}

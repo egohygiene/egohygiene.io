@@ -75,5 +75,7 @@
   "boundedSweepBaseline": "docs/development/reviews/bounded-sweep-92/baseline.json",
   "boundedSweepEvidence": "docs/development/reviews/bounded-sweep-92/verification.json",
   "localProfilesReview": "docs/development/local-profiles-52.md",
-  "localProfilesBaseline": "docs/development/reviews/local-profiles-52/baseline-types.json"
+  "localProfilesBaseline": "docs/development/reviews/local-profiles-52/baseline-types.json",
+  "localProfileEvidence": "docs/development/reviews/local-profiles-52/verification.json",
+  "localProfileOutputInvestigation": "docs/development/reviews/local-profiles-52/output-investigation.json"
 }
