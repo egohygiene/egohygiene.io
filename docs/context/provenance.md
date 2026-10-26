@@ -1,5 +1,20 @@
 # Context provenance ledger
 
+## #92 B implementation and dependency boundary — 2026-10-26
+
+Draft #106 saved A `0999d984a427021975ded11d596b552a615061e0` before source changes.
+Feature-local card/metadata ownership, localized value reuse and per-call selector
+lookups preserve public contracts. A stylesheet entry retains gallery-before-base
+ordering; final output comparison follows. [Dependency receipt](../development/reviews/bounded-sweep-92/dependency-change.json)
+records nine Storybook 10.6.2 pins, seven obsolete direct removals and unchanged
+other direct versions/14 child importers. Frozen script-disabled install passes.
+
+Native Storybook import hits an independently reproduced OS interface-enumeration
+restriction on both Node runtimes. Upstream 10.6.3 retains the same call; do not
+remove the security fix for this environment. [Evidence](../development/reviews/bounded-sweep-92/storybook-environment.json)
+distinguishes installed version facts, failed native CLI and any future limited
+static-build probe. Licensing and main merges remain for next sync; no deployment.
+
 ## Overnight authorization and #92 A baseline — 2026-10-26
 
 Alan requested several roadmap issues while away and a next-sync licensing/merge

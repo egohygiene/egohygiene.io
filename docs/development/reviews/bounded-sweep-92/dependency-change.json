@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-10-26",
+  "recordedTimezone": "America/New_York",
+  "baseHead": "0999d984a427021975ded11d596b552a615061e0",
+  "scope": "B dependency implementation only; package.json and pnpm-lock.yaml. Source refactor/whole-build verification is recorded separately by parent.",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5"
+  },
+  "selectedUpgrade": {
+    "target": "10.6.2",
+    "packages": [
+      "storybook",
+      "@storybook/addon-a11y",
+      "@storybook/addon-docs",
+      "@storybook/addon-links",
+      "@storybook/addon-themes",
+      "@storybook/addon-vitest",
+      "@storybook/builder-vite",
+      "@storybook/react",
+      "@storybook/react-vite"
+    ],
+    "installedVersions": {
+      "storybook": "10.6.2",
+      "@storybook/addon-a11y": "10.6.2",
+      "@storybook/addon-docs": "10.6.2",
+      "@storybook/addon-links": "10.6.2",
+      "@storybook/addon-themes": "10.6.2",
+      "@storybook/addon-vitest": "10.6.2",
+      "@storybook/builder-vite": "10.6.2",
+      "@storybook/react": "10.6.2",
+      "@storybook/react-vite": "10.6.2"
+    },
+    "securityAdvisories": [
+      "https://github.com/storybookjs/storybook/security/advisories/GHSA-f2ph-cmg5-wxc8",
+      "https://github.com/storybookjs/storybook/security/advisories/GHSA-px85-f4q5-jh77"
+    ],
+    "upstreamRelease": "https://github.com/storybookjs/storybook/releases/tag/v10.6.2",
+    "minimumPatchedRelease": true,
+    "noMajorMigration": true
+  },
+  "removedDirectLegacyPackages": [
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-mdx-gfm",
+    "@storybook/blocks",
+    "@storybook/manager-api",
+    "@storybook/test",
+    "@storybook/theming"
+  ],
+  "devServer": {
+    "before": "storybook dev -p 6006 --exact-port --host 0.0.0.0 --config-dir .storybook --disable-telemetry",
+    "after": "storybook dev --port 6006 --exact-port --host 127.0.0.1 --config-dir .storybook --disable-telemetry",
+    "helpValidatedFlags": [],
+    "insecureFlagsAdded": false,
+    "browserStarted": false,
+    "flagEvidence": "--port/--exact-port/--host are retained supported CLI flags; local --help probe did not run after the preceding version probe failed."
+  },
+  "declarationsBefore": {
+    "runtime": 252,
+    "dev": 148,
+    "total": 400
+  },
+  "declarationsAfter": {
+    "runtime": 252,
+    "dev": 141,
+    "total": 393
+  },
+  "lockfile": {
+    "beforeBytes": 1758702,
+    "afterBytes": 1745668,
+    "beforeSha256": "5f94306124efbdd0dc7a5a034b8a7110ceb7d9c86c7fe4067249724ae89426b2",
+    "afterSha256": "a2601e11ae17ad5b57d4098c5d4246e03069189fd69188e55db1ab100db1001d",
+    "packagesBefore": 3916,
+    "packagesAfter": 3901,
+    "snapshotsBefore": 3980,
+    "snapshotsAfter": 3966,
+    "addedPackageEntries": [
+      "@emnapi/core@1.11.0",
+      "@emnapi/runtime@1.11.0",
+      "@jridgewell/sourcemap-codec@1.6.0",
+      "@oxc-resolver/binding-android-arm-eabi@11.21.2",
+      "@oxc-resolver/binding-android-arm64@11.21.2",
+      "@oxc-resolver/binding-darwin-arm64@11.21.2",
+      "@oxc-resolver/binding-darwin-x64@11.21.2",
+      "@oxc-resolver/binding-freebsd-x64@11.21.2",
+      "@oxc-resolver/binding-linux-arm-gnueabihf@11.21.2",
+      "@oxc-resolver/binding-linux-arm-musleabihf@11.21.2",
+      "@oxc-resolver/binding-linux-arm64-gnu@11.21.2",
+      "@oxc-resolver/binding-linux-arm64-musl@11.21.2",
+      "@oxc-resolver/binding-linux-ppc64-gnu@11.21.2",
+      "@oxc-resolver/binding-linux-riscv64-gnu@11.21.2",
+      "@oxc-resolver/binding-linux-riscv64-musl@11.21.2",
+      "@oxc-resolver/binding-linux-s390x-gnu@11.21.2",
+      "@oxc-resolver/binding-linux-x64-gnu@11.21.2",
+      "@oxc-resolver/binding-linux-x64-musl@11.21.2",
+      "@oxc-resolver/binding-openharmony-arm64@11.21.2",
+      "@oxc-resolver/binding-wasm32-wasi@11.21.2",
+      "@oxc-resolver/binding-win32-arm64-msvc@11.21.2",
+      "@oxc-resolver/binding-win32-x64-msvc@11.21.2",
+      "@storybook/addon-a11y@10.6.2",
+      "@storybook/addon-docs@10.6.2",
+      "@storybook/addon-links@10.6.2",
+      "@storybook/addon-themes@10.6.2",
+      "@storybook/addon-vitest@10.6.2",
+      "@storybook/builder-vite@10.6.2",
+      "@storybook/react-dom-shim@10.6.2",
+      "@storybook/react-vite@10.6.2",
+      "@storybook/react@10.6.2",
+      "magic-string@1.4.3",
+      "oxc-resolver@11.21.2",
+      "storybook@10.6.2"
+    ],
+    "removedPackageEntries": [
+      "@storybook/addon-a11y@10.5.9",
+      "@storybook/addon-actions@8.6.14",
+      "@storybook/addon-backgrounds@8.6.14",
+      "@storybook/addon-controls@8.6.14",
+      "@storybook/addon-docs@10.5.9",
+      "@storybook/addon-docs@8.6.14",
+      "@storybook/addon-essentials@8.6.14",
+      "@storybook/addon-highlight@8.6.14",
+      "@storybook/addon-interactions@8.6.14",
+      "@storybook/addon-links@10.5.9",
+      "@storybook/addon-mdx-gfm@8.6.14",
+      "@storybook/addon-measure@8.6.14",
+      "@storybook/addon-outline@8.6.14",
+      "@storybook/addon-themes@10.5.9",
+      "@storybook/addon-toolbars@8.6.14",
+      "@storybook/addon-viewport@8.6.14",
+      "@storybook/addon-vitest@10.5.9",
+      "@storybook/blocks@8.6.14",
+      "@storybook/builder-vite@10.5.9",
+      "@storybook/csf-plugin@10.5.9",
+      "@storybook/csf-plugin@8.6.14",
+      "@storybook/icons@1.6.0",
+      "@storybook/instrumenter@8.6.14",
+      "@storybook/instrumenter@8.6.15",
+      "@storybook/manager-api@8.6.14",
+      "@storybook/react-dom-shim@10.5.9",
+      "@storybook/react-dom-shim@8.6.14",
+      "@storybook/react-vite@10.5.9",
+      "@storybook/react@10.5.9",
+      "@storybook/test@8.6.14",
+      "@storybook/test@8.6.15",
+      "@storybook/theming@8.6.14",
+      "@testing-library/dom@10.4.0",
+      "@testing-library/jest-dom@6.5.0",
+      "@testing-library/user-event@14.5.2",
+      "@types/uuid@9.0.8",
+      "@vitest/expect@2.0.5",
+      "@vitest/pretty-format@2.0.5",
+      "@vitest/pretty-format@2.1.9",
+      "@vitest/spy@2.0.5",
+      "@vitest/utils@2.0.5",
+      "@vitest/utils@2.1.9",
+      "chalk@3.0.0",
+      "polished@4.3.1",
+      "storybook@10.5.9",
+      "tinyrainbow@1.2.0",
+      "tinyspy@3.0.2",
+      "unplugin@1.16.1",
+      "uuid@9.0.1"
+    ],
+    "allAddedEntriesReachableFromSelectedFamily": true,
+    "retainedLegacyStorybook8PackageKeys": [],
+    "unrelatedDirectVersionsUnchanged": true,
+    "unchangedChildImporters": [
+      "apps/docs",
+      "apps/egohygiene.io",
+      "apps/playground",
+      "packages/api-client",
+      "packages/config",
+      "packages/content",
+      "packages/design-tokens",
+      "packages/i18n",
+      "packages/icons",
+      "packages/schemas",
+      "packages/themes",
+      "packages/ui",
+      "packages/utilities",
+      "packages/visualizations"
+    ],
+    "unchangedOptionalVersionsWithUpdatedStorybookPeerContext": [
+      "@chromatic-com/storybook",
+      "@etchteam/storybook-addon-status",
+      "msw-storybook-addon",
+      "storybook-addon-remix-react-router",
+      "storybook-dark-mode"
+    ],
+    "bytesReduced": 13034
+  },
+  "checks": [
+    {
+      "command": "pnpm install --lockfile-only --ignore-scripts --prefer-offline",
+      "result": "pass",
+      "exitCode": 0,
+      "elapsedSeconds": 19.6
+    },
+    {
+      "command": "pnpm install --frozen-lockfile --ignore-scripts",
+      "result": "pass",
+      "exitCode": 0,
+      "elapsedSeconds": 6.6,
+      "resolutionSkipped": true,
+      "localPackageDiff": {
+        "added": 20,
+        "removed": 54
+      }
+    },
+    {
+      "command": "pnpm exec storybook --version",
+      "result": "failed-before-version-output",
+      "limitation": "Storybook dispatcher populated an isolated pnpm CLI cache, then Node os.networkInterfaces failed at module import with uv_interface_addresses Unknown system error1. Exact component exit was not separately captured by the compound shell command."
+    },
+    {
+      "command": "pnpm exec storybook dev --help",
+      "result": "not-run",
+      "scope": "Skipped by shell && after failed version probe; no dev server or browser started."
+    },
+    {
+      "command": "pnpm peers check",
+      "result": "fail",
+      "exitCode": 1,
+      "scope": "Remaining broad experimental/integration peer mismatches; no mismatch naming the selected10.6.2 family. Not suppressed or corrected by this bounded change."
+    },
+    {
+      "command": "git diff --check -- package.json pnpm-lock.yaml",
+      "result": "pass",
+      "exitCode": 0
+    },
+    {
+      "name": "on-disk package metadata for all nine selected packages",
+      "result": "pass",
+      "versions": {
+        "storybook": "10.6.2",
+        "@storybook/addon-a11y": "10.6.2",
+        "@storybook/addon-docs": "10.6.2",
+        "@storybook/addon-links": "10.6.2",
+        "@storybook/addon-themes": "10.6.2",
+        "@storybook/addon-vitest": "10.6.2",
+        "@storybook/builder-vite": "10.6.2",
+        "@storybook/react": "10.6.2",
+        "@storybook/react-vite": "10.6.2"
+      }
+    }
+  ],
+  "remainingPeerWarnings": {
+    "rawOutput": "Issues with peer dependencies found\n\n.\n  \u2715 unmet peer vite\n    Installed: 8.2.0\n    Wanted:\n      \">=4 <=6\":\n        vite-plugin-istanbul@6.0.2\n\n  \u2715 unmet peer tailwindcss\n    Installed: 4.3.3\n    Wanted:\n      \"1 || 2 || 2.0.1-compat || 3\":\n        tailwind-config-viewer@2.0.4\n\n  \u2715 unmet peer tailwindcss\n    Installed: 3.4.19\n    Wanted:\n      >=4.0.0:\n        @heroui/theme@2.4.26\n\n  \u2715 unmet peer react\n    Installed: 19.2.8\n    Wanted:\n      \"^16.8 || ^17 || ^18\":\n        @emoji-mart/react@1.1.1\n      \"^15.5.x || ^16.x || ^17.x || ^18.x\":\n        react-onclickoutside@6.13.2\n      \"^16.9.0 || ^17.0.0 || ^18\":\n        @reduxjs/toolkit@1.9.7\n      ^16.4.1:\n        react-palm@3.3.11\n      \"0.13.x || 0.14.x || ^15.0.0-0 || ^16.0.0-0\":\n        enzyme-adapter-utils@1.14.2\n      \"^0.14 || ^15.0.0 || ^16.0.0-alpha\":\n        airbnb-prop-types@2.16.0\n      ^16.14.0:\n        react-dom@16.14.0\n        react-test-renderer@16.14.0\n      ^16.0.0:\n        react-reconciler@0.12.0\n      \"^16.8 || ^17.0 || ^18.0\":\n        react-redux@8.1.3\n      \"^16.6.0 || 17 || 18\":\n        react-intl@6.8.9\n      \"^16 || ^17 || ^18\":\n        @material-tailwind/react@2.1.10\n      \"^16.8.0 || ^17.0.0 || ^18.0.0\":\n        @react-spring/zdog@10.1.2\n\n  \u2715 unmet peer ajv\n    Installed: 6.15.0\n    Wanted:\n      ^8.12.0:\n        @hookform/resolvers@5.9.1\n\n  \u2715 unmet peer @loaders.gl/core\n    Installed: 4.4.4\n    Wanted:\n      ^3.4.13:\n        @hubble.gl/react@1.4.0\n\n  \u2715 unmet peer maplibre-gl\n    Installed: 6.4.1\n    Wanted:\n      \">=1.13.0 <5.0.0\":\n        react-map-gl@7.1.9\n\n  \u2715 unmet peer react-dom\n    Installed: 19.2.8\n    Wanted:\n      \"^15.5.x || ^16.x || ^17.x || ^18.x\":\n        react-onclickoutside@6.13.2\n      \"^16.8 || ^17.0 || ^18.0\":\n        react-redux@8.1.3\n      \"^16 || ^17 || ^18\":\n        @material-tailwind/react@2.1.10\n      \"^16.8.0 || ^17.0.0 || ^18.0.0\":\n        @react-spring/zdog@10.1.2\n\n  \u2715 unmet peer @types/react\n    Installed: 19.2.18\n    Wanted:\n      \"^16.8 || ^17.0 || ^18.0\":\n        react-redux@8.1.3\n\n  \u2715 unmet peer @types/react-dom\n    Installed: 19.2.4\n    Wanted:\n      \"^16.8 || ^17.0 || ^18.0\":\n        react-redux@8.1.3\n\n  \u2715 unmet peer mapbox-gl\n    Installed: 1.13.1\n    Wanted:\n      >=3.5.0:\n        @vis.gl/react-mapbox@8.1.2\n\n  \u2715 unmet peer @deck.gl/core\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @deck.gl/extensions\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @deck.gl/geo-layers\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @deck.gl/layers\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @deck.gl/mesh-layers\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @luma.gl/constants\n    Installed: 9.3.6\n    Wanted:\n      ^8.5.10:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @luma.gl/core\n    Installed: 9.3.6\n    Wanted:\n      ^8.5.10:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer zod\n    Installed: 4.4.3\n    Wanted:\n      ^3.23.8:\n        @ai-sdk/ui-utils@1.2.11\n        @ai-sdk/provider-utils@2.2.8\n        ai@4.3.19\n        @ai-sdk/react@1.2.12\n\n  \u2715 unmet peer typescript\n    Installed: 5.9.3\n    Wanted:\n      \"3.9.x || 4.0.x\":\n        typedoc@0.19.2\n\n  \u2715 unmet peer @mui/material\n    Installed: 9.3.1\n    Wanted:\n      \"^5.0.1 || ^6.0.0 || ^7.0.0\":\n        mui-image@1.0.9\n",
+    "groups": 21,
+    "owners": [
+      "#15",
+      "#16"
+    ],
+    "relevantRetainedIntegration": "@storybook/addon-coverage3.0.2 retains vite-plugin-istanbul6.0.2 requiring Vite<=6, while rootuses8.2.0. It is not in current configured addons and stays unactivated. This is separate from configured a11y/docs/themes."
+  },
+  "deprecatedSubdependencies": {
+    "count": 27,
+    "disposition": "Reported by lock update; broad optional inventory retained under#15/#16. No blanket dependency security/compatibility pass claimed."
+  },
+  "unchanged": {
+    "rootLicenseField": "Apache-2.0",
+    "licenseDecisionMade": false,
+    "rootRuntimeDependencies": true,
+    "toolchainPins": true,
+    "lifecyclePolicyFilesEdited": false,
+    "workflowFilesEdited": false
+  },
+  "limitations": [
+    "Pinned existing application/toolchain versions retained; full transitive advisory/license audit not performed.",
+    "Installed package counts and lockfile bytes do not measure emitted browser bundles or runtime performance.",
+    "No browser execution, hosted workflow dispatch, remote settings, license adoption or deployment.",
+    "Parent must record fresh Storybook/site builds and source tests before claiming checkpoint verification.",
+    "Storybook CLI import/startup in this environment is unresolved; static build verification must be recorded by the parent, not inferred from successful frozen install."
+  ],
+  "lifecycleObservation": "The two explicit install commands used --ignore-scripts. A later Storybook --version dispatcher probe unexpectedly populated an external ephemeral CLI cache and its log included esbuild postinstall. This did not edit repository lifecycle policy or dependency files; it is recorded separately, not described as a wholly script-free session.",
+  "editedPaths": [
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
+  "files": {
+    "package.json": {
+      "sha256": "9b0fa7b05fa331f031d7549fad2e952b06e68ef768ef0aa66f7741a406314461",
+      "bytes": 17263
+    },
+    "pnpm-lock.yaml": {
+      "sha256": "a2601e11ae17ad5b57d4098c5d4246e03069189fd69188e55db1ab100db1001d",
+      "bytes": 1745668
+    }
+  },
+  "cliImportDiagnosis": {
+    "standaloneNodeFailures": [
+      "24.21.0",
+      "24.22.1"
+    ],
+    "operation": "os.networkInterfaces()",
+    "status": "environment restriction reproduced independently",
+    "upstream1063FixFound": false,
+    "selectedVersionRetained": "10.6.2",
+    "source": "https://raw.githubusercontent.com/storybookjs/storybook/v10.6.3/code/core/src/core-server/utils/getHostValidationMiddleware.ts"
+  }
+}

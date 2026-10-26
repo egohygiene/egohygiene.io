@@ -5,8 +5,13 @@
 Alan authorized several issues while asleep, with licensing reconciliation and
 merges at the next sync. Main stays `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`;
 #105 remains draft at `2b9ebe5d3aba4f7cccb277252d15a48325ff205d`, used as #92's input.
-Branch `refactor/bounded-sweep-92` stacks on that draft; neither license patch is
-applied. [#92 audit/baseline and selected changes](../development/bounded-sweep-92.md)
+[Draft #106](https://github.com/egohygiene/egohygiene.io/pull/106) on
+`refactor/bounded-sweep-92` stacks on that draft; neither license patch is applied.
+A `0999d984a427021975ded11d596b552a615061e0` preceded B component/selector cleanup
+and targeted Storybook 10.6.2 update. A native Storybook build is now explicitly
+blocked by this sandbox's denied OS interface enumeration; no security downgrade
+or insecure flag is used. Read the implementation receipt for exact dependency
+changes and remaining experiment peer warnings. [#92 audit/baseline and selected changes](../development/bounded-sweep-92.md)
 cover feature-local component ownership, bounded lookup reuse and a source-backed
 Storybook 10 security update, with obsolete direct-package cleanup only if verified.
 

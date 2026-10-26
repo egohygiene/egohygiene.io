@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-10-26",
+  "recordedTimezone": "America/New_York",
+  "scope": "Read-only diagnosis of Storybook10.6.2 import failure in this execution environment; no dependency/version changes.",
+  "runtimeProbes": [
+    {
+      "node": "24.21.0",
+      "status": "error",
+      "operation": "os.networkInterfaces()",
+      "code": "ERR_SYSTEM_ERROR",
+      "systemCode": "Unknown system error1",
+      "syscall": "uv_interface_addresses"
+    },
+    {
+      "node": "24.22.1",
+      "status": "error",
+      "operation": "os.networkInterfaces()",
+      "code": "ERR_SYSTEM_ERROR",
+      "systemCode": "Unknown system error1",
+      "syscall": "uv_interface_addresses"
+    }
+  ],
+  "probePrivacy": "Only success/error codes and an interface count on success were requested; no interface names or addresses were printed. Both probes failed.",
+  "upstreamComparison": {
+    "sourcePath": "code/core/src/core-server/utils/getHostValidationMiddleware.ts",
+    "refs": [
+      "v10.6.2",
+      "v10.6.3",
+      "next"
+    ],
+    "sharedBehavior": "All inspected references call os.networkInterfaces at module top level before host middleware is used; no try/catch or deferred lookup surrounds that call.",
+    "sourceUrls": [
+      "https://raw.githubusercontent.com/storybookjs/storybook/v10.6.2/code/core/src/core-server/utils/getHostValidationMiddleware.ts",
+      "https://raw.githubusercontent.com/storybookjs/storybook/v10.6.3/code/core/src/core-server/utils/getHostValidationMiddleware.ts",
+      "https://raw.githubusercontent.com/storybookjs/storybook/next/code/core/src/core-server/utils/getHostValidationMiddleware.ts"
+    ],
+    "released1063": "https://github.com/storybookjs/storybook/releases/tag/v10.6.3",
+    "releaseDate": "2026-10-20T09:50:15Z",
+    "releaseScope": "Vitest5 support, Next.js mocks and explicit ArgsStore type; no host-interface fix reported in release notes.",
+    "knownIssueSearch": "No result from the bounded official-repository search for uv_interface_addresses and10.6; not proof no upstream issue exists."
+  },
+  "conclusion": "The native Node API fails without Storybook on both inspected runtimes, and10.6.3 retains the failing top-level call. No evidence supports upgrading again to cure this environment restriction. Retain selected patched10.6.2 and record native build failure separately.",
+  "shimBoundary": "If parent uses a temporary static-build-only os.networkInterfaces stub to inspect emitted assets, label that result as a constrained diagnostic. It cannot establish native CLI/dev-server startup, host/origin validation, security behavior or browser acceptance. Do not commit the stub or use it to serve Storybook.",
+  "unchanged": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "all repository source and policy files"
+  ]
+}

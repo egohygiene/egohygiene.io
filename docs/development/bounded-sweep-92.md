@@ -67,3 +67,41 @@ apply. Revert the bounded source and dependency/lock changes together to roll ba
 no catalog/data migration is introduced. Final #37 acceptance stays on Alan's Mac.
 After this reviewable draft: #52 profiles, then #29 current validation/CI repair;
 #57/#70 and final #37 remain in the saved queue. All merges wait for morning sync.
+
+## B — Implementation checkpoint
+
+A was saved in [draft #106](https://github.com/egohygiene/egohygiene.io/pull/106) at
+`0999d984a427021975ded11d596b552a615061e0` before changes. Shared card/metadata now
+have feature-local owners; shared arrow/badge markup is reused and localized
+presentation is bound once where repeated. Private selector helpers reuse one ID
+lookup and resolved designs within each invocation, never across mutable inputs.
+The blank-query shortcut was deliberately omitted to preserve malformed-locale
+rejection. Three regression cases cover whitespace/identity/order, changes between
+calls/visibility and malformed locale inputs.
+
+A common `store-presentation.css` explicitly imports gallery then base styles.
+The first extraction reordered those unchanged rules; this entry preserves the
+previous cascade order without coupling the card to the gallery component. C must
+compare the final CSS/HTML output. No design, token, catalog or readiness data changes.
+
+[Dependency change receipt](reviews/bounded-sweep-92/dependency-change.json): nine
+Storybook packages are pinned to 10.6.2; seven unused legacy declarations removed,
+400→393 root declarations, lockfile 13,034 bytes smaller. All other direct versions
+and 14 child importers are unchanged; new lock entries belong to the selected
+Storybook closure. A frozen `--ignore-scripts` install passes. The dev script now
+binds loopback and uses `--port`; no insecure flag is enabled.
+
+[Environment finding](reviews/bounded-sweep-92/storybook-environment.json): native
+Storybook 10.6.2 import fails here because `os.networkInterfaces()` is denied by
+the execution environment. Both available Node releases reproduce the bare OS
+failure; upstream 10.6.3/current inspected source retains the same call, so no
+unrelated upgrade is used as a workaround. The supported native build remains a
+required later check. Any temporary build-only compatibility probe must be labeled
+separately and cannot qualify dev-server/host/origin behavior. The top-level
+`storybook --version` probe invoked Storybook's CLI-cache runner; on-disk package
+metadata is the version evidence. Repository lifecycle policy remains unchanged.
+
+The broad 21 experimental peer-warning groups remain #15/#16; none names the
+selected 10.6.2 family as the unmet peer. Actual browser/Storybook acceptance stays
+open. Source-bound C results follow this implementation checkpoint; no merge or
+license decision is made by saving it.
