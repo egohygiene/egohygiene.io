@@ -97,14 +97,18 @@ function liveCatalog() {
       { source: "product.json", value: item },
     ],
     [
-      qualifySyntheticRoute({
-        id: "route-presentation",
-        provider: "fourthwall",
-        productId: item.id,
-        checkoutUrl: "https://synthetic-fixture.fourthwall.com/products/synthetic-item",
-        providerVariantIds: ["provider-one", "provider-two"],
-        artworkRevisions: [{ designId: "design-presentation", revision: 1 }],
-      }, item, [design()]),
+      qualifySyntheticRoute(
+        {
+          id: "route-presentation",
+          provider: "fourthwall",
+          productId: item.id,
+          checkoutUrl: "https://synthetic-fixture.fourthwall.com/products/synthetic-item",
+          providerVariantIds: ["provider-one", "provider-two"],
+          artworkRevisions: [{ designId: "design-presentation", revision: 1 }],
+        },
+        item,
+        [design()],
+      ),
     ],
   );
 }

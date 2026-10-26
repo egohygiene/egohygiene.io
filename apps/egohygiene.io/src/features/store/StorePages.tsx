@@ -515,9 +515,21 @@ export function StoreProductPage() {
                 </a>
                 <p>{t("storeCards.detail.checkoutNote")}</p>
                 <ul aria-label={t("storeCards.detail.customerInformation")}>
-                  <li><a href={action.disclosures.shippingPolicyUrl} rel="external">{t("storeCards.detail.shippingPolicy")}</a></li>
-                  <li><a href={action.disclosures.returnsPolicyUrl} rel="external">{t("storeCards.detail.returnsPolicy")}</a></li>
-                  <li><a href={action.disclosures.supportUrl} rel="external">{t("storeCards.detail.orderSupport")}</a></li>
+                  <li>
+                    <a href={action.disclosures.shippingPolicyUrl} rel="external">
+                      {t("storeCards.detail.shippingPolicy")}
+                    </a>
+                  </li>
+                  <li>
+                    <a href={action.disclosures.returnsPolicyUrl} rel="external">
+                      {t("storeCards.detail.returnsPolicy")}
+                    </a>
+                  </li>
+                  <li>
+                    <a href={action.disclosures.supportUrl} rel="external">
+                      {t("storeCards.detail.orderSupport")}
+                    </a>
+                  </li>
                 </ul>
               </>
             ) : (
@@ -536,7 +548,9 @@ export function StoreProductPage() {
                 </p>
               </>
             )}
-            <p><Link to="/store/help">{t("storeCards.detail.storeHelp")}</Link></p>
+            <p>
+              <Link to="/store/help">{t("storeCards.detail.storeHelp")}</Link>
+            </p>
           </div>
           <dl className="store-detail-facts">
             <div>

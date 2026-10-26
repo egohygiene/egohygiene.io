@@ -28,10 +28,9 @@ const catalogs = {
 };
 
 function setup(path = "/store/help") {
-  const router = createMemoryRouter(
-    [{ path: "/store/help", element: <StoreHelpPage /> }],
-    { initialEntries: [path] },
-  );
+  const router = createMemoryRouter([{ path: "/store/help", element: <StoreHelpPage /> }], {
+    initialEntries: [path],
+  });
   return render(
     <AppProviders router={router} registry={registry} catalogs={catalogs}>
       <RouterProvider router={router} />

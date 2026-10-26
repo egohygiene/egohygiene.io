@@ -1,0 +1,363 @@
+{
+  "issue": 29,
+  "sourceCommit": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+  "status": "unresolved intermittent output anomaly; initial ci-check failed with six budget findings, controlled repeat still failed with three",
+  "initialFullProfile": {
+    "profile": "ci-check",
+    "status": "failed",
+    "sourceStatus": "",
+    "startedAt": "2026-10-26T05:46:32.492Z",
+    "finishedAt": "2026-10-26T05:48:09.518Z",
+    "failure": "production artifacts and provisional regression budgets failed with exit code 1",
+    "steps": [
+      {
+        "name": "repository formatting",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "authored source lint",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "all maintained compiler profiles",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "workspace, exports, locale and import boundaries",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "catalog and artifact contracts",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "all tooling and freshness contracts",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "all maintained unit tests",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "website semantic component checks",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "maintained browser discovery",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "standalone component build contract",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh normal website build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh docs build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh playground build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh all-app build smoke",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "raw public HTML and discovery consistency",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "production artifacts and provisional regression budgets",
+        "status": "failed",
+        "exitCode": 1
+      }
+    ]
+  },
+  "initialArtifacts": {
+    "capturedAt": "2026-10-26T05:48:09.509Z",
+    "sourceHead": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+    "result": "fail",
+    "files": 46,
+    "javascript": [
+      {
+        "path": "assets/index-BleTqwFf.js",
+        "kind": "javascript",
+        "bytes": 481102,
+        "gzipBytes": 139251,
+        "sha256": "812686337dc221327293b838deb16300294e7c341095dadb6c6456372702055d"
+      },
+      {
+        "path": "assets/index-ClqF1yH0.js",
+        "kind": "javascript",
+        "bytes": 481100,
+        "gzipBytes": 139250,
+        "sha256": "d722893b94fb394407eb10b55c60ffcc85e8833edb03870176fb24c7b565daf1"
+      }
+    ],
+    "sizes": {
+      "javascript": {
+        "bytes": 962202,
+        "gzipBytes": 278501,
+        "limit": {
+          "bytes": 500000,
+          "gzipBytes": 150000
+        },
+        "result": "fail"
+      },
+      "css": {
+        "bytes": 50295,
+        "gzipBytes": 9803,
+        "limit": {
+          "bytes": 60000,
+          "gzipBytes": 12000
+        },
+        "result": "pass"
+      },
+      "images": {
+        "bytes": 391855,
+        "gzipBytes": 387352,
+        "limit": {
+          "bytes": 500000,
+          "gzipBytes": 500000
+        },
+        "result": "pass"
+      },
+      "fonts": {
+        "bytes": 46572,
+        "gzipBytes": 46531,
+        "limit": {
+          "bytes": 60000,
+          "gzipBytes": 50000
+        },
+        "result": "pass"
+      },
+      "documents": {
+        "bytes": 319972,
+        "gzipBytes": 86939,
+        "limit": {
+          "bytes": 20000,
+          "gzipBytes": 10000
+        },
+        "result": "fail"
+      },
+      "total": {
+        "bytes": 1770896,
+        "gzipBytes": 809126,
+        "limit": {
+          "bytes": 1140000,
+          "gzipBytes": 722000
+        },
+        "result": "fail"
+      }
+    },
+    "findings": [
+      {
+        "rule": "size-budget",
+        "file": "javascript",
+        "detail": "bytes: 962202 exceeds 500000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "javascript",
+        "detail": "gzipBytes: 278501 exceeds 150000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "bytes: 319972 exceeds 20000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "gzipBytes: 86939 exceeds 10000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "total",
+        "detail": "bytes: 1770896 exceeds 1140000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "total",
+        "detail": "gzipBytes: 809126 exceeds 722000."
+      }
+    ]
+  },
+  "initialSmokeReceipt": {
+    "createdAt": "2026-10-26T05:48:05.778Z",
+    "invocationId": "bad190ad-8b5c-49eb-b02b-4a011a5794d5",
+    "source": {
+      "commit": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+      "digest": "c0951d58395b3e8bce24b35aa17b15f5ec812e9501f2b443d0a74e45fe0d51c3",
+      "files": 756
+    },
+    "websiteFiles": 46,
+    "extraPathsAlreadyCaptured": {
+      "assets/index-ClqF1yH0.js": "d722893b94fb394407eb10b55c60ffcc85e8833edb03870176fb24c7b565daf1"
+    }
+  },
+  "controlledRepeat": {
+    "owner": "root",
+    "commands": [
+      {
+        "name": "smoke",
+        "command": "pnpm test:smoke",
+        "exitCode": 0
+      },
+      {
+        "name": "artifact",
+        "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/night29-controlled-artifacts.json",
+        "exitCode": 1
+      },
+      {
+        "name": "raw",
+        "command": "node tests/store-qualification/public-rendering.mjs --output test-results/store-qualification/night29-controlled-public.json",
+        "exitCode": 0
+      }
+    ],
+    "artifacts": {
+      "capturedAt": "2026-10-26T05:50:01.589Z",
+      "sourceHead": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+      "result": "fail",
+      "files": 45,
+      "javascript": [
+        {
+          "path": "assets/index-BleTqwFf.js",
+          "kind": "javascript",
+          "bytes": 481102,
+          "gzipBytes": 139251,
+          "sha256": "812686337dc221327293b838deb16300294e7c341095dadb6c6456372702055d"
+        }
+      ],
+      "sizes": {
+        "javascript": {
+          "bytes": 481102,
+          "gzipBytes": 139251,
+          "limit": {
+            "bytes": 500000,
+            "gzipBytes": 150000
+          },
+          "result": "pass"
+        },
+        "css": {
+          "bytes": 50295,
+          "gzipBytes": 9803,
+          "limit": {
+            "bytes": 60000,
+            "gzipBytes": 12000
+          },
+          "result": "pass"
+        },
+        "images": {
+          "bytes": 391855,
+          "gzipBytes": 387352,
+          "limit": {
+            "bytes": 500000,
+            "gzipBytes": 500000
+          },
+          "result": "pass"
+        },
+        "fonts": {
+          "bytes": 46572,
+          "gzipBytes": 46531,
+          "limit": {
+            "bytes": 60000,
+            "gzipBytes": 50000
+          },
+          "result": "pass"
+        },
+        "documents": {
+          "bytes": 319972,
+          "gzipBytes": 86939,
+          "limit": {
+            "bytes": 20000,
+            "gzipBytes": 10000
+          },
+          "result": "fail"
+        },
+        "total": {
+          "bytes": 1289796,
+          "gzipBytes": 669876,
+          "limit": {
+            "bytes": 1140000,
+            "gzipBytes": 722000
+          },
+          "result": "fail"
+        }
+      },
+      "findings": [
+        {
+          "rule": "size-budget",
+          "file": "documents",
+          "detail": "bytes: 319972 exceeds 20000."
+        },
+        {
+          "rule": "size-budget",
+          "file": "documents",
+          "detail": "gzipBytes: 86939 exceeds 10000."
+        },
+        {
+          "rule": "size-budget",
+          "file": "total",
+          "detail": "bytes: 1289796 exceeds 1140000."
+        }
+      ]
+    },
+    "raw": {
+      "result": "pass",
+      "sourceHead": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+      "sourceStatus": "",
+      "pages": 26,
+      "sitemapUrls": 10
+    }
+  },
+  "comparison": {
+    "extraInitialPaths": ["assets/index-ClqF1yH0.js"],
+    "missingInitialPaths": [],
+    "changedSharedPaths": [],
+    "extraInitialReferenceCount": 0
+  },
+  "observations": [
+    "The initial invocation cleared all three owned dist directories, completed sequential fresh builds, then passed smoke and raw HTML checks before artifact budgets failed.",
+    "The extra JavaScript file was already included in the current smoke receipt. Receipt matching proves stability since capture, not which writer produced each file before capture.",
+    "All 45 shared emitted files match between initial and controlled artifact inventories. The controlled repeat omits only assets/index-ClqF1yH0.js (481100 raw bytes, 139250 gzip bytes). No scanned reference targets that extra file.",
+    "Root reports no other filesystem exec during the initial build interval; write_stdin polls and GitHub API reads occurred. This observation does not identify a cause.",
+    "Root observed the extra file mtime from about 01:30 local time. No stat receipt was preserved here, so this timing is attributed to the root observation rather than independently rechecked after output replacement."
+  ],
+  "prior52": {
+    "sourceCommit": "47c25784b6853a415257a88150e2851d0b147e7a",
+    "receipt": "docs/development/reviews/local-profiles-52/output-investigation.json",
+    "summary": "Earlier smoke rejected a 1862-byte homepage client shell after rendering succeeded. Controlled sequential builds and named/direct smoke passed unchanged source. No root cause or fix was established. The two incidents are related investigation context; a common cause is unproven."
+  },
+  "disposition": [
+    "Retain the actual initial ci-check failure and all six findings. Do not relabel that run as a three-finding result or a pass.",
+    "Controlled repeat is separate evidence: three smoke tests and raw public HTML passed; strict artifact scan still failed on its three existing document/total-size budget findings.",
+    "Do not weaken freshness/rendering/artifact gates, automatically retry, or change production code based on an unproven cause.",
+    "No repository edits, builds, browser execution, commits or deployments performed by this investigating agent."
+  ],
+  "limits": "No deterministic reproducer, known writer or proven root cause. Local artifact inspection is not hosted CI, browser or production qualification.",
+  "durableEvidence": [
+    "docs/development/reviews/ci-baseline-29/ci-check.json",
+    "docs/development/reviews/ci-baseline-29/initial-artifacts.json",
+    "docs/development/reviews/ci-baseline-29/controlled-artifacts.json"
+  ]
+}

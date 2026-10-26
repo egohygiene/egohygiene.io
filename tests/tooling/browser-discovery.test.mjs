@@ -12,7 +12,10 @@ function discovery() {
     (name) => `tests/${name}.spec.ts`,
   );
   const profile = (names, files) => ({
-    config: { rootDir: path.join(root, "tests"), projects: names.map((name) => ({ name })) },
+    config: {
+      rootDir: path.join(root, "tests"),
+      projects: names.map((name) => ({ name, outputDir: path.join(root, "test-results/apps") })),
+    },
     errors: [],
     suites: [
       {
@@ -78,6 +81,46 @@ test("production overlap cannot hide a missing or empty default site project", (
     assert.throws(
       () => checkBrowserDiscovery(reports, inventory, root),
       removeProject ? /missing maintained project site/ : /project site selects no cases/,
+    );
+  }
+});
+
+test("discovery rejects browser output that can erase or occupy qualification receipts", () => {
+  for (const directory of [
+    ".",
+    "test-results",
+    "test-results/store-qualification",
+    "test-results/store-qualification/ci-browser",
+    "test-results/apps/../store-qualification",
+  ]) {
+    const { root, inventory, reports } = discovery();
+    reports["playwright.config.ts"].config.projects[0].outputDir = path.resolve(root, directory);
+    assert.throws(
+      () => checkBrowserDiscovery(reports, inventory, root),
+      /output directory overlaps qualification receipts/,
+      directory,
+    );
+  }
+});
+
+test("discovery accepts shared project outputs and sibling names without a path-prefix collision", () => {
+  const { root, inventory, reports } = discovery();
+  for (const project of reports["playwright.config.ts"].config.projects) {
+    project.outputDir = path.join(root, "test-results/store-qualification-browser");
+  }
+  const result = checkBrowserDiscovery(reports, inventory, root);
+  assert.deepEqual(result.profiles[0].outputDirectories, [
+    "test-results/store-qualification-browser",
+  ]);
+});
+
+test("discovery fails closed when a project output directory is missing or relative", () => {
+  for (const outputDir of [undefined, "test-results/apps"]) {
+    const { root, inventory, reports } = discovery();
+    reports["playwright.store.config.ts"].config.projects[0].outputDir = outputDir;
+    assert.throws(
+      () => checkBrowserDiscovery(reports, inventory, root),
+      /has no absolute output directory/,
     );
   }
 });

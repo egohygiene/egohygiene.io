@@ -215,9 +215,7 @@ export function IncomprisPage({
                         {artistContent.title.value}
                       </bdi>
                     </h3>
-                    <p lang={artistContent.description.locale}>
-                      {artistContent.description.value}
-                    </p>
+                    <p lang={artistContent.description.locale}>{artistContent.description.value}</p>
                     <span className="store-text-link">
                       {t("storeArtist.entrance.link")} <Arrow />
                     </span>

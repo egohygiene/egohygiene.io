@@ -1,4 +1,4 @@
-/** Local website qualification. Fresh builds are prerequisites, never optional. */
+/** Shared local/CI qualification. Fresh builds are prerequisites, never optional. */
 import { spawn, spawnSync } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { mkdir, rm, writeFile } from "node:fs/promises";
@@ -15,13 +15,13 @@ import {
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const { values } = parseArgs({ options: { profile: { type: "string", default: "full" } } });
-if (!["full", "smoke"].includes(values.profile))
-  throw new Error("Use --profile full or --profile smoke.");
+if (!["full", "smoke", "ci-check", "ci-browser"].includes(values.profile))
+  throw new Error("Use --profile full, smoke, ci-check or ci-browser.");
 const profile = values.profile;
 const output = path.join(
   root,
   "test-results/store-qualification",
-  profile === "smoke" ? "smoke" : "profile",
+  profile === "full" ? "profile" : profile,
 );
 const environmentRunner = "scripts/store-environment.mjs";
 const report = {
@@ -39,7 +39,11 @@ const report = {
   scope:
     profile === "smoke"
       ? "Fresh website/docs/playground HTML and emitted-file smoke checks. No JavaScript execution, browser, hosted CI or deployment qualification."
-      : "Local website contracts, production/isolated-preview browser behavior and synthetic layout qualification. No hosted CI, deployment, real provider or physical-device qualification.",
+      : profile === "ci-check"
+        ? "Non-browser format, lint, types, contracts, fresh builds, raw rendering and artifact budgets. No browser, hosted CI or deployment qualification."
+        : profile === "ci-browser"
+          ? "Local application, production/isolated-preview, component and intercepted browser journeys. No hosted CI, deployment, real provider or physical-device qualification."
+          : "Complete local non-browser checks and fresh application, store, component and intercepted browser journeys. No hosted CI, deployment, real provider or physical-device qualification.",
   status: "running",
   steps: [],
 };
@@ -118,61 +122,95 @@ async function freshBuildSmoke() {
   report.smokeReceipt = smokeReceiptPath;
 }
 
+async function nonBrowserChecks() {
+  await run("repository formatting", [environmentRunner, "run", "format:check"]);
+  await run("authored source lint", [environmentRunner, "run", "lint"]);
+  await run("all maintained compiler profiles", [environmentRunner, "run", "typecheck:all"]);
+  await run("workspace, exports, locale and import boundaries", [
+    environmentRunner,
+    "run",
+    "check",
+  ]);
+  await run("catalog and artifact contracts", [environmentRunner, "run", "catalog:test"]);
+  await run("all tooling and freshness contracts", [environmentRunner, "run", "test:tooling"]);
+  await run("all maintained unit tests", [environmentRunner, "run", "test:unit"]);
+  await run("website semantic component checks", [environmentRunner, "run", "test:semantic"]);
+  await run("maintained browser discovery", [environmentRunner, "run", "test:browser:discover"]);
+  await run("standalone component build contract", [environmentRunner, "run", "test:components"]);
+  await freshBuildSmoke();
+  await run("raw public HTML and discovery consistency", [
+    "tests/store-qualification/public-rendering.mjs",
+    "--output",
+    path.relative(root, path.join(output, "public-rendering.json")),
+  ]);
+  await run("production artifacts and provisional regression budgets", [
+    "tests/store-qualification/artifacts.mts",
+    "--output",
+    path.relative(root, path.join(output, "production-artifact.json")),
+  ]);
+  await freshStorybook();
+}
+
+async function freshStorybook() {
+  await rm(path.join(root, ".cache/storybook"), { recursive: true, force: true });
+  await run("fresh native Storybook build", [environmentRunner, "run", "storybook:build"]);
+}
+
+async function browserChecks() {
+  // This profile is independent of ci-check and cannot consume an earlier build.
+  await run("maintained browser discovery", [environmentRunner, "run", "test:browser:discover"]);
+  await freshBuildSmoke();
+  await rm(path.join(root, "apps/egohygiene.io/dist-preview"), { recursive: true, force: true });
+  await run("fresh isolated preview build", [environmentRunner, "build"]);
+  await freshStorybook();
+  await rm(path.join(root, ".cache/component-styles-53/dist"), { recursive: true, force: true });
+  await rm(path.join(root, ".cache/component-styles-53/report.json"), { force: true });
+  await run("fresh standalone stylesheet consumer", ["tests/component-styles/build-consumer.mjs"]);
+  await run("site, docs and playground browser journeys", [environmentRunner, "run", "test:e2e"]);
+  await run("production website journeys and accessibility", [
+    environmentRunner,
+    "run",
+    "test:store",
+  ]);
+  await run("isolated Fourthwall and artist journeys", [
+    environmentRunner,
+    "run",
+    "test:store:preview",
+  ]);
+  await run("Storybook and standalone component styles", [
+    environmentRunner,
+    "run",
+    "exec",
+    "playwright",
+    "test",
+    "--config",
+    "playwright.component-styles.config.ts",
+  ]);
+  await run("intercepted checkout handoff", [
+    "tests/checkout-handoff/run.mts",
+    "--output-dir",
+    path.relative(root, path.join(output, "handoff")),
+  ]);
+  await run("locale journeys, expanded text and synthetic RTL layout", [
+    "tests/storefront-qualification/run.mjs",
+    "--output-dir",
+    path.relative(root, path.join(output, "layout")),
+  ]);
+  await run("catalog localization and intercepted identity journeys", [
+    "tests/catalog-localization/run.mts",
+    "--output-dir",
+    path.relative(root, path.join(output, "catalog-localization")),
+  ]);
+}
+
 await mkdir(output, { recursive: true });
 await saveReport();
 try {
   if (profile === "smoke") {
     await freshBuildSmoke();
   } else {
-    await run("all maintained compiler profiles", [environmentRunner, "run", "typecheck:all"]);
-    await run("workspace, exports, locale and import boundaries", [
-      environmentRunner,
-      "run",
-      "check",
-    ]);
-    await run("catalog and artifact contracts", [environmentRunner, "run", "catalog:test"]);
-    await run("all tooling and freshness contracts", [environmentRunner, "run", "test:tooling"]);
-    await run("all maintained unit tests", [environmentRunner, "run", "test:unit"]);
-    await run("website semantic component checks", [environmentRunner, "run", "test:semantic"]);
-    await run("maintained browser discovery", [environmentRunner, "run", "test:browser:discover"]);
-    await run("standalone component build contract", [environmentRunner, "run", "test:components"]);
-    await freshBuildSmoke();
-    await run("raw public HTML and discovery consistency", [
-      "tests/store-qualification/public-rendering.mjs",
-      "--output",
-      "test-results/store-qualification/profile/public-rendering.json",
-    ]);
-    await run("production artifacts and provisional regression budgets", [
-      "tests/store-qualification/artifacts.mts",
-      "--output",
-      "test-results/store-qualification/profile/production-artifact.json",
-    ]);
-    await run("production website journeys and accessibility", [
-      environmentRunner,
-      "run",
-      "test:store",
-    ]);
-    await run("fresh isolated preview build", [environmentRunner, "build"]);
-    await run("isolated Fourthwall and artist journeys", [
-      environmentRunner,
-      "run",
-      "test:store:preview",
-    ]);
-    await run("intercepted checkout handoff", [
-      "tests/checkout-handoff/run.mts",
-      "--output-dir",
-      "test-results/store-qualification/profile/handoff",
-    ]);
-    await run("locale journeys, expanded text and synthetic RTL layout", [
-      "tests/storefront-qualification/run.mjs",
-      "--output-dir",
-      "test-results/store-qualification/profile/layout",
-    ]);
-    await run("catalog localization and intercepted identity journeys", [
-      "tests/catalog-localization/run.mts",
-      "--output-dir",
-      "test-results/store-qualification/profile/catalog-localization",
-    ]);
+    if (profile === "full" || profile === "ci-check") await nonBrowserChecks();
+    if (profile === "full" || profile === "ci-browser") await browserChecks();
   }
   report.status = "passed";
 } catch (error) {

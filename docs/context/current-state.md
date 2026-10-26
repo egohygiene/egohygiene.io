@@ -1,5 +1,43 @@
 # Current handoff
 
+## Current: overnight drafts ready for morning reconciliation — 2026-10-26
+
+Read the [compact handoff](overnight-2026-10-26.md). #105 → #106 → #107 → #108
+remain stacked drafts; main stays `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`.
+#92 cleanup/upgrades, #52 compiler/freshness profiles and #29 CI repair have saved
+A/B/C evidence. #108 tested B `bdc3565197f56c71f128488d7c39d74172dcfea7`: format,
+zero-error lint, types/checks, 344 units/152 catalog/66 tooling/four semantic/one
+consumer/three smoke pass. The complete non-browser run fails artifact budgets
+with an unexpected old bundle (six findings); controlled output has the existing
+three findings. Both output anomalies remain unresolved, with no retry workaround.
+
+CodeQL passes on GitHub at B; CI/dependency review still fail. Native Storybook
+remains environment-blocked and Chromium/manual checks deferred. License choice,
+old-font/private-merch dispositions, budget/output acceptance and old #73
+supersession await sync before integration. Next setup #57 → #70 → #37, then
+existing environment/construction-preview/product sequence. No activation/deploy.
+
+## Current: #29 implementation saved for local verification — 2026-10-26
+
+Draft #108 saved A `0a34ca245597f323c2e1bf3f06a9d947b5462a1d` before current
+format/lint repair and supported CodeQL/shared CI profiles. [Receipt](../development/ci-baseline-29.md)
+and [commands](../../tests/README.md) describe strict ci:check/ci:browser/full scopes.
+Four obsolete lint exemptions are removed; original protected bytes and license
+choices remain unchanged. Next is exact-source C and separate automatic-hosted
+refresh. #52 output/native/budget/browser gaps remain; old #73 and all new drafts
+await morning review. No main merge, license selection or deployment.
+
+## Current: #29 audit saved before CI repair — 2026-10-26
+
+The overnight batch reaches #29 from #107 C
+`3d44df671069300e13324fb3f17e3762986e7892`, on `fix/ci-current-29`.
+[Contract/audit](../development/ci-baseline-29.md) records current format/lint,
+invalid CodeQL workflow use, separate dependency-review limitations and deliberate
+porting of useful old #73 work. Save A before B; retain source-specific evidence.
+Use #52 profiles, strict artifact/native prerequisites and all browser selections.
+Chromium remains deferred; #52's intermittent output finding remains unresolved.
+No license choice or merge; #105/#106/#107/#73 remain open and main unchanged.
+
 ## Current: #52 local evidence saved; #29 next — 2026-10-26
 
 Draft #107 tested B `47c25784b6853a415257a88150e2851d0b147e7a`.
@@ -8,7 +46,7 @@ record passing complete types/checks, 344 units/152 catalog/58 tooling/four sema
 one consumer checks. Browser discovery covers 31/106/6/4 cases, zero executed.
 Fresh smoke initially caught a replaced homepage shell; controlled unchanged-source
 named/direct repeats pass. [Cause remains unresolved](../development/reviews/local-profiles-52/output-investigation.json); do not call retry a fix.
-All45 final website artifacts match #92 B exactly. Native Storybook, three budgets,
+All 45 final website artifacts match #92 B exactly. Native Storybook, three budgets,
 hosted failures and manual/browser acceptance remain open. Next authorized work is
 #29 CI/formatting and deliberate #73 reconciliation; no licensing choice or merge.
 

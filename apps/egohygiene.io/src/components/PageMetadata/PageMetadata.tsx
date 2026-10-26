@@ -72,7 +72,9 @@ function MetadataEffect({ metadata }: { readonly metadata: PageMetadataValue }) 
     meta("name", "twitter:image:alt", metadata.image?.alt);
     return () => {
       document.title = previousTitle;
-      restore.reverse().forEach((undo) => undo());
+      restore.reverse().forEach((undo) => {
+        undo();
+      });
     };
   }, [metadata]);
   return null;

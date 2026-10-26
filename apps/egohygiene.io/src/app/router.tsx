@@ -72,11 +72,13 @@ export const routes: RouteObject[] = [
     element: <RootLayout />,
     errorElement: <RouteErrorPage />,
     children: [
-      ...fixedPublicRoutes.map(({ path, page }): RouteObject => ({
-        id: `page:${page}`,
-        ...(path === "/" ? { index: true as const } : { path: path.slice(1) }),
-        element: fixedPages[page],
-      })),
+      ...fixedPublicRoutes.map(
+        ({ path, page }): RouteObject => ({
+          id: `page:${page}`,
+          ...(path === "/" ? { index: true as const } : { path: path.slice(1) }),
+          element: fixedPages[page],
+        }),
+      ),
       { id: "artist", path: "store/incompris/artists/:artistSlug", element: <StoreArtistPage /> },
       ...previewRoutes,
       { id: "store-product", path: "store/products/:slug", element: <StoreProductPage /> },

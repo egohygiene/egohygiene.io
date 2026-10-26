@@ -4,7 +4,8 @@ export const CATALOG_LOCALIZATION_FIXTURE = {
   locale: "fr",
   regionalLocale: "fr-CA",
   liveTitle: "Éclat café — vêtement fictif pour vérifier les longues présentations",
-  liveDescription: "Vêtement fictif : description synthétique pour la recherche et les métadonnées.",
+  liveDescription:
+    "Vêtement fictif : description synthétique pour la recherche et les métadonnées.",
   regionalTitle: "Éclat canadien — vêtement fictif",
   artworkAlt: "Carré violet fictif, sans produit réel",
   variantLabel: "Taille fictive",

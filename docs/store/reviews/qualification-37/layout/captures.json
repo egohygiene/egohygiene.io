@@ -130,11 +130,7 @@
       },
       "regional": {
         "locale": "en",
-        "counts": [
-          "4",
-          "1",
-          "0"
-        ],
+        "counts": ["4", "1", "0"],
         "canonicalHref": "/store/products/signal-heart-hoodie",
         "emptyReload": true,
         "clearRestoresFocus": true
@@ -442,11 +438,7 @@
       },
       "regional": {
         "locale": "ar-u-nu-arab",
-        "counts": [
-          "٤",
-          "١",
-          "٠"
-        ],
+        "counts": ["٤", "١", "٠"],
         "canonicalHref": "/store/products/signal-heart-hoodie",
         "emptyReload": true,
         "clearRestoresFocus": true

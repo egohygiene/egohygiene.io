@@ -1,0 +1,41 @@
+{
+  "recordedOn": "2026-10-26",
+  "sourceHead": "25ab678b7d713c2b0232f8d8903c7d3e7f3152ae",
+  "scope": "Read-only four-file lint probe while #52 B is in flight. Temporary config is current biome.jsonc with only the inherited four-file linter-disabled override removed; explicit VCS root points at the existing checkout. No repository edits.",
+  "biome": "2.5.9",
+  "commandTemplate": "pnpm exec biome lint --config-path=<temporary-identical-config-with-final-override-removed> --vcs-root=<repository-root> --reporter=json --max-diagnostics=none <four-listed-files>",
+  "exitCode": 0,
+  "summary": {
+    "changed": 0,
+    "unchanged": 4,
+    "matches": 0,
+    "duration": 8762681,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "skipped": 0,
+    "suggestedFixesSkipped": 0,
+    "diagnosticsNotPrinted": 0,
+    "scannerDuration": 600015
+  },
+  "diagnostics": [],
+  "files": [
+    {
+      "path": "apps/egohygiene.io/src/content/products.test.ts",
+      "sha256": "58ac11e78a27a0a5478c3d2e483aca651b6f9de151dfcb5bfecb35af427aaa77"
+    },
+    {
+      "path": "apps/egohygiene.io/src/pages/EcosystemPage.tsx",
+      "sha256": "6ce311d21b2176099d3753dab5ac3b2f560db9c8638bd1fecedd0db61a94ee91"
+    },
+    {
+      "path": "apps/egohygiene.io/src/pages/HomePage.tsx",
+      "sha256": "4553e769ad2f4a7aef84e8bb6012258fb71c5951b88c29e3b144013ef68d6e02"
+    },
+    {
+      "path": "apps/egohygiene.io/src/pages/ProductPage.tsx",
+      "sha256": "beeb4f130b1f1c6ce3d2901642f5f11099e4d96ea179d36a7812025b8a5d0285"
+    }
+  ],
+  "recommendation": "Remove the entire obsolete four-file linter-disabled override in #29; all four pass current unchanged lint rules without source changes. Keep intentional script noConsole scope and exact generated/vendor treatment separate."
+}

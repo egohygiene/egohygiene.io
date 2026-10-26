@@ -117,14 +117,18 @@ export function createCheckoutHandoffInputs(): {
   return {
     sources: entries.map((value) => ({ source: `${value.id}.json`, value })),
     routes: [
-      qualifySyntheticRoute({
-        id: "test-handoff-37a-route",
-        provider: "fourthwall",
-        productId: fixture.live.id,
-        checkoutUrl: fixture.checkoutUrl,
-        providerVariantIds: ["test-handoff-37a-provider-variant"],
-        artworkRevisions: [{ designId: fixture.designId, revision: 1 }],
-      }, entries.find((entry) => entry.id === fixture.live.id), entries.filter((entry) => entry.kind === "design" && entry.id === fixture.designId)),
+      qualifySyntheticRoute(
+        {
+          id: "test-handoff-37a-route",
+          provider: "fourthwall",
+          productId: fixture.live.id,
+          checkoutUrl: fixture.checkoutUrl,
+          providerVariantIds: ["test-handoff-37a-provider-variant"],
+          artworkRevisions: [{ designId: fixture.designId, revision: 1 }],
+        },
+        entries.find((entry) => entry.id === fixture.live.id),
+        entries.filter((entry) => entry.kind === "design" && entry.id === fixture.designId),
+      ),
     ],
   };
 }
@@ -133,4 +137,3 @@ export function createCheckoutHandoffCatalog() {
   const { sources, routes } = createCheckoutHandoffInputs();
   return toPublicStoreCatalog(parseStoreCatalog(sources, routes));
 }
-

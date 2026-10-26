@@ -15,7 +15,8 @@ import {
 } from "../../scripts/public-site-output.mts";
 
 const origin = "https://egohygiene.io";
-const template = '<!doctype html><html><head><!-- public-page-head:start --><title>Old</title><!-- public-page-head:end --><script type="module" src="/assets/index-hash.js"></script></head><body><div id="root"></div></body></html>';
+const template =
+  '<!doctype html><html><head><!-- public-page-head:start --><title>Old</title><!-- public-page-head:end --><script type="module" src="/assets/index-hash.js"></script></head><body><div id="root"></div></body></html>';
 const page = (pathname: string, indexable = true): PublicPage => ({
   pathname,
   metadata: {
@@ -52,7 +53,11 @@ test("static metadata escapes text and attributes and keeps one consistent publi
   assert.ok(head.includes('name="twitter:card" content="summary"'));
   assert.ok(!renderMetadataHead(missing).includes('rel="canonical"'));
   assert.ok(!renderMetadataHead(missing).includes('property="og:url"'));
-  const document = renderPageDocument(template, "/", { markup: "<main>Keep $& literally</main>", metadata, status: 200 });
+  const document = renderPageDocument(template, "/", {
+    markup: "<main>Keep $& literally</main>",
+    metadata,
+    status: 200,
+  });
   assert.ok(document.includes('data-prerendered-path="/"'));
   assert.ok(document.includes("<main>Keep $& literally</main>"));
   assert.ok(document.includes("/assets/index-hash.js"));
@@ -61,29 +66,100 @@ test("static metadata escapes text and attributes and keeps one consistent publi
 
 test("generation rejects empty, unresolved and structurally ambiguous renderings", () => {
   const rendered = { markup: "<main>Content</main>", metadata: page("/").metadata, status: 200 };
-  assert.throws(() => renderPageDocument(template, "/", { ...rendered, markup: "" }), /meaningful page/);
-  for (const markup of ["<main><!--$!-->Fallback<!--/$--></main>", "<main><!--$?-->Loading<!--/$--></main>"]) {
-    assert.throws(() => renderPageDocument(template, "/", { ...rendered, markup }), /suspended or failed/);
+  assert.throws(
+    () => renderPageDocument(template, "/", { ...rendered, markup: "" }),
+    /meaningful page/,
+  );
+  for (const markup of [
+    "<main><!--$!-->Fallback<!--/$--></main>",
+    "<main><!--$?-->Loading<!--/$--></main>",
+  ]) {
+    assert.throws(
+      () => renderPageDocument(template, "/", { ...rendered, markup }),
+      /suspended or failed/,
+    );
   }
-  assert.throws(() => renderPageDocument(template + '<div id="root"></div>', "/", rendered), /exactly one/);
-  assert.throws(() => renderPageDocument(template.replace("<!-- public-page-head:start -->", ""), "/", rendered), /exactly one/);
+  assert.throws(
+    () => renderPageDocument(template + '<div id="root"></div>', "/", rendered),
+    /exactly one/,
+  );
+  assert.throws(
+    () =>
+      renderPageDocument(template.replace("<!-- public-page-head:start -->", ""), "/", rendered),
+    /exactly one/,
+  );
 });
 
 test("route publication fails closed on invalid paths, duplicates and inconsistent metadata", () => {
-  for (const pathname of ["/../private", "/a%2fb", "//other", "/about/", "/ABOUT", "/?q=x", "/store/:slug", "/assets", "/store/preview/fourthwall"]) {
-    assert.throws(() => validatePublicPages([page("/"), page(pathname)], origin), /(?:Invalid|Reserved) static route/);
+  for (const pathname of [
+    "/../private",
+    "/a%2fb",
+    "//other",
+    "/about/",
+    "/ABOUT",
+    "/?q=x",
+    "/store/:slug",
+    "/assets",
+    "/store/preview/fourthwall",
+  ]) {
+    assert.throws(
+      () => validatePublicPages([page("/"), page(pathname)], origin),
+      /(?:Invalid|Reserved) static route/,
+    );
   }
   assert.throws(() => validatePublicPages([page("/"), page("/")], origin), /Duplicate/);
   assert.throws(() => validatePublicPages([page("/about")], origin), /homepage/);
-  assert.throws(() => validatePublicPages([{ ...page("/"), metadata: { ...page("/").metadata, canonical: `${origin}/wrong` } }], origin), /Canonical identity/);
-  assert.throws(() => validatePublicPages([{ ...page("/"), metadata: { ...page("/").metadata, description: " " } }], origin), /Missing page metadata/);
-  assert.throws(() => validatePublicPages([{ ...page("/"), metadata: { ...page("/").metadata, robots: "noindex,follow" } }], origin), /Conflicting publication/);
-  assert.throws(() => validatePublicPages([{ ...page("/"), metadata: { ...page("/").metadata, image: { url: "https://elsewhere.invalid/art.webp", alt: "Art" } } }], origin), /Invalid approved social/);
+  assert.throws(
+    () =>
+      validatePublicPages(
+        [{ ...page("/"), metadata: { ...page("/").metadata, canonical: `${origin}/wrong` } }],
+        origin,
+      ),
+    /Canonical identity/,
+  );
+  assert.throws(
+    () =>
+      validatePublicPages(
+        [{ ...page("/"), metadata: { ...page("/").metadata, description: " " } }],
+        origin,
+      ),
+    /Missing page metadata/,
+  );
+  assert.throws(
+    () =>
+      validatePublicPages(
+        [{ ...page("/"), metadata: { ...page("/").metadata, robots: "noindex,follow" } }],
+        origin,
+      ),
+    /Conflicting publication/,
+  );
+  assert.throws(
+    () =>
+      validatePublicPages(
+        [
+          {
+            ...page("/"),
+            metadata: {
+              ...page("/").metadata,
+              image: { url: "https://elsewhere.invalid/art.webp", alt: "Art" },
+            },
+          },
+        ],
+        origin,
+      ),
+    /Invalid approved social/,
+  );
   const pages = validatePublicPages([page("/z", false), page("/help"), page("/")], origin);
-  assert.deepEqual(pages.map(({ pathname }) => pathname), ["/", "/help", "/z"]);
+  assert.deepEqual(
+    pages.map(({ pathname }) => pathname),
+    ["/", "/help", "/z"],
+  );
   assert.ok(!renderSitemap(pages).includes(`${origin}/z`));
   assert.ok(!renderSitemap(pages).includes("lastmod"));
-  assert.equal(renderSitemap([page("/help"), page("/"), page("/help")]), renderSitemap([page("/"), page("/help")]));
+  assert.equal(
+    renderSitemap([page("/help"), page("/"), page("/help")]),
+    renderSitemap([page("/"), page("/help")]),
+  );
 });
 
 test("static output is deterministic, shares eligibility, and includes an explicitly noindex 404", async (t) => {
@@ -95,14 +171,21 @@ test("static output is deterministic, shares eligibility, and includes an explic
     listPublicPages: () => pages,
     renderPublicPage: async (pathname) => {
       const match = pages.find((item) => item.pathname === pathname);
-      return { markup: `<main>${match ? pathname : "Page not found"}</main>`, metadata: match?.metadata ?? missing, status: match ? 200 : 404 };
+      return {
+        markup: `<main>${match ? pathname : "Page not found"}</main>`,
+        metadata: match?.metadata ?? missing,
+        status: match ? 200 : 404,
+      };
     },
   };
   const capture = async (name: string) => {
     const output = join(root, name);
     await mkdir(output);
     await writeFile(join(output, "index.html"), template);
-    assert.deepEqual(await writePublicSite(output, renderer, "a".repeat(64)), { pages: 3, sitemapEntries: 2 });
+    assert.deepEqual(await writePublicSite(output, renderer, "a".repeat(64)), {
+      pages: 3,
+      sitemapEntries: 2,
+    });
     const files: Record<string, string> = {};
     for (const file of await readdir(output, { recursive: true, withFileTypes: true })) {
       if (file.isFile()) {
@@ -134,20 +217,41 @@ test("failed routes and copied-file collisions do not replace the client shell w
   const renderer: PublicRenderer = {
     publicOrigin: origin,
     listPublicPages: () => pages,
-    renderPublicPage: async (pathname) => ({ markup: "<main>Content</main>", metadata: pages.find((item) => item.pathname === pathname)!.metadata, status: pathname === "/" ? 200 : 500 }),
+    renderPublicPage: async (pathname) => ({
+      markup: "<main>Content</main>",
+      metadata: pages.find((item) => item.pathname === pathname)!.metadata,
+      status: pathname === "/" ? 200 : 500,
+    }),
   };
-  await assert.rejects(writePublicSite(root, renderer, "a".repeat(64)), /Known static route did not succeed/);
+  await assert.rejects(
+    writePublicSite(root, renderer, "a".repeat(64)),
+    /Known static route did not succeed/,
+  );
   assert.equal(await readFile(join(root, "index.html"), "utf8"), template);
   await mkdir(join(root, "help"));
   await writeFile(join(root, "help/index.html"), "public collision");
-  await assert.rejects(writePublicSite(root, {
-    ...renderer,
-    renderPublicPage: async (pathname) => ({ markup: "<main>Content</main>", metadata: pages.find((item) => item.pathname === pathname)!.metadata, status: 200 }),
-  }, "a".repeat(64)), /collides with a copied public file/);
+  await assert.rejects(
+    writePublicSite(
+      root,
+      {
+        ...renderer,
+        renderPublicPage: async (pathname) => ({
+          markup: "<main>Content</main>",
+          metadata: pages.find((item) => item.pathname === pathname)!.metadata,
+          status: 200,
+        }),
+      },
+      "a".repeat(64),
+    ),
+    /collides with a copied public file/,
+  );
   assert.equal(await readFile(join(root, "help/index.html"), "utf8"), "public collision");
   for (const file of ["sitemap.xml", "public-routes.json"]) {
     await writeFile(join(root, file), "copied discovery collision");
-    await assert.rejects(writePublicSite(root, renderer, "a".repeat(64)), /Generated discovery output collides/);
+    await assert.rejects(
+      writePublicSite(root, renderer, "a".repeat(64)),
+      /Generated discovery output collides/,
+    );
     assert.equal(await readFile(join(root, file), "utf8"), "copied discovery collision");
     await rm(join(root, file));
   }

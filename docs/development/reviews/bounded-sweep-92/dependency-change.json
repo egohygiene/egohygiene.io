@@ -249,10 +249,7 @@
   "remainingPeerWarnings": {
     "rawOutput": "Issues with peer dependencies found\n\n.\n  \u2715 unmet peer vite\n    Installed: 8.2.0\n    Wanted:\n      \">=4 <=6\":\n        vite-plugin-istanbul@6.0.2\n\n  \u2715 unmet peer tailwindcss\n    Installed: 4.3.3\n    Wanted:\n      \"1 || 2 || 2.0.1-compat || 3\":\n        tailwind-config-viewer@2.0.4\n\n  \u2715 unmet peer tailwindcss\n    Installed: 3.4.19\n    Wanted:\n      >=4.0.0:\n        @heroui/theme@2.4.26\n\n  \u2715 unmet peer react\n    Installed: 19.2.8\n    Wanted:\n      \"^16.8 || ^17 || ^18\":\n        @emoji-mart/react@1.1.1\n      \"^15.5.x || ^16.x || ^17.x || ^18.x\":\n        react-onclickoutside@6.13.2\n      \"^16.9.0 || ^17.0.0 || ^18\":\n        @reduxjs/toolkit@1.9.7\n      ^16.4.1:\n        react-palm@3.3.11\n      \"0.13.x || 0.14.x || ^15.0.0-0 || ^16.0.0-0\":\n        enzyme-adapter-utils@1.14.2\n      \"^0.14 || ^15.0.0 || ^16.0.0-alpha\":\n        airbnb-prop-types@2.16.0\n      ^16.14.0:\n        react-dom@16.14.0\n        react-test-renderer@16.14.0\n      ^16.0.0:\n        react-reconciler@0.12.0\n      \"^16.8 || ^17.0 || ^18.0\":\n        react-redux@8.1.3\n      \"^16.6.0 || 17 || 18\":\n        react-intl@6.8.9\n      \"^16 || ^17 || ^18\":\n        @material-tailwind/react@2.1.10\n      \"^16.8.0 || ^17.0.0 || ^18.0.0\":\n        @react-spring/zdog@10.1.2\n\n  \u2715 unmet peer ajv\n    Installed: 6.15.0\n    Wanted:\n      ^8.12.0:\n        @hookform/resolvers@5.9.1\n\n  \u2715 unmet peer @loaders.gl/core\n    Installed: 4.4.4\n    Wanted:\n      ^3.4.13:\n        @hubble.gl/react@1.4.0\n\n  \u2715 unmet peer maplibre-gl\n    Installed: 6.4.1\n    Wanted:\n      \">=1.13.0 <5.0.0\":\n        react-map-gl@7.1.9\n\n  \u2715 unmet peer react-dom\n    Installed: 19.2.8\n    Wanted:\n      \"^15.5.x || ^16.x || ^17.x || ^18.x\":\n        react-onclickoutside@6.13.2\n      \"^16.8 || ^17.0 || ^18.0\":\n        react-redux@8.1.3\n      \"^16 || ^17 || ^18\":\n        @material-tailwind/react@2.1.10\n      \"^16.8.0 || ^17.0.0 || ^18.0.0\":\n        @react-spring/zdog@10.1.2\n\n  \u2715 unmet peer @types/react\n    Installed: 19.2.18\n    Wanted:\n      \"^16.8 || ^17.0 || ^18.0\":\n        react-redux@8.1.3\n\n  \u2715 unmet peer @types/react-dom\n    Installed: 19.2.4\n    Wanted:\n      \"^16.8 || ^17.0 || ^18.0\":\n        react-redux@8.1.3\n\n  \u2715 unmet peer mapbox-gl\n    Installed: 1.13.1\n    Wanted:\n      >=3.5.0:\n        @vis.gl/react-mapbox@8.1.2\n\n  \u2715 unmet peer @deck.gl/core\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @deck.gl/extensions\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @deck.gl/geo-layers\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @deck.gl/layers\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @deck.gl/mesh-layers\n    Installed: 9.3.10\n    Wanted:\n      ^8.6.0:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @luma.gl/constants\n    Installed: 9.3.6\n    Wanted:\n      ^8.5.10:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer @luma.gl/core\n    Installed: 9.3.6\n    Wanted:\n      ^8.5.10:\n        @nebula.gl/layers@1.0.4\n\n  \u2715 unmet peer zod\n    Installed: 4.4.3\n    Wanted:\n      ^3.23.8:\n        @ai-sdk/ui-utils@1.2.11\n        @ai-sdk/provider-utils@2.2.8\n        ai@4.3.19\n        @ai-sdk/react@1.2.12\n\n  \u2715 unmet peer typescript\n    Installed: 5.9.3\n    Wanted:\n      \"3.9.x || 4.0.x\":\n        typedoc@0.19.2\n\n  \u2715 unmet peer @mui/material\n    Installed: 9.3.1\n    Wanted:\n      \"^5.0.1 || ^6.0.0 || ^7.0.0\":\n        mui-image@1.0.9\n",
     "groups": 21,
-    "owners": [
-      "#15",
-      "#16"
-    ],
+    "owners": ["#15", "#16"],
     "relevantRetainedIntegration": "@storybook/addon-coverage3.0.2 retains vite-plugin-istanbul6.0.2 requiring Vite<=6, while rootuses8.2.0. It is not in current configured addons and stays unactivated. This is separate from configured a11y/docs/themes."
   },
   "deprecatedSubdependencies": {
@@ -275,10 +272,7 @@
     "Storybook CLI import/startup in this environment is unresolved; static build verification must be recorded by the parent, not inferred from successful frozen install."
   ],
   "lifecycleObservation": "The two explicit install commands used --ignore-scripts. A later Storybook --version dispatcher probe unexpectedly populated an external ephemeral CLI cache and its log included esbuild postinstall. This did not edit repository lifecycle policy or dependency files; it is recorded separately, not described as a wholly script-free session.",
-  "editedPaths": [
-    "package.json",
-    "pnpm-lock.yaml"
-  ],
+  "editedPaths": ["package.json", "pnpm-lock.yaml"],
   "files": {
     "package.json": {
       "sha256": "9b0fa7b05fa331f031d7549fad2e952b06e68ef768ef0aa66f7741a406314461",
@@ -290,10 +284,7 @@
     }
   },
   "cliImportDiagnosis": {
-    "standaloneNodeFailures": [
-      "24.21.0",
-      "24.22.1"
-    ],
+    "standaloneNodeFailures": ["24.21.0", "24.22.1"],
     "operation": "os.networkInterfaces()",
     "status": "environment restriction reproduced independently",
     "upstream1063FixFound": false,

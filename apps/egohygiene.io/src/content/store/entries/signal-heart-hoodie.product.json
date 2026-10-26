@@ -11,9 +11,7 @@
     "status": "unknown"
   },
   "kind": "product",
-  "designIds": [
-    "design-demo-signal-heart"
-  ],
+  "designIds": ["design-demo-signal-heart"],
   "contextIds": [],
   "purchase": {
     "state": "preview"

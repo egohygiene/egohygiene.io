@@ -85,6 +85,16 @@ tasks:
       - node scripts/store-environment.mjs run test:components:browser
 
   qualify:local:
-    desc: "Run the strict integrated local store profile, including browser checks"
+    desc: "Run the strict complete local profile, including all browser checks"
     cmds:
       - node scripts/store-environment.mjs run qualify:local
+
+  ci:check:
+    desc: "Run complete non-browser validation with strict artifact and native Storybook gates"
+    cmds:
+      - node scripts/store-environment.mjs run ci:check
+
+  ci:browser:
+    desc: "Build fresh browser prerequisites and run all maintained browser journeys"
+    cmds:
+      - node scripts/store-environment.mjs run ci:browser

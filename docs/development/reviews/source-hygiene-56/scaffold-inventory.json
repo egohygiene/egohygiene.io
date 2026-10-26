@@ -25,9 +25,7 @@
     {
       "path": ".changeset/README.md",
       "bytes": 0,
-      "owners": [
-        17
-      ],
+      "owners": [17],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Release convention is explicitly unfinished in #17; do not imply a working publication path or select competing release systems here.",
@@ -36,10 +34,7 @@
     {
       "path": ".commitlintrc.cjs",
       "bytes": 0,
-      "owners": [
-        29,
-        92
-      ],
+      "owners": [29, 92],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Existing tooling/dependency automation configuration is empty; classify the gap without changing lint/security behavior in this cleanup.",
@@ -48,10 +43,7 @@
     {
       "path": ".env.example",
       "bytes": 0,
-      "owners": [
-        96,
-        89
-      ],
+      "owners": [96, 89],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "No required env-file import; actual optional preview configuration is documented elsewhere. Future environment contract is #96/#89; do not invent secrets or provider settings.",
@@ -60,9 +52,7 @@
     {
       "path": ".gitattributes",
       "bytes": 0,
-      "owners": [
-        92
-      ],
+      "owners": [92],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Empty attributes reserve repository policy but currently apply no transformations; retain until the bounded tooling policy pass.",
@@ -71,9 +61,7 @@
     {
       "path": ".github/CODEOWNERS",
       "bytes": 0,
-      "owners": [
-        20
-      ],
+      "owners": [20],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Repository governance/template contracts are empty; no maintainer team or organization template is inferred by #56. #20 is the broader Holon-consumer owner.",
@@ -82,9 +70,7 @@
     {
       "path": ".github/ISSUE_TEMPLATE/bug-report.yml",
       "bytes": 0,
-      "owners": [
-        20
-      ],
+      "owners": [20],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Repository governance/template contracts are empty; no maintainer team or organization template is inferred by #56. #20 is the broader Holon-consumer owner.",
@@ -93,9 +79,7 @@
     {
       "path": ".github/ISSUE_TEMPLATE/config.yml",
       "bytes": 0,
-      "owners": [
-        20
-      ],
+      "owners": [20],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Repository governance/template contracts are empty; no maintainer team or organization template is inferred by #56. #20 is the broader Holon-consumer owner.",
@@ -104,9 +88,7 @@
     {
       "path": ".github/ISSUE_TEMPLATE/feature-request.yml",
       "bytes": 0,
-      "owners": [
-        20
-      ],
+      "owners": [20],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Repository governance/template contracts are empty; no maintainer team or organization template is inferred by #56. #20 is the broader Holon-consumer owner.",
@@ -115,10 +97,7 @@
     {
       "path": ".github/dependabot.yml",
       "bytes": 0,
-      "owners": [
-        29,
-        92
-      ],
+      "owners": [29, 92],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Existing tooling/dependency automation configuration is empty; classify the gap without changing lint/security behavior in this cleanup.",
@@ -127,10 +106,7 @@
     {
       "path": ".lintstagedrc.mjs",
       "bytes": 0,
-      "owners": [
-        29,
-        92
-      ],
+      "owners": [29, 92],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Existing tooling/dependency automation configuration is empty; classify the gap without changing lint/security behavior in this cleanup.",
@@ -139,10 +115,7 @@
     {
       "path": ".prettierignore",
       "bytes": 0,
-      "owners": [
-        92,
-        29
-      ],
+      "owners": [92, 29],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Biomes explicit scripts are the active formatter; optional Prettier setup is unfinished. Removing discovered config files could change manual/default-tool behavior, so retain for the tooling sweep.",
@@ -151,10 +124,7 @@
     {
       "path": "CODE_OF_CONDUCT.md",
       "bytes": 0,
-      "owners": [
-        9,
-        59
-      ],
+      "owners": [9, 59],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Public governance/security guidance is missing; #9/#59 own trust/contributor/licensing reconciliation. Keep gaps visible; do not fabricate contacts, promises or policy.",
@@ -163,9 +133,7 @@
     {
       "path": "LICENSE",
       "bytes": 0,
-      "owners": [
-        59
-      ],
+      "owners": [59],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Explicit #59 gap: empty LICENSE versus Apache-2.0 package metadata. Do not select or backfill a license without the reviewed disposition.",
@@ -174,10 +142,7 @@
     {
       "path": "SECURITY.md",
       "bytes": 0,
-      "owners": [
-        9,
-        59
-      ],
+      "owners": [9, 59],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Public governance/security guidance is missing; #9/#59 own trust/contributor/licensing reconciliation. Keep gaps visible; do not fabricate contacts, promises or policy.",
@@ -186,10 +151,7 @@
     {
       "path": "apps/egohygiene.io/src/assets/index.ts",
       "bytes": 0,
-      "owners": [
-        24,
-        18
-      ],
+      "owners": [24, 18],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Unreferenced asset barrel reserves future extraction/public API work; no replacement content is invented.",
@@ -198,9 +160,7 @@
     {
       "path": "apps/egohygiene.io/src/content/README.md",
       "bytes": 0,
-      "owners": [
-        69
-      ],
+      "owners": [69],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Active source/content ownership needs documentation; existing store authoring/publication and architecture docs are authoritative, not this empty file.",
@@ -209,10 +169,7 @@
     {
       "path": "apps/egohygiene.io/src/content/content.config.ts",
       "bytes": 0,
-      "owners": [
-        11,
-        22
-      ],
+      "owners": [11, 22],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "No import/reference observed; future content pipeline configuration is distinct from current publication.ts and store catalog adapters.",
@@ -221,9 +178,7 @@
     {
       "path": "apps/egohygiene.io/src/features/knowledge/index.ts",
       "bytes": 0,
-      "owners": [
-        23
-      ],
+      "owners": [23],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "#23 explicitly reserves this feature for React presentation over framework-neutral knowledge APIs.",
@@ -232,10 +187,7 @@
     {
       "path": "apps/egohygiene.io/src/features/landing/index.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        35
-      ],
+      "owners": [56, 35],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports; actual landing renders through pages/HomePage.tsx and app/router.tsx. Empty barrel supplies no route/content.",
@@ -244,10 +196,7 @@
     {
       "path": "apps/egohygiene.io/src/features/search/index.ts",
       "bytes": 0,
-      "owners": [
-        11,
-        20
-      ],
+      "owners": [11, 20],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Unimplemented feature reservation; current storefront search is implemented elsewhere and is not removed. Broader content/site evolution stays outside #56.",
@@ -256,10 +205,7 @@
     {
       "path": "apps/egohygiene.io/src/features/settings/index.ts",
       "bytes": 0,
-      "owners": [
-        20,
-        92
-      ],
+      "owners": [20, 92],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Unimplemented feature reservation; current theme/locale controls are implemented elsewhere. Disposition can be revisited during cleanup rather than inferring planned UX.",
@@ -268,10 +214,7 @@
     {
       "path": "apps/egohygiene.io/src/types/global.d.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        24
-      ],
+      "owners": [56, 24],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Empty and unreferenced; app tsconfig uses vite/client and real src/vite-env.d.ts contains environment/virtual-catalog declarations.",
@@ -280,9 +223,7 @@
     {
       "path": "docs/TSCONFIG.md",
       "bytes": 0,
-      "owners": [
-        52
-      ],
+      "owners": [52],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Compiler/test/development documentation placeholders; actual configs and local-preview/current guides are authoritative. #52 owns permanent profile/command documentation.",
@@ -291,9 +232,7 @@
     {
       "path": "docs/architecture/decisions/0001-use-pnpm-workspaces.md",
       "bytes": 0,
-      "owners": [
-        26
-      ],
+      "owners": [26],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "ADR0000 and #26 explicitly preserve reserved historical paths; no accepted decision or rationale is evidenced by emptiness. Keep bytes unchanged until evidence-backed backfill.",
@@ -302,9 +241,7 @@
     {
       "path": "docs/architecture/decisions/0002-use-turborepo.md",
       "bytes": 0,
-      "owners": [
-        26
-      ],
+      "owners": [26],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "ADR0000 and #26 explicitly preserve reserved historical paths; no accepted decision or rationale is evidenced by emptiness. Keep bytes unchanged until evidence-backed backfill.",
@@ -313,9 +250,7 @@
     {
       "path": "docs/architecture/repository-structure.md",
       "bytes": 0,
-      "owners": [
-        69
-      ],
+      "owners": [69],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Architecture documentation placeholder; dependency-rules/extension contracts already describe implementation. Do not treat the empty file as completed structure guidance.",
@@ -324,9 +259,7 @@
     {
       "path": "docs/contributing/development.md",
       "bytes": 0,
-      "owners": [
-        52
-      ],
+      "owners": [52],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Compiler/test/development documentation placeholders; actual configs and local-preview/current guides are authoritative. #52 owns permanent profile/command documentation.",
@@ -335,9 +268,7 @@
     {
       "path": "docs/contributing/releases.md",
       "bytes": 0,
-      "owners": [
-        17
-      ],
+      "owners": [17],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Release convention is explicitly unfinished in #17; do not imply a working publication path or select competing release systems here.",
@@ -346,9 +277,7 @@
     {
       "path": "docs/contributing/testing.md",
       "bytes": 0,
-      "owners": [
-        52
-      ],
+      "owners": [52],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Compiler/test/development documentation placeholders; actual configs and local-preview/current guides are authoritative. #52 owns permanent profile/command documentation.",
@@ -357,9 +286,7 @@
     {
       "path": "docs/migration/extraction-inventory.md",
       "bytes": 0,
-      "owners": [
-        24
-      ],
+      "owners": [24],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Legacy extraction inventory/audit reservations; existing concrete migration receipts stay authoritative and preserved.",
@@ -368,9 +295,7 @@
     {
       "path": "docs/migration/legacy-audit.md",
       "bytes": 0,
-      "owners": [
-        24
-      ],
+      "owners": [24],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Legacy extraction inventory/audit reservations; existing concrete migration receipts stay authoritative and preserved.",
@@ -379,9 +304,7 @@
     {
       "path": "knip.config.ts",
       "bytes": 0,
-      "owners": [
-        92
-      ],
+      "owners": [92],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Root pnpm knip command exists but the custom config is empty; real unused-code/configuration disposition belongs to the bounded cleanup sweep.",
@@ -390,10 +313,7 @@
     {
       "path": "packages/api-client/src/client/create-client.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        18
-      ],
+      "owners": [56, 18],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/exports reference these zero-byte paths; actual createApiClient, ApiClientOptions and ApiError live in src/index.ts with tests. Removing placeholders changes no implementation.",
@@ -402,10 +322,7 @@
     {
       "path": "packages/api-client/src/client/types.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        18
-      ],
+      "owners": [56, 18],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/exports reference these zero-byte paths; actual createApiClient, ApiClientOptions and ApiError live in src/index.ts with tests. Removing placeholders changes no implementation.",
@@ -414,10 +331,7 @@
     {
       "path": "packages/api-client/src/errors/api-error.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        18
-      ],
+      "owners": [56, 18],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/exports reference these zero-byte paths; actual createApiClient, ApiClientOptions and ApiError live in src/index.ts with tests. Removing placeholders changes no implementation.",
@@ -426,10 +340,7 @@
     {
       "path": "packages/api-client/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -438,10 +349,7 @@
     {
       "path": "packages/config/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -450,10 +358,7 @@
     {
       "path": "packages/content/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -462,10 +367,7 @@
     {
       "path": "packages/i18n/src/react/useLocale.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        64
-      ],
+      "owners": [56, 64],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No references/export; current locale access uses I18nProvider/useI18n in public src/index.ts. Preserve real provider and tests.",
@@ -474,10 +376,7 @@
     {
       "path": "packages/i18n/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -486,9 +385,7 @@
     {
       "path": "packages/icons/scripts/generate-icons.ts",
       "bytes": 0,
-      "owners": [
-        18
-      ],
+      "owners": [18],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "No package script or import invokes this empty generator. Current icons are implemented inline; publication/generation contract is undecided under #18.",
@@ -497,10 +394,7 @@
     {
       "path": "packages/icons/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -509,10 +403,7 @@
     {
       "path": "packages/schemas/scripts/generate-types.ts",
       "bytes": 0,
-      "owners": [
-        18,
-        34
-      ],
+      "owners": [18, 34],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "No script invokes this file. Runtime Zod schemas and inferred types remain canonical; future publication generation must not add a competing model.",
@@ -521,10 +412,7 @@
     {
       "path": "packages/schemas/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -533,10 +421,7 @@
     {
       "path": "packages/themes/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -545,10 +430,7 @@
     {
       "path": "packages/ui/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -557,10 +439,7 @@
     {
       "path": "packages/utilities/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -569,10 +448,7 @@
     {
       "path": "packages/visualizations/vitest.config.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52
-      ],
+      "owners": [56, 52],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Ten empty package config stubs; packages have no test scripts and root vitest.unit.config.ts explicitly owns all app/package unit test patterns. These are not working package test profiles.",
@@ -581,10 +457,7 @@
     {
       "path": "prettier.config.mjs",
       "bytes": 0,
-      "owners": [
-        92,
-        29
-      ],
+      "owners": [92, 29],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Biomes explicit scripts are the active formatter; optional Prettier setup is unfinished. Removing discovered config files could change manual/default-tool behavior, so retain for the tooling sweep.",
@@ -593,11 +466,7 @@
     {
       "path": "scripts/checks/check-environment.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        29
-      ],
+      "owners": [56, 52, 29],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Never invoked by pnpm check or other tracked commands; scripts/store-environment.mjs is the implemented local environment check. General profile improvements stay #52/#29.",
@@ -606,11 +475,7 @@
     {
       "path": "tests/accessibility/accessibility.spec.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Zero assertions; explicit current profiles select *.test.ts[x], site.spec.ts and build.test.ts instead. Removing empty files does not remove test coverage.",
@@ -619,11 +484,7 @@
     {
       "path": "tests/e2e/egohygiene.spec.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Zero assertions; explicit current profiles select *.test.ts[x], site.spec.ts and build.test.ts instead. Removing empty files does not remove test coverage.",
@@ -632,11 +493,7 @@
     {
       "path": "tests/smoke/production-build.spec.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "Zero assertions; explicit current profiles select *.test.ts[x], site.spec.ts and build.test.ts instead. Removing empty files does not remove test coverage.",
@@ -645,11 +502,7 @@
     {
       "path": "tooling/playwright/fixtures.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/config hooks reference these empty adapter stubs; real root profiles, .vitest setup and guarded component/store browser suites own testing. No claimed coverage is lost.",
@@ -658,11 +511,7 @@
     {
       "path": "tooling/playwright/global-setup.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/config hooks reference these empty adapter stubs; real root profiles, .vitest setup and guarded component/store browser suites own testing. No claimed coverage is lost.",
@@ -671,10 +520,7 @@
     {
       "path": "tooling/prettier/index.mjs",
       "bytes": 0,
-      "owners": [
-        92,
-        29
-      ],
+      "owners": [92, 29],
       "category": "intentional-future",
       "action": "retain",
       "rationale": "Biomes explicit scripts are the active formatter; optional Prettier setup is unfinished. Removing discovered config files could change manual/default-tool behavior, so retain for the tooling sweep.",
@@ -683,11 +529,7 @@
     {
       "path": "tooling/storybook/test-runner.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/config hooks reference these empty adapter stubs; real root profiles, .vitest setup and guarded component/store browser suites own testing. No claimed coverage is lost.",
@@ -696,9 +538,7 @@
     {
       "path": "tooling/typescript/README.md",
       "bytes": 0,
-      "owners": [
-        52
-      ],
+      "owners": [52],
       "category": "required-but-incomplete",
       "action": "retain",
       "rationale": "Compiler/test/development documentation placeholders; actual configs and local-preview/current guides are authoritative. #52 owns permanent profile/command documentation.",
@@ -707,11 +547,7 @@
     {
       "path": "tooling/vitest/browser.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/config hooks reference these empty adapter stubs; real root profiles, .vitest setup and guarded component/store browser suites own testing. No claimed coverage is lost.",
@@ -720,11 +556,7 @@
     {
       "path": "tooling/vitest/node.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/config hooks reference these empty adapter stubs; real root profiles, .vitest setup and guarded component/store browser suites own testing. No claimed coverage is lost.",
@@ -733,11 +565,7 @@
     {
       "path": "tooling/vitest/react.ts",
       "bytes": 0,
-      "owners": [
-        56,
-        52,
-        37
-      ],
+      "owners": [56, 52, 37],
       "category": "obsolete",
       "action": "remove",
       "rationale": "No imports/config hooks reference these empty adapter stubs; real root profiles, .vitest setup and guarded component/store browser suites own testing. No claimed coverage is lost.",

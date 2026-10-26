@@ -5,26 +5,17 @@
   "checks": [
     {
       "name": "check",
-      "command": [
-        "pnpm",
-        "check"
-      ],
+      "command": ["pnpm", "check"],
       "exitCode": 0
     },
     {
       "name": "types",
-      "command": [
-        "pnpm",
-        "typecheck"
-      ],
+      "command": ["pnpm", "typecheck"],
       "exitCode": 0
     },
     {
       "name": "unit",
-      "command": [
-        "pnpm",
-        "test:unit"
-      ],
+      "command": ["pnpm", "test:unit"],
       "exitCode": 0
     },
     {
@@ -58,10 +49,7 @@
     },
     {
       "name": "build",
-      "command": [
-        "pnpm",
-        "build"
-      ],
+      "command": ["pnpm", "build"],
       "exitCode": 0
     },
     {
@@ -76,20 +64,12 @@
     },
     {
       "name": "frozen-install",
-      "command": [
-        "pnpm",
-        "install",
-        "--frozen-lockfile",
-        "--ignore-scripts"
-      ],
+      "command": ["pnpm", "install", "--frozen-lockfile", "--ignore-scripts"],
       "exitCode": 0
     },
     {
       "name": "storybook-static-build",
-      "command": [
-        "pnpm",
-        "storybook:build"
-      ],
+      "command": ["pnpm", "storybook:build"],
       "exitCode": 0
     }
   ],

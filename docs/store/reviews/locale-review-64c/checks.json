@@ -7,38 +7,21 @@
   "steps": [
     {
       "name": "application catalog and portable-domain types",
-      "command": [
-        "pnpm",
-        "typecheck"
-      ],
+      "command": ["pnpm", "typecheck"],
       "startedAt": "2026-10-20T14:40:00.127185+00:00",
       "exitCode": 0,
       "elapsedSeconds": 7.471
     },
     {
       "name": "browser test and fixture host types",
-      "command": [
-        "pnpm",
-        "exec",
-        "tsc",
-        "--project",
-        "tsconfig.store-browser.json",
-        "--noEmit"
-      ],
+      "command": ["pnpm", "exec", "tsc", "--project", "tsconfig.store-browser.json", "--noEmit"],
       "startedAt": "2026-10-20T14:40:07.598249+00:00",
       "exitCode": 0,
       "elapsedSeconds": 3.861
     },
     {
       "name": "message tooling types",
-      "command": [
-        "pnpm",
-        "exec",
-        "tsc",
-        "--project",
-        "tsconfig.locales.json",
-        "--noEmit"
-      ],
+      "command": ["pnpm", "exec", "tsc", "--project", "tsconfig.locales.json", "--noEmit"],
       "startedAt": "2026-10-20T14:40:11.459708+00:00",
       "exitCode": 0,
       "elapsedSeconds": 1.513
@@ -59,11 +42,7 @@
     },
     {
       "name": "message review contracts",
-      "command": [
-        "node",
-        "--test",
-        "tests/tooling/locale-catalog.test.mjs"
-      ],
+      "command": ["node", "--test", "tests/tooling/locale-catalog.test.mjs"],
       "startedAt": "2026-10-20T14:40:14.448667+00:00",
       "exitCode": 0,
       "elapsedSeconds": 1.192
@@ -82,10 +61,7 @@
     },
     {
       "name": "catalog and artifact contracts",
-      "command": [
-        "pnpm",
-        "catalog:test"
-      ],
+      "command": ["pnpm", "catalog:test"],
       "startedAt": "2026-10-20T14:40:15.777296+00:00",
       "exitCode": 0,
       "elapsedSeconds": 6.654
@@ -129,10 +105,7 @@
     },
     {
       "name": "portable boundary",
-      "command": [
-        "node",
-        "scripts/checks/check-store-boundaries.ts"
-      ],
+      "command": ["node", "scripts/checks/check-store-boundaries.ts"],
       "startedAt": "2026-10-20T14:40:36.340626+00:00",
       "exitCode": 0,
       "elapsedSeconds": 0.404
@@ -163,54 +136,35 @@
     },
     {
       "name": "syntax scripts/qualify-store.mjs",
-      "command": [
-        "node",
-        "--check",
-        "scripts/qualify-store.mjs"
-      ],
+      "command": ["node", "--check", "scripts/qualify-store.mjs"],
       "startedAt": "2026-10-20T14:40:37.590823+00:00",
       "exitCode": 0,
       "elapsedSeconds": 0.054
     },
     {
       "name": "syntax tests/storefront-qualification/run.mjs",
-      "command": [
-        "node",
-        "--check",
-        "tests/storefront-qualification/run.mjs"
-      ],
+      "command": ["node", "--check", "tests/storefront-qualification/run.mjs"],
       "startedAt": "2026-10-20T14:40:37.645206+00:00",
       "exitCode": 0,
       "elapsedSeconds": 0.072
     },
     {
       "name": "syntax tests/storefront-qualification/browser-host.mjs",
-      "command": [
-        "node",
-        "--check",
-        "tests/storefront-qualification/browser-host.mjs"
-      ],
+      "command": ["node", "--check", "tests/storefront-qualification/browser-host.mjs"],
       "startedAt": "2026-10-20T14:40:37.717602+00:00",
       "exitCode": 0,
       "elapsedSeconds": 0.062
     },
     {
       "name": "syntax tests/storefront-qualification/locale-journeys.mjs",
-      "command": [
-        "node",
-        "--check",
-        "tests/storefront-qualification/locale-journeys.mjs"
-      ],
+      "command": ["node", "--check", "tests/storefront-qualification/locale-journeys.mjs"],
       "startedAt": "2026-10-20T14:40:37.780475+00:00",
       "exitCode": 0,
       "elapsedSeconds": 0.065
     },
     {
       "name": "fresh normal build",
-      "command": [
-        "pnpm",
-        "build"
-      ],
+      "command": ["pnpm", "build"],
       "startedAt": "2026-10-20T14:40:37.845690+00:00",
       "exitCode": 0,
       "elapsedSeconds": 2.509
@@ -242,22 +196,14 @@
     },
     {
       "name": "fresh isolated preview build",
-      "command": [
-        "node",
-        "scripts/store-environment.mjs",
-        "build"
-      ],
+      "command": ["node", "scripts/store-environment.mjs", "build"],
       "startedAt": "2026-10-20T14:40:56.872405+00:00",
       "exitCode": 0,
       "elapsedSeconds": 1.948
     },
     {
       "name": "production browser discovery only",
-      "command": [
-        "pnpm",
-        "test:store",
-        "--list"
-      ],
+      "command": ["pnpm", "test:store", "--list"],
       "startedAt": "2026-10-20T14:40:58.821036+00:00",
       "exitCode": 0,
       "elapsedSeconds": 1.782,
@@ -265,11 +211,7 @@
     },
     {
       "name": "isolated preview browser discovery only",
-      "command": [
-        "pnpm",
-        "test:store:preview",
-        "--list"
-      ],
+      "command": ["pnpm", "test:store:preview", "--list"],
       "startedAt": "2026-10-20T14:41:00.604083+00:00",
       "exitCode": 0,
       "elapsedSeconds": 1.379,

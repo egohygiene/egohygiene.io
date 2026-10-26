@@ -81,9 +81,7 @@
       "files": 44,
       "assetReferences": 202,
       "findings": 3,
-      "findingRules": [
-        "size-budget"
-      ],
+      "findingRules": ["size-budget"],
       "report": "production-artifact.json"
     },
     {

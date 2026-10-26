@@ -19,49 +19,50 @@ function liveCatalog(): StoreCatalog {
     visibility: "public",
   };
   const sources = [
-      {
-        source: "design.json",
-        value: {
-          ...common,
-          id: "design-envelope",
-          slug: "envelope-art",
-          title: "Envelope artwork",
-          kind: "design",
-          artworkRevision: 1,
-          artwork: { kind: "image", src: "/store/envelope.webp", alt: "Fictional test artwork" },
+    {
+      source: "design.json",
+      value: {
+        ...common,
+        id: "design-envelope",
+        slug: "envelope-art",
+        title: "Envelope artwork",
+        kind: "design",
+        artworkRevision: 1,
+        artwork: { kind: "image", src: "/store/envelope.webp", alt: "Fictional test artwork" },
+      },
+    },
+    {
+      source: "product.json",
+      value: {
+        ...common,
+        id: "product-envelope",
+        slug: "envelope-product",
+        title: "Envelope product",
+        kind: "product",
+        designIds: ["design-envelope"],
+        purchase: {
+          state: "live",
+          provider: "fourthwall",
+          routeId: "route-envelope",
+          variants: [{ id: "variant-small", label: "Small", providerVariantId: "provider-small" }],
         },
       },
-      {
-        source: "product.json",
-        value: {
-          ...common,
-          id: "product-envelope",
-          slug: "envelope-product",
-          title: "Envelope product",
-          kind: "product",
-          designIds: ["design-envelope"],
-          purchase: {
-            state: "live",
-            provider: "fourthwall",
-            routeId: "route-envelope",
-            variants: [
-              { id: "variant-small", label: "Small", providerVariantId: "provider-small" },
-            ],
-          },
-        },
-      },
-    ];
+    },
+  ];
   return parseStoreCatalog(sources, [
-      qualifySyntheticRoute({
+    qualifySyntheticRoute(
+      {
         id: "route-envelope",
         provider: "fourthwall",
         productId: "product-envelope",
         checkoutUrl: "https://fixture.fourthwall.com/products/envelope",
         providerVariantIds: ["provider-small"],
         artworkRevisions: [{ designId: "design-envelope", revision: 1 }],
-      }, sources[1]?.value, [sources[0]?.value]),
-    ],
-  );
+      },
+      sources[1]?.value,
+      [sources[0]?.value],
+    ),
+  ]);
 }
 
 const project = (value: unknown) => toPublicStoreCatalog(value as StoreCatalog);
