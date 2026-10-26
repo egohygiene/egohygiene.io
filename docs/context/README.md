@@ -6,7 +6,8 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
-| Current CI repair | [#29 contract and audit](../development/ci-baseline-29.md); current-source port of #73, stacked on #107; licensing/merges await sync |
+| Morning reconciliation | [2026-10-26 handoff](overnight-2026-10-26.md): ordered drafts, licensing, output/budget/native/browser/hosted gaps and next issues |
+| Current CI repair | [#29 contract and audit](../development/ci-baseline-29.md); draft #108 has local evidence and a hosted CodeQL pass; CI/dependency and other acceptance remain open; old #73 preserved |
 | Local compiler/test profiles | [#52 contract and baseline](../development/local-profiles-52.md); draft #107 has local C evidence and an unresolved intermittent output finding; #29 follows |
 | Overnight cleanup/profile/CI batch | [#92 delivery and limits](../development/bounded-sweep-92.md), [evidence](../development/reviews/bounded-sweep-92/verification.json); draft #106 delivered, #52 then #29 next, #59 licensing and all merges await next sync |
 | Licensing/provenance audit | [#59 audit](../legal/licensing-59.md) and [asset inventory](../legal/reviews/licensing-59/asset-inventory.json); #104 merged, draft #105 has [verified notices/proposals](../legal/reviews/licensing-59/verification.json) and [inactive choices](../legal/proposals/README.md); final license selection and recorded evidence gaps remain open |

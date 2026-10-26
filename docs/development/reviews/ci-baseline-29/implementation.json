@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-26T05:45:14.329460+00:00",
+  "sourceBase": "0a34ca245597f323c2e1bf3f06a9d947b5462a1d",
+  "workingTree": true,
+  "scope": "Local #29 B implementation before source publication. Root owns documentation and final source-bound verification. No Chromium or application builds executed by this implementation audit.",
+  "implementation": [
+    "Exclude only canonical generated token TS/CSS and unchanged upstream MSW worker; remove four obsolete whole-file lint-disabled overrides; preserve rule severities.",
+    "Use explicit void block callbacks for two PageMetadata cleanup diagnostics; retain order and disposal behavior.",
+    "Apply current repository formatter to 109 current files; historical JSON values remain unchanged.",
+    "Extend existing qualifier with independently runnable ci-check and ci-browser, composed by full. All maintained nonbrowser scopes, strict artifact gate and native Storybook remain active; browser prerequisites freshly built before any suite.",
+    "ci-browser selects default apps, production store, isolated preview and component-style Playwright configurations plus three existing intercepted/layout/catalog journey runners.",
+    "Pin catalog Node test concurrency to two without changing suite selection; retain 152 catalog tests for source-bound C.",
+    "Wire CI to same commands with timeout/same-ref cancellation and hosted Chromium dependency installation; replace invalid CodeQL reusable-workflow call with init/analyze v4 build-mode none. Dependency review/deployment configuration unchanged.",
+    "Add temporary-fixture mocked child command tests for complete selection and failure propagation; no test framework or second orchestrator.",
+    "Isolate default Playwright outputs at test-results/apps so execution cannot delete qualifier receipts; discovery validates every actual project output directory and rejects any overlap with the receipt tree. Three regressions cover ancestor/equal/descendant overlap, sibling names and missing/relative output paths."
+  ],
+  "files": [
+    {
+      "path": "biome.jsonc",
+      "sha256": "3810600ca27bdba6374eab6639309812896194da65cf2c027edea0dbc65d9e06"
+    },
+    {
+      "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.tsx",
+      "sha256": "429eeb384886c5193c6e9827632aa19dc6cf558c2b1c83dee937c1fab90ef764"
+    },
+    {
+      "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.test.tsx",
+      "sha256": "0c6970a667301ca92cde21753b773e772b3c23f8e5acedb491d53f48508ac472"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "813b07fad35acd748094f741ea739168b509ebdd52f25ec1179967bffff22a95"
+    },
+    {
+      "path": ".github/workflows/codeql.yml",
+      "sha256": "1b8e9cc29dcbbe0e0c3a3a5b773663f8c0dfb822d93b4af6a0d739bf987707f8"
+    },
+    {
+      "path": "package.json",
+      "sha256": "3216decbaaa07a467d5364c4bab6e31056dce80c06c3c871f4a460c416b842dd"
+    },
+    {
+      "path": "Taskfile.yml",
+      "sha256": "a73cd4a8633c895eb02ae3c91d82ebf74174b1fb039ef3c39b08fd4e27ff7530"
+    },
+    {
+      "path": "scripts/qualify-store.mjs",
+      "sha256": "34d74bb11e6f00baac6f994c82ebfb60e492c9c7697b420bb89b6722e9ca2eef"
+    },
+    {
+      "path": "tests/tooling/qualification-profiles.test.mjs",
+      "sha256": "429e9fda8a6bc85576128cfcf3e6e5e3680647dbab03b376e18ea05b3aa122cf"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "cd24764c1f8255f46883c2ed74ca1ae9ec70eaa5018ce31741db6644b17dc65b"
+    },
+    {
+      "path": "scripts/check-browser-discovery.mjs",
+      "sha256": "5a314d8d50ef2ed963d4362bce509363eb42030c87c992a43dedcd95c7086f73"
+    },
+    {
+      "path": "tests/tooling/browser-discovery.test.mjs",
+      "sha256": "fa38fd93bc6902b1a77db4e27317ce53ea46636d3b2f629013712f013796accd"
+    }
+  ],
+  "checks": [
+    {
+      "command": "pnpm exec biome format . --reporter=json --max-diagnostics=none",
+      "exitCode": 0,
+      "summary": {
+        "changed": 0,
+        "unchanged": 516,
+        "matches": 0,
+        "duration": 321232289,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 25722745
+      }
+    },
+    {
+      "command": "pnpm exec biome lint . --reporter=json --max-diagnostics=none",
+      "exitCode": 0,
+      "summary": {
+        "changed": 0,
+        "unchanged": 516,
+        "matches": 0,
+        "duration": 5298199645,
+        "errors": 0,
+        "warnings": 85,
+        "infos": 44,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 340377768
+      }
+    },
+    {
+      "command": "node --test tests/tooling/*.test.mjs",
+      "exitCode": 0,
+      "tests": 66,
+      "passed": 66,
+      "failed": 0,
+      "note": "Final complete tooling run after Playwright output isolation fix; includes five mocked orchestration and three new output-overlap checks. No actual browser execution."
+    },
+    {
+      "command": "node --test tests/tooling/qualification-profiles.test.mjs",
+      "exitCode": 0,
+      "tests": 5,
+      "passed": 5,
+      "failed": 0,
+      "note": "Final fixture flag spelling tested; mocked orchestration only, zero actual browser journeys."
+    },
+    {
+      "command": "Python PyYAML parse and command-wrapper/action assertions",
+      "exitCode": 0,
+      "files": [".github/workflows/ci.yml", ".github/workflows/codeql.yml", "Taskfile.yml"],
+      "note": "Initial ad hoc Node YAML import unavailable under pnpm direct dependency resolution; used installed Python parser, no dependency change."
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "git apply --check docs/legal/proposals/adopt-Apache-2.0.patch",
+      "exitCode": 0
+    },
+    {
+      "command": "git apply --check docs/legal/proposals/adopt-MIT.patch",
+      "exitCode": 0
+    }
+  ],
+  "preservation": {
+    "protectedFiles": 79,
+    "protectedChanges": [],
+    "parsedJsonFiles": 179,
+    "parsedChanges": ["package.json"],
+    "scriptChanges": {
+      "ci:browser": {
+        "before": null,
+        "after": "node scripts/qualify-store.mjs --profile ci-browser"
+      },
+      "ci:check": {
+        "before": null,
+        "after": "node scripts/qualify-store.mjs --profile ci-check"
+      },
+      "catalog:test": {
+        "before": "node --test tests/store/*.test.ts",
+        "after": "node --test --test-concurrency=2 tests/store/*.test.ts"
+      }
+    }
+  },
+  "limits": [
+    "Working-tree checks are not saved-source C evidence, hosted CI or production qualification.",
+    "Existing three artifact-budget failures remain strict and will stop ci-check before native Storybook; independent Storybook slice still required for local limitation receipt.",
+    "Native Storybook sandbox network-interface limitation remains; no shim/retry/gate change.",
+    "Initial #52 homepage-output replacement cause remains unknown; fresh smoke guard retained without retry workaround or fix claim.",
+    "No Chromium installation/execution, workflow dispatch, settings/license choice, source-store deletion, merge, deployment or provider activation.",
+    "85 lint warnings and 44 informational diagnostics remain under unchanged severities; no warning-free claim.",
+    "Historical #73 remains open and unmerged; current code was reformatted instead of stale patch integration."
+  ],
+  "reviewFollowup": "Independent review found default Playwright output cleanup could erase running qualifier reports. Fixed before B publication and full tooling/format/lint/preservation rerun; no browser execution performed."
+}

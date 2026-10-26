@@ -97,3 +97,46 @@ fail-stop behavior; they are not actual browser or hosted results. See the
 Old #73's useful intent is incorporated in current form; its old successes remain
 history. It stays open pending morning supersession/integration review. No license
 patch, asset, deployment/provider or artifact-budget policy is changed.
+
+## C — Exact source and separate outcomes
+
+Tested B `bdc3565197f56c71f128488d7c39d74172dcfea7`, clean checkout.
+[Verification](reviews/ci-baseline-29/verification.json) and [step receipt](reviews/ci-baseline-29/ci-check.json)
+show `pnpm ci:check` passing formatting, zero-error lint (85 warnings/44 info kept),
+all compiler/check scopes, 152 catalog, 66 tooling, 344 units, four semantic and
+one consumer test, all four discovery profiles, three fresh app builds, three smoke
+cases and raw inspection of 26 routes. It then fails strictly at artifact budgets.
+Native Storybook was not reached by that profile; its separate command reproduces
+the OS interface error. No real browser/full-profile pass is claimed.
+
+The first profile artifact has **46 files and six size findings**: an old unreferenced
+481,100-byte JS bundle reappeared alongside the new 481,102-byte bundle and was
+already present when the smoke receipt was captured. The [investigation](reviews/ci-baseline-29/output-investigation.json)
+preserves that result. A controlled unchanged-source smoke/raw repeat passes; its
+artifact has 45 files and the three existing document/total findings. All 45 shared
+files match between these attempts; no writer/cause or fix is established. This
+remains #52/#29/#37 acceptance, alongside the earlier replaced-homepage finding.
+
+Controlled output has 319,972 document bytes/86,939 gzip and 1,289,796 total raw
+bytes. CSS is byte-identical to #52; all 27 HTML documents match the recovered
+pre-#92 baseline after emitted bundle-name normalization; JS grows two raw bytes
+from #52. There is no performance improvement claim or budget change.
+
+[Actual automatic hosted outcomes](reviews/ci-baseline-29/hosted.json) at B:
+[CodeQL 40276009684](https://github.com/egohygiene/egohygiene.io/actions/runs/40276009684)
+succeeds, including initialize/analyze steps;
+[CI 40276009661](https://github.com/egohygiene/egohygiene.io/actions/runs/40276009661)
+fails at `pnpm ci:check`;
+[dependency-review 40276009669](https://github.com/egohygiene/egohygiene.io/actions/runs/40276009669)
+fails at its action. Nested CI/dependency logs were not obtained, so current hosted
+sub-check causes are not inferred from local failures or historical configuration
+errors. No workflow was manually dispatched or security setting changed.
+
+All 79 protected source/asset/notice/archive hashes and 179 parsed historical JSON
+values are preserved, except intentional root script additions/change. Both inactive
+license patches remain applicable. Task/workflow YAML and command selection were
+checked; Task execution is unavailable here. #29 remains open for hosted/external/
+output/budget/native acceptance. Old #73 is proposed for supersession after review;
+its historical successes remain valid only at their original source.
+
+Morning handoff: [ordered drafts, decisions and remaining setup](../context/overnight-2026-10-26.md).

@@ -75,5 +75,8 @@
   "localProfilesBaseline": "docs/development/reviews/local-profiles-52/baseline-types.json",
   "localProfileEvidence": "docs/development/reviews/local-profiles-52/verification.json",
   "localProfileOutputInvestigation": "docs/development/reviews/local-profiles-52/output-investigation.json",
-  "currentCiBaseline": "docs/development/ci-baseline-29.md"
+  "currentCiBaseline": "docs/development/ci-baseline-29.md",
+  "overnightReview20261026": "docs/context/overnight-2026-10-26.md",
+  "currentCiEvidence": "docs/development/reviews/ci-baseline-29/verification.json",
+  "currentCiOutputInvestigation": "docs/development/reviews/ci-baseline-29/output-investigation.json"
 }

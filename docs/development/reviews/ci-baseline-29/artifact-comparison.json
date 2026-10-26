@@ -1,0 +1,14 @@
+{
+  "baselineSource": "47c25784b6853a415257a88150e2851d0b147e7a",
+  "source": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+  "htmlComparisonBaseline": "2b9ebe5d3aba4f7cccb277252d15a48325ff205d",
+  "htmlBaselineNote": "Recovered #92 input artifact; #92 separately proved normalized HTML unchanged through its implementation.",
+  "baselineFiles": 45,
+  "currentFiles": 45,
+  "exactUnchangedFiles": 16,
+  "normalizedHtmlDocuments": 27,
+  "normalization": "Only emitted index JavaScript/CSS filename hashes.",
+  "normalizedHtmlMismatches": [],
+  "cssByteIdentical": true,
+  "javascriptRawDelta": 2
+}

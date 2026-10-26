@@ -1,5 +1,20 @@
 # Store launch roadmap and milestone history
 
+## Current overnight draft batch — 2026-10-26
+
+[Morning review handoff](../context/overnight-2026-10-26.md) links #105 licensing,
+#106 cleanup/upgrades, #107 compiler/fresh smoke and #108 current CI repair in
+review order. All remain unmerged; main is `89fc7044`. #108 has a real hosted CodeQL
+pass, while CI/dependency, output anomalies, native Storybook, budget policy and
+actual browser/manual acceptance remain open. No license has been selected.
+
+Reconcile those decisions and old #73 supersession before ordered integration.
+Remaining setup is **#57 → #70 → #37**; carry existing #90/#100 and other
+acceptance obligations. Environment/construction-preview **#21+#89A → #96 → #97
+→ #89B/C**, then actual products/launch **#38 → #39**, retain their approved place.
+No deployment, source retirement, provider activation or purchase is implied.
+
+
 ## Current #59 verified draft — 2026-10-25
 
 [Draft #105](https://github.com/egohygiene/egohygiene.io/pull/105) records #59 audit,

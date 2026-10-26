@@ -1,5 +1,25 @@
 # Context provenance ledger
 
+## #29 C and overnight reconciliation handoff — 2026-10-26
+
+Published B `bdc3565197f56c71f128488d7c39d74172dcfea7` in draft #108 is the tested
+source. [Verification](../development/reviews/ci-baseline-29/verification.json)
+records 15 passing non-browser steps, followed by a strict artifact failure with
+46 files and six findings. An old unreferenced bundle was already in the receipt.
+All 45 shared files match the separate controlled repeat, which retains the three
+existing budget findings. No writer, cause or fix is inferred. Complete types/checks,
+344 units, 152 catalog, 66 tooling, four semantic, one consumer and three smoke
+checks pass; no real browsers executed.
+
+Native Storybook separately fails at OS interface enumeration. Actual hosted
+CodeQL 40276009684 succeeds; CI 40276009661 and dependency review 40276009669
+fail separately. Nested hosted causes are not inferred. All 79 protected hashes
+and 179 parsed JSON values remain preserved except intended root scripts;
+inactive license choices are unchanged. The [morning handoff](overnight-2026-10-26.md)
+links #105 → #106 → #107 → #108, old #73's proposed supersession, owner decisions,
+remaining acceptance and the next #57 → #70 → #37 sequence. Main is unchanged;
+no license choice, merge or deployment occurred.
+
 ## #29 B current-source validation repair — 2026-10-26
 
 A `0a34ca245597f323c2e1bf3f06a9d947b5462a1d` saved the baseline before edits in
