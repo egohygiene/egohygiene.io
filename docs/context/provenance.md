@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## #57 A serving contract — 2026-10-26
+
+Input #108 `4faaebeb50b4202e8aaf9ee0012db0f836939f79`; live main remains `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`. Alan authorized #57 before later local testing. Source audit found unbounded Docker context and blanket SPA fallback; [contract](../development/static-serving-57.md) records precise replacements and evidence limits. Docker/Caddy executables are absent. No container, HTTP, browser, merge or license claim is made by A.
+
 ## #29 C and overnight reconciliation handoff — 2026-10-26
 
 Published B `bdc3565197f56c71f128488d7c39d74172dcfea7` in draft #108 is the tested

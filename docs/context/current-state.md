@@ -1,5 +1,9 @@
 # Current handoff
 
+## Current: #57 selected, audit saved before implementation — 2026-10-26
+
+Alan selected #57 with local testing together afterward. [Contract](../development/static-serving-57.md) records default-deny context and generated-route Caddy serving, based on unmerged #108 `4faaebeb50b4202e8aaf9ee0012db0f836939f79`. Main remains `89fc7044`. Docker/Caddy binaries are absent; bounded source/verifier checks precede explicit Mac image/server acceptance. Next B implementation, then C evidence and sync. Licensing, prior drafts, output/budget/native/browser/hosted gaps remain open. No merge or deployment.
+
 ## Current: overnight drafts ready for morning reconciliation — 2026-10-26
 
 Read the [compact handoff](overnight-2026-10-26.md). #105 → #106 → #107 → #108
