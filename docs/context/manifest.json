@@ -73,5 +73,7 @@
   "licensingVerification": "docs/legal/reviews/licensing-59/verification.json",
   "boundedSweepReview": "docs/development/bounded-sweep-92.md",
   "boundedSweepBaseline": "docs/development/reviews/bounded-sweep-92/baseline.json",
-  "boundedSweepEvidence": "docs/development/reviews/bounded-sweep-92/verification.json"
+  "boundedSweepEvidence": "docs/development/reviews/bounded-sweep-92/verification.json",
+  "localProfilesReview": "docs/development/local-profiles-52.md",
+  "localProfilesBaseline": "docs/development/reviews/local-profiles-52/baseline-types.json"
 }

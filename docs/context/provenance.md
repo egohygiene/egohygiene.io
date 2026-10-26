@@ -1,5 +1,16 @@
 # Context provenance ledger
 
+## #52 A compiler/profile baseline — 2026-10-26
+
+Input #106 head `c5935ae45d582af19a4175db1f1e05168393e0f6`; fresh tools/unit/browser
+compiler probes reproduce 58/27/0 diagnostics. [Audit/receipts](../development/local-profiles-52.md)
+retain earlier four-config discovery and #92 B all-workspace/story type passes
+with their exact sources. User authorized #52 after #92 while away; A precedes B.
+Selected changes repair explicit strict noEmit profiles, fresh sequential smoke,
+meaningful receipt checks and named commands over existing runners. No Chromium,
+license choice, merge, new package or weakened artifact gate.
+
+
 ## #92 C local evidence — 2026-10-26
 
 Tested B `a5e99afb060da64928bcf38cc1901e3b34889bb7` in draft #106.

@@ -1,5 +1,20 @@
 # Current handoff
 
+## Current: #52 audit/contract saved for implementation — 2026-10-26
+
+The overnight batch proceeds to #52 from #106 head
+`c5935ae45d582af19a4175db1f1e05168393e0f6`. Branch `fix/local-profiles-52` stacks on
+`refactor/bounded-sweep-92`; #105/#106 remain draft. [Contract and inventories](../development/local-profiles-52.md)
+record 58 tooling/27 unit compiler diagnostics, incomplete passing browser types,
+all 14 workspace/three story-profile passes, and 31/106/6/4 browser discovery counts.
+No browsers executed. Save A before compiler/profile/fresh-smoke implementation.
+
+Reuse existing qualifier/runners and pinned Taskfile adapter; no new orchestrator,
+strictness reduction or budget increase. Native Storybook OS limitation and three
+artifact failures remain explicit. Next after #52 evidence is #29 CI/#73 repair.
+Main remains89fc7044; licensing, merges, deployment and activation are not selected.
+
+
 ## Current: #92 delivered in draft; #52 next — 2026-10-26
 
 The authorized overnight batch is #92 → #52 → #29; licensing and merges wait

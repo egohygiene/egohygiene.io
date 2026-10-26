@@ -1,0 +1,1642 @@
+{
+  "schemaVersion": 1,
+  "sourceHead": "2b9ebe5d3aba4f7cccb277252d15a48325ff205d",
+  "observedOn": "2026-10-26",
+  "recordedTimezone": "America/New_York",
+  "scope": "Read-only source/configuration audit plus explicit compiler and browser-discovery baseline. No browser launch, dependency modification, application build or repository edit performed.",
+  "findings": [
+    {
+      "id": "tooling-config",
+      "paths": [
+        "tsconfig.node.json",
+        "tsconfig.base.json",
+        "package.json"
+      ],
+      "observation": "Node profile overrides shared Preserve/Bundler/noEmit policy with composite NodeNext/declaration emission. Root manifest has no type:module. Include list omits script .mts files, most Playwright/Vitest configs and app Vite configs. Existing script .ts imports source outside a composite include set.",
+      "proposedDisposition": "Use explicit noEmit tools configuration matching the actual native-TypeScript/Vite tool path; include supported root/app configs and scripts, keep browser Storybook preview managed by existing story configs, and verify effective file coverage. Do not change root package module classification solely to suppress diagnostics."
+    },
+    {
+      "id": "unit-test-types",
+      "paths": [
+        "tsconfig.vitest.json",
+        "vitest.unit.config.ts",
+        ".vitest/test-utils.tsx"
+      ],
+      "observation": "Runtime unit config supplies #test-utils alias but compiler config has no corresponding paths mapping. Type include covers all tests .ts/.tsx except tests/store, mixing browser/component fixtures into unit profile.",
+      "proposedDisposition": "Add exact alias and give Vitest profile intentional unit/accessibility/smoke inputs. Keep Node catalog/handoff tests under tsconfig.store and browser tests under browser profile; do not weaken strictness/exact optional checks.",
+      "actualDiagnostics": "27 diagnostics: missing #test-utils and root themes aliases, invalid JSX thrower inference, invalid private enum test fixtures, ES2023 toReversed against ES2022 profile, exact optional tuple indexing, unsupported Testing Library getByRole exact option, dataset bracket access. Preserve intentional invalid-input test coverage while typing its boundary honestly."
+    },
+    {
+      "id": "browser-coverage",
+      "paths": [
+        "tsconfig.store-browser.json",
+        "playwright.config.ts",
+        "playwright.component-styles.config.ts",
+        "tests/component-styles/consumer/main.tsx"
+      ],
+      "observation": "Browser typecheck omits docs/playground suites, default/component Playwright configs and standalone consumer. Prior #49/#50/#53 used temporary successful config extensions instead of durable profiles. Default config process.env.CI dot access conflicts with noPropertyAccessFromIndexSignature.",
+      "proposedDisposition": "Expand one documented browser compiler profile (or exact focused component companion) to include all maintained suites/configs/fixtures, change environment bracket access, and retain four independently discoverable runner configurations."
+    },
+    {
+      "id": "fresh-smoke",
+      "paths": [
+        "tests/smoke/build.test.ts",
+        "vitest.smoke.config.ts",
+        "package.json",
+        "Taskfile.yml"
+      ],
+      "observation": "Three existence-only tests pass with stale dist files; root build only creates website output and smoke requires docs/playground too. No named smoke command builds all prerequisites.",
+      "proposedDisposition": "Make smoke runner itself prepare fresh outputs sequentially with checked exit statuses, or require a checked freshness receipt from existing ordered task commands. Add meaningful HTML/asset/reference assertions and negative stale/missing/output probes. Avoid an optional skip-build path and avoid creating a second general test orchestrator."
+    },
+    {
+      "id": "named-local-commands",
+      "paths": [
+        "package.json",
+        "Taskfile.yml",
+        "scripts/qualify-store.mjs",
+        "tests/README.md"
+      ],
+      "observation": "Only fast site/catalog/domain types are selected by typecheck; wider compiler/story/accessibility/smoke/profile discovery and component consumer are not named root commands or Taskfile entries. Store qualification exists but is not exposed in Taskfile.",
+      "proposedDisposition": "Retain fast command; add explicit tooling/unit/browser/workspace/story profiles and a composition command, named smoke/accessibility/component contracts, four-config discovery, final qualification Taskfile wrappers using store-environment.mjs. Reuse existing qualify-store sequential reporting rather than creating another runner."
+    },
+    {
+      "id": "actual-accessibility",
+      "paths": [
+        "tests/accessibility/site-accessibility.test.tsx",
+        "tests/accessibility/docs-accessibility.test.tsx",
+        "tests/e2e/store-accessibility.spec.ts",
+        "tests/e2e/playground.spec.ts",
+        "tests/component-styles/styles.spec.ts"
+      ],
+      "observation": "Vitest accessibility scope is four semantic rendering tests, not an audit. Existing browser suites already implement extensive full-shell keyboard, contrast, reduced motion, forced colors, reflow and gallery interaction checks. Component provider test reloads iframe; same-document story-switching acceptance remains.",
+      "proposedDisposition": "Name semantic versus computed-browser scope truthfully and include existing shell/playground/component journeys in permanent profiles. Keep actual Chromium/manual/native zoom/screenreader review under #37/#70; do not duplicate already-authored checks."
+    },
+    {
+      "id": "collision-investigation",
+      "paths": [
+        "scripts/build-public-site.mts",
+        "scripts/public-site-output.mts",
+        ".storybook/main.ts",
+        "vite.config.ts"
+      ],
+      "observation": "Prior #53 receipt reports sitemap collision during concurrent website/Storybook builds. Static inspection shows root Storybook config has no website output path; website output and Storybook output are disjoint. Catalog tests use temporary directories. No cause established by source inspection. Two concurrent same-target website builds can race because normal build empties a shared output and writes routes later.",
+      "proposedDisposition": "Use sequential supported aggregate build commands and prove fresh outputs. Reproduce same-target build concurrency separately before proposing locking; do not claim Storybook was the cause or sequential commands repaired the historical failure."
+    },
+    {
+      "id": "artifact-policy",
+      "paths": [
+        "tests/store-qualification/artifacts.mts",
+        "scripts/qualify-store.mjs"
+      ],
+      "observation": "Current aggregate qualifier exits nonzero on three known size ceilings and stops overall qualify-store before browsers. Per-document reachability exists as diagnostic evidence.",
+      "proposedDisposition": "Keep measured failure explicit. Separate storage/per-document/actual-browser semantics for owner review; no automatically scaled allowances or thresholds raised merely to pass. Independent browser commands should remain usable while full profile fails."
+    }
+  ],
+  "suggestedCheckpoints": {
+    "A": "Record supported-command matrix and exact baseline failures; repair compiler profiles with focused types, save draft before broad build orchestration.",
+    "B": "Add named package/Taskfile wrappers, fresh sequential smoke prerequisites and complete discovery coverage; validate smoke failure paths and all supported types locally.",
+    "C": "Run fresh builds, existing unit/catalog/tooling/semantic/consumer checks and four profile discovery/type checks; save exact source/evidence. Chromium/manual and artifact-policy acceptance remain explicitly open for final Mac pass."
+  },
+  "verificationCommands": [
+    "pnpm exec tsc --project tsconfig.node.json --noEmit",
+    "pnpm exec tsc --project tsconfig.vitest.json --noEmit",
+    "pnpm exec tsc --project tsconfig.store-browser.json --noEmit",
+    "pnpm typecheck:workspaces",
+    "pnpm exec vitest run --config vitest.unit.config.ts",
+    "pnpm exec vitest run --config vitest.accessibility.config.ts",
+    "node --test --test-concurrency=2 tests/store/*.test.ts",
+    "node --test tests/tooling/*.test.mjs",
+    "node --test tests/component-styles/consumer.test.mjs",
+    "pnpm exec playwright test --config playwright.config.ts --list",
+    "pnpm exec playwright test --config playwright.store.config.ts --list",
+    "pnpm exec playwright test --config playwright.store-preview.config.ts --list",
+    "pnpm exec playwright test --config playwright.component-styles.config.ts --list"
+  ],
+  "limitations": [
+    "No browser execution, actual host, hosted CI or artifact budget approval.",
+    "No root-license adoption, package/dependency upgrade or private-source inspection.",
+    "Static configuration inspection cannot prove cause of historical sitemap collision."
+  ],
+  "compilerBaseline": {
+    "sourceHead": "2b9ebe5d3aba4f7cccb277252d15a48325ff205d",
+    "runtime": {
+      "node": "24.21.0",
+      "pnpm": "11.28.5"
+    },
+    "profiles": [
+      {
+        "profile": "tooling",
+        "config": "tsconfig.node.json",
+        "command": "pnpm exec tsc --project tsconfig.node.json --noEmit",
+        "exitCode": 2,
+        "diagnostics": [
+          {
+            "path": ".storybook/main.ts",
+            "line": 27,
+            "column": 1,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": ".storybook/manager.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": ".storybook/manager.ts",
+            "line": 3,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": ".storybook/preview.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": ".storybook/preview.ts",
+            "line": 3,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": ".storybook/preview.ts",
+            "line": 5,
+            "column": 8,
+            "code": "TS2307",
+            "message": "Cannot find module '@egohygiene/ui/styles.css' or its corresponding type declarations."
+          },
+          {
+            "path": ".storybook/preview.ts",
+            "line": 6,
+            "column": 8,
+            "code": "TS2307",
+            "message": "Cannot find module '@egohygiene/visualizations/styles.css' or its corresponding type declarations."
+          },
+          {
+            "path": ".storybook/preview.ts",
+            "line": 8,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": ".storybook/preview.ts",
+            "line": 24,
+            "column": 9,
+            "code": "TS2584",
+            "message": "Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'."
+          },
+          {
+            "path": ".storybook/preview.ts",
+            "line": 27,
+            "column": 9,
+            "code": "TS2584",
+            "message": "Cannot find name 'document'. Do you need to change your target library? Try changing the 'lib' compiler option to include 'dom'."
+          },
+          {
+            "path": ".storybook/preview.ts",
+            "line": 72,
+            "column": 1,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": ".storybook/theme.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": ".storybook/theme.ts",
+            "line": 3,
+            "column": 1,
+            "code": "TS1287",
+            "message": "A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled."
+          },
+          {
+            "path": "playwright.config.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "playwright.config.ts",
+            "line": 1,
+            "column": 24,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "playwright.config.ts",
+            "line": 3,
+            "column": 1,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "playwright.config.ts",
+            "line": 14,
+            "column": 41,
+            "code": "TS4111",
+            "message": "Property 'CI' comes from an index signature, so it must be accessed with ['CI']."
+          },
+          {
+            "path": "playwright.config.ts",
+            "line": 20,
+            "column": 41,
+            "code": "TS4111",
+            "message": "Property 'CI' comes from an index signature, so it must be accessed with ['CI']."
+          },
+          {
+            "path": "playwright.config.ts",
+            "line": 26,
+            "column": 41,
+            "code": "TS4111",
+            "message": "Property 'CI' comes from an index signature, so it must be accessed with ['CI']."
+          },
+          {
+            "path": "scripts/checks/check-circular-dependencies.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-circular-dependencies.ts",
+            "line": 1,
+            "column": 24,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-circular-dependencies.ts",
+            "line": 2,
+            "column": 8,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-locales.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-locales.ts",
+            "line": 1,
+            "column": 23,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-locales.ts",
+            "line": 1,
+            "column": 37,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-locales.ts",
+            "line": 2,
+            "column": 8,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-locales.ts",
+            "line": 3,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-locales.ts",
+            "line": 4,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-locales.ts",
+            "line": 4,
+            "column": 23,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-locales.ts",
+            "line": 4,
+            "column": 37,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-package-exports.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-package-exports.ts",
+            "line": 1,
+            "column": 22,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-package-exports.ts",
+            "line": 1,
+            "column": 36,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-package-exports.ts",
+            "line": 2,
+            "column": 8,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-store-boundaries.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-store-boundaries.ts",
+            "line": 1,
+            "column": 24,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-store-boundaries.ts",
+            "line": 2,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-store-boundaries.ts",
+            "line": 2,
+            "column": 19,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-store-boundaries.ts",
+            "line": 2,
+            "column": 29,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-store-boundaries.ts",
+            "line": 2,
+            "column": 38,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-store-boundaries.ts",
+            "line": 4,
+            "column": 8,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-store-boundaries.ts",
+            "line": 7,
+            "column": 22,
+            "code": "TS1470",
+            "message": "The 'import.meta' meta-property is not allowed in files which will build into CommonJS output."
+          },
+          {
+            "path": "scripts/checks/check-workspace.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-workspace.ts",
+            "line": 1,
+            "column": 24,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/checks/check-workspace.ts",
+            "line": 2,
+            "column": 8,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/locales/catalog.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/locales/catalog.ts",
+            "line": 35,
+            "column": 1,
+            "code": "TS1287",
+            "message": "A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled."
+          },
+          {
+            "path": "scripts/locales/catalog.ts",
+            "line": 70,
+            "column": 1,
+            "code": "TS1287",
+            "message": "A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled."
+          },
+          {
+            "path": "scripts/locales/catalog.ts",
+            "line": 130,
+            "column": 1,
+            "code": "TS1287",
+            "message": "A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled."
+          },
+          {
+            "path": "scripts/locales/catalog.ts",
+            "line": 153,
+            "column": 1,
+            "code": "TS1287",
+            "message": "A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled."
+          },
+          {
+            "path": "scripts/locales/catalog.ts",
+            "line": 224,
+            "column": 1,
+            "code": "TS1287",
+            "message": "A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled."
+          },
+          {
+            "path": "scripts/release/prepare-release.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/release/prepare-release.ts",
+            "line": 1,
+            "column": 24,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "scripts/release/prepare-release.ts",
+            "line": 2,
+            "column": 8,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "vite.config.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "vite.config.ts",
+            "line": 3,
+            "column": 1,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "vitest.workspace.ts",
+            "line": 1,
+            "column": 10,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          },
+          {
+            "path": "vitest.workspace.ts",
+            "line": 3,
+            "column": 1,
+            "code": "TS1295",
+            "message": "ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript."
+          }
+        ],
+        "diagnosticCount": 58,
+        "codes": {
+          "TS1295": 44,
+          "TS2307": 2,
+          "TS2584": 2,
+          "TS1287": 6,
+          "TS4111": 3,
+          "TS1470": 1
+        }
+      },
+      {
+        "profile": "vitest",
+        "config": "tsconfig.vitest.json",
+        "command": "pnpm exec tsc --project tsconfig.vitest.json --noEmit",
+        "exitCode": 2,
+        "diagnostics": [
+          {
+            "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+            "line": 133,
+            "column": 47,
+            "code": "TS4111",
+            "message": "Property 'theme' comes from an index signature, so it must be accessed with ['theme']."
+          },
+          {
+            "path": "apps/egohygiene.io/src/components/ErrorBoundary/ErrorBoundary.test.tsx",
+            "line": 15,
+            "column": 10,
+            "code": "TS2786",
+            "message": "'Broken' cannot be used as a JSX component."
+          },
+          {
+            "path": "apps/egohygiene.io/src/components/ErrorBoundary/ErrorBoundary.test.tsx",
+            "line": 26,
+            "column": 12,
+            "code": "TS2786",
+            "message": "'Broken' cannot be used as a JSX component."
+          },
+          {
+            "path": "apps/egohygiene.io/src/components/ErrorBoundary/ErrorBoundary.test.tsx",
+            "line": 34,
+            "column": 12,
+            "code": "TS2786",
+            "message": "'Broken' cannot be used as a JSX component."
+          },
+          {
+            "path": "apps/egohygiene.io/src/components/Footer/Footer.test.tsx",
+            "line": 4,
+            "column": 34,
+            "code": "TS2307",
+            "message": "Cannot find module '#test-utils' or its corresponding type declarations."
+          },
+          {
+            "path": "apps/egohygiene.io/src/components/Header/Header.test.tsx",
+            "line": 7,
+            "column": 34,
+            "code": "TS2307",
+            "message": "Cannot find module '#test-utils' or its corresponding type declarations."
+          },
+          {
+            "path": "apps/egohygiene.io/src/content/publication.test.ts",
+            "line": 74,
+            "column": 9,
+            "code": "TS2322",
+            "message": "Type '{ id: string; slug: string; visibility: \"private\"; kind: \"design\"; contextIds: string[]; artworkRevision: number; artwork: { kind: \"placeholder\"; label: string; } | { kind: \"image\"; src: string; alt: string; }; ... 5 more ...; description: string; }' is not assignable to type '{ kind: \"design\"; contextIds: string[]; artworkRevision: number; artwork: { kind: \"placeholder\"; label: string; } | { kind: \"image\"; src: string; alt: string; }; schemaVersion: 3; sourceLocale: string; ... 6 more ...; visibility: \"draft\" | \"public\"; } | { ...; } | { ...; } | { ...; }'."
+          },
+          {
+            "path": "apps/egohygiene.io/src/content/publication.test.ts",
+            "line": 75,
+            "column": 74,
+            "code": "TS2322",
+            "message": "Type '\"private\"' is not assignable to type '\"draft\" | \"public\"'."
+          },
+          {
+            "path": "apps/egohygiene.io/src/content/publication.test.ts",
+            "line": 76,
+            "column": 70,
+            "code": "TS2322",
+            "message": "Type '\"draft\" | \"public\" | \"private\"' is not assignable to type '\"draft\" | \"public\"'."
+          },
+          {
+            "path": "apps/egohygiene.io/src/features/store/StoreArtistPage.test.tsx",
+            "line": 16,
+            "column": 34,
+            "code": "TS2307",
+            "message": "Cannot find module '#test-utils' or its corresponding type declarations."
+          },
+          {
+            "path": "apps/egohygiene.io/src/features/store/StoreCatalogLocale.test.tsx",
+            "line": 5,
+            "column": 34,
+            "code": "TS2307",
+            "message": "Cannot find module '#test-utils' or its corresponding type declarations."
+          },
+          {
+            "path": "apps/egohygiene.io/src/features/store/StoreDesignOrder.test.tsx",
+            "line": 8,
+            "column": 34,
+            "code": "TS2307",
+            "message": "Cannot find module '#test-utils' or its corresponding type declarations."
+          },
+          {
+            "path": "apps/egohygiene.io/src/features/store/StoreDesignOrder.test.tsx",
+            "line": 73,
+            "column": 24,
+            "code": "TS2550",
+            "message": "Property 'toReversed' does not exist on type '({ kind: string; artworkRevision: number; artwork: { kind: string; src: string; alt: string; }; schemaVersion: number; sourceLocale: string; id: string; slug: string; title: string; description: string; visibility: string; } | { ...; } | { ...; } | { ...; })[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2023' or later."
+          },
+          {
+            "path": "apps/egohygiene.io/src/features/store/StoreDesignOrder.test.tsx",
+            "line": 73,
+            "column": 53,
+            "code": "TS7006",
+            "message": "Parameter 'value' implicitly has an 'any' type."
+          },
+          {
+            "path": "apps/egohygiene.io/src/features/store/StoreDetailPages.test.tsx",
+            "line": 13,
+            "column": 34,
+            "code": "TS2307",
+            "message": "Cannot find module '#test-utils' or its corresponding type declarations."
+          },
+          {
+            "path": "apps/egohygiene.io/src/features/store/StoreDetailPages.test.tsx",
+            "line": 210,
+            "column": 52,
+            "code": "TS2769",
+            "message": "No overload matches this call."
+          },
+          {
+            "path": "apps/egohygiene.io/src/features/store/StorefrontPages.test.tsx",
+            "line": 9,
+            "column": 34,
+            "code": "TS2307",
+            "message": "Cannot find module '#test-utils' or its corresponding type declarations."
+          },
+          {
+            "path": "apps/egohygiene.io/src/pages/EcosystemPage.test.tsx",
+            "line": 51,
+            "column": 62,
+            "code": "TS2769",
+            "message": "No overload matches this call."
+          },
+          {
+            "path": "apps/egohygiene.io/src/pages/EcosystemPage.test.tsx",
+            "line": 96,
+            "column": 9,
+            "code": "TS2769",
+            "message": "No overload matches this call."
+          },
+          {
+            "path": "apps/egohygiene.io/src/pages/EssentialsPages.test.tsx",
+            "line": 77,
+            "column": 53,
+            "code": "TS2769",
+            "message": "No overload matches this call."
+          },
+          {
+            "path": "apps/egohygiene.io/src/pages/EssentialsPages.test.tsx",
+            "line": 78,
+            "column": 62,
+            "code": "TS2769",
+            "message": "No overload matches this call."
+          },
+          {
+            "path": "apps/egohygiene.io/src/pages/EssentialsPages.test.tsx",
+            "line": 137,
+            "column": 77,
+            "code": "TS2769",
+            "message": "No overload matches this call."
+          },
+          {
+            "path": "apps/egohygiene.io/src/pages/EssentialsPages.test.tsx",
+            "line": 139,
+            "column": 82,
+            "code": "TS2345",
+            "message": "Argument of type 'string | undefined' is not assignable to parameter of type 'string | RegExp'."
+          },
+          {
+            "path": "apps/egohygiene.io/src/pages/HomePage.test.tsx",
+            "line": 5,
+            "column": 34,
+            "code": "TS2307",
+            "message": "Cannot find module '#test-utils' or its corresponding type declarations."
+          },
+          {
+            "path": "tests/accessibility/docs-accessibility.test.tsx",
+            "line": 5,
+            "column": 31,
+            "code": "TS2307",
+            "message": "Cannot find module '@egohygiene/themes' or its corresponding type declarations."
+          },
+          {
+            "path": "tests/accessibility/site-accessibility.test.tsx",
+            "line": 30,
+            "column": 74,
+            "code": "TS2353",
+            "message": "Object literal may only specify known properties, and 'exact' does not exist in type 'ByRoleOptions'."
+          },
+          {
+            "path": "tests/accessibility/site-accessibility.test.tsx",
+            "line": 34,
+            "column": 68,
+            "code": "TS2353",
+            "message": "Object literal may only specify known properties, and 'exact' does not exist in type 'ByRoleOptions'."
+          }
+        ],
+        "diagnosticCount": 27,
+        "codes": {
+          "TS4111": 1,
+          "TS2786": 3,
+          "TS2307": 9,
+          "TS2322": 3,
+          "TS2550": 1,
+          "TS7006": 1,
+          "TS2769": 6,
+          "TS2345": 1,
+          "TS2353": 2
+        }
+      },
+      {
+        "profile": "browser",
+        "config": "tsconfig.store-browser.json",
+        "command": "pnpm exec tsc --project tsconfig.store-browser.json --noEmit",
+        "exitCode": 0,
+        "diagnostics": [],
+        "diagnosticCount": 0,
+        "codes": {}
+      }
+    ]
+  },
+  "discoveryBaseline": [
+    {
+      "config": "playwright.config.ts",
+      "exitCode": 0,
+      "tests": 31,
+      "files": 3,
+      "discovery": [
+        {
+          "file": "site.spec.ts",
+          "title": "primary site loads, navigates, and supports theming",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "mobile navigation closes with Escape and follows the store route",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "short mobile navigation keeps the theme control reachable",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "skip link closes the menu and reveals the start of the main content",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Mindcap has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Mindgarden has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Renderflow has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Egolint has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Reflector has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Aether has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Store has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "external repository links are separately labelled and retain their original destinations",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/help loads directly, reloads and returns to Help through the footer",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/about loads directly, reloads and returns to Help through the footer",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/accessibility loads directly, reloads and returns to Help through the footer",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/store/help loads directly, reloads and returns to Help through the footer",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/privacy loads directly, reloads and returns to Help through the footer",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/terms loads directly, reloads and returns to Help through the footer",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "the Help hub and return links preserve the language URL across every essential destination",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "keyboard journeys at 1280px separate public feedback from order help",
+          "project": "site"
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "keyboard journeys at 390px separate public feedback from order help",
+          "project": "site"
+        },
+        {
+          "file": "docs.spec.ts",
+          "title": "docs /getting-started renders semantic Markdown on direct entry and reload",
+          "project": "docs"
+        },
+        {
+          "file": "docs.spec.ts",
+          "title": "docs /development renders semantic Markdown on direct entry and reload",
+          "project": "docs"
+        },
+        {
+          "file": "docs.spec.ts",
+          "title": "docs /architecture renders semantic Markdown on direct entry and reload",
+          "project": "docs"
+        },
+        {
+          "file": "docs.spec.ts",
+          "title": "docs /packages renders semantic Markdown on direct entry and reload",
+          "project": "docs"
+        },
+        {
+          "file": "docs.spec.ts",
+          "title": "docs home navigation and missing-page recovery reach the current guides",
+          "project": "docs"
+        },
+        {
+          "file": "playground.spec.ts",
+          "title": "playground app loads shared components",
+          "project": "playground"
+        },
+        {
+          "file": "playground.spec.ts",
+          "title": "shared action text and changing motion preferences work independently in light",
+          "project": "playground"
+        },
+        {
+          "file": "playground.spec.ts",
+          "title": "shared action text and changing motion preferences work independently in dark",
+          "project": "playground"
+        },
+        {
+          "file": "playground.spec.ts",
+          "title": "shared action text and changing motion preferences work independently in high-contrast",
+          "project": "playground"
+        },
+        {
+          "file": "playground.spec.ts",
+          "title": "forced colors preserve shared controls, loading status and readable visualization text",
+          "project": "playground"
+        }
+      ]
+    },
+    {
+      "config": "playwright.store.config.ts",
+      "exitCode": 0,
+      "tests": 106,
+      "files": 9,
+      "discovery": [
+        {
+          "file": "site.spec.ts",
+          "title": "primary site loads, navigates, and supports theming",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "mobile navigation closes with Escape and follows the store route",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "short mobile navigation keeps the theme control reachable",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "skip link closes the menu and reveals the start of the main content",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Mindcap has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Mindgarden has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Renderflow has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Egolint has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Reflector has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Aether has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "Store has a keyboard-reachable local page with direct, reload and Back recovery",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "external repository links are separately labelled and retain their original destinations",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/help loads directly, reloads and returns to Help through the footer",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/about loads directly, reloads and returns to Help through the footer",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/accessibility loads directly, reloads and returns to Help through the footer",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/store/help loads directly, reloads and returns to Help through the footer",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/privacy loads directly, reloads and returns to Help through the footer",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "/terms loads directly, reloads and returns to Help through the footer",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "the Help hub and return links preserve the language URL across every essential destination",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "keyboard journeys at 1280px separate public feedback from order help",
+          "project": ""
+        },
+        {
+          "file": "site.spec.ts",
+          "title": "keyboard journeys at 390px separate public feedback from order help",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "selected shell, status and purchase text have measured contrast in light",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "keyboard focus is visible on the shell and store in light",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "selected shell, status and purchase text have measured contrast in dark",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "keyboard focus is visible on the shell and store in dark",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "selected shell, status and purchase text have measured contrast in high-contrast",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "keyboard focus is visible on the shell and store in high-contrast",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "forced colors preserve shell and store focus and the modal's semantic controls",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 320 \u00d7 568 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 360 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 390 \u00d7 844 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 430 \u00d7 932 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 768 \u00d7 1024 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 820 \u00d7 1180 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 1024 \u00d7 768 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 1280 \u00d7 720 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 1440 \u00d7 900 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 1920 \u00d7 1080 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 2560 \u00d7 1440 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 359 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 361 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 367 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 369 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 619 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 621 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 639 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 641 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 895 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 897 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 899 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "store surfaces reflow at 901 \u00d7 800 CSS pixels",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "root-text-200-percent preserves menu, filters, purchase status and artwork controls",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "400-percent-equivalent-reflow preserves menu, filters, purchase status and artwork controls",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "information-page text and forward/reverse focus remain readable in light",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "information-page text and forward/reverse focus remain readable in dark",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "information-page text and forward/reverse focus remain readable in high-contrast",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "forced colors retain information-page focus and public-feedback descriptions",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "information-page content and footer survive root-text-200-percent",
+          "project": ""
+        },
+        {
+          "file": "store-accessibility.spec.ts",
+          "title": "information-page content and footer survive 400-percent-equivalent-reflow",
+          "project": ""
+        },
+        {
+          "file": "store-artist.spec.ts",
+          "title": "Incompris leads to the real artist with truthful empty collections",
+          "project": ""
+        },
+        {
+          "file": "store-artist.spec.ts",
+          "title": "artist view and search survive reload and Back without discarding source parameters",
+          "project": ""
+        },
+        {
+          "file": "store-artist.spec.ts",
+          "title": "unknown artist routes recover through Incompris",
+          "project": ""
+        },
+        {
+          "file": "store-artist.spec.ts",
+          "title": "the artist views support keyboard use and fit a narrow phone",
+          "project": ""
+        },
+        {
+          "file": "store-metadata.spec.ts",
+          "title": "SPA navigation and history replace route metadata without duplicate descriptions",
+          "project": ""
+        },
+        {
+          "file": "store-metadata.spec.ts",
+          "title": "direct and reloaded catalog routes expose their own title and description",
+          "project": ""
+        },
+        {
+          "file": "store-metadata.spec.ts",
+          "title": "missing product and artist routes reset metadata when their recovery links are followed",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "catalog hydration reuses raw content before restoring theme, language and query state",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "artist song selection hydrates without assigning merchandise and survives reload",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "client navigation and history replace canonical, indexing and artwork social metadata",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "unknown and isolated-preview paths replace fallback metadata and recover",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "legacy catalog URLs forward after hydration while preserving query, language and fragment",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "/ serves meaningful route HTML and identity before scripts",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "/store serves meaningful route HTML and identity before scripts",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "/store/incompris/artists/play serves meaningful route HTML and identity before scripts",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "/store/designs/heartburst serves meaningful route HTML and identity before scripts",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "/store/products/static-bloom-mug serves meaningful route HTML and identity before scripts",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "/store/collections/static-bloom-collection serves meaningful route HTML and identity before scripts",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "/help serves meaningful route HTML and identity before scripts",
+          "project": ""
+        },
+        {
+          "file": "store-public-rendering.spec.ts",
+          "title": "/privacy serves meaningful route HTML and identity before scripts",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "the production store presents a labeled preview and all public catalog entries",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "search and type filters compose, survive reload, and recover from empty results",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "story browsing composes with search, persists, and clears without losing unrelated URL state",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "world and independent-design pathways support artwork inspection at 1440px",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "world and independent-design pathways support artwork inspection at 390px",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "a collection leads to its product, shared design, and the collection again",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "product, design, and collection deep links survive a full page reload",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "detail navigation resets scrolling, Back restores it, and section links remain usable",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "unknown and mismatched slugs provide a usable route back to the catalog",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "every mock product is explicit about availability and offers no purchase action",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "keyboard browsing exposes focus and respects reduced motion",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "navigation, search, and product detail work on a narrow screen",
+          "project": ""
+        },
+        {
+          "file": "store.spec.ts",
+          "title": "all themes and detail layouts fit mobile without horizontal scrolling",
+          "project": ""
+        },
+        {
+          "file": "storefront-journey.spec.ts",
+          "title": "missing artwork preserves a usable card, design page and dismissible viewer",
+          "project": ""
+        },
+        {
+          "file": "storefront-journey.spec.ts",
+          "title": "filtered catalog history survives a canonical product reload, Back and Forward",
+          "project": ""
+        },
+        {
+          "file": "storefront-journey.spec.ts",
+          "title": "unknown nested routes and isolated preview routes recover in the normal build",
+          "project": ""
+        },
+        {
+          "file": "storefront-journey.spec.ts",
+          "title": "the shop hierarchy and canonical artwork remain usable with touch",
+          "project": ""
+        },
+        {
+          "file": "storefront.spec.ts",
+          "title": "the curated shop leads through Incompris to the same canonical design",
+          "project": ""
+        },
+        {
+          "file": "storefront.spec.ts",
+          "title": "catalog examples stay available through their explicitly labeled preview entrance",
+          "project": ""
+        },
+        {
+          "file": "storefront.spec.ts",
+          "title": "existing filter and section links retain their state at the catalog destination",
+          "project": ""
+        },
+        {
+          "file": "storefront.spec.ts",
+          "title": "the shop and collection support keyboard navigation with reduced motion",
+          "project": ""
+        },
+        {
+          "file": "storefront.spec.ts",
+          "title": "the shop and Incompris collection fit narrow, tablet and desktop screens",
+          "project": ""
+        },
+        {
+          "file": "theme.spec.ts",
+          "title": "home and store remain usable when storage getter is denied",
+          "project": ""
+        },
+        {
+          "file": "theme.spec.ts",
+          "title": "home and store remain usable when getItem is denied",
+          "project": ""
+        },
+        {
+          "file": "theme.spec.ts",
+          "title": "home and store remain usable when setItem is denied",
+          "project": ""
+        },
+        {
+          "file": "theme.spec.ts",
+          "title": "invalid persisted preferences fall back to the system theme",
+          "project": ""
+        },
+        {
+          "file": "theme.spec.ts",
+          "title": "manual preferences persist across reload and system mode resumes following the device",
+          "project": ""
+        }
+      ]
+    },
+    {
+      "config": "playwright.store-preview.config.ts",
+      "exitCode": 0,
+      "tests": 6,
+      "files": 2,
+      "discovery": [
+        {
+          "file": "artist-preview.spec.ts",
+          "title": "fictional artist search is limited to the selected view and preserves URL state",
+          "project": ""
+        },
+        {
+          "file": "artist-preview.spec.ts",
+          "title": "standalone and song browsing reach the same product and support deep links and Back",
+          "project": ""
+        },
+        {
+          "file": "artist-preview.spec.ts",
+          "title": "populated artist views fit a phone and retain canonical destinations",
+          "project": ""
+        },
+        {
+          "file": "artist-preview.spec.ts",
+          "title": "song search and direct links survive reload and touch navigation",
+          "project": ""
+        },
+        {
+          "file": "fourthwall-preview.spec.ts",
+          "title": "local Fourthwall tryout selects variants without leaving the site at 1440px",
+          "project": ""
+        },
+        {
+          "file": "fourthwall-preview.spec.ts",
+          "title": "local Fourthwall tryout selects variants without leaving the site at 390px",
+          "project": ""
+        }
+      ]
+    },
+    {
+      "config": "playwright.component-styles.config.ts",
+      "exitCode": 0,
+      "tests": 4,
+      "files": 1,
+      "discovery": [
+        {
+          "file": "styles.spec.ts",
+          "title": "declared consumer and representative stories have real styles in light",
+          "project": ""
+        },
+        {
+          "file": "styles.spec.ts",
+          "title": "declared consumer and representative stories have real styles in dark",
+          "project": ""
+        },
+        {
+          "file": "styles.spec.ts",
+          "title": "declared consumer and representative stories have real styles in high-contrast",
+          "project": ""
+        },
+        {
+          "file": "styles.spec.ts",
+          "title": "provider-owned ThemeToggle and toolbar-owned stories do not compete",
+          "project": ""
+        }
+      ]
+    }
+  ],
+  "workspaceAndStoryBaseline": {
+    "sourceHead": "a5e99afb060da64928bcf38cc1901e3b34889bb7",
+    "runtime": {
+      "node": "24.21.0",
+      "pnpm": "11.28.5",
+      "storybook": "10.6.2"
+    },
+    "scope": "Read-only compiler baseline; no application build, browser execution or repository edits. Composite configs may create ignored incremental compiler metadata.",
+    "checks": [
+      {
+        "name": "workspaces",
+        "command": "pnpm typecheck:workspaces",
+        "exitCode": 0,
+        "result": "pass",
+        "diagnostics": []
+      },
+      {
+        "name": "story-site",
+        "command": "pnpm exec tsc --project apps/egohygiene.io/tsconfig.storybook.json --noEmit",
+        "exitCode": 0,
+        "result": "pass",
+        "diagnostics": []
+      },
+      {
+        "name": "story-ui",
+        "command": "pnpm exec tsc --project packages/ui/tsconfig.storybook.json --noEmit",
+        "exitCode": 0,
+        "result": "pass",
+        "diagnostics": []
+      },
+      {
+        "name": "story-visualizations",
+        "command": "pnpm exec tsc --project packages/visualizations/tsconfig.storybook.json --noEmit",
+        "exitCode": 0,
+        "result": "pass",
+        "diagnostics": []
+      }
+    ],
+    "workspaceProjects": 14,
+    "remainingFailures": "Earlier tooling58/Vitest27 diagnostics at PR105 baseline remain open until fresh52 repair verification; these new checks do not replace them.",
+    "proposedScripts": {
+      "typecheck": "Keep existing fast public site/catalog/domain command.",
+      "typecheck:tooling": "tsc --project tsconfig.node.json --noEmit",
+      "typecheck:tests": "tsc --project tsconfig.vitest.json --noEmit",
+      "typecheck:browser": "tsc --project tsconfig.store-browser.json --noEmit",
+      "typecheck:stories": "tsc --project apps/egohygiene.io/tsconfig.storybook.json --noEmit && tsc --project packages/ui/tsconfig.storybook.json --noEmit && tsc --project packages/visualizations/tsconfig.storybook.json --noEmit",
+      "typecheck:locales": "tsc --project tsconfig.locales.json --noEmit",
+      "typecheck:workspaces": "Keep pnpm --recursive --if-present run typecheck",
+      "typecheck:all": "pnpm typecheck && pnpm typecheck:locales && pnpm typecheck:tooling && pnpm typecheck:tests && pnpm typecheck:browser && pnpm typecheck:stories && pnpm typecheck:workspaces"
+    },
+    "proposedConfigScopes": {
+      "tsconfig.node.json": {
+        "extends": "tsconfig.base.json",
+        "noEmit": true,
+        "modulePolicy": "Inherit Preserve/Bundler for Vite/Storybook/tool configuration; no root package type change and no declaration-emitting composite graph.",
+        "include": [
+          "vite.config.ts",
+          "vitest*.ts",
+          "playwright*.ts",
+          "knip.config.ts",
+          ".storybook/main.ts",
+          "apps/*/vite.config.ts",
+          "scripts/**/*.ts",
+          "scripts/**/*.mts",
+          "packages/*/scripts/**/*.ts"
+        ],
+        "excludeNote": "Browser-side Storybook manager/preview/theme remain checked by three existing story profiles; choose actual environment libs based on strict compiler results."
+      },
+      "tsconfig.vitest.json": {
+        "include": [
+          ".vitest/**/*.ts",
+          ".vitest/**/*.tsx",
+          "apps/*/src/**/*.d.ts",
+          "apps/*/src/**/*.test.ts",
+          "apps/*/src/**/*.test.tsx",
+          "packages/*/src/**/*.test.ts",
+          "packages/*/src/**/*.test.tsx",
+          "tests/accessibility/**/*.ts",
+          "tests/accessibility/**/*.tsx",
+          "tests/smoke/**/*.ts"
+        ],
+        "aliases": "Map #test-utils and explicitly used workspace source aliases consistent with runtime Vitest config.",
+        "types": "Retain strict ES2022/DOM/Vite/Node with no compiler weakening; replace test-only toReversed with copying reverse or justify node test lib separately."
+      },
+      "tsconfig.store-browser.json": {
+        "include": [
+          "apps/egohygiene.io/src/vite-env.d.ts",
+          "playwright*.ts",
+          "tests/e2e/**/*.spec.ts",
+          "tests/component-styles/**/*.ts",
+          "tests/component-styles/**/*.tsx",
+          "tests/storefront-qualification/host.tsx",
+          "tests/catalog-localization/host.tsx"
+        ],
+        "scope": "All maintained browser runner configs, specs and browser fixtures. Node .mts journey harnesses stay covered by tsconfig.store; preserve independent DOM-free domain profile."
+      },
+      "tsconfig.typecheck.json": {
+        "status": "Unused solution-style reference inventory; no tracked invocation found.",
+        "problem": "References non-composite/noEmit application/story configurations and omits store/domain/locales/browser profiles; not a reliable all-types gate.",
+        "disposition": "Remove with explicit replacement documentation pointing to typecheck:all, retaining historical Git record; do not build a second project-reference graph."
+      }
+    }
+  }
+}
