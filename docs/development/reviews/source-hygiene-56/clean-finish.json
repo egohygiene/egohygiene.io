@@ -1,0 +1,17 @@
+{
+  "source": "2697f5a967a950d7e4abb3d77615478a83567c0c",
+  "gitCleanAfterBuildsAndTests": true,
+  "trackedOutputRootsEmpty": true,
+  "retainedEmptyScaffolds": 35,
+  "removedEmptyStubs": 26,
+  "ignoreEvidence": [
+    ".gitignore:303:/storybook-static/\tstorybook-static/.ignore-probe",
+    ".gitignore:310:/test-results/\ttest-results/.ignore-probe",
+    ".gitignore:88:.cache/\t.cache/storybook/index.html",
+    ".gitignore:306:packages/*/dist/\tpackages/utilities/dist/index.d.ts",
+    ".gitignore:304:apps/*/dist/\tapps/egohygiene.io/dist/index.html",
+    ".gitignore:304:apps/*/dist/\tapps/docs/dist/index.html",
+    ".gitignore:304:apps/*/dist/\tapps/playground/dist/index.html"
+  ],
+  "probeLimits": "Two labeled transient text probes only; no synthetic Playwright result or browser execution."
+}

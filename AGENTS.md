@@ -6,7 +6,34 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
-## Current #53 local delivery — 2026-10-25
+## Current #56 local delivery — 2026-10-25
+
+#103 is merged; #56 A/B/C local work is in [draft #104](https://github.com/egohygiene/egohygiene.io/pull/104),
+source `2697f5a967a950d7e4abb3d77615478a83567c0c`. Read [the receipt](docs/development/source-hygiene-56.md),
+[verification](docs/development/reviews/source-hygiene-56/verification.json), current-state
+and provenance.66 generated outputs/26 obsolete stubs removed;35 required/future
+empty paths retain owners. Fresh-checkout checks,345 tests and four builds pass;
+all66 app output files are byte-identical, Git remains clean. Storybook generated
+metadata/addon differences, unchanged size/hosted failures and deferred browsers
+are explicit. No gate changed; no current browser qualification inferred.
+
+Sync on #104, then #59 licensing/provenance. #53 C/#73/#90/#100 and the final Mac
+pass retain their existing obligations. #26 ADR history is not fabricated; no new
+ADR was needed for this housekeeping. No merge of #104, deployment, real product/
+provider activation or source-store retirement is implied.
+
+## Prior #56 source hygiene — 2026-10-25
+
+#103 merged at `3a7527697fd9726279f809ca89235f2fbf5ac88e` with the reviewed tree;
+#53 actual browser acceptance remains open. Alan selected #56 next. Read
+[the contract and inventories](docs/development/source-hygiene-56.md), current-state
+and provenance. Preserve canonical generated tokens, MSW/fixtures, reviewed evidence
+and #100's bundle; empty required/future files are not automatically obsolete.
+Save A before removal, keep exact dispositions, and prove B in a clean checkout.
+Chromium/CI/refactor work remains deferred; no gate changes or deployment. Sync
+on local #56 delivery before #59. #73/#90/#100 acceptance gaps stay open.
+
+## Prior #53 local delivery — 2026-10-25
 
 Read [the receipt](docs/design/component-styles-53.md), [verification](docs/design/reviews/component-styles-53/verification.json),
 current-state/provenance and ADR 0015. A/B and local C are saved in draft #103;

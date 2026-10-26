@@ -1,5 +1,59 @@
 # Current handoff
 
+## Current: #56 local A/B/C delivered — 2026-10-25
+
+[Draft #104](https://github.com/egohygiene/egohygiene.io/pull/104) on
+`chore/source-hygiene-56` follows merged #103/main
+`3a7527697fd9726279f809ca89235f2fbf5ac88e`. A was saved before B; implementation
+`2697f5a967a950d7e4abb3d77615478a83567c0c`, tree
+`d27295f399faf0496382f9c8b27d70161d9c2b8b`. [Contract/receipt](../development/source-hygiene-56.md),
+[verification](../development/reviews/source-hygiene-56/verification.json) and the
+per-file inventories record66 removed generated files (8,545,235bytes),26 obsolete
+empty stubs removed,35 required/future empty paths retained with owners. Storybook
+now emits `.cache/storybook`; legacy output is ignored. No active feature/contract,
+lockfile/version, canonical token/MSW/fixture or preservation artifact changed.
+
+Fresh clean-checkout frozen install, selected types/checks,341 units,three build
+smoke checks,one isolated consumer test and all four sequential builds pass.
+All66 app artifact files are byte-identical to the fresh merged-source baseline.
+Storybook59/62 files match; three generated differences are documented. Unit and
+31+4 browser discovery are unchanged; zero browsers executed. Git stays clean
+through regeneration, removed output roots stay untracked and old blobs recover.
+
+Same three artifact budgets and source hosted CI/dependency/CodeQL fail; no gate
+changed. #53 C browser/visual, prior build collision, #73 conflicts and #90/#100
+acceptance remain with existing owners. This final follow-up is docs/evidence only;
+#104 remains draft/unmerged. Next: sync, then **#59 licensing/asset provenance**.
+No new ADR: existing source/output ownership applies; #26 backfill remains gated.
+No deployment, purchasing, provider activation or history rewrite.
+
+## Current: #56 checkpoint B — 2026-10-25
+
+A was saved in [draft #104](https://github.com/egohygiene/egohygiene.io/pull/104) at
+`f7311c089b2197658851eff166ceb6486aa3cd9d` before removal. B removes precisely66
+historical output files and26 inventoried obsolete empty stubs. Storybook's build
+command explicitly writes `.cache/storybook`; the legacy root output is ignored.
+The other35 empty files, canonical tokens/MSW/fixtures and preserved history stay.
+README links the contract. No runtime behavior, external version, lockfile or gate
+change. Publish B, then perform C in a fresh checkout with removed roots absent.
+Browser acceptance remains deferred. Sync after local delivery before #59.
+
+## Current: #103 merged; #56 checkpoint A — 2026-10-25
+
+Alan authorized #103 integration as the prerequisite, then continued #56. Merge
+`3a7527697fd9726279f809ca89235f2fbf5ac88e` exactly matches reviewed #103's tree.
+#53 C browser/visual acceptance remains open; refreshed hosted checks failed and
+no gate changed. #73 remains for #29/#52. Branch `chore/source-hygiene-56` starts
+from this merge after recovering a fresh clone from GitHub.
+
+[Source hygiene contract](../development/source-hygiene-56.md) and its per-file
+inventories classify66 generated outputs (8,545,235bytes) and61 empty files.
+Remove26 confirmed obsolete stubs; retain21 required/incomplete and14 intentional
+future paths with owners. Preserve reserved ADRs, licensing/governance gaps,
+token source exports, MSW, fixtures and historical evidence. Save A as a draft
+before B cleanup, then fresh-checkout C. Next after delivery/sync is #59.
+No deployment, activation, private material or repository history rewrite.
+
 ## Current: #53 implementation and local review — 2026-10-25
 
 Draft [#103](https://github.com/egohygiene/egohygiene.io/pull/103) contains A/B and

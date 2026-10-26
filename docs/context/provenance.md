@@ -5,6 +5,64 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Source hygiene #56 fresh-checkout C — 2026-10-25
+
+Published B `2697f5a967a950d7e4abb3d77615478a83567c0c` matched staged tree
+`d27295f399faf0496382f9c8b27d70161d9c2b8b`. A detached fresh checkout began without
+node_modules/caches/app output/removed output roots. Frozen script-disabled install
+used pinned Node24.21.0/pnpm11.28.5, with no version/lockfile/policy change. Selected
+source types/checks,341 units/45files,three fresh-build smoke checks and one isolated
+consumer integration test (three negative probes) pass. Website/docs/playground/
+Storybook builds ran sequentially; utility declarations regenerated into ignored dist.
+
+[Verification](../development/reviews/source-hygiene-56/verification.json) preserves
+source-bound hashes/discovery/cleanliness and limits. All66 app artifact files match
+fresh merged-main baseline; Storybook59/62 match, with timestamp/discovery stats and
+two generated addon manager bundles differing. Unit341/default-browser31/component4
+discovery is unchanged after normalizing paths/order; multiplicity preserved. Zero
+browsers executed. Seven ignore checks, all35 retained empty paths and26 removed
+stubs pass; Git remains clean and all66 historical output blobs retain saved hashes.
+
+Same three artifact budget categories and B hosted CI40257317928/dependency
+40257317842/CodeQL40257317937 fail. No gate/ceiling changed or workflow dispatched.
+No concurrent-build experiment, browser equivalence or full qualification claimed.
+Independent deletion/consumer review found no blocker. Local A/B/C complete in draft
+#104; this follow-up is docs/evidence only. Next sync then #59. Existing incomplete
+policy/license/ADR/future contracts retain their owners; ADR not required for applying
+existing source/output boundaries. No history rewrite, private records or activation.
+
+## Source hygiene #56 B — 2026-10-25
+
+A `f7311c089b2197658851eff166ceb6486aa3cd9d` was published in draft #104 before
+changes. B deletes exactly the66 inventoried outputs and26 obsolete zero-byte
+paths, adds a root Storybook-output ignore and makes its command use the existing
+ignored cache destination. Existing source exports/root test profiles remain;
+35 required/future scaffolds and all retained provenance assets are untouched.
+This does not implement their outstanding contracts or reconstruct ADR history.
+
+C will bind fresh-checkout builds/tests/discovery and clean Git state to published
+B. A fresh merged-main baseline built all three apps/Storybook sequentially, and
+unit/default-browser/component-browser discovery was captured before removal.
+No Chromium, broad lint/CI repair, provider call or deployment is included.
+
+## #103 integration and source hygiene #56 A — 2026-10-25
+
+Authority: Alan approved closing the prerequisite PR through integration and
+continuing. Recovered the pruned checkout from GitHub, read instructions/context,
+refreshed main/#103/#53/#56 and checks. #103 was ready/mergeable at reviewed
+`b31b30551ef13766524178f364ea466e0e4f9f1f`; merge commit
+`3a7527697fd9726279f809ca89235f2fbf5ac88e` has the identical tree
+`68faf30731958a2ace4255068eff1db310b8df7f`. Validate40237198491 and dependency
+40237198486 failed; no rule/gate changed. #53 C remains open.
+
+Two independent read-only audits inventoried66 tracked generated outputs and61
+zero-byte files, with hashes/consumers/owners in the [#56 contract](../development/source-hygiene-56.md).
+Selected26 obsolete paths for removal, retaining35 required/future files. No
+license, ADR history, implementation or passing test is inferred from emptiness.
+Fresh merged-source website/docs/playground/Storybook baseline builds pass; their
+artifacts are local comparison inputs, not hosted/browser acceptance. Save A in
+its own draft before B/C. No external code/assets copied or real services activated.
+
 ## Component styles #53 local checkpoint C — 2026-10-25
 
 B `67f1b3a1f693f69999e515fc52b93f43afbcd308`, tree

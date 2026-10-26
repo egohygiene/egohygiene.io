@@ -1,0 +1,21 @@
+{
+  "unit": {
+    "tests": 341,
+    "files": 45,
+    "identical": true,
+    "normalization": "Relative source paths and sorted (file,name,projectName), preserving multiplicity; discovery ordering is not stable.",
+    "sha256": "61e373af1787cb070a1441ddaca4668c363655cc205bb8d990ded11981eb52fd"
+  },
+  "browser": {
+    "summary": "Total: 31 tests in 3 files",
+    "identical": true,
+    "executed": 0,
+    "sha256": "f47a34d84402245e6153f4ec78faa1b2b5d400db095c24258c78f4857d1b4c6d"
+  },
+  "component": {
+    "summary": "Total: 4 tests in 1 file",
+    "identical": true,
+    "executed": 0,
+    "sha256": "16c086e7193662dbb0e67a4a0180ffa28dc8a6944386cf97f4a0946fe82aa91e"
+  }
+}

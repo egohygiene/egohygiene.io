@@ -1,0 +1,528 @@
+{
+  "source": "3a7527697fd9726279f809ca89235f2fbf5ac88e",
+  "groups": {
+    "storybook-static": {
+      "files": 63,
+      "bytes": 8544669,
+      "tree": "a706093ef4f1d3a2ea2d9c3c8a88f65bf0add5c1"
+    },
+    "test-results": {
+      "files": 1,
+      "bytes": 45,
+      "tree": "c59876354b2d4f9b578d5c335419fee7b8a8aad0"
+    },
+    "packages/utilities/dist": {
+      "files": 2,
+      "bytes": 521,
+      "tree": "9eef3a57d58597fd291d690554869245fecb928f"
+    }
+  },
+  "files": [
+    {
+      "path": "packages/utilities/dist/index.d.ts",
+      "blob": "5c196f6abde91104ef6ff5bc35ca88cdda8ff52a",
+      "bytes": 229,
+      "sha256": "2956a3724e76b476be8c360c142d7215e95a0f34a7284e20955498127c2da54c"
+    },
+    {
+      "path": "packages/utilities/dist/index.d.ts.map",
+      "blob": "fab75d61ab96389c50c1005323c3f313fd8a1d36",
+      "bytes": 292,
+      "sha256": "8b9974f30ea66bf97b31df2239a0702a3be5ea01f6d703dc147e333d13357a17"
+    },
+    {
+      "path": "storybook-static/assets/Button-CJHTgDqk.js",
+      "blob": "5b723f312c40a368387784f5866987a83c67ceef",
+      "bytes": 1588,
+      "sha256": "9080ae17dc270e3be5deaa44e86fb9c1b139779a6fba8894d341e80e6fb410b6"
+    },
+    {
+      "path": "storybook-static/assets/Button.stories-CgczEHKR.js",
+      "blob": "d855e25b6dc6713da6111bf66085c78f8e1ee569",
+      "bytes": 815,
+      "sha256": "b53199ac95109c6d25b506828cef28bda03723b8e7afb1cb457d0c306f3ae2a2"
+    },
+    {
+      "path": "storybook-static/assets/Color-6AOWCN3U-D9EySv_O.js",
+      "blob": "30c1d13207e0ba8d8e82c577f5de4246b8bd8462",
+      "bytes": 30429,
+      "sha256": "e8e058ffe1f1ea6cf265392ca587625aad4cd97dd2205bab1c48d48e063d32fc"
+    },
+    {
+      "path": "storybook-static/assets/DocsRenderer-JROSPFPF-CSHTuOjY.js",
+      "blob": "3a89de566e28ca3fa80ca5bf0baf88d0cb8f590e",
+      "bytes": 191771,
+      "sha256": "48fe441644f478f93afc82736ea3b70205c0b351ad78a930d8515e2d7a27dd96"
+    },
+    {
+      "path": "storybook-static/assets/LayoutPrimitive.stories-BYULup1Z.js",
+      "blob": "3085322139cf7b29dc6f8817890f6390d4aa5870",
+      "bytes": 699,
+      "sha256": "bdd8b73ba0089916e4d8a08f562a9349f143377034c6f548cec3dd70f834f4a2"
+    },
+    {
+      "path": "storybook-static/assets/Spinner-Dpu_QCpj.js",
+      "blob": "0b9f921878d4b98ace463c8afa26b751b8bb4cc3",
+      "bytes": 519,
+      "sha256": "af1b2ed80ac9633d22ab23d1b5cca2530044f982c2cb4f4aed33d7938c4680a4"
+    },
+    {
+      "path": "storybook-static/assets/Spinner.stories-BCytN-SF.js",
+      "blob": "bec7929a7a08ddef28f7f08d0594dbd08e600f0d",
+      "bytes": 394,
+      "sha256": "aa824be71a79923d0f227816e11f762cf4594679a832e2c928cad5d44539fb3f"
+    },
+    {
+      "path": "storybook-static/assets/StatusBadge.stories-BoapMbkF.js",
+      "blob": "dde3449009a10b45752d130d4be85d747ad0f8b2",
+      "bytes": 506,
+      "sha256": "7d396790e4c0f5ea1a61ea9c3b92aa09af3b8879ce420066a7774bf85e02a74c"
+    },
+    {
+      "path": "storybook-static/assets/ThemeToggle.stories-ByhylGWL.js",
+      "blob": "172b8e1eab4eb1bacc4d228f9e7233051f9d7cf7",
+      "bytes": 517,
+      "sha256": "2124c4beea909dde58452caf464e58b8e6984e1087b0bbf2f06f331f7ab86e3e"
+    },
+    {
+      "path": "storybook-static/assets/WithTooltip-7X4HQR7L-B4hPAgGU.js",
+      "blob": "537eed30af257cb5badaad2e0a7e2b7ce062d222",
+      "bytes": 32704,
+      "sha256": "ab1432c0ccbda9673b325d93fd46c1e93a73943644a1e1c499d4b02a391c320f"
+    },
+    {
+      "path": "storybook-static/assets/architecture-8BOAkOz1.js",
+      "blob": "da60063f38b4d8cfe8447190fed660ab5c11b139",
+      "bytes": 996,
+      "sha256": "f942df90460475e9b0687d59b73871de9f671477bf14bd0a15f02d83f0325203"
+    },
+    {
+      "path": "storybook-static/assets/axe-CU0zJHZz.js",
+      "blob": "610dab4962fea8ce4d82094e05d2cc04da3ae7c9",
+      "bytes": 579134,
+      "sha256": "3aab0c7126b64f01b77915569df151650ee36f2f2e1e1654137e7d21ad68d3f2"
+    },
+    {
+      "path": "storybook-static/assets/chunk-242VQQM5-bHL6qIJq.js",
+      "blob": "004881a6107cb23f00bb7cdef986d9f84a3babc5",
+      "bytes": 241,
+      "sha256": "e01922a7116f4c1d202a02ac1a9917448890f7e71813c1dddb8688f6bb96fcd5"
+    },
+    {
+      "path": "storybook-static/assets/chunk-5GYAEUAU-BGgO7bU4.js",
+      "blob": "c62eb0e6f96d3b6966bc2680812a79f1b6017976",
+      "bytes": 5144,
+      "sha256": "1f85d0d7f20707896eb259543327446b3c989b5b23142547ca0b0c7fb835b170"
+    },
+    {
+      "path": "storybook-static/assets/chunk-DRQKCCAG-2nLUCFCe.js",
+      "blob": "272e01f46a453b88bd087ba85b84e489eb20847c",
+      "bytes": 4934,
+      "sha256": "95d940bf15ffd795e371f8167fef0015999929a1cf545fdf0e5a39fa8efda696"
+    },
+    {
+      "path": "storybook-static/assets/chunk-QQBDHPVZ-DC5n6Pix.js",
+      "blob": "3660d5f0b0c702e802c424e48a8e49c94877a043",
+      "bytes": 325,
+      "sha256": "234df40d951571c6dccfad6b3700b9cc61d5414f9adb5ed411f8c64960406384"
+    },
+    {
+      "path": "storybook-static/assets/chunk-UAWMPV5J-_VQykhfG.js",
+      "blob": "150666acd8206ed9ddd1eb850dde1f2c692c728a",
+      "bytes": 746,
+      "sha256": "1b4ef91f53f4d320c98b148562e001eec267d17c0c8b2628c1ac59ecfd6d35fb"
+    },
+    {
+      "path": "storybook-static/assets/chunk-W22LQPXL-U_iqB-J0.js",
+      "blob": "288740f0fa8c35a5750db8671230fafc2e457731",
+      "bytes": 22749,
+      "sha256": "e88275f883d9c0baa1e3b457a89f5f73eec6d2c8bb0845e0e23fc44edc0dad05"
+    },
+    {
+      "path": "storybook-static/assets/components-CtcV91AR.js",
+      "blob": "5db87fe3772de3ca55e02b2c46644937fb901086",
+      "bytes": 566627,
+      "sha256": "ddaeac9fe2d806120d9b8efa28afeadcac43667af234c847a9a96ccfd1087e94"
+    },
+    {
+      "path": "storybook-static/assets/development-wWO6Uqcy.js",
+      "blob": "528bd57c98fe085d8f6f4cb3bf8c38d13ec29a85",
+      "bytes": 1052,
+      "sha256": "d26578606d72a73748f00818205d602bd08c8484eb03010883f5f5c6c6e29e9d"
+    },
+    {
+      "path": "storybook-static/assets/esm-CxVqTTYR.js",
+      "blob": "93520146c2db2effddf59ee2b53496600d30a3ae",
+      "bytes": 57398,
+      "sha256": "a5b5bfc5c2a2ebf098ac6967ae2ea3c5627d4dbac5badccdc5f6daff335c6330"
+    },
+    {
+      "path": "storybook-static/assets/formatter-L2YTDE3Q-CyMm-F7S.js",
+      "blob": "69bc6d9aa2b171e4718528e74bbf327f55c4aa75",
+      "bytes": 253,
+      "sha256": "424c3dd371c543aedb57a3731c94ea481f2eff8c58acdb4045937a20f8e8bd3d"
+    },
+    {
+      "path": "storybook-static/assets/getting-started-CcaP-uYD.js",
+      "blob": "708154823b63c359b841b55310d7ae53f204ed4d",
+      "bytes": 1134,
+      "sha256": "ceb5028f3e906c19755ada59203e91e9fc39444bf8582c4a363a29e1c830d1b1"
+    },
+    {
+      "path": "storybook-static/assets/iframe-Dov5cGlF.js",
+      "blob": "c541976a7f7a682b5c75aad8eab6d8d3370e82e1",
+      "bytes": 1071163,
+      "sha256": "3a72b9e5844809466aeeb4dad2549200cbab337e73dc2354c1dfa4e37204cada"
+    },
+    {
+      "path": "storybook-static/assets/jsx-runtime-DeHZSEgm.js",
+      "blob": "3da236faaf35e05979c18a1daf5f8f66895ca973",
+      "bytes": 435,
+      "sha256": "060f692f6a2dc7e8574c63fa9297b89e505e453f427a07057760958f50ac458d"
+    },
+    {
+      "path": "storybook-static/assets/lib-BRDOWE9X.js",
+      "blob": "d3e1cb3433f578342ade44f2cefee304420ea024",
+      "bytes": 503,
+      "sha256": "adcb35b50e18946397c24227f30498465526608a3769d31ae55a53d67995f139"
+    },
+    {
+      "path": "storybook-static/assets/matchers-JIUQ3HVY-C789_MAK.js",
+      "blob": "b5a59527f2dae604dc5653ccedc0661b6805fccc",
+      "bytes": 28794,
+      "sha256": "48128c99fe4ed8f81238e59d3f6da6d35872b64c282c5b633e619f162c8b15c5"
+    },
+    {
+      "path": "storybook-static/assets/packages-DrjV0vzm.js",
+      "blob": "5500c96f01f3ca939cc4c7d76f5e6585489dfd18",
+      "bytes": 1024,
+      "sha256": "ffaeb28e21a0ad8bdb14c546d9e4b880758eff3f817a3a03714310ca0b12bce3"
+    },
+    {
+      "path": "storybook-static/assets/preload-helper-wdlQj8DP.js",
+      "blob": "921ae3430e952a04bd178bef95e061b4b99c073c",
+      "bytes": 1317,
+      "sha256": "b6f9876ffec485f0ac5c5f448fcf795d4fab668ea91b1f58896fcc04e6bd1ab2"
+    },
+    {
+      "path": "storybook-static/assets/react-18-D_VumX10.js",
+      "blob": "8502fd75b32a87b1a35c20645f97e20e310e8bc6",
+      "bytes": 179076,
+      "sha256": "9cdcd0a49c8303ae8afe11a078eccbb439c48c84bfdbe41331da4b5d3e96412b"
+    },
+    {
+      "path": "storybook-static/assets/react-BZJXY1be.js",
+      "blob": "3f0de4c7c0a6b31495d0c789896f7cd9e1e164f3",
+      "bytes": 7532,
+      "sha256": "0a086d4de4c47805354a5b147618943685bca68df7c599de2fcee999169540a0"
+    },
+    {
+      "path": "storybook-static/assets/react-DMKA-tWh.js",
+      "blob": "13fcf9a793b38b8515dab1caf98633bab8522fe3",
+      "bytes": 189,
+      "sha256": "2d852f4e1eb06b9cb2a1a8fdf614034f5cc9754ab79a9a4cf97463b1b0106517"
+    },
+    {
+      "path": "storybook-static/assets/react-dom-DW3UqKx2.js",
+      "blob": "510a31312df1f4b45de857d56983f470fb154aef",
+      "bytes": 3579,
+      "sha256": "6a4689830b27b77ab49dcf364028acf9b9d0b4524c73f0616a479cf30d9e91d2"
+    },
+    {
+      "path": "storybook-static/assets/rolldown-runtime-DkW27tQK.js",
+      "blob": "620908927ef1e59bde19b8a0642cd2386f10cc10",
+      "bytes": 1197,
+      "sha256": "4625e101449061a5fae04634001143ffaba4e22a6141f1f77ed6d342b4e9db4e"
+    },
+    {
+      "path": "storybook-static/assets/src-CU-OraBt.js",
+      "blob": "6452ab55ebeb01f21ff75f7e204c7fa63a34051f",
+      "bytes": 4995,
+      "sha256": "bc73b6519f075fe52d342de061ff2de4661ca61f3ee754ccdffe0efad0c0944b"
+    },
+    {
+      "path": "storybook-static/assets/syntaxhighlighter-T5IQBZDB-Di9ZiRl1.js",
+      "blob": "b15a6600b40700db43c73115d8386949065f1aa4",
+      "bytes": 75874,
+      "sha256": "230facd084cf3728f2fba79b2ee34a498a069093fe8dc6b610e70f0c4d032ef7"
+    },
+    {
+      "path": "storybook-static/assets/theming-D88SqoO7.js",
+      "blob": "f17a7b14dc1b06f81fd5d53c16c933e85fcbe417",
+      "bytes": 55372,
+      "sha256": "500c6c3cdcd315709c52812b3774d717c24dc47e904c57cbb7e4d431d0a3fe1b"
+    },
+    {
+      "path": "storybook-static/favicon-wrapper.svg",
+      "blob": "34ff9a24b27d0fed940ebd8c8934c0d938f42218",
+      "bytes": 5803,
+      "sha256": "5311f921255509431fc978cd04fd497ae54c46cfd97b3578dc53d7f652667a71"
+    },
+    {
+      "path": "storybook-static/favicon.svg",
+      "blob": "d2a29f2dcb282fc5f84a894280216a92c4665b86",
+      "bytes": 2163,
+      "sha256": "3a13ac7344753df5a7cd5b41a67e33966c1ae723f1e5e5128a6ed1bca1adc85a"
+    },
+    {
+      "path": "storybook-static/iframe.html",
+      "blob": "4e56a67a27457eb326ed231b462082437f1c59e9",
+      "bytes": 20147,
+      "sha256": "a82cf5cc946743a060e6f3b4175c4da8538f18edb24031c48a458dc4b0827253"
+    },
+    {
+      "path": "storybook-static/index.html",
+      "blob": "df98bac0de6c3ac3ed9f04337e67d7ee184d4e7e",
+      "bytes": 3718,
+      "sha256": "0646902620f334f48bf2889fbab851d55d5e4d3fec4117195b781445ba8624b1"
+    },
+    {
+      "path": "storybook-static/index.json",
+      "blob": "05af7bc064031fe6ffe2f10d636d941061c85a53",
+      "bytes": 4827,
+      "sha256": "5b47fa3f32dba38b62ac097e22541b481e824f132870351e3bc490180c90772a"
+    },
+    {
+      "path": "storybook-static/nunito-sans-bold-italic.woff2",
+      "blob": "33563d8bf4cde9714ef7dbeadabc769bba555dde",
+      "bytes": 49460,
+      "sha256": "36aadf15d24dfa97c0446c9ca713b9d004f0f5674d1043b2b51c75105962cab9"
+    },
+    {
+      "path": "storybook-static/nunito-sans-bold.woff2",
+      "blob": "19fcc944a152862670ea6adaa1cf3fd4926474fa",
+      "bytes": 47144,
+      "sha256": "6bccbfaa70688e0348109160e90c771587866c21717bfd3adec38ea606362cf8"
+    },
+    {
+      "path": "storybook-static/nunito-sans-italic.woff2",
+      "blob": "827096daec30f761f6b910650db2c80183227c3b",
+      "bytes": 49620,
+      "sha256": "992f331636deda09193ac0453c274ac3fb7e66f70af98e1cbff119a7384f09ae"
+    },
+    {
+      "path": "storybook-static/nunito-sans-regular.woff2",
+      "blob": "c527ba49cf63b3e9462f2a8f6e7f650ee28d1950",
+      "bytes": 47072,
+      "sha256": "49fe05ec477bb0f2f815a7494c933070606b5c68e84f96e11374e07c59a64d61"
+    },
+    {
+      "path": "storybook-static/project.json",
+      "blob": "0cb61bb19b8595e50a3a9af9a05f9268bd285c0d",
+      "bytes": 1050,
+      "sha256": "f400bfafc270b558786244dbbc16285738debce73a070b5d9b941bddf626ae98"
+    },
+    {
+      "path": "storybook-static/sb-addons/a11y-2/manager-bundle.js",
+      "blob": "876d8da219688c54c8fe07a8c8cce813b4fdfbf9",
+      "bytes": 66572,
+      "sha256": "dada77131530197fd59f75981a466966b124d47347a543b4e60d4c11c711cfa9"
+    },
+    {
+      "path": "storybook-static/sb-addons/docs-1/manager-bundle.js",
+      "blob": "e3e77406f7a770a23990646229ffc0e8c367b1de",
+      "bytes": 66061,
+      "sha256": "49e0436db8bbe4745f26fb2bc90d630d32455b880a005d218ebd3743520a3a21"
+    },
+    {
+      "path": "storybook-static/sb-addons/storybook-4/manager-bundle.js",
+      "blob": "74b4f0c7cb5b5d4a8f0447fd4d72d18b3c541ed1",
+      "bytes": 2439,
+      "sha256": "a05b431f53e5f0f97e3d039f51d5b4493842d9fdfa19cbd6e1366627e8fb501b"
+    },
+    {
+      "path": "storybook-static/sb-addons/storybook-core-server-presets-0/common-manager-bundle.js",
+      "blob": "5fd930859995c4040a1b59bbc06c9f3c45ab0c38",
+      "bytes": 473032,
+      "sha256": "f8e23e8eae648740b9dcb9fd5f90b823f8d219598b0e7b40801726b09cbfb92c"
+    },
+    {
+      "path": "storybook-static/sb-addons/themes-3/manager-bundle.js",
+      "blob": "0a17009abf41a93668c31a4fc80bfc4654fa1d62",
+      "bytes": 8315,
+      "sha256": "163093d90e378ded82b5f4673851f87e3f998c9d56845426b7ec395b940423a3"
+    },
+    {
+      "path": "storybook-static/sb-common-assets/favicon-wrapper.svg",
+      "blob": "34ff9a24b27d0fed940ebd8c8934c0d938f42218",
+      "bytes": 5803,
+      "sha256": "5311f921255509431fc978cd04fd497ae54c46cfd97b3578dc53d7f652667a71"
+    },
+    {
+      "path": "storybook-static/sb-common-assets/favicon.svg",
+      "blob": "d2a29f2dcb282fc5f84a894280216a92c4665b86",
+      "bytes": 2163,
+      "sha256": "3a13ac7344753df5a7cd5b41a67e33966c1ae723f1e5e5128a6ed1bca1adc85a"
+    },
+    {
+      "path": "storybook-static/sb-common-assets/nunito-sans-bold-italic.woff2",
+      "blob": "33563d8bf4cde9714ef7dbeadabc769bba555dde",
+      "bytes": 49460,
+      "sha256": "36aadf15d24dfa97c0446c9ca713b9d004f0f5674d1043b2b51c75105962cab9"
+    },
+    {
+      "path": "storybook-static/sb-common-assets/nunito-sans-bold.woff2",
+      "blob": "19fcc944a152862670ea6adaa1cf3fd4926474fa",
+      "bytes": 47144,
+      "sha256": "6bccbfaa70688e0348109160e90c771587866c21717bfd3adec38ea606362cf8"
+    },
+    {
+      "path": "storybook-static/sb-common-assets/nunito-sans-italic.woff2",
+      "blob": "827096daec30f761f6b910650db2c80183227c3b",
+      "bytes": 49620,
+      "sha256": "992f331636deda09193ac0453c274ac3fb7e66f70af98e1cbff119a7384f09ae"
+    },
+    {
+      "path": "storybook-static/sb-common-assets/nunito-sans-regular.woff2",
+      "blob": "c527ba49cf63b3e9462f2a8f6e7f650ee28d1950",
+      "bytes": 47072,
+      "sha256": "49fe05ec477bb0f2f815a7494c933070606b5c68e84f96e11374e07c59a64d61"
+    },
+    {
+      "path": "storybook-static/sb-manager/globals-runtime.js",
+      "blob": "233d8f44168262a7136a0530a71a7b944664c03d",
+      "bytes": 3294169,
+      "sha256": "43514a5dba7dc2f7b03b9c7219594c87eab0cba9f6c8fedb2a9653cd0e4fa306"
+    },
+    {
+      "path": "storybook-static/sb-manager/globals.js",
+      "blob": "55c7e1ca278925064e69540f916b9025288b983b",
+      "bytes": 1019,
+      "sha256": "92b01f036774b61bdd7427aeddc717c920b5db2214910022f7e7f15295f6732b"
+    },
+    {
+      "path": "storybook-static/sb-manager/manager-stores.js",
+      "blob": "784c4597fa1fcc3f545e83babae00f0370b5e16a",
+      "bytes": 654,
+      "sha256": "7c1a133375036edc00df3e4e825659443a6de7af38ceebf5a38a5cc5ffdaa0f4"
+    },
+    {
+      "path": "storybook-static/sb-manager/runtime.js",
+      "blob": "e00fd5858c3f40c99857843f1d965e3f2dff3d6b",
+      "bytes": 1240574,
+      "sha256": "f5a2b3a57839e8b1319065ebb72b255c561bac682fc138148cd4726eaf78ac60"
+    },
+    {
+      "path": "storybook-static/vite-inject-mocker-entry.js",
+      "blob": "5fb5ba9298d455a6ce700269146c0c839266e278",
+      "bytes": 27843,
+      "sha256": "2977fbe70e3aa4f9a4938a434b8ba9ac5417febc3a29cb2507e894a5dbf0818b"
+    },
+    {
+      "path": "test-results/.last-run.json",
+      "blob": "cbcc1fbac11a74b608b2b3edc3a2ffd6ab639cb2",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    }
+  ],
+  "retained": [
+    {
+      "path": "packages/design-tokens/src/generated.ts",
+      "bytes": 1594,
+      "sha256": "3c024ddbd3f6773f8f9cb2e0d9aa88601f3364482c6710096891553f574fe24a",
+      "reason": "Declared source export generated from versioned token JSON; retain with source under ADR0003."
+    },
+    {
+      "path": "packages/design-tokens/src/generated.css",
+      "bytes": 1713,
+      "sha256": "188534e054d7cfaf97872b97a04e39ad1a342d6e3eef26a9348b569b3e1d987b",
+      "reason": "Declared public CSS export required by themes; retain with token JSON under ADR0003."
+    },
+    {
+      "path": "public/mockServiceWorker.js",
+      "bytes": 9666,
+      "sha256": "26171599d94d5445297303f3a1f1cedec26835ea3d0057dcfa92ec520cb35cca",
+      "reason": "Checked-in MSW integration asset referenced by root workerDirectory; generated header alone does not make disposable output."
+    },
+    {
+      "path": "docs/migration/store-retirement/store-source.bundle",
+      "bytes": 224880,
+      "sha256": "75e3852f3f8865e81ea2b9d541c28690ad0d15f79ca08f0b262081f2ccbfaa87",
+      "reason": "Reviewed recoverable historical source artifact under ADR0014, not an application build."
+    }
+  ],
+  "manifestExportAudit": [
+    {
+      "manifest": "packages/themes/package.json",
+      "exports": {
+        ".": "./src/index.ts",
+        "./styles.css": "./src/styles.css"
+      }
+    },
+    {
+      "manifest": "packages/icons/package.json",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "manifest": "packages/i18n/package.json",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "manifest": "packages/content/package.json",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "manifest": "packages/config/package.json",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "manifest": "packages/api-client/package.json",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "manifest": "packages/schemas/package.json",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "manifest": "packages/utilities/package.json",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "manifest": "packages/visualizations/package.json",
+      "exports": {
+        ".": "./src/index.tsx",
+        "./styles.css": "./src/styles.css"
+      }
+    },
+    {
+      "manifest": "packages/ui/package.json",
+      "exports": {
+        ".": "./src/index.tsx",
+        "./styles.css": "./src/styles/index.css"
+      }
+    },
+    {
+      "manifest": "packages/design-tokens/package.json",
+      "exports": {
+        ".": "./src/index.ts",
+        "./styles.css": "./src/generated.css",
+        "./generated": "./src/generated.ts"
+      }
+    }
+  ],
+  "recommendations": [
+    "Remove exactly the 66 inventoried tracked output files without history rewrite.",
+    "Add /storybook-static/ to gitignore; existing package dist/test-results ignores suffice.",
+    "Set storybook:build explicit --output-dir .cache/storybook --disable-telemetry, aligning retained #53 browser config.",
+    "Document utilities declarations optional; regeneration is pnpm exec tsc --project packages/utilities/tsconfig.build.json.",
+    "Keep token-generated pair, MSW asset, fixtures and source-bound historical docs evidence.",
+    "Do not broaden to Turbo/CI profile repair; turbo outputs field describes package task cache outputs and no package Storybook task exists.",
+    "Fresh checkout source exports/checks then sequential three-app + Storybook builds, optional utilities declarations and existing standalone consumer test; ensure no tracked change.",
+    "Before fresh builds confirm removed output trees absent so stale generated assets cannot satisfy existence-only smoke; existing smoke with newly built all three apps is bounded supplementary evidence.",
+    "Use git check-ignore --no-index to assert expected new output ignored and canonical retained sources visible; no browser execution needed for this cleanup."
+  ]
+}
