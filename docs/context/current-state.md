@@ -1,5 +1,25 @@
 # Current handoff
 
+## Current: #92 delivered in draft; #52 next — 2026-10-26
+
+The authorized overnight batch is #92 → #52 → #29; licensing and merges wait
+for next sync. [Draft #106](https://github.com/egohygiene/egohygiene.io/pull/106) is
+stacked on #105; tested B `a5e99afb060da64928bcf38cc1901e3b34889bb7` implements
+feature-local card/metadata/styles, per-call selector reuse and the targeted
+Storybook 10.6.2 security update. [Receipt](../development/bounded-sweep-92.md) and
+[verification](../development/reviews/bounded-sweep-92/verification.json) retain A/B/C.
+
+Checks/types, 344 units/152 catalog tests, normal/preview builds pass. All27 HTML
+files match after emitted bundle-name normalization; CSS and public assets match
+exactly. JS grows 191 bytes; no performance claim. Native Storybook fails on this
+sandbox's OS interface restriction; an explicitly limited build-only probe passes,
+not native startup/security qualification. Four component browser cases discovered,
+zero executed. Existing three budgets and source hosted checks fail; no gate changed.
+
+Next: #52 compiler/profile/fresh smoke work, then #29 formatting/CI/#73 reconciliation.
+#92 native/browser acceptance, #59 license/font/private-merch decisions and prior
+roadmap gaps remain open. Main stays `89fc7044`; no merge/deployment/activation.
+
 ## Current: overnight #92 → #52 → #29 batch — 2026-10-26
 
 Alan authorized several issues while asleep, with licensing reconciliation and

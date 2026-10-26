@@ -72,5 +72,6 @@
   "fontProvenance": "assets/fonts/atkinson/provenance.json",
   "licensingVerification": "docs/legal/reviews/licensing-59/verification.json",
   "boundedSweepReview": "docs/development/bounded-sweep-92.md",
-  "boundedSweepBaseline": "docs/development/reviews/bounded-sweep-92/baseline.json"
+  "boundedSweepBaseline": "docs/development/reviews/bounded-sweep-92/baseline.json",
+  "boundedSweepEvidence": "docs/development/reviews/bounded-sweep-92/verification.json"
 }

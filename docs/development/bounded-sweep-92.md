@@ -105,3 +105,38 @@ The broad 21 experimental peer-warning groups remain #15/#16; none names the
 selected 10.6.2 family as the unmet peer. Actual browser/Storybook acceptance stays
 open. Source-bound C results follow this implementation checkpoint; no merge or
 license decision is made by saving it.
+
+## C — Source-bound local review
+
+Tested implementation `a5e99afb060da64928bcf38cc1901e3b34889bb7`, tree
+`c3bf7448ae29dc84a56947e370d0e931ab0cb686`.
+[Verification](reviews/bounded-sweep-92/verification.json) and
+[artifact comparison](reviews/bounded-sweep-92/artifact-comparison.json) preserve the
+actual results: workspace/boundary checks, existing site/catalog/domain types,
+344 units/45 files and 152 catalog tests pass. Normal and isolated preview builds
+pass. Four component browser cases are discovered; zero browsers executed.
+
+The recovered baseline worktree reproduced all 45 original artifact hashes.
+All 27 generated HTML documents match after replacing only hashed JS/CSS bundle
+filenames. CSS is byte-identical (50,295 bytes), as are public images/fonts/notices,
+sitemap and other unchanged public files. JS grows 191 bytes to 481,100 raw bytes;
+no bundle/performance reduction is claimed. The 26-path inventory is retained.
+The common style entry restored the original cascade after the preliminary
+extraction changed rule order. Catalog/schema/artwork/readiness data is unchanged.
+
+Native Storybook still fails on OS interface enumeration. A separate temporary
+build-only probe catches only that independently reproduced system error and
+supplies an empty interface list; static compilation succeeds under that probe.
+It is not committed, not a supported command, and not native/dev-server/host-origin
+security proof. Native Storybook and actual browser checks remain #52/#37 acceptance.
+The security fix is retained and no insecure flag is enabled.
+
+Artifact qualification remains failed in three categories: documents 319972 raw /
+86947 independently gzipped bytes, total 1289794 raw bytes. Source hosted validate
+40272250681 and dependency-review 40272250520 fail. No gates/thresholds changed.
+This C receipt is documentation only; full local/hosted/production acceptance is
+not inferred. #92 remains open for review and the explicit native/browser gaps.
+
+Next authorized issue is #52's complete compiler/test/freshness profiles, then
+#29's adaptation of old #73 CI repairs. All new PRs stay draft for the next sync;
+#105 licensing choice, font/private-source dispositions and main merges wait.

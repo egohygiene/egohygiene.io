@@ -1,5 +1,21 @@
 # Context provenance ledger
 
+## #92 C local evidence — 2026-10-26
+
+Tested B `a5e99afb060da64928bcf38cc1901e3b34889bb7` in draft #106.
+[Exact verification](../development/reviews/bounded-sweep-92/verification.json):
+344 units/152 catalog tests, check/types and normal/preview builds pass; all 27
+HTML documents equivalent after bundle-name normalization, CSS/public assets
+byte-identical. Baseline independently recovered with all 45 hashes matching.
+JS +191 raw bytes; no performance gain claimed. Four browser cases discovered,
+zero executed. Native Storybook OS failure stays distinct from a passing temporary
+build-only compatibility probe; no repository/runtime security policy changed.
+
+Three budget findings and hosted validate 40272250681/dependency 40272250520 failures
+remain. #52 receives native Storybook/profile/freshness follow-ups, #15/#16 retain
+optional peers/install isolation. This evidence-only checkpoint does not merge,
+apply a license, activate providers or qualify production. #52 then #29 authorized.
+
 ## #92 B implementation and dependency boundary — 2026-10-26
 
 Draft #106 saved A `0999d984a427021975ded11d596b552a615061e0` before source changes.
