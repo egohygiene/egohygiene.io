@@ -5,6 +5,20 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Source hygiene #56 B — 2026-10-25
+
+A `f7311c089b2197658851eff166ceb6486aa3cd9d` was published in draft #104 before
+changes. B deletes exactly the66 inventoried outputs and26 obsolete zero-byte
+paths, adds a root Storybook-output ignore and makes its command use the existing
+ignored cache destination. Existing source exports/root test profiles remain;
+35 required/future scaffolds and all retained provenance assets are untouched.
+This does not implement their outstanding contracts or reconstruct ADR history.
+
+C will bind fresh-checkout builds/tests/discovery and clean Git state to published
+B. A fresh merged-main baseline built all three apps/Storybook sequentially, and
+unit/default-browser/component-browser discovery was captured before removal.
+No Chromium, broad lint/CI repair, provider call or deployment is included.
+
 ## #103 integration and source hygiene #56 A — 2026-10-25
 
 Authority: Alan approved closing the prerequisite PR through integration and

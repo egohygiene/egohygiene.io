@@ -1,5 +1,16 @@
 # Current handoff
 
+## Current: #56 checkpoint B — 2026-10-25
+
+A was saved in [draft #104](https://github.com/egohygiene/egohygiene.io/pull/104) at
+`f7311c089b2197658851eff166ceb6486aa3cd9d` before removal. B removes precisely66
+historical output files and26 inventoried obsolete empty stubs. Storybook's build
+command explicitly writes `.cache/storybook`; the legacy root output is ignored.
+The other35 empty files, canonical tokens/MSW/fixtures and preserved history stay.
+README links the contract. No runtime behavior, external version, lockfile or gate
+change. Publish B, then perform C in a fresh checkout with removed roots absent.
+Browser acceptance remains deferred. Sync after local delivery before #59.
+
 ## Current: #103 merged; #56 checkpoint A — 2026-10-25
 
 Alan authorized #103 integration as the prerequisite, then continued #56. Merge

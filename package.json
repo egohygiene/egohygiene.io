@@ -76,7 +76,7 @@
     "test": "pnpm catalog:test && pnpm test:unit",
     "test:unit": "vitest run --config vitest.unit.config.ts",
     "test:e2e": "playwright test",
-    "storybook:build": "storybook build --config-dir .storybook",
+    "storybook:build": "storybook build --config-dir .storybook --output-dir .cache/storybook --disable-telemetry",
     "format:check": "biome format .",
     "lint": "biome lint .",
     "check": "node scripts/checks/check-workspace.ts && node scripts/checks/check-package-exports.ts && node scripts/checks/check-locales.ts && node scripts/checks/check-circular-dependencies.ts && node scripts/checks/check-store-boundaries.ts",

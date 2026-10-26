@@ -48,12 +48,15 @@ public assets remain. Keep source-generated design-token exports under ADR0003,
 MSW's integration asset, real fixtures, reviewed screenshots/receipts, and #100's
 source preservation bundle. Generated headers alone are not a removal rule.
 
-## B/C — Implementation and clean-checkout proof
+## B — Implementation
 
-Save this inventory/contract in a draft before removal. B will remove precisely
-these66 outputs and26 obsolete empty paths, update the narrow ignore/Storybook
-command, and link these rules from the contributor entrypoint. No source behavior,
-package version, lockfile, catalogue, provider setting or workflow gate changes.
+A was saved at `f7311c089b2197658851eff166ceb6486aa3cd9d` in [draft #104](https://github.com/egohygiene/egohygiene.io/pull/104)
+before removal. B removes exactly66 generated outputs and26 obsolete empty paths.
+It adds the narrow legacy ignore and explicit Storybook output command described
+above; README links this contract. The35 retained empty paths keep their owners.
+No implementation, public assets, token files, package versions or lockfile changed.
+
+## C — Clean-checkout proof
 
 C will use a fresh checkout of published B, with removed outputs absent before
 install. Use pinned Node24.21.0/pnpm11.28.5 and a frozen script-disabled install.

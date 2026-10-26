@@ -300,6 +300,7 @@ cdk.out/
 # intentionally not ignored. They may contain reviewed or published artifacts.
 
 # Local web build artifacts
+/storybook-static/
 apps/*/dist/
 apps/*/dist-preview/
 packages/*/dist/

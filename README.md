@@ -58,6 +58,18 @@ pnpm preview --host 127.0.0.1
 
 `typecheck` covers the public app and catalog contracts. `test` runs catalog/provider contracts and workspace unit tests. `check` validates workspace manifests, exports, locales, and package dependency cycles. See the [foundation record](docs/store/foundation.md) for verification and deferred wider gates.
 
+## Generated files and scaffolds
+
+`pnpm storybook:build` writes fresh output to `.cache/storybook`. App/package
+`dist` directories and local test diagnostics are ignored. Build these artifacts
+from source; a checked-in historical report is never current passing verification.
+
+The [source hygiene inventory](docs/development/source-hygiene-56.md) distinguishes
+reproducible output, intentional fixtures and unfinished scaffolds. Keep generated
+design-token exports with their source JSON, the MSW integration asset and reviewed
+evidence. Reserved ADRs and incomplete governance files retain explicit owners.
+See that inventory for fresh-checkout commands and recovery from Git history.
+
 ## Store v1
 
 Start with the [roadmap](https://github.com/egohygiene/egohygiene.io/issues/31), [architecture](docs/architecture/store-v1.md), and [migration ledger](docs/migration/store-v1-consolidation.md). `/store` now browses connected designs, products, and collections with search, filters, themes, and responsive detail pages. See the [visual direction](docs/store/visual-direction.md) and [test plan](docs/store/test-plan.md).
