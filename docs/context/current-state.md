@@ -1,5 +1,60 @@
 # Current handoff
 
+## Current: #53 implementation and local review — 2026-10-25
+
+Draft [#103](https://github.com/egohygiene/egohygiene.io/pull/103) contains A/B and
+local C evidence, based on main `b075e237fb5100b8962217b16e8378542841c51f`.
+Source B `67f1b3a1f693f69999e515fc52b93f43afbcd308` (tree
+`3764e26158e59802172e99b211c3f4b7b71ec330`) owns explicit visualization CSS/themes,
+canonical Storybook imports, three toolbar themes and provider-story ownership.
+[Receipt](../design/component-styles-53.md), [evidence](../design/reviews/component-styles-53/verification.json)
+and ADR 0015 preserve decisions, exact checks and reproducible consumer commands.
+
+42 units plus one isolated build-contract test pass; affected types/checks and
+fresh Storybook/docs/playground/website builds pass. Four browser cases are
+retained, zero executed. The website needed a sequential retry after one output
+collision; #52 retains investigation. Three artifact-budget categories and source
+hosted CI/dependency/CodeQL fail; no gates changed. C actual rendering/visual review
+and same-document story switching stay with #37/#52. #53 remains open.
+
+Catch-up PRs #87/#93/#94/#95/#98/#99/#101/#102 are merged; #73 stays deferred for
+18 content conflicts under #29/#52. Reopened merge-auto-closed #90 and #100 to
+retain contact/copy/browser and retirement gaps. Old store remains intact. Main
+contains the merge receipt; #103 remains draft and unmerged. This C follow-up is
+documentation/evidence only. Next: sync, then **#56**; remaining order unchanged.
+No deployment, publication, spending or real product/provider activation.
+
+## Prior: #53 checkpoint B implementation — 2026-10-25
+
+Draft [#103](https://github.com/egohygiene/egohygiene.io/pull/103) follows saved A
+`d04eb0d83239dfc509bf0ff4747dc75c1508ca2b`. Orbit now owns an explicit stylesheet
+export and themes dependency; playground/Storybook declare its import. Root
+Storybook dependencies are explicit, with no external version upgrades. ADR 0015
+and the package README document this private workspace contract.
+
+The isolated consumer builds without UI/app code/styles; four deferred browser
+cases cover representative stories, standalone themes and provider ownership.
+Local focused units/types, workspace checks and corrected Storybook build pass.
+Save B, then bind the final local evidence to fetched clean B. Actual Chromium
+and manual acceptance stay deferred to #37/#52. Sync before #56; no new PR merge,
+deployment or activation. Earlier merge and hosted/size limitations remain below.
+
+## Prior: #53 checkpoint A — 2026-10-25
+
+After the authorized catch-up merges, #53 starts from main continuity
+`b075e237fb5100b8962217b16e8378542841c51f` on `fix/component-styles-53`.
+[Contract](../design/component-styles-53.md) records explicit stylesheet/theme/provider
+ownership. A imports canonical UI styles into Storybook, adds high-contrast and
+makes the toolbar opt out for the real ThemeProvider/ThemeToggle story. A single
+always-called effect avoids conditional-hook ownership. No runtime provider change.
+
+Existing UI Storybook types and scoped Biome pass (two informational strict-key
+suggestions); no browser execution. Save A as a draft before B moves Orbit CSS
+into an explicit themes-dependent visualization export, then add standalone
+consumer proof and local C evidence. Sync afterward before #56. Existing #73/
+#29/#52, browser/size/hosted and #100 retirement gaps remain. No merge of this new
+work, deployment, purchasing or provider activation is implied.
+
 ## Current: catch-up merges complete, #53 selected — 2026-10-25
 
 Alan explicitly authorized merging completed PRs, then starting #53. Merged

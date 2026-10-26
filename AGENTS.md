@@ -6,6 +6,30 @@ snapshots describe past work; they do not grant new merge, deployment, spending
 or provider-activation authority.
 
 
+## Current #53 local delivery — 2026-10-25
+
+Read [the receipt](docs/design/component-styles-53.md), [verification](docs/design/reviews/component-styles-53/verification.json),
+current-state/provenance and ADR 0015. A/B and local C are saved in draft #103;
+source B `67f1b3a1f693f69999e515fc52b93f43afbcd308`. Canonical Storybook CSS/theme
+ownership and standalone Orbit styles are implemented. 42 units/one isolated
+consumer test, affected types/checks and fresh builds pass; four browser cases
+are retained, zero executed. #53 C browser/manual acceptance remains open.
+
+Catch-up #87/#93/#94/#95/#98/#99/#101/#102 are merged; #73 remains for #29/#52
+conflict reconciliation. #90/#100 reopened after merge auto-closure; their gaps
+remain. Existing hosted/size failures and one website build collision (sequential
+retry passed; #52 investigates) are recorded. Next sync, then #56. No new #103
+merge, deployment, source-store deletion or product/provider activation implied.
+
+## Prior #53 checkpoint A — 2026-10-25
+
+Alan authorized #53 after catch-up merges. Read [the style contract](docs/design/component-styles-53.md)
+and current-state/provenance. Storybook now imports canonical UI CSS, includes
+high-contrast and gives each story one theme owner; A is saved before extracting
+Orbit's own stylesheet in B. Branch `fix/component-styles-53` starts from main
+continuity `b075e237fb5100b8962217b16e8378542841c51f`. Browser execution stays deferred;
+keep focused local checks. No deployment or activation. Prior merge details below.
+
 ## Current merge catch-up and #53 selection — 2026-10-25
 
 Alan authorized catching up completed PRs and starting #53. #87/#94/#95/#98/#99/

@@ -1,0 +1,42 @@
+{
+  "sourceHead": "67f1b3a1f693f69999e515fc52b93f43afbcd308",
+  "worktreeDirty": false,
+  "capturedAt": "2026-10-25T21:44:50.640Z",
+  "result": "pass",
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "@egohygiene/visualizations": "0.1.0"
+  },
+  "modulePaths": [
+    "\u0000rolldown/runtime.js",
+    "\u0000vite/modulepreload-polyfill.js",
+    ".cache/component-styles-53/consumer/index.html",
+    ".cache/component-styles-53/consumer/main.tsx",
+    "node_modules/.pnpm/react-dom@19.2.8_react@19.2.8/node_modules/react-dom/cjs/react-dom-client.production.js",
+    "node_modules/.pnpm/react-dom@19.2.8_react@19.2.8/node_modules/react-dom/cjs/react-dom.production.js",
+    "node_modules/.pnpm/react-dom@19.2.8_react@19.2.8/node_modules/react-dom/client.js",
+    "node_modules/.pnpm/react-dom@19.2.8_react@19.2.8/node_modules/react-dom/index.js",
+    "node_modules/.pnpm/react@19.2.8/node_modules/react/cjs/react-jsx-runtime.production.js",
+    "node_modules/.pnpm/react@19.2.8/node_modules/react/cjs/react.production.js",
+    "node_modules/.pnpm/react@19.2.8/node_modules/react/index.js",
+    "node_modules/.pnpm/react@19.2.8/node_modules/react/jsx-runtime.js",
+    "node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/cjs/scheduler.production.js",
+    "node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/index.js",
+    "packages/visualizations/src/index.tsx",
+    "packages/visualizations/src/styles.css"
+  ],
+  "styles": [
+    {
+      "path": "assets/index-Bz0klUkL.css",
+      "bytes": 4202,
+      "sha256": "28b2ed6c2a52b20ce6bf9adcafcbc2bbdad6b3758191bee409bbe1bea6aef15d"
+    }
+  ],
+  "output": ".cache/component-styles-53/dist",
+  "browserExecuted": false,
+  "limits": [
+    "Build/module/stylesheet evidence only; not computed browser styling or visual acceptance.",
+    "Existing installed workspace packages are linked; no package publication or dependency download."
+  ]
+}

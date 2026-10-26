@@ -25,6 +25,7 @@ flowchart TD
 | Browser catalog input | `src/content/store/index.ts` | Receives `virtual:store-catalog`; browser consumers must use this entry point |
 | Build / authoring adapter | `scripts/store-catalog.mts`, `vite-store-catalog.mts`, `build-public-site.mts` | Node validation/public projection; frozen public module shared by browser/static builds; static output stays behind the Node adapter |
 | UI primitives | `@egohygiene/ui`, `@egohygiene/ui/styles.css` | Semantic component props; themes, icons and utilities; no catalog, provider, app or router imports |
+| Independent visuals | `@egohygiene/visualizations`, `@egohygiene/visualizations/styles.css` | React visuals and their scoped CSS; stylesheet imports declared themes, never UI/app CSS; consumers import the style export explicitly |
 | Theme and token layers | `@egohygiene/themes`, `@egohygiene/design-tokens` and their CSS exports | React theme preference adapter over semantic CSS variables and generated design tokens |
 | Locale and configuration | `@egohygiene/i18n`, `@egohygiene/config` | App supplies messages/locale and explicit public environment input; do not read provider secrets here |
 

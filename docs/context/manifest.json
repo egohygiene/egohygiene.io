@@ -55,5 +55,9 @@
   "storeRetirementDecision": "docs/architecture/decisions/0014-standalone-store-retirement.md",
   "sharedAccessibilityReview": "docs/design/shared-accessibility-49.md",
   "sharedAccessibilityEvidence": "docs/design/reviews/shared-accessibility-49/verification.json",
-  "mergeCatchup20261025": "docs/context/merges-2026-10-25.json"
+  "mergeCatchup20261025": "docs/context/merges-2026-10-25.json",
+  "componentStylesReview": "docs/design/component-styles-53.md",
+  "componentStylesEvidence": "docs/design/reviews/component-styles-53/verification.json",
+  "componentStylesDecision": "docs/architecture/decisions/0015-explicit-component-styles.md",
+  "componentStylesConsumer": "tests/component-styles/README.md"
 }

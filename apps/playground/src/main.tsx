@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import "@egohygiene/ui/styles.css";
+import "@egohygiene/visualizations/styles.css";
 
 import { App } from "./app/App";
 import "./styles/app.css";

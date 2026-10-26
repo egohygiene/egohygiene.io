@@ -169,37 +169,6 @@ textarea {
   border: 0;
 }
 
-.eh-orbit {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: var(--orbit-size);
-  height: var(--orbit-size);
-  margin-inline: auto;
-}
-
-.eh-orbit__ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
-}
-
-.eh-orbit__ring--inner {
-  inset: 16%;
-}
-
-.eh-orbit__core {
-  display: grid;
-  place-items: center;
-  width: 40%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--color-action-background);
-  color: var(--color-action-foreground);
-  font-weight: 700;
-}
-
 @keyframes eh-spin {
   to {
     transform: rotate(360deg);

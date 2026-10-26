@@ -1,0 +1,87 @@
+{
+  "capturedAt": "2026-10-25T21:45:56.691Z",
+  "sourceHead": "67f1b3a1f693f69999e515fc52b93f43afbcd308",
+  "result": "fail",
+  "scope": "All emitted paths and selected text formats; hashes and level-9 gzip sizes for every regular file. HTML asset attributes, CSS url(), JS quoted static asset paths, and manifest icons/start_url are resolved locally. No network requests.",
+  "limits": [
+    "Targeted common credential signatures and private-source path checks, not a comprehensive secret or binary metadata audit.",
+    "Computed URLs and browser/deployed-host behavior require journey checks; this scanner does not execute application code.",
+    "Size ceilings are provisional local review regression limits, not maintainer-agreed performance budgets or measured user experience.",
+    "External resource references are inventoried by protocol only, not fetched or qualified."
+  ],
+  "sizes": {
+    "javascript": {
+      "bytes": 480909,
+      "gzipBytes": 139154,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 150000
+      },
+      "result": "pass"
+    },
+    "css": {
+      "bytes": 50295,
+      "gzipBytes": 9803,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 12000
+      },
+      "result": "pass"
+    },
+    "images": {
+      "bytes": 391855,
+      "gzipBytes": 387352,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 500000
+      },
+      "result": "pass"
+    },
+    "fonts": {
+      "bytes": 46572,
+      "gzipBytes": 46531,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 50000
+      },
+      "result": "pass"
+    },
+    "documents": {
+      "bytes": 317615,
+      "gzipBytes": 85589,
+      "limit": {
+        "bytes": 20000,
+        "gzipBytes": 10000
+      },
+      "result": "fail"
+    },
+    "total": {
+      "bytes": 1287246,
+      "gzipBytes": 668429,
+      "limit": {
+        "bytes": 1140000,
+        "gzipBytes": 722000
+      },
+      "result": "fail"
+    }
+  },
+  "findings": [
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "bytes: 317615 exceeds 20000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "gzipBytes: 85589 exceeds 10000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "total",
+      "detail": "bytes: 1287246 exceeds 1140000."
+    }
+  ],
+  "fileCount": 44,
+  "referenceCount": 202
+}

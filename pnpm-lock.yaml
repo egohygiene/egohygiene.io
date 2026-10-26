@@ -795,6 +795,12 @@ importers:
       '@date-io/date-fns':
         specifier: ^3.2.1
         version: 3.2.1(date-fns@4.4.0)
+      '@egohygiene/ui':
+        specifier: workspace:*
+        version: link:packages/ui
+      '@egohygiene/visualizations':
+        specifier: workspace:*
+        version: link:packages/visualizations
       '@etchteam/storybook-addon-status':
         specifier: ^8.1.0
         version: 8.1.0(storybook@10.5.9(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))
@@ -1399,6 +1405,9 @@ importers:
 
   packages/visualizations:
     dependencies:
+      '@egohygiene/themes':
+        specifier: workspace:*
+        version: link:../themes
       react:
         specifier: 19.2.8
         version: 19.2.8
