@@ -1,0 +1,147 @@
+{
+  "common": {
+    "nextSource": "Connect the missing evidence",
+    "owners": "Sources and responsibility",
+    "related": "Related views",
+    "contextHeading": "Public repository context",
+    "selectionBoundary": "This directory contains only repositories admitted in the reviewed public snapshot. It is not a complete organization inventory.",
+    "repository": "Repository",
+    "allRepositories": "All represented public repositories",
+    "contextFilter": "Select public repository context",
+    "contextDetails": "Inspect independent collection context",
+    "contextBoundary": "These collection claims retain their original meaning. They do not establish this page's missing domain state.",
+    "noClaims": "No relevant independent collection claims are supplied for this repository.",
+    "noContext": "No reviewed public repository context is connected. No repository count, applicability decision or healthy empty state is inferred.",
+    "noScript": "All admitted public repository context is shown below. Selecting one repository requires JavaScript; source links and evidence disclosures remain available.",
+    "contractDetails": "Inspect the source contract boundary",
+    "contractBoundary": "The current fleet contract carries nine collection domains. A missing specialized domain is not assigned a new local coverage key, and other domains are not relabeled to stand in for it. A reviewed owner model is required before this page can show specialized records."
+  },
+  "status": {
+    "question": "Which declared services need attention, and what is known about current incidents?",
+    "state": "Service status evidence unavailable",
+    "missing": "No compatible service and incident source is connected to this view. Service applicability, current availability, maintenance and incident state remain unknown.",
+    "independence": "A passing repository check or a successful deployment does not establish that a service is available. An empty view does not establish that no incidents exist.",
+    "next": "Connect declared service observations and their incident history through the shared status owners.",
+    "ownership": "Hygiene defines service and incident meaning; Observatory normalizes the evidence. Relay supplies reusable collection and communication workflows.",
+    "requirements": {
+      "scope": "A declared public service scope, responsible owner and explicit applicability decision.",
+      "observations": "Observed service state with its source, represented deployment or revision, and observation time.",
+      "incidents": "Incident and maintenance records with independent lifecycle state and canonical public updates.",
+      "freshness": "Freshness and unavailable-provider handling that preserve the last known state without presenting it as current."
+    },
+    "sources": {
+      "hygiene": "System Status and incident contract",
+      "observatory": "Normalized service and incident evidence",
+      "relay": "Reusable status and incident workflow"
+    },
+    "context": "Repository check and deployment collection are shown as supporting context. Their scope and freshness can be inspected while service status remains unavailable.",
+    "contract": "The pinned Observatory fleet model has no status view or service/incident domain. This endpoint does not derive service status from the checks or deployments domains."
+  },
+  "sanity": {
+    "question": "Does the architecture still make sense, and what has a human explicitly accepted?",
+    "state": "Architecture review and ratification evidence unavailable",
+    "missing": "No compatible architecture review and human ratification source is connected. The current review scope, reviewer assessment and human disposition remain unknown.",
+    "independence": "Accepted ADRs, recent activity and successful checks do not establish that a human has ratified the architecture as a whole. Reviewer recommendations and human decisions must remain separate.",
+    "next": "Supply a bounded architecture review and its separately recorded human disposition.",
+    "ownership": "Hygiene defines applicability and ratification policy. Aether owns the review process, and Observatory preserves assessment and human disposition separately.",
+    "requirements": {
+      "scope": "The exact architecture, repository revision, components and evidence included in the review.",
+      "assessment": "The reviewer's assessment, strengths, concerns, alternatives and unresolved questions with source evidence.",
+      "ratification": "An explicit human disposition bound to the exact review and represented revision, including any notes or deferral.",
+      "changes": "Material changes since the accepted review and the declared conditions that make another review due."
+    },
+    "sources": {
+      "hygiene": "Architecture ratification and applicability policy",
+      "aether": "Architecture coherence review process",
+      "observatory": "Normalized review and ratification posture"
+    },
+    "context": "Decision and roadmap collection can help locate architecture evidence. Their presence does not establish coherence, review completion or human approval.",
+    "contract": "The pinned Observatory fleet model has no architecture review or ratification view. This page does not convert ADR acceptance, implementation state or roadmap readiness into a human ratification claim."
+  },
+  "hygiene": {
+    "question": "Which versioned contracts apply, and what evidence supports their adoption or conformance?",
+    "state": "Contract conformance evidence unavailable",
+    "missing": "No compatible contract applicability and conformance source is connected. Required contracts, adoption stages, exceptions and per-contract findings remain unknown.",
+    "independence": "A repository can be useful while contracts are being adopted. Missing evidence is not a conformance pass, and a failed generic check does not establish that every contract is failing.",
+    "next": "Connect the repository's declared profile and versioned contract evidence through the shared conformance model.",
+    "ownership": "Hygiene owns applicability and contract policy. Specialist validators supply evidence, and Observatory normalizes adoption and conformance without inventing policy.",
+    "requirements": {
+      "applicability": "The repository profile and explicit reasons each contract is applicable, exempt or not applicable.",
+      "versions": "Exact contract and profile versions, responsible owners and declared adoption stages.",
+      "evidence": "Revision-bound validation and artifact evidence, including freshness, missing scope and drift.",
+      "disposition": "Declared exceptions, migration plans, blockers and source-backed remediation links."
+    },
+    "sources": {
+      "hygiene": "Canonical Hygiene policy and contracts",
+      "observatory": "Shared Hygiene conformance model",
+      "relay": "Repository contract matrix implementation"
+    },
+    "context": "Check and decision collection remain visible as independent context. Neither provides a substitute for the missing contract applicability and conformance matrix.",
+    "contract": "The pinned Observatory fleet model exposes check observations but no versioned contract matrix. This endpoint does not treat Health check states as Hygiene conformance or assume that every contract applies."
+  },
+  "audits": {
+    "question": "What was inspected, which findings need attention, and where is the supporting evidence?",
+    "state": "Audit report and finding evidence unavailable",
+    "missing": "No compatible audit run and findings source is connected. Audit coverage, report freshness, finding classifications and dispositions remain unknown.",
+    "independence": "No visible findings does not establish a clean audit. An open issue is not automatically an audit finding, and a proposed issue is not an accepted or materialized GitHub issue.",
+    "next": "Connect a validated audit report with bounded scope and stable finding identities.",
+    "ownership": "Aether owns audit methodology and report meaning. Observatory normalizes audit evidence; Reflector coordinates bounded campaigns without replacing canonical reports.",
+    "requirements": {
+      "report": "The canonical report, represented revision, audit profile and exact profile version.",
+      "scope": "Inspected and excluded scope, execution completion state, observation time and evidence freshness.",
+      "findings": "Stable findings with classification, severity, confidence, disposition and permitted evidence links.",
+      "disposition": "Explicit recurrence, resolution or supersession evidence, with proposed backlog items separate from real GitHub issues."
+    },
+    "sources": {
+      "aether": "Audit profiles and report contract",
+      "observatory": "Normalized audit runs and findings",
+      "reflector": "Bounded audit campaign orchestration"
+    },
+    "context": "Issue, pull-request and check collection can help locate follow-up work. These inventories are not an audit history or a finding disposition record.",
+    "contract": "The pinned Observatory fleet model has no audit run or finding view. The site does not parse report prose, infer findings from issues, or infer resolution from silence in a later report."
+  },
+  "identity_intelligence": {
+    "question": "Which repositories have current, compatible Identity evidence, and where are their canonical public assets?",
+    "state": "Identity adoption evidence unavailable",
+    "missing": "No compatible repository Identity applicability and adoption source is connected. Package compatibility, asset freshness and adoption state remain unknown.",
+    "independence": "An ordinary release or a passing check does not establish that a Brand Kit is installed, current or compatible. Public asset discovery must exclude private drafts and unreleased packages.",
+    "next": "Connect a public Identity package summary and the repository's declared applicability through the shared conformance owners.",
+    "ownership": "Identity owns tokens, assets, voice and generated packages. Hygiene owns applicability; Observatory summarizes adoption without becoming an asset source.",
+    "requirements": {
+      "applicability": "The repository's declared Identity profile and an explicit applicability or exemption decision.",
+      "package": "The canonical package and profile versions, represented repository revision and compatibility evidence.",
+      "assets": "Reviewed links to released public assets, tokens and canonical Brand Kit sources.",
+      "freshness": "Adoption state, original observation time, drift or migration evidence, and an owning remediation path."
+    },
+    "sources": {
+      "identity": "Canonical Identity packages and Brand Kit",
+      "hygiene": "Hygiene applicability and contract policy",
+      "observatory": "Shared Identity and Hygiene adoption model"
+    },
+    "productLink": "Open the Identity product's canonical source",
+    "context": "Release and check collection provide independent repository context. They do not establish Identity package adoption or authorize asset publication.",
+    "contract": "The pinned Observatory fleet model has no Identity adoption view. The route registry reserves /intelligence/identity/ for this module and preserves /identity/ for the separate Identity product experience."
+  },
+  "diagnostics": {
+    "question": "What is known about an investigation, what remains uncertain, and what evidence supports the next step?",
+    "state": "Diagnosis record evidence unavailable",
+    "missing": "No compatible diagnosis record source is connected. Investigation lifecycle, competing hypotheses, reproduction, root cause, remediation and validation remain unknown.",
+    "independence": "No visible diagnosis records does not establish that a repository has no defects. A check pass does not confirm a root cause or verify a remediation outside its declared scope.",
+    "next": "Connect policy-approved diagnosis record metadata and permitted evidence through the owning validation and normalization path.",
+    "ownership": "Aether owns diagnosis record meaning, Hygiene owns applicability and privacy policy, EgoLint validates records, and Observatory normalizes the permitted projection.",
+    "requirements": {
+      "record": "A stable diagnosis identity, canonical record, represented artifact or revision, and declared investigation scope.",
+      "states": "Independent lifecycle, reproduction, root-cause, remediation and validation states, with hypotheses kept distinct from confirmed evidence.",
+      "evidence": "Original observation times, permitted evidence links, related work and explicit amendment or supersession history.",
+      "privacy": "An authorized public metadata projection that excludes restricted record bodies, raw logs, credentials and sensitive topology."
+    },
+    "sources": {
+      "aether": "Diagnosis record contract",
+      "hygiene": "Diagnosis applicability and privacy policy",
+      "egolint": "Diagnosis record validation",
+      "observatory": "Normalized diagnosis record model"
+    },
+    "context": "Issue, history and check collection remain useful for locating technical work. They do not replace a diagnosis record or establish the truth of a hypothesis.",
+    "contract": "The pinned Observatory fleet model has no diagnosis view. This page does not turn ordinary issue text, raw logs or check outcomes into a canonical diagnosis."
+  }
+}
