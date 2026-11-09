@@ -29,13 +29,13 @@ export function evidenceUrl(value: unknown, repository: string): string | null {
   if (typeof value !== "string" || value.length > 1024 || /[%\\\u0000-\u0020\u007f]/.test(value)) return null;
   try {
     const url = new URL(value);
-    if (url.protocol !== "https:" || url.hostname !== "github.com" || url.port || url.username || url.password || url.search || url.href !== value) return null;
+    if (url.protocol !== "https:" || url.hostname !== "github.com" || url.port || url.username || url.password || (url.search && !(url.search === "?check_suite_focus=true" && /\/runs\/[1-9]\d*$/.test(url.pathname))) || url.href !== value) return null;
     if (url.hash && !/^#(?:L\d+(?:-L\d+)?|[a-zA-Z0-9_-]+)$/.test(url.hash)) return null;
     if (url.pathname === `/${repository}` && !url.hash) return value;
     if (!url.pathname.startsWith(`/${repository}/`)) return null;
     const path = url.pathname.slice(repository.length + 2);
     if (path.split("/").some((part) => !part || part === "." || part === "..")) return null;
-    return /^(?:(?:issues|pull)\/[1-9]\d*|commit\/[a-f0-9]{40}|(?:blob|tree)\/[a-f0-9]{40}\/[A-Za-z0-9._/-]+|releases(?:\/tag\/[A-Za-z0-9._-]+)?)$/.test(path) ? value : null;
+    return /^(?:(?:issues|pull)\/[1-9]\d*|actions\/runs\/[1-9]\d*(?:\/attempts\/[1-9]\d*)?|runs\/[1-9]\d*|deployments\/(?:[1-9]\d*|activity)|commit\/[a-f0-9]{40}|(?:blob|tree)\/[a-f0-9]{40}\/[A-Za-z0-9._/-]+|releases(?:\/tag\/[A-Za-z0-9._-]+)?)$/.test(path) ? value : null;
   } catch { return null; }
 }
 /** Filter protected endpoints before inspecting titles, states, links or IDs. */

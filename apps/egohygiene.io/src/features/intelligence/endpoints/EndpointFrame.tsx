@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { PageMetadata } from "../../../components/PageMetadata";
 import { Link, useSearchParams } from "react-router-dom";
 import { useSyncExternalStore } from "react";
 import { intelligenceData } from "../data";
@@ -41,6 +42,7 @@ export function EndpointFrame({ id, question, children, renderRecord }: {
     setParams(next, { replace: true, preventScrollReset: true });
   };
   return <article className="oi-page">
+    <PageMetadata title={module?.title ?? id} description={question} />
     <p className="site-eyebrow">Organization Intelligence</p>
     <h1>{module?.title ?? id.replaceAll("_", " ")}</h1><p className="oi-lede">{question}</p>
     <nav className="oi-section-nav" aria-label="Intelligence views"><Link to={{ pathname: "/intelligence/", search: params.toString() }}>Overview</Link>{intelligenceData.modules.filter((item) => item.implemented && item.id !== "intelligence").map((item) => <Link aria-current={item.id === id ? "page" : undefined} key={item.id} to={{ pathname: item.path, search: params.toString() }}>{item.title}</Link>)}</nav>
@@ -54,7 +56,7 @@ export function EndpointFrame({ id, question, children, renderRecord }: {
     <noscript><p>All admitted evidence is available below. Interactive filtering requires JavaScript.</p></noscript>
     {!data.groups.length ? <p className="oi-state-note">This view has no admitted normalized evidence. Missing input remains unavailable.</p> : null}
     {groups.map((group) => {
-      const records = group.records.filter((item) => (!state || item.state === state) && (!normalized || `${item.title} ${item.key} ${item.summary ?? ""}`.normalize("NFKC").toLocaleLowerCase("en").includes(normalized)));
+      const records = group.records.filter((item) => (!state || item.state === state) && (!normalized || (item.searchText !== undefined ? item.searchText.includes(query.toLowerCase().trim()) : `${item.title} ${item.key} ${item.summary ?? ""}`.normalize("NFKC").toLocaleLowerCase("en").includes(normalized))));
       return <section className="oi-section" key={group.repository}><h2>{group.repository}</h2><p className="oi-muted">{group.state} · {group.reason}</p>
         <details><summary>Collection coverage</summary><ul>{group.coverage.map((claim) => <li key={claim.domain}>{claim.domain}: {claim.collection} · {claim.freshness} · {claim.reason}{claim.observedAt ? ` · ${claim.observedAt}` : ""}</li>)}</ul></details>
         {records.map((item) => <div key={item.id}>{renderRecord ? renderRecord(item) : <EndpointRecordCard record={item} />}</div>)}
