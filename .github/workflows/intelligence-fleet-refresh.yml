@@ -21,7 +21,7 @@ on:
         type: string
         required: true
       retention_days:
-        description: Ordinary handoff artifact retention, from1 through90 days.
+        description: Ordinary handoff artifact retention, from 1 through 90 days.
         type: number
         default: 30
 
@@ -137,8 +137,7 @@ jobs:
           PY
       - name: Acquire and retain the exact public fleet handoff
         id: fleet
-        # Root replaces this staging marker with the final reviewed Relay SHA before PR publication.
-        uses: egohygiene/relay/actions/repository-intelligence-fleet-artifact@RELAY_FLEET_REVIEWED_SHA
+        uses: egohygiene/relay/actions/repository-intelligence-fleet-artifact@981ddf4367c67fcd625e54321d95bab027f6c0f2
         with:
           plan: ${{ steps.plan.outputs.path }}
           as-of: ${{ inputs.as_of }}
