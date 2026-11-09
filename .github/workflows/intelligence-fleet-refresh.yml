@@ -1,0 +1,146 @@
+name: Refresh Public Intelligence Fleet
+run-name: Refresh the reviewed public Repository Intelligence fleet artifact
+
+on:
+  workflow_dispatch:
+    inputs:
+      plan_json:
+        description: Reviewed public fleet artifact plan JSON; supply exactly one of plan_json or plan_path.
+        type: string
+        default: ""
+      plan_path:
+        description: Repository-relative checked-in reviewed plan path at the selected main commit; alternative to plan_json.
+        type: string
+        default: ""
+      plan_sha256:
+        description: SHA-256 of the exact UTF-8 plan bytes in the review packet.
+        type: string
+        required: true
+      as_of:
+        description: Explicit UTC evaluation boundary in YYYY-MM-DDTHH:MM:SSZ form.
+        type: string
+        required: true
+      retention_days:
+        description: Ordinary handoff artifact retention, from1 through90 days.
+        type: number
+        default: 30
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: public-intelligence-fleet-refresh-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  fleet-artifact:
+    if: >-
+      github.repository == 'egohygiene/egohygiene.io' &&
+      github.event.repository.visibility == 'public' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    outputs:
+      status: ${{ steps.fleet.outputs.status }}
+      artifact-id: ${{ steps.fleet.outputs.artifact-id }}
+      artifact-digest: ${{ steps.fleet.outputs.artifact-digest }}
+      manifest-sha256: ${{ steps.fleet.outputs.manifest-sha256 }}
+      fleet-sha256: ${{ steps.fleet.outputs.fleet-sha256 }}
+      as-of: ${{ steps.fleet.outputs.as-of }}
+    steps:
+      - name: Read the exact reviewed main revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Select the supported Python runtime
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.12"
+      - name: Bind the explicit review plan without executing repository code
+        id: plan
+        shell: bash
+        env:
+          FLEET_PLAN_JSON: ${{ inputs.plan_json }}
+          FLEET_PLAN_PATH: ${{ inputs.plan_path }}
+          FLEET_PLAN_SHA256: ${{ inputs.plan_sha256 }}
+          FLEET_AS_OF: ${{ inputs.as_of }}
+          FLEET_SOURCE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python3 -I - <<'PY'
+          from datetime import datetime
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+          import sys
+          import tempfile
+
+          def require(value):
+              if not value:
+                  raise ValueError("Fleet review binding denied")
+
+          def pairs(items):
+              result = {}
+              for key, value in items:
+                  require(key not in result)
+                  result[key] = value
+              return result
+
+          try:
+              inline = os.environ["FLEET_PLAN_JSON"]
+              relative = os.environ["FLEET_PLAN_PATH"]
+              checksum = os.environ["FLEET_PLAN_SHA256"]
+              boundary = os.environ["FLEET_AS_OF"]
+              revision = os.environ["FLEET_SOURCE_COMMIT"]
+              require(bool(inline) != bool(relative))
+              require(re.fullmatch(r"[0-9a-f]{64}", checksum) and re.fullmatch(r"[0-9a-f]{40}", revision))
+              require(re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", boundary))
+              datetime.strptime(boundary, "%Y-%m-%dT%H:%M:%SZ")
+              if inline:
+                  content = inline.encode("utf-8")
+              else:
+                  require(1 <= len(relative) <= 240 and re.fullmatch(r"[A-Za-z0-9._/-]+\.json", relative)
+                      and not relative.startswith("/")
+                      and all(part not in {"", ".", "..", ".git"} for part in relative.split("/")))
+                  command = ["git", "--no-optional-locks", "--no-replace-objects",
+                      "-c", "core.hooksPath=/dev/null", "-c", "core.fsmonitor=false"]
+                  selected = subprocess.check_output([*command, "ls-tree", revision, "--", relative],
+                      stderr=subprocess.DEVNULL, timeout=10).decode().strip().split()
+                  require(len(selected) == 4 and selected[0] == "100644" and selected[3] == relative)
+                  size = subprocess.check_output([*command, "cat-file", "-s", selected[2]],
+                      stderr=subprocess.DEVNULL, timeout=10)
+                  require(size.strip().isdigit() and 0 < int(size) <= 262144)
+                  content = subprocess.check_output([*command, "cat-file", "blob", selected[2]],
+                      stderr=subprocess.DEVNULL, timeout=10)
+              require(0 < len(content) <= 262144 and hashlib.sha256(content).hexdigest() == checksum)
+              value = json.loads(content, object_pairs_hook=pairs,
+                  parse_constant=lambda _value: require(False))
+              require(isinstance(value, dict) and value.get("schema") == "egohygiene.relay.public-fleet-artifact-plan/v1"
+                  and value.get("organization") == "egohygiene" and value.get("visibility") == "public")
+              runner = Path(os.environ["RUNNER_TEMP"]).absolute()
+              require(not any(path.is_symlink() for path in (runner, *runner.parents)))
+              directory = Path(tempfile.mkdtemp(prefix="reviewed-public-fleet-plan-", dir=runner))
+              path = directory / "plan.json"
+              path.write_bytes(content)
+              path.chmod(0o600)
+              with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+                  output.write("path=" + str(path) + "\n")
+          except Exception:
+              print("Fleet refresh requires one exact reviewed public plan and a valid explicit UTC boundary", file=sys.stderr)
+              raise SystemExit(3)
+          PY
+      - name: Acquire and retain the exact public fleet handoff
+        id: fleet
+        # Root replaces this staging marker with the final reviewed Relay SHA before PR publication.
+        uses: egohygiene/relay/actions/repository-intelligence-fleet-artifact@RELAY_FLEET_REVIEWED_SHA
+        with:
+          plan: ${{ steps.plan.outputs.path }}
+          as-of: ${{ inputs.as_of }}
+          retention-days: ${{ inputs.retention_days }}
+          github-token: ${{ secrets.INTELLIGENCE_PUBLIC_ARTIFACT_READ_TOKEN || github.token }}
