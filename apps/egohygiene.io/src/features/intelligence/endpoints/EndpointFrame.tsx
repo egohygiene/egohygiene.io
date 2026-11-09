@@ -12,7 +12,7 @@ const browser = () => true;
 const server = () => false;
 
 export function EndpointRecordCard({ record }: { readonly record: EndpointRecord }) {
-  return <article className="oi-panel oi-endpoint-record" id={endpointFragment(record.id)}>
+  return <article className="oi-panel oi-endpoint-record" id={record.anchorId ?? endpointFragment(record.id)}>
     <header className="oi-section-heading"><div><p className="oi-muted">{record.repository} · {record.kind}</p><h3>{record.url ? <a href={record.url}>{record.title}</a> : record.title}</h3></div><span className="oi-badge">{record.state}</span></header>
     {record.summary ? <p>{record.summary}</p> : null}
     <p className="oi-muted">Assertion: {record.assertion} · Freshness: {record.freshness}</p>

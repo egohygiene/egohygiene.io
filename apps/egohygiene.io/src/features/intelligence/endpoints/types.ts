@@ -19,6 +19,7 @@ export interface EndpointRelation {
   readonly freshness?: string;
 }
 export interface EndpointRecord extends EndpointReference {
+  readonly anchorId?: string;
   readonly summary?: string;
   readonly searchText?: string;
   readonly details: readonly { readonly label: string; readonly value: string }[];
