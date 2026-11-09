@@ -13,6 +13,10 @@ owning issues. They are not separate implemented/published routes.
 
 ## Input and review boundary
 
+The additive [fleet artifact intake](intelligence-fleet-artifact-intake.md)
+binds Relay's ordinary handoff manifest, source availability and expiry alongside
+the exact fleet file. The standalone file path below remains supported.
+
 Relay's `public-fleet.review.json` remains publication-denied. The host never
 imports that review envelope or treats its presence as publication approval.
 After reviewing the exact public candidate, deliberately extract its unmodified

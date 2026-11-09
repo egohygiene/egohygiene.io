@@ -318,6 +318,48 @@ export interface OrganizationIntelligenceOptions {
   readonly snapshot?: OrganizationIntelligenceSnapshot;
   readonly publicationsFilename?: string;
   readonly publicationsExpectedSha256?: string;
+  readonly artifactManifestFilename?: string;
+  readonly artifactManifestExpectedSha256?: string;
+}
+
+/** Bind the optional Relay handoff without treating it as publication approval. */
+async function fleetArtifactBinding(options: Omit<OrganizationIntelligenceOptions, "snapshot">, content: Buffer,
+  asOf: string): Promise<"ready" | "partial" | undefined> {
+  const filename = options.artifactManifestFilename ?? process.env["EGOHYGIENE_INTELLIGENCE_MANIFEST"];
+  const expected = options.artifactManifestExpectedSha256 ?? process.env["EGOHYGIENE_INTELLIGENCE_MANIFEST_SHA256"];
+  if (!filename && !expected) return undefined;
+  requireInput(filename && expected && sha.test(expected), "REVIEW_BINDING_REQUIRED");
+  const bytes = await boundedFile(filename, 1024 * 1024);
+  requireInput(hash(bytes) === expected, "INPUT_INCOMPATIBLE");
+  const manifest = object(JSON.parse(bytes.toString("utf8")));
+  exactKeys(manifest, ["schema", "visibility", "organization", "status", "observed_at", "expires_at", "catalog",
+    "generator", "producer", "runtime", "acquisition", "repositories", "files"]);
+  requireInput(manifest["schema"] === "egohygiene.relay.public-fleet-artifact/v1"
+    && manifest["visibility"] === "public" && manifest["organization"] === "egohygiene", "INPUT_INCOMPATIBLE");
+  requireInput(manifest["status"] === "ready" || manifest["status"] === "partial", "INPUT_UNAVAILABLE");
+  const observed = instant(manifest["observed_at"]);
+  const expires = instant(manifest["expires_at"]);
+  requireInput(Date.parse(observed) <= Date.parse(asOf) && Date.parse(observed) < Date.parse(expires)
+    && Date.parse(expires) > Date.parse(asOf), "INPUT_UNAVAILABLE");
+  requireInput(manifest["acquisition"] === "github-read-only" || manifest["acquisition"] === "captured-inputs");
+  const generator = object(manifest["generator"]);
+  exactKeys(generator, ["repository", "revision", "implementation_sha256"]);
+  requireInput(generator["repository"] === "egohygiene/relay" && revision.test(text(generator["revision"]))
+    && sha.test(text(generator["implementation_sha256"])));
+  // Acquisition-only IDs, hashes and diagnostics never enter browser output.
+  // The producer retains full owner validation; the host binds only its exact
+  // supported fleet bytes and handoff state before ordinary projection.
+  const files = array(manifest["files"], 1);
+  requireInput(files.length === 1);
+  const fleet = object(files[0]);
+  exactKeys(fleet, ["path", "sha256", "size_bytes"]);
+  requireInput(fleet["path"] === "fleet.json" && fleet["sha256"] === hash(content)
+    && fleet["size_bytes"] === content.length, "INPUT_INCOMPATIBLE");
+  array(manifest["repositories"], 64);
+  object(manifest["catalog"]);
+  object(manifest["producer"]);
+  object(manifest["runtime"]);
+  return manifest["status"];
 }
 
 export interface OrganizationIntelligenceSnapshot {
@@ -342,10 +384,14 @@ export async function loadOrganizationIntelligence(options: Omit<OrganizationInt
       requireInput(Number.isSafeInteger(maximumAge) && maximumAge >= 1 && maximumAge <= 31536000);
       const content = await boundedFile(filename);
       requireInput(hash(content) === expected, "INPUT_INCOMPATIBLE");
+      const handoff = await fleetArtifactBinding(options, content, asOf);
       const projected = projectFleet(JSON.parse(content.toString("utf8")), asOf, maximumAge);
+      const admitted = handoff === "partial" && (projected.state === "available" || projected.state === "stale")
+        ? { ...projected, state: "partial" as const, code: "PARTIAL" as const,
+          endpoints: { ...projected.endpoints, dashboard: { id: "dashboard", state: "partial" as const, groups: [] } } } : projected;
       // The local review checksum binds acquisition only. Unused view payloads
       // cannot perturb browser output through a raw whole-file checksum.
-      const linked = { ...projected, repositories: await attachRepositoryPublications(projected.repositories, {
+      const linked = { ...admitted, repositories: await attachRepositoryPublications(admitted.repositories, {
         filename: options.publicationsFilename ?? process.env["EGOHYGIENE_INTELLIGENCE_PUBLICATIONS"],
         expectedSha256: options.publicationsExpectedSha256 ?? process.env["EGOHYGIENE_INTELLIGENCE_PUBLICATIONS_SHA256"],
         asOf, surfaces: repositorySurfaces,
