@@ -14,6 +14,7 @@ http://{$EGOHYGIENE_HTTP_ADDRESS::80} {
 	}
 	@slashAlias {
 		path_regexp slashAlias ^/[^/]+(?:/[^/]+)*/$
+		not path /intelligence/
 		file {path}index.html
 	}
 	@domainFile {
@@ -36,6 +37,16 @@ http://{$EGOHYGIENE_HTTP_ADDRESS::80} {
 		header @webManifest Content-Type "application/manifest+json"
 		respond /healthz "ok" 200
 
+		# This owner-registry route keeps its canonical directory slash.
+		route /intelligence {
+			rewrite * /intelligence/
+			redir {uri} 308
+		}
+		route /intelligence/index.html {
+			rewrite * /intelligence/
+			redir {uri} 308
+		}
+
 		route /index.html {
 			uri strip_suffix index.html
 			redir {uri} 308
@@ -50,6 +61,7 @@ http://{$EGOHYGIENE_HTTP_ADDRESS::80} {
 		}
 
 		error /404.html 404
+		rewrite /intelligence/ /intelligence/index.html
 		rewrite @generatedPage {file_match.relative}
 		file_server {
 			disable_canonical_uris

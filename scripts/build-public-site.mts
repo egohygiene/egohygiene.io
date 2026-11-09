@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
@@ -9,6 +10,7 @@ import { build, loadEnv, mergeConfig } from "vite";
 import { createWebsiteConfig } from "../apps/egohygiene.io/vite.config.ts";
 import { type PublicRenderer, writePublicSite } from "./public-site-output.mts";
 import { loadPublicStoreSnapshot, type PublicStoreCatalogSnapshot } from "./vite-store-catalog.mts";
+import { loadOrganizationIntelligence, type OrganizationIntelligenceSnapshot } from "./vite-organization-intelligence.mts";
 
 const appRoot = fileURLToPath(new URL("../apps/egohygiene.io/", import.meta.url));
 
@@ -29,8 +31,8 @@ export async function buildPublicSite(arguments_: string[] = []) {
       `This ${preview ? "isolated preview" : "normal"} build requires --outDir ${expectedDirectory}.`,
     );
   const outputDirectory = join(appRoot, outDir);
-  const configuration = (snapshot: PublicStoreCatalogSnapshot) =>
-    mergeConfig(createWebsiteConfig({ snapshot }), {
+  const configuration = (snapshot: PublicStoreCatalogSnapshot, intelligence?: OrganizationIntelligenceSnapshot) =>
+    mergeConfig(createWebsiteConfig({ snapshot }, intelligence ? { snapshot: intelligence } : {}), {
       configFile: false,
       root: appRoot,
       mode,
@@ -44,9 +46,10 @@ export async function buildPublicSite(arguments_: string[] = []) {
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "egohygiene-render-"));
   try {
     const snapshot = await loadPublicStoreSnapshot();
-    await build(configuration(snapshot));
+    const intelligence = await loadOrganizationIntelligence();
+    await build(configuration(snapshot, intelligence));
     await build(
-      mergeConfig(configuration(snapshot), {
+      mergeConfig(configuration(snapshot, intelligence), {
         publicDir: false,
         ssr: { noExternal: true },
         build: {
@@ -61,7 +64,8 @@ export async function buildPublicSite(arguments_: string[] = []) {
     const renderer = (await import(
       pathToFileURL(join(temporaryDirectory, "entry-server.mjs")).href
     )) as PublicRenderer;
-    const result = await writePublicSite(outputDirectory, renderer, snapshot.digest);
+    const publicInputDigest = createHash("sha256").update(JSON.stringify({ store: snapshot.digest, intelligence: intelligence.digest })).digest("hex");
+    const result = await writePublicSite(outputDirectory, renderer, publicInputDigest);
     console.log(
       `Public rendering: ${result.pages} pages, ${result.sitemapEntries} sitemap entries and a noindex 404 artifact.`,
     );

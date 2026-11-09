@@ -63,7 +63,7 @@ export function validatePublicPages(pages: readonly PublicPage[], origin: string
   const paths = new Set<string>();
   for (const page of pages) {
     const { pathname, metadata } = page;
-    if (!/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(pathname))
+    if (pathname !== "/intelligence/" && !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(pathname))
       throw new Error(`Invalid static route path: ${pathname}`);
     if (/^\/(?:assets(?:\/|$)|store\/preview(?:\/|$))/.test(pathname))
       throw new Error(`Reserved static route path: ${pathname}`);
@@ -213,7 +213,7 @@ export async function writePublicSite(
     if (JSON.stringify(rendered.metadata) !== JSON.stringify(page.metadata))
       throw new Error(`Static metadata changed while rendering: ${page.pathname}`);
     const relativeFile =
-      page.pathname === "/" ? "index.html" : `${page.pathname.slice(1)}/index.html`;
+      page.pathname === "/" ? "index.html" : page.pathname === "/intelligence/" ? "intelligence/index.html" : `${page.pathname.slice(1)}/index.html`;
     if (relativeFile !== "index.html" && (await exists(join(outputDirectory, relativeFile))))
       throw new Error(`Generated route collides with a copied public file: ${relativeFile}`);
     const html = renderPageDocument(template, page.pathname, rendered);
