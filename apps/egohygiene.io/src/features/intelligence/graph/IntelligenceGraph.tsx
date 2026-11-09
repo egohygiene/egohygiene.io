@@ -37,7 +37,7 @@ export function safeGraphHref(value: unknown): string | null {
     const url = new URL(value, "https://egohygiene.io");
     if (url.origin !== "https://egohygiene.io" || url.pathname !== path || url.username || url.password) return null;
     for (const [key, item] of url.searchParams) {
-      if (!queryKeys.has(key) || item.length > 512 || /[\u0000-\u001f\u007f\\]/.test(item)) return null;
+      if (!queryKeys.has(key) || item.length > (key === "graph" ? 1024 : 512) || /[\u0000-\u001f\u007f\\]/.test(item)) return null;
     }
     if (url.hash && !/^[A-Za-z0-9_.:~-]{1,2048}$/.test(decodeURIComponent(url.hash.slice(1)))) return null;
     return `${url.pathname}${url.search}${url.hash}`;
@@ -59,7 +59,7 @@ function linkWithContext(href: string | null, context: URLSearchParams): string 
 }
 
 function model(nodes: readonly GraphNode[], edges: readonly GraphEdge[]) {
-  const accepted = nodes.filter((node) => boundedText(node.id, 512) && boundedText(node.label, 512)
+  const accepted = nodes.filter((node) => boundedText(node.id, 1024) && boundedText(node.label, 512)
     && boundedText(node.state, 128) && typeof node.description === "string" && node.description.length <= 4096
     && ["module", "repository", "entity"].includes(node.kind));
   const counts = new Map<string, number>();
@@ -76,7 +76,7 @@ function model(nodes: readonly GraphNode[], edges: readonly GraphEdge[]) {
   });
   const byId = new Map<string, PositionedNode>(placed.map((node) => [node.id, node]));
   const edgeCounts = new Map<string, number>();
-  for (const edge of edges) if (boundedText(edge.id, 512)) edgeCounts.set(edge.id, (edgeCounts.get(edge.id) ?? 0) + 1);
+  for (const edge of edges) if (boundedText(edge.id, 1024)) edgeCounts.set(edge.id, (edgeCounts.get(edge.id) ?? 0) + 1);
   const eligibleEdges = edges.filter((edge) => edgeCounts.get(edge.id) === 1
     && byId.has(edge.source) && byId.has(edge.target) && boundedText(edge.label, 512)
     && boundedText(edge.assertion, 128) && boundedText(edge.freshness, 128)

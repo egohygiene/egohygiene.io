@@ -1,3 +1,4 @@
+import { endpointFragment } from "../apps/egohygiene.io/src/features/intelligence/endpoints/fragment.ts";
 import { intelligenceEndpointRoutes } from "../apps/egohygiene.io/src/content/intelligence-routes.ts";
 import type { IntelligenceRepository, IntelligenceState } from "../apps/egohygiene.io/src/features/intelligence/types.ts";
 import type { EndpointData, EndpointGroup, EndpointRecord } from "../apps/egohygiene.io/src/features/intelligence/endpoints/types.ts";
@@ -99,7 +100,7 @@ export function projectEndpointModules(views: unknown, repositories: readonly In
         assertCoverage(input, repository, selected);
         const records = projector(input, { repository: repository.name, allowedRepositories: allowed });
         if (!Array.isArray(records) || records.length > 8192) throw new TypeError("ENDPOINT_INPUT");
-        const admitted = records.slice(0, Math.min(120, remaining));
+        const admitted = records.slice(0, Math.min(120, remaining)).map((record) => ({ ...record, anchorId: endpointFragment(`${repository.name}\0${record.id}`) }));
         remaining -= admitted.length;
         const group: EndpointGroup = { ...base, records: admitted, truncated: admitted.length !== records.length,
           reason: "Pinned normalized evidence; collection scope remains independent from record state." };
@@ -122,7 +123,7 @@ export function projectEndpointModules(views: unknown, repositories: readonly In
     return ({ repository: repository.name,
     state: repository.now.state === "available" ? (staleSources.has(repository.name) ? "stale" : "available") : "unavailable",
     reason: "Source-owned attention lanes; readiness and human approval are distinct.", sourceFreshness: staleSources.has(repository.name) ? "stale" : "current", coverage: repository.coverage,
-    truncated: admitted.length !== rows.length, records: admitted.map(({ item, lane }, index) => ({ ...item, id: `${item.id}:${lane}:${index}`, key: item.id,
+    truncated: admitted.length !== rows.length, records: admitted.map(({ item, lane }, index) => ({ ...item, id: `${item.id}:${lane}:${index}`, anchorId: endpointFragment(`${repository.name}\0${item.id}:${lane}:${index}`), key: item.id,
       kind: lane, repository: repository.name, details: [], relations: [] })) }); });
   result["now"] = { id: "now", state: overall(nowGroups), groups: nowGroups };
   return result;
