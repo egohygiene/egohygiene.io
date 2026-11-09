@@ -1,10 +1,11 @@
 import { EndpointFrame, EndpointRecordCard } from "./EndpointFrame";
+import { endpointFragment } from "./fragment";
 import type { EndpointRecord } from "./types";
 
 import "./support-endpoints.css";
 
 function DependencyRecord({ record }: { readonly record: EndpointRecord }) {
-  return <article className="oi-panel oi-support-dependency" id={`e-${encodeURIComponent(record.id)}`}>
+  return <article className="oi-panel oi-support-dependency" id={endpointFragment(record.id)}>
     <header className="oi-section-heading"><div><p className="oi-muted">{record.repository} · {record.kind}</p><h3>{record.url ? <a href={record.url}>{record.title}</a> : record.title}</h3></div><span className="oi-badge">{record.state}</span></header>
     <p className="oi-muted">Source assertion: {record.assertion} · Source freshness: {record.freshness}</p>
     <ul className="oi-support-edges">{record.relations.map((relation, index) => <li key={`${relation.label}:${relation.target.id}:${index}`}>

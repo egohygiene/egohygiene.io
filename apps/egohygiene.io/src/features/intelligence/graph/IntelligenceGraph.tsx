@@ -87,6 +87,10 @@ function model(nodes: readonly GraphNode[], edges: readonly GraphEdge[]) {
     canvasHeight: Math.max(HEIGHT, 158 + Math.max(rows.module, rows.repository, rows.entity) * ROW_HEIGHT) };
 }
 
+function sourceContext(edge: GraphEdge) {
+  return edge.sourceState || edge.sourceFreshness ? ` · Source view: ${edge.sourceState ?? "unknown"} · Source freshness: ${edge.sourceFreshness ?? "unknown"}` : "";
+}
+
 function shortLabel(value: string, maximum = 33) {
   const characters = Array.from(value);
   return characters.length <= maximum ? value : `${characters.slice(0, maximum - 1).join("")}…`;
@@ -217,7 +221,7 @@ export function IntelligenceGraph({ nodes, edges }: IntelligenceGraphProps) {
             const source = data.byId.get(edge.source)!;
             const target = data.byId.get(edge.target)!;
             return <g key={edge.id} data-kind={edge.kind} data-connected={neighborIds.has(edge.source) && neighborIds.has(edge.target)}>
-              <title>{`${source.label} → ${target.label}: ${edge.label} · ${edge.kind} · ${edge.assertion} · ${edge.freshness}`}</title>
+              <title>{`${source.label} → ${target.label}: ${edge.label} · ${edge.kind} · ${edge.assertion} · ${edge.freshness}${sourceContext(edge)}`}</title>
               <path d={edgePath(source.position, target.position)} markerEnd={edge.kind === "declared" ? `url(#${markerId})` : undefined} />
               {edge.kind === "declared" ? <text x={(source.position.x + target.position.x) / 2} y={(source.position.y + target.position.y) / 2 - 8} textAnchor="middle">{shortLabel(edge.label, 22)}</text> : null}
             </g>;
@@ -240,12 +244,12 @@ export function IntelligenceGraph({ nodes, edges }: IntelligenceGraphProps) {
             const source = data.byId.get(edge.source)!;
             const target = data.byId.get(edge.target)!;
             const other = edge.source === selected.id ? target : source;
-            return <li key={edge.id}><button type="button" onClick={() => select(other.id)}>{other.label}</button><p>{source.label} → {target.label}: {edge.label}. <b>{edge.kind}</b> · {edge.assertion} · {edge.freshness}</p></li>;
+            return <li key={edge.id}><button type="button" onClick={() => select(other.id)}>{other.label}</button><p>{source.label} → {target.label}: {edge.label}. <b>{edge.kind}</b> · {edge.assertion} · Captured freshness: {edge.freshness}{sourceContext(edge)}</p></li>;
           })}</ul> : <p>No connections are projected for this node; that is not proof of independence.</p>}</> : <p>Choose a node or focus a graph link to see its exact relationships and destination.</p>}
       </aside>
       <div className="oi-graph-directories">
         <section aria-labelledby={`oi-graph-nodes-${instance}`}><h3 id={`oi-graph-nodes-${instance}`}>Node directory</h3><ul>{data.nodes.map((node) => <li key={node.id}><p>{nodeLink(node) ? <a href={nodeLink(node)!}><bdi dir="auto">{node.label}</bdi></a> : <bdi dir="auto">{node.label}</bdi>}</p><p className="oi-muted">{node.kind} · {node.state}{node.repository ? ` · ${node.repository}` : ""}</p><button disabled={!ready} type="button" onClick={() => select(node.id)}>Inspect connections</button></li>)}</ul></section>
-        <section aria-labelledby={`oi-graph-relations-${instance}`}><h3 id={`oi-graph-relations-${instance}`}>Relationship directory</h3>{data.edges.length ? <ul>{data.edges.map((edge) => <li key={edge.id}><p><bdi dir="auto">{data.byId.get(edge.source)!.label}</bdi> → <bdi dir="auto">{data.byId.get(edge.target)!.label}</bdi></p><p>{edge.label} · <b>{edge.kind}</b> · {edge.assertion} · {edge.freshness}</p></li>)}</ul> : <p>No relationship records are admitted. Navigation remains available through the node directory.</p>}</section>
+        <section aria-labelledby={`oi-graph-relations-${instance}`}><h3 id={`oi-graph-relations-${instance}`}>Relationship directory</h3>{data.edges.length ? <ul>{data.edges.map((edge) => <li key={edge.id}><p><bdi dir="auto">{data.byId.get(edge.source)!.label}</bdi> → <bdi dir="auto">{data.byId.get(edge.target)!.label}</bdi></p><p>{edge.label} · <b>{edge.kind}</b> · {edge.assertion} · Captured freshness: {edge.freshness}{sourceContext(edge)}</p></li>)}</ul> : <p>No relationship records are admitted. Navigation remains available through the node directory.</p>}</section>
       </div>
     </>}
   </section>;
