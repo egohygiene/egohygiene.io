@@ -38,17 +38,19 @@ export function buildIntelligenceNavigation(data: IntelligenceData, views: unkno
   const dependencyGroups = endpointViewGroups(views, "dependencies", allowed);
   for (const repository of repositories) {
     try {
+      const admittedGroup = data.endpoints?.["dependencies"]?.groups.find((group) => group.repository === repository.name);
+      if (!admittedGroup || ["incompatible", "unavailable"].includes(admittedGroup.state)) continue;
       const raw = dependencyGroups.get(repository.name);
       if (raw == null) continue;
       for (const edge of projectDependencyEdges(raw, { repository: repository.name, allowedRepositories: allowed })) {
         if (declaredCount >= 160) { truncated = true; continue; }
         const endpoint = (value: EndpointReference) => addNode({ id: value.id, label: value.title, kind: "entity", repository: value.repository,
           href: `/dependencies/?repository=${encodeURIComponent(repository.name)}`, state: value.state,
-          description: `${value.kind} · ${value.assertion} · ${value.freshness}` });
+          description: `${value.kind} · Captured freshness: ${value.freshness} · Source view: ${admittedGroup.state} · Source freshness: ${admittedGroup.sourceFreshness ?? "unknown"}` });
         if (!endpoint(edge.source) || !endpoint(edge.target)) continue;
         declaredCount += 1;
         addEdge({ id: `declared:${edge.id}`, source: edge.source.id, target: edge.target.id, label: edge.type,
-          kind: "declared", assertion: edge.assertion, freshness: edge.freshness });
+          kind: "declared", assertion: edge.assertion, freshness: edge.freshness, sourceState: admittedGroup.state, sourceFreshness: admittedGroup.sourceFreshness });
       }
     } catch { /* A bad dependency module cannot remove directory/navigation nodes. */ }
   }

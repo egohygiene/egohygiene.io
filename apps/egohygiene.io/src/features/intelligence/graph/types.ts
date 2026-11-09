@@ -18,6 +18,8 @@ export interface GraphEdge {
   readonly kind: "navigation" | "declared";
   readonly assertion: string;
   readonly freshness: string;
+  readonly sourceState?: string;
+  readonly sourceFreshness?: string;
 }
 
 export interface IntelligenceGraphProps {
