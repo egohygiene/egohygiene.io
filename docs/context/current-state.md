@@ -10,7 +10,8 @@ consumer publication destinations, with GitHub source as secondary evidence.
 The earlier central endpoint pages remain reviewable fleet exploration drafts.
 
 Implementation `871f26665a8b51fd2553e0aae0a9ee535ec0cc3b` is on
-`codex/intelligence-fleet-links`, stacked on open aggregate draft
+`codex/intelligence-fleet-links` in [draft #126](https://github.com/egohygiene/egohygiene.io/pull/126),
+stacked on open aggregate draft
 [#125](https://github.com/egohygiene/egohygiene.io/pull/125) at
 `5927a438ce5747728f7b7cca0705134821dc9063`. Live GitHub metadata confirmed that
 base is still an unmerged draft. This checkpoint supersedes any detailed

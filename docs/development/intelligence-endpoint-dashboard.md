@@ -7,7 +7,8 @@ each repository's actual consumer-owned Pages Intelligence. Shared Relay owns
 the detailed repository experience and each consumer owns its publication. The
 central endpoint pages below remain optional fleet exploration drafts.
 
-The follow-up `codex/intelligence-fleet-links` implements explicit reviewed
+The follow-up [draft #126](https://github.com/egohygiene/egohygiene.io/pull/126),
+`codex/intelligence-fleet-links`, implements explicit reviewed
 publication destinations, base-path-aware repository-profile routes and primary
 consumer links with secondary GitHub evidence. Its source is
 `871f26665a8b51fd2553e0aae0a9ee535ec0cc3b`, stacked on open draft #125.

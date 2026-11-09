@@ -7,7 +7,8 @@ each repository's actual consumer-owned Pages Intelligence. Shared Relay owns
 the detailed repository experience and each consumer owns its publication. The
 central endpoint pages below remain optional fleet exploration drafts.
 
-The follow-up `codex/intelligence-fleet-links` implements explicit reviewed
+The follow-up [draft #126](https://github.com/egohygiene/egohygiene.io/pull/126),
+`codex/intelligence-fleet-links`, implements explicit reviewed
 publication destinations, base-path-aware repository-profile routes and primary
 consumer links with secondary GitHub evidence. Its source is
 `871f26665a8b51fd2553e0aae0a9ee535ec0cc3b`, stacked on open draft #125.
@@ -23,6 +24,7 @@ review; no main merge, live publication or parent acceptance is inferred.
 
 | Slice | Draft | What to inspect |
 | --- | --- | --- |
+| Fleet overview/publication ownership correction | [#126](https://github.com/egohygiene/egohygiene.io/pull/126) | Primary consumer Pages destinations, explicit reviewed URL/provenance catalog and preserved fleet exploration drafts. |
 | Shared endpoint foundation | [#119](https://github.com/egohygiene/egohygiene.io/pull/119) | Canonical route composition, presentation types, filters, source bounds and stable anchors. |
 | Roadmap and Decisions | [#120](https://github.com/egohygiene/egohygiene.io/pull/120) | Source criteria, public references, decision scope/implementation and lineage; derived readiness remains unprojected. |
 | Health, Releases, Distribution | [#121](https://github.com/egohygiene/egohygiene.io/pull/121) | Separate check/publication/deployment evidence; distribution proof stays unavailable. |

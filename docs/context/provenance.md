@@ -5,7 +5,8 @@
 The maintainer's scope clarification keeps detailed Repository Intelligence in
 shared Relay and each consumer's Pages publication; the central site supplies
 the fleet overview and aggregate exploration. Implementation
-`871f26665a8b51fd2553e0aae0a9ee535ec0cc3b` branches from aggregate
+`871f26665a8b51fd2553e0aae0a9ee535ec0cc3b` is preserved in
+[draft #126](https://github.com/egohygiene/egohygiene.io/pull/126), branching from aggregate
 `5927a438ce5747728f7b7cca0705134821dc9063`. Live metadata confirmed
 [#125](https://github.com/egohygiene/egohygiene.io/pull/125) remains an open draft
 at that base. No earlier source stack is assumed merged.
