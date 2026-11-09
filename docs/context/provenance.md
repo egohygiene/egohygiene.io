@@ -2413,3 +2413,14 @@ ontology adoption, merge, account/DNS change, deployment, retirement, provider
 activation, order or spending occurred. A later implementation session starts
 Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 #70/#37, and prepares #115/#116 before Alan's required end-of-sprint actions.
+
+
+## 2026-11-09T04:44:48Z — Shared endpoint foundation prepared for review
+
+- Candidate branch: `codex/intelligence-endpoint-shell`; implementation before handoff: `48a694f1702ee6e04f82ca93bad320c240aa3f8e`.
+- Scope: Adds the closed endpoint route composition, public presentation types and shared filters/evidence frame with stable anchors and bounded source helpers. Domain pages and aggregate route activation remain separate slices.
+- Guide: [operator/source boundary](../development/intelligence-endpoint-shell.md).
+- Evidence: static source/peer review and syntax/whitespace inspection only.
+- Deferred: builds, typechecks, tests, native/browser/server execution, hosted CI
+  investigation, real captures, publication and release acceptance.
+- Existing draft stack and source/consumer/human authority remain separate.
