@@ -2439,7 +2439,7 @@ Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 
 ## Continued endpoint review drafts
 
-- Aggregate site draft #125 uses implementation through `94893ef`; shared/domain/
+- Aggregate site draft #125 uses implementation through `94893ef8ab21ec87fa97669f07bf3d0ce18e9300`; shared/domain/
   graph slices are #119–#124, linked from the endpoint review index.
 - Source corrections gate dependency graph admission and preserve source-age
   context, exact repository-scoped record anchors and canonical source identity.

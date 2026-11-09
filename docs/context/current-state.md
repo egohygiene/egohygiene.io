@@ -5,7 +5,7 @@
 Candidate `codex/intelligence-endpoint-dashboard` advances the endpoint and dashboard continuation under
 [site #27](https://github.com/egohygiene/egohygiene.io/issues/27) and
 [organization #41](https://github.com/egohygiene/.github/issues/41).
-Implementation reference before this handoff is `94893ef`. It remains a review
+Implementation reference before this handoff is `94893ef8ab21ec87fa97669f07bf3d0ce18e9300`. It remains a review
 candidate over the earlier #118 host and its existing #117 website stack; no
 ancestor or sibling draft is assumed merged.
 
