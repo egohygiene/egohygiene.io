@@ -2424,3 +2424,14 @@ Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 - Deferred: builds, typechecks, tests, native/browser/server execution, hosted CI
   investigation, real captures, publication and release acceptance.
 - Existing draft stack and source/consumer/human authority remain separate.
+
+
+## 2026-11-09T04:46:26Z — Endpoint dashboard aggregation prepared for review
+
+- Candidate branch: `codex/intelligence-endpoint-dashboard`; implementation before handoff: `3f4d3ee522fe9911c8f329c65f5af685054f19cf`.
+- Scope: Aggregates eighteen canonical endpoint pages, independent public module admission, source-age/coverage disclosure, static/alias routing and an interactive navigation/dependency graph with an HTML directory. Unsupported owner models remain explicit gaps rather than invented outcomes.
+- Guide: [operator/source boundary](../development/intelligence-endpoint-dashboard.md).
+- Evidence: static source/peer review and syntax/whitespace inspection only.
+- Deferred: builds, typechecks, tests, native/browser/server execution, hosted CI
+  investigation, real captures, publication and release acceptance.
+- Existing draft stack and source/consumer/human authority remain separate.
