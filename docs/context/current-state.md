@@ -1,6 +1,25 @@
 # Current handoff
 
-## Current: Intelligence-only merge candidate — 2026-11-09
+## Current: Public Intelligence fleet intake — 2026-11-09
+
+Candidate `codex/intelligence-fleet-host` starts from merged main
+`a6fc0a1af4b8be1bc1a8aafe27f74916e92732e3` (Intelligence-only #126).
+Functional source `d5f30695ebae09b5d64ed7dd119f2baaf0e77084` adds the exact
+manifest-bound fleet input and manual read-only ordinary-artifact refresh.
+[Input/operator guide](../development/intelligence-fleet-artifact-intake.md)
+records the reviewed plan, source clock, digest, expiry and partial-state boundary.
+Both use merged reviewed Relay `981ddf4367c67fcd625e54321d95bab027f6c0f2`.
+
+Repository Pages remain the primary destinations; this site is the fleet
+overview. Superseded Intelligence drafts #118–#125 are closed; unrelated
+#105–#109/#117 work and original branches are preserved. This candidate adds no
+site publisher or schedule. Real run/artifact selections remain required.
+Static source/syntax/metadata review only: tests, typechecks, builds, provider
+and native execution, CI, browsers and publication remain deferred. Next is the
+separate qualification pass with real retained artifacts; implementation is not
+verified upload/deployment or organization sanity acceptance.
+
+## Historical checkpoint: Intelligence-only merge candidate — 2026-11-09
 
 The active local replacement is `codex/intelligence-site-mainline`, directly
 based on main `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`.
