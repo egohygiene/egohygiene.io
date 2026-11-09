@@ -1,5 +1,38 @@
 # Context provenance ledger
 
+## Fleet overview links to consumer Pages Intelligence
+
+The maintainer's scope clarification keeps detailed Repository Intelligence in
+shared Relay and each consumer's Pages publication; the central site supplies
+the fleet overview and aggregate exploration. Implementation
+`871f26665a8b51fd2553e0aae0a9ee535ec0cc3b` branches from aggregate
+`5927a438ce5747728f7b7cca0705134821dc9063`. Live metadata confirmed
+[#125](https://github.com/egohygiene/egohygiene.io/pull/125) remains an open draft
+at that base. No earlier source stack is assumed merged.
+
+The new destination catalog is a bounded publication transport over the already
+admitted public roster. Visibility/selection precede URL/provenance lookup and
+duplicate handling; only admitted canonical public destinations enter browser
+metadata. Repository-profile suffixes come from the existing pinned Hygiene
+registry. Consumer project paths, publication/configuration evidence and distinct
+source revisions are preserved. Missing or invalid destinations remain explicit.
+The earlier eighteen central routes remain fleet exploration drafts.
+
+A static peer found that the consumer Dependencies route selects relationship
+IDs rather than endpoint entity IDs. The implementation now links declared edges
+through the source consumer and actual relationship ID, while entity nodes use
+their owner's declared Search/root publication. Secondary GitHub source links
+remain separate. The historical Identity example derives its canonical host,
+CNAME and Relay pin from immutable `55d0339ba5518c7b72154a2aad54a9e5b2bf2fff`
+source inspection; its retained October 10 run/observation is not new live proof.
+
+Validation consists of static peer/source review, parser-only checks for ten
+TypeScript/TSX files, JSON parsing for three files and whitespace inspection.
+No projector execution, typecheck, test, build, browser/Caddy, CI investigation,
+network canary, deployment or publication ran. The containing documentation
+revision is identified by Git; `871f26665a8b51fd2553e0aae0a9ee535ec0cc3b` is the exact
+implemented source recorded by this checkpoint.
+
 ## Organization Intelligence host implementation checkpoint
 
 Implementation `580fc2ac89b4292f893f5ed059f573bb14844a67` begins at verified live

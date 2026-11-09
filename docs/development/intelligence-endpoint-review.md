@@ -1,5 +1,20 @@
 # Continued endpoint and dashboard review
 
+## Scope correction: fleet overview links to repository publications
+
+The maintainer's clarified primary model is a central fleet overview linking to
+each repository's actual consumer-owned Pages Intelligence. Shared Relay owns
+the detailed repository experience and each consumer owns its publication. The
+central endpoint pages below remain optional fleet exploration drafts.
+
+The follow-up `codex/intelligence-fleet-links` implements explicit reviewed
+publication destinations, base-path-aware repository-profile routes and primary
+consumer links with secondary GitHub evidence. Its source is
+`871f26665a8b51fd2553e0aae0a9ee535ec0cc3b`, stacked on open draft #125.
+[The input/runbook](intelligence-fleet-publication-links.md) records source and
+privacy boundaries. Missing destinations remain unavailable. This scope note
+and source implementation establish no test/build/CI/browser or live-host proof.
+
 The current aggregate candidate is [site #125](https://github.com/egohygiene/egohygiene.io/pull/125),
 branch `codex/intelligence-endpoint-dashboard`. It provides one checkout over
 shared foundation #119 and the earlier host #118/#117 stack, with the independent

@@ -1,5 +1,20 @@
 # Endpoint aggregation and navigation dashboard
 
+## Scope correction: fleet overview links to repository publications
+
+The maintainer's clarified primary model is a central fleet overview linking to
+each repository's actual consumer-owned Pages Intelligence. Shared Relay owns
+the detailed repository experience and each consumer owns its publication. The
+central endpoint pages below remain optional fleet exploration drafts.
+
+The follow-up `codex/intelligence-fleet-links` implements explicit reviewed
+publication destinations, base-path-aware repository-profile routes and primary
+consumer links with secondary GitHub evidence. Its source is
+`871f26665a8b51fd2553e0aae0a9ee535ec0cc3b`, stacked on open draft #125.
+[The input/runbook](intelligence-fleet-publication-links.md) records source and
+privacy boundaries. Missing destinations remain unavailable. This scope note
+and source implementation establish no test/build/CI/browser or live-host proof.
+
 Refs site #27 and organization #41. This candidate composes the independently
 reviewable endpoint families and navigation graph above the shared endpoint
 foundation and the earlier #118 host. It is code for review, not a deployed or

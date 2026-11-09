@@ -1,5 +1,41 @@
 # Current handoff
 
+## Fleet overview and consumer-publication scope correction
+
+The maintainer clarified that `/intelligence/` is the central fleet overview.
+Detailed Repository Intelligence remains implemented by the shared Relay
+renderer and published through each repository's consumer-owned Pages boundary.
+The primary directory, Now and graph drill-downs now use explicitly reviewed
+consumer publication destinations, with GitHub source as secondary evidence.
+The earlier central endpoint pages remain reviewable fleet exploration drafts.
+
+Implementation `871f26665a8b51fd2553e0aae0a9ee535ec0cc3b` is on
+`codex/intelligence-fleet-links`, stacked on open aggregate draft
+[#125](https://github.com/egohygiene/egohygiene.io/pull/125) at
+`5927a438ce5747728f7b7cca0705134821dc9063`. Live GitHub metadata confirmed that
+base is still an unmerged draft. This checkpoint supersedes any detailed
+repository-hosting ownership implied by the earlier aggregate handoff.
+
+[The publication-link input/runbook](../development/intelligence-fleet-publication-links.md)
+records the optional checksum-bound destination catalog, existing public roster
+selection, pinned repository-profile route bindings, project/base-path handling,
+consumer source and generator provenance, explicit unavailable destinations and
+separately disclosed publication/fleet revisions. No catalog is connected by
+default. The Identity example is explicitly historical October 10 evidence.
+
+Static peer review corrected dependency links to use actual relationship IDs on
+the consumer whose Dependencies view supplied the edge; entity nodes use their
+own consumer Search/root destination. Ten TypeScript/TSX source files and three
+JSON files were syntax-parsed and whitespace inspected. No source projector,
+typecheck, test, build, browser, Caddy, CI or live publication check ran. Earlier
+runtime evidence remains dated history.
+
+Next: review this scope correction over #125, select current consumer-owned
+publication configuration/receipts, then qualify the exact reviewed source and
+captured inputs in the deferred validation pass. Existing canonical sources,
+review ancestry, historical rollback, website/store sprint and separate
+publication authority remain intact.
+
 ## Endpoint dashboard aggregation prepared for review
 
 Candidate `codex/intelligence-endpoint-dashboard` advances the endpoint and dashboard continuation under
