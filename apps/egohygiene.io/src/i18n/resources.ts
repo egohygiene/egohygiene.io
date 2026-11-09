@@ -2,6 +2,7 @@ import common from "./locales/en/common.json";
 import errors from "./locales/en/errors.json";
 import fourthwallPreview from "./locales/en/fourthwallPreview.json";
 import intelligence from "./locales/en/intelligence.json";
+import intelligenceGovernance from "./locales/en/intelligenceGovernance.json";
 import landing from "./locales/en/landing.json";
 import navigation from "./locales/en/navigation.json";
 import pages from "./locales/en/pages.json";
@@ -19,6 +20,7 @@ export const resources = {
   common,
   errors,
   intelligence,
+  intelligenceGovernance,
   // The isolated preview's interface copy follows the same build boundary as its route.
   ...(import.meta.env.VITE_STORE_PREVIEW === "true" ? { fourthwallPreview } : {}),
   navigation,

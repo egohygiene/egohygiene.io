@@ -48,6 +48,7 @@ export interface IntelligenceModule {
 }
 
 export interface IntelligenceData {
+  readonly graph?: { readonly nodes: readonly import("./graph/types").GraphNode[]; readonly edges: readonly import("./graph/types").GraphEdge[]; readonly truncated: boolean };
   readonly endpoints?: Readonly<Record<string, import("./endpoints/types").EndpointData>>;
   readonly state: IntelligenceState;
   readonly code: "NOT_CONFIGURED" | "REVIEW_BINDING_REQUIRED" | "INPUT_UNAVAILABLE" | "INPUT_INVALID" | "INPUT_INCOMPATIBLE" | "PUBLIC_REQUIRED" | "READY" | "STALE" | "PARTIAL";

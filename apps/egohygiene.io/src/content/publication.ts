@@ -1,3 +1,4 @@
+import { intelligenceEndpointRoutes, isIntelligencePath, type IntelligenceEndpointId } from "./intelligence-routes";
 import type { I18nParameters, Translator } from "@egohygiene/i18n";
 import type { StoreCatalog, StorefrontCuration } from "@egohygiene/schemas";
 
@@ -165,7 +166,8 @@ const artistDisposition: PublicationDisposition = {
 
 export interface PublicRoute extends PublicationDisposition {
   readonly path: string;
-  readonly kind: "page" | "ecosystem" | "entry" | "artist";
+  readonly kind: "page" | "ecosystem" | "entry" | "artist" | "intelligence";
+  readonly endpointId?: IntelligenceEndpointId;
   readonly page?: FixedPublicPage;
   readonly entryId?: string;
 }
@@ -183,7 +185,7 @@ export interface PageMetadataInput extends PublicRouteInput {
 
 /** Only canonical, lowercase app paths are eligible for emitted output. */
 export function publicPageUrl(path: string): string {
-  if (path !== "/intelligence/" && !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(path)) {
+  if (!isIntelligencePath(path) && !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(path)) {
     throw new TypeError(`Invalid public route path: ${path}`);
   }
   return `${PUBLIC_ORIGIN}${path}`;
@@ -218,6 +220,10 @@ export function getPublicRoutes({
   }
 
   const routes: PublicRoute[] = [
+    ...intelligenceEndpointRoutes.map((endpoint) => ({
+      path: endpoint.path, kind: "intelligence" as const, endpointId: endpoint.id,
+      indexable: false, reason: "Intelligence endpoint implementation for review; source and live publication acceptance remain open.",
+    })),
     ...fixedPublicRoutes.map(({ path, page, indexable, reason }) => ({
       path,
       page,
@@ -298,6 +304,9 @@ export function resolvePageMetadata(
   });
   if (error) return missing(message("errors.routeTitle"), message("errors.routeDescription"));
 
+  const intelligenceEndpoint = intelligenceEndpointRoutes.find((route) => route.path === path || (route.aliases as readonly string[]).includes(path));
+  if (intelligenceEndpoint) return metadata(intelligenceEndpoint.path, intelligenceEndpoint.title, intelligenceEndpoint.question,
+    { indexable: false, reason: "Intelligence endpoint candidate; source availability and publication remain independent." });
   const fixed = fixedPublicRoutes.find((route) => route.path === path);
   if (fixed) {
     const title = message(fixed.titleKey);
