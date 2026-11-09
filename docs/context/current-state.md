@@ -1,5 +1,43 @@
 # Current handoff
 
+## Organization Intelligence foundation prepared for review
+
+The current broad Repository Intelligence request under
+[organization #41](https://github.com/egohygiene/.github/issues/41) includes a
+bounded [site #27](https://github.com/egohygiene/egohygiene.io/issues/27) host
+foundation. Implementation source is
+`580fc2ac89b4292f893f5ed059f573bb14844a67` on
+`codex/organization-intelligence-host`, based on verified open draft #117 head
+`a7e15c7b1543dcba01647ec8ff358aab5126c817` and its branch
+`docs/sprint-closeout-roadmap-2026-11-09`. Preserve that review stack; this change
+does not merge or supersede #105–#109/#117 or alter their remaining acceptance.
+
+[The host contract/runbook](../development/organization-intelligence-27.md)
+records one canonical `/intelligence/` overview, a frozen build-time public
+fleet presentation adapter, source-owned Now evidence, URL directory filters,
+native coverage/provenance disclosures and reserved owner-module anchors.
+No artifact is connected by default: the page truthfully renders unavailable
+without a repository count. Relay #153's publication-denied review envelope
+requires deliberate reviewed extraction; it is never automatically published.
+Visibility selection precedes public lookup/aggregation, admitted public-row
+failures are isolated, and public metadata derives from admitted presentation
+rows. Existing source/store/purchase authority remains unchanged.
+
+Only static inspection ran: Node syntax checks for five changed tooling/config
+files, JSON parsing and `git diff --check`. The available Node was 24.19.0, used
+only as a syntax parser, not the selected 24.21.0 runtime. No install, build,
+typecheck, test, browser, Caddy runtime, CI or live deployment ran; the user
+explicitly deferred those checks and polish. Existing evidence remains dated
+history. Canonical-slash verification cases and the full privacy/failure suite
+remain for the later validation pass; no acceptance issue is closed.
+
+Next: review this foundation with Relay's exact public fleet handoff, connect a
+reviewed public candidate in a consumer-owned preview, then perform the deferred
+static/hydration/accessibility/privacy/canary/alias checks. Future module routes,
+production hosting, release and the separate website/store sprint retain their
+own owners and review gates. No license choice, merge, publication, provider
+activation, private-source import or spending occurred.
+
 ## Current: closeout roadmap and final owner batches — 2026-11-09
 
 Alan requested a roadmap to close as much existing work as the evidence permits,

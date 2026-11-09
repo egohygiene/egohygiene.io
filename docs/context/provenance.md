@@ -1,5 +1,33 @@
 # Context provenance ledger
 
+## Organization Intelligence host implementation checkpoint
+
+Implementation `580fc2ac89b4292f893f5ed059f573bb14844a67` begins at verified live
+draft #117 source `a7e15c7b1543dcba01647ec8ff358aab5126c817`, on its unmerged
+`docs/sprint-closeout-roadmap-2026-11-09` stack. New branch
+`codex/organization-intelligence-host` owns only the bounded site #27 foundation
+under organization #41. [The runbook](../development/organization-intelligence-27.md)
+records owner source pins, admission/review boundaries, presentation identity,
+one canonical overview, source links and honest missing/partial/stale states.
+Contract snapshots retain exact upstream bytes and statuses; no live fleet
+fixture, source authority, normalization implementation or new registry is
+invented. The optional artifact is absent by default.
+
+Static inspection caught and corrected owner relationship endpoint names,
+upstream-versus-admitted digest disclosure, per-public-row failure isolation,
+public-first selection and canonical-slash integration. Five Node syntax checks,
+authored/vendored JSON parsing and changed-line whitespace inspection pass.
+Node 24.19.0 was used only to parse tooling/config syntax; no execution under the
+selected runtime is claimed. Per explicit user instruction, no install, build,
+typecheck, tests, browsers, native Caddy, CI, live canary, deployment or acceptance
+suite ran. No previous source evidence is reused as a pass for the new page.
+
+Store semantics, license choices, review-stack ancestry, existing gates and
+publication authority remain unchanged. Relay #153's review envelope stays
+publication-denied; consumer review/extraction and subsequent preview/publication
+are separate gates. This documentation follow-up records the exact authored
+implementation; its own containing commit is identified by Git.
+
 ## #57 C source-bound native serving evidence — 2026-10-26
 
 Corrected published source `9a44a48031e9715cb2c3d8945a6cb2cc800c2a37` is clean and tested with Node 24.21.0/pnpm 11.28.5. [Verification](../development/reviews/static-serving-57/verification.json): 101 tooling tests, types/boundaries, fresh normal build/raw pass; 45 artifact hashes exactly match #29 controlled source. [Native HTTP](../development/reviews/static-serving-57/native-http.json) records 388 requests / 26 routes using checksum-verified Caddy 2.11.7 and the unchanged artifact, including root paths with spaces. Initial missing CNAME/webmanifest MIME findings and their correction remain recorded. Three budget failures are unchanged; no claim that earlier output anomalies are fixed.
