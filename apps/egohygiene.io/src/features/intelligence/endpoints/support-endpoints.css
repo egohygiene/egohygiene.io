@@ -1,0 +1,23 @@
+.oi-support-contract { display: grid; gap: 0.75rem; max-inline-size: 75ch; }
+.oi-support-contract p { line-height: 1.65; }
+.oi-support-dependency { min-inline-size: 0; }
+.oi-support-edges { display: grid; gap: 1rem; padding-inline-start: 1.25rem; }
+.oi-support-edges > li { padding-inline-start: 0.25rem; }
+.oi-support-edges > li + li { border-block-start: 1px solid var(--color-border); padding-block-start: 1rem; }
+.oi-support-edges p { line-height: 1.65; overflow-wrap: anywhere; }
+.oi-support-edge-kind { display: inline-block; padding-inline: 0.35rem; font-weight: 650; }
+.oi-support-edge-evidence { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-block-start: 0.65rem; font-size: 0.85rem; }
+.oi-support-edge-evidence > div { display: grid; gap: 0.3rem; min-inline-size: 0; }
+.oi-support-edge-evidence dt { color: var(--color-muted); }
+.oi-support-edge-evidence dd { margin-inline-start: 0; overflow-wrap: anywhere; }
+.oi-support-event { padding-inline-start: clamp(0.75rem, 2vw, 1.5rem); border-inline-start: 2px solid var(--color-border); }
+@media (max-width: 34rem) {
+  .oi-support-edge-evidence { display: grid; grid-template-columns: 1fr; }
+}
+@media (forced-colors: active) {
+  .oi-support-event, .oi-support-edges > li + li { border-color: CanvasText; }
+}
+@media print {
+  .oi-support-event { border-color: currentColor; }
+  .oi-support-dependency { break-inside: avoid; }
+}
