@@ -2413,3 +2413,14 @@ ontology adoption, merge, account/DNS change, deployment, retirement, provider
 activation, order or spending occurred. A later implementation session starts
 Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 #70/#37, and prepares #115/#116 before Alan's required end-of-sprint actions.
+
+
+## 2026-11-09T04:47:11Z — Interactive navigation slice prepared for review
+
+- Candidate branch: `codex/intelligence-navigation-graph`; implementation before handoff: `22af7d124ecd81dede844a2d3ab4a7453265a746`.
+- Scope: Adds deterministic interactive SVG endpoint/repository/evidence navigation with URL selection, pan/zoom/reset, neighbor inspection and an independent HTML node/edge directory.
+- Guide: [operator/source boundary](../development/intelligence-navigation-graph.md).
+- Evidence: static source/peer review and syntax/whitespace inspection only.
+- Deferred: builds, typechecks, tests, native/browser/server execution, hosted CI
+  investigation, real captures, publication and release acceptance.
+- Existing draft stack and source/consumer/human authority remain separate.
