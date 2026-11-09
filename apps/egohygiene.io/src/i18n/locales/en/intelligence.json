@@ -80,7 +80,11 @@
     "inspect": "Inspect repository evidence",
     "details": "Source, coverage and projected context"
   },
-  "item": { "state": "State", "assertion": "Assertion", "freshness": "Freshness" },
+  "item": {
+    "state": "State",
+    "assertion": "Assertion",
+    "freshness": "Freshness"
+  },
   "coverage": {
     "heading": "Collection coverage",
     "description": "Collection scope, freshness and applicability are separate. Uncollected or failed evidence never becomes a successful empty inventory.",
@@ -108,7 +112,12 @@
     "observed": "Observed inventory",
     "not_applicable": "Explicitly not applicable"
   },
-  "freshness": { "current": "Current", "stale": "Stale", "unknown": "Unknown", "not_applicable": "Not applicable" },
+  "freshness": {
+    "current": "Current",
+    "stale": "Stale",
+    "unknown": "Unknown",
+    "not_applicable": "Not applicable"
+  },
   "reasons": {
     "not_requested": "Not requested",
     "access_denied": "Access denied",
@@ -124,12 +133,12 @@
   "modules": {
     "kicker": "One question per view",
     "heading": "Organization modules",
-    "description": "Module destinations follow the pinned organization route registry. Reserved modules remain unavailable in this host; a route name is not implementation or publication evidence.",
-    "navigation": "Organization module reservations",
+    "description": "Each endpoint answers one question and retains its own source boundary. A reachable view may still have unavailable, stale or partial evidence.",
+    "navigation": "All Intelligence endpoints",
     "overview": "Overview foundation",
     "unavailable": "Module unavailable",
     "canonical": "Canonical destination",
-    "snapshotLink": "Inspect the overview snapshot state",
+    "snapshotLink": "Open this view",
     "ownerLink": "View the owning implementation issue"
   },
   "provenance": {

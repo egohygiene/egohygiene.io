@@ -1,3 +1,5 @@
+import { intelligenceEndpointRoutes } from "../content/intelligence-routes";
+import { IntelligenceEndpoint, IntelligenceAlias } from "../features/intelligence/endpoints/IntelligenceEndpoint";
 import type { ReactElement } from "react";
 import type { RouteObject } from "react-router-dom";
 
@@ -74,6 +76,10 @@ export const routes: RouteObject[] = [
     element: <RootLayout />,
     errorElement: <RouteErrorPage />,
     children: [
+      ...intelligenceEndpointRoutes.flatMap(({ id, path, aliases }): RouteObject[] => [
+        { id: `intelligence:${id}`, path: path.slice(1), element: <IntelligenceEndpoint id={id} /> },
+        ...aliases.map((alias) => ({ id: `intelligence-alias:${id}:${alias}`, path: alias.slice(1), element: <IntelligenceAlias path={path} /> })),
+      ]),
       ...fixedPublicRoutes.map(
         ({ path, page }): RouteObject => ({
           id: `page:${page}`,

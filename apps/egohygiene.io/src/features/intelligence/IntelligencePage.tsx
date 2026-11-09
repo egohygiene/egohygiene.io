@@ -1,3 +1,4 @@
+import { IntelligenceHub } from "./graph/IntelligenceHub";
 import { useI18n } from "@egohygiene/i18n";
 import { useLocation, useSearchParams } from "react-router-dom";
 
@@ -156,6 +157,8 @@ export function IntelligencePage() {
         ) : <p className="oi-muted">{t("intelligence.snapshot.noCount")}</p>}
       </section>
 
+      <IntelligenceHub />
+
       <section className="oi-section" id="intelligence-now" aria-labelledby="intelligence-now-heading">
         <header className="oi-section-heading"><div><p className="site-eyebrow">{t("intelligence.now.kicker")}</p><h2 id="intelligence-now-heading">{t("intelligence.now.heading")}</h2></div><p className="oi-muted">{t("intelligence.now.description")}</p></header>
         {nowRepositories.length ? (
@@ -207,14 +210,14 @@ export function IntelligencePage() {
       <section className="oi-section" id="intelligence-modules" aria-labelledby="intelligence-modules-heading">
         <header className="oi-section-heading"><div><p className="site-eyebrow">{t("intelligence.modules.kicker")}</p><h2 id="intelligence-modules-heading">{t("intelligence.modules.heading")}</h2></div><p className="oi-muted">{t("intelligence.modules.description")}</p></header>
         <nav className="oi-module-nav" aria-label={t("intelligence.modules.navigation")}>
-          {intelligenceData.modules.map((module) => <a href={`#module-${module.id}`} key={module.id}>{module.title}</a>)}
+          {intelligenceData.modules.map((module) => <Link to={{ pathname: module.path, search: params.toString() }} key={module.id}>{module.title}</Link>)}
         </nav>
         <div className="oi-modules">
           {intelligenceData.modules.map((module) => <article className="oi-panel oi-module" id={`module-${module.id}`} key={module.id}>
-            <div className="oi-section-heading"><h3>{module.title}</h3><span className="oi-badge">{t(module.implemented ? "intelligence.modules.overview" : "intelligence.modules.unavailable")}</span></div>
+            <div className="oi-section-heading"><h3>{module.title}</h3><span className="oi-badge">{module.id === "intelligence" ? intelligenceData.state : intelligenceData.endpoints?.[module.id]?.state ?? "unavailable"}</span></div>
             <p>{module.description}</p>
             <p><span className="oi-muted">{t("intelligence.modules.canonical")}: </span><code>{module.path}</code></p>
-            {module.implemented ? <a href="#intelligence-snapshot-state">{t("intelligence.modules.snapshotLink")}</a> : <a href={module.issueUrl}>{t("intelligence.modules.ownerLink")}</a>}
+            {module.implemented ? <Link to={{ pathname: module.path, search: params.toString() }}>{t("intelligence.modules.snapshotLink")}</Link> : <a href={module.issueUrl}>{t("intelligence.modules.ownerLink")}</a>}
           </article>)}
         </div>
       </section>

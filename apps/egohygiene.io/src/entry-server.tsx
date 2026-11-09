@@ -42,7 +42,9 @@ function requireSynchronousRoutes(definitions: RouteObject[]) {
 export function listPublicPages() {
   return getPublicRoutes(input).map((page) => {
     const expectedRoute =
-      page.kind === "page"
+      page.kind === "intelligence"
+        ? `intelligence:${page.endpointId}`
+        : page.kind === "page"
         ? `page:${page.page}`
         : page.kind === "ecosystem"
           ? "ecosystem-product"
