@@ -6,6 +6,8 @@ import { PageMetadata } from "../../components/PageMetadata/PageMetadata";
 import { useBrowserSnapshot } from "../../hooks/useBrowserSnapshot";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import { intelligenceData } from "./data";
+import { repositoryIntelligenceHref } from "./publication";
+import { RepositoryPublicationLinks } from "./RepositoryPublicationLinks";
 import type { EvidenceState, IntelligenceItem, IntelligenceRepository } from "./types";
 
 import "./intelligence.css";
@@ -168,8 +170,9 @@ export function IntelligencePage() {
               return <section className="oi-panel" key={lane.key} aria-label={t(`intelligence.now.${lane.label}`)}>
                 <h3>{t(`intelligence.now.${lane.label}`)}</h3>
                 {items.length ? <ul className="oi-now-items">{items.slice(0, 6).map(({ repository, item }) => <li key={`${repository.name}:${item.id}`}>
-                  <p className="oi-item-source"><a href={repository.sourceUrl}>{repository.name}</a></p>
-                  {item.url ? <a href={item.url}><bdi dir="auto">{item.title}</bdi></a> : <bdi dir="auto">{item.title}</bdi>}
+                  <p className="oi-item-source">{repositoryIntelligenceHref(repository) ? <a href={repositoryIntelligenceHref(repository)!}>{repository.name}</a> : repository.name}</p>
+                  {repositoryIntelligenceHref(repository, "now", item.id) ? <a href={repositoryIntelligenceHref(repository, "now", item.id)!}><bdi dir="auto">{item.title}</bdi></a> : <bdi dir="auto">{item.title}</bdi>}
+                  {item.url ? <p><a href={item.url}>{t("intelligence.publication.githubEvidence")}</a></p> : null}
                   <p className="oi-item-caption"><span>{t("intelligence.item.state")}: <bdi dir="auto">{item.state}</bdi></span><span>{t("intelligence.item.assertion")}: <bdi dir="auto">{item.assertion}</bdi></span><span>{t("intelligence.item.freshness")}: <bdi dir="auto">{item.freshness}</bdi></span></p>
                   <Link to={evidenceDestination(repository)}>{t("intelligence.repository.inspect")}</Link>
                 </li>)}</ul> : <p className="oi-muted">{t("intelligence.now.emptyList")}</p>}
@@ -193,7 +196,8 @@ export function IntelligencePage() {
           <div className="oi-repositories">
             {repositories.map((repository) => (
               <article className="oi-repository" data-selected={selected === repository.name} key={repository.name}>
-                <header className="oi-section-heading"><div><h3><a href={repository.sourceUrl}><bdi dir="auto">{repository.title}</bdi></a></h3>{repository.title !== repository.name ? <p className="oi-muted"><code>{repository.name}</code></p> : null}</div><span className="oi-badge" data-evidence={repository.evidenceState}>{t(`intelligence.evidence.${repository.evidenceState}`)}</span></header>
+                <header className="oi-section-heading"><div><h3>{repositoryIntelligenceHref(repository) ? <a href={repositoryIntelligenceHref(repository)!}><bdi dir="auto">{repository.title}</bdi></a> : <bdi dir="auto">{repository.title}</bdi>}</h3>{repository.title !== repository.name ? <p className="oi-muted"><code>{repository.name}</code></p> : null}</div><span className="oi-badge" data-evidence={repository.evidenceState}>{t(`intelligence.evidence.${repository.evidenceState}`)}</span></header>
+                <RepositoryPublicationLinks repository={repository} />
                 <p className="oi-repository-source"><span>{t("intelligence.repository.revision")}: <a href={repository.commitUrl}><code>{repository.representedCommit.slice(0, 12)}</code></a></span><span>{t("intelligence.repository.observed")}: <time dateTime={repository.observedAt}>{repository.observedAt}</time></span></p>
                 <Link className="oi-inspect-link" to={evidenceDestination(repository)}>{t("intelligence.repository.inspect")}</Link>
                 <details className="oi-evidence" id={repositoryAnchor(repository.name)} open={selected === repository.name}>

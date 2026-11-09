@@ -21,16 +21,28 @@ const preservedKeys = ["q", "repository", "state", "evidence", "view"];
 
 interface Point { readonly x: number; readonly y: number }
 interface Camera extends Point { readonly zoom: number }
-interface PositionedNode extends GraphNode { readonly position: Point; readonly safeHref: string | null }
+interface PositionedNode extends GraphNode { readonly position: Point; readonly safeHref: string | null; readonly safeSourceHref: string | null }
 
 const initialCamera: Camera = { x: WIDTH / 2, y: HEIGHT / 2, zoom: 1 };
 const compare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
 const boundedText = (value: unknown, maximum: number): value is string =>
   typeof value === "string" && value.length > 0 && value.length <= maximum && !/[\u0000-\u001f\u007f]/.test(value);
 
-/** Internal destinations only; evidence/source URLs belong in the owning view. */
-export function safeGraphHref(value: unknown): string | null {
+/** Internal fleet routes or exact consumer routes admitted by the publication catalog. */
+export function safeGraphHref(value: unknown, publicationRoutes: ReadonlySet<string> = new Set()): string | null {
   if (typeof value !== "string" || value.length > 4096 || /[\\\u0000-\u0020\u007f]/.test(value)) return null;
+  if (value.startsWith("https://")) {
+    try {
+      const url = new URL(value);
+      if (url.protocol !== "https:" || url.username || url.password || url.port || url.hash || url.href !== value
+          || !publicationRoutes.has(`${url.origin}${url.pathname}`)) return null;
+      for (const [key, item] of url.searchParams) {
+        if (!["q", "state", "kind", "entity", "freshness", "from", "to"].includes(key)
+            || item.length > 512 || /[\u0000-\u001f\u007f\\]/.test(item)) return null;
+      }
+      return url.href;
+    } catch { return null; }
+  }
   const path = value.split(/[?#]/, 1)[0];
   if (!path || !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*\/?)?$/.test(path)) return null;
   try {
@@ -44,8 +56,11 @@ export function safeGraphHref(value: unknown): string | null {
   } catch { return null; }
 }
 
-function linkWithContext(href: string | null, context: URLSearchParams): string | null {
+function linkWithContext(href: string | null, context: URLSearchParams, publicationRoutes: ReadonlySet<string>): string | null {
   if (!href) return null;
+  // Organization directory filters are not consumer filter state. Explicit
+  // consumer entity context is already encoded by the admitted destination.
+  if (href.startsWith("https://")) return safeGraphHref(href, publicationRoutes);
   const url = new URL(href, "https://egohygiene.io");
   for (const key of preservedKeys) {
     const value = context.get(key);
@@ -58,7 +73,7 @@ function linkWithContext(href: string | null, context: URLSearchParams): string 
   return safeGraphHref(`${url.pathname}${url.search}${url.hash}`);
 }
 
-function model(nodes: readonly GraphNode[], edges: readonly GraphEdge[]) {
+function model(nodes: readonly GraphNode[], edges: readonly GraphEdge[], publicationRoutes: ReadonlySet<string>) {
   const accepted = nodes.filter((node) => boundedText(node.id, 1024) && boundedText(node.label, 512)
     && boundedText(node.state, 128) && typeof node.description === "string" && node.description.length <= 4096
     && ["module", "repository", "entity"].includes(node.kind));
@@ -69,7 +84,9 @@ function model(nodes: readonly GraphNode[], edges: readonly GraphEdge[]) {
   const rows = { module: 0, repository: 0, entity: 0 };
   const placed: PositionedNode[] = ordered.slice(0, MAX_NODES).map((node) => {
     const row = rows[node.kind]++;
-    return { ...node, safeHref: safeGraphHref(node.href), position: {
+    const sourceHref = typeof node.repository === "string" && /^egohygiene\/(?:\.github|[a-z0-9][a-z0-9.-]*)$/.test(node.repository)
+      && node.sourceHref === `https://github.com/${node.repository}` ? node.sourceHref : null;
+    return { ...node, safeHref: safeGraphHref(node.href, publicationRoutes), safeSourceHref: sourceHref, position: {
       x: 200 + kindOrder[node.kind] * 400,
       y: 106 + row * ROW_HEIGHT,
     } };
@@ -107,11 +124,12 @@ function edgePath(source: Point, target: Point) {
 }
 
 /** A navigation aid over already-admitted records, with no layout-derived claims. */
-export function IntelligenceGraph({ nodes, edges }: IntelligenceGraphProps) {
+export function IntelligenceGraph({ nodes, edges, publicationRoutes }: IntelligenceGraphProps) {
   const ready = useBrowserSnapshot();
   const [browserParams, setSearchParams] = useSearchParams();
   const params = ready ? browserParams : new URLSearchParams();
-  const data = useMemo(() => model(nodes, edges), [nodes, edges]);
+  const publications = useMemo(() => new Set(publicationRoutes ?? []), [publicationRoutes]);
+  const data = useMemo(() => model(nodes, edges, publications), [nodes, edges, publications]);
   const requested = params.get("graph") ?? "";
   const selected = data.byId.get(requested);
   const [camera, setCamera] = useState<Camera>(initialCamera);
@@ -198,12 +216,12 @@ export function IntelligenceGraph({ nodes, edges }: IntelligenceGraphProps) {
     if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
   }
 
-  const nodeLink = (node: PositionedNode) => linkWithContext(node.safeHref, params);
+  const nodeLink = (node: PositionedNode) => linkWithContext(node.safeHref, params, publications);
 
   return <section className="oi-graph" aria-labelledby={headingId}>
     <header className="oi-section-heading"><div><p className="site-eyebrow">Connected views</p><h2 id={headingId}>Explore the Intelligence graph</h2></div><p className="oi-muted">Open a destination, or choose a node to inspect its declared connections.</p></header>
     <p className="oi-graph-legend"><span><i data-kind="navigation" aria-hidden="true" />Navigation membership</span><span><i data-kind="declared" aria-hidden="true" />Declared relationship →</span></p>
-    <p className="oi-muted">Columns group modules, repositories and evidence for navigation. Position and proximity do not establish dependency, causality, completion or approval.</p>
+    <p className="oi-muted">Columns group fleet views, repositories and evidence for navigation. Position and proximity do not establish dependency, causality, completion or approval.</p>
     {!data.nodes.length ? <p className="oi-state-note">No admitted graph destinations are available at this source boundary.</p> : <>
       <div className="oi-graph-controls" role="group" aria-label="Graph controls">
         <label>Inspect a node<select disabled={!ready} value={selected?.id ?? ""} onChange={(event) => select(event.target.value)}><option value="">Choose a destination</option>{data.nodes.map((node) => <option key={node.id} value={node.id}>{node.kind}: {node.label}</option>)}</select></label>
@@ -239,17 +257,17 @@ export function IntelligenceGraph({ nodes, edges }: IntelligenceGraphProps) {
       {data.bounded ? <p className="oi-state-note">The graph component bounds presentation to {MAX_NODES} unique nodes and {MAX_EDGES} connections. The producer's endpoint views remain the complete evidence entry points.</p> : null}
       <aside className="oi-graph-inspector" aria-labelledby={`oi-graph-inspector-${instance}`}>
         <h3 id={`oi-graph-inspector-${instance}`}>{selected ? selected.label : "Inspect a destination"}</h3>
-        {selected ? <><p><b>{selected.kind}</b> · {selected.state}{selected.repository ? ` · ${selected.repository}` : ""}</p><p>{selected.description || "No additional description is projected."}</p>{nodeLink(selected) ? <a href={nodeLink(selected)!}>Open this view →</a> : <p>Navigation is unavailable for this node.</p>}
+        {selected ? <><p><b>{selected.kind}</b> · {selected.state}{selected.repository ? ` · ${selected.repository}` : ""}</p><p>{selected.description || "No additional description is projected."}</p>{nodeLink(selected) ? <a href={nodeLink(selected)!}>Open destination →</a> : <p>Publication destination unavailable for this node.</p>}{selected.safeSourceHref ? <p><a href={selected.safeSourceHref}>GitHub source</a></p> : null}
           <h4>Connected records</h4>{connected.length ? <ul>{connected.map((edge) => {
             const source = data.byId.get(edge.source)!;
             const target = data.byId.get(edge.target)!;
             const other = edge.source === selected.id ? target : source;
-            return <li key={edge.id}><button type="button" onClick={() => select(other.id)}>{other.label}</button><p>{source.label} → {target.label}: {edge.label}. <b>{edge.kind}</b> · {edge.assertion} · Captured freshness: {edge.freshness}{sourceContext(edge)}</p></li>;
+            return <li key={edge.id}><button type="button" onClick={() => select(other.id)}>{other.label}</button><p>{source.label} → {target.label}: {edge.label}. <b>{edge.kind}</b> · {edge.assertion} · Captured freshness: {edge.freshness}{sourceContext(edge)}</p>{safeGraphHref(edge.evidenceHref, publications) ? <a href={safeGraphHref(edge.evidenceHref, publications)!}>Open declared relationship evidence</a> : null}</li>;
           })}</ul> : <p>No connections are projected for this node; that is not proof of independence.</p>}</> : <p>Choose a node or focus a graph link to see its exact relationships and destination.</p>}
       </aside>
       <div className="oi-graph-directories">
-        <section aria-labelledby={`oi-graph-nodes-${instance}`}><h3 id={`oi-graph-nodes-${instance}`}>Node directory</h3><ul>{data.nodes.map((node) => <li key={node.id}><p>{nodeLink(node) ? <a href={nodeLink(node)!}><bdi dir="auto">{node.label}</bdi></a> : <bdi dir="auto">{node.label}</bdi>}</p><p className="oi-muted">{node.kind} · {node.state}{node.repository ? ` · ${node.repository}` : ""}</p><button disabled={!ready} type="button" onClick={() => select(node.id)}>Inspect connections</button></li>)}</ul></section>
-        <section aria-labelledby={`oi-graph-relations-${instance}`}><h3 id={`oi-graph-relations-${instance}`}>Relationship directory</h3>{data.edges.length ? <ul>{data.edges.map((edge) => <li key={edge.id}><p><bdi dir="auto">{data.byId.get(edge.source)!.label}</bdi> → <bdi dir="auto">{data.byId.get(edge.target)!.label}</bdi></p><p>{edge.label} · <b>{edge.kind}</b> · {edge.assertion} · Captured freshness: {edge.freshness}{sourceContext(edge)}</p></li>)}</ul> : <p>No relationship records are admitted. Navigation remains available through the node directory.</p>}</section>
+        <section aria-labelledby={`oi-graph-nodes-${instance}`}><h3 id={`oi-graph-nodes-${instance}`}>Node directory</h3><ul>{data.nodes.map((node) => <li key={node.id}><p>{nodeLink(node) ? <a href={nodeLink(node)!}><bdi dir="auto">{node.label}</bdi></a> : <bdi dir="auto">{node.label}</bdi>}</p>{node.safeSourceHref ? <p><a href={node.safeSourceHref}>GitHub source</a></p> : null}<p className="oi-muted">{node.kind} · {node.state}{node.repository ? ` · ${node.repository}` : ""}</p><button disabled={!ready} type="button" onClick={() => select(node.id)}>Inspect connections</button></li>)}</ul></section>
+        <section aria-labelledby={`oi-graph-relations-${instance}`}><h3 id={`oi-graph-relations-${instance}`}>Relationship directory</h3>{data.edges.length ? <ul>{data.edges.map((edge) => <li key={edge.id}><p><bdi dir="auto">{data.byId.get(edge.source)!.label}</bdi> → <bdi dir="auto">{data.byId.get(edge.target)!.label}</bdi></p><p>{edge.label} · <b>{edge.kind}</b> · {edge.assertion} · Captured freshness: {edge.freshness}{sourceContext(edge)}</p>{safeGraphHref(edge.evidenceHref, publications) ? <a href={safeGraphHref(edge.evidenceHref, publications)!}>Open declared relationship evidence</a> : null}</li>)}</ul> : <p>No relationship records are admitted. Navigation remains available through the node directory.</p>}</section>
       </div>
     </>}
   </section>;

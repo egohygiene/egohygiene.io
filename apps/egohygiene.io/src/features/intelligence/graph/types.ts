@@ -7,6 +7,7 @@ export interface GraphNode {
   readonly state: string;
   readonly description: string;
   readonly repository?: string;
+  readonly sourceHref?: string;
 }
 
 /** Declared relationships and navigation membership remain separate classes. */
@@ -18,6 +19,7 @@ export interface GraphEdge {
   readonly kind: "navigation" | "declared";
   readonly assertion: string;
   readonly freshness: string;
+  readonly evidenceHref?: string;
   readonly sourceState?: string;
   readonly sourceFreshness?: string;
 }
@@ -25,4 +27,5 @@ export interface GraphEdge {
 export interface IntelligenceGraphProps {
   readonly nodes: readonly GraphNode[];
   readonly edges: readonly GraphEdge[];
+  readonly publicationRoutes?: readonly string[];
 }
