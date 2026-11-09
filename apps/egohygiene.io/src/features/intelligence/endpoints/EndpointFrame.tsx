@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useSyncExternalStore } from "react";
 import { intelligenceData } from "../data";
 import { endpointData } from "./data";
+import { endpointFragment } from "./fragment";
 import type { EndpointRecord } from "./types";
 
 const subscribe = () => () => undefined;
@@ -11,7 +12,7 @@ const browser = () => true;
 const server = () => false;
 
 export function EndpointRecordCard({ record }: { readonly record: EndpointRecord }) {
-  return <article className="oi-panel oi-endpoint-record" id={`e-${encodeURIComponent(record.id)}`}>
+  return <article className="oi-panel oi-endpoint-record" id={endpointFragment(record.id)}>
     <header className="oi-section-heading"><div><p className="oi-muted">{record.repository} · {record.kind}</p><h3>{record.url ? <a href={record.url}>{record.title}</a> : record.title}</h3></div><span className="oi-badge">{record.state}</span></header>
     {record.summary ? <p>{record.summary}</p> : null}
     <p className="oi-muted">Assertion: {record.assertion} · Freshness: {record.freshness}</p>
@@ -20,7 +21,8 @@ export function EndpointRecordCard({ record }: { readonly record: EndpointRecord
   </article>;
 }
 
-export function EndpointFrame({ id, question, children, renderRecord }: {
+export function EndpointFrame({ id, question, children, renderRecord, showEmpty = true }: {
+  readonly showEmpty?: boolean;
   readonly id: string;
   readonly question: string;
   readonly children?: ReactNode;
@@ -54,10 +56,10 @@ export function EndpointFrame({ id, question, children, renderRecord }: {
       <label>State<input disabled={!ready} value={state} maxLength={128} onChange={(event) => update("state", event.target.value)} placeholder="All states" /></label>
     </div> : null}
     <noscript><p>All admitted evidence is available below. Interactive filtering requires JavaScript.</p></noscript>
-    {!data.groups.length ? <p className="oi-state-note">This view has no admitted normalized evidence. Missing input remains unavailable.</p> : null}
+    {showEmpty && !data.groups.length ? <p className="oi-state-note">This view has no admitted normalized evidence. Missing input remains unavailable.</p> : null}
     {groups.map((group) => {
-      const records = group.records.filter((item) => (!state || item.state === state) && (!normalized || (item.searchText !== undefined ? item.searchText.includes(query.toLowerCase().trim()) : `${item.title} ${item.key} ${item.summary ?? ""}`.normalize("NFKC").toLocaleLowerCase("en").includes(normalized))));
-      return <section className="oi-section" key={group.repository}><h2>{group.repository}</h2><p className="oi-muted">{group.state} · {group.reason}</p>
+      const records = group.records.filter((item) => (!state || item.state === state) && (!normalized || (item.searchText !== undefined ? item.searchText.includes(query.toLowerCase().trim()) : `${item.title} ${item.key} ${item.summary ?? ""} ${item.details.map((detail) => detail.value).join(" ")} ${item.relations.map((relation) => `${relation.target.title} ${relation.target.key}`).join(" ")}`.normalize("NFKC").toLocaleLowerCase("en").includes(normalized))));
+      return <section className="oi-section" key={group.repository}><h2>{group.repository}</h2><p className="oi-muted">{group.state} · {group.sourceFreshness ? `Source freshness: ${group.sourceFreshness} · ` : ""}{group.reason}</p>
         <details><summary>Collection coverage</summary><ul>{group.coverage.map((claim) => <li key={claim.domain}>{claim.domain}: {claim.collection} · {claim.freshness} · {claim.reason}{claim.observedAt ? ` · ${claim.observedAt}` : ""}</li>)}</ul></details>
         {records.map((item) => <div key={item.id}>{renderRecord ? renderRecord(item) : <EndpointRecordCard record={item} />}</div>)}
         {!records.length ? <p className="oi-state-note">{group.records.length ? "No records match these filters." : group.state === "available" ? "The admitted source contains no records in this view. Collection coverage above states its scope." : "Records are unavailable for this source boundary."}</p> : null}

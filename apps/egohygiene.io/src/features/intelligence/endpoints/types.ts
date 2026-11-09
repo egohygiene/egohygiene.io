@@ -28,6 +28,7 @@ export interface EndpointGroup {
   readonly repository: string;
   readonly state: IntelligenceState;
   readonly reason: string;
+  readonly sourceFreshness?: "current" | "stale";
   readonly coverage: readonly IntelligenceClaim[];
   readonly records: readonly EndpointRecord[];
   readonly truncated: boolean;
