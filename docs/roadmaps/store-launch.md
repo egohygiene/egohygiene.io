@@ -1,5 +1,28 @@
 # Store launch roadmap and milestone history
 
+## Current sprint closeout; review/pages at the end — 2026-11-09
+
+The [detailed issue/closure map](sprint-closeout-2026-11-09.md) now owns scheduling
+under #84/#88. First reconcile delivered #51/#75/#61/#69 acceptance, finish #34's
+bounded synthetic contracts and #92/#52/#29/#57 reliability, execute #70's actual
+browser matrix and prepare #37's single packet. Twelve issues are reconciliation
+candidates; none is automatically complete. Unmet original criteria stay open.
+
+Alan's required decisions, manual/native checks and PR review are consolidated in
+[#115](https://github.com/egohygiene/egohygiene.io/issues/115), followed by the
+[#116](https://github.com/egohygiene/egohygiene.io/issues/116) creative/page batch:
+one reviewed website draft and an unpublished provider draft or completed private
+entry packet. Both are native children of #88. The worker prepares concrete
+options/diffs and performs available checks before asking for Alan's review.
+
+Milestone 1 has 24 open issues plus 11 historical closed issues. Existing milestone
+2, now **Publication — first real product and launch**, retains six open issues
+and the later #21/#89 A → #96/#97 → #89 B/C → #38 → #39 release sequence. The
+other 34 open issues remain outside either milestone. Main/#105–#109 remain
+unchanged and unmerged; this planning update closes no issue, runs no app suite,
+selects no license/product and performs no deployment/activation. Earlier sync
+and execution-order entries below are historical where superseded by this plan.
+
 ## Current #57 local serving delivery — 2026-10-26
 
 [Draft #109](https://github.com/egohygiene/egohygiene.io/pull/109) adds bounded Docker inputs, Caddy canonical/404/MIME behavior and `task qualify:static` on unmerged #108. [Receipt](../development/static-serving-57.md): 101 tooling checks and 388 actual native HTTP requests pass; 45 normal artifacts unchanged. Actual Docker/Task/Mac acceptance remains open; three budgets and prior output/browser/hosted gaps persist. Next local walkthrough/sync, then #70 → #37. #105–#109 remain drafts; #59 licensing is still pending. Later environment/construction-preview and real-product phases retain their existing order.

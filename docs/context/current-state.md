@@ -1,5 +1,49 @@
 # Current handoff
 
+## Current: closeout roadmap and final owner batches — 2026-11-09
+
+Alan requested a roadmap to close as much existing work as the evidence permits,
+finish his creative piece, and handle manual review/page creation at sprint end.
+The [detailed map](../roadmaps/sprint-closeout-2026-11-09.md) is linked from overall
+[#84](https://github.com/egohygiene/egohygiene.io/issues/84) and setup
+[#88](https://github.com/egohygiene/egohygiene.io/issues/88).
+
+The order is Wave 0 acceptance reconciliation (#51/#75/#61/#69), #34 A/B/C
+synthetic contract work, concrete #92/#52/#29/#57 reliability, #70 actual browser
+acceptance for the existing surfaces, then #37's single review/closure packet.
+Twelve issues are reconciliation candidates, not guaranteed closures. Preserve
+all unmet original criteria and the exact source/evidence/integration boundaries.
+
+New native children of #88 are
+[#115](https://github.com/egohygiene/egohygiene.io/issues/115), the consolidated
+license/contact/copy/manual-check/PR-review session, and
+[#116](https://github.com/egohygiene/egohygiene.io/issues/116), the prepared website
+and provider page packet plus one creative pilot draft. The worker performs
+available checks/mechanical preparation first; only required owner actions are
+batched for Alan. Page drafting covers both website content and a provider draft
+or creation-ready private packet; actual public creation/activation stays later.
+
+Milestone 1 now has 24 open issues and 11 historical closed issues. The existing
+milestone 2 was renamed **Publication — first real product and launch**, retaining
+its six open issues and the #21/#89 A → #96/#97 → #89 B/C → #38 → #39 sequence.
+The other 34 open issues remain outside either milestone. Readback verified 29
+updated issue bodies against exact planned text, preservation of existing issue
+states/titles/labels/assignees/milestone numbers and all prior #88 child links,
+and addition of #115/#116. No existing issue was closed or reparented.
+
+Main remains `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; #105–#109 remain unmerged
+at the heads recorded in the roadmap. Documentation branch
+`docs/sprint-closeout-roadmap-2026-11-09` starts at #109
+`8717b54d7fd64b6ef5895b163fb01fc840ffc437` and preserves the stack. Application,
+browser, container and hosted qualification suites were not rerun for this
+planning task; October runtime receipts below remain dated history.
+
+Next implementation, when requested: Wave 0's criterion/evidence audit and #34 A,
+then remaining reliability/browser/integrated work; prepare #115/#116 continuously
+and reserve Alan's required actions for the end. No license/creative selection,
+ontology adoption, merge, publication, account/DNS change, retirement, provider
+activation or spending occurred.
+
 ## Current: #57 native proof saved; Docker walkthrough remains — 2026-10-26
 
 [Draft #109](https://github.com/egohygiene/egohygiene.io/pull/109) stacks on #108. [Receipt](../development/static-serving-57.md) and [verification](../development/reviews/static-serving-57/verification.json) pin corrected source `9a44a48031e9715cb2c3d8945a6cb2cc800c2a37`. 101 tooling tests, tooling types/checks, normal build/raw and 388 actual Linux-native Caddy HTTP requests pass; all 45 artifact hashes match prior #29 controlled output. Native checks caught and fixed missing CNAME/webmanifest types. Three budgets fail; output investigations remain unresolved. Docker profile fails clearly before execution because Docker is absent; Task/Mac/container/browser acceptance remains pending. Hosted CodeQL succeeds; CI logs confirm the artifact gate fails (three findings), and dependency review reports unsupported repository/Dependency graph configuration. Browser steps are skipped.

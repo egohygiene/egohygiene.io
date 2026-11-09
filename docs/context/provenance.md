@@ -2334,3 +2334,54 @@ sync on #87, then select bounded #22, then Alan's local-machine engineering pass
 with existing Taskfile/environment/qualification tooling, then actual product/setup.
 No next issue, real account/product/language activation, paid sample, deployment
 or spending occurred. Metadata is not proof of rights, identity or remote facts.
+
+## Sprint closeout scheduling and final owner batches — 2026-11-09 UTC
+
+Source: Alan requested an issue roadmap to maximize evidence-backed closure,
+consolidate manual review and page creation at sprint end, preserve his creative
+focus, and separate actual publication. The supplied 2026-11-05 sprint brief was
+read with repository instructions, main context, the latest #109 handoff and live
+GitHub issue/milestone/PR metadata. The brief is task context, not new merge,
+license, spending, account, deployment or provider-activation authority.
+
+Observed main: `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`. #105–#109 remained open
+drafts at `2b9ebe5d3aba4f7cccb277252d15a48325ff205d`,
+`c5935ae45d582af19a4175db1f1e05168393e0f6`,
+`3d44df671069300e13324fb3f17e3762986e7892`,
+`4faaebeb50b4202e8aaf9ee0012db0f836939f79` and
+`8717b54d7fd64b6ef5895b163fb01fc840ffc437`, respectively. The documentation branch
+starts at the last of those heads, preserving the unmerged dependency stack.
+
+Created [#115](https://github.com/egohygiene/egohygiene.io/issues/115) for one
+owner decision/manual-check/PR-review session and
+[#116](https://github.com/egohygiene/egohygiene.io/issues/116) for prepared website
+and provider page drafts. Both belong to milestone 1 and are native children of
+#88. Page scope assumes both website content and a genuinely unpublished provider
+draft or completed private creation worksheet; actual publication remains later.
+Updated 29 existing issue bodies with scheduling/closure cross-links, preserving
+the previous bodies and all unmet criteria. Overall #84 and parents #88/#31 link
+the [durable execution map](../roadmaps/sprint-closeout-2026-11-09.md).
+
+Reused milestone 1 and existing milestone 2, renamed the latter **Publication —
+first real product and launch**, and retained their original descriptions/history
+below dated scheduling updates. The six existing publication issues and linked
+#21 keep their environment → construction preview → real-product → publication
+order. No additional broad backlog item or cross-repository implementation was
+created; private source/approval/creative facts were not imported into public data.
+
+Live readback verified all 29 planned issue bodies and both new issue bodies,
+preservation of existing issue states/titles/labels/assignees/milestone numbers,
+and preservation of every existing #88 child with exactly #115/#116 added. The
+64 open issues divide into 24 foundation, six publication and 34 outside either
+milestone. Eleven historical foundation issues remain closed. No existing issue
+was closed or reparented by this update.
+
+Validation passed for planning/metadata readback, 446 relative Markdown targets,
+81 manifest paths, JSON parsing, fenced-block balance and staged whitespace.
+No application, browser, container, hosted qualification or private-catalog suite
+was run; the October evidence linked by
+the roadmap remains dated historical evidence. No product/license choice,
+ontology adoption, merge, account/DNS change, deployment, retirement, provider
+activation, order or spending occurred. A later implementation session starts
+Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
+#70/#37, and prepares #115/#116 before Alan's required end-of-sprint actions.
