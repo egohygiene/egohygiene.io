@@ -2413,3 +2413,14 @@ ontology adoption, merge, account/DNS change, deployment, retirement, provider
 activation, order or spending occurred. A later implementation session starts
 Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 #70/#37, and prepares #115/#116 before Alan's required end-of-sprint actions.
+
+
+## 2026-11-09T04:47:11Z — Supporting endpoint slice prepared for review
+
+- Candidate branch: `codex/intelligence-dependency-endpoint`; implementation before handoff: `62a96db43a51367dcee98dd5e1a826e1f6ada27b`.
+- Scope: Adds directed Dependencies and Work, Journey and Search endpoint projectors/pages, opaque source Search matching and exact public edge transport for graph composition.
+- Guide: [operator/source boundary](../development/intelligence-support-endpoints.md).
+- Evidence: static source/peer review and syntax/whitespace inspection only.
+- Deferred: builds, typechecks, tests, native/browser/server execution, hosted CI
+  investigation, real captures, publication and release acceptance.
+- Existing draft stack and source/consumer/human authority remain separate.
