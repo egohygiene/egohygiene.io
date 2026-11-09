@@ -1,0 +1,20 @@
+{
+  "contract_version": "1.0.0-alpha.2",
+  "schema": "egohygiene.website.organization-intelligence-input-lock/v1",
+  "sources": {
+    "fleet": {
+      "file": "repository-intelligence-fleet.v1.schema.json",
+      "path": "schemas/repository-intelligence-fleet.v1.schema.json",
+      "repository": "egohygiene/observatory",
+      "revision": "f411b83398dd07aa3d5e6e2c89d1e8dfff746085",
+      "sha256": "743e2e1eb52d6182ad401d5d32881360315e873a082f8fde37c1002949cfe793"
+    },
+    "routes": {
+      "file": "public-site-surface-registry.json",
+      "path": "catalog/public-site-surface-registry.json",
+      "repository": "egohygiene/hygiene",
+      "revision": "fa41ccc95d0cd0365b38008e02bdc67b928c5ed2",
+      "sha256": "95c9db34dc0b66bb090bd92f89ce16cb7f850a0bbf9a47bd3d64f7ac3d0ad7f3"
+    }
+  }
+}

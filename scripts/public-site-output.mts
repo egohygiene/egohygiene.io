@@ -1,3 +1,4 @@
+import { isIntelligencePath, intelligencePathFile } from "../apps/egohygiene.io/src/content/intelligence-routes.ts";
 import { createHash } from "node:crypto";
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -48,7 +49,7 @@ export function validatePublicPages(pages: readonly PublicPage[], origin: string
   const paths = new Set<string>();
   for (const page of pages) {
     const { pathname, metadata } = page;
-    if (!/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(pathname))
+    if (!isIntelligencePath(pathname) && !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(pathname))
       throw new Error(`Invalid static route path: ${pathname}`);
     if (/^\/(?:assets(?:\/|$)|store\/preview(?:\/|$))/.test(pathname))
       throw new Error(`Reserved static route path: ${pathname}`);
@@ -157,7 +158,7 @@ export async function writePublicSite(outputDirectory: string, renderer: PublicR
     if (rendered.status !== 200) throw new Error(`Known static route did not succeed: ${page.pathname} (${rendered.status})`);
     if (JSON.stringify(rendered.metadata) !== JSON.stringify(page.metadata))
       throw new Error(`Static metadata changed while rendering: ${page.pathname}`);
-    const relativeFile = page.pathname === "/" ? "index.html" : `${page.pathname.slice(1)}/index.html`;
+    const relativeFile = intelligencePathFile(page.pathname);
     if (relativeFile !== "index.html" && await exists(join(outputDirectory, relativeFile)))
       throw new Error(`Generated route collides with a copied public file: ${relativeFile}`);
     const html = renderPageDocument(template, page.pathname, rendered);

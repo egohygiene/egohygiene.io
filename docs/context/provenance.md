@@ -5,6 +5,26 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Intelligence-only mainline replay — 2026-11-09
+
+Authority: user requested merging the Intelligence campaign; unrelated licensing,
+store, CI and Docker drafts remain outside that scope. Live main is
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d`; original #126 head is
+`28849c13cf04d9e8acb3996b0e442129adb29cb3`. A new isolated local branch
+`codex/intelligence-site-mainline` replays only the Intelligence source, with
+original commit provenance retained. Original branches/PRs remain unchanged.
+
+[The isolation checkpoint](../development/intelligence-mainline-isolation.md)
+records the excluded #105–#109/#117 ancestry, exact public input/source boundaries,
+source-context conflicts, narrow Caddy integration and fixed PageMetadata import.
+Domain projection/privacy code matches the original candidate; public catalogs
+remain opt-in. Independent source review found no further concrete blocker.
+Only static syntax/import/JSON/whitespace inspection is in scope; all tests,
+typechecks, builds, browser/native server/application execution, CI investigation
+and live/publication acceptance remain deferred. No merge or deployment evidence
+is claimed by this checkpoint; root coordinates the remote replacement afterward.
+
+
 ## Source hygiene #56 fresh-checkout C — 2026-10-25
 
 Published B `2697f5a967a950d7e4abb3d77615478a83567c0c` matched staged tree

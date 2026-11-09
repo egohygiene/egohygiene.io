@@ -1,5 +1,27 @@
 # Current handoff
 
+## Current: Intelligence-only merge candidate — 2026-11-09
+
+The active local replacement is `codex/intelligence-site-mainline`, directly
+based on main `89fc70440f9c3cf32d37a6da83c7a2b969efa97d`.
+[Isolation/source checkpoint](../development/intelligence-mainline-isolation.md)
+records the replayed #118–#126 Intelligence implementation and its boundaries.
+The original stack included unrelated open #105–#109 and #117; those commits,
+licensing decisions, store/dependency/CI/Docker work and closeout plan are excluded.
+Original branches remain intact. Root owns replacement-PR/head selection and
+merge coordination; no remote mutation has occurred at this checkpoint.
+
+The central site remains a fleet overview linking to explicitly declared
+repository Pages Intelligence; shared detailed rendering belongs to Relay.
+Central endpoints remain optional fleet exploration. No live artifact/catalog
+is connected. Main's store, dependencies, workflows, Docker and broad server
+policy are unchanged. Only scoped Intelligence delivery routing is added.
+The metadata import found during replay is corrected. Source peer review found
+no further concrete blocker. Syntax/import/JSON/diff inspection is the only
+validation scope; tests, typechecks, builds, CI, browser/Caddy/runtime and live
+publication acceptance remain deferred. The notes below retain main's earlier
+source checkpoints; their historical statuses do not describe this campaign.
+
 ## Current: #56 local A/B/C delivered — 2026-10-25
 
 [Draft #104](https://github.com/egohygiene/egohygiene.io/pull/104) on

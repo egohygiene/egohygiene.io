@@ -1,0 +1,187 @@
+{
+  "title": "Organization Intelligence",
+  "description": "Survey the public fleet, see what needs attention, and open each repository’s consumer-owned Pages Intelligence for detailed evidence.",
+  "kicker": "Ego Hygiene · Public control plane",
+  "authority": "These views reflect declared source evidence. Strategy, human decisions and acceptance remain with their canonical owners.",
+  "navigation": {
+    "label": "Organization Intelligence sections",
+    "now": "Now",
+    "repositories": "Repositories",
+    "modules": "Modules",
+    "provenance": "Provenance"
+  },
+  "states": {
+    "available": "Public snapshot available",
+    "stale": "Stale snapshot",
+    "partial": "Partial public evidence",
+    "unavailable": "Snapshot unavailable",
+    "incompatible": "Snapshot incompatible",
+    "error": "Snapshot error"
+  },
+  "messages": {
+    "NOT_CONFIGURED": "No reviewed public snapshot is connected yet. Repository evidence remains unavailable.",
+    "REVIEW_BINDING_REQUIRED": "The selected snapshot does not yet have the required review binding. Its contents are withheld.",
+    "INPUT_UNAVAILABLE": "The public snapshot could not be loaded. No repository inventory is inferred from that failure.",
+    "INPUT_INVALID": "The selected snapshot could not be admitted. Other website pages remain available.",
+    "INPUT_INCOMPATIBLE": "The selected snapshot uses an unsupported contract. Its contents are withheld until a compatible source is available.",
+    "PUBLIC_REQUIRED": "The selected input does not satisfy the public evidence boundary. Its contents are withheld.",
+    "READY": "The admitted public snapshot is available below. Inspect each domain's coverage and source revision before drawing conclusions.",
+    "PARTIAL": "Some public repository evidence could not be admitted. Valid repositories remain available below; inspect their source revisions and domain coverage independently.",
+    "STALE": "This snapshot is older than the declared freshness window. Its source revisions and original observations remain visible; it is not current evidence."
+  },
+  "snapshot": {
+    "heading": "Evidence snapshot",
+    "repositories": "Represented public repositories",
+    "asOf": "Freshness evaluated at",
+    "window": "Admitted public observation window",
+    "noCount": "An unavailable snapshot does not mean there are no repositories, no findings or no work."
+  },
+  "now": {
+    "kicker": "Reorientation",
+    "heading": "Now and next attention",
+    "description": "Owner-projected focus, blockers and ready work are shown in their source order. Activity alone does not establish completion or priority.",
+    "focus": "Current focus",
+    "blockers": "Blockers",
+    "next": "Next ready",
+    "emptyList": "No items are projected in this list. Check domain coverage before interpreting an empty view.",
+    "unavailable": "Current focus, blockers and next-ready evidence are unavailable. No strategic or health state is inferred.",
+    "bounded": "Showing the first {shown} of {total} public items. Open repository evidence for the full projected lists.",
+    "repositoryHeading": "Projected repository context",
+    "repositoryUnavailable": "This repository's Now module is unavailable. Its independent source and coverage evidence remain below."
+  },
+  "directory": {
+    "kicker": "Public evidence directory",
+    "heading": "Repositories",
+    "description": "Only repositories in the admitted public snapshot appear here. Detailed Intelligence lives on each repository’s reviewed Pages destination; GitHub source remains a separate evidence link.",
+    "filterLabel": "Filter represented public repositories",
+    "search": "Search repositories",
+    "evidence": "Evidence state",
+    "clear": "Clear filters",
+    "results": "Showing {shown} of {total} represented public repositories.",
+    "noResults": "No represented public repositories match these filters. Clear the filters to return to the admitted directory.",
+    "unavailable": "The public repository directory will appear when a reviewed compatible snapshot is available.",
+    "noScript": "The complete admitted directory is shown below. Interactive filters and selected-repository links require JavaScript; native evidence disclosures and source links remain available."
+  },
+  "evidence": {
+    "all": "All evidence states",
+    "current": "Current evidence",
+    "stale": "Stale evidence",
+    "unknown": "Evidence unknown",
+    "partial": "Partial evidence",
+    "unavailable": "Evidence unavailable",
+    "error": "Collection error",
+    "not_applicable": "Explicitly not applicable"
+  },
+  "repository": {
+    "revision": "Represented revision",
+    "observed": "Observed at",
+    "snapshot": "Snapshot identity",
+    "digest": "Snapshot digest",
+    "inspect": "Inspect fleet snapshot context",
+    "details": "Source, coverage and projected context"
+  },
+  "item": {
+    "state": "State",
+    "assertion": "Assertion",
+    "freshness": "Freshness"
+  },
+  "coverage": {
+    "heading": "Collection coverage",
+    "description": "Collection scope, freshness and applicability are separate. Uncollected or failed evidence never becomes a successful empty inventory.",
+    "collection": "Collection",
+    "reason": "Reason",
+    "unobserved": "Not observed"
+  },
+  "domains": {
+    "roadmap": "Roadmap",
+    "decisions": "Decisions",
+    "git": "Git",
+    "issues": "Issues",
+    "pull_requests": "Pull requests",
+    "checks": "Checks",
+    "releases": "Releases",
+    "deployments": "Deployments",
+    "history": "History"
+  },
+  "collection": {
+    "uncollected": "Uncollected",
+    "unavailable": "Unavailable",
+    "failed": "Failed",
+    "partial": "Partial inventory",
+    "observed_empty": "Observed empty",
+    "observed": "Observed inventory",
+    "not_applicable": "Explicitly not applicable"
+  },
+  "freshness": {
+    "current": "Current",
+    "stale": "Stale",
+    "unknown": "Unknown",
+    "not_applicable": "Not applicable"
+  },
+  "reasons": {
+    "not_requested": "Not requested",
+    "access_denied": "Access denied",
+    "provider_unavailable": "Provider unavailable",
+    "legacy_unspecified": "Legacy scope unspecified",
+    "collection_failed": "Collection failed",
+    "filtered": "Filtered scope",
+    "truncated": "Truncated inventory",
+    "incomplete": "Incomplete inventory",
+    "complete": "Complete declared scope",
+    "explicit_not_applicable": "Explicit applicability decision"
+  },
+  "modules": {
+    "kicker": "One question per view",
+    "heading": "Fleet exploration drafts",
+    "description": "These central draft views explore admitted aggregate evidence. Each repository’s shared Relay publication remains its detailed Intelligence experience.",
+    "navigation": "All Intelligence endpoints",
+    "overview": "Overview foundation",
+    "unavailable": "Module unavailable",
+    "canonical": "Central fleet draft route",
+    "snapshotLink": "Open fleet exploration draft",
+    "ownerLink": "View the owning implementation issue"
+  },
+  "provenance": {
+    "presentationIdentity": "Admitted presentation identity",
+    "heading": "Provenance and limits",
+    "description": "The host presents a reviewed public projection. Source collection and normalization retain their existing owners, and this page cannot mutate their evidence or establish release acceptance.",
+    "details": "Inspect source versions and integrity bindings",
+    "contract": "Owner fleet contract",
+    "artifact": "Admitted presentation SHA-256",
+    "normalizer": "Pinned Observatory source",
+    "schemaDigest": "Pinned owner schema SHA-256",
+    "registry": "Pinned route registry source",
+    "registryDigest": "Pinned route registry SHA-256",
+    "hostOwner": "Host implementation and remaining acceptance"
+  },
+  "publication": {
+    "label": "Consumer-owned repository Intelligence",
+    "open": "Open repository Intelligence",
+    "unavailable": "Publication destination unavailable.",
+    "routes": "Published repository Intelligence views",
+    "github": "GitHub source",
+    "githubEvidence": "Canonical GitHub evidence",
+    "provenance": "Inspect the reviewed publication destination",
+    "consumerOwned": "This destination comes from an explicit reviewed consumer publication record. Its source revision and observation are independent of the fleet snapshot.",
+    "differentRevision": "The declared publication source differs from the revision represented by the fleet snapshot. Inspect both source boundaries.",
+    "sourceCommit": "Declared published source revision",
+    "observedAt": "Publication evidence observed at",
+    "generator": "Shared Relay generator revision",
+    "configuration": "Consumer publication configuration",
+    "evidence": "Publication evidence",
+    "cname": "Declared CNAME evidence",
+    "surfaces": {
+      "now": "Now",
+      "roadmap": "Roadmap",
+      "decisions": "Decisions",
+      "journey": "Journey",
+      "dependencies": "Dependencies",
+      "health": "Health",
+      "releases": "Releases",
+      "work": "Work",
+      "search": "Search",
+      "compare": "Compare",
+      "dashboard": "Dashboard"
+    }
+  }
+}

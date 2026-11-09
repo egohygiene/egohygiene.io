@@ -1,3 +1,5 @@
+import { intelligenceEndpointRoutes } from "../content/intelligence-routes";
+import { IntelligenceEndpoint, IntelligenceAlias } from "../features/intelligence/endpoints/IntelligenceEndpoint";
 import type { ReactElement } from "react";
 import type { RouteObject } from "react-router-dom";
 
@@ -11,6 +13,7 @@ import {
   StoreProductPage,
 } from "../features/store";
 import { RootLayout } from "../layouts/RootLayout";
+import { IntelligencePage } from "../features/intelligence/IntelligencePage";
 import { AboutPage } from "../pages/AboutPage";
 import { AccessibilityPage } from "../pages/AccessibilityPage";
 import { EcosystemPage } from "../pages/EcosystemPage";
@@ -52,6 +55,7 @@ const previewRoutes =
 // The fixed page paths and their publication metadata are declared together.
 // Both adapters consume this route table; importing it never reads a browser global.
 const fixedPages: Record<(typeof fixedPublicRoutes)[number]["page"], ReactElement> = {
+  intelligence: <IntelligencePage />,
   home: <HomePage />,
   about: <AboutPage />,
   help: <HelpPage />,
@@ -72,6 +76,10 @@ export const routes: RouteObject[] = [
     element: <RootLayout />,
     errorElement: <RouteErrorPage />,
     children: [
+      ...intelligenceEndpointRoutes.flatMap(({ id, path, aliases }): RouteObject[] => [
+        { id: `intelligence:${id}`, path: path.slice(1), element: <IntelligenceEndpoint id={id} /> },
+        ...aliases.map((alias) => ({ id: `intelligence-alias:${id}:${alias}`, path: alias.slice(1), element: <IntelligenceAlias path={path} /> })),
+      ]),
       ...fixedPublicRoutes.map(({ path, page }): RouteObject => ({
         id: `page:${page}`,
         ...(path === "/" ? { index: true as const } : { path: path.slice(1) }),
