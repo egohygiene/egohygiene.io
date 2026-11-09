@@ -5,6 +5,21 @@ masters, full test logs or private source inventories. Git history preserves
 earlier versions; retain dated entries when the current handoff changes.
 
 
+## Public Intelligence fleet consumer candidate — 2026-11-09
+
+The authorized Intelligence continuation uses main `a6fc0a1af4b8be1bc1a8aafe27f74916e92732e3`
+and functional source `d5f30695ebae09b5d64ed7dd119f2baaf0e77084` on
+`codex/intelligence-fleet-host`. It consumes merged reviewed Relay
+`981ddf4367c67fcd625e54321d95bab027f6c0f2` through an optional exact fleet/manifest
+loader and a manual public-main read-only ordinary-artifact refresh workflow.
+The [operator/input guide](../development/intelligence-fleet-artifact-intake.md)
+retains exact selections, clocks, expiry and partial-state semantics. Original
+Intelligence drafts #118–#125 are closed as superseded by merged #126; unrelated
+website drafts remain outside this scope. Static peer/syntax/metadata review
+only; no tests, typechecks, build, provider/artifact/native execution, CI,
+browser or publication proof. ADR not required: existing fleet/repository
+publication ownership is preserved. No organization sanity sweep was run.
+
 ## Intelligence-only mainline replay — 2026-11-09
 
 Authority: user requested merging the Intelligence campaign; unrelated licensing,
