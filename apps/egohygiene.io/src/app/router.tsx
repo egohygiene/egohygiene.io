@@ -11,6 +11,7 @@ import {
   StoreProductPage,
 } from "../features/store";
 import { RootLayout } from "../layouts/RootLayout";
+import { IntelligencePage } from "../features/intelligence/IntelligencePage";
 import { AboutPage } from "../pages/AboutPage";
 import { AccessibilityPage } from "../pages/AccessibilityPage";
 import { EcosystemPage } from "../pages/EcosystemPage";
@@ -52,6 +53,7 @@ const previewRoutes =
 // The fixed page paths and their publication metadata are declared together.
 // Both adapters consume this route table; importing it never reads a browser global.
 const fixedPages: Record<(typeof fixedPublicRoutes)[number]["page"], ReactElement> = {
+  intelligence: <IntelligencePage />,
   home: <HomePage />,
   about: <AboutPage />,
   help: <HelpPage />,

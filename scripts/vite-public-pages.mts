@@ -24,15 +24,15 @@ export async function loadPreviewPageRewrites(
       if (
         !record(route) ||
         typeof route["pathname"] !== "string" ||
-        !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(
+        (route["pathname"] !== "/intelligence/" && !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(
           route["pathname"],
-        ) ||
+        )) ||
         /^\/(?:assets(?:\/|$)|store\/preview(?:\/|$))/.test(route["pathname"])
       ) {
         throw new Error("Invalid generated preview pathname.");
       }
       const pathname = route["pathname"];
-      const file = pathname === "/" ? "index.html" : `${pathname.slice(1)}/index.html`;
+      const file = pathname === "/" ? "index.html" : pathname === "/intelligence/" ? "intelligence/index.html" : `${pathname.slice(1)}/index.html`;
       if (route["file"] !== file || rewrites.has(pathname)) {
         throw new Error(`Conflicting generated preview file: ${pathname}`);
       }

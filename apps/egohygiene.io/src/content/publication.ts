@@ -19,6 +19,15 @@ export const PUBLIC_ORIGIN = "https://egohygiene.io";
 /** These declarations also supply the fixed paths to the shared route tree. */
 export const fixedPublicRoutes = [
   {
+    page: "intelligence",
+    path: "/intelligence/",
+    titleKey: "intelligence.title",
+    descriptionKey: "intelligence.description",
+    storeTitle: false,
+    indexable: false,
+    reason: "Organization Intelligence foundation for review; live fleet/publication acceptance remains open.",
+  },
+  {
     page: "home",
     path: "/",
     titleKey: "landing.title",
@@ -174,7 +183,7 @@ export interface PageMetadataInput extends PublicRouteInput {
 
 /** Only canonical, lowercase app paths are eligible for emitted output. */
 export function publicPageUrl(path: string): string {
-  if (!/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(path)) {
+  if (path !== "/intelligence/" && !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(path)) {
     throw new TypeError(`Invalid public route path: ${path}`);
   }
   return `${PUBLIC_ORIGIN}${path}`;

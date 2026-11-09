@@ -12,6 +12,7 @@ const routes = [
   ["/store", "store"],
   ["/about", "about"],
   ["/ecosystem", "ecosystem"],
+  ["/intelligence/", "intelligence"],
 ] as const;
 
 function HeaderNavigation() {
