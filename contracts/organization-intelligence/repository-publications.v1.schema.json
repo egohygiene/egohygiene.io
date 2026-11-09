@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egohygiene.io/contracts/repository-publications/v1/schema.json",
+  "title": "Reviewed consumer publication destinations for an independently admitted fleet roster",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "visibility",
+    "publications"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.website.repository-publications/v1"
+    },
+    "visibility": {
+      "const": "public"
+    },
+    "publications": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "if": {
+          "type": "object",
+          "properties": {
+            "visibility": {
+              "const": "public"
+            }
+          },
+          "required": [
+            "visibility"
+          ]
+        },
+        "then": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "repository",
+            "visibility",
+            "intelligence_base_url",
+            "surfaces",
+            "source_commit",
+            "generator_commit",
+            "observed_at",
+            "configuration_url",
+            "evidence_url"
+          ],
+          "properties": {
+            "repository": {
+              "type": "string",
+              "pattern": "^egohygiene/(?:\\.github|[a-z0-9][a-z0-9.-]*)$"
+            },
+            "visibility": {
+              "const": "public"
+            },
+            "intelligence_base_url": {
+              "type": "string",
+              "format": "uri",
+              "maxLength": 2048
+            },
+            "surfaces": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 64,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z_]+$"
+              }
+            },
+            "source_commit": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            "generator_commit": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            "observed_at": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+            },
+            "configuration_url": {
+              "type": "string",
+              "format": "uri",
+              "maxLength": 2048
+            },
+            "evidence_url": {
+              "type": "string",
+              "format": "uri",
+              "maxLength": 2048
+            },
+            "cname_url": {
+              "type": "string",
+              "format": "uri",
+              "maxLength": 2048
+            }
+          }
+        },
+        "else": {
+          "description": "Nonpublic source rows are excluded before validation or repository lookup."
+        }
+      }
+    }
+  }
+}

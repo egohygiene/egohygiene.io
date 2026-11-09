@@ -1,0 +1,22 @@
+{
+  "schema": "egohygiene.website.repository-publications/v1",
+  "visibility": "public",
+  "publications": [
+    {
+      "repository": "egohygiene/identity",
+      "visibility": "public",
+      "intelligence_base_url": "https://identity.egohygiene.io/intelligence/",
+      "surfaces": [
+        "intelligence",
+        "decisions",
+        "health"
+      ],
+      "source_commit": "55d0339ba5518c7b72154a2aad54a9e5b2bf2fff",
+      "generator_commit": "f19b65b3f8bd8466884dee5529fa77f2430440b6",
+      "observed_at": "2026-10-10T17:47:49Z",
+      "configuration_url": "https://github.com/egohygiene/identity/blob/55d0339ba5518c7b72154a2aad54a9e5b2bf2fff/.github/workflows/publish-brand-kit.yml",
+      "evidence_url": "https://github.com/egohygiene/identity/actions/runs/38073076055",
+      "cname_url": "https://github.com/egohygiene/identity/blob/55d0339ba5518c7b72154a2aad54a9e5b2bf2fff/publication/CNAME"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { attachRepositoryPublications } from "./intelligence-publications.mts";
 import { buildIntelligenceNavigation } from "./intelligence-navigation-model.mts";
 import { intelligenceEndpointRoutes } from "../apps/egohygiene.io/src/content/intelligence-routes.ts";
 import { projectEndpointModules } from "./intelligence-endpoint-modules.mts";
@@ -143,9 +144,18 @@ async function contracts() {
     return { id, title: text(surface["title"]), description: text(surface["description"], 2048), path,
       issueUrl: ({ journey: "https://github.com/egohygiene/relay/issues/147", work: "https://github.com/egohygiene/relay/issues/146", search: "https://github.com/egohygiene/relay/issues/83", compare: "https://github.com/egohygiene/relay/issues/152", diagnostics: "https://github.com/egohygiene/relay/issues/57", dashboard: "https://github.com/egohygiene/.github/issues/27" } as Record<string, string>)[id] ?? `https://github.com/egohygiene/.github/issues/${issue}`, implemented: true };
   });
+  const repositorySurfaces: Record<string, string> = {};
+  for (const raw of surfaces) {
+    const surface = object(raw);
+    const rawBinding = object(surface["route_bindings"])["repository"];
+    if (!rawBinding || typeof rawBinding !== "object" || Array.isArray(rawBinding)) continue;
+    const binding = object(rawBinding);
+    const canonical = text(binding["canonical_route"]);
+    if (canonical.startsWith("/intelligence/")) repositorySurfaces[text(surface["id"])] = canonical;
+  }
   const fleet = pins.get("fleet")!;
   const routes = pins.get("routes")!;
-  return { modules, provenance: { schema: fleetSchema, contractVersion: version,
+  return { modules, repositorySurfaces, provenance: { schema: fleetSchema, contractVersion: version,
     observatoryRevision: text(fleet["revision"]), schemaSha256: text(fleet["sha256"]),
     registryRevision: text(routes["revision"]), registrySha256: text(routes["sha256"]),
     registryUrl: `https://github.com/egohygiene/hygiene/blob/${text(routes["revision"])}/catalog/public-site-surface-registry.json` } };
@@ -306,6 +316,8 @@ export interface OrganizationIntelligenceOptions {
   readonly asOf?: string;
   readonly maximumAgeSeconds?: number;
   readonly snapshot?: OrganizationIntelligenceSnapshot;
+  readonly publicationsFilename?: string;
+  readonly publicationsExpectedSha256?: string;
 }
 
 export interface OrganizationIntelligenceSnapshot {
@@ -316,7 +328,7 @@ export interface OrganizationIntelligenceSnapshot {
 
 /** No VITE_ variable contains raw input paths or credentials. Missing input stays unavailable. */
 export async function loadOrganizationIntelligence(options: Omit<OrganizationIntelligenceOptions, "snapshot"> = {}): Promise<OrganizationIntelligenceSnapshot> {
-  const contract = await contracts();
+  const { repositorySurfaces, ...contract } = await contracts();
   let data: IntelligenceData = { ...contract, state: "unavailable", code: "NOT_CONFIGURED", asOf: null,
     snapshotId: null, artifactSha256: null, observationWindow: null, repositories: [], endpoints: projectEndpointModules({}, []) };
   const filename = options.filename ?? process.env["EGOHYGIENE_INTELLIGENCE_FLEET"];
@@ -333,7 +345,12 @@ export async function loadOrganizationIntelligence(options: Omit<OrganizationInt
       const projected = projectFleet(JSON.parse(content.toString("utf8")), asOf, maximumAge);
       // The local review checksum binds acquisition only. Unused view payloads
       // cannot perturb browser output through a raw whole-file checksum.
-      data = { ...data, ...projected, asOf, artifactSha256: hash(JSON.stringify(projected)) };
+      const linked = { ...projected, repositories: await attachRepositoryPublications(projected.repositories, {
+        filename: options.publicationsFilename ?? process.env["EGOHYGIENE_INTELLIGENCE_PUBLICATIONS"],
+        expectedSha256: options.publicationsExpectedSha256 ?? process.env["EGOHYGIENE_INTELLIGENCE_PUBLICATIONS_SHA256"],
+        asOf, surfaces: repositorySurfaces,
+      }) };
+      data = { ...data, ...linked, asOf, artifactSha256: hash(JSON.stringify(linked)) };
       data = { ...data, graph: buildIntelligenceNavigation(data, object(JSON.parse(content.toString("utf8")))["views"]) };
     } catch (error) {
       const code = error instanceof FleetInputError ? error.code : "INPUT_UNAVAILABLE";

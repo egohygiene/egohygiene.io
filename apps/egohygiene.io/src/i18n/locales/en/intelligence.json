@@ -1,6 +1,6 @@
 {
   "title": "Organization Intelligence",
-  "description": "Reorient across public repositories, inspect current evidence, and follow the sources that need attention.",
+  "description": "Survey the public fleet, see what needs attention, and open each repository’s consumer-owned Pages Intelligence for detailed evidence.",
   "kicker": "Ego Hygiene · Public control plane",
   "authority": "These views reflect declared source evidence. Strategy, human decisions and acceptance remain with their canonical owners.",
   "navigation": {
@@ -52,7 +52,7 @@
   "directory": {
     "kicker": "Public evidence directory",
     "heading": "Repositories",
-    "description": "Only repositories represented by the admitted public snapshot are listed. This is not a complete organization inventory or a measure of conformance.",
+    "description": "Only repositories in the admitted public snapshot appear here. Detailed Intelligence lives on each repository’s reviewed Pages destination; GitHub source remains a separate evidence link.",
     "filterLabel": "Filter represented public repositories",
     "search": "Search repositories",
     "evidence": "Evidence state",
@@ -77,7 +77,7 @@
     "observed": "Observed at",
     "snapshot": "Snapshot identity",
     "digest": "Snapshot digest",
-    "inspect": "Inspect repository evidence",
+    "inspect": "Inspect fleet snapshot context",
     "details": "Source, coverage and projected context"
   },
   "item": {
@@ -132,13 +132,13 @@
   },
   "modules": {
     "kicker": "One question per view",
-    "heading": "Organization modules",
-    "description": "Each endpoint answers one question and retains its own source boundary. A reachable view may still have unavailable, stale or partial evidence.",
+    "heading": "Fleet exploration drafts",
+    "description": "These central draft views explore admitted aggregate evidence. Each repository’s shared Relay publication remains its detailed Intelligence experience.",
     "navigation": "All Intelligence endpoints",
     "overview": "Overview foundation",
     "unavailable": "Module unavailable",
-    "canonical": "Canonical destination",
-    "snapshotLink": "Open this view",
+    "canonical": "Central fleet draft route",
+    "snapshotLink": "Open fleet exploration draft",
     "ownerLink": "View the owning implementation issue"
   },
   "provenance": {
@@ -153,5 +153,35 @@
     "registry": "Pinned route registry source",
     "registryDigest": "Pinned route registry SHA-256",
     "hostOwner": "Host implementation and remaining acceptance"
+  },
+  "publication": {
+    "label": "Consumer-owned repository Intelligence",
+    "open": "Open repository Intelligence",
+    "unavailable": "Publication destination unavailable.",
+    "routes": "Published repository Intelligence views",
+    "github": "GitHub source",
+    "githubEvidence": "Canonical GitHub evidence",
+    "provenance": "Inspect the reviewed publication destination",
+    "consumerOwned": "This destination comes from an explicit reviewed consumer publication record. Its source revision and observation are independent of the fleet snapshot.",
+    "differentRevision": "The declared publication source differs from the revision represented by the fleet snapshot. Inspect both source boundaries.",
+    "sourceCommit": "Declared published source revision",
+    "observedAt": "Publication evidence observed at",
+    "generator": "Shared Relay generator revision",
+    "configuration": "Consumer publication configuration",
+    "evidence": "Publication evidence",
+    "cname": "Declared CNAME evidence",
+    "surfaces": {
+      "now": "Now",
+      "roadmap": "Roadmap",
+      "decisions": "Decisions",
+      "journey": "Journey",
+      "dependencies": "Dependencies",
+      "health": "Health",
+      "releases": "Releases",
+      "work": "Work",
+      "search": "Search",
+      "compare": "Compare",
+      "dashboard": "Dashboard"
+    }
   }
 }

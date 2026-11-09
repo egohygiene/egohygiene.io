@@ -19,8 +19,23 @@ export interface IntelligenceItem {
   readonly url: string | null;
 }
 
+/** Consumer-owned publication destinations; not a repository identity registry. */
+export interface IntelligencePublication {
+  readonly state: "available" | "unavailable" | "incompatible";
+  readonly baseUrl: string | null;
+  readonly routes: Readonly<Record<string, string>>;
+  readonly sourceCommit: string | null;
+  readonly generatorCommit: string | null;
+  readonly observedAt: string | null;
+  readonly configurationUrl: string | null;
+  readonly evidenceUrl: string | null;
+  readonly cnameUrl: string | null;
+  readonly sourceMatchesSnapshot: boolean;
+}
+
 export interface IntelligenceRepository {
   readonly name: string;
+  readonly publication?: IntelligencePublication;
   readonly title: string;
   readonly sourceUrl: string;
   readonly commitUrl: string;
@@ -48,7 +63,7 @@ export interface IntelligenceModule {
 }
 
 export interface IntelligenceData {
-  readonly graph?: { readonly nodes: readonly import("./graph/types").GraphNode[]; readonly edges: readonly import("./graph/types").GraphEdge[]; readonly truncated: boolean };
+  readonly graph?: { readonly nodes: readonly import("./graph/types").GraphNode[]; readonly edges: readonly import("./graph/types").GraphEdge[]; readonly truncated: boolean; readonly publicationRoutes?: readonly string[] };
   readonly endpoints?: Readonly<Record<string, import("./endpoints/types").EndpointData>>;
   readonly state: IntelligenceState;
   readonly code: "NOT_CONFIGURED" | "REVIEW_BINDING_REQUIRED" | "INPUT_UNAVAILABLE" | "INPUT_INVALID" | "INPUT_INCOMPATIBLE" | "PUBLIC_REQUIRED" | "READY" | "STALE" | "PARTIAL";
