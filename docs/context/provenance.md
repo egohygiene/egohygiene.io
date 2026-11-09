@@ -2435,3 +2435,15 @@ Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 - Deferred: builds, typechecks, tests, native/browser/server execution, hosted CI
   investigation, real captures, publication and release acceptance.
 - Existing draft stack and source/consumer/human authority remain separate.
+
+
+## Continued endpoint review drafts
+
+- Aggregate site draft #125 uses implementation through `94893ef`; shared/domain/
+  graph slices are #119–#124, linked from the endpoint review index.
+- Source corrections gate dependency graph admission and preserve source-age
+  context, exact repository-scoped record anchors and canonical source identity.
+- Relay #166 adds fresh Work/Health CLI/composite capture composition; reusable
+  artifact intake remains explicitly deferred.
+- Draft creation/push does not establish builds, CI outcomes, browser/host proof,
+  live data, publication, release or parent acceptance.

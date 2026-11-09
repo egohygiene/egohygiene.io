@@ -5,9 +5,16 @@
 Candidate `codex/intelligence-endpoint-dashboard` advances the endpoint and dashboard continuation under
 [site #27](https://github.com/egohygiene/egohygiene.io/issues/27) and
 [organization #41](https://github.com/egohygiene/.github/issues/41).
-Implementation reference before this handoff is `3f4d3ee522fe9911c8f329c65f5af685054f19cf`. It remains a review
+Implementation reference before this handoff is `94893ef`. It remains a review
 candidate over the earlier #118 host and its existing #117 website stack; no
 ancestor or sibling draft is assumed merged.
+
+The aggregate is [draft #125](https://github.com/egohygiene/egohygiene.io/pull/125),
+with [the slice review index](../development/intelligence-endpoint-review.md).
+Final source fixes gate graph dependencies on admitted coverage, preserve source
+age independently from captured freshness, and scope record anchors by consumer
+context while retaining canonical identities. The current candidate remains
+unmerged; source/browser/host acceptance is unrun.
 
 Aggregates eighteen canonical endpoint pages, independent public module admission, source-age/coverage disclosure, static/alias routing and an interactive navigation/dependency graph with an HTML directory. Unsupported owner models remain explicit gaps rather than invented outcomes.
 
