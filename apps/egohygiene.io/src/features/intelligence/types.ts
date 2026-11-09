@@ -48,6 +48,7 @@ export interface IntelligenceModule {
 }
 
 export interface IntelligenceData {
+  readonly endpoints?: Readonly<Record<string, import("./endpoints/types").EndpointData>>;
   readonly state: IntelligenceState;
   readonly code: "NOT_CONFIGURED" | "REVIEW_BINDING_REQUIRED" | "INPUT_UNAVAILABLE" | "INPUT_INVALID" | "INPUT_INCOMPATIBLE" | "PUBLIC_REQUIRED" | "READY" | "STALE" | "PARTIAL";
   readonly asOf: string | null;
