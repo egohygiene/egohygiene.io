@@ -1,5 +1,34 @@
 # Current handoff
 
+## Operational endpoint slice prepared for review
+
+Candidate `codex/intelligence-operation-endpoints` advances the endpoint and dashboard continuation under
+[site #27](https://github.com/egohygiene/egohygiene.io/issues/27) and
+[organization #41](https://github.com/egohygiene/.github/issues/41).
+Implementation reference before this handoff is `f04d848163aa75b8262f7a7885e3358e558eaf92`. It remains a review
+candidate over the earlier #118 host and its existing #117 website stack; no
+ancestor or sibling draft is assumed merged.
+
+Adds independent Health and Releases projectors/pages, preserves execution and findings separately, and gives Distribution its explicit upstream source boundary.
+
+[docs/development/intelligence-operation-endpoints.md](../development/intelligence-operation-endpoints.md) records its exact entry points
+and remaining source boundaries. Preserve the independent slices when reviewing
+the aggregate. Unsupported data stays unavailable; module reachability does not
+establish conformance, human approval, release acceptance or source completeness.
+
+Validation is limited to static source/peer inspection, syntax parsing where
+available and whitespace checks. No installs, full builds, typechecks, tests,
+browser/Caddy execution, CI investigation or deployment were performed for this
+continuation. Prior runtime evidence below remains dated history. Actual native
+privacy, source binding, route/hydration, accessibility and performance proof
+remain in the deferred validation pass.
+
+Next: review the endpoint slices and aggregate, then exercise the exact reviewed
+source and captures through the existing qualification/publication boundary.
+Preserve source/store ownership, private projection, historical rollback and the
+separate creative/website sprint. No canonical approval, merge, release,
+publication, provider activation or spending is implied.
+
 ## Organization Intelligence foundation prepared for review
 
 The current broad Repository Intelligence request under

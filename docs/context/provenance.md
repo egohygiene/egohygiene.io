@@ -2413,3 +2413,14 @@ ontology adoption, merge, account/DNS change, deployment, retirement, provider
 activation, order or spending occurred. A later implementation session starts
 Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 #70/#37, and prepares #115/#116 before Alan's required end-of-sprint actions.
+
+
+## 2026-11-09T04:47:11Z — Operational endpoint slice prepared for review
+
+- Candidate branch: `codex/intelligence-operation-endpoints`; implementation before handoff: `f04d848163aa75b8262f7a7885e3358e558eaf92`.
+- Scope: Adds independent Health and Releases projectors/pages, preserves execution and findings separately, and gives Distribution its explicit upstream source boundary.
+- Guide: [operator/source boundary](../development/intelligence-operation-endpoints.md).
+- Evidence: static source/peer review and syntax/whitespace inspection only.
+- Deferred: builds, typechecks, tests, native/browser/server execution, hosted CI
+  investigation, real captures, publication and release acceptance.
+- Existing draft stack and source/consumer/human authority remain separate.
