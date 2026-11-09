@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { PageMetadata } from "../../../components/PageMetadata";
+import { PageMetadata } from "../../../components/PageMetadata/PageMetadata";
 import { Link, useSearchParams } from "react-router-dom";
 import { useSyncExternalStore } from "react";
 import { intelligenceData } from "../data";

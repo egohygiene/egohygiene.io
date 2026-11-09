@@ -1,7 +1,327 @@
 :80 {
   root * /srv
-  try_files {path} /index.html
-  file_server
 
-  respond /healthz 200
+  # Intelligence alone receives canonical generated-page handling.
+  @intelligencePage path /intelligence/ /roadmap/ /decisions/ /dependencies/ /health/ /releases/ /distribution/ /sanity/ /hygiene/ /audits/ /status/ /intelligence/identity/ /intelligence/now/ /intelligence/journey/ /intelligence/work/ /search/ /intelligence/compare/ /intelligence/diagnostics/ /intelligence/dashboard/
+  route {
+    respond /healthz 200
+
+    route /activity {
+      rewrite * /intelligence/journey/
+      redir {uri} 308
+    }
+    route /activity/ {
+      rewrite * /intelligence/journey/
+      redir {uri} 308
+    }
+    route /adr {
+      rewrite * /decisions/
+      redir {uri} 308
+    }
+    route /adr/ {
+      rewrite * /decisions/
+      redir {uri} 308
+    }
+    route /audits {
+      rewrite * /audits/
+      redir {uri} 308
+    }
+    route /audits/index.html {
+      rewrite * /audits/
+      redir {uri} 308
+    }
+    route /compare {
+      rewrite * /intelligence/compare/
+      redir {uri} 308
+    }
+    route /compare/ {
+      rewrite * /intelligence/compare/
+      redir {uri} 308
+    }
+    route /dashboard {
+      rewrite * /intelligence/dashboard/
+      redir {uri} 308
+    }
+    route /dashboard/ {
+      rewrite * /intelligence/dashboard/
+      redir {uri} 308
+    }
+    route /decisions {
+      rewrite * /decisions/
+      redir {uri} 308
+    }
+    route /decisions/index.html {
+      rewrite * /decisions/
+      redir {uri} 308
+    }
+    route /dependencies {
+      rewrite * /dependencies/
+      redir {uri} 308
+    }
+    route /dependencies/index.html {
+      rewrite * /dependencies/
+      redir {uri} 308
+    }
+    route /diagnostics {
+      rewrite * /intelligence/diagnostics/
+      redir {uri} 308
+    }
+    route /diagnostics/ {
+      rewrite * /intelligence/diagnostics/
+      redir {uri} 308
+    }
+    route /distribution {
+      rewrite * /distribution/
+      redir {uri} 308
+    }
+    route /distribution/index.html {
+      rewrite * /distribution/
+      redir {uri} 308
+    }
+    route /health {
+      rewrite * /health/
+      redir {uri} 308
+    }
+    route /health/index.html {
+      rewrite * /health/
+      redir {uri} 308
+    }
+    route /hygiene {
+      rewrite * /hygiene/
+      redir {uri} 308
+    }
+    route /hygiene/index.html {
+      rewrite * /hygiene/
+      redir {uri} 308
+    }
+    route /intelligence {
+      rewrite * /intelligence/
+      redir {uri} 308
+    }
+    route /intelligence/activity {
+      rewrite * /intelligence/journey/
+      redir {uri} 308
+    }
+    route /intelligence/activity/ {
+      rewrite * /intelligence/journey/
+      redir {uri} 308
+    }
+    route /intelligence/audits {
+      rewrite * /audits/
+      redir {uri} 308
+    }
+    route /intelligence/audits/ {
+      rewrite * /audits/
+      redir {uri} 308
+    }
+    route /intelligence/compare {
+      rewrite * /intelligence/compare/
+      redir {uri} 308
+    }
+    route /intelligence/compare/index.html {
+      rewrite * /intelligence/compare/
+      redir {uri} 308
+    }
+    route /intelligence/dashboard {
+      rewrite * /intelligence/dashboard/
+      redir {uri} 308
+    }
+    route /intelligence/dashboard/index.html {
+      rewrite * /intelligence/dashboard/
+      redir {uri} 308
+    }
+    route /intelligence/decisions {
+      rewrite * /decisions/
+      redir {uri} 308
+    }
+    route /intelligence/decisions/ {
+      rewrite * /decisions/
+      redir {uri} 308
+    }
+    route /intelligence/dependencies {
+      rewrite * /dependencies/
+      redir {uri} 308
+    }
+    route /intelligence/dependencies/ {
+      rewrite * /dependencies/
+      redir {uri} 308
+    }
+    route /intelligence/diagnostics {
+      rewrite * /intelligence/diagnostics/
+      redir {uri} 308
+    }
+    route /intelligence/diagnostics/index.html {
+      rewrite * /intelligence/diagnostics/
+      redir {uri} 308
+    }
+    route /intelligence/distribution {
+      rewrite * /distribution/
+      redir {uri} 308
+    }
+    route /intelligence/distribution/ {
+      rewrite * /distribution/
+      redir {uri} 308
+    }
+    route /intelligence/health {
+      rewrite * /health/
+      redir {uri} 308
+    }
+    route /intelligence/health/ {
+      rewrite * /health/
+      redir {uri} 308
+    }
+    route /intelligence/hygiene {
+      rewrite * /hygiene/
+      redir {uri} 308
+    }
+    route /intelligence/hygiene/ {
+      rewrite * /hygiene/
+      redir {uri} 308
+    }
+    route /intelligence/identity {
+      rewrite * /intelligence/identity/
+      redir {uri} 308
+    }
+    route /intelligence/identity/index.html {
+      rewrite * /intelligence/identity/
+      redir {uri} 308
+    }
+    route /intelligence/index.html {
+      rewrite * /intelligence/
+      redir {uri} 308
+    }
+    route /intelligence/journey {
+      rewrite * /intelligence/journey/
+      redir {uri} 308
+    }
+    route /intelligence/journey/index.html {
+      rewrite * /intelligence/journey/
+      redir {uri} 308
+    }
+    route /intelligence/now {
+      rewrite * /intelligence/now/
+      redir {uri} 308
+    }
+    route /intelligence/now/index.html {
+      rewrite * /intelligence/now/
+      redir {uri} 308
+    }
+    route /intelligence/releases {
+      rewrite * /releases/
+      redir {uri} 308
+    }
+    route /intelligence/releases/ {
+      rewrite * /releases/
+      redir {uri} 308
+    }
+    route /intelligence/roadmap {
+      rewrite * /roadmap/
+      redir {uri} 308
+    }
+    route /intelligence/roadmap/ {
+      rewrite * /roadmap/
+      redir {uri} 308
+    }
+    route /intelligence/sanity {
+      rewrite * /sanity/
+      redir {uri} 308
+    }
+    route /intelligence/sanity/ {
+      rewrite * /sanity/
+      redir {uri} 308
+    }
+    route /intelligence/search {
+      rewrite * /search/
+      redir {uri} 308
+    }
+    route /intelligence/search/ {
+      rewrite * /search/
+      redir {uri} 308
+    }
+    route /intelligence/work {
+      rewrite * /intelligence/work/
+      redir {uri} 308
+    }
+    route /intelligence/work/index.html {
+      rewrite * /intelligence/work/
+      redir {uri} 308
+    }
+    route /journey {
+      rewrite * /intelligence/journey/
+      redir {uri} 308
+    }
+    route /journey/ {
+      rewrite * /intelligence/journey/
+      redir {uri} 308
+    }
+    route /now {
+      rewrite * /intelligence/now/
+      redir {uri} 308
+    }
+    route /now/ {
+      rewrite * /intelligence/now/
+      redir {uri} 308
+    }
+    route /releases {
+      rewrite * /releases/
+      redir {uri} 308
+    }
+    route /releases/index.html {
+      rewrite * /releases/
+      redir {uri} 308
+    }
+    route /roadmap {
+      rewrite * /roadmap/
+      redir {uri} 308
+    }
+    route /roadmap/index.html {
+      rewrite * /roadmap/
+      redir {uri} 308
+    }
+    route /sanity {
+      rewrite * /sanity/
+      redir {uri} 308
+    }
+    route /sanity/index.html {
+      rewrite * /sanity/
+      redir {uri} 308
+    }
+    route /search {
+      rewrite * /search/
+      redir {uri} 308
+    }
+    route /search/index.html {
+      rewrite * /search/
+      redir {uri} 308
+    }
+    route /status {
+      rewrite * /status/
+      redir {uri} 308
+    }
+    route /status/index.html {
+      rewrite * /status/
+      redir {uri} 308
+    }
+    route /work {
+      rewrite * /intelligence/work/
+      redir {uri} 308
+    }
+    route /work/ {
+      rewrite * /intelligence/work/
+      redir {uri} 308
+    }
+
+    handle @intelligencePage {
+      rewrite * {path}index.html
+      file_server {
+        disable_canonical_uris
+      }
+    }
+
+    # Preserve main's existing behavior for every other request.
+    handle {
+      try_files {path} /index.html
+      file_server
+    }
+  }
 }
