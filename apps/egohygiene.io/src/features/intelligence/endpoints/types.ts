@@ -20,6 +20,7 @@ export interface EndpointRelation {
 }
 export interface EndpointRecord extends EndpointReference {
   readonly summary?: string;
+  readonly searchText?: string;
   readonly details: readonly { readonly label: string; readonly value: string }[];
   readonly relations: readonly EndpointRelation[];
 }
@@ -27,6 +28,7 @@ export interface EndpointGroup {
   readonly repository: string;
   readonly state: IntelligenceState;
   readonly reason: string;
+  readonly sourceFreshness?: "current" | "stale";
   readonly coverage: readonly IntelligenceClaim[];
   readonly records: readonly EndpointRecord[];
   readonly truncated: boolean;

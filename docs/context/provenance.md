@@ -2424,3 +2424,10 @@ Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 - Deferred: builds, typechecks, tests, native/browser/server execution, hosted CI
   investigation, real captures, publication and release acceptance.
 - Existing draft stack and source/consumer/human authority remain separate.
+
+
+## Shared endpoint foundation reconciliation
+
+The support slice incorporates the shared foundation branch, including the exact
+URL-safe record anchor helper. Its own current objective and deferred checks
+remain authoritative for this candidate; no sibling PR is assumed merged.
