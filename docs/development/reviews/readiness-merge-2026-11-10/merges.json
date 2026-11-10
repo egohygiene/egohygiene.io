@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-10",
+  "authorization": "Alan explicitly authorized merging all open project PRs and requested the readiness roadmap.",
+  "repository": "egohygiene/egohygiene.io",
+  "initialMain": "dfff96af545628edf4d68476587b6f093313c437",
+  "runtimeMain": "785aec3099b196cebe1e5d801297cb49258edc64",
+  "merges": [
+    {
+      "pr": 134,
+      "reviewedHead": "401845a5f7110666c7fe44039617185dcea68fa8",
+      "mergeCommit": "08d381cb8cd376b60866804e90b1cdf10b70a2a9",
+      "parents": [
+        "dfff96af545628edf4d68476587b6f093313c437",
+        "401845a5f7110666c7fe44039617185dcea68fa8"
+      ],
+      "tree": "ac3bbd417b30b374775b13e4013085f7a134e6ab",
+      "reviewedTreeMatchesMerge": true
+    },
+    {
+      "pr": 136,
+      "reviewedHead": "1fab310820da4f6eeb45529974b494ee23ed7494",
+      "mergeCommit": "f44e4cc74921850c5119c580a7d03514d97e0c91",
+      "parents": [
+        "08d381cb8cd376b60866804e90b1cdf10b70a2a9",
+        "1fab310820da4f6eeb45529974b494ee23ed7494"
+      ],
+      "tree": "da0cf75c6131c8f946afe0be0cc3d425332f1427",
+      "reviewedTreeMatchesMerge": true
+    },
+    {
+      "pr": 137,
+      "reviewedHead": "f201e4b81c2d501c7b4cc571c6dd163e8b4eefbd",
+      "mergeCommit": "785aec3099b196cebe1e5d801297cb49258edc64",
+      "parents": [
+        "f44e4cc74921850c5119c580a7d03514d97e0c91",
+        "f201e4b81c2d501c7b4cc571c6dd163e8b4eefbd"
+      ],
+      "tree": "4fdc5dec25aa342897895de091b3bb46cd3f772f",
+      "reviewedTreeMatchesMerge": true
+    }
+  ],
+  "storeOpenPRs": 0,
+  "completedIssue": 53,
+  "retainedOpenScopes": [29, 34, 36, 37, 49, 52, 59, 61, 69, 70, 88, 90, 92, 115, 116],
+  "publicationMilestone": {
+    "number": 2,
+    "issues": [31, 38, 39, 89, 96, 97]
+  },
+  "qualification": {
+    "source": "c9567827db3d346f8d11454ee96866bf10466d32",
+    "nonBrowserPassingSteps": 15,
+    "catalogTests": 175,
+    "newCatalogTests": 23,
+    "toolingTests": 115,
+    "unitTests": 363,
+    "rawPages": 45,
+    "normalFiles": 64,
+    "allNormalFilesMatchPriorBaseline": true,
+    "overallResult": "fail",
+    "activeSizeFindings": 8,
+    "dependencyReview": "unsupported configuration; exact owner-session diagnosis is prepared in #115",
+    "latestReviewedHead": "f201e4b81c2d501c7b4cc571c6dd163e8b4eefbd",
+    "hostedCI": {
+      "run": 42924204658,
+      "job": 130206387947,
+      "observed": "45 raw pages pass; 64 files/335 references/eight strict artifact findings; browsers skipped"
+    },
+    "hostedDependencyReview": {
+      "run": 42924204695,
+      "job": 130206388482,
+      "observed": "Dependency review is not supported on this repository. Please ensure that Dependency graph is enabled."
+    },
+    "hostedCodeQL": {
+      "run": 42924204625,
+      "result": "success"
+    }
+  },
+  "boundaries": [
+    "Normal expected-head GitHub merges; no admin/ruleset override, force push or history rewrite.",
+    "No active budget, network guard, purchase state, license choice or deployment workflow changed.",
+    "No new execution pass inferred from a merge; prior evidence stays source-specific.",
+    "Private canonical adapter/receipt work remains agent-owned; real identity/adoption and creative/native decisions remain with the owner."
+  ]
+}

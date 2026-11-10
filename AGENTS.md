@@ -1,5 +1,9 @@
 # Agent entry point
 
+## Current merged readiness queue — 2026-11-10
+
+Alan explicitly authorized all open project PRs: website #134→#136→#137 are merged, exact trees/parents verified, runtime main `785aec3`; store has none open. #53 closes completed; #91/#135 already completed. [Current ordered roadmap](docs/roadmaps/product-readiness-2026-11-10.md) owns the next work: #36/#61/#69 acceptance, #34 private adapter/receipt proof, #52/#29 reliability/cost/CI, #92 cleanup and #49/#70 automation, with #59/#90 inputs prepared for #115. #116 A is merged/prepared, B/C require the real pilot. Final #37 then #88 readiness; #84 and publication milestone2 remain open. Preserve gates: eight sizes and unsupported dependency review still fail. Private integration remains agent-owned; real identity/adoption/creative/native decisions stay #115/#116. No repeat merge approval is needed for this completed action; no license/budget/provider/deployment choice inferred.
+
 ## Current #137 verified public boundary / #116 A packet — 2026-11-10
 
 [C receipt](docs/store/relationship-boundary-34.md) at clean `c956782` passes 15 non-browser steps (175 catalog incl23 new, 115 tooling, 363 units, all compilers/boundaries), then the unchanged eight strict sizes fail. All64 default hashes and the fresh45-route matrix match the baseline. Hosted CodeQL succeeds; CI fails those8/skips browsers and dependency review repeats graph configuration. #116 A is prepared; B/C stay open. #34 still needs independent private exporter/crosswalk and private receipt proposals plus the real upstream synthetic chain; do not reclassify that engineering as owner-only work. Canonical adoption/real identity/pilot choices stay #115/#116; publication later. Preserve #137 on #136/#134; no merge/deploy or real data change.

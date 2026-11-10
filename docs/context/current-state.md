@@ -1,5 +1,13 @@
 # Current handoff
 
+## Current: all open project drafts merged; ordered readiness roadmap — 2026-11-10
+
+Website #134, #136 and #137 are merged in order, ending at runtime main `785aec3099b196cebe1e5d801297cb49258edc64`. Every merge tree equals its reviewed head and preserves the expected parents; [receipt](../development/reviews/readiness-merge-2026-11-10/merges.json). Store has no open PR. #53 closes completed after its final local manager fix; #91 and research #135 remain completed. #116 A's creation packet is merged, while B/C and the actual pilot remain open.
+
+[Current ordered readiness roadmap](../roadmaps/product-readiness-2026-11-10.md) separates independent engineering, one owner/creative session and the final verification/handoff. Fifteen foundation issues remain: #29/#34/#36/#37/#49/#52/#59/#61/#69/#70/#88/#90/#92/#115/#116. #34 still has agent-owned private exporter/crosswalk/receipt integration and genuine upstream synthetic-chain proof; do not reclassify that as missing access/manual work. #115/#116 keep actual identity/adoption/rights/creative/native choices. Publication remains milestone2 with six issues under #31, after readiness.
+
+The merged runtime is exactly reviewed #137 `f201e4b`; clean functional source `c956782` passes 15 non-browser steps (175 catalog/115 tooling/363 units/all compiler profiles/45 raw pages), then eight strict artifact findings fail. Hosted final reviewed head has CodeQL success, CI failure at those8/skipped browsers, and unsupported dependency review. Source-bound browser/Docker evidence is retained without claiming fresh execution from this merge. Both license alternatives and the measured budget patch remain inactive; no workflow, gate, provider, private record or deployment action changed.
+
 ## Current: public relationship boundary verified; creation packet ready — 2026-11-10
 
 [Draft #137](https://github.com/egohygiene/egohygiene.io/pull/137) stacks on #136/#134. [Exact C evidence](../store/reviews/relationship-boundary-34/verification.json) at clean `c956782` passes 15 non-browser steps: 175 catalog (23 new reference/listing/Vite projection tests), 115 tooling, 363 units, all compiler/boundary profiles and 45 raw pages. Overall Task fails the unchanged eight strict sizes (201/inner1); all64 normal hashes equal the prior batch. Hosted CodeQL succeeds; CI reaches those8/skips browsers and dependency review repeats unsupported graph configuration.
