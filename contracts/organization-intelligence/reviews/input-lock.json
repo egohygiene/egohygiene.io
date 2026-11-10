@@ -1,0 +1,73 @@
+{
+  "admission": {
+    "artifact_path": "catalog/public-repositories.json",
+    "artifact_sha256": "af9c7186ded0bb57b18741eaa5905314b96d6adb03736946c868e0fc4aa50b26",
+    "helper_sha256": "fd3bb2099f2b9040502f19a8e582e4c4100653bd6cf2ea640cc36338dcfc4273",
+    "observed_at": "2026-11-09T14:06:57Z",
+    "owner": "egohygiene/hygiene",
+    "revision": "49639c1845cdfd08fbd5a768261a8b3cf515f80f",
+    "schema": "egohygiene.relay.public-catalog-admission/v1",
+    "schema_sha256": "eeb88b6a99de987500b946bd71c987e1fb7d0bd7350f466885c11ac7603c96d8"
+  },
+  "contract_version": "1.0.0-alpha.1",
+  "schema": "egohygiene.website.review-input-lock/v1",
+  "sources": {
+    "audits": {
+      "file": "fleet-audits.v1.schema.json",
+      "path": "schemas/fleet-audits.v1.schema.json",
+      "repository": "egohygiene/observatory",
+      "revision": "692fbe7a5a31827d442818bf33f5b225abc2d4b8",
+      "sha256": "7d02716e12a80569c2a0b4f4c2c7e21bd26bbafca87e5ee93971b5f6b263a7e8",
+      "source_owner": {
+        "contract_version": "1.0.0",
+        "lock_sha256": "951fc63ac3fc30918b4de3ac6def6da286046901a51b5cb8ffed3e3692614194",
+        "owner": "egohygiene/aether",
+        "registry_sha256": "58fd660134444c480d16c48c106b1572974fd2243beedfe665962c96fccfe525",
+        "revision": "74490907bf3979ac45594d97fb1bb5fa7071346d",
+        "schema": "aether.repository-audit-report/v1"
+      }
+    },
+    "audits-owner": {
+      "file": "aether.audit-report.v1.lock.json",
+      "path": "contracts/aether.audit-report.v1.lock.json",
+      "repository": "egohygiene/observatory",
+      "revision": "692fbe7a5a31827d442818bf33f5b225abc2d4b8",
+      "sha256": "951fc63ac3fc30918b4de3ac6def6da286046901a51b5cb8ffed3e3692614194"
+    },
+    "catalog": {
+      "file": "hygiene.public-repositories.v1.json",
+      "path": "catalog/public-repositories.json",
+      "repository": "egohygiene/hygiene",
+      "revision": "49639c1845cdfd08fbd5a768261a8b3cf515f80f",
+      "sha256": "af9c7186ded0bb57b18741eaa5905314b96d6adb03736946c868e0fc4aa50b26"
+    },
+    "sanity": {
+      "file": "fleet-sanity.v1.schema.json",
+      "path": "schemas/fleet-sanity.v1.schema.json",
+      "repository": "egohygiene/observatory",
+      "revision": "692fbe7a5a31827d442818bf33f5b225abc2d4b8",
+      "sha256": "c4671b106fdba02cfc236fa7f9149d2cfb4c4538a1ac3c55ffc526ee5bec72e5",
+      "source_owner": {
+        "contract_version": "1.0.0-alpha.1",
+        "governance": {
+          "contract_version": "1.0.0-alpha.1",
+          "owner": "egohygiene/hygiene",
+          "policy": "egohygiene.architecture-coherence-policy/v1",
+          "revision": "d11580e9a9c5d78b9a5d21474deaa612712a0fb9",
+          "schema": "egohygiene.architecture-coherence-governance/v1"
+        },
+        "lock_sha256": "a5ea406128a8ef50b9a7cd2bdaeb02dde52e6137474b5f6f2aac272acbe8d73e",
+        "owner": "egohygiene/aether",
+        "revision": "74490907bf3979ac45594d97fb1bb5fa7071346d",
+        "schema": "egohygiene.architecture-coherence-review/v1"
+      }
+    },
+    "sanity-owner": {
+      "file": "aether.architecture-coherence.v1.lock.json",
+      "path": "contracts/aether.architecture-coherence.v1.lock.json",
+      "repository": "egohygiene/observatory",
+      "revision": "692fbe7a5a31827d442818bf33f5b225abc2d4b8",
+      "sha256": "a5ea406128a8ef50b9a7cd2bdaeb02dde52e6137474b5f6f2aac272acbe8d73e"
+    }
+  }
+}
