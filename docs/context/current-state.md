@@ -1,5 +1,19 @@
 # Current handoff
 
+## Current: public relationship boundary verified; creation packet ready — 2026-11-10
+
+[Draft #137](https://github.com/egohygiene/egohygiene.io/pull/137) stacks on #136/#134. [Exact C evidence](../store/reviews/relationship-boundary-34/verification.json) at clean `c956782` passes 15 non-browser steps: 175 catalog (23 new reference/listing/Vite projection tests), 115 tooling, 363 units, all compiler/boundary profiles and 45 raw pages. Overall Task fails the unchanged eight strict sizes (201/inner1); all64 normal hashes equal the prior batch. Hosted CodeQL succeeds; CI reaches those8/skips browsers and dependency review repeats unsupported graph configuration.
+
+[#116 A packet](../store/first-product-packet-116.md) supplies the matching45-route copy/asset matrix, valid all-draft/non-purchasable configuration and blank restricted provider worksheet outside public Git. A is prepared; B/C require the real pilot and acceptance. #34 remains open for agent-owned private exporter/crosswalk/receipt proposals and a genuine upstream-valid synthetic chain; private contract read access exists, and this work is not assigned to Alan as a manual blocker. Canonical adoption, real mappings/creative/rights/native choices remain #115/#116 B; actual activation/publication stays milestone2. No new browser/Docker/provider/native pass, real data import/migration, active-limit change or external operation is claimed.
+
+## Current: optional references and creation packet implemented — 2026-11-10
+
+[Batch delivery](../store/relationship-boundary-34.md) implements lazy schema factories, design/product work selectors, strict optional Node/Vite references and a website-only listing-evidence summary. Prepared/approved/observed/withdrawn/unknown/stale remain distinct; actual private receipt adoption/exporter still needs its owning contract. [#116 A packet](../store/first-product-packet-116.md) supplies 45-route copy/asset inventory, schema-valid draft configuration and a blank private worksheet copy outside public Git. Preliminary 23 contracts/affected types pass; default normal output is byte-identical across 64 files. Clean-source C checks follow. #34/#116 remain open for actual cross-owner/pilot acceptance; #115 manual and milestone-2 publication remain separate.
+
+## Current: relationship contracts and creation packet selected — 2026-11-10
+
+User authorized the next batch: #34 synthetic references/publication-evidence boundary and #116 A. [A contract](../store/relationship-boundary-34.md) starts at #136 `1fab310`, preserving #134/#136 as drafts and current main. Existing private contract/draft interfaces are readable; actual private records, crosswalks and receipts remain private. Canonical adoption, real pilot/exporter and publication are not selected. Save a focused draft before B, then verify exact source and prepare one owner packet.
+
 ## Current: research delivered and next independent work — 2026-11-10
 
 [Draft #134](https://github.com/egohygiene/egohygiene.io/pull/134) contains local Storybook manager repair (five actual Chromium cases pass) and hash-bound costs preserving eight strict findings. #91 is now closed on its bounded rendering criteria; #53 is verified pending final repair integration. #52/#29 remain open. At exact #134 head `401845a`, hosted CodeQL succeeds; CI logs the same eight size failures/skips browsers, and dependency review repeats unsupported graph configuration. Prepared policy/graph-settings checks are consolidated in #115.

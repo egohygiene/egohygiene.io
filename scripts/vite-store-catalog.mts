@@ -1,9 +1,10 @@
 import { createHash } from "node:crypto";
+import { lstat, realpath } from "node:fs/promises";
 import { isAbsolute, relative, resolve, sep } from "node:path";
 
 import type { Plugin } from "vite";
-
 import { toPublicStoreCatalog } from "../packages/schemas/src/store.ts";
+import { toPublicStoreReferences } from "../packages/schemas/src/store-references.ts";
 import {
   curationFileForDirectory,
   defaultCatalogDirectory,
@@ -23,6 +24,7 @@ export interface PublicStoreCatalogOptions {
   readonly routesFile?: string;
   readonly publicDirectory?: string;
   readonly curationFile?: string | null;
+  readonly referencesFile?: string | null;
   readonly snapshot?: PublicStoreCatalogSnapshot;
 }
 
@@ -47,11 +49,28 @@ export async function loadPublicStoreSnapshot(
       : options.curationFile === null
         ? null
         : resolve(options.curationFile);
-  const catalog = toPublicStoreCatalog(
-    await loadCatalog(directory, await readCatalogJson(routesFile), publicDirectory, curationFile),
+  const authoredCatalog = await loadCatalog(
+    directory,
+    await readCatalogJson(routesFile),
+    publicDirectory,
+    curationFile,
   );
+  const catalog = toPublicStoreCatalog(authoredCatalog);
+  let referenceModule = "";
+  if (options.referencesFile) {
+    const referencesFile = resolve(options.referencesFile);
+    if (!(await lstat(referencesFile)).isFile())
+      throw new Error("Authoring references must be a regular non-symlink file.");
+    if (isWithin(await realpath(publicDirectory), await realpath(referencesFile)))
+      throw new Error("Authoring references must be outside public assets.");
+    const references = toPublicStoreReferences(
+      authoredCatalog,
+      await readCatalogJson(referencesFile),
+    );
+    referenceModule = `export const storeReferences = ${JSON.stringify(references)};\n`;
+  }
   const storefrontCuration = await loadStorefrontCuration(catalog, curationFile);
-  const moduleCode = `export const storeCatalog = ${JSON.stringify(catalog)};\nexport const storefrontCuration = ${JSON.stringify(storefrontCuration)};\n`;
+  const moduleCode = `export const storeCatalog = ${JSON.stringify(catalog)};\nexport const storefrontCuration = ${JSON.stringify(storefrontCuration)};\n${referenceModule}`;
   return Object.freeze({
     [snapshotBrand]: true as const,
     moduleCode,
@@ -83,6 +102,7 @@ export function publicStoreCatalog(options: PublicStoreCatalogOptions = {}): Plu
     defaultProvidersFile,
     publicDirectory,
     ...(curationFile ? [curationFile] : []),
+    ...(options.referencesFile ? [resolve(options.referencesFile)] : []),
   ];
   let building = false;
   let stopWatching: (() => void) | undefined;
