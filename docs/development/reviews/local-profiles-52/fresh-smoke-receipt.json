@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "invocationId": "572a6050-ca3e-4a1c-81fd-944076cc1701",
+  "createdAt": "2026-10-26T05:30:42.374Z",
+  "node": "v24.21.0",
+  "source": {
+    "commit": "47c25784b6853a415257a88150e2851d0b147e7a",
+    "digest": "580aff4d51829e3084c1c12d54158685cdfd463195be0e9b3c64f220687895cb",
+    "files": 743
+  },
+  "artifacts": [
+    {
+      "app": "egohygiene.io",
+      "files": {
+        "404.html": "76dfe1244ebcad885bacc58b6524b5ed6b0549b572dcceba4acd386a2b65ad60",
+        "CNAME": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12",
+        "about/index.html": "4ff35b43db998fb510b2ffcd1594d23aea08792369f660d337c0513890c51175",
+        "accessibility/index.html": "923090b45bab45e68a720c53467252910e464a00d1f90b52c4baf05f2105a1c2",
+        "aether/index.html": "f846e102facef61294f3dc3704413cffdcbf3314fc9aa71c51782c01a330cc07",
+        "assets/index-ClqF1yH0.js": "d722893b94fb394407eb10b55c60ffcc85e8833edb03870176fb24c7b565daf1",
+        "assets/index-DUxeAQ23.css": "e7e59f21afe340749156eaf4fadd7b0bad4f6ea4056c3186640067162a1a9271",
+        "ecosystem/index.html": "2255cb5be3bc7e4793c29cfc8b75fcae9e4e0344b02f0d7170d4e2d4361753b5",
+        "egolint/index.html": "0cc0c346654346fc641709a25df9f48554bd68e715c747ac6117d4fe10584955",
+        "favicon.ico": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e",
+        "favicon.png": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86",
+        "fonts/NOTICE.txt": "2231aaf86f60c69cb7c9c09a26af1bb8cd58138d8deeed992038367ee68c4df9",
+        "fonts/atkinson-bold.woff": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623",
+        "fonts/atkinson-regular.woff": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b",
+        "help/index.html": "0b03239c969d35dae013d166913b3eb2c897cdb2cf81686c9145224ca5ac64c8",
+        "icons/NOTICE.txt": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6",
+        "icons/apple-touch-icon.png": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66",
+        "icons/icon-192x192.png": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8",
+        "icons/icon-512x512.png": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c",
+        "index.html": "87106fb9a3771e82d00b7a0443ac1614964a5d67a22acf1e9906be24adf42acc",
+        "llms.txt": "e60531c2ab30c1e67de2707c83b802a134fc7579acc8468ac3d6e2b968e3e98d",
+        "mindcap/index.html": "341fec0009a364a4f1eca93528d56c3a2a740f3d17d84b05aadd1d139964a84c",
+        "mindgarden/index.html": "26585d1ac46578777cc1809e8bea8388889cc32552ba86e9ea2681b6b620ca5b",
+        "privacy/index.html": "33b5ab7606f4265583466e4f6adf872602d8902fb6c54da33505112c8d701181",
+        "public-routes.json": "a813ddbb26556917029825005f2ca1f4bbd8d0feacb6077e942dd464bb6a454b",
+        "reflector/index.html": "1c93a1946317a28e805fa888089c250512941a82c44b41d9e21d04b44edd9e30",
+        "renderflow/index.html": "b56a166b1bc60ebb81afbe494366081eb4626eb5c9d5dbe21529c18f05c956f6",
+        "robots.txt": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33",
+        "site.webmanifest": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e",
+        "sitemap.xml": "34cf5b4b5bc8322dc07047268c8715e122a81f2233589e29e7214a97efd7117a",
+        "store/catalog/index.html": "84ef7712fc9f1d0069263f763db0c81141116753fc9e33877533517d7ff1a4a5",
+        "store/collections/static-bloom-collection/index.html": "5fd6522829a705d0a8c22b571c94ceb05fb865b2812f30a5e10f0d1441218ee1",
+        "store/designs/heartburst/index.html": "14ee6a54e05a95f30e1ea2ad46f4e04327d7fb41ce7a6681db64ec0d97e18e6b",
+        "store/designs/signal-heart/index.html": "43444bdc744dfb38e5ac729dd47f683974b8322535742d8ee3566bfd4269c82b",
+        "store/designs/static-bloom-artwork/index.html": "f84ded4941182ade88b270b1a1acef77bdb6defcbd44352567be73adeb365a51",
+        "store/designs/unwritten-realm-cover/index.html": "bbbe85243312685c326f548783f62d45f0e7a3c0a0b956e7387cceec799f686d",
+        "store/heartburst/heartburst-light.webp": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550",
+        "store/help/index.html": "54ae9e85087c3718b43d37bd75d4092bf661cc1a3d1d7c571207df6467b8de55",
+        "store/incompris/artists/play/index.html": "9b602c9585420e240f9bd410e4d5f873370517b1e1d618887dd078bb1607bce7",
+        "store/incompris/index.html": "10b52d49884e6bc80e149dee01a668b9a036ee7e2ab02b50b3f5938ae9b0a53e",
+        "store/index.html": "5fb41c750f0ff185d0ea8c2abf22b4410c2c089c586ade474b30b31215df0124",
+        "store/products/signal-heart-hoodie/index.html": "c725ee8708001b1f2fca6bb73e6cd4e20a9993aac98234d189f5dc4d5a6f08d1",
+        "store/products/static-bloom-mug/index.html": "ae0ec4332f11180cf70c57cd9d93982e4f54f9771611aa9123e629d5c0bd4d23",
+        "store/products/unwritten-realm-comic/index.html": "19fd308d20dd3a85d598e377e232a0604a7df63cb9e8b7b190fa8ce46cdc4516",
+        "terms/index.html": "c63a55c09c748ccad3de1b32afbfa4391e7aacb93f7230959f46e9085051eb51"
+      }
+    },
+    {
+      "app": "docs",
+      "files": {
+        "assets/index-C76Sucbl.css": "f18f2711c68c1269ffe2c33d01ce5e6baba07371b140737db934ea1829ed110a",
+        "assets/index-Dki_bBNc.js": "98a71abb7ee4e6cbb765fa9e8e54b61435c5f58453a27b9178b6e3659298b83f",
+        "favicon.ico": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e",
+        "favicon.png": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86",
+        "icons/NOTICE.txt": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6",
+        "icons/apple-touch-icon.png": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66",
+        "icons/icon-192x192.png": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8",
+        "icons/icon-512x512.png": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c",
+        "index.html": "4f7231c0cff84dbcc3ad76fdf4211bdeac032b17f87d08290e96858080017999",
+        "robots.txt": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95",
+        "site.webmanifest": "5f66398321bbd25c735de7534789c47fc83044391d5583bc6deda8ab5b5e5c66"
+      }
+    },
+    {
+      "app": "playground",
+      "files": {
+        "assets/index-C0EBM1-d.js": "1aa40c182e0233fe21482073010d4dd44ec7b0f4c3bcc3893c95d3e4ec447004",
+        "assets/index-DgTWLnOQ.css": "e9c04b887ed689348d2166aa5e74c94f24126d05f567de5119c047c4434449a9",
+        "favicon.ico": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e",
+        "favicon.png": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86",
+        "icons/NOTICE.txt": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6",
+        "icons/apple-touch-icon.png": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66",
+        "icons/icon-192x192.png": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8",
+        "icons/icon-512x512.png": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c",
+        "index.html": "2ff182c144b4b19594d8f4a6c88be21c2054dad4bd1a555ee0c0d35e8e8e967f",
+        "robots.txt": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95",
+        "site.webmanifest": "fa657a38cf373a492f1e65988dd46b457f470f18017b25b4cdce1aa5af71db2b"
+      }
+    }
+  ]
+}

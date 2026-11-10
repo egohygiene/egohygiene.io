@@ -75,7 +75,7 @@ The normal `pnpm build` path continues to write **`apps/egohygiene.io/dist`** wi
 
 See [Fourthwall local setup](fourthwall-local-setup.md) for the connection trial and the distinction between mock products and an actual provider connection. Put any supported local configuration in the ignored `apps/egohygiene.io/.env.local` file described there. Never put a secret in a `VITE_` setting: those settings are included in browser code.
 
-These tasks do not deploy the website, create service accounts, activate checkout routes, or place orders. Hosting remains tracked by #29 and live provider activation by #38.
+These tasks do not deploy the website, create service accounts, activate checkout routes, or place orders. Hosting remains tracked by #89 and live provider activation by #38.
 
 The [storefront content workflow](storefront-content-workflow.md) walks through
 adding approved content and reviewing its placement. The real artist destination
@@ -94,3 +94,11 @@ additional fictional artist and route are excluded from normal builds.
 - **Offline first run:** The pinned pnpm and dependencies must already be cached to avoid downloads. Complete one successful setup while online.
 
 Implementation references: [Task sequential task calls](https://taskfile.dev/docs/guide/dependencies), [npm exec package selection and cache](https://docs.npmjs.com/cli/v11/commands/npm-exec/), [asdf version selection](https://asdf-vm.com/manage/versions.html), and [mise exec](https://mise.jdx.dev/cli/exec.html). The helper never installs operating-system tools or changes shell configuration automatically.
+
+## Engineering checks
+
+After setup, `task typecheck:all`, `task test:smoke` and
+`task test:browser:discover` provide explicit compiler, fresh all-app build and
+browser-discovery profiles. Discovery executes no browser. See the
+[complete command/scope table](../../tests/README.md) before running
+`task qualify:local` or the independent browser tasks on your machine.

@@ -1,0 +1,79 @@
+{
+  "issue": 52,
+  "sourceCommit": "47c25784b6853a415257a88150e2851d0b147e7a",
+  "status": "unresolved intermittent output interference; controlled repeated runs passed without source changes",
+  "initialFailure": {
+    "command": "pnpm test:smoke",
+    "allBuildExitCodes": 0,
+    "smokeTests": {
+      "passed": 2,
+      "failed": 1
+    },
+    "failure": "Website index.html was a 1,862-byte client shell despite successful 26-page public rendering and populated generated route receipt. The meaningful HTML check rejected it.",
+    "websiteIndexStat": {
+      "mtime": "2026-10-26T05:27:46.480046718Z",
+      "ctime": "2026-10-26T05:27:48.738216327Z",
+      "birthtime": "2026-10-26T05:27:48.725617181Z"
+    },
+    "docsBuildInterval": {
+      "start": "2026-10-26T05:27:47.056Z",
+      "endApprox": "2026-10-26T05:27:48.855Z"
+    },
+    "observation": "The replacement index preserved earlier client-build mtime while birth/ctime occurred during the docs step. Docs output directory also retained an earlier mtime. This suggests replacement/copy behavior; it does not identify the writer or establish a root cause."
+  },
+  "readOnlyTrace": [
+    "Website build awaits client build, isolated temporary SSR build, and every public-site write before completion. No later application writer was found in that path.",
+    "Docs and playground Vite configs use separate app roots and distinct public directories; no config redirects their outputs to website dist.",
+    "Public directories contain no index.html. Standalone consumer uses a fixed .cache/component-styles-53 output and no website destination.",
+    "No source modification or unexpected path was found that proves the cause. The earlier #53 output collision remains relevant history, not demonstrated equivalence."
+  ],
+  "controlledProbes": {
+    "owner": "root",
+    "coordination": "One sequential exec; this agent paused filesystem calls for the probe. No source changes or weakened assertions.",
+    "perBuildRootIndex": [
+      {
+        "step": "website",
+        "exitCode": 0,
+        "bytes": 11211,
+        "actual": "87106fb9a3771e82d00b7a0443ac1614964a5d67a22acf1e9906be24adf42acc",
+        "expected": "87106fb9a3771e82d00b7a0443ac1614964a5d67a22acf1e9906be24adf42acc"
+      },
+      {
+        "step": "docs",
+        "exitCode": 0,
+        "bytes": 11211,
+        "actual": "87106fb9a3771e82d00b7a0443ac1614964a5d67a22acf1e9906be24adf42acc",
+        "expected": "87106fb9a3771e82d00b7a0443ac1614964a5d67a22acf1e9906be24adf42acc"
+      },
+      {
+        "step": "playground",
+        "exitCode": 0,
+        "bytes": 11211,
+        "actual": "87106fb9a3771e82d00b7a0443ac1614964a5d67a22acf1e9906be24adf42acc",
+        "expected": "87106fb9a3771e82d00b7a0443ac1614964a5d67a22acf1e9906be24adf42acc"
+      }
+    ],
+    "freshSmokeRepeats": [
+      {
+        "name": "named",
+        "command": "pnpm test:smoke",
+        "exitCode": 0,
+        "elapsedSeconds": 9.69
+      },
+      {
+        "name": "direct",
+        "command": "node scripts/qualify-store.mjs --profile smoke",
+        "exitCode": 0,
+        "elapsedSeconds": 9.26
+      }
+    ],
+    "result": "After website, docs and playground builds the homepage remained 11,211 bytes and matched its generated route SHA256. Both named and direct fresh smoke passed all three tests."
+  },
+  "disposition": [
+    "Keep the first failure in continuity evidence; later passes do not prove a fix or make the original failed artifact valid.",
+    "Do not weaken the rendered HTML gate, add automatic retry, or attribute the incident to pnpm, Vite or runtime synchronization without evidence.",
+    "If it recurs, capture each build-step output identity and writer/process evidence before retrying. Keep future shared-checkout builds sequential.",
+    "No repository edits, build execution, browser execution, commits or deployment performed by this investigating agent."
+  ],
+  "limits": "Read-only pipeline trace plus bounded root-controlled reproduction attempts. No deterministic reproducer or proven root cause; no production or hosted CI qualification."
+}

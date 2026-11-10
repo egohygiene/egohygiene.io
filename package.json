@@ -82,7 +82,19 @@
     "check": "node scripts/checks/check-workspace.ts && node scripts/checks/check-package-exports.ts && node scripts/checks/check-locales.ts && node scripts/checks/check-circular-dependencies.ts && node scripts/checks/check-store-boundaries.ts",
     "test:store": "playwright test --config playwright.store.config.ts",
     "test:store:preview": "playwright test --config playwright.store-preview.config.ts",
-    "test:tooling": "node --test tests/tooling/*.test.mjs"
+    "test:tooling": "node --test tests/tooling/*.test.mjs",
+    "typecheck:tooling": "tsc --project tsconfig.node.json --noEmit",
+    "typecheck:tests": "tsc --project tsconfig.vitest.json --noEmit",
+    "typecheck:browser": "tsc --project tsconfig.store-browser.json --noEmit",
+    "typecheck:stories": "tsc --project apps/egohygiene.io/tsconfig.storybook.json --noEmit && tsc --project packages/ui/tsconfig.storybook.json --noEmit && tsc --project packages/visualizations/tsconfig.storybook.json --noEmit",
+    "typecheck:locales": "tsc --project tsconfig.locales.json --noEmit",
+    "typecheck:all": "pnpm typecheck && pnpm typecheck:workspaces && pnpm typecheck:tooling && pnpm typecheck:tests && pnpm typecheck:browser && pnpm typecheck:stories && pnpm typecheck:locales",
+    "test:semantic": "vitest run --config vitest.accessibility.config.ts",
+    "test:components": "node --test tests/component-styles/consumer.test.mjs",
+    "test:components:browser": "pnpm storybook:build && node tests/component-styles/build-consumer.mjs && playwright test --config playwright.component-styles.config.ts",
+    "test:smoke": "node scripts/qualify-store.mjs --profile smoke",
+    "test:browser:discover": "node scripts/check-browser-discovery.mjs",
+    "qualify:local": "node scripts/qualify-store.mjs"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.24.1",

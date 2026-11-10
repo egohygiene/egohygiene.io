@@ -1,0 +1,136 @@
+{
+  "issue": 52,
+  "checkpoint": "B local implementation evidence before publication",
+  "status": "passed",
+  "scope": "Fresh local file/HTML smoke only. No JavaScript execution, Chromium, hosted CI, deployment or provider qualification.",
+  "source": {
+    "commit": "25ab678b7d713c2b0232f8d8903c7d3e7f3152ae",
+    "digest": "b505ad1227201df271ca7a0324d4466b7d860b888809924ec4f741b29303eea6",
+    "files": 744
+  },
+  "runtime": {
+    "node": "v24.21.0",
+    "pnpm": "11.28.5"
+  },
+  "ownedFiles": {
+    "scripts/qualify-store.mjs": "edf2c69d43692c4a31af53f3d8f50b07e5213051eac186542f88e7b463a2a4ce",
+    "scripts/build-smoke.mts": "c3e4bd80a96a3f0faed645306e2d41df6386cac918ff7429fed867acb287013f",
+    "tests/smoke/build.test.ts": "b3ebfd8be415fa7380a0e95cc3a6b577f0fa7aec2e9a11f4f5bd0dc1ea91cd70",
+    "tests/tooling/build-smoke.test.mjs": "5f6f81d501f6dbbece9b8007add4c184ab7840b28283f66c1699fc21f99de40a"
+  },
+  "changes": [
+    "Existing qualifier adds named --profile smoke; clears only website/docs/playground dist and its prior smoke receipt, then builds all three sequentially.",
+    "Per-invocation receipt binds nonce, Node version, source commit/worktree digest, and every emitted file hash; smoke rejects absent/stale/changed evidence and checks meaningful production HTML plus emitted JS/CSS.",
+    "Full qualifier uses all maintained type/unit/tooling commands once, browser discovery and standalone consumer check; retains strict public-rendering/artifact/browser gates.",
+    "Negative probes exercise source changes, missing/stale receipts, missing/added/tampered output, HTML/assets errors, incomplete prerequisites and actual runner stop-on-build-failure behavior."
+  ],
+  "checks": [
+    {
+      "command": "node --test tests/tooling/build-smoke.test.mjs",
+      "status": "passed",
+      "tests": 15
+    },
+    {
+      "command": "node scripts/store-environment.mjs run typecheck:tooling",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm exec biome check scripts/qualify-store.mjs scripts/build-smoke.mts tests/smoke/build.test.ts tests/tooling/build-smoke.test.mjs",
+      "status": "passed"
+    },
+    {
+      "command": "node scripts/qualify-store.mjs --profile smoke",
+      "status": "passed",
+      "tests": 3,
+      "steps": [
+        {
+          "name": "fresh normal website build",
+          "command": [
+            "node",
+            "scripts/store-environment.mjs",
+            "run",
+            "build"
+          ],
+          "startedAt": "2026-10-26T05:25:07.716Z",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedMs": 3484
+        },
+        {
+          "name": "fresh docs build",
+          "command": [
+            "node",
+            "scripts/store-environment.mjs",
+            "run",
+            "--filter",
+            "@egohygiene/docs",
+            "build"
+          ],
+          "startedAt": "2026-10-26T05:25:11.202Z",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedMs": 1491
+        },
+        {
+          "name": "fresh playground build",
+          "command": [
+            "node",
+            "scripts/store-environment.mjs",
+            "run",
+            "--filter",
+            "@egohygiene/playground",
+            "build"
+          ],
+          "startedAt": "2026-10-26T05:25:12.694Z",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedMs": 1486
+        },
+        {
+          "name": "fresh all-app build smoke",
+          "command": [
+            "node",
+            "scripts/store-environment.mjs",
+            "run",
+            "exec",
+            "vitest",
+            "run",
+            "--config",
+            "vitest.smoke.config.ts"
+          ],
+          "startedAt": "2026-10-26T05:25:14.343Z",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedMs": 2136
+        }
+      ]
+    }
+  ],
+  "buildReceipt": {
+    "path": "test-results/store-qualification/smoke/build-receipt.json",
+    "invocationId": "3037d52e-e819-41a7-940d-00841b93be9c",
+    "createdAt": "2026-10-26T05:25:14.342Z",
+    "artifacts": [
+      {
+        "app": "egohygiene.io",
+        "files": 45,
+        "indexSha256": "87106fb9a3771e82d00b7a0443ac1614964a5d67a22acf1e9906be24adf42acc"
+      },
+      {
+        "app": "docs",
+        "files": 11,
+        "indexSha256": "4f7231c0cff84dbcc3ad76fdf4211bdeac032b17f87d08290e96858080017999"
+      },
+      {
+        "app": "playground",
+        "files": 11,
+        "indexSha256": "2ff182c144b4b19594d8f4a6c88be21c2054dad4bd1a555ee0c0d35e8e8e967f"
+      }
+    ]
+  },
+  "notes": [
+    "Initial real smoke exposed an overly restrictive bare-title matcher; fixed to accept valid title attributes and included actual website metadata-title shape in the fixture before rerunning all fresh prerequisites.",
+    "Existing Vite warning about future native config loader and CommonJS config remained visible; no suppression or network shim.",
+    "Root will rerun exact-source checks after publishing B. No staging, commits, merges or deployment performed by this agent."
+  ]
+}

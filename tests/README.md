@@ -1,27 +1,50 @@
 # Local website qualification
 
-Use the pinned Node/pnpm runtime and an installed Playwright Chromium (or the
-existing `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` override), then run:
+Use the repository's pinned Node/pnpm and run `task setup:store` once after checkout
+or dependency changes. Each Task wrapper below selects that pnpm through the existing
+environment helper; equivalent `pnpm` commands assume the correct runtime is active.
 
-```sh
-node scripts/qualify-store.mjs
-```
+| Command | Scope and prerequisites |
+| --- | --- |
+| `task typecheck:all` / `pnpm typecheck:all` | Sequential fast site/catalog/domain, all 14 workspaces, tooling, unit/semantic/smoke, all browser, three Storybook and locale compiler profiles. All are strict and noEmit. `pnpm typecheck` retains the fast site scope. |
+| `task test:unit` / `pnpm test:unit` | Implemented app and workspace unit tests. |
+| `task test:store:tooling` / `pnpm test:tooling` | Native Node tooling and failure-path contracts. |
+| `task test:semantic` / `pnpm test:semantic` | DOM semantic component assertions, without computed browser accessibility or assistive-technology proof. |
+| `task test:smoke` / `pnpm test:smoke` | Clear owned app outputs, sequentially build website/docs/playground, then verify fresh HTML and assets. No skip-build mode. |
+| `task test:components` / `pnpm test:components` | Rebuild and verify the independent stylesheet consumer; no browser. |
+| `task test:browser:discover` / `pnpm test:browser:discover` | Discover all four Playwright configurations and reject omitted maintained specs. Starts no servers or browsers. |
+| `task test:e2e` / `pnpm test:e2e` | Site, docs and playground journeys against new local development servers. Requires Chromium. |
+| `task test:components:browser` / `pnpm test:components:browser` | Fresh native Storybook and independent consumer builds, followed by the component browser profile. Requires Chromium. |
+| `task qualify:local` / `pnpm qualify:local` | Strict integrated website/store qualification, including normal and isolated-preview browsers, intercepted handoff and synthetic layout. Requires Chromium; stops at the first failed gate. |
 
-This website/store profile runs the existing catalog, unit, browser, intercepted
-handoff and synthetic-layout checks together with the focused artifact and
-accessibility checks. It builds normal and isolated-preview output immediately
-before their consumers and stops on any failure. It never reuses an existing
-browser server. Results are written under ignored
-`test-results/store-qualification/profile/`; production browser details and
-attachments are in `test-results/store/report.json`.
+The smoke consumer is intentionally not a standalone `vitest` shortcut: its receipt
+and invocation identity come from the successful fresh build prerequisites. Old
+output or a previous receipt cannot satisfy a later direct invocation. All generated
+reports remain under ignored `test-results/`; they describe their source and scope.
 
-`tsconfig.store-browser.json` checks the browser suites selected by the normal
-and preview profiles. This is separate from the wider workspace test/compiler
-cleanup in #52. The older all-app existence-only smoke profile is not part of
-this storefront qualification and cannot substitute for a fresh build.
+The complete qualifier uses `scripts/qualify-store.mjs`, also callable directly.
+It builds normal and isolated-preview artifacts immediately before their consumers,
+retains raw public-HTML/artifact checks, and never reuses an existing browser server.
+Reports remain in `test-results/store-qualification/profile/`. The independent
+low-level `pnpm test:store` and `pnpm test:store:preview` commands consume prepared
+normal and preview builds respectively; use the complete qualifier when the fresh
+prerequisites and unified report are required. Component browser output is separate.
 
-The [store test plan](../docs/store/test-plan.md) records detailed scope and
-historical evidence. Synthetic fixtures, Chromium emulation and client-rendered
-metadata do not qualify real checkout, physical devices, assistive technology,
-future schema migrations or an eventual deployed host. Artifact size ceilings
-are proposed local regression limits pending maintainer review.
+Install Playwright Chromium separately on the machine used for browser acceptance;
+an existing `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` override remains supported by the
+store qualification runners. Discovery and TypeScript checks do not execute those
+journeys. Default app, production-store, preview and component counts may overlap;
+they are not additive unique-user-journey counts.
+
+The [#52 receipt](../docs/development/local-profiles-52.md) records the current
+implementation and exact evidence. Native Storybook currently encounters this
+execution environment's OS interface-enumeration restriction; the normal command
+keeps failing rather than accepting a previously generated artifact. No compatibility
+shim is part of the supported profile. The three existing artifact-budget findings
+also remain strict failures until their policy/disposition is reviewed.
+
+The [store test plan](../docs/store/test-plan.md) records detailed scope and historical
+evidence. Existing real-shell keyboard, theme, contrast and motion scenarios are
+retained in the browser profiles. Synthetic fixtures and Chromium emulation do not
+qualify physical devices, screen readers, native zoom, real checkout or an eventual
+deployed host. Their manual/hosted acceptance remains explicit in #37/#70/#89.

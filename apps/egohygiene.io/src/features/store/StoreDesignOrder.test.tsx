@@ -71,7 +71,7 @@ function loadFixture(reverse: boolean) {
     },
   ];
   fixture.catalog = parseStoreCatalog(
-    (reverse ? entries.toReversed() : entries).map((value) => ({ source: value.id, value })),
+    (reverse ? [...entries].reverse() : entries).map((value) => ({ source: value.id, value })),
   );
 }
 

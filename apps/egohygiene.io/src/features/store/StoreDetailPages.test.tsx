@@ -145,11 +145,11 @@ describe("canonical detail journey", () => {
       ),
     ).toBeInTheDocument();
     expect(queryByRole("article")).not.toBeInTheDocument();
-    expect(getByRole("link", { name: "Collections", exact: true })).toHaveAttribute(
+    expect(getByRole("link", { name: "Collections" })).toHaveAttribute(
       "href",
       "/store/catalog?view=collection#catalog",
     );
-    expect(getByRole("link", { name: "Store", exact: true })).toHaveAttribute("href", "/store");
+    expect(getByRole("link", { name: "Store" })).toHaveAttribute("href", "/store");
   });
 
   it("returns a shared song collection to both curated artists while retaining one product", () => {
@@ -169,7 +169,7 @@ describe("canonical detail journey", () => {
     );
     fireEvent.click(within(returns).getByRole("link", { name: "second artist · Shop by song" }));
     expect(getByRole("heading", { level: 1 })).toHaveTextContent("second artist");
-    expect(getByRole("link", { name: "Shop by song", exact: true })).toHaveAttribute(
+    expect(getByRole("link", { name: "Shop by song" })).toHaveAttribute(
       "aria-current",
       "page",
     );
@@ -206,7 +206,7 @@ describe("purchase presentation", () => {
       ["Shipping & delivery", SYNTHETIC_STORE_DISCLOSURES.shippingPolicyUrl],
       ["Returns & refunds", SYNTHETIC_STORE_DISCLOSURES.returnsPolicyUrl],
       ["Order support", SYNTHETIC_STORE_DISCLOSURES.supportUrl],
-    ]) {
+    ] as const) {
       expect(within(disclosures).getByRole("link", { name: label })).toHaveAttribute("href", href);
     }
     expect(getByRole("link", { name: "Store help" })).toHaveAttribute("href", "/store/help");

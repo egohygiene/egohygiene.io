@@ -9,21 +9,21 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: "pnpm --filter @egohygiene/egohygiene.io dev",
-      url: "http://localhost:5173",
-      reuseExistingServer: !process.env.CI,
+      command: "pnpm --filter @egohygiene/egohygiene.io dev --host 127.0.0.1 --port 5173 --strictPort",
+      url: "http://127.0.0.1:5173",
+      reuseExistingServer: false,
       timeout: 120_000,
     },
     {
-      command: "pnpm --filter @egohygiene/docs dev",
-      url: "http://localhost:5174",
-      reuseExistingServer: !process.env.CI,
+      command: "pnpm --filter @egohygiene/docs dev --host 127.0.0.1 --port 5174 --strictPort",
+      url: "http://127.0.0.1:5174",
+      reuseExistingServer: false,
       timeout: 120_000,
     },
     {
-      command: "pnpm --filter @egohygiene/playground dev",
-      url: "http://localhost:5175",
-      reuseExistingServer: !process.env.CI,
+      command: "pnpm --filter @egohygiene/playground dev --host 127.0.0.1 --port 5175 --strictPort",
+      url: "http://127.0.0.1:5175",
+      reuseExistingServer: false,
       timeout: 120_000,
     },
   ],
@@ -33,7 +33,7 @@ export default defineConfig({
       testMatch: /site\.spec\.ts/,
       use: {
         ...devices["Desktop Chrome"],
-        baseURL: "http://localhost:5173",
+        baseURL: "http://127.0.0.1:5173",
       },
     },
     {
@@ -41,7 +41,7 @@ export default defineConfig({
       testMatch: /docs\.spec\.ts/,
       use: {
         ...devices["Desktop Chrome"],
-        baseURL: "http://localhost:5174",
+        baseURL: "http://127.0.0.1:5174",
       },
     },
     {
@@ -49,7 +49,7 @@ export default defineConfig({
       testMatch: /playground\.spec\.ts/,
       use: {
         ...devices["Desktop Chrome"],
-        baseURL: "http://localhost:5175",
+        baseURL: "http://127.0.0.1:5175",
       },
     },
   ],

@@ -1,16 +1,15 @@
-import { existsSync, readdirSync } from "node:fs";
-import path from "node:path";
-
 import { describe, expect, it } from "vitest";
 
-const root = process.cwd();
+import { smokeApps, verifySmokeApp } from "../../scripts/build-smoke.mts";
 
-describe("production build smoke", () => {
-  for (const app of ["egohygiene.io", "docs", "playground"]) {
-    it(`${app} emits a build directory`, () => {
-      const distDir = path.join(root, "apps", app, "dist");
-      expect(existsSync(path.join(distDir, "index.html"))).toBe(true);
-      expect(readdirSync(path.join(distDir, "assets")).length).toBeGreaterThan(0);
+describe("fresh production build smoke", () => {
+  for (const app of smokeApps) {
+    it(`${app} has current receipt-bound HTML and emitted assets`, async () => {
+      const { STORE_SMOKE_INVOCATION_ID: invocationId } = process.env;
+      const result = await verifySmokeApp(process.cwd(), app, invocationId);
+      expect(result.files).toBeGreaterThan(2);
+      expect(result.scripts.length).toBeGreaterThan(0);
+      expect(result.styles.length).toBeGreaterThan(0);
     });
   }
 });

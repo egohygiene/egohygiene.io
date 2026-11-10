@@ -16,7 +16,7 @@ describe("Footer", () => {
     expect(getByRole("navigation", { name: "Legal" })).toBeInTheDocument();
     expect(getByRole("link", { name: "Community store" })).toHaveAttribute("href", "/store");
     expect(getByRole("link", { name: "Store help" })).toHaveAttribute("href", "/store/help");
-    expect(getByRole("link", { name: "Help", exact: true })).toHaveAttribute("href", "/help");
+    expect(getByRole("link", { name: "Help" })).toHaveAttribute("href", "/help");
     expect(getByRole("link", { name: "Accessibility" })).toHaveAttribute("href", "/accessibility");
     expect(getByRole("link", { name: "Privacy" })).toHaveAttribute("href", "/privacy");
     expect(getByRole("link", { name: "Terms" })).toHaveAttribute("href", "/terms");

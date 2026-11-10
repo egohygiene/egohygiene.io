@@ -74,8 +74,8 @@ describe("website essentials journeys (simulated DOM)", () => {
       description,
     );
     const footer = within(result.getByRole("navigation", { name: "Footer" }));
-    expect(footer.getByRole("link", { name: "Help", exact: true })).toHaveAttribute("href", "/help");
-    expect(footer.getByRole("link", { name: "Accessibility", exact: true })).toHaveAttribute(
+    expect(footer.getByRole("link", { name: "Help" })).toHaveAttribute("href", "/help");
+    expect(footer.getByRole("link", { name: "Accessibility" })).toHaveAttribute(
       "href",
       "/accessibility",
     );
@@ -133,7 +133,7 @@ describe("website essentials journeys (simulated DOM)", () => {
     for (const [label, path] of [
       ["Privacy draft", "/privacy"],
       ["Terms draft", "/terms"],
-    ]) {
+    ] as const) {
       await act(async () => fireEvent.click(result.main().getByRole("link", { name: label })));
       expect(result.router.state.location.pathname).toBe(path);
       expect(result.main().getByRole("heading", { level: 1 })).toHaveTextContent(label);
