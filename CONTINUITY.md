@@ -7,7 +7,7 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-10T02:23:43Z'
+  updated_at: '2026-11-10T09:24:38Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
@@ -164,6 +164,8 @@ Tests, application builds, browser execution, native/provider/artifact transport
 Produce actual admitted fleet models from the separate owner queries and organization audit sweep, then qualify the current publication path. Preserve explicit clocks, transport digests and human decisions rather than treating source implementation as deployed evidence.
 
 ## Parallel changes and reconciliation
+
+The 2026-11-10 authorized website closeout is integrated at `560f937a25d952873dd501ae1e0ca0a94640185b`. Root `AGENTS.md`, issue #88 and `docs/development/merge-closeout-2026-11-10.md` own the current independent engineering queue; #115/#116 retain owner/native/creative inputs. Combined default-model browser/build/compiler/container checks are recorded there, with eight strict size findings and hosted dependency-review failure retained. They do not qualify actual fleet artifacts, upstream assessment models, public publication or human decisions described by this Intelligence campaign. Its source locks and semantic owners remain unchanged.
 
 Other Intelligence slices remain separately reviewed. Reconcile the current main and this handoff before integration; preserve all immutable historical recovery bytes and consumer-owned publication gates.
 

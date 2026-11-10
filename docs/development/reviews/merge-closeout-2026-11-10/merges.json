@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-10",
+  "authority": "User authorized the completed batch and consolidation.",
+  "runtimeBase": "1605f32cfc225a473921c5c8d5be9a10743b62cb",
+  "runtimeIntegratedMain": "560f937a25d952873dd501ae1e0ca0a94640185b",
+  "qualifiedHead": "68f17cf59ee5703019f383ca88c4c2891a1951c2",
+  "website": [
+    {
+      "pr": 105,
+      "originalHead": "2b9ebe5d3aba4f7cccb277252d15a48325ff205d",
+      "integratedHead": "2498c149e15ff9cffb61f83947698c9a107c259c",
+      "merge": "002df12d0c5381474301ed141d62c6a424f4f8ed",
+      "expectedParent": "1605f32cfc225a473921c5c8d5be9a10743b62cb",
+      "expectedTree": "c43df94bf2e4be31901e347cd83e90c595336518",
+      "treeVerified": true
+    },
+    {
+      "pr": 106,
+      "originalHead": "c5935ae45d582af19a4175db1f1e05168393e0f6",
+      "integratedHead": "099262b3eecc2a7cc5b45a00e34329eac1b8ca54",
+      "merge": "95ae1421206d3e6f7676e06d889e3b11be6f5d77",
+      "expectedParent": "002df12d0c5381474301ed141d62c6a424f4f8ed",
+      "expectedTree": "698117c2bb23092e4d5ce9679b459b67b769e783",
+      "treeVerified": true
+    },
+    {
+      "pr": 107,
+      "originalHead": "3d44df671069300e13324fb3f17e3762986e7892",
+      "integratedHead": "2caae0c1280479ff1231d3101181689c0a218e7d",
+      "merge": "e4caee778d4532fadfac57556070fd0a070b85ba",
+      "expectedParent": "95ae1421206d3e6f7676e06d889e3b11be6f5d77",
+      "expectedTree": "c2300268d3b5c5bef7816eddc881fa2cafa93fbd",
+      "treeVerified": true
+    },
+    {
+      "pr": 108,
+      "originalHead": "4faaebeb50b4202e8aaf9ee0012db0f836939f79",
+      "integratedHead": "28f3060e1e9eb96261ab83581c4f77ee0d34dea5",
+      "merge": "1e96d7a1ccc38c22019ff05cb762e18f4f51dda9",
+      "expectedParent": "e4caee778d4532fadfac57556070fd0a070b85ba",
+      "expectedTree": "d9c56d8400d885b1b762d77263aae15fb36f631b",
+      "treeVerified": true
+    },
+    {
+      "pr": 109,
+      "originalHead": "8717b54d7fd64b6ef5895b163fb01fc840ffc437",
+      "integratedHead": "b047bc548eb463f1469034904260e5b4b300b55e",
+      "merge": "25c03fc25ba41d5e4e0cf63c57d35f3da8320807",
+      "expectedParent": "1e96d7a1ccc38c22019ff05cb762e18f4f51dda9",
+      "expectedTree": "a3cca97b2bcee4730f131831e1e73f6324852f05",
+      "treeVerified": true
+    },
+    {
+      "pr": 117,
+      "originalHead": "a7e15c7b1543dcba01647ec8ff358aab5126c817",
+      "integratedHead": "125af61b5a48ff7db6e6718a4e676d3145cc7a03",
+      "merge": "152955aa86913e7465655faf728d6ae64227da60",
+      "expectedParent": "25c03fc25ba41d5e4e0cf63c57d35f3da8320807",
+      "expectedTree": "15695b90225d5ecc52d7d731e92b28b087d9fe6b",
+      "treeVerified": true
+    },
+    {
+      "pr": 129,
+      "originalHead": "30c5d920dadb15357ee6092f5f0ae340e8cbaa1c",
+      "integratedHead": "74388f3df76f26082db5acc9825bd7939e0bfa46",
+      "merge": "6faa2f90c9b62e600647657eea5ebea99325c996",
+      "expectedParent": "152955aa86913e7465655faf728d6ae64227da60",
+      "expectedTree": "a834165298ca75e5e6032e7d8b9afd0b09731f2c",
+      "treeVerified": true
+    },
+    {
+      "pr": 130,
+      "originalHead": "1720b9e50eef6cca4bd495b846d219c159d094e1",
+      "integratedHead": "2ea9cbaee424323734fdc26c61847e18d5ff2795",
+      "merge": "ba3d5355211d53b185bea31565f7e4861335ebfd",
+      "expectedParent": "6faa2f90c9b62e600647657eea5ebea99325c996",
+      "expectedTree": "c3f39e4fed7a9a9debe3127e58be5096e4db3bdd",
+      "treeVerified": true
+    },
+    {
+      "pr": 131,
+      "originalHead": "0f9de22cd772707c2077b61ac4291357afede121",
+      "integratedHead": "6b8c28cbd3bdf2e8eb364f31fe2e9cb0c97106c6",
+      "merge": "44dd73481ab44ab6506cb9273ea1771a08c377e7",
+      "expectedParent": "ba3d5355211d53b185bea31565f7e4861335ebfd",
+      "expectedTree": "ca44c95c5b329b1fbb328864d355976b7965766e",
+      "treeVerified": true
+    },
+    {
+      "pr": 132,
+      "originalHead": "d23846b56b18f5f4f3aec703747b5676f47f448e",
+      "integratedHead": "68f17cf59ee5703019f383ca88c4c2891a1951c2",
+      "merge": "560f937a25d952873dd501ae1e0ca0a94640185b",
+      "expectedParent": "44dd73481ab44ab6506cb9273ea1771a08c377e7",
+      "expectedTree": "af5ebd0fec2a53fe353dfa96da7e047e214c0b26",
+      "treeVerified": true
+    }
+  ],
+  "store": {
+    "pr": 36,
+    "head": "cbcc9228248f9c71c61aa9f7b4709eb9d275ba43",
+    "merge": "e97ee727e6c2300e804579cf2122d34d4c162158",
+    "tree": "4f31ff138c8119b3a01f1a622680c690fbd9c590",
+    "treeVerified": true
+  },
+  "completedIssues": [50, 51, 57, 60, 64, 65, 75],
+  "duplicates": [
+    {
+      "closed": 113,
+      "canonical": 112
+    },
+    {
+      "closed": 114,
+      "canonical": 111
+    }
+  ],
+  "legacyDraft": {
+    "pr": 73,
+    "state": "closed",
+    "merged": false,
+    "head": "725e021336fe6675e53d0a3374caf0b102627019",
+    "disposition": "Superseded by integrated #108/#130/#132; branch and original source evidence retained."
+  },
+  "openIssueCounts": {
+    "all": 55,
+    "foundation": 17,
+    "publication": 6,
+    "outsideMilestones": 32
+  },
+  "branchUpdates": {
+    "method": "Atomic normal fast-forward pushes",
+    "originalCommitsRetained": true,
+    "forcePush": false
+  },
+  "hosted": {
+    "head": "68f17cf59ee5703019f383ca88c4c2891a1951c2",
+    "latestRuns": [
+      {
+        "id": 42787359495,
+        "name": "CodeQL",
+        "conclusion": "success"
+      },
+      {
+        "id": 42787359721,
+        "name": "CI",
+        "conclusion": "failure",
+        "job": 129731844047,
+        "observations": [
+          "2026-11-10T09:06:03.2750338Z Public rendering inspection: pass; 45 pages. Report: test-results/store-qualification/ci-check/public-rendering.json",
+          "2026-11-10T09:06:03.4697772Z Artifact qualification: fail; 64 files, 335 asset references, 8 findings. Report: test-results/store-qualification/ci-check/production-artifact.json"
+        ]
+      },
+      {
+        "id": 42787359682,
+        "name": "Dependency review",
+        "conclusion": "failure",
+        "job": 129731833094,
+        "observations": [
+          "2026-11-10T09:03:33.3468314Z ##[error]Dependency review is not supported on this repository. Please ensure that Dependency graph is enabled, see https://github.com/egohygiene/egohygiene.io/settings/security_analysis"
+        ]
+      }
+    ],
+    "browserSteps": "Skipped after the hosted non-browser gate failed; local complete browser evidence stays separate."
+  },
+  "limits": [
+    "Eight strict size findings remain; no gate or limit was weakened.",
+    "Software-license alternatives remain inactive; copy/contact/creative/platform choices remain #115/#116.",
+    "No private source import, live fleet-model qualification, provider activation, deployment, repository retirement or spending."
+  ]
+}
