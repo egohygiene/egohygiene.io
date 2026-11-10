@@ -4,7 +4,10 @@
   "repository": "egohygiene/egohygiene.io",
   "pathBase": "repository-root",
   "entrypoint": "AGENTS.md",
-  "scopedInstructions": ["apps/egohygiene.io/AGENTS.md", "packages/schemas/AGENTS.md"],
+  "scopedInstructions": [
+    "apps/egohygiene.io/AGENTS.md",
+    "packages/schemas/AGENTS.md"
+  ],
   "contextMap": "docs/context/README.md",
   "currentState": "docs/context/current-state.md",
   "provenance": "docs/context/provenance.md",
@@ -94,5 +97,6 @@
   "currentCiOutputInvestigation": "docs/development/reviews/ci-baseline-29/output-investigation.json",
   "localStaticServing": "docs/development/static-serving-57.md",
   "localStaticServingEvidence": "docs/development/reviews/static-serving-57/verification.json",
-  "localStaticServingHttp": "docs/development/reviews/static-serving-57/native-http.json"
+  "localStaticServingHttp": "docs/development/reviews/static-serving-57/native-http.json",
+  "qualificationCosts20261110": "docs/development/qualification-costs-2026-11-10.md"
 }

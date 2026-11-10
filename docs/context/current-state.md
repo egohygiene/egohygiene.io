@@ -1,5 +1,9 @@
 # Current handoff
 
+## Current: cost and Storybook batch selected — 2026-11-10
+
+Base `dfff96a`; [contract](../development/qualification-costs-2026-11-10.md) selects #52/#29/#91 actual cost attribution and hosted diagnosis, then #53 manager/reference repair. Preserve strict ceilings and report source-specific results. Research issue/report follows this batch; #115/#116 remain separate.
+
 ## Current: merged batch and two independent paths — 2026-11-10
 
 The approved runtime integration is merged at website `560f937` (ten PRs,

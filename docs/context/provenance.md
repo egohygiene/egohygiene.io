@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## Cost/Storybook checkpoint A — 2026-11-10
+
+User authorized the next few independent issues and requested a subsequent current technology research issue/report. [Contract](../development/qualification-costs-2026-11-10.md) records scope from merged main `dfff96af545628edf4d68476587b6f093313c437`; implementation/qualification pending.
+
 ## Authorized integration merged and issue paths consolidated — 2026-11-10
 
 Website #105→#106→#107→#108→#109→#117→#129→#130→#131→#132 merged in order,

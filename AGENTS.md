@@ -1,5 +1,9 @@
 # Agent entry point
 
+## Current authorized cost/Storybook batch — 2026-11-10
+
+Read [the selected contract](docs/development/qualification-costs-2026-11-10.md). Work #52/#29/#91 measured costs and hosted diagnostics, then #53 local manager acceptance. Keep all active budgets/network guards and public pins. Subsequent technology research has a separate issue/report. Owner/native/creative choices stay #115/#116; routine work is authorized.
+
 ## Current merged closeout and independent paths — 2026-11-10
 
 The authorized website stack #105–#109/#117/#129–#132 and store #36 are merged.
