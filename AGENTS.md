@@ -1,5 +1,28 @@
 # Agent entry point
 
+## Current sprint roadmap — 2026-11-09
+
+Alan requested a closeout issue roadmap that batches his review and page creation
+at sprint end while he finishes the creative piece. Read the
+[execution/closure map](docs/roadmaps/sprint-closeout-2026-11-09.md),
+[overall #84](https://github.com/egohygiene/egohygiene.io/issues/84) and setup #88.
+Agent-owned acceptance reconciliation, synthetic contracts, reliability and actual
+browser checks precede [#115 owner review](https://github.com/egohygiene/egohygiene.io/issues/115)
+and [#116 website/provider page drafts](https://github.com/egohygiene/egohygiene.io/issues/116).
+The existing milestone 2 is now **Publication — first real product and launch**;
+actual publication/activation remains later under #31. Original criteria remain;
+unresolved blockers do not complete #37/#88. Historical per-checkpoint sync/sequence
+entries below yield to this scheduling update for routine review batching.
+
+This task is planning only: two issues created, 29 issue bodies linked to the new
+schedule, milestones/native child links verified, no issue closed or app test run.
+Main remains `89fc7044`; #105→#106→#107→#108→#109 remain unmerged drafts.
+The planning branch stacks on #109 at `8717b54d7fd64b6ef5895b163fb01fc840ffc437`.
+For a later implementation session, start the Wave 0 acceptance audit and #34 A,
+then concrete #52/#29/#57 gaps and #70/#37. No license/creative choice, merge,
+deployment, account/DNS change, retirement, provider activation or spending is
+implied by the roadmap. Preserve the existing stack, private boundaries and gates.
+
 ## Current #57 verified draft — 2026-10-26
 
 [Draft #109](https://github.com/egohygiene/egohygiene.io/pull/109) contains A/B and bounded C evidence. Read [the receipt/walkthrough](docs/development/static-serving-57.md) and [verification](docs/development/reviews/static-serving-57/verification.json). Tested source `9a44a48031e9715cb2c3d8945a6cb2cc800c2a37`: 101 tooling tests, types/checks, build/raw and 388 actual native Caddy HTTP requests pass; 45 artifact hashes unchanged. Three size findings remain; Docker/Task/Mac/browser acceptance remains unperformed. Next local walkthrough/sync, then #70/#37. Earlier drafts/licensing remain pending; no merge or deployment.
