@@ -13,7 +13,7 @@ environment helper; equivalent `pnpm` commands assume the correct runtime is act
 | `task test:smoke` / `pnpm test:smoke` | Clear owned app outputs, sequentially build website/docs/playground, then verify fresh HTML and assets. No skip-build mode. |
 | `task test:components` / `pnpm test:components` | Rebuild and verify the independent stylesheet consumer; no browser. |
 | `task test:browser:discover` / `pnpm test:browser:discover` | Discover all four Playwright configurations and reject omitted maintained specs. Starts no servers or browsers. |
-| `task test:e2e` / `pnpm test:e2e` | Site, docs and playground journeys against new local development servers. Requires Chromium. |
+| `task test:e2e` / `pnpm test:e2e` | Site, docs and playground journeys against new local production-preview servers. Run `pnpm test:smoke` first for fresh builds, or use `ci:browser`, which owns those prerequisites. Requires Chromium. |
 | `task test:components:browser` / `pnpm test:components:browser` | Fresh native Storybook and independent consumer builds, followed by the component browser profile. Requires Chromium. |
 | `task ci:check` / `pnpm ci:check` | Formatting/lint, all compiler/contract scopes, fresh all-app smoke, raw rendering, unchanged artifact budgets and native Storybook build. No browser execution. |
 | `task ci:browser` / `pnpm ci:browser` | Independent fresh app/preview/Storybook/consumer prerequisites, all four Playwright profiles and custom intercepted/layout/catalog journeys. Requires Chromium. |
@@ -24,6 +24,14 @@ The smoke consumer is intentionally not a standalone `vitest` shortcut: its rece
 and invocation identity come from the successful fresh build prerequisites. Old
 output or a previous receipt cannot satisfy a later direct invocation. All generated
 reports remain under ignored `test-results/`; they describe their source and scope.
+
+Each smoke app is hashed immediately after its own build. The qualifier checks
+those snapshots before/after subsequent builds and constructs the final receipt
+from the original snapshots. Added/changed/deleted prior output stops the profile
+with the app, build interval and changed paths; reports retain each completed
+snapshot. This detects interference without attributing a historical writer.
+The application browser profile serves these prepared artifacts rather than a
+development server, so strict production network guards never see Vite HMR.
 
 The complete qualifier uses `scripts/qualify-store.mjs`, also callable directly.
 Its `ci-check` and `ci-browser` profiles are the same commands used by GitHub CI;
