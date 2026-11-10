@@ -80,3 +80,45 @@ relaxed. A new production browser journey checks graph selection/reload/keyboard
 panning and canonical Intelligence-to-Roadmap navigation. Full combined-tree
 profiles follow at the committed source; these focused results are not a pass
 for live fleet artifacts, upstream owner models, publication or human decisions.
+
+## C — Qualified merge candidate
+
+[Source-bound verification](reviews/merge-closeout-2026-11-10/verification.json)
+records three explicit checkpoints. The complete 15-step `pnpm ci:browser`
+profile passes at `48ded057b048a005e4db36afd3e20d26ae43c282`: 32 application,
+118 production-store, six isolated-preview and four component cases (overlapping),
+99 layout cases, ten locale journeys, seven catalog-localization journeys and two
+intercepted handoffs. The final source `56206eff178eefd216859d7c166f751306c22491`
+then passes all 32 application browser cases after the interpolation and test-only
+profile corrections. The earlier full receipt is not relabelled as a new run.
+
+At that final source, `task ci:check` passes 15 stages: format/lint, every compiler
+profile, boundaries, 152 catalog/114 tooling/363 unit/four semantic/one consumer/
+three smoke tests, fresh website/docs/playground and all 45 raw pages. Lint retains
+149 warnings and 498 informational diagnostics with zero errors. The artifact
+stage fails eight strict size findings; Task exits 201, child qualifier 1.
+
+Real Docker at `2a34c5968a63cf8c9aa9d8f11b0b723374376c5a` passes 51 included/
+48 excluded context samples, 243 actual build files, pinned locked installation,
+the Linux amd64 image, all 45 raw pages and **768 HTTP checks**. All declared
+Intelligence aliases and both canonical URL forms preserve queries and exact
+artifact bytes. Owned-container cleanup passes. Every one of its 64 artifact
+file hashes equals the final host build after the test-profile changes.
+[Raw HTTP rows](reviews/merge-closeout-2026-11-10/container-http.jsonl) retain the
+observations; no private CA path/content or raw build log is published.
+
+The [controlled original-main cost baseline](reviews/merge-closeout-2026-11-10/main-cost-baseline.json)
+at `1605f32` already fails the same eight metrics: JavaScript raw/gzip, CSS raw/gzip,
+documents raw/gzip and total raw/gzip. Images/fonts pass. This replaces the older
+storefront-only three-finding assumption for the combined site. Limits remain
+unchanged. #52/#29/#91/#37 own the continuing cost/qualification work; #53 retains
+its manager/reference acceptance. Firefox/WebKit automation remains agent work.
+Physical/native/AT/Mac checks remain #115. Default unavailable data is not proof
+for actual fleet artifacts or upstream assessment models.
+
+Store #36 is already merged at `e97ee727e6c2300e804579cf2122d34d4c162158`, tree
+identical to reviewed `cbcc922`; #75 is closed completed. Future concept duplicates
+#114→#111 and #113→#112 are consolidated with their unique requirements retained.
+Website merge results and closure readbacks will be recorded after the ordered
+expected-head operations. Both inactive software-license patches still pass
+`git apply --check`; neither is applied.

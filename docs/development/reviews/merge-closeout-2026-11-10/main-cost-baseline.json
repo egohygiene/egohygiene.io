@@ -1,0 +1,75 @@
+{
+  "sourceCommit": "1605f32cfc225a473921c5c8d5be9a10743b62cb",
+  "command": "pnpm build",
+  "status": "passed",
+  "files": 63,
+  "sizes": {
+    "javascript": {
+      "bytes": 582300,
+      "gzipBytes": 163327
+    },
+    "css": {
+      "bytes": 63771,
+      "gzipBytes": 12194
+    },
+    "images": {
+      "bytes": 391855,
+      "gzipBytes": 387352
+    },
+    "fonts": {
+      "bytes": 46572,
+      "gzipBytes": 46531
+    },
+    "documents": {
+      "bytes": 566798,
+      "gzipBytes": 154228
+    },
+    "total": {
+      "bytes": 1651296,
+      "gzipBytes": 763632
+    }
+  },
+  "findings": [
+    {
+      "rule": "size-budget",
+      "file": "javascript",
+      "detail": "bytes: 582300 exceeds 500000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "javascript",
+      "detail": "gzipBytes: 163327 exceeds 150000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "css",
+      "detail": "bytes: 63771 exceeds 60000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "css",
+      "detail": "gzipBytes: 12194 exceeds 12000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "bytes: 566798 exceeds 20000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "gzipBytes: 154228 exceeds 10000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "total",
+      "detail": "bytes: 1651296 exceeds 1140000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "total",
+      "detail": "gzipBytes: 763632 exceeds 722000."
+    }
+  ],
+  "scope": "Controlled fresh-main artifact cost baseline with the exact existing categories, ceilings and Node level-9 per-file gzip; not compiler/browser/container or live-model qualification."
+}

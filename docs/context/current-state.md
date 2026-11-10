@@ -1,5 +1,29 @@
 # Current handoff
 
+## Current: authorized combined merge candidate qualified — 2026-11-10
+
+Alan authorized the completed-draft merges and independent/manual issue paths.
+Read [the integration and results](../development/merge-closeout-2026-11-10.md)
+and [exact verification](../development/reviews/merge-closeout-2026-11-10/verification.json).
+Current main `1605f32` and the storefront stack are integrated without losing
+Intelligence routes, public contract pins or either context history. The candidate
+on `integrate/sprint-closeout-2026-11-10` is ready for ordered fast-forward feature
+branch updates and expected-head GitHub merges; final merge readbacks follow.
+
+Full browser passes at `48ded05`; final source `56206ef` passes all 32 app-browser
+cases and 15 non-browser stages (363 units/114 tooling/152 catalog tests and every
+compiler profile). Docker `2a34c59` passes 768 HTTP checks over 45 pages, cleanup
+and real context probes; all 64 artifact hashes match the final host build.
+Eight strict size findings fail overall qualification and already exist in a
+controlled build of main. No limit changed. #53 manager/reference and hosted
+dependency-review gaps remain separate. Owner/manual work stays #115; #116 has
+agent preparation before its creative review. Neither license proposal is applied.
+
+Store #36 merged at `e97ee72` with the reviewed tree; #75 is closed completed.
+Future duplicates #113/#114 are closed into #112/#111 with unique criteria kept.
+Website #51/#50/#60/#64/#65 are evidence-backed closure candidates after the
+approved integration. #34's newer relationship/publication extension stays open.
+
 ## Current: Public Intelligence fleet intake — 2026-11-09
 
 Candidate `codex/intelligence-fleet-host` starts from merged main

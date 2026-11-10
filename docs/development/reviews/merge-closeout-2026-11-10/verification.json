@@ -1,0 +1,980 @@
+{
+  "schemaVersion": 1,
+  "authority": "User authorized completed-draft merges and independent/manual issue consolidation on 2026-11-10.",
+  "baseMain": "1605f32cfc225a473921c5c8d5be9a10743b62cb",
+  "finalCodeSource": "56206eff178eefd216859d7c166f751306c22491",
+  "node": "v24.21.0",
+  "pnpm": "11.28.5",
+  "task": "3.54.0",
+  "browser": "151.0.7922.34",
+  "fullBrowser": {
+    "sourceCommit": "48ded057b048a005e4db36afd3e20d26ae43c282",
+    "sourceStatus": "",
+    "command": "pnpm ci:browser",
+    "exitCode": 0,
+    "status": "passed",
+    "startedAt": "2026-11-10T08:34:23.543Z",
+    "finishedAt": "2026-11-10T08:39:32.407Z",
+    "steps": [
+      {
+        "name": "maintained browser discovery",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 4444
+      },
+      {
+        "name": "fresh normal website build",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 4530
+      },
+      {
+        "name": "fresh docs build",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 1746
+      },
+      {
+        "name": "fresh playground build",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 2204
+      },
+      {
+        "name": "fresh all-app build smoke",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 3625
+      },
+      {
+        "name": "fresh isolated preview build",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 2858
+      },
+      {
+        "name": "fresh native Storybook build",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 10885
+      },
+      {
+        "name": "fresh standalone stylesheet consumer",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 440
+      },
+      {
+        "name": "site, docs and playground browser journeys",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 31973
+      },
+      {
+        "name": "production website journeys and accessibility",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 80694
+      },
+      {
+        "name": "isolated Fourthwall and artist journeys",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 17412
+      },
+      {
+        "name": "Storybook and standalone component styles",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 7225
+      },
+      {
+        "name": "intercepted checkout handoff",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 7903
+      },
+      {
+        "name": "locale journeys, expanded text and synthetic RTL layout",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 125314
+      },
+      {
+        "name": "catalog localization and intercepted identity journeys",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 7018
+      }
+    ],
+    "profiles": {
+      "applications": 32,
+      "productionStore": 118,
+      "isolatedPreview": 6,
+      "components": 4,
+      "layoutCases": 99,
+      "localeJourneys": 10,
+      "catalogLocalizationJourneys": 7,
+      "interceptedHandoffs": 2
+    },
+    "scope": "Default admitted-unavailable Intelligence plus synthetic storefront data. Counts overlap. No real fleet model/provider/publication qualification."
+  },
+  "finalApplications": {
+    "sourceCommit": "56206eff178eefd216859d7c166f751306c22491",
+    "sourceStatus": "",
+    "startedAt": "2026-11-10T08:55:45.563543+00:00",
+    "command": ["pnpm", "exec", "playwright", "test", "--config", "playwright.config.ts"],
+    "exitCode": 0,
+    "finishedAt": "2026-11-10T08:56:08.455619+00:00",
+    "sourceUnchanged": true,
+    "passedCases": 32,
+    "countsSource": "Playwright list reporter: 32 passed.",
+    "prerequisites": "Fresh website/docs/playground outputs and smoke from the final ci-check invocation.",
+    "scope": "After two Intelligence interpolation fixes and test-only profile wiring, the exact final source reruns all application browser cases; it does not relabel the earlier complete browser receipt."
+  },
+  "nonBrowser": {
+    "sourceCommit": "56206eff178eefd216859d7c166f751306c22491",
+    "sourceStatus": "",
+    "command": "task ci:check",
+    "taskExitCode": 201,
+    "childExitCode": 1,
+    "startedAt": "2026-11-10T08:51:53.878Z",
+    "finishedAt": "2026-11-10T08:53:25.947Z",
+    "status": "failed",
+    "steps": [
+      {
+        "name": "repository formatting",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 1136
+      },
+      {
+        "name": "authored source lint",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 5394
+      },
+      {
+        "name": "all maintained compiler profiles",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 34217
+      },
+      {
+        "name": "workspace, exports, locale and import boundaries",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 1405
+      },
+      {
+        "name": "catalog and artifact contracts",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 6850
+      },
+      {
+        "name": "all tooling and freshness contracts",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 5273
+      },
+      {
+        "name": "all maintained unit tests",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 21603
+      },
+      {
+        "name": "website semantic component checks",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 2673
+      },
+      {
+        "name": "maintained browser discovery",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 2801
+      },
+      {
+        "name": "standalone component build contract",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 1215
+      },
+      {
+        "name": "fresh normal website build",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 3295
+      },
+      {
+        "name": "fresh docs build",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 1211
+      },
+      {
+        "name": "fresh playground build",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 1242
+      },
+      {
+        "name": "fresh all-app build smoke",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 1694
+      },
+      {
+        "name": "raw public HTML and discovery consistency",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedMs": 1548
+      },
+      {
+        "name": "production artifacts and provisional regression budgets",
+        "status": "failed",
+        "exitCode": 1,
+        "elapsedMs": 165
+      }
+    ],
+    "testCounts": {
+      "catalog": 152,
+      "tooling": 114,
+      "unit": 363,
+      "semantic": 4,
+      "standaloneConsumer": 1,
+      "smoke": 3
+    },
+    "lint": {
+      "exitCode": 0,
+      "warnings": 149,
+      "infos": 498
+    },
+    "failStop": "Artifact gate fails eight findings; native Storybook is skipped in this profile and passed in the independent complete browser profile."
+  },
+  "docker": {
+    "source": {
+      "commit": "2a34c5968a63cf8c9aa9d8f11b0b723374376c5a",
+      "digest": "ae37537d9b9e0814712e63d2853333159517fa08984973087fd19d59d39ea32d",
+      "files": 861
+    },
+    "command": "task qualify:static",
+    "taskExitCode": 201,
+    "childExitCode": 1,
+    "startedAt": "2026-11-10T08:46:29.653Z",
+    "finishedAt": "2026-11-10T08:47:47.937Z",
+    "result": "fail",
+    "versions": {
+      "client": "28.4.0",
+      "server": "28.4.0"
+    },
+    "trust": {
+      "proxyAwareNode": true,
+      "customCA": true
+    },
+    "contextProbe": {
+      "result": "pass",
+      "includedFiles": 51,
+      "excludedSamples": 48
+    },
+    "context": {
+      "result": "pass",
+      "files": 243,
+      "workspaceManifests": 14
+    },
+    "image": {
+      "id": "sha256:d5c076920aa6e82021d377d12d8ae1696bb87dc46ade7fc2631ca9674a6bb6cb",
+      "architecture": "amd64",
+      "os": "linux",
+      "repoDigests": []
+    },
+    "caddy": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+    "commands": [
+      {
+        "label": "selected-context",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:46:29.836Z",
+        "finishedAt": "2026-11-10T08:46:29.856Z"
+      },
+      {
+        "label": "context-endpoint",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:46:29.856Z",
+        "finishedAt": "2026-11-10T08:46:29.869Z"
+      },
+      {
+        "label": "engine-version",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:46:29.870Z",
+        "finishedAt": "2026-11-10T08:46:29.893Z"
+      },
+      {
+        "label": "probe-context-build",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:46:29.927Z",
+        "finishedAt": "2026-11-10T08:46:30.153Z"
+      },
+      {
+        "label": "checkout-context-build",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:46:30.182Z",
+        "finishedAt": "2026-11-10T08:46:30.481Z"
+      },
+      {
+        "label": "normal-image-build",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:46:30.574Z",
+        "finishedAt": "2026-11-10T08:47:43.058Z"
+      },
+      {
+        "label": "image-identity",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:47:43.061Z",
+        "finishedAt": "2026-11-10T08:47:43.091Z"
+      },
+      {
+        "label": "create-owned-container",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:47:43.092Z",
+        "finishedAt": "2026-11-10T08:47:43.373Z"
+      },
+      {
+        "label": "extract-served-artifact",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:47:43.379Z",
+        "finishedAt": "2026-11-10T08:47:43.434Z"
+      },
+      {
+        "label": "start-owned-container",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:47:44.916Z",
+        "finishedAt": "2026-11-10T08:47:45.147Z"
+      },
+      {
+        "label": "bound-port",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:47:45.148Z",
+        "finishedAt": "2026-11-10T08:47:45.177Z"
+      },
+      {
+        "label": "server-version",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:47:45.179Z",
+        "finishedAt": "2026-11-10T08:47:45.351Z"
+      },
+      {
+        "label": "cleanup-ownership",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:47:47.636Z",
+        "finishedAt": "2026-11-10T08:47:47.668Z"
+      },
+      {
+        "label": "remove-owned-container",
+        "status": "pass",
+        "startedAt": "2026-11-10T08:47:47.672Z",
+        "finishedAt": "2026-11-10T08:47:47.915Z"
+      }
+    ],
+    "rawPages": 45,
+    "http": {
+      "result": "pass",
+      "requestCount": 768,
+      "evidence": "container-http.jsonl",
+      "sha256": "1a27f9e0006c864fa7db47a6380d2608b9931b548c328adaae7b100fc4b9982c"
+    },
+    "cleanup": "pass",
+    "finalHostArtifactComparison": {
+      "result": "pass",
+      "files": 64,
+      "meaning": "Every path/SHA-256 from the final host build equals the earlier Docker image artifact. Later code changes are limited to message regression and test-profile wiring; runtime artifact identity is proven."
+    }
+  },
+  "artifact": {
+    "files": [
+      {
+        "path": "404.html",
+        "kind": "documents",
+        "bytes": 6129,
+        "gzipBytes": 1978,
+        "sha256": "dc8d2a60f67919dd803b591da5239b7488dbd1cb78863800733e10700df96397"
+      },
+      {
+        "path": "about/index.html",
+        "kind": "documents",
+        "bytes": 6780,
+        "gzipBytes": 2231,
+        "sha256": "f6c30eeb2abe67c08bca7224812331264e0fe6f23fa6f7a663a500e6cd354dd9"
+      },
+      {
+        "path": "accessibility/index.html",
+        "kind": "documents",
+        "bytes": 8062,
+        "gzipBytes": 2647,
+        "sha256": "dadc0f42e272e5a66c904a7f756ee028e7f6648dc6cc12f50858fc1769b4db6e"
+      },
+      {
+        "path": "aether/index.html",
+        "kind": "documents",
+        "bytes": 6591,
+        "gzipBytes": 2107,
+        "sha256": "1083bfaaf3c2f28681e36066102638d7d282e5dbb55659ac2252f8e9c6048805"
+      },
+      {
+        "path": "assets/index-CIRMjij1.js",
+        "kind": "javascript",
+        "bytes": 582643,
+        "gzipBytes": 163378,
+        "sha256": "3d0d59732f1283f01d6249127e1744ee71ce04e0526100f4e2edff35feaf016f"
+      },
+      {
+        "path": "assets/index-D4Fmhrf9.css",
+        "kind": "css",
+        "bytes": 63912,
+        "gzipBytes": 12211,
+        "sha256": "75782b9b0a3645caefd4718dd440c913a03cfa9c371c1119a73bece1ec4495a2"
+      },
+      {
+        "path": "audits/index.html",
+        "kind": "documents",
+        "bytes": 12035,
+        "gzipBytes": 3882,
+        "sha256": "9268a2bc2fb8af332567fe15ef1ecc2168b73d060dc038d98dd430146c7d9813"
+      },
+      {
+        "path": "CNAME",
+        "kind": "documents",
+        "bytes": 14,
+        "gzipBytes": 34,
+        "sha256": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12"
+      },
+      {
+        "path": "decisions/index.html",
+        "kind": "documents",
+        "bytes": 9018,
+        "gzipBytes": 2915,
+        "sha256": "1236414a07e54236233f21864a36b63fcc139024aae040e554171191a6a40d47"
+      },
+      {
+        "path": "dependencies/index.html",
+        "kind": "documents",
+        "bytes": 8561,
+        "gzipBytes": 2770,
+        "sha256": "ede99422b0dda817130f7d6bf77ae0ad4f0382c8b1d77476906061b6a9e39504"
+      },
+      {
+        "path": "distribution/index.html",
+        "kind": "documents",
+        "bytes": 9173,
+        "gzipBytes": 2860,
+        "sha256": "279d142e86161a3364653f0aba65cdec64695773cae6de01418e6608adb6decd"
+      },
+      {
+        "path": "ecosystem/index.html",
+        "kind": "documents",
+        "bytes": 9371,
+        "gzipBytes": 2632,
+        "sha256": "414f01849816101b28b6a16222b1d95462732cca4da61afc23142e457ab8f344"
+      },
+      {
+        "path": "egolint/index.html",
+        "kind": "documents",
+        "bytes": 6562,
+        "gzipBytes": 2111,
+        "sha256": "19095bdef1d5b0a3ab845a33049ca30fa4a847e81cae3b312cbc9c828ab85f61"
+      },
+      {
+        "path": "favicon.ico",
+        "kind": "images",
+        "bytes": 15086,
+        "gzipBytes": 11232,
+        "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+      },
+      {
+        "path": "favicon.png",
+        "kind": "images",
+        "bytes": 3008,
+        "gzipBytes": 3031,
+        "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+      },
+      {
+        "path": "fonts/atkinson-bold.woff",
+        "kind": "fonts",
+        "bytes": 23780,
+        "gzipBytes": 23749,
+        "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623"
+      },
+      {
+        "path": "fonts/atkinson-regular.woff",
+        "kind": "fonts",
+        "bytes": 22792,
+        "gzipBytes": 22782,
+        "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b"
+      },
+      {
+        "path": "fonts/NOTICE.txt",
+        "kind": "documents",
+        "bytes": 2357,
+        "gzipBytes": 1335,
+        "sha256": "2231aaf86f60c69cb7c9c09a26af1bb8cd58138d8deeed992038367ee68c4df9"
+      },
+      {
+        "path": "health/index.html",
+        "kind": "documents",
+        "bytes": 8878,
+        "gzipBytes": 2887,
+        "sha256": "99e293207dfa3d4fe87e64d448a65e230da6ab0ad5846bab6dd47ecc2b13f24c"
+      },
+      {
+        "path": "help/index.html",
+        "kind": "documents",
+        "bytes": 8621,
+        "gzipBytes": 2799,
+        "sha256": "8f8ee19746343138ec40a8bcefef06d046b1c4f6b6d6535e675034a22e52234f"
+      },
+      {
+        "path": "hygiene/index.html",
+        "kind": "documents",
+        "bytes": 12091,
+        "gzipBytes": 3816,
+        "sha256": "a460dfc835d38c9d3627c04c8b70cd9aa4526a78849d30915d549b5023e9b99b"
+      },
+      {
+        "path": "icons/apple-touch-icon.png",
+        "kind": "images",
+        "bytes": 33687,
+        "gzipBytes": 33720,
+        "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+      },
+      {
+        "path": "icons/icon-192x192.png",
+        "kind": "images",
+        "bytes": 36806,
+        "gzipBytes": 36839,
+        "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+      },
+      {
+        "path": "icons/icon-512x512.png",
+        "kind": "images",
+        "bytes": 161290,
+        "gzipBytes": 160949,
+        "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+      },
+      {
+        "path": "icons/NOTICE.txt",
+        "kind": "documents",
+        "bytes": 1574,
+        "gzipBytes": 966,
+        "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+      },
+      {
+        "path": "index.html",
+        "kind": "documents",
+        "bytes": 11305,
+        "gzipBytes": 3447,
+        "sha256": "d3bfea31b41af8a61555122a04f1353ebba1a4f56bf4d39a9511a976eca0a59d"
+      },
+      {
+        "path": "intelligence/compare/index.html",
+        "kind": "documents",
+        "bytes": 8696,
+        "gzipBytes": 2734,
+        "sha256": "426858a7e379fc327c8a4b72e5ca916a76ef3fdb5033c63aa4b7f07fe10d1be5"
+      },
+      {
+        "path": "intelligence/dashboard/index.html",
+        "kind": "documents",
+        "bytes": 28799,
+        "gzipBytes": 5730,
+        "sha256": "889f630ffffd416fa19ce464d5418d33709087da4d673389578cc7a2db0660fb"
+      },
+      {
+        "path": "intelligence/diagnostics/index.html",
+        "kind": "documents",
+        "bytes": 12412,
+        "gzipBytes": 3939,
+        "sha256": "514d1c0e3880cafc663eca22d7301de03fa494ca7392dbff1b703072f3e0675f"
+      },
+      {
+        "path": "intelligence/identity/index.html",
+        "kind": "documents",
+        "bytes": 12476,
+        "gzipBytes": 3871,
+        "sha256": "55b2baf9a2a779e4bfa764deebc0e025dbec0257015ecb0f2dab9137c821c2dc"
+      },
+      {
+        "path": "intelligence/index.html",
+        "kind": "documents",
+        "bytes": 41128,
+        "gzipBytes": 7436,
+        "sha256": "c9b6373828bb2c289576c5de88c75397611afb1b3ca26689d7fa79d18648ae1c"
+      },
+      {
+        "path": "intelligence/journey/index.html",
+        "kind": "documents",
+        "bytes": 8593,
+        "gzipBytes": 2769,
+        "sha256": "a72a3b65fb2db2951619c35e6c1eb24d5297817815a662a35a0b1353a709fd65"
+      },
+      {
+        "path": "intelligence/now/index.html",
+        "kind": "documents",
+        "bytes": 8147,
+        "gzipBytes": 2562,
+        "sha256": "4315caae6bcd0301e9053e4c0fd1dc6c0bea528175d3def7bd4859ba81cdb15c"
+      },
+      {
+        "path": "intelligence/work/index.html",
+        "kind": "documents",
+        "bytes": 8577,
+        "gzipBytes": 2749,
+        "sha256": "038255d4f30e58bdaaa880c5b449bf403f9215ce2ce52f82b013a799cf11bced"
+      },
+      {
+        "path": "llms.txt",
+        "kind": "documents",
+        "bytes": 2398,
+        "gzipBytes": 1029,
+        "sha256": "e60531c2ab30c1e67de2707c83b802a134fc7579acc8468ac3d6e2b968e3e98d"
+      },
+      {
+        "path": "mindcap/index.html",
+        "kind": "documents",
+        "bytes": 6554,
+        "gzipBytes": 2106,
+        "sha256": "15c8f39cae29a0193977d35a5282274984245e34bd2a996db40f413f411c72ef"
+      },
+      {
+        "path": "mindgarden/index.html",
+        "kind": "documents",
+        "bytes": 6567,
+        "gzipBytes": 2109,
+        "sha256": "3657a99e70b8f1e0f697d85ecd14883dc48206b5445177100d58c79223c1bb66"
+      },
+      {
+        "path": "privacy/index.html",
+        "kind": "documents",
+        "bytes": 6956,
+        "gzipBytes": 2327,
+        "sha256": "0af177cf3a24541a4207308e571739943e9553fae7c37cf3573394d1a1622d91"
+      },
+      {
+        "path": "public-routes.json",
+        "kind": "documents",
+        "bytes": 17633,
+        "gzipBytes": 3400,
+        "sha256": "47347702f98852734bc4bd655fb733b2e528364f69f74d614133249b074612da"
+      },
+      {
+        "path": "reflector/index.html",
+        "kind": "documents",
+        "bytes": 6540,
+        "gzipBytes": 2104,
+        "sha256": "d9e5f144c686142d49eb9b6fc42a5fcdf1a6c61664de4b0a8173b17a67643af7"
+      },
+      {
+        "path": "releases/index.html",
+        "kind": "documents",
+        "bytes": 8899,
+        "gzipBytes": 2820,
+        "sha256": "b31c4b3b4b76c6eba742f77d418cbe4bfba0335fbb982324145a89d00b9e1508"
+      },
+      {
+        "path": "renderflow/index.html",
+        "kind": "documents",
+        "bytes": 6575,
+        "gzipBytes": 2105,
+        "sha256": "02f5c3faa937c329ba26557a7697546c86c98e6d8e4b3991528eec99a64a9711"
+      },
+      {
+        "path": "roadmap/index.html",
+        "kind": "documents",
+        "bytes": 9014,
+        "gzipBytes": 2931,
+        "sha256": "656c8694377b315fe7e913bd006e343193c4dcc2004879bde2696f30f9987f99"
+      },
+      {
+        "path": "robots.txt",
+        "kind": "documents",
+        "bytes": 68,
+        "gzipBytes": 84,
+        "sha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+      },
+      {
+        "path": "sanity/index.html",
+        "kind": "documents",
+        "bytes": 12101,
+        "gzipBytes": 3837,
+        "sha256": "36798961c8066dac064cfec7c6ebaedd32fe2ae4b0204a30047f36adef46d88b"
+      },
+      {
+        "path": "search/index.html",
+        "kind": "documents",
+        "bytes": 8626,
+        "gzipBytes": 2775,
+        "sha256": "15c93852365b7c1c4dbe51a3088d2fb9c4429e2c42fdd621e10176fc24168153"
+      },
+      {
+        "path": "site.webmanifest",
+        "kind": "documents",
+        "bytes": 473,
+        "gzipBytes": 218,
+        "sha256": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e"
+      },
+      {
+        "path": "sitemap.xml",
+        "kind": "documents",
+        "bytes": 693,
+        "gzipBytes": 221,
+        "sha256": "34cf5b4b5bc8322dc07047268c8715e122a81f2233589e29e7214a97efd7117a"
+      },
+      {
+        "path": "status/index.html",
+        "kind": "documents",
+        "bytes": 11963,
+        "gzipBytes": 3802,
+        "sha256": "14ba9a479304916c7c0ded4c8666edb18ce9958e68a3c591100888a2155fa470"
+      },
+      {
+        "path": "store/catalog/index.html",
+        "kind": "documents",
+        "bytes": 42233,
+        "gzipBytes": 6284,
+        "sha256": "8f20afc3a48b907ce2257a2d23f6162d61a5c15694f4a9f8d46b956063fef437"
+      },
+      {
+        "path": "store/collections/static-bloom-collection/index.html",
+        "kind": "documents",
+        "bytes": 17521,
+        "gzipBytes": 3809,
+        "sha256": "06d6f7d7f1152ecba3e32e8e903cd1ddd1c71027db4b724aae80ac056395e5b2"
+      },
+      {
+        "path": "store/designs/heartburst/index.html",
+        "kind": "documents",
+        "bytes": 9448,
+        "gzipBytes": 2760,
+        "sha256": "0df41aaa8311bbc98b4eeb196b7aa433518c794a4529f4a3da5b0b48399b517f"
+      },
+      {
+        "path": "store/designs/signal-heart/index.html",
+        "kind": "documents",
+        "bytes": 14154,
+        "gzipBytes": 3690,
+        "sha256": "e2502fad2573268641fb614ae7b25cf61634449800c84362501b0e7ebc529f8c"
+      },
+      {
+        "path": "store/designs/static-bloom-artwork/index.html",
+        "kind": "documents",
+        "bytes": 17940,
+        "gzipBytes": 3947,
+        "sha256": "778133289936d1b3f8a20389f1da2ad0cd47b5c9aede5e5bedb74a38ef72c152"
+      },
+      {
+        "path": "store/designs/unwritten-realm-cover/index.html",
+        "kind": "documents",
+        "bytes": 13958,
+        "gzipBytes": 3742,
+        "sha256": "2cd573a645e15314f762a6d869965c53d7b4c0af8c5dbdcdff057953188406bb"
+      },
+      {
+        "path": "store/heartburst/heartburst-light.webp",
+        "kind": "images",
+        "bytes": 141978,
+        "gzipBytes": 141581,
+        "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550"
+      },
+      {
+        "path": "store/help/index.html",
+        "kind": "documents",
+        "bytes": 9810,
+        "gzipBytes": 3219,
+        "sha256": "1b5615322a86ffcde5af72ec3f3e856efca7a5f76c47bf888523a635415fa656"
+      },
+      {
+        "path": "store/incompris/artists/play/index.html",
+        "kind": "documents",
+        "bytes": 8854,
+        "gzipBytes": 2785,
+        "sha256": "acf3d2ed4071d4e651750f299cbbb871cfa84fc8e9d01fad1f8188dbb8615f7d"
+      },
+      {
+        "path": "store/incompris/index.html",
+        "kind": "documents",
+        "bytes": 9916,
+        "gzipBytes": 3052,
+        "sha256": "e755d50833dbd8ea830b374d501f6e53eb348f97b864baebd14fb3706776dc23"
+      },
+      {
+        "path": "store/index.html",
+        "kind": "documents",
+        "bytes": 10455,
+        "gzipBytes": 3188,
+        "sha256": "6ea97dab27796dc02a9206e3c1f29a9a9dfce182d84f4fe14f40758560308526"
+      },
+      {
+        "path": "store/products/signal-heart-hoodie/index.html",
+        "kind": "documents",
+        "bytes": 14552,
+        "gzipBytes": 3806,
+        "sha256": "3dab8d24d0da7f9d89582e6fcb4a8f6cb301706cb92ab78d151037774e43f8d5"
+      },
+      {
+        "path": "store/products/static-bloom-mug/index.html",
+        "kind": "documents",
+        "bytes": 18514,
+        "gzipBytes": 4096,
+        "sha256": "4d8eea90568d7c00e437ed0af07aa5c5a19294633c7e8e542338a3e6b4423ef2"
+      },
+      {
+        "path": "store/products/unwritten-realm-comic/index.html",
+        "kind": "documents",
+        "bytes": 14170,
+        "gzipBytes": 3805,
+        "sha256": "93de84df9511fccf7ddb26421ad141bc645d481587b2b2e4d568e281c8709ba6"
+      },
+      {
+        "path": "terms/index.html",
+        "kind": "documents",
+        "bytes": 6854,
+        "gzipBytes": 2290,
+        "sha256": "8b056f618c5090a49da14492767a1e999df6b3f34f5137818360256d8b8eb1c6"
+      }
+    ],
+    "references": 335,
+    "sizes": {
+      "javascript": {
+        "bytes": 582643,
+        "gzipBytes": 163378,
+        "limit": {
+          "bytes": 500000,
+          "gzipBytes": 150000
+        },
+        "result": "fail"
+      },
+      "css": {
+        "bytes": 63912,
+        "gzipBytes": 12211,
+        "limit": {
+          "bytes": 60000,
+          "gzipBytes": 12000
+        },
+        "result": "fail"
+      },
+      "images": {
+        "bytes": 391855,
+        "gzipBytes": 387352,
+        "limit": {
+          "bytes": 500000,
+          "gzipBytes": 500000
+        },
+        "result": "pass"
+      },
+      "fonts": {
+        "bytes": 46572,
+        "gzipBytes": 46531,
+        "limit": {
+          "bytes": 60000,
+          "gzipBytes": 50000
+        },
+        "result": "pass"
+      },
+      "documents": {
+        "bytes": 569389,
+        "gzipBytes": 155548,
+        "limit": {
+          "bytes": 20000,
+          "gzipBytes": 10000
+        },
+        "result": "fail"
+      },
+      "total": {
+        "bytes": 1654371,
+        "gzipBytes": 765020,
+        "limit": {
+          "bytes": 1140000,
+          "gzipBytes": 722000
+        },
+        "result": "fail"
+      }
+    },
+    "findings": [
+      {
+        "rule": "size-budget",
+        "file": "javascript",
+        "detail": "bytes: 582643 exceeds 500000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "javascript",
+        "detail": "gzipBytes: 163378 exceeds 150000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "css",
+        "detail": "bytes: 63912 exceeds 60000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "css",
+        "detail": "gzipBytes: 12211 exceeds 12000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "bytes: 569389 exceeds 20000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "gzipBytes: 155548 exceeds 10000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "total",
+        "detail": "bytes: 1654371 exceeds 1140000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "total",
+        "detail": "gzipBytes: 765020 exceeds 722000."
+      }
+    ],
+    "mainComparison": "The controlled build of original main 1605f32 already fails the same eight categories/metrics; see main-cost-baseline.json. Limits are unchanged."
+  },
+  "preservedContractHashes": {
+    "contracts/organization-intelligence/input-lock.json": "b11d1d7ddb317097d1d9d317787e83c90f18de53463dd658387425f0edc5876e",
+    "contracts/organization-intelligence/public-site-surface-registry.json": "95c9db34dc0b66bb090bd92f89ce16cb7f850a0bbf9a47bd3d64f7ac3d0ad7f3",
+    "contracts/organization-intelligence/repository-intelligence-fleet.v1.schema.json": "743e2e1eb52d6182ad401d5d32881360315e873a082f8fde37c1002949cfe793",
+    "contracts/organization-intelligence/repository-publications.historical-example.json": "969fd56623b53a6df51df93b9ae0da634efb097b034152792096fdc2b68f1241",
+    "contracts/organization-intelligence/repository-publications.v1.schema.json": "00b341381242769931a077fb9f59004d5760e14ff8306e1f01fd07b0d709544d",
+    "contracts/organization-intelligence/reviews/aether.architecture-coherence.v1.lock.json": "a5ea406128a8ef50b9a7cd2bdaeb02dde52e6137474b5f6f2aac272acbe8d73e",
+    "contracts/organization-intelligence/reviews/aether.audit-report.v1.lock.json": "951fc63ac3fc30918b4de3ac6def6da286046901a51b5cb8ffed3e3692614194",
+    "contracts/organization-intelligence/reviews/fleet-audits.v1.schema.json": "7d02716e12a80569c2a0b4f4c2c7e21bd26bbafca87e5ee93971b5f6b263a7e8",
+    "contracts/organization-intelligence/reviews/fleet-sanity.v1.schema.json": "c4671b106fdba02cfc236fa7f9149d2cfb4c4538a1ac3c55ffc526ee5bec72e5",
+    "contracts/organization-intelligence/reviews/hygiene.public-repositories.v1.json": "af9c7186ded0bb57b18741eaa5905314b96d6adb03736946c868e0fc4aa50b26",
+    "contracts/organization-intelligence/reviews/input-lock.json": "919ce7830a4a3bd0fd9fb2ab014ed1e504b18147a9a53211526a2545abf481e9"
+  },
+  "inactiveLicenseProposals": {
+    "MIT": "git apply --check passes",
+    "Apache-2.0": "git apply --check passes",
+    "applied": false
+  },
+  "earlierFindings": [
+    "Conflicting context histories are both retained; code/format conflicts preserve current Intelligence behavior.",
+    "Initial native build required an explicit .ts extension for the pure shared text guard.",
+    "Raw inspection now counts head > title; accessible SVG titles are retained and duplicate document titles still fail.",
+    "The new graph journey uses the exact accessible combobox role; its first label-text locator was incorrect.",
+    "Two source messages used unsupported single-brace interpolation; corrected and covered by two real-translator cases.",
+    "Older unit/semantic profiles lacked the Intelligence virtual module and still asserted 26 routes; they now use the real adapter and assert all 45 routes while keeping ten indexable destinations."
+  ],
+  "limits": [
+    "Eight strict size findings remain; no ceiling, rule severity, hosted security gate or compiler flag was weakened.",
+    "The formatter-only override preserves all 11 pinned contract/lock JSON byte identities and keeps lint/JSON analysis enabled.",
+    "No new hosted result is inferred before these integrated heads are pushed; results must be refreshed separately.",
+    "The separate prior Storybook-manager probe failed on blocked Chakra composition requests; local iframe cases do not complete manager-offline acceptance.",
+    "Firefox/WebKit automation remains agent-owned follow-up. Physical devices, native zoom/text resizing, AT and Mac/Apple Silicon acceptance remain manual.",
+    "No license proposal applied, private catalog imported, actual fleet assessment connected, repository retired, image deployed, purchase/provider activated or spending performed."
+  ]
+}

@@ -1,5 +1,26 @@
 # Context provenance ledger
 
+## Combined integration and pre-merge verification — 2026-11-10
+
+Alan authorized merges and issue consolidation. Isolated integration preserves
+main `1605f32` and all original #105–#109/#117/#129–#132 heads; the
+[integration contract/receipt](../development/merge-closeout-2026-11-10.md)
+records source/format/context/Caddy resolutions, 11 unchanged byte-pinned JSON
+contracts, both inactive license patches and exact sources. Full browser passes
+at `48ded05`; final `56206ef` passes all 32 app-browser cases and 15 non-browser
+stages, including 363 units/114 tooling/152 catalog tests and all compiler checks.
+Actual Docker `2a34c59` passes context/image/45 pages/768 HTTP checks and cleanup;
+every one of its 64 artifact hashes equals the final host build. Overall Task
+profiles still exit 201 (child 1) on eight strict size findings. A controlled
+original-main build already fails the same eight metrics; no gate changed.
+
+Store #36 merge `e97ee727e6c2300e804579cf2122d34d4c162158` exactly matches reviewed
+`cbcc922`; #75 is closed completed. Duplicate future concepts #114→#111 and
+#113→#112 retain unique requirements and source history. Website merges follow
+with expected-head checks and tree comparisons; no website merge is claimed by
+this pre-merge checkpoint. Manual/creative/publication and actual-model acceptance
+remain distinct; no license, live provider or deployment is activated.
+
 ## #57 actual container and complete non-browser receipt — 2026-11-09
 
 Draft [#132](https://github.com/egohygiene/egohygiene.io/pull/132) publishes the
