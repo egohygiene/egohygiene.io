@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "issue": 52,
+  "sourceCommit": "e0f9b9bcce1b6a58475874bc38fe4a887b234d5e",
+  "node": "v24.21.0",
+  "toolingTests": {
+    "passed": 24,
+    "failed": 0,
+    "scope": "real runner fixtures, source/receipt/output guards, two later-writer negative cases"
+  },
+  "types": [
+    "tsconfig.node.json",
+    "tsconfig.store-browser.json"
+  ],
+  "freshSmoke": {
+    "profileStatus": "passed",
+    "directExitCode": 0,
+    "startedAt": "2026-11-10T03:00:08.874Z",
+    "finishedAt": "2026-11-10T03:00:16.313Z",
+    "steps": [
+      {
+        "name": "fresh normal website build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh docs build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh playground build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh all-app build smoke",
+        "status": "passed",
+        "exitCode": 0
+      }
+    ],
+    "snapshots": [
+      {
+        "app": "egohygiene.io",
+        "capturedAt": "2026-11-10T03:00:12.088Z",
+        "files": 45
+      },
+      {
+        "app": "docs",
+        "capturedAt": "2026-11-10T03:00:13.381Z",
+        "files": 11
+      },
+      {
+        "app": "playground",
+        "capturedAt": "2026-11-10T03:00:14.530Z",
+        "files": 11
+      }
+    ]
+  },
+  "productionSiteDocsBrowser": {
+    "passed": 26,
+    "failed": 0,
+    "browser": "Chromium 151.0.7922.34",
+    "scope": "existing site/docs journeys; strict request/WebSocket guards retained"
+  },
+  "limitations": [
+    "Historical output-interference writer remains unidentified.",
+    "Artifact budgets, complete browser profile and hosted outcomes are separate.",
+    "One earlier named smoke outer command returned 1 while its internal report and all four steps passed; direct supported runner was independently confirmed at exit 0.",
+    "This source is the unmerged storefront stack and excludes the newer Intelligence mainline."
+  ]
+}
