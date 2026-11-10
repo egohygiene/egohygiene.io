@@ -6,6 +6,7 @@ import { LocaleLink as Link } from "../../../i18n/LocaleLink";
 import { intelligenceData } from "../data";
 import type { IntelligenceRepository } from "../types";
 import { EndpointFrame } from "./EndpointFrame";
+import { endpointData } from "./data";
 
 import "../intelligence.css";
 import "./governance-endpoints.css";
@@ -208,9 +209,21 @@ function GovernanceEndpoint({ id }: { readonly id: GovernanceId }) {
   </EndpointFrame>;
 }
 
-export function SanityEndpoint() { return <GovernanceEndpoint id="sanity" />; }
+function ReviewEvidenceEndpoint({ id }: { readonly id: "audits" | "sanity" }) {
+  const { t } = useI18n();
+  const data = endpointData(id);
+  if (!data.source && data.state !== "incompatible") return <GovernanceEndpoint id={id} />;
+  return <EndpointFrame id={id} question={t(`intelligenceGovernance.${id}.question`)}>
+    <section className="oi-panel"><h2>{t(`intelligenceGovernance.${id}.connectedHeading`)}</h2>
+      <p>{t(`intelligenceGovernance.${id}.connectedBoundary`)}</p>
+      <p className="oi-muted">{t(`intelligenceGovernance.${id}.independence`)}</p>
+    </section>
+  </EndpointFrame>;
+}
+
+export function SanityEndpoint() { return <ReviewEvidenceEndpoint id="sanity" />; }
 export function HygieneEndpoint() { return <GovernanceEndpoint id="hygiene" />; }
-export function AuditsEndpoint() { return <GovernanceEndpoint id="audits" />; }
+export function AuditsEndpoint() { return <ReviewEvidenceEndpoint id="audits" />; }
 export function StatusEndpoint() { return <GovernanceEndpoint id="status" />; }
 export function IdentityEndpoint() { return <GovernanceEndpoint id="identity_intelligence" />; }
 export function DiagnosticsEndpoint() { return <GovernanceEndpoint id="diagnostics" />; }

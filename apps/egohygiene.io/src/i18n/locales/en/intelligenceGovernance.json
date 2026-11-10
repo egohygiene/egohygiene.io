@@ -14,7 +14,9 @@
     "noContext": "No reviewed public repository context is connected. No repository count, applicability decision or healthy empty state is inferred.",
     "noScript": "All admitted public repository context is shown below. Selecting one repository requires JavaScript; source links and evidence disclosures remain available.",
     "contractDetails": "Inspect the source contract boundary",
-    "contractBoundary": "The current fleet contract carries nine collection domains. A missing specialized domain is not assigned a new local coverage key, and other domains are not relabeled to stand in for it. A reviewed owner model is required before this page can show specialized records."
+    "contractBoundary": "The current fleet contract carries nine collection domains. A missing specialized domain is not assigned a new local coverage key, and other domains are not relabeled to stand in for it. A reviewed owner model is required before this page can show specialized records.",
+    "independentModel": "Independent normalized source",
+    "representedRepositories": "represented public repositories"
   },
   "status": {
     "question": "Which declared services need attention, and what is known about current incidents?",
@@ -56,7 +58,9 @@
       "observatory": "Normalized review and ratification posture"
     },
     "context": "Decision and roadmap collection can help locate architecture evidence. Their presence does not establish coherence, review completion or human approval.",
-    "contract": "The pinned Observatory fleet model has no architecture review or ratification view. This page does not convert ADR acceptance, implementation state or roadmap readiness into a human ratification claim."
+    "contract": "The pinned Observatory fleet model has no architecture review or ratification view. This page does not convert ADR acceptance, implementation state or roadmap readiness into a human ratification claim.",
+    "connectedHeading": "Architecture assessments and human governance",
+    "connectedBoundary": "Reviewer explanations, strengths, concerns, questions, alternatives and recommendations remain separate from human decisions. This normalized source has no authenticated human verification context: human dispositions and exceptional applicability appear only as unverified source claims. Material change classifications and unknown capture scope retain their original meaning."
   },
   "hygiene": {
     "question": "Which versioned contracts apply, and what evidence supports their adoption or conformance?",
@@ -98,7 +102,9 @@
       "reflector": "Bounded audit campaign orchestration"
     },
     "context": "Issue, pull-request and check collection can help locate follow-up work. These inventories are not an audit history or a finding disposition record.",
-    "contract": "The pinned Observatory fleet model has no audit run or finding view. The site does not parse report prose, infer findings from issues, or infer resolution from silence in a later report."
+    "contract": "The pinned Observatory fleet model has no audit run or finding view. The site does not parse report prose, infer findings from issues, or infer resolution from silence in a later report.",
+    "connectedHeading": "Authored audits and their evidence",
+    "connectedBoundary": "Audit runs retain their selected profile versions, inspected scope, completion, findings and original source time. Opportunities and experimental suggestions remain recommendations. Candidate issues are suggestions until a separate authorized process creates an issue. Reported recurrence or resolution requires explicit source history; disappearance does not establish remediation."
   },
   "identity_intelligence": {
     "question": "Which repositories have current, compatible Identity evidence, and where are their canonical public assets?",
