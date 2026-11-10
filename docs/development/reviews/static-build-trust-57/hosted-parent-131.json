@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-10",
+  "repository": "egohygiene/egohygiene.io",
+  "pr": 131,
+  "head": "0f9de22cd772707c2077b61ac4291357afede121",
+  "syntheticMerge": "7bfe5bde6d5070b2a89fff326c9193b98e241784",
+  "runs": [
+    {
+      "id": 42752458866,
+      "name": "CodeQL",
+      "conclusion": "success"
+    },
+    {
+      "id": 42752458922,
+      "name": "CI",
+      "conclusion": "failure",
+      "job": 129619015130,
+      "observedCause": "pnpm ci:check reaches artifact qualification: 45 files, 202 references, 3 findings. Browser installation/profile steps are skipped after this failure."
+    },
+    {
+      "id": 42752458941,
+      "name": "Dependency review",
+      "conclusion": "failure",
+      "job": 129619014932,
+      "observedCause": "Dependency review is not supported on this repository. Please ensure that Dependency graph is enabled."
+    }
+  ],
+  "limits": [
+    "This is a parent PR #131 snapshot, not a hosted result for the following #57 branch or later main.",
+    "No hosted checks were disabled, rerun or marked passing; raw logs and account/checkout metadata are omitted."
+  ]
+}

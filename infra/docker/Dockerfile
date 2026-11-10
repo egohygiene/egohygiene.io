@@ -6,7 +6,10 @@ COPY . /
 FROM node:24.21.0-alpine AS builder
 WORKDIR /app
 COPY . .
-RUN test "$(node --version)" = "v24.21.0" \
+RUN --mount=type=secret,id=build_ca \
+    if test -f /run/secrets/build_ca; then export NODE_EXTRA_CA_CERTS=/run/secrets/build_ca; fi \
+    && export NODE_USE_ENV_PROXY=1 \
+    && test "$(node --version)" = "v24.21.0" \
     && corepack enable \
     && test "$(pnpm --version)" = "11.28.5" \
     && pnpm install --frozen-lockfile --ignore-scripts --strict-peer-dependencies=false \
