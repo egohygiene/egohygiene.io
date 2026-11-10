@@ -1,0 +1,48 @@
+ATKINSON HYPERLEGIBLE — RECORDED BINARY NOTICE
+
+This notice describes the two unchanged WOFF files shipped in this directory.
+It preserves the statements embedded in those exact files; it does not assign
+a different license or establish additional rights.
+
+Files:
+- atkinson-bold.woff: 23780 bytes
+  SHA-256: f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623
+  Git blob: e7f8977eca89348892bc93330dc44763d2bcb5ed
+- atkinson-regular.woff: 22792 bytes
+  SHA-256: b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b
+  Git blob: bbe09c5843e554b1f763c5df8e4dfcb2b151a445
+
+Embedded identification:
+Family: Atkinson Hyperlegible
+Styles: Regular and Bold
+Version: 1.002
+Manufacturer: Applied Design Works
+Designers: Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky
+
+Embedded copyright (OpenType name ID 0):
+© 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization.
+
+Embedded permission statement (OpenType name ID 13), verbatim:
+Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required.
+
+Embedded manufacturer/license URL (name IDs 11 and 14):
+https://www.BrailleInstitute.org/
+Embedded designer URL (name ID 12):
+http://helloapplied.com
+
+Byte-identical public upstream reference (verified 2026-10-26 UTC):
+https://github.com/withastro/astro/tree/8e14621659e86b4970f2486f13d8c7384f5ff9d9/examples/blog/public/fonts
+Both Git blob IDs match that pinned Astro blog-template directory. This is
+a reproducible byte-identity observation, not proof of the original acquisition
+route or a claim that Astro software licensing replaces the font terms.
+
+Remaining evidence gap:
+The full historical distribution license for these exact version 1.002 files
+has not been verified from an authoritative source during this audit. The
+historical Braille Institute URL was inaccessible:
+https://www.brailleinstitute.org/wp-content/uploads/2020/11/Atkinson-Hyperlegible-Font-License-2020-1104.pdf
+A mirror and newer font releases are not being used to relabel these binaries
+under SIL OFL. Preserve the embedded statement and resolve the full-license
+record before claiming redistribution readiness.
+
+This notice records source evidence; it is not a new license grant.

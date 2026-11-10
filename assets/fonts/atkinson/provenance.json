@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-10-26",
+  "recordedTimezone": "UTC",
+  "audit": "docs/legal/licensing-59.md",
+  "sourceInventory": "docs/legal/reviews/licensing-59/asset-inventory.json",
+  "auditedSourceHead": "89fc70440f9c3cf32d37a6da83c7a2b969efa97d",
+  "notice": "apps/egohygiene.io/public/fonts/NOTICE.txt",
+  "family": "Atkinson Hyperlegible",
+  "version": "1.002",
+  "binaryHandling": "Existing binaries retained unchanged; no conversion, subsetting or replacement performed.",
+  "files": [
+    {
+      "path": "apps/egohygiene.io/public/fonts/atkinson-bold.woff",
+      "bytes": 23780,
+      "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623",
+      "gitBlob": "e7f8977eca89348892bc93330dc44763d2bcb5ed",
+      "fontMetadata": {
+        "0": [
+          "© 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."
+        ],
+        "1": [
+          "Atkinson Hyperlegible"
+        ],
+        "2": [
+          "Bold"
+        ],
+        "3": [
+          "1.002;    ;AtkinsonHyperlegible-Bold"
+        ],
+        "4": [
+          "Atkinson Hyperlegible Bold"
+        ],
+        "5": [
+          "Version 1.002"
+        ],
+        "6": [
+          "AtkinsonHyperlegible-Bold"
+        ],
+        "8": [
+          "Applied Design Works"
+        ],
+        "9": [
+          "Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"
+        ],
+        "11": [
+          "https://www.BrailleInstitute.org/"
+        ],
+        "12": [
+          "http://helloapplied.com"
+        ],
+        "13": [
+          "Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required."
+        ],
+        "14": [
+          "https://www.BrailleInstitute.org/"
+        ]
+      },
+      "matchingUpstreamPath": "examples/blog/public/fonts/atkinson-bold.woff"
+    },
+    {
+      "path": "apps/egohygiene.io/public/fonts/atkinson-regular.woff",
+      "bytes": 22792,
+      "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b",
+      "gitBlob": "bbe09c5843e554b1f763c5df8e4dfcb2b151a445",
+      "fontMetadata": {
+        "0": [
+          "© 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."
+        ],
+        "1": [
+          "Atkinson Hyperlegible"
+        ],
+        "2": [
+          "Regular"
+        ],
+        "3": [
+          "1.002;    ;AtkinsonHyperlegible-Regular"
+        ],
+        "4": [
+          "Atkinson Hyperlegible Regular"
+        ],
+        "5": [
+          "Version 1.002"
+        ],
+        "6": [
+          "AtkinsonHyperlegible-Regular"
+        ],
+        "8": [
+          "Applied Design Works"
+        ],
+        "9": [
+          "Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"
+        ],
+        "11": [
+          "https://www.BrailleInstitute.org/"
+        ],
+        "12": [
+          "http://helloapplied.com"
+        ],
+        "13": [
+          "Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required."
+        ],
+        "14": [
+          "https://www.BrailleInstitute.org/"
+        ]
+      },
+      "matchingUpstreamPath": "examples/blog/public/fonts/atkinson-regular.woff"
+    }
+  ],
+  "publicUpstreamMatch": {
+    "repository": "withastro/astro",
+    "commit": "8e14621659e86b4970f2486f13d8c7384f5ff9d9",
+    "directory": "examples/blog/public/fonts",
+    "url": "https://github.com/withastro/astro/tree/8e14621659e86b4970f2486f13d8c7384f5ff9d9/examples/blog/public/fonts",
+    "verification": "Both Git blob IDs and byte lengths match the pinned upstream directory listing.",
+    "limit": "Byte identity does not establish the original acquisition route or replace the font terms with Astro software licensing."
+  },
+  "licenseEvidence": {
+    "status": "full-historical-distribution-license-unverified",
+    "embeddedStatements": "Exact copyright and permission text are preserved in each file entry under OpenType name IDs 0 and 13, and in the adjacent NOTICE.txt.",
+    "historicalOfficialUrl": "https://www.brailleinstitute.org/wp-content/uploads/2020/11/Atkinson-Hyperlegible-Font-License-2020-1104.pdf",
+    "retrievalResult": "Historical official URL was inaccessible during the audit; the full historical distribution license for these exact binaries remains unverified.",
+    "corroboratingMirror": "https://mirror.math.princeton.edu/pub/CTAN/fonts/atkinson/doc/Atkinson-Hyperlegible-Font-License-2020-1104.pdf",
+    "mirrorLimit": "A historical mirror is recorded as corroboration only, not authoritative exact-binary license verification.",
+    "currentPublisherPage": "https://www.brailleinstitute.org/freefont/",
+    "currentReleaseLimit": "Current font releases and their license terms are not used to relabel these binaries under SIL OFL.",
+    "nextAction": "Verify the complete historical distribution-license record for these exact files before claiming redistribution readiness; any later removal or replacement is a separate deliberate change."
+  },
+  "usageObservation": {
+    "source": "No @font-face or Atkinson references found in current application/shared source styles.",
+    "distribution": "The files remain in the website public directory and recorded normal build artifacts even when CSS does not request them."
+  },
+  "rightsBoundary": "This record and its notice preserve observed evidence; they grant no new rights or legal clearance."
+}
