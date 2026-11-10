@@ -29,7 +29,30 @@ never turn that proposal into a passing result for the active gate.
    Reconcile issue criteria honestly; owner/native and creative approval remain
    in #115/#116. No deployment, provider activation, licensing or paid service.
 
-## B/C
+## B: delivered changes
 
-Pending implementation and measured verification. Historical output-writer root
-cause is still unknown; repeated clean builds do not establish that cause.
+`pnpm report:costs` runs a fresh normal build and writes
+`test-results/store-qualification/costs.json` outside public output. It records
+final chunk hashes/module weights, observed CSS source sizes, per-document
+reachability and shared assets alongside the unchanged strict qualifier result.
+Chunk attribution is observed after Vite finalizes emitted bytes; stale or extra
+unattributed JS fails. Module weights precede final chunk minification, CSS
+weights precede transformation, and neither is additive gzip attribution.
+The command exits 1 while any active artifact finding remains. Ordinary builds
+keep their current behavior; the optional host diagnostics module is loaded only
+when requested and stays excluded from the bounded Docker context.
+
+Storybook uses a refs function returning an empty registry, replacing automatic
+package discovery. An empty object alone merges discovery. No external URL is
+allowlisted. A persistent manager test exercises ThemeToggle → Button plus light,
+dark and high-contrast toolbar choices with one surviving document marker, real
+computed contrast and the existing local GET-only/no-WebSocket guard. Passing
+screenshots cover Button/Orbit in all themes and the manager transitions.
+
+## C: verification
+
+Pending source-bound final run. Preliminary normal/report builds have identical
+64-file path/hash inventories. The manager and four existing browser cases pass.
+Historical output-writer root cause remains unknown; guards detect corruption,
+and clean repeats do not establish a causal repair.
+

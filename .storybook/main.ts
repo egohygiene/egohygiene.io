@@ -7,6 +7,9 @@ const config = {
     "../packages/*/src/**/*.mdx",
     "../packages/*/src/**/*.stories.@(ts|tsx)",
   ],
+  // Ignore automatic dependency Storybooks: this workspace preview stays local.
+  // A function replaces the discovered refs; an empty object would merge them.
+  refs: () => ({}),
   addons: ["@storybook/addon-docs", "@storybook/addon-a11y", "@storybook/addon-themes"],
   framework: {
     name: "@storybook/react-vite",
