@@ -43,10 +43,7 @@
       "result": "passed"
     },
     {
-      "command": [
-        "pnpm",
-        "typecheck"
-      ],
+      "command": ["pnpm", "typecheck"],
       "startedAt": "2026-10-22T15:25:07.255739+00:00",
       "elapsedSeconds": 6.52,
       "exitCode": 0,
@@ -54,14 +51,7 @@
       "result": "passed"
     },
     {
-      "command": [
-        "pnpm",
-        "exec",
-        "tsc",
-        "--project",
-        "tsconfig.store-browser.json",
-        "--noEmit"
-      ],
+      "command": ["pnpm", "exec", "tsc", "--project", "tsconfig.store-browser.json", "--noEmit"],
       "startedAt": "2026-10-22T15:25:07.263294+00:00",
       "elapsedSeconds": 4.51,
       "exitCode": 0,
@@ -84,11 +74,7 @@
       "result": "passed"
     },
     {
-      "command": [
-        "node",
-        "--check",
-        "scripts/qualify-store.mjs"
-      ],
+      "command": ["node", "--check", "scripts/qualify-store.mjs"],
       "startedAt": "2026-10-22T15:25:58.998044+00:00",
       "elapsedSeconds": 0.06,
       "exitCode": 0,
@@ -96,11 +82,7 @@
       "result": "passed"
     },
     {
-      "command": [
-        "node",
-        "tests/catalog-localization/run.mts",
-        "--list"
-      ],
+      "command": ["node", "tests/catalog-localization/run.mts", "--list"],
       "startedAt": "2026-10-22T15:25:07.255443+00:00",
       "elapsedSeconds": 0.7,
       "exitCode": 0,
@@ -108,10 +90,7 @@
       "result": "passed"
     },
     {
-      "command": [
-        "pnpm",
-        "build"
-      ],
+      "command": ["pnpm", "build"],
       "startedAt": "2026-10-22T15:26:48.414163+00:00",
       "elapsedSeconds": 2.53,
       "exitCode": 0,
@@ -164,16 +143,9 @@
     "config": {
       "extends": "../../tsconfig.base.json",
       "compilerOptions": {
-        "lib": [
-          "ES2022",
-          "DOM",
-          "DOM.Iterable"
-        ],
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
         "jsx": "react-jsx",
-        "types": [
-          "node",
-          "vite/client"
-        ]
+        "types": ["node", "vite/client"]
       },
       "include": [
         "../../.vitest/setup.ts",

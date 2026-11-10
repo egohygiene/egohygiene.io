@@ -27,11 +27,7 @@
     {
       "command": "pnpm typecheck",
       "result": "passed",
-      "profiles": [
-        "app",
-        "store tooling",
-        "portable domain"
-      ],
+      "profiles": ["app", "store tooling", "portable domain"],
       "localLogSha256": "d1ae92477a5f259436314780b7f07524485b59e4361163911949d51613b5e384"
     },
     {

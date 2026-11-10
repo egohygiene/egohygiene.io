@@ -3,9 +3,9 @@
 ## Current overnight batch — 2026-10-26
 
 Alan authorized bounded progress on several roadmap issues while away, then a
-licensing/review sync before merges. Work #92 → #52 → #29 with saved draft
-checkpoints; #59/#105 license choices stay open and inactive. Main remains
-`89fc70440f9c3cf32d37a6da83c7a2b969efa97d`. Read [#52 delivery and unresolved output investigation](docs/development/local-profiles-52.md), [#92 delivery](docs/development/bounded-sweep-92.md)
+licensing/review sync before merges. Work #92 → #52 → #29 is saved in drafts #106/#107/#108 with bounded evidence.
+Read the [morning handoff](docs/context/overnight-2026-10-26.md); #59/#105 license choices stay open and inactive. Main remains
+`89fc70440f9c3cf32d37a6da83c7a2b969efa97d`. Read [#29 contract](docs/development/ci-baseline-29.md), [#52 delivery and unresolved output investigation](docs/development/local-profiles-52.md), [#92 delivery](docs/development/bounded-sweep-92.md)
 and current-state/provenance. Preserve old #73 evidence, current domain/rendering
 contracts and failed budget/hosted results. No Chromium, merge, deployment,
 spending, provider activation or private-source import is implied by this batch.

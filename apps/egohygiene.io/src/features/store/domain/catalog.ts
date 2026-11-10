@@ -1,5 +1,9 @@
 import type { StoreCatalog, StoreDesign, StoreEntry, StoreProduct } from "@egohygiene/schemas";
-import { getStoreEntryContent, normalizeStoreSearchText, type StoreContentSelection } from "./localization.ts";
+import {
+  getStoreEntryContent,
+  normalizeStoreSearchText,
+  type StoreContentSelection,
+} from "./localization.ts";
 
 export type StoreCollection = Extract<StoreEntry, { kind: "collection" }>;
 export type StoreContext = Extract<StoreEntry, { kind: "context" }>;
@@ -27,17 +31,26 @@ function resolveEntryDesigns(
     for (const productId of entry.productIds) {
       const candidate = byId.get(productId);
       if (candidate?.kind === "product") {
-        candidate.designIds.forEach((id) => { ids.add(id); });
+        candidate.designIds.forEach((id) => {
+          ids.add(id);
+        });
       }
     }
   }
-  return [...ids].map((id) => byId.get(id)).filter((candidate): candidate is StoreDesign =>
-    candidate?.kind === "design" && candidate.visibility === "public");
+  return [...ids]
+    .map((id) => byId.get(id))
+    .filter(
+      (candidate): candidate is StoreDesign =>
+        candidate?.kind === "design" && candidate.visibility === "public",
+    );
 }
 
 export function getEntryDesigns(catalog: StoreCatalog, entry: BrowsableStoreEntry): StoreDesign[] {
   if (entry.kind === "design") return [entry];
-  return resolveEntryDesigns(new Map(catalog.entries.map((candidate) => [candidate.id, candidate])), entry);
+  return resolveEntryDesigns(
+    new Map(catalog.entries.map((candidate) => [candidate.id, candidate])),
+    entry,
+  );
 }
 
 function resolveEntryContexts(
@@ -47,13 +60,20 @@ function resolveEntryContexts(
 ): StoreContext[] {
   const ids = new Set(entry.contextIds);
   designs.forEach((design) => {
-    design.contextIds.forEach((id) => { ids.add(id); });
+    design.contextIds.forEach((id) => {
+      ids.add(id);
+    });
   });
-  return catalog.entries.filter((candidate): candidate is StoreContext =>
-    candidate.kind === "context" && candidate.visibility === "public" && ids.has(candidate.id));
+  return catalog.entries.filter(
+    (candidate): candidate is StoreContext =>
+      candidate.kind === "context" && candidate.visibility === "public" && ids.has(candidate.id),
+  );
 }
 
-export function getEntryContexts(catalog: StoreCatalog, entry: BrowsableStoreEntry): StoreContext[] {
+export function getEntryContexts(
+  catalog: StoreCatalog,
+  entry: BrowsableStoreEntry,
+): StoreContext[] {
   return resolveEntryContexts(catalog, entry, getEntryDesigns(catalog, entry));
 }
 
@@ -87,16 +107,25 @@ export function filterStoreEntries(
 }
 
 export function getDesignProducts(catalog: StoreCatalog, designId: string): StoreProduct[] {
-  return catalog.entries.filter((entry): entry is StoreProduct =>
-    entry.kind === "product" && entry.visibility === "public" && entry.designIds.includes(designId));
+  return catalog.entries.filter(
+    (entry): entry is StoreProduct =>
+      entry.kind === "product" &&
+      entry.visibility === "public" &&
+      entry.designIds.includes(designId),
+  );
 }
 
-export function getRelatedCollections(catalog: StoreCatalog, entry: StoreDesign | StoreProduct): StoreCollection[] {
+export function getRelatedCollections(
+  catalog: StoreCatalog,
+  entry: StoreDesign | StoreProduct,
+): StoreCollection[] {
   const designIds = entry.kind === "design" ? [entry.id] : entry.designIds;
   const byId = new Map(catalog.entries.map((candidate) => [candidate.id, candidate]));
-  return catalog.entries.filter((candidate): candidate is StoreCollection =>
-    candidate.kind === "collection" && candidate.visibility === "public" && (
-      (entry.kind === "product" && candidate.productIds.includes(entry.id)) ||
-      resolveEntryDesigns(byId, candidate).some((design) => designIds.includes(design.id))
-    ));
+  return catalog.entries.filter(
+    (candidate): candidate is StoreCollection =>
+      candidate.kind === "collection" &&
+      candidate.visibility === "public" &&
+      ((entry.kind === "product" && candidate.productIds.includes(entry.id)) ||
+        resolveEntryDesigns(byId, candidate).some((design) => designIds.includes(design.id))),
+  );
 }

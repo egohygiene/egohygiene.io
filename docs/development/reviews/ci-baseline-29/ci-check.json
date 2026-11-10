@@ -1,0 +1,176 @@
+{
+  "profile": "ci-check",
+  "startedAt": "2026-10-26T05:46:32.492Z",
+  "sourceCommit": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+  "sourceStatus": "",
+  "node": "v24.21.0",
+  "scope": "Non-browser format, lint, types, contracts, fresh builds, raw rendering and artifact budgets. No browser, hosted CI or deployment qualification.",
+  "status": "failed",
+  "steps": [
+    {
+      "name": "repository formatting",
+      "command": ["node", "scripts/store-environment.mjs", "run", "format:check"],
+      "startedAt": "2026-10-26T05:46:32.507Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1278
+    },
+    {
+      "name": "authored source lint",
+      "command": ["node", "scripts/store-environment.mjs", "run", "lint"],
+      "startedAt": "2026-10-26T05:46:33.786Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 6149
+    },
+    {
+      "name": "all maintained compiler profiles",
+      "command": ["node", "scripts/store-environment.mjs", "run", "typecheck:all"],
+      "startedAt": "2026-10-26T05:46:39.938Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 36837
+    },
+    {
+      "name": "workspace, exports, locale and import boundaries",
+      "command": ["node", "scripts/store-environment.mjs", "run", "check"],
+      "startedAt": "2026-10-26T05:47:16.779Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 2040
+    },
+    {
+      "name": "catalog and artifact contracts",
+      "command": ["node", "scripts/store-environment.mjs", "run", "catalog:test"],
+      "startedAt": "2026-10-26T05:47:18.819Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 8359
+    },
+    {
+      "name": "all tooling and freshness contracts",
+      "command": ["node", "scripts/store-environment.mjs", "run", "test:tooling"],
+      "startedAt": "2026-10-26T05:47:27.179Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 6025
+    },
+    {
+      "name": "all maintained unit tests",
+      "command": ["node", "scripts/store-environment.mjs", "run", "test:unit"],
+      "startedAt": "2026-10-26T05:47:33.205Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 16672
+    },
+    {
+      "name": "website semantic component checks",
+      "command": ["node", "scripts/store-environment.mjs", "run", "test:semantic"],
+      "startedAt": "2026-10-26T05:47:49.877Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 3352
+    },
+    {
+      "name": "maintained browser discovery",
+      "command": ["node", "scripts/store-environment.mjs", "run", "test:browser:discover"],
+      "startedAt": "2026-10-26T05:47:53.230Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 3739
+    },
+    {
+      "name": "standalone component build contract",
+      "command": ["node", "scripts/store-environment.mjs", "run", "test:components"],
+      "startedAt": "2026-10-26T05:47:56.969Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1745
+    },
+    {
+      "name": "fresh normal website build",
+      "command": ["node", "scripts/store-environment.mjs", "run", "build"],
+      "startedAt": "2026-10-26T05:47:58.867Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 3495
+    },
+    {
+      "name": "fresh docs build",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "--filter",
+        "@egohygiene/docs",
+        "build"
+      ],
+      "startedAt": "2026-10-26T05:48:02.363Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1791
+    },
+    {
+      "name": "fresh playground build",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "--filter",
+        "@egohygiene/playground",
+        "build"
+      ],
+      "startedAt": "2026-10-26T05:48:04.154Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1489
+    },
+    {
+      "name": "fresh all-app build smoke",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "run",
+        "exec",
+        "vitest",
+        "run",
+        "--config",
+        "vitest.smoke.config.ts"
+      ],
+      "startedAt": "2026-10-26T05:48:05.778Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 2144
+    },
+    {
+      "name": "raw public HTML and discovery consistency",
+      "command": [
+        "node",
+        "tests/store-qualification/public-rendering.mjs",
+        "--output",
+        "test-results/store-qualification/ci-check/public-rendering.json"
+      ],
+      "startedAt": "2026-10-26T05:48:07.923Z",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1376
+    },
+    {
+      "name": "production artifacts and provisional regression budgets",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/ci-check/production-artifact.json"
+      ],
+      "startedAt": "2026-10-26T05:48:09.300Z",
+      "status": "failed",
+      "exitCode": 1,
+      "elapsedMs": 218
+    }
+  ],
+  "smokeInvocationId": "bad190ad-8b5c-49eb-b02b-4a011a5794d5",
+  "smokeReceipt": "test-results/store-qualification/smoke/build-receipt.json",
+  "failure": "production artifacts and provisional regression budgets failed with exit code 1",
+  "finishedAt": "2026-10-26T05:48:09.518Z"
+}

@@ -7,21 +7,13 @@
   "findings": [
     {
       "id": "tooling-config",
-      "paths": [
-        "tsconfig.node.json",
-        "tsconfig.base.json",
-        "package.json"
-      ],
+      "paths": ["tsconfig.node.json", "tsconfig.base.json", "package.json"],
       "observation": "Node profile overrides shared Preserve/Bundler/noEmit policy with composite NodeNext/declaration emission. Root manifest has no type:module. Include list omits script .mts files, most Playwright/Vitest configs and app Vite configs. Existing script .ts imports source outside a composite include set.",
       "proposedDisposition": "Use explicit noEmit tools configuration matching the actual native-TypeScript/Vite tool path; include supported root/app configs and scripts, keep browser Storybook preview managed by existing story configs, and verify effective file coverage. Do not change root package module classification solely to suppress diagnostics."
     },
     {
       "id": "unit-test-types",
-      "paths": [
-        "tsconfig.vitest.json",
-        "vitest.unit.config.ts",
-        ".vitest/test-utils.tsx"
-      ],
+      "paths": ["tsconfig.vitest.json", "vitest.unit.config.ts", ".vitest/test-utils.tsx"],
       "observation": "Runtime unit config supplies #test-utils alias but compiler config has no corresponding paths mapping. Type include covers all tests .ts/.tsx except tests/store, mixing browser/component fixtures into unit profile.",
       "proposedDisposition": "Add exact alias and give Vitest profile intentional unit/accessibility/smoke inputs. Keep Node catalog/handoff tests under tsconfig.store and browser tests under browser profile; do not weaken strictness/exact optional checks.",
       "actualDiagnostics": "27 diagnostics: missing #test-utils and root themes aliases, invalid JSX thrower inference, invalid private enum test fixtures, ES2023 toReversed against ES2022 profile, exact optional tuple indexing, unsupported Testing Library getByRole exact option, dataset bracket access. Preserve intentional invalid-input test coverage while typing its boundary honestly."
@@ -50,12 +42,7 @@
     },
     {
       "id": "named-local-commands",
-      "paths": [
-        "package.json",
-        "Taskfile.yml",
-        "scripts/qualify-store.mjs",
-        "tests/README.md"
-      ],
+      "paths": ["package.json", "Taskfile.yml", "scripts/qualify-store.mjs", "tests/README.md"],
       "observation": "Only fast site/catalog/domain types are selected by typecheck; wider compiler/story/accessibility/smoke/profile discovery and component consumer are not named root commands or Taskfile entries. Store qualification exists but is not exposed in Taskfile.",
       "proposedDisposition": "Retain fast command; add explicit tooling/unit/browser/workspace/story profiles and a composition command, named smoke/accessibility/component contracts, four-config discovery, final qualification Taskfile wrappers using store-environment.mjs. Reuse existing qualify-store sequential reporting rather than creating another runner."
     },
@@ -84,10 +71,7 @@
     },
     {
       "id": "artifact-policy",
-      "paths": [
-        "tests/store-qualification/artifacts.mts",
-        "scripts/qualify-store.mjs"
-      ],
+      "paths": ["tests/store-qualification/artifacts.mts", "scripts/qualify-store.mjs"],
       "observation": "Current aggregate qualifier exits nonzero on three known size ceilings and stops overall qualify-store before browsers. Per-document reachability exists as diagnostic evidence.",
       "proposedDisposition": "Keep measured failure explicit. Separate storage/per-document/actual-browser semantics for owner review; no automatically scaled allowances or thresholds raised merely to pass. Independent browser commands should remain usable while full profile fails."
     }

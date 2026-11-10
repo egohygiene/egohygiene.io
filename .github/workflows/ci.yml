@@ -8,9 +8,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,12 +23,6 @@ jobs:
           node-version: 24.21.0
       - run: corepack enable
       - run: pnpm install --frozen-lockfile --ignore-scripts
-      - run: pnpm format:check
-      - run: pnpm lint
-      - run: pnpm typecheck
-      - run: pnpm test
-      - run: pnpm build
-      - run: pnpm storybook:build
-      - run: pnpm exec playwright install chromium
-      - run: pnpm test:e2e
-      - run: pnpm check
+      - run: pnpm ci:check
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm ci:browser

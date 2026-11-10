@@ -328,12 +328,13 @@ test.describe("website essentials", () => {
       await expect(page).toHaveURL(`${route.path}?lang=en`);
       await expectEssential(page, route);
 
-      const back = route.path === "/about"
-        ? page.getByRole("navigation", { name: "Footer", exact: true }).getByRole("link", {
-            name: "Help",
-            exact: true,
-          })
-        : page.getByRole("main").getByRole("link", { name: "More website help", exact: true });
+      const back =
+        route.path === "/about"
+          ? page.getByRole("navigation", { name: "Footer", exact: true }).getByRole("link", {
+              name: "Help",
+              exact: true,
+            })
+          : page.getByRole("main").getByRole("link", { name: "More website help", exact: true });
       await expect(back).toHaveAttribute("href", "/help?lang=en");
       await back.click();
       await expect(page).toHaveURL("/help?lang=en");
@@ -341,7 +342,10 @@ test.describe("website essentials", () => {
     }
   });
 
-  for (const viewport of [{ width: 1280, height: 800 }, { width: 390, height: 844 }]) {
+  for (const viewport of [
+    { width: 1280, height: 800 },
+    { width: 390, height: 844 },
+  ]) {
     test(`keyboard journeys at ${viewport.width}px separate public feedback from order help`, async ({
       page,
     }) => {
@@ -372,7 +376,9 @@ test.describe("website essentials", () => {
         await expect(main.locator("form, input, textarea")).toHaveCount(0);
         if (path !== "/accessibility") {
           const orders = main.getByRole("region", { name: "Help with an order", exact: true });
-          await expect(orders).toContainText("Public website feedback is not an order-support channel");
+          await expect(orders).toContainText(
+            "Public website feedback is not an order-support channel",
+          );
           await expect(orders.getByRole("link")).toHaveCount(path === "/help" ? 1 : 0);
           if (path === "/help") {
             await expect(orders.getByRole("link")).toHaveAttribute("href", "/store/help?lang=en");
@@ -388,7 +394,9 @@ test.describe("website essentials", () => {
         await tabToEssential(page, nextLink);
         await page.keyboard.press("Enter");
         await expect(page).toHaveURL(`${nextPath}?lang=en`);
-        await expect(page.getByRole("main").getByRole("heading", { level: 1 })).toHaveText(nextTitle);
+        await expect(page.getByRole("main").getByRole("heading", { level: 1 })).toHaveText(
+          nextTitle,
+        );
       }
     });
   }

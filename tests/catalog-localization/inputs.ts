@@ -37,7 +37,11 @@ export function createCatalogLocalizationInputs() {
   const inputs = createCheckoutHandoffInputs();
   const original = parseStoreCatalog(inputs.sources, inputs.routes);
   const entries: StoreEntry[] = original.entries.map((entry) => {
-    if (entry.id === handoff.live.id && entry.kind === "product" && entry.purchase.state === "live") {
+    if (
+      entry.id === handoff.live.id &&
+      entry.kind === "product" &&
+      entry.purchase.state === "live"
+    ) {
       const variant = entry.purchase.variants[0];
       if (!variant) throw new Error("The handoff fixture must retain its canonical variant");
       return {
@@ -49,23 +53,34 @@ export function createCatalogLocalizationInputs() {
             fields: {
               title: reviewed(fixture.locale, entry.title, fixture.liveTitle),
               description: reviewed(fixture.locale, entry.description, fixture.liveDescription),
-              variantLabels: [{
-                variantId: variant.id,
-                ...reviewed(fixture.locale, variant.label, fixture.variantLabel, { variantId: variant.id }),
-              }],
+              variantLabels: [
+                {
+                  variantId: variant.id,
+                  ...reviewed(fixture.locale, variant.label, fixture.variantLabel, {
+                    variantId: variant.id,
+                  }),
+                },
+              ],
             },
           },
           {
             locale: fixture.regionalLocale,
             fields: {
               title: reviewed(fixture.regionalLocale, entry.title, fixture.regionalTitle),
-              description: { value: `${fixture.draftMarker}_DESCRIPTION`, review: { status: "draft" } },
+              description: {
+                value: `${fixture.draftMarker}_DESCRIPTION`,
+                review: { status: "draft" },
+              },
             },
           },
         ],
       };
     }
-    if (entry.id === handoff.designId && entry.kind === "design" && entry.artwork.kind === "image") {
+    if (
+      entry.id === handoff.designId &&
+      entry.kind === "design" &&
+      entry.artwork.kind === "image"
+    ) {
       return {
         ...entry,
         translations: [
@@ -80,9 +95,14 @@ export function createCatalogLocalizationInputs() {
           {
             locale: fixture.regionalLocale,
             fields: {
-              artworkAlt: reviewed(fixture.regionalLocale, entry.artwork.alt, `${fixture.staleMarker}_ALT`, {
-                artworkRevision: entry.artworkRevision + 1,
-              }),
+              artworkAlt: reviewed(
+                fixture.regionalLocale,
+                entry.artwork.alt,
+                `${fixture.staleMarker}_ALT`,
+                {
+                  artworkRevision: entry.artworkRevision + 1,
+                },
+              ),
             },
           },
         ],
@@ -91,21 +111,35 @@ export function createCatalogLocalizationInputs() {
     if (entry.id === handoff.preview.id) {
       return {
         ...entry,
-        translations: [{
-          locale: fixture.locale,
-          fields: { description: { value: `${fixture.draftMarker}_PREVIEW`, review: { status: "draft" } } },
-        }],
+        translations: [
+          {
+            locale: fixture.locale,
+            fields: {
+              description: { value: `${fixture.draftMarker}_PREVIEW`, review: { status: "draft" } },
+            },
+          },
+        ],
       };
     }
-    if (entry.id === handoff.unavailable.id && entry.kind === "product" && entry.purchase.state === "unavailable") {
+    if (
+      entry.id === handoff.unavailable.id &&
+      entry.kind === "product" &&
+      entry.purchase.state === "unavailable"
+    ) {
       return {
         ...entry,
-        translations: [{
-          locale: fixture.locale,
-          fields: {
-            unavailableReason: reviewed(fixture.locale, "An obsolete fictional reason.", `${fixture.staleMarker}_REASON`),
+        translations: [
+          {
+            locale: fixture.locale,
+            fields: {
+              unavailableReason: reviewed(
+                fixture.locale,
+                "An obsolete fictional reason.",
+                `${fixture.staleMarker}_REASON`,
+              ),
+            },
           },
-        }],
+        ],
       };
     }
     return entry;
@@ -124,23 +158,34 @@ export function createCatalogLocalizationInputs() {
     designIds: [handoff.designId],
     productIds: [handoff.live.id, handoff.preview.id, handoff.unavailable.id],
     contextIds: [],
-    translations: [{
-      locale: fixture.locale,
-      fields: {
-        description: reviewed(fixture.locale, collection.description, collection.translatedDescription),
+    translations: [
+      {
+        locale: fixture.locale,
+        fields: {
+          description: reviewed(
+            fixture.locale,
+            collection.description,
+            collection.translatedDescription,
+          ),
+        },
       },
-    }],
+    ],
   });
   return {
     // Match the existing filesystem loader so raw/public fixtures share one deterministic order.
-    sources: entries.map((value) => ({ source: `${value.id}.json`, value }))
-      .sort((left, right) => left.source < right.source ? -1 : left.source > right.source ? 1 : 0),
+    sources: entries
+      .map((value) => ({ source: `${value.id}.json`, value }))
+      .sort((left, right) =>
+        left.source < right.source ? -1 : left.source > right.source ? 1 : 0,
+      ),
     // This fixture adds a displayed price, so its fictional readiness review binds that price.
-    routes: inputs.routes.map((route) => qualifySyntheticRoute(
-      route,
-      entries.find((entry) => entry.id === route.productId),
-      entries.filter((entry) => entry.kind === "design" && entry.id === handoff.designId),
-    )),
+    routes: inputs.routes.map((route) =>
+      qualifySyntheticRoute(
+        route,
+        entries.find((entry) => entry.id === route.productId),
+        entries.filter((entry) => entry.kind === "design" && entry.id === handoff.designId),
+      ),
+    ),
   };
 }
 
@@ -148,4 +193,3 @@ export function createCatalogLocalizationCatalog() {
   const inputs = createCatalogLocalizationInputs();
   return toPublicStoreCatalog(parseStoreCatalog(inputs.sources, inputs.routes));
 }
-

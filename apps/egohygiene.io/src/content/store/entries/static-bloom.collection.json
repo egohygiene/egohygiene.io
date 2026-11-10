@@ -11,13 +11,7 @@
     "status": "unknown"
   },
   "kind": "collection",
-  "designIds": [
-    "design-demo-static-bloom"
-  ],
-  "productIds": [
-    "product-demo-static-bloom-mug"
-  ],
-  "contextIds": [
-    "song-demo-static-bloom"
-  ]
+  "designIds": ["design-demo-static-bloom"],
+  "productIds": ["product-demo-static-bloom-mug"],
+  "contextIds": ["song-demo-static-bloom"]
 }

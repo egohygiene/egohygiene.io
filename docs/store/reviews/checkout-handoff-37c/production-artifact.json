@@ -121,23 +121,17 @@
     "positiveControls": [
       {
         "marker": "design-heartburst",
-        "contentMatches": [
-          "assets/index-hgcKHW9j.js"
-        ],
+        "contentMatches": ["assets/index-hgcKHW9j.js"],
         "result": "present"
       },
       {
         "marker": "/store/heartburst/heartburst-light.webp",
-        "contentMatches": [
-          "assets/index-hgcKHW9j.js"
-        ],
+        "contentMatches": ["assets/index-hgcKHW9j.js"],
         "result": "present"
       },
       {
         "marker": "product-demo-signal-heart-hoodie",
-        "contentMatches": [
-          "assets/index-hgcKHW9j.js"
-        ],
+        "contentMatches": ["assets/index-hgcKHW9j.js"],
         "result": "present"
       }
     ],
@@ -248,10 +242,7 @@
         "path": "test-results/store/store-mobile-store-navigat-918bd-ail-work-on-a-narrow-screen/store-mobile.png",
         "bytes": 737668,
         "sha256": "6f05552a496f84437fc3324aa1a6d511f8d1cd02b9ee29683a37388c200493e2",
-        "dimensions": [
-          390,
-          5938
-        ],
+        "dimensions": [390, 5938],
         "manuallyInspected": true,
         "observations": "Narrow catalog remains readable in a two-column grid with preview/unavailable labels and the public artwork. Full-page capture retains the sticky shell at the capture scroll position."
       },
@@ -259,10 +250,7 @@
         "path": "test-results/store/store-the-production-store-c0343--all-public-catalog-entries/store-desktop.png",
         "bytes": 1566355,
         "sha256": "658bc34b6024c134b8ce6ba0b859dc4296dbdb25b0840785fcb62b4ad6864b59",
-        "dimensions": [
-          1280,
-          5123
-        ],
+        "dimensions": [1280, 5123],
         "manuallyInspected": true,
         "observations": "Public catalog, preview notice, artwork cards and footer are visible without clipped layout; Heartburst renders."
       },
@@ -270,10 +258,7 @@
         "path": "test-results/store/store-world-and-independen-95739-artwork-inspection-at-390px/heartburst-viewer-390.png",
         "bytes": 172945,
         "sha256": "b47cf34293249f50ea4719dea67e8a4de38e5bd4906740c07076e29c97c136b7",
-        "dimensions": [
-          390,
-          844
-        ],
+        "dimensions": [390, 844],
         "manuallyInspected": true,
         "observations": "Artwork fits the phone modal with readable title/caption and a visible close control."
       },
@@ -281,10 +266,7 @@
         "path": "test-results/store/store-world-and-independen-ba03f-rtwork-inspection-at-1440px/heartburst-viewer-1440.png",
         "bytes": 576519,
         "sha256": "24e7d6e364e06a302f18ae971680905f76454042a7d5e55a8b1040e2921f5aad",
-        "dimensions": [
-          1440,
-          1000
-        ],
+        "dimensions": [1440, 1000],
         "manuallyInspected": true,
         "observations": "Artwork fits the desktop modal with readable title/caption and a visible close control."
       }

@@ -24,11 +24,7 @@
   "probePrivacy": "Only success/error codes and an interface count on success were requested; no interface names or addresses were printed. Both probes failed.",
   "upstreamComparison": {
     "sourcePath": "code/core/src/core-server/utils/getHostValidationMiddleware.ts",
-    "refs": [
-      "v10.6.2",
-      "v10.6.3",
-      "next"
-    ],
+    "refs": ["v10.6.2", "v10.6.3", "next"],
     "sharedBehavior": "All inspected references call os.networkInterfaces at module top level before host middleware is used; no try/catch or deferred lookup surrounds that call.",
     "sourceUrls": [
       "https://raw.githubusercontent.com/storybookjs/storybook/v10.6.2/code/core/src/core-server/utils/getHostValidationMiddleware.ts",
@@ -42,9 +38,5 @@
   },
   "conclusion": "The native Node API fails without Storybook on both inspected runtimes, and10.6.3 retains the failing top-level call. No evidence supports upgrading again to cure this environment restriction. Retain selected patched10.6.2 and record native build failure separately.",
   "shimBoundary": "If parent uses a temporary static-build-only os.networkInterfaces stub to inspect emitted assets, label that result as a constrained diagnostic. It cannot establish native CLI/dev-server startup, host/origin validation, security behavior or browser acceptance. Do not commit the stub or use it to serve Storybook.",
-  "unchanged": [
-    "package.json",
-    "pnpm-lock.yaml",
-    "all repository source and policy files"
-  ]
+  "unchanged": ["package.json", "pnpm-lock.yaml", "all repository source and policy files"]
 }

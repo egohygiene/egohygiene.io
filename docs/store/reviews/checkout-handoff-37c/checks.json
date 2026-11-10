@@ -149,10 +149,7 @@
       "path": "test-results/store-preview/fourthwall-preview-local-F-bded2--leaving-the-site-at-1440px/fourthwall-1440.png",
       "bytes": 301600,
       "sha256": "57b07a54ee9b9d04f273bc99e77d96386df9b5e8b1f4e2961fcd01be755515c2",
-      "dimensions": [
-        1440,
-        1913
-      ],
+      "dimensions": [1440, 1913],
       "manuallyInspected": true,
       "retained": "Ignored reproducible local output; desktop preview observations recorded by independent verifier.",
       "observations": "Readable fictional/illustrative-price/placeholder-art labels; logo, disabled preselection handoff and unavailable XL fit the desktop columns."

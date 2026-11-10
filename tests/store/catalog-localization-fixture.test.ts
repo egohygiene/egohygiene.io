@@ -69,19 +69,28 @@ test("regional and pseudolocalized selections use explicit field fallback and pr
   });
   const collection = getStoreEntryContent(entry(catalog, fixture.collection.id), selected);
   assert.deepEqual(collection.title, { value: fixture.collection.title, locale: "en" });
-  assert.deepEqual(collection.description, { value: fixture.collection.translatedDescription, locale: "fr" });
+  assert.deepEqual(collection.description, {
+    value: fixture.collection.translatedDescription,
+    locale: "fr",
+  });
   assert.deepEqual(
-    getStoreEntryContent(entry(catalog, handoff.live.id), { locale: "qps-Ploc", fallbackLocales: ["fr", "en"] }).title,
+    getStoreEntryContent(entry(catalog, handoff.live.id), {
+      locale: "qps-Ploc",
+      fallbackLocales: ["fr", "en"],
+    }).title,
     { value: fixture.liveTitle, locale: "fr" },
   );
   assert.deepEqual(getStoreEntryContent(entry(catalog, handoff.preview.id), selected).title, {
     value: handoff.preview.title,
     locale: "en",
   });
-  assert.deepEqual(getStoreEntryContent(entry(catalog, handoff.unavailable.id), selected).unavailableReason, {
-    value: "Fictional test item is unavailable.",
-    locale: "en",
-  });
+  assert.deepEqual(
+    getStoreEntryContent(entry(catalog, handoff.unavailable.id), selected).unavailableReason,
+    {
+      value: "Fictional test item is unavailable.",
+      locale: "en",
+    },
+  );
 });
 
 test("localized and Unicode searches return canonical entries and never index rejected text", () => {
@@ -126,15 +135,38 @@ test("all selected languages retain the original exact handoff, variants, curren
     assert.equal(storeEntryPath(live), handoff.live.path);
     assert.deepEqual(live.purchase.displayPrice, fixture.price);
     const action = getStorePurchaseAction(catalog, live.id);
-    assert.deepEqual(action, { kind: "external", label: "Shop on Fourthwall", href: handoff.checkoutUrl, disclosures: SYNTHETIC_STORE_DISCLOSURES });
+    assert.deepEqual(action, {
+      kind: "external",
+      label: "Shop on Fourthwall",
+      href: handoff.checkoutUrl,
+      disclosures: SYNTHETIC_STORE_DISCLOSURES,
+    });
     assert.ok(action.kind === "external");
     // Exercise the retained request policy only. Actual network interception is a deferred browser check.
-    assert.equal(decideHandoffRequest({
-      url: action.href, method: "GET", resourceType: "document", isMainFrameNavigation: true,
-    }, "http://127.0.0.1:4173"), "destination");
-    assert.equal(decideHandoffRequest({
-      url: `${action.href}?lang=${locale}`, method: "GET", resourceType: "document", isMainFrameNavigation: true,
-    }, "http://127.0.0.1:4173"), "block");
+    assert.equal(
+      decideHandoffRequest(
+        {
+          url: action.href,
+          method: "GET",
+          resourceType: "document",
+          isMainFrameNavigation: true,
+        },
+        "http://127.0.0.1:4173",
+      ),
+      "destination",
+    );
+    assert.equal(
+      decideHandoffRequest(
+        {
+          url: `${action.href}?lang=${locale}`,
+          method: "GET",
+          resourceType: "document",
+          isMainFrameNavigation: true,
+        },
+        "http://127.0.0.1:4173",
+      ),
+      "block",
+    );
     for (const product of [handoff.preview, handoff.unavailable]) {
       assert.equal(getStorePurchaseAction(catalog, product.id).kind, "disabled");
     }
@@ -149,9 +181,11 @@ test("a changed source invalidates the fixture review without changing identity 
   source.value.description = "Updated fictional source awaiting translation review.";
   const raw = parseStoreCatalog(inputs.sources, inputs.routes);
   const changed = entry(raw, handoff.live.id);
-  assert.ok(inspectStoreTranslations(changed).some(
-    (value) => value.locale === "fr" && value.field === "description" && value.status === "stale",
-  ));
+  assert.ok(
+    inspectStoreTranslations(changed).some(
+      (value) => value.locale === "fr" && value.field === "description" && value.status === "stale",
+    ),
+  );
   const projected = toPublicStoreCatalog(raw);
   const content = getStoreEntryContent(entry(projected, handoff.live.id), { locale: "fr" });
   assert.deepEqual(content.description, { value: source.value.description, locale: "en" });

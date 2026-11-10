@@ -30,9 +30,10 @@ describe("primary site accessibility", () => {
     for (const link of getAllByRole("link", { name: "Explore the store" })) {
       expect(link).toHaveAttribute("href", "/store");
     }
-    expect(
-      getByRole("link", { name: "Explore this design: heartburst" }),
-    ).toHaveAttribute("href", "/store/designs/heartburst");
+    expect(getByRole("link", { name: "Explore this design: heartburst" })).toHaveAttribute(
+      "href",
+      "/store/designs/heartburst",
+    );
     expect(
       getByRole("img", { name: "Ego Hygiene’s cyan and magenta yin-yang symbol" }),
     ).toHaveAttribute("width", "512");

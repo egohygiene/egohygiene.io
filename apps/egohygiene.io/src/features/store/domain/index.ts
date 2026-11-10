@@ -19,7 +19,11 @@ export {
   storeEntryPath,
 } from "./catalog.ts";
 export { getCuratedStoreEntries } from "./curation.ts";
-export type { StoreContentSelection, StoreEntryContent, StoreLocalizedText } from "./localization.ts";
+export type {
+  StoreContentSelection,
+  StoreEntryContent,
+  StoreLocalizedText,
+} from "./localization.ts";
 export { getStoreEntryContent } from "./localization.ts";
 export type {
   MockStoreHandoff,

@@ -1,0 +1,86 @@
+{
+  "sourceCommit": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+  "sourceStatus": "clean",
+  "node": "24.21.0",
+  "pnpm": "11.28.5",
+  "checks": [
+    {
+      "name": "ci-check",
+      "command": "pnpm ci:check",
+      "exitCode": 1,
+      "elapsedSeconds": 97.71
+    },
+    {
+      "name": "storybook-native",
+      "command": "pnpm storybook:build",
+      "exitCode": 1,
+      "elapsedSeconds": 0.94
+    }
+  ],
+  "endingStatus": "",
+  "recordedAt": "2026-10-26T05:55:33.449040+00:00",
+  "status": "partial: CI profile fails strictly; bounded source checks pass, acceptance remains open",
+  "counts": {
+    "units": 344,
+    "unitFiles": 45,
+    "catalog": 152,
+    "tooling": 66,
+    "semantic": 4,
+    "isolatedConsumer": 1,
+    "smoke": 3,
+    "browserProfiles": [31, 106, 6, 4],
+    "browserExecutions": 0
+  },
+  "ciCheck": {
+    "status": "failed",
+    "passedSteps": 15,
+    "failedStep": "production artifacts and provisional regression budgets",
+    "artifactFiles": 46,
+    "artifactFindings": 6,
+    "nativeStorybookStep": "not reached"
+  },
+  "controlledRepeat": {
+    "checks": [
+      {
+        "name": "smoke",
+        "command": "pnpm test:smoke",
+        "exitCode": 0
+      },
+      {
+        "name": "artifact",
+        "command": "node tests/store-qualification/artifacts.mts --output test-results/store-qualification/night29-controlled-artifacts.json",
+        "exitCode": 1
+      },
+      {
+        "name": "raw",
+        "command": "node tests/store-qualification/public-rendering.mjs --output test-results/store-qualification/night29-controlled-public.json",
+        "exitCode": 0
+      }
+    ],
+    "artifactFiles": 45,
+    "artifactFindings": 3,
+    "status": "separate unchanged-source repeat, not a full profile pass or demonstrated fix"
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 85,
+    "infos": 44,
+    "rules": "severities unchanged; four obsolete whole-file exemptions removed"
+  },
+  "preservation": {
+    "protectedFilesUnchanged": 79,
+    "parsedHistoricalJsonCompared": 179,
+    "intentionalJsonChanges": "root ci:check/ci:browser and bounded catalog:test commands only",
+    "inactiveLicensePatches": "both apply-check; neither applied"
+  },
+  "hostedEvidence": "docs/development/reviews/ci-baseline-29/hosted.json",
+  "limits": [
+    "First complete ci:check found an extra unreferenced old JavaScript bundle, causing six size findings. Controlled fresh smoke/raw pass; strict artifact repeat retains three preexisting document/total findings. Initial result is not relabeled.",
+    "Output writer/cause remains unresolved under #52/#29/#37. No retry mechanism, lock, cleanup workaround or weakened gate is introduced.",
+    "Native Storybook standalone command fails with ERR_SYSTEM_ERROR/uv_interface_addresses in this environment. No supported shim.",
+    "No real Chromium/full/browser profile execution or manual/native-device acceptance. Mocked orchestration checks are selection/failure tests only.",
+    "Task YAML/command targets validate; Task binary not available here.",
+    "Source-B hosted CodeQL succeeds; CI fails at pnpm ci:check and dependency review fails at its action. Detailed nested hosted cause is not inferred from local evidence.",
+    "No deployment, real product/provider activation, licensing choice, merge or stale-PR closure."
+  ]
+}

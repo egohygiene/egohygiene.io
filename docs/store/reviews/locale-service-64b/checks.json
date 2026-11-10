@@ -67,10 +67,7 @@
     },
     {
       "name": "portable boundary",
-      "command": [
-        "node",
-        "scripts/checks/check-store-boundaries.ts"
-      ],
+      "command": ["node", "scripts/checks/check-store-boundaries.ts"],
       "exitCode": 0,
       "elapsedSeconds": 0.528
     },
@@ -133,12 +130,7 @@
     },
     {
       "name": "fresh normal build",
-      "command": [
-        "pnpm",
-        "--filter",
-        "@egohygiene/egohygiene.io",
-        "build"
-      ],
+      "command": ["pnpm", "--filter", "@egohygiene/egohygiene.io", "build"],
       "exitCode": 0,
       "elapsedSeconds": 1.367
     },
@@ -155,11 +147,7 @@
     },
     {
       "name": "fresh isolated preview build",
-      "command": [
-        "node",
-        "scripts/store-environment.mjs",
-        "build"
-      ],
+      "command": ["node", "scripts/store-environment.mjs", "build"],
       "exitCode": 0,
       "elapsedSeconds": 1.765
     }
@@ -190,10 +178,7 @@
       "Existing StoreCatalogPage cognitive complexity",
       "Existing store.css selector specificity"
     ],
-    "builds": [
-      "normal",
-      "isolated-preview"
-    ],
+    "builds": ["normal", "isolated-preview"],
     "browserJourneys": "blocked before startup",
     "independentReview": "No remaining blocking finding; one raw artist-preview Link was corrected."
   }

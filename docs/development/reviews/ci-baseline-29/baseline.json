@@ -1,0 +1,1957 @@
+{
+  "schemaVersion": 1,
+  "sourceHead": "3d44df671069300e13324fb3f17e3762986e7892",
+  "scope": "Fresh read-only formatting/lint baseline on saved #52 C before #29 edits.",
+  "node": "24.21.0",
+  "pnpm": "11.28.5",
+  "biome": "2.5.9",
+  "commands": [
+    {
+      "command": "pnpm exec biome format . --reporter=json --max-diagnostics=none",
+      "exitCode": 1,
+      "summary": {
+        "changed": 0,
+        "unchanged": 515,
+        "matches": 0,
+        "duration": 275310463,
+        "errors": 110,
+        "warnings": 0,
+        "infos": 0,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 12998685
+      },
+      "diagnostics": [
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/app/browser.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/app/router.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/components/ErrorBoundary/ErrorBoundary.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/content/products.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/content/store/entries/signal-heart-hoodie.product.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/content/store/entries/static-bloom-mug.product.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/content/store/entries/static-bloom.collection.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/content/store/entries/static-bloom.design.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/content/store/entries/unwritten-realm-comic.product.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/content/store/providers.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/entry-server.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/fourthwall-preview/contract.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/fourthwall-preview/contract.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/fourthwall-preview/fourthwall-preview.css",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/StoreArtwork.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/StoreArtworkGallery.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/StoreArtworkGallery.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/StoreContentLocale.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/StoreDetailPages.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/StorePages.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/StorefrontPages.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/StorefrontPages.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/catalog.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/domain/catalog.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/features/store/domain/index.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/pages/EssentialsPages.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/src/pages/StoreHelpPage.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "apps/egohygiene.io/vite.config.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "assets/fonts/atkinson/provenance.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/context/manifest.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/design/reviews/public-rendering-91b/verification.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/design/reviews/public-rendering-91c/production-artifact.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/design/reviews/public-rendering-91c/verification.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/design/storefront-62a/captures.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/bounded-sweep-92/baseline.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/bounded-sweep-92/dependency-audit.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/bounded-sweep-92/dependency-change.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/bounded-sweep-92/storybook-environment.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/bounded-sweep-92/verification.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/local-profiles-52/audit.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/local-profiles-52/discovery-implementation.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/local-profiles-52/smoke-implementation.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/local-profiles-52/type-implementation.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/local-profiles-52/verification.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/source-hygiene-56/scaffold-inventory.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/development/reviews/source-hygiene-56/verification.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/legal/reviews/licensing-59/asset-inventory.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/legal/reviews/licensing-59/code-inventory.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/legal/reviews/licensing-59/proposal-verification.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/legal/reviews/licensing-59/verification.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/catalog-localization-65a/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/catalog-localization-65b/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/catalog-localization-65c/build.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/catalog-localization-65c/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/checkout-handoff-37a/baseline.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/checkout-handoff-37b/baseline.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/checkout-handoff-37b/journeys.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/checkout-handoff-37c/baseline.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/checkout-handoff-37c/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/checkout-handoff-37c/journeys.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/checkout-handoff-37c/production-artifact.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/locale-contract-64a/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/locale-review-64c/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/locale-service-64b/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/product-readiness-38/catalog-build.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/product-readiness-38/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/qualification-37/browser.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/qualification-37/checks.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/qualification-37/handoff/baseline.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/qualification-37/handoff/journeys.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "docs/store/reviews/qualification-37/layout/captures.json",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "packages/design-tokens/src/generated.css",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "packages/design-tokens/src/generated.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "packages/schemas/src/store-localization.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "packages/schemas/src/store-migrations.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "packages/schemas/src/store-providers.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "packages/schemas/src/store-readiness.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "packages/schemas/src/store.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "playwright.config.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "public/mockServiceWorker.js",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "scripts/build-public-site.mts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "scripts/check-fourthwall.mjs",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "scripts/public-site-output.mts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "scripts/store-catalog.mts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "scripts/store-environment.mjs",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "scripts/vite-store-catalog.mts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/accessibility/site-accessibility.test.tsx",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/catalog-localization/constants.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/catalog-localization/fixture.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/catalog-localization/inputs.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/catalog-localization/journeys.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/checkout-handoff/fixture.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/checkout-handoff/inputs.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/checkout-handoff/journeys.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/e2e/site.spec.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/artwork-files.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/catalog-envelope.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/catalog-localization-fixture.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/catalog-localization.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/catalog-migration.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/catalog-presentation.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/catalog.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/fourthwall-check.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/providers.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/public-build.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/public-rendering-build.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/store/readiness.test.ts",
+          "message": "Formatter would have printed the following content:"
+        },
+        {
+          "severity": "error",
+          "category": "format",
+          "path": "tests/tooling/store-environment.test.mjs",
+          "message": "Formatter would have printed the following content:"
+        }
+      ]
+    },
+    {
+      "command": "pnpm exec biome lint . --reporter=json --max-diagnostics=none",
+      "exitCode": 1,
+      "summary": {
+        "changed": 0,
+        "unchanged": 511,
+        "matches": 0,
+        "duration": 4778332102,
+        "errors": 6,
+        "warnings": 91,
+        "infos": 44,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 188749827
+      },
+      "diagnostics": [
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": ".storybook/preview.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": ".storybook/preview.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/i18n/src/create-i18n.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/components/ThemeProvider.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "packages/themes/src/index.test.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "playwright.store-preview.config.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "playwright.store-preview.config.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "playwright.store.config.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "playwright.store.config.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/build-public-site.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/build-public-site.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/check-fourthwall.mjs",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/check-fourthwall.mjs",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/store-environment.mjs",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "tests/component-styles/consumer/main.tsx",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "tests/store/providers.test.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "tests/store/providers.test.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "tests/store/providers.test.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "tests/store/providers.test.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "tests/store/providers.test.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/complexity/useLiteralKeys",
+          "path": "tests/store/providers.test.ts",
+          "message": "The computed expression can be simplified without the use of a string literal."
+        },
+        {
+          "severity": "info",
+          "category": "lint/style/useTemplate",
+          "path": "tests/store/public-rendering-build.test.ts",
+          "message": "Template literals are preferred over string concatenation."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/app/rendering.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/content/publication.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/content/publication.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/content/publication.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/content/publication.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "apps/egohygiene.io/src/content/publication.ts",
+          "message": "Excessive complexity of 17 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/features/fourthwall-preview/contract.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/features/fourthwall-preview/contract.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/features/fourthwall-preview/contract.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/features/fourthwall-preview/contract.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/features/store/CatalogLocalizationJourney.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/features/store/StoreArtwork.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "apps/egohygiene.io/src/features/store/StoreArtwork.tsx",
+          "message": "Excessive complexity of 16 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "apps/egohygiene.io/src/features/store/StoreContentLocale.test.tsx",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "apps/egohygiene.io/src/features/store/StorePages.tsx",
+          "message": "Excessive complexity of 20 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noDescendingSpecificity",
+          "path": "apps/egohygiene.io/src/features/store/store.css",
+          "message": "Descending specificity selector found. This selector specificity is (0, 1, 0)"
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "packages/schemas/src/store-localization.ts",
+          "message": "Excessive complexity of 18 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "packages/schemas/src/store-localization.ts",
+          "message": "Excessive complexity of 18 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/useOptionalChain",
+          "path": "packages/schemas/src/store.ts",
+          "message": "Change to an optional chain."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/useOptionalChain",
+          "path": "packages/schemas/src/store.ts",
+          "message": "Change to an optional chain."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "packages/schemas/src/store.ts",
+          "message": "Excessive complexity of 54 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "packages/schemas/src/store.ts",
+          "message": "Excessive complexity of 17 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noImportantStyles",
+          "path": "packages/themes/src/styles/base.css",
+          "message": "Avoid the use of the !important style."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noImportantStyles",
+          "path": "packages/themes/src/styles/base.css",
+          "message": "Avoid the use of the !important style."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noImportantStyles",
+          "path": "packages/themes/src/styles/base.css",
+          "message": "Avoid the use of the !important style."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noImportantStyles",
+          "path": "packages/themes/src/styles/base.css",
+          "message": "Avoid the use of the !important style."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noImportantStyles",
+          "path": "packages/themes/src/styles/base.css",
+          "message": "Avoid the use of the !important style."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noImportantStyles",
+          "path": "packages/themes/src/styles/base.css",
+          "message": "Avoid the use of the !important style."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noUndeclaredEnvVars",
+          "path": "playwright.store-preview.config.ts",
+          "message": "The environment variable PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH is not listed as a dependency in turbo.json. Add this environment variable a task's 'env'/'passThroughEnv', or to 'globalEnv', 'globalPassThroughEnv', in your turbo.json(c) configuration to ensure correct caching behavior in Turborepo."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noUndeclaredEnvVars",
+          "path": "playwright.store-preview.config.ts",
+          "message": "The environment variable PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH is not listed as a dependency in turbo.json. Add this environment variable a task's 'env'/'passThroughEnv', or to 'globalEnv', 'globalPassThroughEnv', in your turbo.json(c) configuration to ensure correct caching behavior in Turborepo."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noUndeclaredEnvVars",
+          "path": "playwright.store.config.ts",
+          "message": "The environment variable PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH is not listed as a dependency in turbo.json. Add this environment variable a task's 'env'/'passThroughEnv', or to 'globalEnv', 'globalPassThroughEnv', in your turbo.json(c) configuration to ensure correct caching behavior in Turborepo."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noUndeclaredEnvVars",
+          "path": "playwright.store.config.ts",
+          "message": "The environment variable PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH is not listed as a dependency in turbo.json. Add this environment variable a task's 'env'/'passThroughEnv', or to 'globalEnv', 'globalPassThroughEnv', in your turbo.json(c) configuration to ensure correct caching behavior in Turborepo."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/useArrowFunction",
+          "path": "public/mockServiceWorker.js",
+          "message": "This function expression can be turned into an arrow function."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/useArrowFunction",
+          "path": "public/mockServiceWorker.js",
+          "message": "This function expression can be turned into an arrow function."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/useArrowFunction",
+          "path": "public/mockServiceWorker.js",
+          "message": "This function expression can be turned into an arrow function."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/useArrowFunction",
+          "path": "public/mockServiceWorker.js",
+          "message": "This function expression can be turned into an arrow function."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/useOptionalChain",
+          "path": "public/mockServiceWorker.js",
+          "message": "Change to an optional chain."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/useOptionalChain",
+          "path": "public/mockServiceWorker.js",
+          "message": "Change to an optional chain."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "scripts/build-public-site.mts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noConsole",
+          "path": "scripts/build-public-site.mts",
+          "message": "Don't use console."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "scripts/check-fourthwall.mjs",
+          "message": "Excessive complexity of 18 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noConsole",
+          "path": "scripts/check-fourthwall.mjs",
+          "message": "Don't use console."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noConsole",
+          "path": "scripts/check-fourthwall.mjs",
+          "message": "Don't use console."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "scripts/public-site-output.mts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "scripts/public-site-output.mts",
+          "message": "Excessive complexity of 27 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "scripts/public-site-output.mts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "scripts/public-site-output.mts",
+          "message": "Excessive complexity of 17 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "scripts/store-catalog.mts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "scripts/store-catalog.mts",
+          "message": "Excessive complexity of 26 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noConsole",
+          "path": "scripts/store-environment.mjs",
+          "message": "Don't use console."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noUndeclaredEnvVars",
+          "path": "scripts/store-environment.mjs",
+          "message": "The environment variable STORE_OPEN_BROWSER is not listed as a dependency in turbo.json. Add this environment variable a task's 'env'/'passThroughEnv', or to 'globalEnv', 'globalPassThroughEnv', in your turbo.json(c) configuration to ensure correct caching behavior in Turborepo."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noConsole",
+          "path": "scripts/store-environment.mjs",
+          "message": "Don't use console."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "Excessive complexity of 19 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "scripts/vite-public-pages.mts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "tests/e2e/site.spec.ts",
+          "message": "Excessive complexity of 29 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store-qualification/artifacts.mts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/complexity/noExcessiveCognitiveComplexity",
+          "path": "tests/store-qualification/artifacts.mts",
+          "message": "Excessive complexity of 18 detected (max: 15)."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store-qualification/artifacts.mts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store-qualification/artifacts.mts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noConsole",
+          "path": "tests/store-qualification/public-rendering.mjs",
+          "message": "Don't use console."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/suspicious/noConsole",
+          "path": "tests/store-qualification/public-rendering.mjs",
+          "message": "Don't use console."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/artifact-qualification.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/artifact-qualification.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/artifact-qualification.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/catalog-localization-fixture.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/catalog-presentation.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/catalog.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/catalog.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/catalog.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/providers.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/providers.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/providers.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/providers.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/providers.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/public-page-preview.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/public-page-preview.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/public-rendering-build.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/public-rendering-build.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/public-rendering-build.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/readiness.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/readiness.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/readiness.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/readiness.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "warning",
+          "category": "lint/style/noNonNullAssertion",
+          "path": "tests/store/readiness.test.ts",
+          "message": "Forbidden non-null assertion."
+        },
+        {
+          "severity": "error",
+          "category": "lint/suspicious/useIterableCallbackReturn",
+          "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.test.tsx",
+          "message": "This callback passed to forEach() iterable method should not return a value."
+        },
+        {
+          "severity": "error",
+          "category": "lint/suspicious/useIterableCallbackReturn",
+          "path": "apps/egohygiene.io/src/components/PageMetadata/PageMetadata.tsx",
+          "message": "This callback passed to forEach() iterable method should not return a value."
+        },
+        {
+          "severity": "error",
+          "category": "lint/nursery/noFloatingPromises",
+          "path": "public/mockServiceWorker.js",
+          "message": "A \"floating\" Promise was found, meaning it is not properly handled and could lead to ignored errors or unexpected behavior."
+        },
+        {
+          "severity": "error",
+          "category": "lint/nursery/noFloatingPromises",
+          "path": "public/mockServiceWorker.js",
+          "message": "A \"floating\" Promise was found, meaning it is not properly handled and could lead to ignored errors or unexpected behavior."
+        },
+        {
+          "severity": "error",
+          "category": "lint/nursery/noFloatingPromises",
+          "path": "public/mockServiceWorker.js",
+          "message": "A \"floating\" Promise was found, meaning it is not properly handled and could lead to ignored errors or unexpected behavior."
+        },
+        {
+          "severity": "error",
+          "category": "lint/nursery/noFloatingPromises",
+          "path": "public/mockServiceWorker.js",
+          "message": "A \"floating\" Promise was found, meaning it is not properly handled and could lead to ignored errors or unexpected behavior."
+        }
+      ]
+    }
+  ],
+  "protectedBytes": [
+    {
+      "path": "LICENSE",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 3144,
+      "sha256": "67dfed70292851db7a7ce51579113be0233d2f707b0bcc8b45a0dd799ad60acf"
+    },
+    {
+      "path": "apps/docs/public/favicon.ico",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "apps/docs/public/favicon.png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "apps/docs/public/icons/NOTICE.txt",
+      "bytes": 1574,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "apps/docs/public/icons/apple-touch-icon.png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "apps/docs/public/icons/icon-192x192.png",
+      "bytes": 36806,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "apps/docs/public/icons/icon-512x512.png",
+      "bytes": 161290,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "apps/egohygiene.io/public/favicon.ico",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "apps/egohygiene.io/public/favicon.png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "apps/egohygiene.io/public/fonts/NOTICE.txt",
+      "bytes": 2357,
+      "sha256": "2231aaf86f60c69cb7c9c09a26af1bb8cd58138d8deeed992038367ee68c4df9"
+    },
+    {
+      "path": "apps/egohygiene.io/public/fonts/atkinson-bold.woff",
+      "bytes": 23780,
+      "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623"
+    },
+    {
+      "path": "apps/egohygiene.io/public/fonts/atkinson-regular.woff",
+      "bytes": 22792,
+      "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b"
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/NOTICE.txt",
+      "bytes": 1574,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/apple-touch-icon.png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/icon-192x192.png",
+      "bytes": 36806,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/icon-512x512.png",
+      "bytes": 161290,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "apps/egohygiene.io/public/store/heartburst/heartburst-light.webp",
+      "bytes": 141978,
+      "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550"
+    },
+    {
+      "path": "apps/playground/public/favicon.ico",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "apps/playground/public/favicon.png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "apps/playground/public/icons/NOTICE.txt",
+      "bytes": 1574,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "apps/playground/public/icons/apple-touch-icon.png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "apps/playground/public/icons/icon-192x192.png",
+      "bytes": 36806,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "apps/playground/public/icons/icon-512x512.png",
+      "bytes": 161290,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "assets/identity/NOTICE.txt",
+      "bytes": 1574,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "assets/identity/source/egohygiene.png",
+      "bytes": 52800,
+      "sha256": "cc09173cd26cade507423c22c5cca914cc424563d402341310fbe796ce81951a"
+    },
+    {
+      "path": "docs/design/landing-shell-35/before-desktop.jpg",
+      "bytes": 239834,
+      "sha256": "615b0f7ddd8f49e9ebccc847c4327e7e6d4afaff3a8c13b2acc14d160fc72470"
+    },
+    {
+      "path": "docs/design/landing-shell-35/before-phone.jpg",
+      "bytes": 189681,
+      "sha256": "924ea64fba3720b8802e039c93786dbf0c66787835f5eeea344d5a14e5e5fbe7"
+    },
+    {
+      "path": "docs/design/landing-shell-35/desktop.jpg",
+      "bytes": 309709,
+      "sha256": "0d12577897895a1adb3e6ded4ce93a0efcddaf3b7f1fa0eb8b0cda1003b00697"
+    },
+    {
+      "path": "docs/design/landing-shell-35/expanded-phone.jpg",
+      "bytes": 367205,
+      "sha256": "1d6ea02e1b55bd03691da376d436eced33073323ce4fcaa3d66391e35120031b"
+    },
+    {
+      "path": "docs/design/landing-shell-35/high-contrast.jpg",
+      "bytes": 346405,
+      "sha256": "7b43c93a1fc059efda427b6f41e756ac2151ccbf77ba7a3d83cde8b161b331d0"
+    },
+    {
+      "path": "docs/design/landing-shell-35/phone.jpg",
+      "bytes": 215254,
+      "sha256": "fb58896b80ac90fdcbd25a028a31660c536bd14d3a4a8b31943a8f399b88bae0"
+    },
+    {
+      "path": "docs/design/landing-shell-35/rtl-phone.jpg",
+      "bytes": 254077,
+      "sha256": "98f20f3ba018f89ba280eb1d80192e5246a6678cc1fd4231dfe063a98dcc4622"
+    },
+    {
+      "path": "docs/design/landing-shell-35/tablet.jpg",
+      "bytes": 235479,
+      "sha256": "7b29ff447f39d52c889314142829377ad8ad9a7b825605ae7cfe505893bf5d3c"
+    },
+    {
+      "path": "docs/design/storefront-62a/incompris-desktop.jpg",
+      "bytes": 142947,
+      "sha256": "8f9f29feeb0344052b70516b76e59f5de502cd83f14f9ed0711a79323252507d"
+    },
+    {
+      "path": "docs/design/storefront-62a/incompris-phone.jpg",
+      "bytes": 105739,
+      "sha256": "00dfde932480e4c95e2cdd7ab5da20289fad335f1de4365d16624e82e607e586"
+    },
+    {
+      "path": "docs/design/storefront-62a/store-desktop.jpg",
+      "bytes": 201544,
+      "sha256": "701c6e98c761c49194a2189bdf8a59382604c0da693ebe2c4773b74967c189f5"
+    },
+    {
+      "path": "docs/design/storefront-62a/store-phone.jpg",
+      "bytes": 131567,
+      "sha256": "906422d4f9ba7ef6a36927f59abe70414602b2e1b96311d56ca3201eee0635c8"
+    },
+    {
+      "path": "docs/design/storefront-62b/demo-songs-phone.jpg",
+      "bytes": 103740,
+      "sha256": "ae0a95e98c0930cd3637755c7e764d397352a870819d48380ab47016100ef8dc"
+    },
+    {
+      "path": "docs/design/storefront-62b/demo-standalone-desktop.jpg",
+      "bytes": 201852,
+      "sha256": "e66f2f420216a7a62e2a45b570c8d3e41c54140ab2c00d47760be40d69b5e94d"
+    },
+    {
+      "path": "docs/design/storefront-62b/play-songs-phone.jpg",
+      "bytes": 81437,
+      "sha256": "9e4282c60cb7aed4562c7b50c66931d3d045077e57c17213939e11e3e875bd83"
+    },
+    {
+      "path": "docs/design/storefront-62c/expanded-incompris-tablet.jpg",
+      "bytes": 346674,
+      "sha256": "d7bb59cbd2f3b572fe7ee0dec0fc5a5a56208e91d2db5591bdcac2fa967e1afe"
+    },
+    {
+      "path": "docs/design/storefront-62c/expanded-shop-desktop.jpg",
+      "bytes": 440942,
+      "sha256": "7028e30724701891815c965d2f96a4277f1faf8e89d35dbc344d8feeb1ce3b1b"
+    },
+    {
+      "path": "docs/design/storefront-62c/rtl-artist-phone.jpg",
+      "bytes": 247863,
+      "sha256": "0766adfa78fa6e3b5c311c7b16582c5f26012aa9bc42d2b13efe616a8f69061b"
+    },
+    {
+      "path": "docs/design/storefront-62c/rtl-songs-small-phone.jpg",
+      "bytes": 141848,
+      "sha256": "34b744cf241c1d0b8289598bb0d392789ac3c29ff5ed90e9193dd7f1c450153e"
+    },
+    {
+      "path": "docs/identity/browser-icons.png",
+      "bytes": 100418,
+      "sha256": "86c2ee40feefceb6083e8198ee66e29c4d83c548095b26271554b4eaf299be9e"
+    },
+    {
+      "path": "docs/legal/proposals/sources/Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "docs/legal/proposals/sources/README.md",
+      "bytes": 845,
+      "sha256": "10225b35d2b07f1322e77f7a59a7ba9fd3da3b19eb5d5f12546b9aaef5f8506b"
+    },
+    {
+      "path": "docs/legal/proposals/sources/historical-website-MIT.txt",
+      "bytes": 1068,
+      "sha256": "1deb55b00af813e1c8f086e851d0e1ed2084ea942a54996f069df05cd0561372"
+    },
+    {
+      "path": "docs/migration/store-retirement/LICENSE-MIT.txt",
+      "bytes": 1068,
+      "sha256": "1deb55b00af813e1c8f086e851d0e1ed2084ea942a54996f069df05cd0561372"
+    },
+    {
+      "path": "docs/migration/store-retirement/README.md",
+      "bytes": 6656,
+      "sha256": "20cb8c0d3c19ec1ae56643ee25e704ea4299e469aad8fe262b55421565f5b9de"
+    },
+    {
+      "path": "docs/migration/store-retirement/backlog.md",
+      "bytes": 15177,
+      "sha256": "d9656873e8b16ed32ff4c32c67cb8daa4be0e9f69ed0abc624c76e66cb228739"
+    },
+    {
+      "path": "docs/migration/store-retirement/capabilities.md",
+      "bytes": 3383,
+      "sha256": "c4497ab32ab975a41165affe1ac798fb3abfa7417f8d27eeba507d01dfbdde62"
+    },
+    {
+      "path": "docs/migration/store-retirement/github-records.json.gz",
+      "bytes": 138225,
+      "sha256": "4095b1b2b032f0ad3e955abd1967ac0e18a425433886c863dfd15691e83b09b2"
+    },
+    {
+      "path": "docs/migration/store-retirement/issues.md",
+      "bytes": 97718,
+      "sha256": "daa24b00f54c57320e41ddbaf9acdf4c6f5304370298e838192a925b4aea1bce"
+    },
+    {
+      "path": "docs/migration/store-retirement/manifest.json",
+      "bytes": 31920,
+      "sha256": "0dc99cb868c6a0470a446875ad1444f18c6f178c03029958409b5e499246a7f6"
+    },
+    {
+      "path": "docs/migration/store-retirement/store-source.bundle",
+      "bytes": 224880,
+      "sha256": "75e3852f3f8865e81ea2b9d541c28690ad0d15f79ca08f0b262081f2ccbfaa87"
+    },
+    {
+      "path": "docs/migration/store-retirement/verification.json",
+      "bytes": 2300,
+      "sha256": "25cb491a3b64e9efa93286cc1785b36f8463655286ac0f67236b5a999e79ddc3"
+    },
+    {
+      "path": "docs/migration/store-retirement/verify.py",
+      "bytes": 7516,
+      "sha256": "409bced19fd30b1319d72729481397a14379555042957d4063f2c4e83160c64a"
+    },
+    {
+      "path": "docs/store/reviews/checkout-handoff-37b/desktop-keyboard-focused.png",
+      "bytes": 70063,
+      "sha256": "0221152974291204394aed9e3aa762ceb2fdef723993b08f7d69aedfb58ebaf8"
+    },
+    {
+      "path": "docs/store/reviews/checkout-handoff-37b/mobile-touch-live.png",
+      "bytes": 49411,
+      "sha256": "a92c24abc23cdf3b7d8214e766587eb1e1ad9f949b7f03c4b4e072d2cd674dc0"
+    },
+    {
+      "path": "docs/store/reviews/checkout-handoff-37c/fourthwall-preview-mobile.png",
+      "bytes": 194659,
+      "sha256": "6f5ccb8cca45bcaf0293fd43a5126eb8f56fbcae2213033249edc98fe1fc52ba"
+    },
+    {
+      "path": "docs/store/reviews/checkout-handoff-37c/heartburst-mobile.png",
+      "bytes": 246370,
+      "sha256": "f5d56a7bee4408773bf139ae708081a9527d42c11a42e482cc7ab3490cb4d8f1"
+    },
+    {
+      "path": "docs/store/reviews/heartburst/desktop.webp",
+      "bytes": 77424,
+      "sha256": "1e7caea48d5e215e37ba1690c3df3375f8eb038985a5e47862b4d7af865d893d"
+    },
+    {
+      "path": "docs/store/reviews/heartburst/mobile.webp",
+      "bytes": 53734,
+      "sha256": "ec20e90ace42ea34c037a842f88012508886d7398b8a057cc9ddad7d0e235881"
+    },
+    {
+      "path": "docs/store/reviews/heartburst/storefront.webp",
+      "bytes": 69248,
+      "sha256": "0726edcb9199cbdadc6061c87dcaca9433418b36f2bb966e12dcf0e7e72e936d"
+    },
+    {
+      "path": "docs/store/reviews/locale-contract-64a/roadmap-subissues.jpg",
+      "bytes": 155975,
+      "sha256": "0d3f5d25a1ba97876c6a3ee522ea07c531a81b0a534b3f320b0cb98de6ce4200"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/400-percent-equivalent-reflow.png",
+      "bytes": 173221,
+      "sha256": "1a916ebedbcd609b81dc14cbb9c99b92bcc8f02bc0be7523feae90570a2b9743"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/handoff/desktop-keyboard-focused.png",
+      "bytes": 70063,
+      "sha256": "0221152974291204394aed9e3aa762ceb2fdef723993b08f7d69aedfb58ebaf8"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/handoff/mobile-touch-live.png",
+      "bytes": 49411,
+      "sha256": "a92c24abc23cdf3b7d8214e766587eb1e1ad9f949b7f03c4b4e072d2cd674dc0"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/layout/expanded-incompris-tablet.jpg",
+      "bytes": 346674,
+      "sha256": "d7bb59cbd2f3b572fe7ee0dec0fc5a5a56208e91d2db5591bdcac2fa967e1afe"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/layout/expanded-shop-desktop.jpg",
+      "bytes": 440941,
+      "sha256": "19728d9d6edfc7732386df3e6e774db05beeaa0bfc15cc248e54b6b3a5599303"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/layout/rtl-artist-phone.jpg",
+      "bytes": 248093,
+      "sha256": "75b38e740af3cbba4e6e78ec06e38919a5b6be5f4351d7c8e9c154fc8a337e08"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/layout/rtl-songs-small-phone.jpg",
+      "bytes": 142081,
+      "sha256": "1c7460713fcd2a55545036f38291337858bf9533ea56d369fe54b7307c078125"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/root-text-200-percent.png",
+      "bytes": 446674,
+      "sha256": "9b3ad86b3cec92f437a083a72db2978980e9d0b5129a751d772482f1f7c3e65b"
+    },
+    {
+      "path": "packages/design-tokens/src/generated.css",
+      "bytes": 1713,
+      "sha256": "188534e054d7cfaf97872b97a04e39ad1a342d6e3eef26a9348b569b3e1d987b"
+    },
+    {
+      "path": "packages/design-tokens/src/generated.ts",
+      "bytes": 1594,
+      "sha256": "3c024ddbd3f6773f8f9cb2e0d9aa88601f3364482c6710096891553f574fe24a"
+    },
+    {
+      "path": "public/mockServiceWorker.LICENSE.txt",
+      "bytes": 1085,
+      "sha256": "be7690d23425cbcf147da49a90e7c86009e614a51ba60127392546f75166e959"
+    },
+    {
+      "path": "public/mockServiceWorker.js",
+      "bytes": 9666,
+      "sha256": "26171599d94d5445297303f3a1f1cedec26835ea3d0057dcfa92ec520cb35cca"
+    }
+  ],
+  "protectedFormatCandidates": [
+    "packages/design-tokens/src/generated.css",
+    "packages/design-tokens/src/generated.ts",
+    "public/mockServiceWorker.js"
+  ],
+  "preservationPolicy": "Keep protected source/archive/license/asset bytes exact. Only generated token TS/CSS and MSW need new exact-path formatter/linter exclusion; remaining protected paths are not current format failures."
+}

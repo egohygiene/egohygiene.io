@@ -90,12 +90,7 @@
     "semanticTests": 4,
     "isolatedConsumerTests": 1,
     "smokeTests": 3,
-    "browserProfiles": [
-      31,
-      106,
-      6,
-      4
-    ],
+    "browserProfiles": [31, 106, 6, 4],
     "uniqueBrowserSpecFiles": 14,
     "browserExecutions": 0
   },

@@ -27,10 +27,11 @@ function fixture() {
   const designs = entries.filter((entry): entry is StoreDesign => entry.kind === "design");
   const design = designs.find((entry) => entry.id === CHECKOUT_HANDOFF_FIXTURE.designId);
   assert.ok(design?.artwork.kind === "image");
-  const parse = () => parseStoreCatalog(
-    entries.map((value) => ({ source: `${value.id}.json`, value })),
-    [route],
-  );
+  const parse = () =>
+    parseStoreCatalog(
+      entries.map((value) => ({ source: `${value.id}.json`, value })),
+      [route],
+    );
   return { entries, product, route, designs, design, parse };
 }
 
@@ -52,11 +53,24 @@ test("a current synthetic qualification preserves its exact handoff and public c
 
 test("the public readiness helper rejects a different canonical product or purchase route", () => {
   const input = fixture();
-  assert.equal(isStoreQualificationCurrent(input.route, { ...input.product, id: "different-product" }, input.designs), false);
+  assert.equal(
+    isStoreQualificationCurrent(
+      input.route,
+      { ...input.product, id: "different-product" },
+      input.designs,
+    ),
+    false,
+  );
   assert.ok(input.product.purchase.state === "live");
-  const differentRoute = { ...input.product, purchase: { ...input.product.purchase, routeId: "different-route" } };
+  const differentRoute = {
+    ...input.product,
+    purchase: { ...input.product.purchase, routeId: "different-route" },
+  };
   assert.equal(isStoreQualificationCurrent(input.route, differentRoute, input.designs), false);
-  assert.throws(() => getStoreReadinessSnapshot(input.route, differentRoute, input.designs), /exact product and purchase route/);
+  assert.throws(
+    () => getStoreReadinessSnapshot(input.route, differentRoute, input.designs),
+    /exact product and purchase route/,
+  );
 });
 
 test("live products cannot use a missing or explicitly unreviewed qualification", () => {
@@ -65,12 +79,19 @@ test("live products cannot use a missing or explicitly unreviewed qualification"
     const catalog = input.parse();
     const route = { ...input.route, qualification };
     assert.throws(
-      () => parseStoreCatalog(input.entries.map((value) => ({ source: value.id, value })), [route]),
+      () =>
+        parseStoreCatalog(
+          input.entries.map((value) => ({ source: value.id, value })),
+          [route],
+        ),
       /Live products require a current reviewed qualification/,
     );
     const runtime = { ...catalog, checkoutRoutes: [route] } as unknown as StoreCatalog;
     assert.throws(() => toPublicStoreCatalog(runtime), /current reviewed qualification/);
-    assert.throws(() => getStorePurchaseAction(runtime, input.product.id), /current reviewed qualification/);
+    assert.throws(
+      () => getStorePurchaseAction(runtime, input.product.id),
+      /current reviewed qualification/,
+    );
   }
 });
 
@@ -89,54 +110,97 @@ test("unreviewed routes can be prepared without granting a preview purchase", ()
 
 test("review bindings become stale when the configured offer changes", () => {
   const changes: Array<[string, (input: ReturnType<typeof fixture>) => void]> = [
-    ["destination", ({ route }) => { route.checkoutUrl = "https://test-handoff-37a.fourthwall.com/products/changed-offer"; }],
-    ["route identity", ({ route, product }) => {
-      route.id = "test-handoff-38-new-route";
-      assert.ok(product.purchase.state === "live");
-      product.purchase.routeId = route.id;
-    }],
-    ["canonical variant identity", ({ product }) => {
-      assert.ok(product.purchase.state === "live");
-      product.purchase.variants[0]!.id = "test-handoff-38-new-variant";
-    }],
-    ["canonical variant label", ({ product }) => {
-      assert.ok(product.purchase.state === "live");
-      product.purchase.variants[0]!.label = "Different physical size";
-    }],
-    ["provider variant mapping", ({ route, product }) => {
-      assert.ok(product.purchase.state === "live");
-      product.purchase.variants[0]!.providerVariantId = "changed-provider-variant";
-      route.providerVariantIds = ["changed-provider-variant"];
-    }],
-    ["artwork revision", ({ route, design }) => {
-      design.artworkRevision += 1;
-      route.artworkRevisions[0]!.revision = design.artworkRevision;
-    }],
-    ["artwork source", ({ design }) => {
-      assert.ok(design.artwork.kind === "image");
-      design.artwork.src = "/store/test-handoff-38/changed.png";
-    }],
-    ["added display price", ({ product }) => {
-      assert.ok(product.purchase.state === "live");
-      product.purchase.displayPrice = { amountMinor: 1234, currency: "USD", authority: "provider-checkout" };
-    }],
-    ["support destination", ({ route }) => {
-      assert.ok(route.disclosures);
-      route.disclosures.supportUrl = "https://example.com/changed-support";
-    }],
-    ["shipping policy", ({ route }) => {
-      assert.ok(route.disclosures);
-      route.disclosures.shippingPolicyUrl = "https://example.com/changed-shipping";
-    }],
-    ["returns policy", ({ route }) => {
-      assert.ok(route.disclosures);
-      route.disclosures.returnsPolicyUrl = "https://example.com/changed-returns";
-    }],
+    [
+      "destination",
+      ({ route }) => {
+        route.checkoutUrl = "https://test-handoff-37a.fourthwall.com/products/changed-offer";
+      },
+    ],
+    [
+      "route identity",
+      ({ route, product }) => {
+        route.id = "test-handoff-38-new-route";
+        assert.ok(product.purchase.state === "live");
+        product.purchase.routeId = route.id;
+      },
+    ],
+    [
+      "canonical variant identity",
+      ({ product }) => {
+        assert.ok(product.purchase.state === "live");
+        product.purchase.variants[0]!.id = "test-handoff-38-new-variant";
+      },
+    ],
+    [
+      "canonical variant label",
+      ({ product }) => {
+        assert.ok(product.purchase.state === "live");
+        product.purchase.variants[0]!.label = "Different physical size";
+      },
+    ],
+    [
+      "provider variant mapping",
+      ({ route, product }) => {
+        assert.ok(product.purchase.state === "live");
+        product.purchase.variants[0]!.providerVariantId = "changed-provider-variant";
+        route.providerVariantIds = ["changed-provider-variant"];
+      },
+    ],
+    [
+      "artwork revision",
+      ({ route, design }) => {
+        design.artworkRevision += 1;
+        route.artworkRevisions[0]!.revision = design.artworkRevision;
+      },
+    ],
+    [
+      "artwork source",
+      ({ design }) => {
+        assert.ok(design.artwork.kind === "image");
+        design.artwork.src = "/store/test-handoff-38/changed.png";
+      },
+    ],
+    [
+      "added display price",
+      ({ product }) => {
+        assert.ok(product.purchase.state === "live");
+        product.purchase.displayPrice = {
+          amountMinor: 1234,
+          currency: "USD",
+          authority: "provider-checkout",
+        };
+      },
+    ],
+    [
+      "support destination",
+      ({ route }) => {
+        assert.ok(route.disclosures);
+        route.disclosures.supportUrl = "https://example.com/changed-support";
+      },
+    ],
+    [
+      "shipping policy",
+      ({ route }) => {
+        assert.ok(route.disclosures);
+        route.disclosures.shippingPolicyUrl = "https://example.com/changed-shipping";
+      },
+    ],
+    [
+      "returns policy",
+      ({ route }) => {
+        assert.ok(route.disclosures);
+        route.disclosures.returnsPolicyUrl = "https://example.com/changed-returns";
+      },
+    ],
   ];
   for (const [label, change] of changes) {
     const input = fixture();
     change(input);
-    assert.equal(isStoreQualificationCurrent(input.route, input.product, input.designs), false, label);
+    assert.equal(
+      isStoreQualificationCurrent(input.route, input.product, input.designs),
+      false,
+      label,
+    );
     assert.throws(input.parse, /current reviewed qualification/, label);
   }
 });
@@ -145,9 +209,17 @@ test("removing or changing a reviewed display price requires renewed review", ()
   for (const change of ["remove", "amount", "currency"] as const) {
     const input = fixture();
     assert.ok(input.product.purchase.state === "live");
-    input.product.purchase.displayPrice = { amountMinor: 2500, currency: "USD", authority: "provider-checkout" };
+    input.product.purchase.displayPrice = {
+      amountMinor: 2500,
+      currency: "USD",
+      authority: "provider-checkout",
+    };
     assert.ok(input.route.qualification.status === "reviewed");
-    input.route.qualification.snapshot = getStoreReadinessSnapshot(input.route, input.product, input.designs);
+    input.route.qualification.snapshot = getStoreReadinessSnapshot(
+      input.route,
+      input.product,
+      input.designs,
+    );
     input.parse();
     if (change === "remove") delete input.product.purchase.displayPrice;
     else if (change === "amount") input.product.purchase.displayPrice.amountMinor += 1;
@@ -163,7 +235,10 @@ test("public projection and runtime actions recheck stale qualifications after p
   assert.ok(route?.disclosures);
   route.disclosures.supportUrl = "https://example.com/new-support";
   assert.throws(() => toPublicStoreCatalog(catalog), /current reviewed qualification/);
-  assert.throws(() => getStorePurchaseAction(catalog, input.product.id), /current reviewed qualification/);
+  assert.throws(
+    () => getStorePurchaseAction(catalog, input.product.id),
+    /current reviewed qualification/,
+  );
 });
 
 test("presentation edits and provenance dates do not silently revoke an unchanged offer", () => {
@@ -184,7 +259,11 @@ test("reordering the same approved artwork and variants preserves eligibility wi
     ...structuredClone(input.design),
     id: "test-readiness-second-design",
     slug: "test-readiness-second-design",
-    artwork: { kind: "image", src: "/store/test-readiness/second.png", alt: "Second fictional swatch" },
+    artwork: {
+      kind: "image",
+      src: "/store/test-readiness/second.png",
+      alt: "Second fictional swatch",
+    },
   };
   input.entries.push(second);
   input.designs.push(second);
@@ -198,7 +277,11 @@ test("reordering the same approved artwork and variants preserves eligibility wi
   });
   input.route.providerVariantIds.push("test-readiness-second-provider-variant");
   assert.ok(input.route.qualification.status === "reviewed");
-  input.route.qualification.snapshot = getStoreReadinessSnapshot(input.route, input.product, input.designs);
+  input.route.qualification.snapshot = getStoreReadinessSnapshot(
+    input.route,
+    input.product,
+    input.designs,
+  );
   input.parse();
 
   input.product.designIds.reverse();
@@ -209,7 +292,9 @@ test("reordering the same approved artwork and variants preserves eligibility wi
   assert.equal(isStoreQualificationCurrent(input.route, input.product, input.designs), true);
   assert.equal(getStorePurchaseAction(input.parse(), input.product.id).kind, "external");
 
-  input.route.qualification.snapshot.artwork.push({ ...input.route.qualification.snapshot.artwork[0]! });
+  input.route.qualification.snapshot.artwork.push({
+    ...input.route.qualification.snapshot.artwork[0]!,
+  });
   assert.equal(isStoreQualificationCurrent(input.route, input.product, input.designs), false);
   assert.throws(input.parse, /current reviewed qualification/);
 });
@@ -234,7 +319,11 @@ test("qualification metadata rejects malformed dates, private contact identifier
     const input = fixture();
     const route = { ...input.route, qualification: { ...input.route.qualification, ...change } };
     assert.throws(
-      () => parseStoreCatalog(input.entries.map((value) => ({ source: value.id, value })), [route]),
+      () =>
+        parseStoreCatalog(
+          input.entries.map((value) => ({ source: value.id, value })),
+          [route],
+        ),
       /qualification/,
     );
   }
@@ -259,7 +348,11 @@ test("readiness cannot approve a paid, merchant-funded or unreviewed fulfillment
       },
     };
     assert.throws(
-      () => parseStoreCatalog(input.entries.map((value) => ({ source: value.id, value })), [route]),
+      () =>
+        parseStoreCatalog(
+          input.entries.map((value) => ({ source: value.id, value })),
+          [route],
+        ),
       /qualification.assessment/,
     );
   }

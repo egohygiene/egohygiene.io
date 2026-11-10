@@ -23,7 +23,9 @@ const emptyCuration: StorefrontCuration = {
 function design(id: string, title: string): StoreDesign {
   return {
     schemaVersion: 3,
-    sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+    sourceLocale: "en",
+    translations: [],
+    attribution: { status: "unknown" },
     kind: "design",
     id,
     slug: id,
