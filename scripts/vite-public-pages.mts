@@ -1,4 +1,7 @@
-import { isIntelligencePath, intelligencePathFile } from "../apps/egohygiene.io/src/content/intelligence-routes.ts";
+import {
+  isIntelligencePath,
+  intelligencePathFile,
+} from "../apps/egohygiene.io/src/content/intelligence-routes.ts";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
@@ -25,9 +28,10 @@ export async function loadPreviewPageRewrites(
       if (
         !record(route) ||
         typeof route["pathname"] !== "string" ||
-        (!isIntelligencePath(route["pathname"]) && !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(
-          route["pathname"],
-        )) ||
+        (!isIntelligencePath(route["pathname"]) &&
+          !/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/.test(
+            route["pathname"],
+          )) ||
         /^\/(?:assets(?:\/|$)|store\/preview(?:\/|$))/.test(route["pathname"])
       ) {
         throw new Error("Invalid generated preview pathname.");

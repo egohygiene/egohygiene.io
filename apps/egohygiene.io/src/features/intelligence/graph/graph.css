@@ -1,77 +1,308 @@
-.oi-graph { display: grid; gap: 1rem; min-inline-size: 0; }
-.oi-graph :where(h2, h3, h4, p, ul) { margin-block: 0; }
-.oi-graph :where(a, button, input, select, svg):focus-visible { outline: 3px solid var(--color-focus); outline-offset: 4px; }
-.oi-graph :where(a, p, li, option) { overflow-wrap: anywhere; }
-.oi-graph-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.9rem; }
-.oi-graph-legend span { display: inline-flex; align-items: center; gap: 0.6rem; }
-.oi-graph-legend i { display: inline-block; inline-size: 2.5rem; border-block-start: 2px solid var(--color-foreground); }
-.oi-graph-legend i[data-kind="navigation"] { border-block-start-style: dashed; }
-.oi-graph-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 0.7rem 1.25rem; }
-.oi-graph-controls label { display: grid; gap: 0.4rem; min-inline-size: 0; font-size: 0.9rem; }
-.oi-graph-controls label:first-child { flex: 1 1 17rem; }
-.oi-graph :where(button, select) { min-block-size: 2.75rem; max-inline-size: 100%; padding: 0.55rem 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); color: var(--color-foreground); background: var(--color-surface); font: inherit; }
-.oi-graph button { cursor: pointer; }
-.oi-graph :disabled { opacity: 0.65; cursor: default; }
-.oi-graph-controls .oi-graph-toggle { display: flex; align-items: center; gap: 0.5rem; min-block-size: 2.75rem; }
-.oi-graph-toggle input { inline-size: 1.15rem; block-size: 1.15rem; }
-.oi-graph-buttons { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-.oi-graph-buttons button { min-inline-size: 2.75rem; }
-.oi-graph-canvas { overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-background); }
-.oi-graph-canvas svg { display: block; inline-size: 100%; block-size: clamp(22rem, 58vw, 38rem); touch-action: none; cursor: grab; }
-.oi-graph-canvas svg:active { cursor: grabbing; }
-.oi-graph-canvas svg > defs path { fill: var(--color-foreground); }
-.oi-graph-edges path { fill: none; stroke: var(--color-foreground); stroke-width: 1.6; vector-effect: non-scaling-stroke; }
-.oi-graph-edges [data-kind="navigation"] path { stroke: var(--color-muted); stroke-dasharray: 6 5; }
-.oi-graph-edges [data-connected="true"] path { stroke-width: 3; }
-.oi-graph-edges text { fill: var(--color-foreground); stroke: var(--color-background); stroke-width: 5px; paint-order: stroke fill; font-size: 11px; pointer-events: none; }
-.oi-graph-node rect { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-.oi-graph-node[data-kind="module"] rect { stroke: var(--color-accent); }
-.oi-graph-node[data-kind="repository"] rect { stroke-dasharray: 7 3; }
-.oi-graph-node[data-selected="true"] rect { stroke: var(--color-focus); stroke-width: 4; }
-.oi-graph-node a { cursor: pointer; }
-.oi-graph-node a:focus-visible { outline: none; }
-.oi-graph-node a:focus-visible rect { stroke: var(--color-focus); stroke-width: 5; }
-.oi-graph-node text { fill: var(--color-foreground); pointer-events: none; unicode-bidi: plaintext; }
-.oi-graph-node-kind { font-size: 11px; }
-.oi-graph-node-label { font-size: 15px; font-weight: 650; }
-.oi-graph-status { color: var(--color-muted); font-size: 0.85rem; }
-.oi-graph-inspector { display: grid; gap: 0.8rem; padding: 1.2rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); }
-.oi-graph-inspector h3 { font-size: 1.2rem; }
-.oi-graph-inspector ul { display: grid; gap: 1rem; padding-inline-start: 1.2rem; }
-.oi-graph-inspector li > p { margin-block-start: 0.4rem; font-size: 0.85rem; line-height: 1.6; }
-.oi-graph-directories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
-.oi-graph-directories > section { min-inline-size: 0; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem; }
-.oi-graph-directories h3 { margin-block-end: 1rem; font-size: 1.1rem; }
-.oi-graph-directories ul { display: grid; gap: 1rem; max-block-size: 27rem; overflow: auto; padding: 0.3rem 0.6rem 0.3rem 1.4rem; scrollbar-gutter: stable; }
-.oi-graph-directories li { min-inline-size: 0; }
-.oi-graph-directories li + li { border-block-start: 1px solid var(--color-border); padding-block-start: 1rem; }
-.oi-graph-directories p { line-height: 1.55; font-size: 0.9rem; }
-.oi-graph-directories button { margin-block-start: 0.5rem; font-size: 0.85rem; }
+.oi-graph {
+  display: grid;
+  gap: 1rem;
+  min-inline-size: 0;
+}
+.oi-graph :where(h2, h3, h4, p, ul) {
+  margin-block: 0;
+}
+.oi-graph :where(a, button, input, select, svg):focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+.oi-graph :where(a, p, li, option) {
+  overflow-wrap: anywhere;
+}
+.oi-graph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+.oi-graph-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.oi-graph-legend i {
+  display: inline-block;
+  inline-size: 2.5rem;
+  border-block-start: 2px solid var(--color-foreground);
+}
+.oi-graph-legend i[data-kind="navigation"] {
+  border-block-start-style: dashed;
+}
+.oi-graph-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.7rem 1.25rem;
+}
+.oi-graph :where(fieldset) {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.oi-graph-controls label {
+  display: grid;
+  gap: 0.4rem;
+  min-inline-size: 0;
+  font-size: 0.9rem;
+}
+.oi-graph-controls label:first-child {
+  flex: 1 1 17rem;
+}
+.oi-graph :where(button, select) {
+  min-block-size: 2.75rem;
+  max-inline-size: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-foreground);
+  background: var(--color-surface);
+  font: inherit;
+}
+.oi-graph button {
+  cursor: pointer;
+}
+.oi-graph :disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+.oi-graph-controls .oi-graph-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+}
+.oi-graph-toggle input {
+  inline-size: 1.15rem;
+  block-size: 1.15rem;
+}
+.oi-graph-buttons {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.oi-graph-buttons button {
+  min-inline-size: 2.75rem;
+}
+.oi-graph-canvas {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-background);
+}
+.oi-graph-canvas svg {
+  display: block;
+  inline-size: 100%;
+  block-size: clamp(22rem, 58vw, 38rem);
+  touch-action: none;
+  cursor: grab;
+}
+.oi-graph-canvas svg:active {
+  cursor: grabbing;
+}
+.oi-graph-canvas svg > defs path {
+  fill: var(--color-foreground);
+}
+.oi-graph-edges path {
+  fill: none;
+  stroke: var(--color-foreground);
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+}
+.oi-graph-edges [data-kind="navigation"] path {
+  stroke: var(--color-muted);
+  stroke-dasharray: 6 5;
+}
+.oi-graph-edges [data-connected="true"] path {
+  stroke-width: 3;
+}
+.oi-graph-edges text {
+  fill: var(--color-foreground);
+  stroke: var(--color-background);
+  stroke-width: 5px;
+  paint-order: stroke fill;
+  font-size: 11px;
+  pointer-events: none;
+}
+.oi-graph-node rect {
+  fill: var(--color-surface);
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.oi-graph-node[data-kind="module"] rect {
+  stroke: var(--color-accent);
+}
+.oi-graph-node[data-kind="repository"] rect {
+  stroke-dasharray: 7 3;
+}
+.oi-graph-node[data-selected="true"] rect {
+  stroke: var(--color-focus);
+  stroke-width: 4;
+}
+.oi-graph-node a {
+  cursor: pointer;
+}
+.oi-graph-node a:focus-visible {
+  outline: none;
+}
+.oi-graph-node a:focus-visible rect {
+  stroke: var(--color-focus);
+  stroke-width: 5;
+}
+.oi-graph-node text {
+  fill: var(--color-foreground);
+  pointer-events: none;
+  unicode-bidi: plaintext;
+}
+.oi-graph-node-kind {
+  font-size: 11px;
+}
+.oi-graph-node-label {
+  font-size: 15px;
+  font-weight: 650;
+}
+.oi-graph-status {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+.oi-graph-inspector {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+.oi-graph-inspector h3 {
+  font-size: 1.2rem;
+}
+.oi-graph-inspector ul {
+  display: grid;
+  gap: 1rem;
+  padding-inline-start: 1.2rem;
+}
+.oi-graph-inspector li > p {
+  margin-block-start: 0.4rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.oi-graph-directories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.oi-graph-directories > section {
+  min-inline-size: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+.oi-graph-directories h3 {
+  margin-block-end: 1rem;
+  font-size: 1.1rem;
+}
+.oi-graph-directories ul {
+  display: grid;
+  gap: 1rem;
+  max-block-size: 27rem;
+  overflow: auto;
+  padding: 0.3rem 0.6rem 0.3rem 1.4rem;
+  scrollbar-gutter: stable;
+}
+.oi-graph-directories li {
+  min-inline-size: 0;
+}
+.oi-graph-directories li + li {
+  border-block-start: 1px solid var(--color-border);
+  padding-block-start: 1rem;
+}
+.oi-graph-directories p {
+  line-height: 1.55;
+  font-size: 0.9rem;
+}
+.oi-graph-directories button {
+  margin-block-start: 0.5rem;
+  font-size: 0.85rem;
+}
 
 @media (max-width: 42rem) {
-  .oi-graph-directories { grid-template-columns: 1fr; }
-  .oi-graph-controls { align-items: stretch; }
-  .oi-graph-controls label:first-child { flex-basis: 100%; }
+  .oi-graph-directories {
+    grid-template-columns: 1fr;
+  }
+  .oi-graph-controls {
+    align-items: stretch;
+  }
+  .oi-graph-controls label:first-child {
+    flex-basis: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .oi-graph *, .oi-graph *::before, .oi-graph *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .oi-graph *,
+  .oi-graph *::before,
+  .oi-graph *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @media (forced-colors: active) {
-  .oi-graph :where(button, select), .oi-graph-canvas, .oi-graph-inspector, .oi-graph-directories > section { border-color: CanvasText; }
-  .oi-graph :disabled { color: GrayText; opacity: 1; }
-  .oi-graph-node rect { fill: Canvas; stroke: CanvasText; }
-  .oi-graph-node text, .oi-graph-edges text { fill: CanvasText; }
-  .oi-graph-node a:focus-visible rect, .oi-graph-node[data-selected="true"] rect { stroke: Highlight; }
-  .oi-graph-edges path, .oi-graph-legend i { stroke: CanvasText; border-color: CanvasText; }
-  .oi-graph-canvas svg > defs path { fill: CanvasText; }
+  .oi-graph :where(button, select),
+  .oi-graph-canvas,
+  .oi-graph-inspector,
+  .oi-graph-directories > section {
+    border-color: CanvasText;
+  }
+  .oi-graph :disabled {
+    color: GrayText;
+    opacity: 1;
+  }
+  .oi-graph-node rect {
+    fill: Canvas;
+    stroke: CanvasText;
+  }
+  .oi-graph-node text,
+  .oi-graph-edges text {
+    fill: CanvasText;
+  }
+  .oi-graph-node a:focus-visible rect,
+  .oi-graph-node[data-selected="true"] rect {
+    stroke: Highlight;
+  }
+  .oi-graph-edges path,
+  .oi-graph-legend i {
+    stroke: CanvasText;
+    border-color: CanvasText;
+  }
+  .oi-graph-canvas svg > defs path {
+    fill: CanvasText;
+  }
 }
 
 @media print {
-  .oi-graph-controls, .oi-graph-canvas, .oi-graph-directories button { display: none; }
-  .oi-graph-directories { display: block; }
-  .oi-graph-directories > section { margin-block-end: 1rem; break-inside: auto; }
-  .oi-graph-directories ul { max-block-size: none; overflow: visible; }
-  .oi-graph-inspector { break-inside: avoid; }
+  .oi-graph-controls,
+  .oi-graph-canvas,
+  .oi-graph-directories button {
+    display: none;
+  }
+  .oi-graph-directories {
+    display: block;
+  }
+  .oi-graph-directories > section {
+    margin-block-end: 1rem;
+    break-inside: auto;
+  }
+  .oi-graph-directories ul {
+    max-block-size: none;
+    overflow: visible;
+  }
+  .oi-graph-inspector {
+    break-inside: avoid;
+  }
 }

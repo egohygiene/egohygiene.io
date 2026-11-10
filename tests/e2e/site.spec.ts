@@ -69,6 +69,43 @@ test("primary site loads, navigates, and supports theming", async ({ page }) => 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("A little more human.");
 });
 
+test("integrated Intelligence preserves graph interaction and slash-canonical deep routes", async ({
+  page,
+}) => {
+  await page.goto("/intelligence/");
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Organization Intelligence" }),
+  ).toBeVisible();
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://egohygiene.io/intelligence/",
+  );
+  const selection = page.getByLabel("Inspect a node", { exact: true });
+  await expect(selection).toBeEnabled();
+  await selection.selectOption("module:roadmap");
+  await expect(page).toHaveURL(/graph=module%3Aroadmap/);
+  await page.reload();
+  await expect(selection).toHaveValue("module:roadmap");
+  await expect(page.locator(".site-header")).toHaveCount(1);
+  const graph = page.getByLabel("Intelligence navigation graph", { exact: true });
+  const before = await graph.getAttribute("viewBox");
+  await graph.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect.poll(() => graph.getAttribute("viewBox")).not.toBe(before);
+  await page
+    .getByRole("navigation", { name: "Fleet exploration drafts", exact: true })
+    .getByRole("link", { name: "Roadmap", exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/roadmap\//);
+  await expect(page.getByRole("heading", { level: 1, name: "Roadmap", exact: true })).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole("heading", { level: 1, name: "Roadmap", exact: true })).toBeVisible();
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://egohygiene.io/roadmap/",
+  );
+});
+
 // #60: retained for the final local Chromium pass, using the same production artifact
 // and local-only request guard. These cases never activate an external repository.
 const ecosystemDestinations = [

@@ -53,3 +53,30 @@ assistive technology and relevant Mac/Apple Silicon checks. #116 batches his
 pilot/creative approvals after agent preparation; actual publication remains
 milestone 2 under #31. A required human check stays open until performed; recording
 it in the consolidated queue is neither a pass nor a waived criterion.
+
+## B — Integration repairs before the merge
+
+The combined source initially fails 35 formatter findings and strict optional
+property checks. Preserve Intelligence's behavior while formatting its authored
+source and fixing absent optional fields at their call sites; no compiler flags
+change. All 11 public contract/lock JSON files retain their exact original bytes.
+Only their formatter is disabled, with lint/JSON analysis retained, because
+upstream hashes are part of the admission contract.
+
+The Docker allowlist adds ten exact public build modules and three mandatory
+pinned contract inputs; arbitrary neighboring scripts/contracts remain excluded.
+Raw and HTTP verifiers retain slash-canonical declared Intelligence endpoints
+alongside no-slash storefront routes and verify every declared endpoint alias.
+Forty-five focused verifier/context cases pass, including unknown-slash rejection
+and a deliberately damaged Intelligence canonical response.
+
+Actual lint findings in the unqualified Intelligence source are repaired with
+native search/fieldset semantics, stable content keys and a non-tabbable decorative
+edge layer. ASCII-control rejection moves to one pure helper while preserving
+the existing URL/text policies, including the review prose exception for tab/LF.
+Seven graph-link boundary cases pass, including decoded controls and unadmitted
+external destinations. No privacy, provenance, source-pin or network guard is
+relaxed. A new production browser journey checks graph selection/reload/keyboard
+panning and canonical Intelligence-to-Roadmap navigation. Full combined-tree
+profiles follow at the committed source; these focused results are not a pass
+for live fleet artifacts, upstream owner models, publication or human decisions.

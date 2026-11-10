@@ -13,10 +13,10 @@ import {
 } from "../store-qualification/public-rendering.mjs";
 
 const origin = "https://egohygiene.io";
-async function fixture(t) {
+async function fixture(t, paths = ["/", "/fictional"]) {
   const root = await mkdtemp(path.join(tmpdir(), "rendering-inspection-"));
   t.after(() => rm(root, { recursive: true, force: true }));
-  const pages = ["/", "/fictional"].map((pathname) => ({
+  const pages = paths.map((pathname) => ({
     pathname,
     metadata: {
       title: 'A "quoted" title & <tag>',
@@ -77,6 +77,19 @@ test("raw inspection parses escaped metadata and matching discovery without exec
   assert.deepEqual(report.sitemapUrls, [`${origin}/`]);
   assert.equal(report.pages[0].title, 'A "quoted" title & <tag>');
   assert.ok(report.pages[0].description.includes("<script>"));
+});
+
+test("raw inspection preserves declared Intelligence slash URLs without accepting arbitrary slash routes", async (t) => {
+  const root = await fixture(t, ["/", "/audits/", "/fictional"]);
+  const report = await inspectPublicArtifact(root);
+  assert.ok(
+    report.pages.some((page) => page.pathname === "/audits/" && page.file === "audits/index.html"),
+  );
+  const receiptFile = path.join(root, "public-routes.json");
+  const receipt = JSON.parse(await readFile(receiptFile, "utf8"));
+  receipt.routes.find((route) => route.pathname === "/fictional").pathname = "/fictional/";
+  await writeFile(receiptFile, JSON.stringify(receipt));
+  await assert.rejects(inspectPublicArtifact(root), /did not match the regular expression/);
 });
 
 test("raw inspection rejects semantic damage even with a refreshed receipt hash", async (t) => {

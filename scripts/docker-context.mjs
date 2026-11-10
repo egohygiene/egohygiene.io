@@ -11,6 +11,16 @@ const buildScripts = [
   "store-catalog.mts",
   "vite-store-catalog.mts",
   "vite-public-pages.mts",
+  "vite-organization-intelligence.mts",
+  "intelligence-endpoint-input.mts",
+  "intelligence-endpoint-modules.mts",
+  "intelligence-intent-endpoints.mts",
+  "intelligence-navigation-model.mts",
+  "intelligence-operation-endpoints.mts",
+  "intelligence-publications.mts",
+  "intelligence-review-endpoints.mts",
+  "intelligence-review-json.mts",
+  "intelligence-support-endpoints.mts",
 ];
 const requiredFiles = [
   "package.json",
@@ -26,6 +36,9 @@ const requiredFiles = [
   `${website}/public/icons/NOTICE.txt`,
   "infra/docker/Dockerfile",
   "infra/caddy/Caddyfile",
+  "contracts/organization-intelligence/input-lock.json",
+  "contracts/organization-intelligence/public-site-surface-registry.json",
+  "contracts/organization-intelligence/repository-intelligence-fleet.v1.schema.json",
   ...buildScripts.map((file) => `scripts/${file}`),
 ];
 
@@ -139,6 +152,8 @@ const excludedSamples = [
   "apps/playground/src/main.tsx",
   "packages/context-probe/package.json",
   "scripts/context-probe.mjs",
+  "scripts/intelligence-private-probe.mts",
+  "contracts/organization-intelligence/unselected-probe.json",
   `${website}/.env.local`,
   `${website}/.npmrc`,
   `${website}/src/.private/record.json`,

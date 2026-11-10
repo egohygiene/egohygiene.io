@@ -1,12 +1,25 @@
-import type { EndpointRecord, EndpointRelation } from "../apps/egohygiene.io/src/features/intelligence/endpoints/types.ts";
-import { list, optionalText, plain, record, reference, type EndpointProjectionContext } from "./intelligence-endpoint-input.mts";
+import type {
+  EndpointRecord,
+  EndpointRelation,
+} from "../apps/egohygiene.io/src/features/intelligence/endpoints/types.ts";
+import {
+  list,
+  optionalText,
+  plain,
+  record,
+  reference,
+  type EndpointProjectionContext,
+} from "./intelligence-endpoint-input.mts";
 
 /**
  * Project only supplied compact Health check references. Native execution and
  * policy findings are independent records; aggregate counters and scores never
  * become site-owned health claims.
  */
-export function projectHealth(value: unknown, context: EndpointProjectionContext): readonly EndpointRecord[] {
+export function projectHealth(
+  value: unknown,
+  context: EndpointProjectionContext,
+): readonly EndpointRecord[] {
   const view = plain(value);
   if (view["score"] !== null) throw new TypeError("ENDPOINT_INPUT");
   const records: EndpointRecord[] = [];
@@ -20,7 +33,8 @@ export function projectHealth(value: unknown, context: EndpointProjectionContext
     identifiers.add(check.id);
     records.push({
       ...check,
-      summary: "Supplied check evidence. Execution outcomes and policy findings retain their separate source records.",
+      summary:
+        "Supplied check evidence. Execution outcomes and policy findings retain their separate source records.",
       details: [{ label: "Check identity", value: check.key }],
     });
   }
@@ -46,11 +60,19 @@ function related(
   return relations;
 }
 
-const includedKinds: ReadonlySet<string> = new Set(["roadmap_step", "issue", "pull_request", "commit"]);
+const includedKinds: ReadonlySet<string> = new Set([
+  "roadmap_step",
+  "issue",
+  "pull_request",
+  "commit",
+]);
 const deploymentKinds: ReadonlySet<string> = new Set(["deployment"]);
 
 /** Release publication, included work and deployment observations stay separate. */
-export function projectReleases(value: unknown, context: EndpointProjectionContext): readonly EndpointRecord[] {
+export function projectReleases(
+  value: unknown,
+  context: EndpointProjectionContext,
+): readonly EndpointRecord[] {
   const view = plain(value);
   const records: EndpointRecord[] = [];
   const identifiers = new Set<string>();
@@ -60,18 +82,28 @@ export function projectReleases(value: unknown, context: EndpointProjectionConte
     // related work when the owning release is outside the public projection.
     const entity = record(release["entity"], context);
     if (!entity) continue;
-    if (entity.kind !== "release" || identifiers.has(entity.id)) throw new TypeError("ENDPOINT_INPUT");
+    if (entity.kind !== "release" || identifiers.has(entity.id))
+      throw new TypeError("ENDPOINT_INPUT");
     identifiers.add(entity.id);
     const publishedAt = optionalText(release["published_at"], 64);
     if (publishedAt !== null) {
-      if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(publishedAt)
-        || !Number.isFinite(Date.parse(publishedAt))
-        || new Date(publishedAt).toISOString().slice(0, 19) !== publishedAt.slice(0, 19)) throw new TypeError("ENDPOINT_INPUT");
+      if (
+        !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(publishedAt) ||
+        !Number.isFinite(Date.parse(publishedAt)) ||
+        new Date(publishedAt).toISOString().slice(0, 19) !== publishedAt.slice(0, 19)
+      )
+        throw new TypeError("ENDPOINT_INPUT");
     }
     records.push({
       ...entity,
-      summary: "Release publication evidence with separately supplied work and deployment links. Installation verification is unavailable in this source model.",
-      details: [{ label: "Publication timestamp", value: publishedAt ?? "Unavailable in the normalized release record" }],
+      summary:
+        "Release publication evidence with separately supplied work and deployment links. Installation verification is unavailable in this source model.",
+      details: [
+        {
+          label: "Publication timestamp",
+          value: publishedAt ?? "Unavailable in the normalized release record",
+        },
+      ],
       relations: [
         ...related(release["includes"], context, "Included work", includedKinds),
         ...related(release["deployments"], context, "Deployment observation", deploymentKinds),

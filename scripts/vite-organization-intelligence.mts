@@ -1,3 +1,4 @@
+import { hasAsciiControl } from "../apps/egohygiene.io/src/features/intelligence/text.ts";
 import { attachRepositoryPublications } from "./intelligence-publications.mts";
 import { buildIntelligenceNavigation } from "./intelligence-navigation-model.mts";
 import { intelligenceEndpointRoutes } from "../apps/egohygiene.io/src/content/intelligence-routes.ts";
@@ -24,11 +25,22 @@ const moduleId = "virtual:organization-intelligence";
 const resolvedModuleId = `\0${moduleId}`;
 const fleetSchema = "egohygiene.observatory.repository-intelligence-fleet/v1";
 const version = "1.0.0-alpha.2";
-const domains = ["roadmap", "decisions", "git", "issues", "pull_requests", "checks", "releases", "deployments", "history"] as const;
+const domains = [
+  "roadmap",
+  "decisions",
+  "git",
+  "issues",
+  "pull_requests",
+  "checks",
+  "releases",
+  "deployments",
+  "history",
+] as const;
 const sha = /^[a-f0-9]{64}$/;
 const revision = /^[a-f0-9]{40}$/;
 const repositoryName = /^egohygiene\/(?:\.github|[a-z0-9][a-z0-9.-]*)$/;
-const unsafeText = /(?:github_pat_|gh[pousr]_|(?:token|password|secret)\s*[:=]|[\w.+-]+@[\w.-]+\.[a-z]{2,}|\/(?:home|Users|workspace|tmp)\/|[A-Za-z]:\\|\\\\)/i;
+const unsafeText =
+  /(?:github_pat_|gh[pousr]_|(?:token|password|secret)\s*[:=]|[\w.+-]+@[\w.-]+\.[a-z]{2,}|\/(?:home|Users|workspace|tmp)\/|[A-Za-z]:\\|\\\\)/i;
 const snapshotBrand = Symbol("admitted-organization-intelligence");
 
 type RecordValue = Record<string, unknown>;
@@ -36,7 +48,10 @@ type InputCode = IntelligenceData["code"];
 
 class FleetInputError extends Error {
   readonly code: InputCode;
-  constructor(code: InputCode) { super(code); this.code = code; }
+  constructor(code: InputCode) {
+    super(code);
+    this.code = code;
+  }
 }
 
 function requireInput(condition: unknown, code: InputCode = "INPUT_INVALID"): asserts condition {
@@ -49,8 +64,12 @@ function object(value: unknown): RecordValue {
 }
 
 function declaredPublic(value: unknown): boolean {
-  return value !== null && typeof value === "object" && !Array.isArray(value)
-    && (value as RecordValue)["visibility"] === "public";
+  return (
+    value !== null &&
+    typeof value === "object" &&
+    !Array.isArray(value) &&
+    (value as RecordValue)["visibility"] === "public"
+  );
 }
 
 function array(value: unknown, maximum = 1024): unknown[] {
@@ -59,7 +78,13 @@ function array(value: unknown, maximum = 1024): unknown[] {
 }
 
 function text(value: unknown, maximum = 512): string {
-  requireInput(typeof value === "string" && value.length > 0 && value.length <= maximum && !/[\u0000-\u001f\u007f]/.test(value) && !unsafeText.test(value));
+  requireInput(
+    typeof value === "string" &&
+      value.length > 0 &&
+      value.length <= maximum &&
+      !hasAsciiControl(value) &&
+      !unsafeText.test(value),
+  );
   return value;
 }
 
@@ -67,12 +92,17 @@ function instant(value: unknown): string {
   const result = text(value, 20);
   requireInput(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(result));
   const date = new Date(result);
-  requireInput(Number.isFinite(date.getTime()) && date.toISOString().replace(".000Z", "Z") === result);
+  requireInput(
+    Number.isFinite(date.getTime()) && date.toISOString().replace(".000Z", "Z") === result,
+  );
   return result;
 }
 
 function exactKeys(value: RecordValue, expected: readonly string[]) {
-  requireInput(Object.keys(value).length === expected.length && expected.every((key) => Object.hasOwn(value, key)));
+  requireInput(
+    Object.keys(value).length === expected.length &&
+      expected.every((key) => Object.hasOwn(value, key)),
+  );
 }
 
 function hash(content: string | Uint8Array): string {
@@ -95,10 +125,25 @@ async function boundedFile(filename: string, maximum = 16 * 1024 * 1024): Promis
 
 /** Only literal same-repository GitHub evidence paths are navigable. */
 export function safeIntelligenceEvidenceUrl(value: unknown, repository: string): string | null {
-  if (typeof value !== "string" || value.length > 1024 || /[%\\\u0000-\u0020\u007f]/.test(value)) return null;
+  if (
+    typeof value !== "string" ||
+    value.length > 1024 ||
+    hasAsciiControl(value) ||
+    /[%\\ ]/.test(value)
+  )
+    return null;
   try {
     const url = new URL(value);
-    if (url.protocol !== "https:" || url.hostname !== "github.com" || url.port || url.username || url.password || url.search || url.href !== value) return null;
+    if (
+      url.protocol !== "https:" ||
+      url.hostname !== "github.com" ||
+      url.port ||
+      url.username ||
+      url.password ||
+      url.search ||
+      url.href !== value
+    )
+      return null;
     if (url.pathname.split("/").some((part) => part === "." || part === "..")) return null;
     if (url.hash && !/^#L\d+(?:-L\d+)?$/.test(url.hash)) return null;
     const prefix = `/${repository}`;
@@ -106,44 +151,107 @@ export function safeIntelligenceEvidenceUrl(value: unknown, repository: string):
     if (!url.pathname.startsWith(`${prefix}/`)) return null;
     const path = url.pathname.slice(prefix.length + 1);
     if (path.split("/").some((part) => !part || part === "." || part === "..")) return null;
-    return /^(?:(?:issues|pull)\/[1-9]\d*|commit\/[a-f0-9]{40}|(?:blob|tree)\/[a-f0-9]{40}\/[A-Za-z0-9._/-]+|releases(?:\/tag\/[A-Za-z0-9._-]+)?)$/.test(path) ? value : null;
-  } catch { return null; }
+    return /^(?:(?:issues|pull)\/[1-9]\d*|commit\/[a-f0-9]{40}|(?:blob|tree)\/[a-f0-9]{40}\/[A-Za-z0-9._/-]+|releases(?:\/tag\/[A-Za-z0-9._-]+)?)$/.test(
+      path,
+    )
+      ? value
+      : null;
+  } catch {
+    return null;
+  }
 }
 
 const moduleIssues: Readonly<Record<string, number>> = {
-  intelligence: 15, roadmap: 29, sanity: 28, status: 33, hygiene: 34, audits: 35,
-  decisions: 36, identity_intelligence: 37, dependencies: 38, releases: 39, distribution: 39, health: 40,
-  now: 15, journey: 30, work: 30, search: 30, compare: 30, diagnostics: 30, dashboard: 15,
+  intelligence: 15,
+  roadmap: 29,
+  sanity: 28,
+  status: 33,
+  hygiene: 34,
+  audits: 35,
+  decisions: 36,
+  identity_intelligence: 37,
+  dependencies: 38,
+  releases: 39,
+  distribution: 39,
+  health: 40,
+  now: 15,
+  journey: 30,
+  work: 30,
+  search: 30,
+  compare: 30,
+  diagnostics: 30,
+  dashboard: 15,
 };
 
 async function contracts() {
-  const lock = object(JSON.parse((await boundedFile(`${root}/input-lock.json`, 16384)).toString("utf8")));
-  requireInput(lock["schema"] === "egohygiene.website.organization-intelligence-input-lock/v1" && lock["contract_version"] === version, "INPUT_INCOMPATIBLE");
+  const lock = object(
+    JSON.parse((await boundedFile(`${root}/input-lock.json`, 16384)).toString("utf8")),
+  );
+  requireInput(
+    lock["schema"] === "egohygiene.website.organization-intelligence-input-lock/v1" &&
+      lock["contract_version"] === version,
+    "INPUT_INCOMPATIBLE",
+  );
   const sources = object(lock["sources"]);
   const pins = new Map<string, RecordValue>();
   let registry: RecordValue | undefined;
   for (const name of ["fleet", "routes"] as const) {
     const pin = object(sources[name]);
     const filename = text(pin["file"]);
-    requireInput(/^[a-z0-9.-]+\.json$/.test(filename) && sha.test(text(pin["sha256"])) && revision.test(text(pin["revision"])), "INPUT_INCOMPATIBLE");
+    requireInput(
+      /^[a-z0-9.-]+\.json$/.test(filename) &&
+        sha.test(text(pin["sha256"])) &&
+        revision.test(text(pin["revision"])),
+      "INPUT_INCOMPATIBLE",
+    );
     const raw = await boundedFile(`${root}/${filename}`);
     requireInput(hash(raw) === pin["sha256"], "INPUT_INCOMPATIBLE");
     if (name === "routes") registry = object(JSON.parse(raw.toString("utf8")));
     pins.set(name, pin);
   }
-  requireInput(registry?.["schema"] === "egohygiene.public-site-surface-registry/v1", "INPUT_INCOMPATIBLE");
+  requireInput(
+    registry?.["schema"] === "egohygiene.public-site-surface-registry/v1",
+    "INPUT_INCOMPATIBLE",
+  );
   const surfaces = array(registry["surfaces"]);
   const modules: IntelligenceModule[] = Object.entries(moduleIssues).map(([id, issue]) => {
     const surface = surfaces.map(object).find((item) => item["id"] === id);
     requireInput(surface, "INPUT_INCOMPATIBLE");
     const binding = object(object(surface["route_bindings"])["organization"]);
     const path = text(binding["canonical_route"]);
-    requireInput(/^\/(?:[a-z-]+\/)+$/.test(path) && (id !== "intelligence" || path === "/intelligence/"), "INPUT_INCOMPATIBLE");
+    requireInput(
+      /^\/(?:[a-z-]+\/)+$/.test(path) && (id !== "intelligence" || path === "/intelligence/"),
+      "INPUT_INCOMPATIBLE",
+    );
     const endpoint = intelligenceEndpointRoutes.find((item) => item.id === id);
     requireInput(id === "intelligence" || endpoint?.path === path, "INPUT_INCOMPATIBLE");
-    if (endpoint) requireInput(JSON.stringify(array(binding["aliases"]).map((alias) => text(alias)).sort()) === JSON.stringify([...endpoint.aliases].sort()), "INPUT_INCOMPATIBLE");
-    return { id, title: text(surface["title"]), description: text(surface["description"], 2048), path,
-      issueUrl: ({ journey: "https://github.com/egohygiene/relay/issues/147", work: "https://github.com/egohygiene/relay/issues/146", search: "https://github.com/egohygiene/relay/issues/83", compare: "https://github.com/egohygiene/relay/issues/152", diagnostics: "https://github.com/egohygiene/relay/issues/57", dashboard: "https://github.com/egohygiene/.github/issues/27" } as Record<string, string>)[id] ?? `https://github.com/egohygiene/.github/issues/${issue}`, implemented: true };
+    if (endpoint)
+      requireInput(
+        JSON.stringify(
+          array(binding["aliases"])
+            .map((alias) => text(alias))
+            .sort(),
+        ) === JSON.stringify([...endpoint.aliases].sort()),
+        "INPUT_INCOMPATIBLE",
+      );
+    return {
+      id,
+      title: text(surface["title"]),
+      description: text(surface["description"], 2048),
+      path,
+      issueUrl:
+        (
+          {
+            journey: "https://github.com/egohygiene/relay/issues/147",
+            work: "https://github.com/egohygiene/relay/issues/146",
+            search: "https://github.com/egohygiene/relay/issues/83",
+            compare: "https://github.com/egohygiene/relay/issues/152",
+            diagnostics: "https://github.com/egohygiene/relay/issues/57",
+            dashboard: "https://github.com/egohygiene/.github/issues/27",
+          } as Record<string, string>
+        )[id] ?? `https://github.com/egohygiene/.github/issues/${issue}`,
+      implemented: true,
+    };
   });
   const repositorySurfaces: Record<string, string> = {};
   for (const raw of surfaces) {
@@ -156,10 +264,19 @@ async function contracts() {
   }
   const fleet = pins.get("fleet")!;
   const routes = pins.get("routes")!;
-  return { modules, repositorySurfaces, provenance: { schema: fleetSchema, contractVersion: version,
-    observatoryRevision: text(fleet["revision"]), schemaSha256: text(fleet["sha256"]),
-    registryRevision: text(routes["revision"]), registrySha256: text(routes["sha256"]),
-    registryUrl: `https://github.com/egohygiene/hygiene/blob/${text(routes["revision"])}/catalog/public-site-surface-registry.json` } };
+  return {
+    modules,
+    repositorySurfaces,
+    provenance: {
+      schema: fleetSchema,
+      contractVersion: version,
+      observatoryRevision: text(fleet["revision"]),
+      schemaSha256: text(fleet["sha256"]),
+      registryRevision: text(routes["revision"]),
+      registrySha256: text(routes["sha256"]),
+      registryUrl: `https://github.com/egohygiene/hygiene/blob/${text(routes["revision"])}/catalog/public-site-surface-registry.json`,
+    },
+  };
 }
 
 function coverage(value: unknown, observation: string): IntelligenceClaim[] {
@@ -167,7 +284,11 @@ function coverage(value: unknown, observation: string): IntelligenceClaim[] {
   exactKeys(claims, domains);
   const rules: Record<string, readonly [readonly string[], readonly string[], boolean]> = {
     uncollected: [["not_requested"], ["unknown"], false],
-    unavailable: [["access_denied", "provider_unavailable", "legacy_unspecified"], ["unknown"], false],
+    unavailable: [
+      ["access_denied", "provider_unavailable", "legacy_unspecified"],
+      ["unknown"],
+      false,
+    ],
     failed: [["collection_failed"], ["unknown"], false],
     partial: [["filtered", "truncated", "incomplete"], ["current", "stale"], true],
     observed_empty: [["complete"], ["current", "stale"], true],
@@ -192,12 +313,18 @@ function evidenceState(claims: readonly IntelligenceClaim[], stale: boolean): Ev
   if (claims.some((claim) => claim.collection === "failed")) return "error";
   if (stale || claims.some((claim) => claim.freshness === "stale")) return "stale";
   if (claims.every((claim) => claim.collection === "not_applicable")) return "not_applicable";
-  if (claims.every((claim) => ["uncollected", "unavailable"].includes(claim.collection))) return "unknown";
-  if (claims.some((claim) => ["partial", "uncollected", "unavailable"].includes(claim.collection))) return "partial";
+  if (claims.every((claim) => ["uncollected", "unavailable"].includes(claim.collection)))
+    return "unknown";
+  if (claims.some((claim) => ["partial", "uncollected", "unavailable"].includes(claim.collection)))
+    return "partial";
   return "current";
 }
 
-function nowItem(raw: unknown, repository: string, kind: "entity" | "relationship"): IntelligenceItem {
+function nowItem(
+  raw: unknown,
+  repository: string,
+  kind: "entity" | "relationship",
+): IntelligenceItem {
   const value = object(raw);
   const subject = kind === "entity" ? value : object(value["source"]);
   requireInput(subject["repository"] === repository && subject["visibility"] === "public");
@@ -205,16 +332,29 @@ function nowItem(raw: unknown, repository: string, kind: "entity" | "relationshi
   const state = kind === "entity" ? text(subject["state"]) : text(value["type"]);
   const assertion = text(kind === "entity" ? subject["assertion"] : value["assertion"]);
   const freshness = text(value["freshness"]);
-  requireInput(["authoritative", "inferred", "unknown"].includes(assertion) && ["current", "stale", "unknown", "not_applicable"].includes(freshness));
+  requireInput(
+    ["authoritative", "inferred", "unknown"].includes(assertion) &&
+      ["current", "stale", "unknown", "not_applicable"].includes(freshness),
+  );
   if (kind === "relationship") {
     const target = object(value["target"]);
     requireInput(target["repository"] === repository && target["visibility"] === "public");
   }
-  return { id: text(value["id"]), title, state, assertion, freshness,
-    url: safeIntelligenceEvidenceUrl(subject["canonical_url"], repository) };
+  return {
+    id: text(value["id"]),
+    title,
+    state,
+    assertion,
+    freshness,
+    url: safeIntelligenceEvidenceUrl(subject["canonical_url"], repository),
+  };
 }
 
-function nowView(value: unknown, repository: string, claims: readonly IntelligenceClaim[]): IntelligenceRepository["now"] {
+function nowView(
+  value: unknown,
+  repository: string,
+  claims: readonly IntelligenceClaim[],
+): IntelligenceRepository["now"] {
   try {
     const view = object(value);
     const nested = coverage(view["collection_coverage"], "9999-12-31T23:59:59Z");
@@ -230,18 +370,44 @@ function nowView(value: unknown, repository: string, claims: readonly Intelligen
       return declaredPublic(relationship["source"]) && declaredPublic(relationship["target"]);
     });
     requireInput(blockers.length <= 256);
-    return { state: "available", currentFocus: entities(view["current_focus"]),
+    return {
+      state: "available",
+      currentFocus: entities(view["current_focus"]),
       nextReady: entities(view["next_ready"]),
-      blockers: blockers.map((item) => nowItem(item, repository, "relationship")) };
-  } catch { return { state: "unavailable", currentFocus: [], nextReady: [], blockers: [] }; }
+      blockers: blockers.map((item) => nowItem(item, repository, "relationship")),
+    };
+  } catch {
+    return { state: "unavailable", currentFocus: [], nextReady: [], blockers: [] };
+  }
 }
 
 /** A defensive presentation projection; upstream normalization remains Observatory's authority. */
-function projectFleet(value: unknown, asOf: string, maximumAge: number): Pick<IntelligenceData, "state" | "code" | "snapshotId" | "observationWindow" | "repositories" | "endpoints"> {
+function projectFleet(
+  value: unknown,
+  asOf: string,
+  maximumAge: number,
+): Pick<
+  IntelligenceData,
+  "state" | "code" | "snapshotId" | "observationWindow" | "repositories" | "endpoints"
+> {
   const fleet = object(value);
-  requireInput(fleet["schema"] === fleetSchema && fleet["contract_version"] === version, "INPUT_INCOMPATIBLE");
+  requireInput(
+    fleet["schema"] === fleetSchema && fleet["contract_version"] === version,
+    "INPUT_INCOMPATIBLE",
+  );
   requireInput(fleet["visibility"] === "public", "PUBLIC_REQUIRED");
-  exactKeys(fleet, ["schema", "contract_version", "snapshot_id", "generator", "observation_window", "coverage", "repositories", "views", "extensions", "visibility"]);
+  exactKeys(fleet, [
+    "schema",
+    "contract_version",
+    "snapshot_id",
+    "generator",
+    "observation_window",
+    "coverage",
+    "repositories",
+    "views",
+    "extensions",
+    "visibility",
+  ]);
   requireInput(Object.keys(object(fleet["extensions"])).length === 0);
   // Apply visibility before identities, counts, freshness windows or lookup.
   // Whole-fleet aggregates and digests can include excluded rows and are never
@@ -249,8 +415,12 @@ function projectFleet(value: unknown, asOf: string, maximumAge: number): Pick<In
   const rawRows = array(fleet["repositories"], 100000).filter((raw) => {
     if (!raw || typeof raw !== "object" || Array.isArray(raw)) return false;
     const reference = (raw as RecordValue)["repository"];
-    return reference !== null && typeof reference === "object" && !Array.isArray(reference)
-      && (reference as RecordValue)["visibility"] === "public";
+    return (
+      reference !== null &&
+      typeof reference === "object" &&
+      !Array.isArray(reference) &&
+      (reference as RecordValue)["visibility"] === "public"
+    );
   });
   requireInput(rawRows.length <= 1024);
   const occurrences = new Map<string, number>();
@@ -269,46 +439,91 @@ function projectFleet(value: unknown, asOf: string, maximumAge: number): Pick<In
         if (typeof rawName !== "string" || !publicNames.has(rawName)) continue;
         const name = text(rawName);
         nowGroups.set(name, nowGroups.has(name) ? null : group["data"]);
-      } catch { /* A malformed public module cannot remove unrelated groups. */ }
+      } catch {
+        /* A malformed public module cannot remove unrelated groups. */
+      }
     }
-  } catch { nowGroups.clear(); }
+  } catch {
+    nowGroups.clear();
+  }
   let degraded = false;
   const repositories: IntelligenceRepository[] = [];
   for (const raw of rawRows) {
     try {
-    const row = object(raw);
-    const reference = object(row["repository"]);
-    const name = text(reference["repository"]);
-    requireInput(repositoryName.test(name) && reference["key"] === name && reference["kind"] === "repository" && reference["visibility"] === "public", "PUBLIC_REQUIRED");
-    requireInput(occurrences.get(name) === 1);
-    const sourceUrl = `https://github.com/${name}`;
-    requireInput(reference["canonical_url"] === sourceUrl);
-    const representedCommit = text(row["represented_commit"]);
-    requireInput(revision.test(representedCommit));
-    requireInput(row["snapshot_id"] === `${name}@${representedCommit}`);
-    const snapshotDigest = text(row["snapshot_digest"]);
-    requireInput(/^sha256:[a-f0-9]{64}$/.test(snapshotDigest));
-    const observedAt = instant(row["observed_at"]);
-    requireInput(observedAt <= asOf);
-    const claims = coverage(object(row["coverage"])["domains"], observedAt);
-    const stale = (Date.parse(asOf) - Date.parse(observedAt)) / 1000 > maximumAge;
-    repositories.push({ name, title: reference["title"] == null ? name : text(reference["title"]), sourceUrl,
-      commitUrl: `${sourceUrl}/commit/${representedCommit}`, representedCommit,
-      snapshotId: text(row["snapshot_id"]), snapshotDigest, observedAt, coverage: claims,
-      evidenceState: evidenceState(claims, stale), now: nowView(nowGroups.get(name), name, claims) });
-    } catch { degraded = true; }
+      const row = object(raw);
+      const reference = object(row["repository"]);
+      const name = text(reference["repository"]);
+      requireInput(
+        repositoryName.test(name) &&
+          reference["key"] === name &&
+          reference["kind"] === "repository" &&
+          reference["visibility"] === "public",
+        "PUBLIC_REQUIRED",
+      );
+      requireInput(occurrences.get(name) === 1);
+      const sourceUrl = `https://github.com/${name}`;
+      requireInput(reference["canonical_url"] === sourceUrl);
+      const representedCommit = text(row["represented_commit"]);
+      requireInput(revision.test(representedCommit));
+      requireInput(row["snapshot_id"] === `${name}@${representedCommit}`);
+      const snapshotDigest = text(row["snapshot_digest"]);
+      requireInput(/^sha256:[a-f0-9]{64}$/.test(snapshotDigest));
+      const observedAt = instant(row["observed_at"]);
+      requireInput(observedAt <= asOf);
+      const claims = coverage(object(row["coverage"])["domains"], observedAt);
+      const stale = (Date.parse(asOf) - Date.parse(observedAt)) / 1000 > maximumAge;
+      repositories.push({
+        name,
+        title: reference["title"] == null ? name : text(reference["title"]),
+        sourceUrl,
+        commitUrl: `${sourceUrl}/commit/${representedCommit}`,
+        representedCommit,
+        snapshotId: text(row["snapshot_id"]),
+        snapshotDigest,
+        observedAt,
+        coverage: claims,
+        evidenceState: evidenceState(claims, stale),
+        now: nowView(nowGroups.get(name), name, claims),
+      });
+    } catch {
+      degraded = true;
+    }
   }
-  if (!repositories.length) return { state: "unavailable", code: "INPUT_INVALID", snapshotId: null,
-    observationWindow: null, repositories: [], endpoints: projectEndpointModules({}, []) };
+  if (!repositories.length)
+    return {
+      state: "unavailable",
+      code: "INPUT_INVALID",
+      snapshotId: null,
+      observationWindow: null,
+      repositories: [],
+      endpoints: projectEndpointModules({}, []),
+    };
   const stale = repositories.some((row) => row.evidenceState === "stale");
   const publicTimes = repositories.map((row) => row.observedAt).sort();
   // This is explicitly the website's admitted presentation identity/window;
   // discarded rows and unused views never enter those public metadata values.
-  const staleSources = new Set(repositories.filter((row) => (Date.parse(asOf) - Date.parse(row.observedAt)) / 1000 > maximumAge).map((row) => row.name));
-  const endpoints = { ...projectEndpointModules(views, repositories, staleSources), dashboard: { id: "dashboard", state: (degraded ? "partial" : stale ? "stale" : "available") as IntelligenceData["state"], groups: [] } };
+  const staleSources = new Set(
+    repositories
+      .filter((row) => (Date.parse(asOf) - Date.parse(row.observedAt)) / 1000 > maximumAge)
+      .map((row) => row.name),
+  );
+  const endpoints = {
+    ...projectEndpointModules(views, repositories, staleSources),
+    dashboard: {
+      id: "dashboard",
+      state: (degraded ? "partial" : stale ? "stale" : "available") as IntelligenceData["state"],
+      groups: [],
+    },
+  };
   const snapshotId = `sha256:${hash(JSON.stringify({ repositories, endpoints }))}`;
-  return { state: degraded ? "partial" : stale ? "stale" : "available", code: degraded ? "PARTIAL" : stale ? "STALE" : "READY", snapshotId,
-    observationWindow: { earliest: publicTimes[0]!, latest: publicTimes.at(-1)! }, repositories, endpoints };
+  return {
+    state: degraded ? "partial" : stale ? "stale" : "available",
+    code: degraded ? "PARTIAL" : stale ? "STALE" : "READY",
+    snapshotId,
+    observationWindow: { earliest: publicTimes[0]!, latest: publicTimes.at(-1)! },
+    repositories,
+    endpoints,
+  };
 }
 
 export interface OrganizationIntelligenceOptions {
@@ -328,29 +543,64 @@ export interface OrganizationIntelligenceOptions {
 }
 
 /** Bind the optional Relay handoff without treating it as publication approval. */
-async function fleetArtifactBinding(options: Omit<OrganizationIntelligenceOptions, "snapshot">, content: Buffer,
-  asOf: string): Promise<"ready" | "partial" | undefined> {
-  const filename = options.artifactManifestFilename ?? process.env["EGOHYGIENE_INTELLIGENCE_MANIFEST"];
-  const expected = options.artifactManifestExpectedSha256 ?? process.env["EGOHYGIENE_INTELLIGENCE_MANIFEST_SHA256"];
+async function fleetArtifactBinding(
+  options: Omit<OrganizationIntelligenceOptions, "snapshot">,
+  content: Buffer,
+  asOf: string,
+): Promise<"ready" | "partial" | undefined> {
+  const filename =
+    options.artifactManifestFilename ?? process.env["EGOHYGIENE_INTELLIGENCE_MANIFEST"];
+  const expected =
+    options.artifactManifestExpectedSha256 ??
+    process.env["EGOHYGIENE_INTELLIGENCE_MANIFEST_SHA256"];
   if (!filename && !expected) return undefined;
   requireInput(filename && expected && sha.test(expected), "REVIEW_BINDING_REQUIRED");
   const bytes = await boundedFile(filename, 1024 * 1024);
   requireInput(hash(bytes) === expected, "INPUT_INCOMPATIBLE");
   const manifest = object(JSON.parse(bytes.toString("utf8")));
-  exactKeys(manifest, ["schema", "visibility", "organization", "status", "observed_at", "expires_at", "catalog",
-    "generator", "producer", "runtime", "acquisition", "repositories", "files"]);
-  requireInput(manifest["schema"] === "egohygiene.relay.public-fleet-artifact/v1"
-    && manifest["visibility"] === "public" && manifest["organization"] === "egohygiene", "INPUT_INCOMPATIBLE");
-  requireInput(manifest["status"] === "ready" || manifest["status"] === "partial", "INPUT_UNAVAILABLE");
+  exactKeys(manifest, [
+    "schema",
+    "visibility",
+    "organization",
+    "status",
+    "observed_at",
+    "expires_at",
+    "catalog",
+    "generator",
+    "producer",
+    "runtime",
+    "acquisition",
+    "repositories",
+    "files",
+  ]);
+  requireInput(
+    manifest["schema"] === "egohygiene.relay.public-fleet-artifact/v1" &&
+      manifest["visibility"] === "public" &&
+      manifest["organization"] === "egohygiene",
+    "INPUT_INCOMPATIBLE",
+  );
+  requireInput(
+    manifest["status"] === "ready" || manifest["status"] === "partial",
+    "INPUT_UNAVAILABLE",
+  );
   const observed = instant(manifest["observed_at"]);
   const expires = instant(manifest["expires_at"]);
-  requireInput(Date.parse(observed) <= Date.parse(asOf) && Date.parse(observed) < Date.parse(expires)
-    && Date.parse(expires) > Date.parse(asOf), "INPUT_UNAVAILABLE");
-  requireInput(manifest["acquisition"] === "github-read-only" || manifest["acquisition"] === "captured-inputs");
+  requireInput(
+    Date.parse(observed) <= Date.parse(asOf) &&
+      Date.parse(observed) < Date.parse(expires) &&
+      Date.parse(expires) > Date.parse(asOf),
+    "INPUT_UNAVAILABLE",
+  );
+  requireInput(
+    manifest["acquisition"] === "github-read-only" || manifest["acquisition"] === "captured-inputs",
+  );
   const generator = object(manifest["generator"]);
   exactKeys(generator, ["repository", "revision", "implementation_sha256"]);
-  requireInput(generator["repository"] === "egohygiene/relay" && revision.test(text(generator["revision"]))
-    && sha.test(text(generator["implementation_sha256"])));
+  requireInput(
+    generator["repository"] === "egohygiene/relay" &&
+      revision.test(text(generator["revision"])) &&
+      sha.test(text(generator["implementation_sha256"])),
+  );
   // Acquisition-only IDs, hashes and diagnostics never enter browser output.
   // The producer retains full owner validation; the host binds only its exact
   // supported fleet bytes and handoff state before ordinary projection.
@@ -358,8 +608,12 @@ async function fleetArtifactBinding(options: Omit<OrganizationIntelligenceOption
   requireInput(files.length === 1);
   const fleet = object(files[0]);
   exactKeys(fleet, ["path", "sha256", "size_bytes"]);
-  requireInput(fleet["path"] === "fleet.json" && fleet["sha256"] === hash(content)
-    && fleet["size_bytes"] === content.length, "INPUT_INCOMPATIBLE");
+  requireInput(
+    fleet["path"] === "fleet.json" &&
+      fleet["sha256"] === hash(content) &&
+      fleet["size_bytes"] === content.length,
+    "INPUT_INCOMPATIBLE",
+  );
   array(manifest["repositories"], 64);
   object(manifest["catalog"]);
   object(manifest["producer"]);
@@ -374,10 +628,21 @@ export interface OrganizationIntelligenceSnapshot {
 }
 
 /** No VITE_ variable contains raw input paths or credentials. Missing input stays unavailable. */
-export async function loadOrganizationIntelligence(options: Omit<OrganizationIntelligenceOptions, "snapshot"> = {}): Promise<OrganizationIntelligenceSnapshot> {
+export async function loadOrganizationIntelligence(
+  options: Omit<OrganizationIntelligenceOptions, "snapshot"> = {},
+): Promise<OrganizationIntelligenceSnapshot> {
   const { repositorySurfaces, ...contract } = await contracts();
-  let data: IntelligenceData = { ...contract, state: "unavailable", code: "NOT_CONFIGURED", asOf: null,
-    snapshotId: null, artifactSha256: null, observationWindow: null, repositories: [], endpoints: projectEndpointModules({}, []) };
+  let data: IntelligenceData = {
+    ...contract,
+    state: "unavailable",
+    code: "NOT_CONFIGURED",
+    asOf: null,
+    snapshotId: null,
+    artifactSha256: null,
+    observationWindow: null,
+    repositories: [],
+    endpoints: projectEndpointModules({}, []),
+  };
   const filename = options.filename ?? process.env["EGOHYGIENE_INTELLIGENCE_FLEET"];
   let navigationViews: unknown = {};
   if (filename) {
@@ -392,16 +657,36 @@ export async function loadOrganizationIntelligence(options: Omit<OrganizationInt
       requireInput(hash(content) === expected, "INPUT_INCOMPATIBLE");
       const handoff = await fleetArtifactBinding(options, content, asOf);
       const projected = projectFleet(JSON.parse(content.toString("utf8")), asOf, maximumAge);
-      const admitted = handoff === "partial" && (projected.state === "available" || projected.state === "stale")
-        ? { ...projected, state: "partial" as const, code: "PARTIAL" as const,
-          endpoints: { ...projected.endpoints, dashboard: { id: "dashboard", state: "partial" as const, groups: [] } } } : projected;
+      const admitted =
+        handoff === "partial" && (projected.state === "available" || projected.state === "stale")
+          ? {
+              ...projected,
+              state: "partial" as const,
+              code: "PARTIAL" as const,
+              endpoints: {
+                ...projected.endpoints,
+                dashboard: { id: "dashboard", state: "partial" as const, groups: [] },
+              },
+            }
+          : projected;
       // The local review checksum binds acquisition only. Unused view payloads
       // cannot perturb browser output through a raw whole-file checksum.
-      const linked = { ...admitted, repositories: await attachRepositoryPublications(admitted.repositories, {
-        filename: options.publicationsFilename ?? process.env["EGOHYGIENE_INTELLIGENCE_PUBLICATIONS"],
-        expectedSha256: options.publicationsExpectedSha256 ?? process.env["EGOHYGIENE_INTELLIGENCE_PUBLICATIONS_SHA256"],
-        asOf, surfaces: repositorySurfaces,
-      }) };
+      const publicationsFilename =
+        options.publicationsFilename ?? process.env["EGOHYGIENE_INTELLIGENCE_PUBLICATIONS"];
+      const publicationsExpectedSha256 =
+        options.publicationsExpectedSha256 ??
+        process.env["EGOHYGIENE_INTELLIGENCE_PUBLICATIONS_SHA256"];
+      const linked = {
+        ...admitted,
+        repositories: await attachRepositoryPublications(admitted.repositories, {
+          ...(publicationsFilename !== undefined ? { filename: publicationsFilename } : {}),
+          ...(publicationsExpectedSha256 !== undefined
+            ? { expectedSha256: publicationsExpectedSha256 }
+            : {}),
+          asOf,
+          surfaces: repositorySurfaces,
+        }),
+      };
       data = { ...data, ...linked, asOf, artifactSha256: hash(JSON.stringify(linked)) };
       navigationViews = object(JSON.parse(content.toString("utf8")))["views"];
     } catch (error) {
@@ -410,23 +695,33 @@ export async function loadOrganizationIntelligence(options: Omit<OrganizationInt
     }
   }
   const reviews = await loadReviewEndpoints(options);
-  const independent = Object.values(reviews).find((model) => model?.source && ["available", "partial", "stale"].includes(model.state));
+  const independent = Object.values(reviews).find(
+    (model) => model?.source && ["available", "partial", "stale"].includes(model.state),
+  );
   data = { ...data, endpoints: { ...data.endpoints, ...reviews } };
-  if (independent?.source && data.state === "unavailable") data = { ...data, state: "partial", code: "PARTIAL", asOf: independent.source.asOf };
+  if (independent?.source && data.state === "unavailable")
+    data = { ...data, state: "partial", code: "PARTIAL", asOf: independent.source.asOf };
   data = { ...data, graph: buildIntelligenceNavigation(data, navigationViews) };
   // JSON text is data inside a trusted generated JS module, never literal HTML.
-  const serialized = JSON.stringify(data).replace(/</g, "\\u003c").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029");
+  const serialized = JSON.stringify(data)
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
   const moduleCode = `export const intelligenceData = ${serialized};\n`;
   return Object.freeze({ [snapshotBrand]: true as const, moduleCode, digest: hash(moduleCode) });
 }
 
 export function organizationIntelligence(options: OrganizationIntelligenceOptions = {}): Plugin {
-  if (options.snapshot && options.snapshot[snapshotBrand] !== true) throw new Error("Intelligence snapshots must come from the admitted loader.");
+  if (options.snapshot && options.snapshot[snapshotBrand] !== true)
+    throw new Error("Intelligence snapshots must come from the admitted loader.");
   let snapshot = options.snapshot;
-  return { name: "organization-intelligence", resolveId: (id) => id === moduleId ? resolvedModuleId : undefined,
+  return {
+    name: "organization-intelligence",
+    resolveId: (id) => (id === moduleId ? resolvedModuleId : undefined),
     async load(id) {
       if (id !== resolvedModuleId) return undefined;
       snapshot ??= await loadOrganizationIntelligence(options);
       return { code: snapshot.moduleCode, map: { mappings: "" } };
-    } };
+    },
+  };
 }

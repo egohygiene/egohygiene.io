@@ -8,6 +8,11 @@ import { parseArgs } from "node:util";
 
 import { JSDOM } from "jsdom";
 
+import {
+  intelligencePathFile,
+  isIntelligencePath,
+} from "../../apps/egohygiene.io/src/content/intelligence-routes.ts";
+
 const publicOrigin = "https://egohygiene.io";
 const digest = (value) => createHash("sha256").update(value).digest("hex");
 const sorted = (values) => [...values].sort();
@@ -107,15 +112,13 @@ export async function inspectPublicArtifact(artifactRoot) {
   assert.ok(paths.includes("/"));
   const pages = [];
   for (const route of receipt.routes) {
-    assert.match(
-      route.pathname,
-      /^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/,
-    );
+    if (!isIntelligencePath(route.pathname))
+      assert.match(
+        route.pathname,
+        /^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*)?$/,
+      );
     assert.ok(!route.pathname.startsWith("/store/preview"), "Isolated preview route leaked");
-    assert.equal(
-      route.file,
-      route.pathname === "/" ? "index.html" : `${route.pathname.slice(1)}/index.html`,
-    );
+    assert.equal(route.file, intelligencePathFile(route.pathname));
     assert.equal(route.canonical, new URL(route.pathname, publicOrigin).href);
     assert.equal(typeof route.indexable, "boolean");
     assert.equal(route.robots, route.indexable ? "index,follow" : "noindex,follow");
