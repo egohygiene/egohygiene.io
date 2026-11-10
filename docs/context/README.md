@@ -6,6 +6,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | Need | Read |
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
+| Current sprint closeout and final owner batches | [2026-11-09 execution/closure map](../roadmaps/sprint-closeout-2026-11-09.md): reuse existing acceptance, finish agent-owned mock/schema/reliability/browser work, then [#115 manual review](https://github.com/egohygiene/egohygiene.io/issues/115) and [#116 page drafts](https://github.com/egohygiene/egohygiene.io/issues/116); publication remains a separate later milestone |
 | Local static serving | [#57 contract](../development/static-serving-57.md): draft #109: 101 tooling tests/388 native HTTP checks pass; Docker/Task/Mac acceptance remains open |
 | Morning reconciliation | [2026-10-26 handoff](overnight-2026-10-26.md): ordered drafts, licensing, output/budget/native/browser/hosted gaps and next issues |
 | Current CI repair | [#29 contract and audit](../development/ci-baseline-29.md); draft #108 has local evidence and a hosted CodeQL pass; CI/dependency and other acceptance remain open; old #73 preserved |

@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-10-16
+updated: 2026-11-09
 governed_by:
   - architecture-roadmap
 depends_on:
@@ -25,6 +25,17 @@ supersedes: []
 ---
 
 # Ego Hygiene Website Roadmap
+
+## 2026-11-09 mock storefront sprint closeout
+
+The [current issue/closure map](docs/roadmaps/sprint-closeout-2026-11-09.md)
+under #84/#88 orders existing acceptance reconciliation, bounded synthetic schema
+work, reliability and actual browser qualification before one end-of-sprint
+[#115 owner review](https://github.com/egohygiene/egohygiene.io/issues/115) and
+[#116 creative/page-draft batch](https://github.com/egohygiene/egohygiene.io/issues/116).
+Reuse the existing publication milestone under #31 for real host/product release
+afterward. This planning update does not complete issue criteria or publish pages;
+the older roadmap entries below retain their historical context.
 
 ## 2026-10-17 first store-launch checkpoint
 
