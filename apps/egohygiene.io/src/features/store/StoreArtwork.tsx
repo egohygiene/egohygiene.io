@@ -1,6 +1,6 @@
 import { useI18n } from "@egohygiene/i18n";
 import type { StoreDesign } from "@egohygiene/schemas";
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { useStoreContent } from "./useStoreContent";
 
@@ -16,8 +16,16 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
   const presented = design ? content(design) : undefined;
   const instanceId = useId().replaceAll(":", "");
   const [failedSource, setFailedSource] = useState<string>();
+  const imageRef = useRef<HTMLImageElement>(null);
   const artwork = design?.artwork;
   const imageSource = artwork?.kind === "image" ? artwork.src : undefined;
+  useEffect(() => {
+    const image = imageRef.current;
+    // A prerendered image may fail before hydration attaches React's error listener.
+    if (image?.complete && image.naturalWidth === 0) {
+      setFailedSource(imageSource);
+    }
+  }, [imageSource]);
   const motif = design
     ? [...design.id].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 3
     : 0;
@@ -29,6 +37,7 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
     return (
       <div className="store-artwork store-artwork--image">
         <img
+          ref={imageRef}
           alt={presented?.artworkAlt?.value ?? artwork.alt}
           lang={presented?.artworkAlt?.locale}
           src={artwork.src}

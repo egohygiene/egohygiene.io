@@ -58,9 +58,31 @@ test("missing artwork preserves a usable card, design page and dismissible viewe
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  let releaseScripts = () => {};
+  const scriptsReady = new Promise<void>((resolve) => {
+    releaseScripts = resolve;
+  });
+  await page.route("**/assets/*.js", async (route) => {
+    await scriptsReady;
+    await route.fallback();
+  });
   await page.route("**/store/heartburst/heartburst-light.webp", (route) => route.abort("failed"));
-  await page.goto("/store/incompris");
   const design = card(page, "heartburst");
+  try {
+    await page.goto("/store/incompris", { waitUntil: "commit" });
+    const image = design.locator("img");
+    await image.evaluate((element) => element.scrollIntoView());
+    await expect
+      .poll(() =>
+        image.evaluate((element: HTMLImageElement) => ({
+          complete: element.complete,
+          width: element.naturalWidth,
+        })),
+      )
+      .toEqual({ complete: true, width: 0 });
+  } finally {
+    releaseScripts();
+  }
   await expect(design.getByRole("img", { name: "Artwork preview unavailable" })).toBeVisible();
   await expect(design).toContainText("Design preview");
   await design.getByRole("link").click();
