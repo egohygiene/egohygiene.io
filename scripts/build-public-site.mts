@@ -9,11 +9,11 @@ import { build, loadEnv, mergeConfig } from "vite";
 
 import { createWebsiteConfig } from "../apps/egohygiene.io/vite.config.ts";
 import { type PublicRenderer, writePublicSite } from "./public-site-output.mts";
-import { loadPublicStoreSnapshot, type PublicStoreCatalogSnapshot } from "./vite-store-catalog.mts";
 import {
   loadOrganizationIntelligence,
   type OrganizationIntelligenceSnapshot,
 } from "./vite-organization-intelligence.mts";
+import { loadPublicStoreSnapshot, type PublicStoreCatalogSnapshot } from "./vite-store-catalog.mts";
 
 const appRoot = fileURLToPath(new URL("../apps/egohygiene.io/", import.meta.url));
 
