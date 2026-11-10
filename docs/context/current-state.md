@@ -3,8 +3,9 @@
 ## Current: overnight batch verified and ready for review — 2026-11-09
 
 The [morning packet](../development/overnight-closeout-2026-11-09.md) indexes
-lookup #129, reciprocal store #36, freshness #130, browser #131 and the focused
-`fix/static-build-trust-57` draft. Earlier #105→#109/#117 remain unmerged.
+lookup #129, reciprocal store #36, freshness #130, browser #131 and focused
+[#132](https://github.com/egohygiene/egohygiene.io/pull/132), `fix/static-build-trust-57`.
+Receipt checkpoint `24ad60a` is published. Earlier #105→#109/#117 remain unmerged.
 Clean static B `2f61616310b47658742694c7a3938705807a0b36` passes actual Task/
 Docker context exports, fresh Linux amd64 image, 26 raw pages and 388 Caddy 2.11.7
 HTTP checks. Owned container cleanup passes and every one of the 45 artifact
