@@ -1,4 +1,4 @@
-import { hasAsciiControl } from "./text";
+import { hasAsciiControl } from "./text.ts";
 import type { IntelligencePublication, IntelligenceRepository } from "./types";
 
 /** Only routes admitted from the reviewed consumer publication catalog are linked. */
