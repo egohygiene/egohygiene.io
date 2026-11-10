@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourceHead": "e366e07b078070f805fd70d8036950ac81bd336e",
+  "baselineHead": "89fc70440f9c3cf32d37a6da83c7a2b969efa97d",
+  "status": "pass",
+  "scope": "Read-only source-bound asset, metadata, notice, local-reference and changed-JSON verification at published #59 checkpoint B.",
+  "assetCounts": {
+    "binaryAssets": 55,
+    "inlineSvgSourceFiles": 4,
+    "fontFiles": 2
+  },
+  "changedMarkdownFiles": 12,
+  "changedJsonFiles": 4,
+  "checkCounts": {
+    "assetSha256": 59,
+    "assetByteLength": 59,
+    "assetGitBlob": 59,
+    "assetSourceRecordPath": 159,
+    "binaryInventoryCoverage": 1,
+    "fontMetadataNameField": 26,
+    "fontNoticeVerbatimTerm": 4,
+    "fontNoticeIdentity": 4,
+    "assetLocalProvenanceIdentity": 8,
+    "noticeTimezone": 1,
+    "fontLicenseGapExplicit": 1,
+    "fontProvenancePath": 3,
+    "changedJsonParse": 4,
+    "changedMarkdownLocalLink": 435,
+    "newEvidenceLocalPathLeak": 14
+  },
+  "totalChecks": 837,
+  "failures": [],
+  "limitations": [
+    "No application builds, browser tests, hosted CI or deployment checks executed by this audit.",
+    "Markdown link verification checks local target existence, not heading-fragment correctness or external URL availability.",
+    "Pinned upstream byte identity was recorded during checkpoint A; no fresh upstream retrieval was required for unchanged fonts.",
+    "Complete authoritative historical font distribution-license verification remains unresolved; metadata preservation is not a new grant or legal clearance.",
+    "Asset inventory source remains the checkpoint A baseline; all recorded asset bytes are verified unchanged at checkpoint B.",
+    "No private masters, attachments, business records or private repositories fetched."
+  ]
+}

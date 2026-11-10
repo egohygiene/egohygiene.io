@@ -1,0 +1,1229 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-10-25",
+  "sourceHead": "89fc70440f9c3cf32d37a6da83c7a2b969efa97d",
+  "scope": "Tracked images/fonts/media plus source-coded SVGs in current repository; generated output/node_modules/history/private masters excluded. Read-only audit; no rights concluded.",
+  "counts": {
+    "identity": 16,
+    "fonts": 2,
+    "heartburst-display": 1,
+    "review-evidence": 36
+  },
+  "binaryAssets": [
+    {
+      "path": "apps/docs/public/favicon.ico",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e",
+      "gitBlob": "327b59ba4142a97005d35a60623af075d3e3ccaf",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "format": "ICO"
+    },
+    {
+      "path": "apps/docs/public/favicon.png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86",
+      "gitBlob": "02c6349682f0a1ed2943a05ce48e71193ea3409b",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 32,
+        "height": 32
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/docs/public/icons/apple-touch-icon.png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66",
+      "gitBlob": "828e524028c4474867e328eebb60754c8bec6282",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 180,
+        "height": 180
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/docs/public/icons/icon-192x192.png",
+      "bytes": 36806,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8",
+      "gitBlob": "eac9c03632fd545cf2d1ca93cbec04ceb51b4289",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 192,
+        "height": 192
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/docs/public/icons/icon-512x512.png",
+      "bytes": 161290,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c",
+      "gitBlob": "09369c0b66567fa69a872a020e81888f6fc78cd4",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 512,
+        "height": 512
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/egohygiene.io/public/favicon.ico",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e",
+      "gitBlob": "327b59ba4142a97005d35a60623af075d3e3ccaf",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "format": "ICO"
+    },
+    {
+      "path": "apps/egohygiene.io/public/favicon.png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86",
+      "gitBlob": "02c6349682f0a1ed2943a05ce48e71193ea3409b",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 32,
+        "height": 32
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/egohygiene.io/public/fonts/atkinson-bold.woff",
+      "bytes": 23780,
+      "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623",
+      "gitBlob": "e7f8977eca89348892bc93330dc44763d2bcb5ed",
+      "group": "fonts",
+      "sourceRecords": [
+        "https://github.com/withastro/astro/tree/8e14621659e86b4970f2486f13d8c7384f5ff9d9/examples/blog/public/fonts"
+      ],
+      "fontMetadata": {
+        "0": [
+          "\u00a9 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."
+        ],
+        "1": [
+          "Atkinson Hyperlegible"
+        ],
+        "2": [
+          "Bold"
+        ],
+        "3": [
+          "1.002;    ;AtkinsonHyperlegible-Bold"
+        ],
+        "4": [
+          "Atkinson Hyperlegible Bold"
+        ],
+        "5": [
+          "Version 1.002"
+        ],
+        "6": [
+          "AtkinsonHyperlegible-Bold"
+        ],
+        "8": [
+          "Applied Design Works"
+        ],
+        "9": [
+          "Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"
+        ],
+        "11": [
+          "https://www.BrailleInstitute.org/"
+        ],
+        "12": [
+          "http://helloapplied.com"
+        ],
+        "13": [
+          "Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required."
+        ],
+        "14": [
+          "https://www.BrailleInstitute.org/"
+        ]
+      },
+      "upstreamByteIdentity": "Git blob matches pinned Astro template, not proof of actual acquisition route."
+    },
+    {
+      "path": "apps/egohygiene.io/public/fonts/atkinson-regular.woff",
+      "bytes": 22792,
+      "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b",
+      "gitBlob": "bbe09c5843e554b1f763c5df8e4dfcb2b151a445",
+      "group": "fonts",
+      "sourceRecords": [
+        "https://github.com/withastro/astro/tree/8e14621659e86b4970f2486f13d8c7384f5ff9d9/examples/blog/public/fonts"
+      ],
+      "fontMetadata": {
+        "0": [
+          "\u00a9 2020 Braille Institute of America, Inc., a 501(c)(3) Charitable Organization."
+        ],
+        "1": [
+          "Atkinson Hyperlegible"
+        ],
+        "2": [
+          "Regular"
+        ],
+        "3": [
+          "1.002;    ;AtkinsonHyperlegible-Regular"
+        ],
+        "4": [
+          "Atkinson Hyperlegible Regular"
+        ],
+        "5": [
+          "Version 1.002"
+        ],
+        "6": [
+          "AtkinsonHyperlegible-Regular"
+        ],
+        "8": [
+          "Applied Design Works"
+        ],
+        "9": [
+          "Elliott Scott, Megan Eiswerth, Linus Boman, Theodore Petrosky"
+        ],
+        "11": [
+          "https://www.BrailleInstitute.org/"
+        ],
+        "12": [
+          "http://helloapplied.com"
+        ],
+        "13": [
+          "Braille Institute of America, Inc. provides Atkinson Hyperlegible for use, without derivatives or alteration, to the public free of charge for all non-commercial and commercial work. No attribution required."
+        ],
+        "14": [
+          "https://www.BrailleInstitute.org/"
+        ]
+      },
+      "upstreamByteIdentity": "Git blob matches pinned Astro template, not proof of actual acquisition route."
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/apple-touch-icon.png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66",
+      "gitBlob": "828e524028c4474867e328eebb60754c8bec6282",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 180,
+        "height": 180
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/icon-192x192.png",
+      "bytes": 36806,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8",
+      "gitBlob": "eac9c03632fd545cf2d1ca93cbec04ceb51b4289",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 192,
+        "height": 192
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/icon-512x512.png",
+      "bytes": 161290,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c",
+      "gitBlob": "09369c0b66567fa69a872a020e81888f6fc78cd4",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 512,
+        "height": 512
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/egohygiene.io/public/store/heartburst/heartburst-light.webp",
+      "bytes": 141978,
+      "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550",
+      "gitBlob": "585533ca6180b690e417e5bb410d58f2db25410d",
+      "group": "heartburst-display",
+      "sourceRecords": [
+        "assets/designs/heartburst/README.md",
+        "assets/designs/heartburst/visual-dna.json",
+        "apps/egohygiene.io/src/content/store/entries/heartburst.design.json"
+      ],
+      "permissionScope": "Recorded maintainer-approved public display derivative only; no garment, manufacturing, print-ready master, or unrestricted artwork redistribution approval established.",
+      "dimensions": {
+        "width": 1200,
+        "height": 1200
+      },
+      "format": "WEBP"
+    },
+    {
+      "path": "apps/playground/public/favicon.ico",
+      "bytes": 15086,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e",
+      "gitBlob": "327b59ba4142a97005d35a60623af075d3e3ccaf",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 48,
+        "height": 48
+      },
+      "format": "ICO"
+    },
+    {
+      "path": "apps/playground/public/favicon.png",
+      "bytes": 3008,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86",
+      "gitBlob": "02c6349682f0a1ed2943a05ce48e71193ea3409b",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 32,
+        "height": 32
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/playground/public/icons/apple-touch-icon.png",
+      "bytes": 33687,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66",
+      "gitBlob": "828e524028c4474867e328eebb60754c8bec6282",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 180,
+        "height": 180
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/playground/public/icons/icon-192x192.png",
+      "bytes": 36806,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8",
+      "gitBlob": "eac9c03632fd545cf2d1ca93cbec04ceb51b4289",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 192,
+        "height": 192
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "apps/playground/public/icons/icon-512x512.png",
+      "bytes": 161290,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c",
+      "gitBlob": "09369c0b66567fa69a872a020e81888f6fc78cd4",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 512,
+        "height": 512
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "assets/identity/source/egohygiene.png",
+      "bytes": 52800,
+      "sha256": "cc09173cd26cade507423c22c5cca914cc424563d402341310fbe796ce81951a",
+      "gitBlob": "dadddbdd13c7a3f30d37d12fe179aaf31fd1915d",
+      "group": "identity",
+      "sourceRecords": [
+        "assets/identity/source/provenance.json",
+        "assets/identity/exports.json",
+        "assets/identity/NOTICE.txt",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Recorded unchanged website/docs/playground organization identification with preserved Relay MIT notice; no third-party trademark or merchandise grant inferred.",
+      "dimensions": {
+        "width": 460,
+        "height": 460
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/design/landing-shell-35/before-desktop.jpg",
+      "bytes": 239834,
+      "sha256": "615b0f7ddd8f49e9ebccc847c4327e7e6d4afaff3a8c13b2acc14d160fc72470",
+      "gitBlob": "f6c4484a15898a0813862731caa616cfffdb6188",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/landing-shell-35/captures.json",
+        "docs/design/landing-shell-35.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 2624
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/landing-shell-35/before-phone.jpg",
+      "bytes": 189681,
+      "sha256": "924ea64fba3720b8802e039c93786dbf0c66787835f5eeea344d5a14e5e5fbe7",
+      "gitBlob": "e1795b49e4797746f4f287bd144c9de606215271",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/landing-shell-35/captures.json",
+        "docs/design/landing-shell-35.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 4296
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/landing-shell-35/desktop.jpg",
+      "bytes": 309709,
+      "sha256": "0d12577897895a1adb3e6ded4ce93a0efcddaf3b7f1fa0eb8b0cda1003b00697",
+      "gitBlob": "3288cbcebdd92f300270712e18c50ad13892ed5e",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/landing-shell-35/captures.json",
+        "docs/design/landing-shell-35.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 3144
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/landing-shell-35/expanded-phone.jpg",
+      "bytes": 367205,
+      "sha256": "1d6ea02e1b55bd03691da376d436eced33073323ce4fcaa3d66391e35120031b",
+      "gitBlob": "00cc83b6930f8bf4788c69441518565aee0111e4",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/landing-shell-35/captures.json",
+        "docs/design/landing-shell-35.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 5650
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/landing-shell-35/high-contrast.jpg",
+      "bytes": 346405,
+      "sha256": "7b43c93a1fc059efda427b6f41e756ac2151ccbf77ba7a3d83cde8b161b331d0",
+      "gitBlob": "8f833e7441771910f752d944368c3a1113e4f501",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/landing-shell-35/captures.json",
+        "docs/design/landing-shell-35.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 3147
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/landing-shell-35/phone.jpg",
+      "bytes": 215254,
+      "sha256": "fb58896b80ac90fdcbd25a028a31660c536bd14d3a4a8b31943a8f399b88bae0",
+      "gitBlob": "de086e0867c567c9f019a8efafcd74556ea53ec3",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/landing-shell-35/captures.json",
+        "docs/design/landing-shell-35.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 4262
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/landing-shell-35/rtl-phone.jpg",
+      "bytes": 254077,
+      "sha256": "98f20f3ba018f89ba280eb1d80192e5246a6678cc1fd4231dfe063a98dcc4622",
+      "gitBlob": "a521cf25692e47045bde2b844e2f4a9b98a47313",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/landing-shell-35/captures.json",
+        "docs/design/landing-shell-35.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 4577
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/landing-shell-35/tablet.jpg",
+      "bytes": 235479,
+      "sha256": "7b29ff447f39d52c889314142829377ad8ad9a7b825605ae7cfe505893bf5d3c",
+      "gitBlob": "a82ba378741c81c74b3fa553628c96f5034d8712",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/landing-shell-35/captures.json",
+        "docs/design/landing-shell-35.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 820,
+        "height": 2990
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62a/incompris-desktop.jpg",
+      "bytes": 142947,
+      "sha256": "8f9f29feeb0344052b70516b76e59f5de502cd83f14f9ed0711a79323252507d",
+      "gitBlob": "05939adfb120d97c6d6fb0dc47d2d95edc5bdc12",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62a/captures.json",
+        "docs/design/storefront-62a.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 1907
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62a/incompris-phone.jpg",
+      "bytes": 105739,
+      "sha256": "00dfde932480e4c95e2cdd7ab5da20289fad335f1de4365d16624e82e607e586",
+      "gitBlob": "039c3bfeed0f84b33425a851afaeb84667ecdbbe",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62a/captures.json",
+        "docs/design/storefront-62a.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 1925
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62a/store-desktop.jpg",
+      "bytes": 201544,
+      "sha256": "701c6e98c761c49194a2189bdf8a59382604c0da693ebe2c4773b74967c189f5",
+      "gitBlob": "cc30fcc54ded8c8336830f1ff097e6ce18230d73",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62a/captures.json",
+        "docs/design/storefront-62a.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 2476
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62a/store-phone.jpg",
+      "bytes": 131567,
+      "sha256": "906422d4f9ba7ef6a36927f59abe70414602b2e1b96311d56ca3201eee0635c8",
+      "gitBlob": "357a0784b278e60a85764f31bd1aeffd897ab54c",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62a/captures.json",
+        "docs/design/storefront-62a.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 2683
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62b/demo-songs-phone.jpg",
+      "bytes": 103740,
+      "sha256": "ae0a95e98c0930cd3637755c7e764d397352a870819d48380ab47016100ef8dc",
+      "gitBlob": "3e3da064405bf68b1ecb798f9f685c4088afda71",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62b/captures.json",
+        "docs/design/storefront-62b.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 2215
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62b/demo-standalone-desktop.jpg",
+      "bytes": 201852,
+      "sha256": "e66f2f420216a7a62e2a45b570c8d3e41c54140ab2c00d47760be40d69b5e94d",
+      "gitBlob": "45d514ad639c493056a8d1711a49b1e361239bc6",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62b/captures.json",
+        "docs/design/storefront-62b.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 2075
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62b/play-songs-phone.jpg",
+      "bytes": 81437,
+      "sha256": "9e4282c60cb7aed4562c7b50c66931d3d045077e57c17213939e11e3e875bd83",
+      "gitBlob": "223ded151636b0b83b675698d44938450d74984d",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62b/captures.json",
+        "docs/design/storefront-62b.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 1772
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62c/expanded-incompris-tablet.jpg",
+      "bytes": 346674,
+      "sha256": "d7bb59cbd2f3b572fe7ee0dec0fc5a5a56208e91d2db5591bdcac2fa967e1afe",
+      "gitBlob": "e86dcff69550c0d795d8e5ced21e0fdec2de8af8",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62c/captures.json",
+        "docs/design/storefront-62c.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 820,
+        "height": 3433
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62c/expanded-shop-desktop.jpg",
+      "bytes": 440942,
+      "sha256": "7028e30724701891815c965d2f96a4277f1faf8e89d35dbc344d8feeb1ce3b1b",
+      "gitBlob": "20bf45887d712e8bb1eddea4bdfa14621f4b8785",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62c/captures.json",
+        "docs/design/storefront-62c.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 3672
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62c/rtl-artist-phone.jpg",
+      "bytes": 247863,
+      "sha256": "0766adfa78fa6e3b5c311c7b16582c5f26012aa9bc42d2b13efe616a8f69061b",
+      "gitBlob": "df8c53a3d45642867bf17d5d9279189e46f54fde",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62c/captures.json",
+        "docs/design/storefront-62c.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 4355
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/design/storefront-62c/rtl-songs-small-phone.jpg",
+      "bytes": 141848,
+      "sha256": "34b744cf241c1d0b8289598bb0d392789ac3c29ff5ed90e9193dd7f1c450153e",
+      "gitBlob": "f5984d0cd8004518cf07b705616808c8b9bae92f",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/design/storefront-62c/captures.json",
+        "docs/design/storefront-62c.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 320,
+        "height": 2817
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/identity/browser-icons.png",
+      "bytes": 100418,
+      "sha256": "86c2ee40feefceb6083e8198ee66e29c4d83c548095b26271554b4eaf299be9e",
+      "gitBlob": "e9fb8f405a58abe0ad1551aae9ae68e5bd4b32a4",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/identity/verification.md",
+        "docs/identity/README.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1100,
+        "height": 610
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/store/reviews/checkout-handoff-37b/desktop-keyboard-focused.png",
+      "bytes": 70063,
+      "sha256": "0221152974291204394aed9e3aa762ceb2fdef723993b08f7d69aedfb58ebaf8",
+      "gitBlob": "b6a1865d3dee0a600ade0f699171c3a0f9a3e2e1",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/checkout-handoff-37b/journeys.json",
+        "docs/store/reviews/checkout-handoff-37b/baseline.json",
+        "docs/store/checkout-handoff-37b.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1280,
+        "height": 800
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/store/reviews/checkout-handoff-37b/mobile-touch-live.png",
+      "bytes": 49411,
+      "sha256": "a92c24abc23cdf3b7d8214e766587eb1e1ad9f949b7f03c4b4e072d2cd674dc0",
+      "gitBlob": "1ec5302ef41c1dc59942d2a28d3dc403e3c23ad9",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/checkout-handoff-37b/journeys.json",
+        "docs/store/reviews/checkout-handoff-37b/baseline.json",
+        "docs/store/checkout-handoff-37b.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/store/reviews/checkout-handoff-37c/fourthwall-preview-mobile.png",
+      "bytes": 194659,
+      "sha256": "6f5ccb8cca45bcaf0293fd43a5126eb8f56fbcae2213033249edc98fe1fc52ba",
+      "gitBlob": "2a19775f884f2a017552fe1cc686ffb49b29f4c9",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/checkout-handoff-37c/checks.json",
+        "docs/store/reviews/checkout-handoff-37c/journeys.json",
+        "docs/store/reviews/checkout-handoff-37c/baseline.json",
+        "docs/store/reviews/checkout-handoff-37c/production-artifact.json",
+        "docs/store/checkout-handoff-37c.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 2503
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/store/reviews/checkout-handoff-37c/heartburst-mobile.png",
+      "bytes": 246370,
+      "sha256": "f5d56a7bee4408773bf139ae708081a9527d42c11a42e482cc7ab3490cb4d8f1",
+      "gitBlob": "ca8662824090fe567fff9cc0c954160d9bb86ade",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/checkout-handoff-37c/checks.json",
+        "docs/store/reviews/checkout-handoff-37c/journeys.json",
+        "docs/store/reviews/checkout-handoff-37c/baseline.json",
+        "docs/store/reviews/checkout-handoff-37c/production-artifact.json",
+        "docs/store/checkout-handoff-37c.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 1670
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/store/reviews/heartburst/desktop.webp",
+      "bytes": 77424,
+      "sha256": "1e7caea48d5e215e37ba1690c3df3375f8eb038985a5e47862b4d7af865d893d",
+      "gitBlob": "335cab47482018600458ecf86553b5ce8b30241f",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/test-plan.md",
+        "assets/designs/heartburst/README.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 1213
+      },
+      "format": "WEBP"
+    },
+    {
+      "path": "docs/store/reviews/heartburst/mobile.webp",
+      "bytes": 53734,
+      "sha256": "ec20e90ace42ea34c037a842f88012508886d7398b8a057cc9ddad7d0e235881",
+      "gitBlob": "cd207402ed361a2e7d2475ec0c4fa9e08582be15",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/test-plan.md",
+        "assets/designs/heartburst/README.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 1498
+      },
+      "format": "WEBP"
+    },
+    {
+      "path": "docs/store/reviews/heartburst/storefront.webp",
+      "bytes": 69248,
+      "sha256": "0726edcb9199cbdadc6061c87dcaca9433418b36f2bb966e12dcf0e7e72e936d",
+      "gitBlob": "3c517cd512b328c5da0853b1f2862802bb4cdf2f",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/test-plan.md",
+        "assets/designs/heartburst/README.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 1000
+      },
+      "format": "WEBP"
+    },
+    {
+      "path": "docs/store/reviews/locale-contract-64a/roadmap-subissues.jpg",
+      "bytes": 155975,
+      "sha256": "0d3f5d25a1ba97876c6a3ee522ea07c531a81b0a534b3f320b0cb98de6ce4200",
+      "gitBlob": "ed6c31364a9a29d850a4b1bf9dd9aa65d7710758",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/locale-contract-64a/artifacts.json",
+        "docs/store/reviews/locale-contract-64a/checks.json",
+        "docs/store/locale-contract-64a.md",
+        "docs/context/provenance.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1348,
+        "height": 926
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/400-percent-equivalent-reflow.png",
+      "bytes": 173221,
+      "sha256": "1a916ebedbcd609b81dc14cbb9c99b92bcc8f02bc0be7523feae90570a2b9743",
+      "gitBlob": "72019cdb07ed1bb07681e0f4cd1dc47807491f16",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/qualification-37/manifest.json",
+        "docs/store/reviews/qualification-37/checks.json",
+        "docs/store/reviews/qualification-37/production-artifact.json",
+        "docs/store/reviews/qualification-37/review.json",
+        "docs/store/reviews/qualification-37/browser.json",
+        "docs/store/qualification-37.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 320,
+        "height": 2281
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/handoff/desktop-keyboard-focused.png",
+      "bytes": 70063,
+      "sha256": "0221152974291204394aed9e3aa762ceb2fdef723993b08f7d69aedfb58ebaf8",
+      "gitBlob": "b6a1865d3dee0a600ade0f699171c3a0f9a3e2e1",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/qualification-37/handoff/journeys.json",
+        "docs/store/reviews/qualification-37/handoff/baseline.json",
+        "docs/store/qualification-37.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1280,
+        "height": 800
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/handoff/mobile-touch-live.png",
+      "bytes": 49411,
+      "sha256": "a92c24abc23cdf3b7d8214e766587eb1e1ad9f949b7f03c4b4e072d2cd674dc0",
+      "gitBlob": "1ec5302ef41c1dc59942d2a28d3dc403e3c23ad9",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/qualification-37/handoff/journeys.json",
+        "docs/store/reviews/qualification-37/handoff/baseline.json",
+        "docs/store/qualification-37.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      },
+      "format": "PNG"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/layout/expanded-incompris-tablet.jpg",
+      "bytes": 346674,
+      "sha256": "d7bb59cbd2f3b572fe7ee0dec0fc5a5a56208e91d2db5591bdcac2fa967e1afe",
+      "gitBlob": "e86dcff69550c0d795d8e5ced21e0fdec2de8af8",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/qualification-37/layout/captures.json",
+        "docs/store/qualification-37.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 820,
+        "height": 3433
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/layout/expanded-shop-desktop.jpg",
+      "bytes": 440941,
+      "sha256": "19728d9d6edfc7732386df3e6e774db05beeaa0bfc15cc248e54b6b3a5599303",
+      "gitBlob": "f223da963649b5ccf3fb04601fb9f991065fd944",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/qualification-37/layout/captures.json",
+        "docs/store/qualification-37.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 1440,
+        "height": 3672
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/layout/rtl-artist-phone.jpg",
+      "bytes": 248093,
+      "sha256": "75b38e740af3cbba4e6e78ec06e38919a5b6be5f4351d7c8e9c154fc8a337e08",
+      "gitBlob": "b4461185a7cd74bc4ce052f67cf77b70fd014cac",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/qualification-37/layout/captures.json",
+        "docs/store/qualification-37.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 390,
+        "height": 4355
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/layout/rtl-songs-small-phone.jpg",
+      "bytes": 142081,
+      "sha256": "1c7460713fcd2a55545036f38291337858bf9533ea56d369fe54b7307c078125",
+      "gitBlob": "1ba45576586ab76d19c2bc0e9de6e334c9a0dc99",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/qualification-37/layout/captures.json",
+        "docs/store/qualification-37.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 320,
+        "height": 2817
+      },
+      "format": "JPEG"
+    },
+    {
+      "path": "docs/store/reviews/qualification-37/root-text-200-percent.png",
+      "bytes": 446674,
+      "sha256": "9b3ad86b3cec92f437a083a72db2978980e9d0b5129a751d772482f1f7c3e65b",
+      "gitBlob": "22b850a35130f8775f113314d15dc05b8c8e9dd9",
+      "group": "review-evidence",
+      "sourceRecords": [
+        "docs/store/reviews/qualification-37/manifest.json",
+        "docs/store/reviews/qualification-37/checks.json",
+        "docs/store/reviews/qualification-37/production-artifact.json",
+        "docs/store/reviews/qualification-37/review.json",
+        "docs/store/reviews/qualification-37/browser.json",
+        "docs/store/qualification-37.md"
+      ],
+      "permissionScope": "Retained local UI/review evidence; existing capture records do not grant independent rights to constituent artwork, marks, fonts, or third-party UI.",
+      "dimensions": {
+        "width": 768,
+        "height": 3996
+      },
+      "format": "PNG"
+    }
+  ],
+  "inlineSvgSources": [
+    {
+      "path": "packages/icons/src/Icon.tsx",
+      "bytes": 1414,
+      "sha256": "99aef7c5c2dd49e3fe25d593a5ba24e4f32ec026864bf0c8fa3d52373d228185",
+      "gitBlob": "8d97cf67ec880b2081867ba49476674a81d59da3",
+      "group": "inline-svg",
+      "scope": "Source-coded UI symbols / fictional artwork studies, not approved merchandise designs. No external asset attribution or separate upstream SVG license documented in current source."
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StoreArtwork.tsx",
+      "bytes": 6590,
+      "sha256": "ba4dffa6236cf989c34b739fbc1a8d2f2cc4fa14de2e1cd974c148d916ed3940",
+      "gitBlob": "5cfb064076b30d1b2470375eb56d60a6b95c9ce4",
+      "group": "inline-svg",
+      "scope": "Source-coded UI symbols / fictional artwork studies, not approved merchandise designs. No external asset attribution or separate upstream SVG license documented in current source."
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StoreArtworkGallery.tsx",
+      "bytes": 5116,
+      "sha256": "61b390757e0f5bc6a8788cd79777ccc608b4503b660fe17fcd5cdae619091d0b",
+      "gitBlob": "705f8b7faf1a03ccf97a041a67d232147b6fcfdd",
+      "group": "inline-svg",
+      "scope": "Source-coded UI symbols / fictional artwork studies, not approved merchandise designs. No external asset attribution or separate upstream SVG license documented in current source."
+    },
+    {
+      "path": "apps/egohygiene.io/src/features/store/StorePages.tsx",
+      "bytes": 32098,
+      "sha256": "0b7752fb4f97b78963639d1daa7178f0911b56b8dea7544f33634c271a29d256",
+      "gitBlob": "1a6d50b88455b1ce035155be69e3ea8209e65e0b",
+      "group": "inline-svg",
+      "scope": "Source-coded UI symbols / fictional artwork studies, not approved merchandise designs. No external asset attribution or separate upstream SVG license documented in current source."
+    }
+  ],
+  "findings": [
+    {
+      "id": "fonts-version-notice",
+      "status": "gap",
+      "fact": "Both WOFFs are version 1.002, copyright 2020 Braille Institute, custom nameID13 unchanged-use terms. No sibling standalone font notice/license; pinned Astro blob matches confirmed. Current source has no @font-face or Atkinson usage references, but public copies remain in normal build inventories.",
+      "action": "Add a truthful notice for exact binaries, metadata/source hashes and observed embedded terms. Do not substitute current Google Fonts OFL terms for these binaries. Obtain authoritative historical complete distribution license or make an explicit later remove/replace decision."
+    },
+    {
+      "id": "identity",
+      "status": "recorded",
+      "fact": "Identity source and five exports for each of three apps have pinned Relay source, original avatar capture, preserved MIT notice, explicit use constraints; check hashes against manifest.",
+      "action": "Reference existing notice/provenance without inventing broader brand or merch permission."
+    },
+    {
+      "id": "heartburst",
+      "status": "limited-display",
+      "fact": "Public derivative has pinned source lineage, SHA256 and export recipe; visual DNA production.approved false/status review.",
+      "action": "Record display-only scope; rights and production preparation owner decisions remain under real-product follow-up. Private masters/source pack were not fetched."
+    },
+    {
+      "id": "inline-svg-and-captures",
+      "status": "documented-provenance-only",
+      "fact": "Source-coded UI SVGs and retained review screenshots exist without independent per-asset license grants.",
+      "action": "Inventory separately from code licensing; treat screenshot constituents under their own terms. Do not infer merchandise grants."
+    }
+  ],
+  "primarySources": [
+    {
+      "url": "https://api.github.com/repos/withastro/astro/contents/examples/blog/public/fonts?ref=8e14621659e86b4970f2486f13d8c7384f5ff9d9",
+      "result": "Pinned Git blob IDs and lengths match both tracked WOFF binaries."
+    },
+    {
+      "url": "https://www.brailleinstitute.org/wp-content/uploads/2020/11/Atkinson-Hyperlegible-Font-License-2020-1104.pdf",
+      "result": "Historical official URL was inaccessible during audit; cannot present as primary-source verification."
+    },
+    {
+      "url": "https://www.brailleinstitute.org/freefont/",
+      "result": "Current page links a download EULA and describes font use; not evidence tying newer license to exact tracked 1.002 binaries."
+    }
+  ],
+  "corroboratingOnly": [
+    {
+      "url": "https://mirror.math.princeton.edu/pub/CTAN/fonts/atkinson/doc/Atkinson-Hyperlegible-Font-License-2020-1104.pdf",
+      "result": "Mirror exposes historic AHFL full text; different from embedded short metadata. Not treated as authoritative exact-binary license verification."
+    }
+  ],
+  "ownerDecisions": [
+    "Whether to grant separate artwork/documentation rights beyond current display/use records.",
+    "Any future Heartburst garment, print, commercial licensing and manufacturing approval.",
+    "Whether to retain unused historical font files with verified full license, or later remove/replace deliberately.",
+    "Any wider brand/trademark authorization beyond existing organization identification."
+  ],
+  "identityHashChecks": [
+    {
+      "path": "apps/docs/public/favicon.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/docs/public/icons/apple-touch-icon.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/docs/public/icons/icon-192x192.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/docs/public/icons/icon-512x512.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/docs/public/favicon.ico",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/egohygiene.io/public/favicon.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/apple-touch-icon.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/icon-192x192.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/egohygiene.io/public/icons/icon-512x512.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/egohygiene.io/public/favicon.ico",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/playground/public/favicon.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/playground/public/icons/apple-touch-icon.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/playground/public/icons/icon-192x192.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/playground/public/icons/icon-512x512.png",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "apps/playground/public/favicon.ico",
+      "matchesRecordedSha256": true
+    },
+    {
+      "path": "assets/identity/source/egohygiene.png",
+      "matchesRecordedSha256": true
+    }
+  ],
+  "heartburstHashCheck": {
+    "path": "apps/egohygiene.io/public/store/heartburst/heartburst-light.webp",
+    "matchesRecordedSha256": true
+  },
+  "recordedTimezone": "America/New_York"
+}
