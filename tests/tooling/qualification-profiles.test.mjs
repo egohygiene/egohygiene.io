@@ -38,6 +38,10 @@ if (script === "scripts/store-environment.mjs" && args.at(-1) === "build") {
   writeFileSync(path.join(output, "assets/app.js"), "export const built = true;\\n");
   writeFileSync(path.join(output, "assets/app.css"), "body { color: black; }\\n");
   if (app === "egohygiene.io") writeFileSync(path.join(output, "public-routes.json"), "{}\\n");
+  if (app === "docs" && process.env.FIXTURE_TAMPER) {
+    const target = process.env.FIXTURE_TAMPER === "old-js" ? "assets/old.js" : "index.html";
+    writeFileSync(path.join("apps/egohygiene.io/dist", target), "unexpected later writer");
+  }
 }
 `;
   for (const name of [
@@ -84,11 +88,16 @@ if (script === "scripts/store-environment.mjs" && args.at(-1) === "build") {
   return root;
 }
 
-async function runProfile(root, profile, fail = "") {
+async function runProfile(root, profile, fail = "", tamper = "") {
   const result = spawnSync(process.execPath, ["scripts/qualify-store.mjs", "--profile", profile], {
     cwd: root,
     encoding: "utf8",
-    env: { ...process.env, FIXTURE_FAIL: fail, VITE_STORE_PREVIEW: "true" },
+    env: {
+      ...process.env,
+      FIXTURE_FAIL: fail,
+      FIXTURE_TAMPER: tamper,
+      VITE_STORE_PREVIEW: "true",
+    },
     timeout: 30_000,
   });
   const report = JSON.parse(
@@ -108,6 +117,28 @@ async function runProfile(root, profile, fail = "") {
     .map((line) => JSON.parse(line));
   return { result, report, commands };
 }
+
+test("a later build cannot rebaseline a replaced homepage or extra old JavaScript", async (t) => {
+  for (const tamper of ["homepage", "old-js"]) {
+    await t.test(tamper, async (subtest) => {
+      const root = await fixture(subtest);
+      const { result, report, commands } = await runProfile(root, "smoke", "", tamper);
+      assert.equal(result.status, 1, result.stderr);
+      assert.equal(report.status, "failed");
+      assert.match(report.failure, /egohygiene.io output changed during fresh docs build/);
+      assert.ok(report.failure.includes(tamper === "old-js" ? "assets/old.js" : "index.html"));
+      assert.deepEqual(
+        report.smokeBuilds.map(({ app }) => app),
+        ["egohygiene.io", "docs"],
+      );
+      assert.ok(commands.every(({ identity }) => !/playground|vitest|test:e2e/.test(identity)));
+      await assert.rejects(
+        readFile(path.join(root, "test-results/store-qualification/smoke/build-receipt.json")),
+        /ENOENT/,
+      );
+    });
+  }
+});
 
 test("strict non-browser and full profiles retain the artifact failure and stop downstream work", async (t) => {
   for (const profile of ["ci-check", "full"]) {

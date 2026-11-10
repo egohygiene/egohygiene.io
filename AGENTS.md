@@ -1,5 +1,17 @@
 # Agent entry point
 
+## Current #52 freshness and production harness — 2026-11-09
+
+The overnight batch continues from draft #129 with the
+[contract and delivery](docs/development/qualification-freshness-52.md).
+Source `e0f9b9b` captures each app at its build, rejects later output changes and
+serves production fixtures for strict browser guards. All 24 focused tooling and
+26 actual site/docs browser cases pass; tooling/browser types and direct fresh
+smoke pass. The verification receipt retains one named-command exit anomaly.
+Historical writer/root cause and budgets remain unresolved. Actual shared-button
+contrast failures belong to the following #70/#49 draft. Preserve #129 and store
+#36; keep owner/manual review in #115 and creative pages in #116.
+
 ## Current overnight closeout execution — 2026-11-09
 
 Alan authorized a bounded issue batch while asleep and a next-day sync. Read the

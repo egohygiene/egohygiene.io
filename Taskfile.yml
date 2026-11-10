@@ -75,7 +75,7 @@ tasks:
       - node scripts/store-environment.mjs run test:browser:discover
 
   test:e2e:
-    desc: "Run site, docs and playground journeys against fresh local dev servers"
+    desc: "Run site, docs and playground journeys against prepared production builds"
     cmds:
       - node scripts/store-environment.mjs run test:e2e
 
