@@ -1,5 +1,9 @@
 # Component stylesheet ownership — #53
 
+## Current local acceptance — 2026-11-10
+
+[Manager repair and source-bound proof](../development/qualification-costs-2026-11-10.md) replace automatic external refs and pass all five actual Chromium component cases, including same-document manager story/theme switching. Native Storybook/standalone builds and inspected screenshots cover light/dark/high-contrast; strict request guards remain active. Original A/B are merged; this final manager fix awaits its focused PR integration. Native Mac/AT review remains #115/#37. The historical pending results below are retained as dated evidence.
+
 Recorded 2026-10-25 (America/New_York). Alan authorized the existing PR catch-up,
 then #53. The [merge receipt](../context/merges-2026-10-25.json) records eight merged
 PRs, including indirectly integrated #93. Main continuity base is

@@ -51,8 +51,65 @@ screenshots cover Button/Orbit in all themes and the manager transitions.
 
 ## C: verification
 
-Pending source-bound final run. Preliminary normal/report builds have identical
-64-file path/hash inventories. The manager and four existing browser cases pass.
+[Exact verification](reviews/qualification-costs-2026-11-10/verification.json) and
+[complete attributed artifact report](reviews/qualification-costs-2026-11-10/costs.json)
+retain clean source `70cc124`, all 64 hashes and the eight active failures.
+`task ci:check` passes its first 15 steps (363 units, 115 tooling, 152 catalog,
+four semantic, one consumer, three smoke; every compiler profile) then fails the
+strict artifact step: Task 201, inner 1. `pnpm report:costs` exits 1 for the same
+eight findings. Default/report builds have identical 64-file inventories.
+Fresh native Storybook/consumer builds and all five actual Chromium cases pass
+at `dc4bb25`; the later source differs only in context-manifest formatting.
+Nine passing screenshots were saved; Button/Orbit geometry/colors and manager
+states were inspected in the three themes. Native Mac/AT checks remain #115/#37.
+No runtime dependencies, public pins, URLs, purchase guards or limits changed.
+
+### Cost interpretation and prepared decision
+
+46 HTML documents include the separate 404 artifact; the public inventory remains
+45 pages/ten sitemap entries. The largest documents are catalog (42,233 bytes),
+Intelligence overview (41,128) and dashboard (28,799). The 20,000-byte aggregate
+ceiling cannot contain even the catalog page on its own. Shared scripts/styles
+and public assets are referenced by many documents and counted once in aggregate
+artifact totals. Per-route static reachability is conservative, not a browser
+waterfall or a Core Web Vitals measurement.
+
+React DOM/router, Zod and actual page/graph code dominate attributed modules.
+The root's many laboratory dependencies are not all shipped to visitors. Zod
+also revalidates live purchase facts: removing it would require proving the same
+fail-closed contracts, not a type assertion. CSS source attribution is diagnostic
+only; nested imports may be handled internally by Vite. No speculative schema
+rewrite or rendering migration was attempted to make a number green.
+
+The [inactive proposed policy](proposals/public-budgets-2026-11-10.md) supplies
+measured ceilings and an applicable patch for one #115 review. It is not active,
+not an optimization, and not agreed user-performance policy. #52/#29 retain
+regression policy/optimization, output-cause and hosted acceptance. #91's actual
+rendering criteria can be reconciled separately against the already-qualified
+45-page raw/HTTP and app-browser receipts; this does not waive cost failures.
+
+### Hosted dependency-review boundary
+
+The live repository is public. Official [GitHub dependency-review documentation](https://docs.github.com/en/code-security/concepts/supply-chain-security/dependency-review)
+says the feature becomes available with dependency graph enabled. Current
+[security-settings guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)
+does not guarantee graph is enabled for every public repository. Do not prescribe
+a paid plan based on this error.
+
+At prior hosted head `68f17cf`, [run 42787359682](https://github.com/egohygiene/egohygiene.io/actions/runs/42787359682)
+reported unsupported repository/graph configuration. The connector has no graph
+settings operation; its raw repository snapshot omits configured graph state.
+The available CLI connection returns HTTP 403 for an identical-head dependency
+comparison, and 404 for SBOM export. These responses do not prove the graph is off.
+No workflow permission, service setting or gate was changed.
+
+Prepared #115 action: open [repository security settings](https://github.com/egohygiene/egohygiene.io/settings/security_analysis)
+with the owner's administrative session and read the actual Dependency graph
+state. If disabled, enable it; if already enabled, retain that evidence and use
+the failing run/403/404 packet for GitHub configuration/support diagnosis. Verify
+on the next ordinary PR run. Do not add continue-on-error, silently skip review,
+buy a feature or treat a settings toggle alone as a successful dependency review.
+
 Historical output-writer root cause remains unknown; guards detect corruption,
 and clean repeats do not establish a causal repair.
 
