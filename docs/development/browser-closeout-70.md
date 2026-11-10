@@ -32,3 +32,32 @@ browser/source/command/results and failures honestly. Chromium emulation, synthe
 text scaling and forced colors do not establish real devices, native zoom,
 assistive technology, Safari/iOS or Mac/Apple Silicon acceptance. Those remain in
 #115; creative associations/pages remain #116 and real publication remains #31.
+
+## B — Observed failures repaired
+
+Source checkpoints `229e949` / `adb9a51` fix theme-switch contrast and enlarged
+footer text; `d04dc61` repairs images that fail before hydration. The renderer
+checks an already-complete image after mounting instead of depending only on a
+later error event. Seven focused artwork tests cover both failed/successful
+completed images, normal errors, changed sources and placeholder/hero identity.
+The real missing-artwork journey now deliberately delays modules until the raw
+image has failed, then verifies recovery and gallery/navigation behavior.
+
+The 200% expanded-text probe identified a specific Accessibility footer link
+extending a 390px document to 399px. Footer navigation and link widths are bounded
+and long labels wrap; content and controls remain visible. All 99 expanded/RTL
+layout cases subsequently pass, including the narrow enlarged-text case.
+
+An existing hydration assertion used exact label-text matching even though the
+native select's accessible role/name is correct. It now uses the Language
+combobox role while retaining the same exact name/value and hydration identity
+checks; the targeted actual journey passes.
+
+At `d04dc61`, the complete browser qualifier passes application, production,
+isolated preview, component and intercepted-checkout steps, then finds the test
+host executing under two module URLs: `/@fs//…` and Vite's canonical `/@fs/…`.
+That creates two mounted shells on locale history navigation. Source `e80ca51`
+canonicalizes the test entry URL and adds an explicit single-shell invariant.
+All ten real locale/history/storage/gallery/inert-preview journeys pass in the
+focused runner; no locator is weakened with first-match selection or retry.
+The final complete profile and source-bound C receipt follow this checkpoint.

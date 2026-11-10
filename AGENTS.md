@@ -1,5 +1,14 @@
 # Agent entry point
 
+## Current #70/#49 browser closeout implementation — 2026-11-09
+
+[Observed repairs](docs/development/browser-closeout-70.md) fix theme-switch
+contrast, enlarged footer wrapping, pre-hydration image failure and duplicate
+test-host module identity on locale history. Source `e80ca51` includes the
+canonical-entry fix; focused locale journeys pass all ten cases. The full
+browser profile's prior core suites and 99 layouts pass; final complete C follows.
+Keep all guards/ceilings and physical-device/AT/native-zoom limits explicit.
+
 ## Current #52 freshness and production harness — 2026-11-09
 
 The overnight batch continues from draft #129 with the
