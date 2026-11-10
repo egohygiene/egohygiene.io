@@ -1,0 +1,102 @@
+# The build context starts empty. Add only reviewed inputs for the normal website
+# build; this is not a general checkout or the isolated provider-preview artifact.
+**
+!package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!tsconfig.base.json
+
+# Frozen workspace installation still needs every existing workspace manifest.
+!apps/docs/package.json
+!apps/playground/package.json
+!apps/egohygiene.io/package.json
+!packages/api-client/package.json
+!packages/config/package.json
+!packages/content/package.json
+!packages/design-tokens/package.json
+!packages/i18n/package.json
+!packages/icons/package.json
+!packages/schemas/package.json
+!packages/themes/package.json
+!packages/ui/package.json
+!packages/utilities/package.json
+!packages/visualizations/package.json
+
+# Source exports resolve these workspaces directly; installed/generated output is
+# deliberately absent. Keep canonical generated design-token source files.
+!packages/api-client/src/**
+!packages/config/src/**
+!packages/content/src/**
+!packages/design-tokens/src/**
+!packages/i18n/src/**
+!packages/icons/src/**
+!packages/schemas/src/**
+!packages/themes/src/**
+!packages/ui/src/**
+!packages/utilities/src/**
+!packages/visualizations/src/**
+
+!apps/egohygiene.io/index.html
+!apps/egohygiene.io/vite.config.ts
+!apps/egohygiene.io/tsconfig.app.json
+!apps/egohygiene.io/src/**
+!apps/egohygiene.io/public/**
+
+!scripts/build-public-site.mts
+!scripts/public-site-output.mts
+!scripts/store-catalog.mts
+!scripts/vite-store-catalog.mts
+!scripts/vite-public-pages.mts
+!infra/docker/Dockerfile
+!infra/caddy/Caddyfile
+
+# Apply these after the source/public allowances, including nested local files.
+# Root .npmrc is intentionally omitted: install policy is explicit in Dockerfile,
+# so a local authentication setting never enters the context.
+**/.*
+**/node_modules
+**/dist
+**/dist-preview
+**/dist-node
+**/coverage
+**/test-results
+**/playwright-report
+**/storybook-static
+**/private
+**/secrets
+**/credentials
+**/masters
+**/private-artwork
+**/business-records
+**/tests
+**/test
+**/__tests__
+**/__snapshots__
+**/*.test.*
+**/*.spec.*
+**/*.stories.*
+**/*.md
+**/*.tsbuildinfo
+**/*.map
+**/*.env
+**/*.env.*
+**/*.[pP][eE][mM]
+**/*.[kK][eE][yY]
+**/*.[cC][rR][tT]
+**/*.[cC][eE][rR]
+**/*.[pP]12
+**/*.[pP][fF][xX]
+**/*.zip
+**/*.tar
+**/*.gz
+**/*.tgz
+**/*.[pP][sS][dD]
+**/*.[pP][sS][bB]
+**/*.[kK][rR][aA]
+**/*.[xX][cC][fF]
+**/*.[aA][fF][dD][eE][sS][iI][gG][nN]
+**/*.[aA][fF][pP][hH][oO][tT][oO]
+**/*.[aA][iI]
+
+# This fixed, non-secret runtime pin is the only admitted dotfile.
+!.tool-versions
