@@ -106,5 +106,7 @@
   "firstProductPacket116Matrix": "docs/store/reviews/first-product-packet-116/route-copy-asset-matrix.json",
   "firstProductPacket116PilotTemplate": "docs/store/templates/pilot-catalog.example.json",
   "firstProductPacket116ProviderTemplate": "docs/store/templates/provider-entry-private-template.md",
-  "relationshipBoundary34Evidence": "docs/store/reviews/relationship-boundary-34/verification.json"
+  "relationshipBoundary34Evidence": "docs/store/reviews/relationship-boundary-34/verification.json",
+  "productReadiness20261110": "docs/roadmaps/product-readiness-2026-11-10.md",
+  "productReadinessMerges20261110": "docs/development/reviews/readiness-merge-2026-11-10/merges.json"
 }
