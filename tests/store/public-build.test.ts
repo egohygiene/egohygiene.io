@@ -47,14 +47,19 @@ const product = (id: string, visibility = "public") => ({
     variants: [{ id: "variant-small", label: "Small", providerVariantId: "provider-small" }],
   },
 });
-const route = (id: string) => qualifySyntheticRoute({
-  id: `route-${id}`,
-  provider: "fourthwall",
-  productId: id,
-  checkoutUrl: `https://synthetic-test.fourthwall.com/products/${id}`,
-  providerVariantIds: ["provider-small"],
-  artworkRevisions: [{ designId: "design-public", revision: 1 }],
-}, product(id), [design("design-public")]);
+const route = (id: string) =>
+  qualifySyntheticRoute(
+    {
+      id: `route-${id}`,
+      provider: "fourthwall",
+      productId: id,
+      checkoutUrl: `https://synthetic-test.fourthwall.com/products/${id}`,
+      providerVariantIds: ["provider-small"],
+      artworkRevisions: [{ designId: "design-public", revision: 1 }],
+    },
+    product(id),
+    [design("design-public")],
+  );
 
 async function writeJson(file: string, value: unknown) {
   await mkdir(dirname(file), { recursive: true });
@@ -141,19 +146,32 @@ async function emittedFiles(root: string): Promise<Record<string, string>> {
 
 test("paired builds consume one immutable validated public snapshot even if authoring inputs change", async (t) => {
   const f = await fixture(t);
-  const inputs = { directory: f.directory, routesFile: f.routesFile, publicDirectory: f.publicDirectory };
+  const inputs = {
+    directory: f.directory,
+    routesFile: f.routesFile,
+    publicDirectory: f.publicDirectory,
+  };
   const snapshot = await loadPublicStoreSnapshot(inputs);
   assert.ok(Object.isFrozen(snapshot));
   assert.match(snapshot.digest, /^[a-f0-9]{64}$/);
   assert.ok(!snapshot.moduleCode.includes("design-draft"));
-  const configuration = { ...f.configuration(), plugins: [publicStoreCatalog({ ...inputs, snapshot })] };
+  const configuration = {
+    ...f.configuration(),
+    plugins: [publicStoreCatalog({ ...inputs, snapshot })],
+  };
   await build(configuration);
   const first = await emittedFiles(f.root);
-  await writeJson(f.entry("design-public"), { ...design("design-public"), title: "CHANGED_AFTER_SNAPSHOT" });
+  await writeJson(f.entry("design-public"), {
+    ...design("design-public"),
+    title: "CHANGED_AFTER_SNAPSHOT",
+  });
   await build(configuration);
   assert.deepEqual(await emittedFiles(f.root), first);
   assert.notEqual((await loadPublicStoreSnapshot(inputs)).digest, snapshot.digest);
-  await writeJson(f.entry("design-public"), { ...design("design-public"), unknownPrivateField: "PRIVATE_MARKER" });
+  await writeJson(f.entry("design-public"), {
+    ...design("design-public"),
+    unknownPrivateField: "PRIVATE_MARKER",
+  });
   await assert.rejects(loadPublicStoreSnapshot(inputs), /unknownPrivateField/);
 });
 
@@ -206,34 +224,45 @@ test("emitted catalog includes only current reviewed translation fields", async 
   const f = await fixture(t);
   await writeJson(f.entry("design-public"), {
     ...design("design-public"),
-    translations: [{
-      locale: "fr",
-      fields: {
-        title: {
-          value: "PUBLIC_REVIEWED_TRANSLATION",
-          review: {
-            status: "reviewed", locale: "fr", reviewedBy: "synthetic-reviewer",
-            reviewedAt: "2026-10-20", source: { locale: "en", value: "design-public" },
+    translations: [
+      {
+        locale: "fr",
+        fields: {
+          title: {
             value: "PUBLIC_REVIEWED_TRANSLATION",
+            review: {
+              status: "reviewed",
+              locale: "fr",
+              reviewedBy: "synthetic-reviewer",
+              reviewedAt: "2026-10-20",
+              source: { locale: "en", value: "design-public" },
+              value: "PUBLIC_REVIEWED_TRANSLATION",
+            },
           },
-        },
-        description: { value: "DRAFT_TRANSLATION_SENTINEL", review: { status: "draft" } },
-        artworkAlt: {
-          value: "STALE_TRANSLATION_SENTINEL",
-          review: {
-            status: "reviewed", locale: "fr", reviewedBy: "synthetic-reviewer",
-            reviewedAt: "2026-10-20",
-            source: { locale: "en", value: "OLD_SOURCE_SENTINEL", artworkRevision: 1 },
+          description: { value: "DRAFT_TRANSLATION_SENTINEL", review: { status: "draft" } },
+          artworkAlt: {
             value: "STALE_TRANSLATION_SENTINEL",
+            review: {
+              status: "reviewed",
+              locale: "fr",
+              reviewedBy: "synthetic-reviewer",
+              reviewedAt: "2026-10-20",
+              source: { locale: "en", value: "OLD_SOURCE_SENTINEL", artworkRevision: 1 },
+              value: "STALE_TRANSLATION_SENTINEL",
+            },
           },
         },
       },
-    }],
+    ],
   });
   await build(f.configuration());
   const output = Object.values(await emittedFiles(f.root)).join("\n");
   assert.ok(output.includes("PUBLIC_REVIEWED_TRANSLATION"));
-  for (const marker of ["DRAFT_TRANSLATION_SENTINEL", "STALE_TRANSLATION_SENTINEL", "OLD_SOURCE_SENTINEL"]) {
+  for (const marker of [
+    "DRAFT_TRANSLATION_SENTINEL",
+    "STALE_TRANSLATION_SENTINEL",
+    "OLD_SOURCE_SENTINEL",
+  ]) {
     assert.ok(!output.includes(marker), `Unpublished translation leaked: ${marker}`);
   }
 });
@@ -383,10 +412,14 @@ test("the dev server refreshes edits, nested additions, removals, visibility, ro
     () => rm(added),
     async () => !(await transform()).includes("design-new"),
   );
-  const refreshedRoute = qualifySyntheticRoute({
-    ...route("product-public"),
-    checkoutUrl: "https://synthetic-test.fourthwall.com/products/updated-destination",
-  }, product("product-public"), [design("design-public")]);
+  const refreshedRoute = qualifySyntheticRoute(
+    {
+      ...route("product-public"),
+      checkoutUrl: "https://synthetic-test.fourthwall.com/products/updated-destination",
+    },
+    product("product-public"),
+    [design("design-public")],
+  );
   await mutate(
     () => writeJson(f.routesFile, [refreshedRoute, route("product-draft")]),
     async () => (await transform()).includes("updated-destination"),

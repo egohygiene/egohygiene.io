@@ -1,0 +1,2347 @@
+{
+  "capturedAt": "2026-10-26T05:50:01.589Z",
+  "sourceHead": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+  "artifactRoot": "apps/egohygiene.io/dist",
+  "result": "fail",
+  "scope": "All emitted paths and selected text formats; hashes and level-9 gzip sizes for every regular file. HTML asset attributes, CSS url(), JS quoted static asset paths, and manifest icons/start_url are resolved locally. No network requests.",
+  "limits": [
+    "Targeted common credential signatures and private-source path checks, not a comprehensive secret or binary metadata audit.",
+    "Computed URLs and browser/deployed-host behavior require journey checks; this scanner does not execute application code.",
+    "Size ceilings are provisional local review regression limits, not maintainer-agreed performance budgets or measured user experience.",
+    "External resource references are inventoried by protocol only, not fetched or qualified."
+  ],
+  "budgetStatus": "provisional-local-review",
+  "gzip": {
+    "level": 9,
+    "meaning": "Sum of separately compressed file bytes; not a server compression or network timing measurement."
+  },
+  "files": [
+    {
+      "path": "404.html",
+      "kind": "documents",
+      "bytes": 6035,
+      "gzipBytes": 1966,
+      "sha256": "54da47c90b81ba22d630b90dd4e48c7cb79770c6f6c20d0df174c316c8513d49"
+    },
+    {
+      "path": "about/index.html",
+      "kind": "documents",
+      "bytes": 6686,
+      "gzipBytes": 2217,
+      "sha256": "80cb68f74cf39a3612b1ab66d5b68a72e0facccaea89b1ab7943ba8277502e9e"
+    },
+    {
+      "path": "accessibility/index.html",
+      "kind": "documents",
+      "bytes": 7968,
+      "gzipBytes": 2631,
+      "sha256": "b99ebeaf94e3ef90229df8d0bbb0be7ade1465589a5a17f59126bc49652946f2"
+    },
+    {
+      "path": "aether/index.html",
+      "kind": "documents",
+      "bytes": 6497,
+      "gzipBytes": 2094,
+      "sha256": "656d6281fa98bcf5f3d8cce48e3e4cf5b027ac00bd4d62f2a29d4e7373e70196"
+    },
+    {
+      "path": "assets/index-BleTqwFf.js",
+      "kind": "javascript",
+      "bytes": 481102,
+      "gzipBytes": 139251,
+      "sha256": "812686337dc221327293b838deb16300294e7c341095dadb6c6456372702055d"
+    },
+    {
+      "path": "assets/index-DUxeAQ23.css",
+      "kind": "css",
+      "bytes": 50295,
+      "gzipBytes": 9803,
+      "sha256": "e7e59f21afe340749156eaf4fadd7b0bad4f6ea4056c3186640067162a1a9271"
+    },
+    {
+      "path": "CNAME",
+      "kind": "documents",
+      "bytes": 14,
+      "gzipBytes": 34,
+      "sha256": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12"
+    },
+    {
+      "path": "ecosystem/index.html",
+      "kind": "documents",
+      "bytes": 9277,
+      "gzipBytes": 2619,
+      "sha256": "ed711bf1a10a3b6d0fdcdf38b576c759bff69c0d6a8880a6707666aebcb8fa0d"
+    },
+    {
+      "path": "egolint/index.html",
+      "kind": "documents",
+      "bytes": 6468,
+      "gzipBytes": 2096,
+      "sha256": "826d7c6cf01a872164e563a874d99926c175fe31b31755cf4082cf184eabfd54"
+    },
+    {
+      "path": "favicon.ico",
+      "kind": "images",
+      "bytes": 15086,
+      "gzipBytes": 11232,
+      "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+    },
+    {
+      "path": "favicon.png",
+      "kind": "images",
+      "bytes": 3008,
+      "gzipBytes": 3031,
+      "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+    },
+    {
+      "path": "fonts/atkinson-bold.woff",
+      "kind": "fonts",
+      "bytes": 23780,
+      "gzipBytes": 23749,
+      "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623"
+    },
+    {
+      "path": "fonts/atkinson-regular.woff",
+      "kind": "fonts",
+      "bytes": 22792,
+      "gzipBytes": 22782,
+      "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b"
+    },
+    {
+      "path": "fonts/NOTICE.txt",
+      "kind": "documents",
+      "bytes": 2357,
+      "gzipBytes": 1335,
+      "sha256": "2231aaf86f60c69cb7c9c09a26af1bb8cd58138d8deeed992038367ee68c4df9"
+    },
+    {
+      "path": "help/index.html",
+      "kind": "documents",
+      "bytes": 8527,
+      "gzipBytes": 2786,
+      "sha256": "4cc62bdf599652f48ad6f2929d1167883abb340d5597fba3fe0d81a151458de1"
+    },
+    {
+      "path": "icons/apple-touch-icon.png",
+      "kind": "images",
+      "bytes": 33687,
+      "gzipBytes": 33720,
+      "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+    },
+    {
+      "path": "icons/icon-192x192.png",
+      "kind": "images",
+      "bytes": 36806,
+      "gzipBytes": 36839,
+      "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+    },
+    {
+      "path": "icons/icon-512x512.png",
+      "kind": "images",
+      "bytes": 161290,
+      "gzipBytes": 160949,
+      "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+    },
+    {
+      "path": "icons/NOTICE.txt",
+      "kind": "documents",
+      "bytes": 1574,
+      "gzipBytes": 966,
+      "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+    },
+    {
+      "path": "index.html",
+      "kind": "documents",
+      "bytes": 11211,
+      "gzipBytes": 3433,
+      "sha256": "0ca773d1c3267dcf45c26d6f01211917f5bad863f24def3b90afe57f7e003c58"
+    },
+    {
+      "path": "llms.txt",
+      "kind": "documents",
+      "bytes": 2398,
+      "gzipBytes": 1029,
+      "sha256": "e60531c2ab30c1e67de2707c83b802a134fc7579acc8468ac3d6e2b968e3e98d"
+    },
+    {
+      "path": "mindcap/index.html",
+      "kind": "documents",
+      "bytes": 6460,
+      "gzipBytes": 2091,
+      "sha256": "10a1fd0e0e1c05e29cc9c9292707005219b49dc337f233a08f0deabac3703ad1"
+    },
+    {
+      "path": "mindgarden/index.html",
+      "kind": "documents",
+      "bytes": 6473,
+      "gzipBytes": 2095,
+      "sha256": "6e6845f1e06c5482f496e046c4a7a27a4962c10802850432d412b42598e9fea6"
+    },
+    {
+      "path": "privacy/index.html",
+      "kind": "documents",
+      "bytes": 6862,
+      "gzipBytes": 2315,
+      "sha256": "c6081cc1e58c54a92531ebc05a131f189ca32d0685e5ef922d617642a2030f77"
+    },
+    {
+      "path": "public-routes.json",
+      "kind": "documents",
+      "bytes": 9941,
+      "gzipBytes": 2225,
+      "sha256": "afe7ec6b88763a1bfdb4ff790bb43008711f15a4413ad976d04f9ecf34487abc"
+    },
+    {
+      "path": "reflector/index.html",
+      "kind": "documents",
+      "bytes": 6446,
+      "gzipBytes": 2092,
+      "sha256": "51d071c4d996ac44ef1a2798d678caef05b628032d5de1ed02a56a7d4a3ea32b"
+    },
+    {
+      "path": "renderflow/index.html",
+      "kind": "documents",
+      "bytes": 6481,
+      "gzipBytes": 2092,
+      "sha256": "54de8fc824f1e51f04759a38ff94c797e87c5278fa5a5b754c0f74852e7cab70"
+    },
+    {
+      "path": "robots.txt",
+      "kind": "documents",
+      "bytes": 68,
+      "gzipBytes": 84,
+      "sha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+    },
+    {
+      "path": "site.webmanifest",
+      "kind": "documents",
+      "bytes": 473,
+      "gzipBytes": 218,
+      "sha256": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e"
+    },
+    {
+      "path": "sitemap.xml",
+      "kind": "documents",
+      "bytes": 693,
+      "gzipBytes": 221,
+      "sha256": "34cf5b4b5bc8322dc07047268c8715e122a81f2233589e29e7214a97efd7117a"
+    },
+    {
+      "path": "store/catalog/index.html",
+      "kind": "documents",
+      "bytes": 42139,
+      "gzipBytes": 6267,
+      "sha256": "3780ad985d9d04e4438873138adca2d417b013236125e357f551bc9c79152c8b"
+    },
+    {
+      "path": "store/collections/static-bloom-collection/index.html",
+      "kind": "documents",
+      "bytes": 17427,
+      "gzipBytes": 3797,
+      "sha256": "89709aa187f38f962baa7686c0d571e74fb3066f11ef8d846e39836f9a0bc512"
+    },
+    {
+      "path": "store/designs/heartburst/index.html",
+      "kind": "documents",
+      "bytes": 9354,
+      "gzipBytes": 2748,
+      "sha256": "1e193a84816c68e45265d5e2e86235db415b80f0da9db2fbb52902778b6550e3"
+    },
+    {
+      "path": "store/designs/signal-heart/index.html",
+      "kind": "documents",
+      "bytes": 14060,
+      "gzipBytes": 3680,
+      "sha256": "8c5c5cf187d2e1ab682e16d1a8a9925441fffc37fc26b97a1eaff0ee767f949c"
+    },
+    {
+      "path": "store/designs/static-bloom-artwork/index.html",
+      "kind": "documents",
+      "bytes": 17846,
+      "gzipBytes": 3935,
+      "sha256": "fd8f384422cf52990f7a02f15141baa263061c57094cb9bdf753ce1e931f1a84"
+    },
+    {
+      "path": "store/designs/unwritten-realm-cover/index.html",
+      "kind": "documents",
+      "bytes": 13864,
+      "gzipBytes": 3731,
+      "sha256": "6539ba4f6edaef1b992613fa2d60ae11446ad089e1ffe396d64386762d83f224"
+    },
+    {
+      "path": "store/heartburst/heartburst-light.webp",
+      "kind": "images",
+      "bytes": 141978,
+      "gzipBytes": 141581,
+      "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550"
+    },
+    {
+      "path": "store/help/index.html",
+      "kind": "documents",
+      "bytes": 9716,
+      "gzipBytes": 3206,
+      "sha256": "63a9fc1aa718cba8ecdb34971f6faa4d62d208d477b277e28d07b97a264288b6"
+    },
+    {
+      "path": "store/incompris/artists/play/index.html",
+      "kind": "documents",
+      "bytes": 8760,
+      "gzipBytes": 2771,
+      "sha256": "9f8628f838ca30be0358106189a643dd4dbfeca7d67eb29455c1a146a78b2719"
+    },
+    {
+      "path": "store/incompris/index.html",
+      "kind": "documents",
+      "bytes": 9822,
+      "gzipBytes": 3039,
+      "sha256": "875c63903cb3a0379d5950d4d80119f74e63b269945539a841d490e8e4496932"
+    },
+    {
+      "path": "store/index.html",
+      "kind": "documents",
+      "bytes": 10361,
+      "gzipBytes": 3175,
+      "sha256": "bdfb5f1f7dcf7f054d558c8dc482e79e9916908669c097e684b9cbf95a7260fd"
+    },
+    {
+      "path": "store/products/signal-heart-hoodie/index.html",
+      "kind": "documents",
+      "bytes": 14458,
+      "gzipBytes": 3795,
+      "sha256": "df248e06951914bfb77a15004a0f3922cd72d1246bc4b606cf2e480e53e84beb"
+    },
+    {
+      "path": "store/products/static-bloom-mug/index.html",
+      "kind": "documents",
+      "bytes": 18420,
+      "gzipBytes": 4084,
+      "sha256": "caa61a4ddaa481154f8447fa0764111dcab8f6526847fea81a7896d1eadd0e10"
+    },
+    {
+      "path": "store/products/unwritten-realm-comic/index.html",
+      "kind": "documents",
+      "bytes": 14076,
+      "gzipBytes": 3795,
+      "sha256": "5d949a20425668396192560e55d0b92936ae12ff9e5e54742d6255284074636c"
+    },
+    {
+      "path": "terms/index.html",
+      "kind": "documents",
+      "bytes": 6760,
+      "gzipBytes": 2277,
+      "sha256": "83ab1b88fdb7e61da861bd624fe4d5954566bb79f5ec4d424104bcfe8d2512a9"
+    }
+  ],
+  "scannedTextFiles": [
+    "404.html",
+    "about/index.html",
+    "accessibility/index.html",
+    "aether/index.html",
+    "assets/index-BleTqwFf.js",
+    "assets/index-DUxeAQ23.css",
+    "CNAME",
+    "ecosystem/index.html",
+    "egolint/index.html",
+    "fonts/NOTICE.txt",
+    "help/index.html",
+    "icons/NOTICE.txt",
+    "index.html",
+    "llms.txt",
+    "mindcap/index.html",
+    "mindgarden/index.html",
+    "privacy/index.html",
+    "public-routes.json",
+    "reflector/index.html",
+    "renderflow/index.html",
+    "robots.txt",
+    "site.webmanifest",
+    "sitemap.xml",
+    "store/catalog/index.html",
+    "store/collections/static-bloom-collection/index.html",
+    "store/designs/heartburst/index.html",
+    "store/designs/signal-heart/index.html",
+    "store/designs/static-bloom-artwork/index.html",
+    "store/designs/unwritten-realm-cover/index.html",
+    "store/help/index.html",
+    "store/incompris/artists/play/index.html",
+    "store/incompris/index.html",
+    "store/index.html",
+    "store/products/signal-heart-hoodie/index.html",
+    "store/products/static-bloom-mug/index.html",
+    "store/products/unwritten-realm-comic/index.html",
+    "terms/index.html"
+  ],
+  "markerChecks": [
+    {
+      "label": "synthetic readiness evidence",
+      "result": "pass"
+    },
+    {
+      "label": "synthetic customer support",
+      "result": "pass"
+    },
+    {
+      "label": "catalog language fixture",
+      "result": "pass"
+    },
+    {
+      "label": "catalog language qualification host",
+      "result": "pass"
+    },
+    {
+      "label": "handoff fixture",
+      "result": "pass"
+    },
+    {
+      "label": "handoff label",
+      "result": "pass"
+    },
+    {
+      "label": "inert destination",
+      "result": "pass"
+    },
+    {
+      "label": "Fourthwall preview route",
+      "result": "pass"
+    },
+    {
+      "label": "artist preview route",
+      "result": "pass"
+    },
+    {
+      "label": "Fourthwall fixture",
+      "result": "pass"
+    },
+    {
+      "label": "artist fixture",
+      "result": "pass"
+    },
+    {
+      "label": "layout host",
+      "result": "pass"
+    },
+    {
+      "label": "synthetic RTL copy",
+      "result": "pass"
+    }
+  ],
+  "positiveControls": [
+    {
+      "marker": "design-heartburst",
+      "result": "pass"
+    },
+    {
+      "marker": "/store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "marker": "product-demo-signal-heart-hoodie",
+      "result": "pass"
+    }
+  ],
+  "references": [
+    {
+      "from": "404.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "404.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "404.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "404.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "404.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "404.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "404.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "about/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "about/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "about/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "about/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "about/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "about/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "about/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "accessibility/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "accessibility/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "accessibility/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "accessibility/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "accessibility/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "accessibility/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "accessibility/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "aether/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "aether/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "aether/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "aether/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "aether/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "aether/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "aether/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "assets/index-BleTqwFf.js",
+      "target": "store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "from": "assets/index-BleTqwFf.js",
+      "target": "icons/icon-512x512.png",
+      "result": "pass"
+    },
+    {
+      "from": "assets/index-BleTqwFf.js",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "ecosystem/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "ecosystem/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "ecosystem/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "ecosystem/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "ecosystem/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "ecosystem/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "ecosystem/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "egolint/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "egolint/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "egolint/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "egolint/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "egolint/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "egolint/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "egolint/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "help/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "help/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "help/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "help/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "help/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "help/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "help/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "icons/icon-512x512.png",
+      "result": "pass"
+    },
+    {
+      "from": "index.html",
+      "target": "store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "from": "mindcap/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "mindcap/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "mindcap/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "mindcap/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "mindcap/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "mindcap/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "mindcap/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "mindgarden/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "mindgarden/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "mindgarden/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "mindgarden/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "mindgarden/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "mindgarden/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "mindgarden/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "privacy/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "privacy/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "privacy/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "privacy/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "privacy/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "privacy/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "privacy/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "reflector/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "reflector/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "reflector/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "reflector/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "reflector/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "reflector/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "reflector/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "renderflow/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "renderflow/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "renderflow/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "renderflow/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "renderflow/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "renderflow/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "renderflow/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "target": "store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "from": "store/collections/static-bloom-collection/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/collections/static-bloom-collection/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/collections/static-bloom-collection/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/collections/static-bloom-collection/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/collections/static-bloom-collection/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/collections/static-bloom-collection/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/collections/static-bloom-collection/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "target": "store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/signal-heart/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/signal-heart/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/signal-heart/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/signal-heart/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/signal-heart/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/signal-heart/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/signal-heart/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/static-bloom-artwork/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/static-bloom-artwork/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/static-bloom-artwork/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/static-bloom-artwork/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/static-bloom-artwork/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/static-bloom-artwork/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/static-bloom-artwork/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/unwritten-realm-cover/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/unwritten-realm-cover/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/unwritten-realm-cover/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/unwritten-realm-cover/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/unwritten-realm-cover/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/unwritten-realm-cover/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/designs/unwritten-realm-cover/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/help/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/help/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/help/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/help/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/help/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/help/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/help/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/artists/play/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/artists/play/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/artists/play/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/artists/play/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/artists/play/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/artists/play/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/artists/play/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "target": "store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "icons/icon-512x512.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/index.html",
+      "target": "store/heartburst/heartburst-light.webp",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/signal-heart-hoodie/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/signal-heart-hoodie/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/signal-heart-hoodie/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/signal-heart-hoodie/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/signal-heart-hoodie/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/signal-heart-hoodie/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/signal-heart-hoodie/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/static-bloom-mug/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/static-bloom-mug/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/static-bloom-mug/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/static-bloom-mug/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/static-bloom-mug/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/static-bloom-mug/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/static-bloom-mug/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/unwritten-realm-comic/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/unwritten-realm-comic/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/unwritten-realm-comic/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/unwritten-realm-comic/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/unwritten-realm-comic/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/unwritten-realm-comic/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "store/products/unwritten-realm-comic/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "terms/index.html",
+      "target": "favicon.ico",
+      "result": "pass"
+    },
+    {
+      "from": "terms/index.html",
+      "target": "favicon.png",
+      "result": "pass"
+    },
+    {
+      "from": "terms/index.html",
+      "target": "icons/apple-touch-icon.png",
+      "result": "pass"
+    },
+    {
+      "from": "terms/index.html",
+      "target": "site.webmanifest",
+      "result": "pass"
+    },
+    {
+      "from": "terms/index.html",
+      "target": "assets/index-BleTqwFf.js",
+      "result": "pass"
+    },
+    {
+      "from": "terms/index.html",
+      "target": "assets/index-DUxeAQ23.css",
+      "result": "pass"
+    },
+    {
+      "from": "terms/index.html",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "site.webmanifest",
+      "target": "index.html",
+      "result": "pass"
+    },
+    {
+      "from": "site.webmanifest",
+      "target": "icons/icon-192x192.png",
+      "result": "pass"
+    },
+    {
+      "from": "site.webmanifest",
+      "target": "icons/icon-512x512.png",
+      "result": "pass"
+    }
+  ],
+  "externalReferences": [
+    {
+      "from": "about/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "accessibility/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "aether/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "ecosystem/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "egolint/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "help/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "mindcap/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "mindgarden/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "privacy/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "reflector/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "renderflow/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/catalog/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/collections/static-bloom-collection/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/designs/heartburst/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/designs/signal-heart/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/designs/static-bloom-artwork/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/designs/unwritten-realm-cover/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/help/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/incompris/artists/play/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/incompris/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/products/signal-heart-hoodie/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/products/static-bloom-mug/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "store/products/unwritten-realm-comic/index.html",
+      "protocol": "https:"
+    },
+    {
+      "from": "terms/index.html",
+      "protocol": "https:"
+    }
+  ],
+  "publicImageExactMatch": true,
+  "sizes": {
+    "javascript": {
+      "bytes": 481102,
+      "gzipBytes": 139251,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 150000
+      },
+      "result": "pass"
+    },
+    "css": {
+      "bytes": 50295,
+      "gzipBytes": 9803,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 12000
+      },
+      "result": "pass"
+    },
+    "images": {
+      "bytes": 391855,
+      "gzipBytes": 387352,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 500000
+      },
+      "result": "pass"
+    },
+    "fonts": {
+      "bytes": 46572,
+      "gzipBytes": 46531,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 50000
+      },
+      "result": "pass"
+    },
+    "documents": {
+      "bytes": 319972,
+      "gzipBytes": 86939,
+      "limit": {
+        "bytes": 20000,
+        "gzipBytes": 10000
+      },
+      "result": "fail"
+    },
+    "total": {
+      "bytes": 1289796,
+      "gzipBytes": 669876,
+      "limit": {
+        "bytes": 1140000,
+        "gzipBytes": 722000
+      },
+      "result": "fail"
+    }
+  },
+  "documentCosts": {
+    "scope": "Each HTML document plus de-duplicated local files reachable through the scanner's static reference graph. Other HTML navigation targets are excluded, including manifest start_url.",
+    "limits": [
+      "Diagnostic only: these measurements do not replace aggregate budgets, findings or the qualification result.",
+      "Quoted JavaScript assets and dynamic imports, manifest icons, and CSS references are included conservatively; they may not be requested on this route.",
+      "Computed URLs and external resources are not measured; unresolved local references remain qualification findings.",
+      "Not an initial-download, cache, compression, network timing or browser-performance measurement."
+    ],
+    "documents": [
+      {
+        "path": "404.html",
+        "document": {
+          "bytes": 6035,
+          "gzipBytes": 1966
+        },
+        "reachableFiles": [
+          "404.html",
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 929760,
+          "gzipBytes": 538590
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 0
+      },
+      {
+        "path": "about/index.html",
+        "document": {
+          "bytes": 6686,
+          "gzipBytes": 2217
+        },
+        "reachableFiles": [
+          "about/index.html",
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 930411,
+          "gzipBytes": 538841
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "accessibility/index.html",
+        "document": {
+          "bytes": 7968,
+          "gzipBytes": 2631
+        },
+        "reachableFiles": [
+          "accessibility/index.html",
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 931693,
+          "gzipBytes": 539255
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "aether/index.html",
+        "document": {
+          "bytes": 6497,
+          "gzipBytes": 2094
+        },
+        "reachableFiles": [
+          "aether/index.html",
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 930222,
+          "gzipBytes": 538718
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "ecosystem/index.html",
+        "document": {
+          "bytes": 9277,
+          "gzipBytes": 2619
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "ecosystem/index.html",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 933002,
+          "gzipBytes": 539243
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "egolint/index.html",
+        "document": {
+          "bytes": 6468,
+          "gzipBytes": 2096
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "egolint/index.html",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 930193,
+          "gzipBytes": 538720
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "help/index.html",
+        "document": {
+          "bytes": 8527,
+          "gzipBytes": 2786
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "help/index.html",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 932252,
+          "gzipBytes": 539410
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "index.html",
+        "document": {
+          "bytes": 11211,
+          "gzipBytes": 3433
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "index.html",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 934936,
+          "gzipBytes": 540057
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "mindcap/index.html",
+        "document": {
+          "bytes": 6460,
+          "gzipBytes": 2091
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "mindcap/index.html",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 930185,
+          "gzipBytes": 538715
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "mindgarden/index.html",
+        "document": {
+          "bytes": 6473,
+          "gzipBytes": 2095
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "mindgarden/index.html",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 930198,
+          "gzipBytes": 538719
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "privacy/index.html",
+        "document": {
+          "bytes": 6862,
+          "gzipBytes": 2315
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "privacy/index.html",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 930587,
+          "gzipBytes": 538939
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "reflector/index.html",
+        "document": {
+          "bytes": 6446,
+          "gzipBytes": 2092
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "reflector/index.html",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 930171,
+          "gzipBytes": 538716
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "renderflow/index.html",
+        "document": {
+          "bytes": 6481,
+          "gzipBytes": 2092
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "renderflow/index.html",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 930206,
+          "gzipBytes": 538716
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/catalog/index.html",
+        "document": {
+          "bytes": 42139,
+          "gzipBytes": 6267
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/catalog/index.html",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 965864,
+          "gzipBytes": 542891
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/collections/static-bloom-collection/index.html",
+        "document": {
+          "bytes": 17427,
+          "gzipBytes": 3797
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/collections/static-bloom-collection/index.html",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 941152,
+          "gzipBytes": 540421
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/designs/heartburst/index.html",
+        "document": {
+          "bytes": 9354,
+          "gzipBytes": 2748
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/designs/heartburst/index.html",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 933079,
+          "gzipBytes": 539372
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/designs/signal-heart/index.html",
+        "document": {
+          "bytes": 14060,
+          "gzipBytes": 3680
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/designs/signal-heart/index.html",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 937785,
+          "gzipBytes": 540304
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/designs/static-bloom-artwork/index.html",
+        "document": {
+          "bytes": 17846,
+          "gzipBytes": 3935
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/designs/static-bloom-artwork/index.html",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 941571,
+          "gzipBytes": 540559
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/designs/unwritten-realm-cover/index.html",
+        "document": {
+          "bytes": 13864,
+          "gzipBytes": 3731
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/designs/unwritten-realm-cover/index.html",
+          "store/heartburst/heartburst-light.webp"
+        ],
+        "reachable": {
+          "bytes": 937589,
+          "gzipBytes": 540355
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/help/index.html",
+        "document": {
+          "bytes": 9716,
+          "gzipBytes": 3206
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp",
+          "store/help/index.html"
+        ],
+        "reachable": {
+          "bytes": 933441,
+          "gzipBytes": 539830
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/incompris/artists/play/index.html",
+        "document": {
+          "bytes": 8760,
+          "gzipBytes": 2771
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp",
+          "store/incompris/artists/play/index.html"
+        ],
+        "reachable": {
+          "bytes": 932485,
+          "gzipBytes": 539395
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/incompris/index.html",
+        "document": {
+          "bytes": 9822,
+          "gzipBytes": 3039
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp",
+          "store/incompris/index.html"
+        ],
+        "reachable": {
+          "bytes": 933547,
+          "gzipBytes": 539663
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/index.html",
+        "document": {
+          "bytes": 10361,
+          "gzipBytes": 3175
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp",
+          "store/index.html"
+        ],
+        "reachable": {
+          "bytes": 934086,
+          "gzipBytes": 539799
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/products/signal-heart-hoodie/index.html",
+        "document": {
+          "bytes": 14458,
+          "gzipBytes": 3795
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp",
+          "store/products/signal-heart-hoodie/index.html"
+        ],
+        "reachable": {
+          "bytes": 938183,
+          "gzipBytes": 540419
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/products/static-bloom-mug/index.html",
+        "document": {
+          "bytes": 18420,
+          "gzipBytes": 4084
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp",
+          "store/products/static-bloom-mug/index.html"
+        ],
+        "reachable": {
+          "bytes": 942145,
+          "gzipBytes": 540708
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "store/products/unwritten-realm-comic/index.html",
+        "document": {
+          "bytes": 14076,
+          "gzipBytes": 3795
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp",
+          "store/products/unwritten-realm-comic/index.html"
+        ],
+        "reachable": {
+          "bytes": 937801,
+          "gzipBytes": 540419
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      },
+      {
+        "path": "terms/index.html",
+        "document": {
+          "bytes": 6760,
+          "gzipBytes": 2277
+        },
+        "reachableFiles": [
+          "assets/index-BleTqwFf.js",
+          "assets/index-DUxeAQ23.css",
+          "favicon.ico",
+          "favicon.png",
+          "icons/apple-touch-icon.png",
+          "icons/icon-192x192.png",
+          "icons/icon-512x512.png",
+          "site.webmanifest",
+          "store/heartburst/heartburst-light.webp",
+          "terms/index.html"
+        ],
+        "reachable": {
+          "bytes": 930485,
+          "gzipBytes": 538901
+        },
+        "omittedNavigationTargets": ["index.html"],
+        "unresolvedLocalReferenceCount": 0,
+        "externalReferenceCount": 1
+      }
+    ]
+  },
+  "findings": [
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "bytes: 319972 exceeds 20000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "gzipBytes: 86939 exceeds 10000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "total",
+      "detail": "bytes: 1289796 exceeds 1140000."
+    }
+  ]
+}

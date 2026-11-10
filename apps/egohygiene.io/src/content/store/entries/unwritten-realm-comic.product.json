@@ -11,9 +11,7 @@
     "status": "unknown"
   },
   "kind": "product",
-  "designIds": [
-    "design-demo-unwritten-realm"
-  ],
+  "designIds": ["design-demo-unwritten-realm"],
   "contextIds": [],
   "purchase": {
     "state": "unavailable",

@@ -58,8 +58,36 @@ function validateReport(report, config) {
   }
 }
 
+function readOutputDirectories(report, config, repositoryRoot) {
+  const receipts = path.resolve(repositoryRoot, "test-results/store-qualification");
+  const contains = (parent, child) => {
+    const relative = path.relative(parent, child);
+    return (
+      relative === "" ||
+      (relative !== ".." && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative))
+    );
+  };
+  const outputDirectories = new Set();
+  for (const { name, outputDir } of report.config.projects) {
+    if (typeof outputDir !== "string" || !path.isAbsolute(outputDir)) {
+      throw new Error(`${config}: project ${name || "(default)"} has no absolute output directory`);
+    }
+    // Playwright removes each project output directory before execution. A shared
+    // parent would erase the qualifier's running report and earlier receipts.
+    const directory = path.resolve(outputDir);
+    if (contains(directory, receipts) || contains(receipts, directory)) {
+      throw new Error(
+        `${config}: project ${name || "(default)"} output directory overlaps qualification receipts: ${outputDir}`,
+      );
+    }
+    outputDirectories.add(portablePath(path.relative(repositoryRoot, directory)));
+  }
+  return outputDirectories;
+}
+
 function readSelection(report, config, repositoryRoot) {
   validateReport(report, config);
+  const outputDirectories = readOutputDirectories(report, config, repositoryRoot);
   const projects = new Map(report.config.projects.map(({ name }) => [name, 0]));
   const files = new Set();
   for (const spec of listedSpecs(report.suites)) {
@@ -74,14 +102,18 @@ function readSelection(report, config, repositoryRoot) {
       files.add(file);
     }
   }
-  return { projects, files };
+  return { projects, files, outputDirectories };
 }
 
 /** Compare actual runner discovery with files on disk, without snapshotting case counts. */
 export function checkBrowserDiscovery(reports, inventory, repositoryRoot = root) {
   const discovered = new Set();
   const summaries = profiles.map(({ config, requiredProjects }) => {
-    const { projects, files } = readSelection(reports[config], config, repositoryRoot);
+    const { projects, files, outputDirectories } = readSelection(
+      reports[config],
+      config,
+      repositoryRoot,
+    );
     for (const name of requiredProjects) {
       if (!projects.has(name)) throw new Error(`${config}: missing maintained project ${name}`);
     }
@@ -95,6 +127,7 @@ export function checkBrowserDiscovery(reports, inventory, repositoryRoot = root)
       config,
       cases: [...projects.values()].reduce((total, count) => total + count, 0),
       projects: [...projects].map(([name, cases]) => ({ name, cases })),
+      outputDirectories: [...outputDirectories].sort(),
       files: [...files].sort(),
     };
   });

@@ -69,9 +69,7 @@ export function StoreArtworkGallery({ designs, title, titleLocale }: StoreArtwor
       </button>
 
       <div className="store-artwork-gallery__caption" aria-live="polite" aria-atomic="true">
-        <span lang={selectedContent.title.locale}>
-          {selectedContent.title.value}
-        </span>
+        <span lang={selectedContent.title.locale}>{selectedContent.title.value}</span>
         {designs.length > 1 && (
           <span>
             {t("storeCards.gallery.position", {

@@ -16,32 +16,42 @@ async function createCheckout(context, options = {}) {
   await mkdir(join(root, "scripts"));
   await mkdir(join(root, "bin"));
   await copyFile(scriptSource, join(root, "scripts", "store-environment.mjs"));
-  await writeFile(join(root, "package.json"), JSON.stringify({
-    type: "module",
-    packageManager: "pnpm@11.28.5",
-    engines: { node: nodeRange, pnpm: "11.28.5" },
-  }));
+  await writeFile(
+    join(root, "package.json"),
+    JSON.stringify({
+      type: "module",
+      packageManager: "pnpm@11.28.5",
+      engines: { node: nodeRange, pnpm: "11.28.5" },
+    }),
+  );
   await writeFile(join(root, ".tool-versions"), "nodejs 24.21.0\npnpm 11.28.5\n");
   const logPath = join(root, "commands.jsonl");
   for (const [tool, version] of Object.entries(options.tools ?? { pnpm: "11.28.5" })) {
-    await writeFile(join(root, "bin", tool), [
-      `#!${process.execPath}`,
-      "import { appendFileSync } from \"node:fs\";",
-      "const arguments_ = process.argv.slice(2);",
-      `if (arguments_[0] === "--version") { console.log(${JSON.stringify(version)}); }`,
-      "else {",
-      `  appendFileSync(${JSON.stringify(logPath)}, JSON.stringify({ tool: ${JSON.stringify(tool)}, arguments: arguments_, cwd: process.cwd(), preview: process.env["VITE_STORE_PREVIEW"] ?? null }) + "\\n");`,
-      `  process.exitCode = ${options.exitCode ?? 0};`,
-      "}",
-    ].join("\n"), { mode: 0o755 });
+    await writeFile(
+      join(root, "bin", tool),
+      [
+        `#!${process.execPath}`,
+        'import { appendFileSync } from "node:fs";',
+        "const arguments_ = process.argv.slice(2);",
+        `if (arguments_[0] === "--version") { console.log(${JSON.stringify(version)}); }`,
+        "else {",
+        `  appendFileSync(${JSON.stringify(logPath)}, JSON.stringify({ tool: ${JSON.stringify(tool)}, arguments: arguments_, cwd: process.cwd(), preview: process.env["VITE_STORE_PREVIEW"] ?? null }) + "\\n");`,
+        `  process.exitCode = ${options.exitCode ?? 0};`,
+        "}",
+      ].join("\n"),
+      { mode: 0o755 },
+    );
   }
   return {
     root,
     run(arguments_, environment = {}, nodeVersion) {
-      const invocation = nodeVersion ? [
-        "--input-type=module", "--eval",
-        `Object.defineProperty(process.versions, "node", { value: ${JSON.stringify(nodeVersion)} });\nimport("./scripts/store-environment.mjs").then(({ runStoreEnvironment }) => runStoreEnvironment(${JSON.stringify(arguments_)})).then((code) => { process.exitCode = code; }).catch((error) => { console.error(error.message); process.exitCode = 1; });`,
-      ] : ["scripts/store-environment.mjs", ...arguments_];
+      const invocation = nodeVersion
+        ? [
+            "--input-type=module",
+            "--eval",
+            `Object.defineProperty(process.versions, "node", { value: ${JSON.stringify(nodeVersion)} });\nimport("./scripts/store-environment.mjs").then(({ runStoreEnvironment }) => runStoreEnvironment(${JSON.stringify(arguments_)})).then((code) => { process.exitCode = code; }).catch((error) => { console.error(error.message); process.exitCode = 1; });`,
+          ]
+        : ["scripts/store-environment.mjs", ...arguments_];
       return spawnSync(process.execPath, invocation, {
         cwd: root,
         encoding: "utf8",
@@ -50,7 +60,10 @@ async function createCheckout(context, options = {}) {
     },
     async commands() {
       try {
-        return (await readFile(logPath, "utf8")).trim().split("\n").map((line) => JSON.parse(line));
+        return (await readFile(logPath, "utf8"))
+          .trim()
+          .split("\n")
+          .map((line) => JSON.parse(line));
       } catch (error) {
         if (error.code === "ENOENT") return [];
         throw error;
@@ -99,8 +112,15 @@ test("missing or mismatched pnpm uses the exact npm-cached package without a glo
     const [command] = await checkout.commands();
     assert.equal(command.tool, "npm");
     assert.deepEqual(command.arguments, [
-      "exec", "--yes", "--ignore-scripts", "--package=pnpm@11.28.5", "--", "pnpm",
-      "install", "--frozen-lockfile", "--ignore-scripts",
+      "exec",
+      "--yes",
+      "--ignore-scripts",
+      "--package=pnpm@11.28.5",
+      "--",
+      "pnpm",
+      "install",
+      "--frozen-lockfile",
+      "--ignore-scripts",
     ]);
   }
 });
@@ -122,11 +142,27 @@ test("preview builds into a separate directory and serves only on loopback with 
   assert.equal(checkout.run(["build"]).status, 0);
   assert.equal(checkout.run(["preview"]).status, 0);
   const [build, preview] = await checkout.commands();
-  assert.deepEqual(build.arguments, ["--filter", "@egohygiene/egohygiene.io", "build", "--outDir", "dist-preview"]);
+  assert.deepEqual(build.arguments, [
+    "--filter",
+    "@egohygiene/egohygiene.io",
+    "build",
+    "--outDir",
+    "dist-preview",
+  ]);
   assert.equal(build.preview, "true");
   assert.deepEqual(preview.arguments, [
-    "--filter", "@egohygiene/egohygiene.io", "preview", "--outDir", "dist-preview",
-    "--host", "127.0.0.1", "--port", "4173", "--strictPort", "--open", "/store",
+    "--filter",
+    "@egohygiene/egohygiene.io",
+    "preview",
+    "--outDir",
+    "dist-preview",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "4173",
+    "--strictPort",
+    "--open",
+    "/store",
   ]);
 });
 
@@ -136,8 +172,14 @@ test("live editing supports an explicit alternate port and headless browser sett
   assert.equal(result.status, 0, result.stderr);
   const [command] = await checkout.commands();
   assert.deepEqual(command.arguments, [
-    "--filter", "@egohygiene/egohygiene.io", "dev",
-    "--host", "127.0.0.1", "--port", "5174", "--strictPort",
+    "--filter",
+    "@egohygiene/egohygiene.io",
+    "dev",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "5174",
+    "--strictPort",
   ]);
   assert.equal(command.preview, "true");
 });
@@ -145,8 +187,10 @@ test("live editing supports an explicit alternate port and headless browser sett
 test("malformed port or browser settings never start a server", async (context) => {
   const checkout = await createCheckout(context);
   for (const environment of [
-    { STORE_PREVIEW_PORT: "0" }, { STORE_PREVIEW_PORT: "65536" },
-    { STORE_PREVIEW_PORT: "4173 --host 0.0.0.0" }, { STORE_OPEN_BROWSER: "sometimes" },
+    { STORE_PREVIEW_PORT: "0" },
+    { STORE_PREVIEW_PORT: "65536" },
+    { STORE_PREVIEW_PORT: "4173 --host 0.0.0.0" },
+    { STORE_OPEN_BROWSER: "sometimes" },
   ]) {
     assert.equal(checkout.run(["preview"], environment).status, 1);
   }

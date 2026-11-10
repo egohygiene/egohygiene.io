@@ -14,7 +14,9 @@ const render = (ui: ReactElement) => baseRender(ui, { wrapper: Messages });
 
 const firstDesign: StoreDesign = {
   schemaVersion: 3,
-  sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+  sourceLocale: "en",
+  translations: [],
+  attribution: { status: "unknown" },
   kind: "design",
   id: "design-test-orbit",
   slug: "orbit-artwork",

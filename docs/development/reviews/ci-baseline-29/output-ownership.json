@@ -1,0 +1,97 @@
+{
+  "reviewedAt": "2026-10-26T05:45:25.134Z",
+  "sourceBase": "0a34ca245597f323c2e1bf3f06a9d947b5462a1d",
+  "sourceState": "Uncommitted #29 checkpoint B implementation, shared branch fix/ci-current-29.",
+  "role": "Independent source review followed by parent-authorized narrow output ownership repair.",
+  "finding": {
+    "severity": "blocking",
+    "status": "fixed in working tree",
+    "trigger": "New ci-browser/full profile invokes the default Playwright application suite.",
+    "before": "playwright.config.ts omitted outputDir; Playwright's test-results default removes the qualifier's running report directory and prior receipts. Later saveReport would fail with ENOENT.",
+    "evidence": [
+      "Installed Playwright 1.62.1 lib/common/index.js resolves the default outputDir to package test-results.",
+      "Installed Playwright 1.62.1 lib/runner/index.js createRemoveOutputDirsTask removes selected project output directories before execution."
+    ],
+    "after": "Default suite owns test-results/apps; discovery rejects actual project output paths equal to, above or below test-results/store-qualification. Shared outputs within an application profile remain supported.",
+    "unrelatedObservation": "This browser execution cleanup issue does not explain the prior #52 non-browser replaced-homepage-shell observation."
+  },
+  "ownedFiles": [
+    {
+      "path": "playwright.config.ts",
+      "sha256": "cd24764c1f8255f46883c2ed74ca1ae9ec70eaa5018ce31741db6644b17dc65b"
+    },
+    {
+      "path": "scripts/check-browser-discovery.mjs",
+      "sha256": "5a314d8d50ef2ed963d4362bce509363eb42030c87c992a43dedcd95c7086f73"
+    },
+    {
+      "path": "tests/tooling/browser-discovery.test.mjs",
+      "sha256": "fa38fd93bc6902b1a77db4e27317ce53ea46636d3b2f629013712f013796accd"
+    }
+  ],
+  "finalCommands": [
+    {
+      "command": "node --test tests/tooling/browser-discovery.test.mjs tests/tooling/qualification-profiles.test.mjs",
+      "exitCode": 0,
+      "output": "\u2714 browser discovery accepts nested suites and cross-profile file overlap (3.548383ms)\n\u2714 only the explicit Node consumer contract is separated from browser inventory (1.627354ms)\n\u2714 browser discovery fails when a maintained spec is unselected (1.524647ms)\n\u2714 production overlap cannot hide a missing or empty default site project (1.180374ms)\n\u2714 discovery rejects browser output that can erase or occupy qualification receipts (2.296349ms)\n\u2714 discovery accepts shared project outputs and sibling names without a path-prefix collision (0.739119ms)\n\u2714 discovery fails closed when a project output directory is missing or relative (0.867922ms)\n\u25b6 strict non-browser and full profiles retain the artifact failure and stop downstream work\n  \u2714 ci-check (1634.82863ms)\n  \u2714 full (1685.509495ms)\n\u2714 strict non-browser and full profiles retain the artifact failure and stop downstream work (3322.605317ms)\n\u2714 browser profile fails closed on native Storybook before launching any browser (739.451993ms)\n\u2714 independent browser profile prepares fresh prerequisites and selects every maintained journey (1256.041956ms)\n\u2139 tests 12\n\u2139 suites 0\n\u2139 pass 12\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 5425.336892\n"
+    },
+    {
+      "command": "pnpm test:browser:discover",
+      "exitCode": 0,
+      "output": "$ node scripts/check-browser-discovery.mjs\n{\n  \"status\": \"passed\",\n  \"scope\": \"Playwright discovery only; no browser execution, server startup or behavior qualification. Profile counts may overlap. Custom journey runners are separate scopes.\",\n  \"commands\": [\n    [\n      \"node\",\n      \"node_modules/@playwright/test/cli.js\",\n      \"test\",\n      \"--config\",\n      \"playwright.config.ts\",\n      \"--list\",\n      \"--reporter=json\",\n      \"--forbid-only\"\n    ],\n    [\n      \"node\",\n      \"node_modules/@playwright/test/cli.js\",\n      \"test\",\n      \"--config\",\n      \"playwright.store.config.ts\",\n      \"--list\",\n      \"--reporter=json\",\n      \"--forbid-only\"\n    ],\n    [\n      \"node\",\n      \"node_modules/@playwright/test/cli.js\",\n      \"test\",\n      \"--config\",\n      \"playwright.store-preview.config.ts\",\n      \"--list\",\n      \"--reporter=json\",\n      \"--forbid-only\"\n    ],\n    [\n      \"node\",\n      \"node_modules/@playwright/test/cli.js\",\n      \"test\",\n      \"--config\",\n      \"playwright.component-styles.config.ts\",\n      \"--list\",\n      \"--reporter=json\",\n      \"--forbid-only\"\n    ]\n  ],\n  \"separateRunnerTests\": [\n    {\n      \"file\": \"tests/component-styles/consumer.test.mjs\",\n      \"command\": \"pnpm test:components\"\n    }\n  ],\n  \"profiles\": [\n    {\n      \"config\": \"playwright.config.ts\",\n      \"cases\": 31,\n      \"projects\": [\n        {\n          \"name\": \"site\",\n          \"cases\": 21\n        },\n        {\n          \"name\": \"docs\",\n          \"cases\": 5\n        },\n        {\n          \"name\": \"playground\",\n          \"cases\": 5\n        }\n      ],\n      \"outputDirectories\": [\n        \"test-results/apps\"\n      ],\n      \"files\": [\n        \"tests/e2e/docs.spec.ts\",\n        \"tests/e2e/playground.spec.ts\",\n        \"tests/e2e/site.spec.ts\"\n      ]\n    },\n    {\n      \"config\": \"playwright.store.config.ts\",\n      \"cases\": 106,\n      \"projects\": [\n        {\n          \"name\": \"\",\n          \"cases\": 106\n        }\n      ],\n      \"outputDirectories\": [\n        \"test-results/store\"\n      ],\n      \"files\": [\n        \"tests/e2e/site.spec.ts\",\n        \"tests/e2e/store-accessibility.spec.ts\",\n        \"tests/e2e/store-artist.spec.ts\",\n        \"tests/e2e/store-metadata.spec.ts\",\n        \"tests/e2e/store-public-rendering.spec.ts\",\n        \"tests/e2e/store.spec.ts\",\n        \"tests/e2e/storefront-journey.spec.ts\",\n        \"tests/e2e/storefront.spec.ts\",\n        \"tests/e2e/theme.spec.ts\"\n      ]\n    },\n    {\n      \"config\": \"playwright.store-preview.config.ts\",\n      \"cases\": 6,\n      \"projects\": [\n        {\n          \"name\": \"\",\n          \"cases\": 6\n        }\n      ],\n      \"outputDirectories\": [\n        \"test-results/store-preview\"\n      ],\n      \"files\": [\n        \"tests/e2e/artist-preview.spec.ts\",\n        \"tests/e2e/fourthwall-preview.spec.ts\"\n      ]\n    },\n    {\n      \"config\": \"playwright.component-styles.config.ts\",\n      \"cases\": 4,\n      \"projects\": [\n        {\n          \"name\": \"\",\n          \"cases\": 4\n        }\n      ],\n      \"outputDirectories\": [\n        \"test-results/component-styles\"\n      ],\n      \"files\": [\n        \"tests/component-styles/styles.spec.ts\"\n      ]\n    }\n  ],\n  \"uniqueFiles\": 14\n}\n"
+    },
+    {
+      "command": "pnpm typecheck:browser",
+      "exitCode": 0,
+      "output": "$ tsc --project tsconfig.store-browser.json --noEmit\n"
+    },
+    {
+      "command": "pnpm exec biome check playwright.config.ts scripts/check-browser-discovery.mjs tests/tooling/browser-discovery.test.mjs",
+      "exitCode": 0,
+      "output": "Checked 3 files in 201ms. No fixes applied.\n"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "verification": {
+    "unitAndMockedOrchestrationTests": 12,
+    "unitAndMockedOrchestrationPassed": 12,
+    "addedOwnershipRegressionTests": 3,
+    "browserDiscoveryCounts": [31, 106, 6, 4],
+    "uniqueBrowserSpecFiles": 14,
+    "outputDirectories": [
+      "test-results/apps",
+      "test-results/store",
+      "test-results/store-preview",
+      "test-results/component-styles"
+    ],
+    "browserExecutions": 0,
+    "applicationBuilds": 0,
+    "limitations": "Discovery and mocked command runners prove selection/output boundaries/fail-stop semantics, not actual browser behavior or hosted success."
+  },
+  "remainingReview": {
+    "blockers": [],
+    "checked": [
+      "Four maintained Playwright configurations plus custom handoff, layout and catalog-localization runners are selected.",
+      "ci-check includes all existing named unit/catalog/tooling/semantic/consumer and compiler profiles, fresh smoke, raw rendering, strict artifact budgets and native Storybook.",
+      "ci-browser independently clears/rebuilds normal three-app, isolated preview, Storybook and standalone consumer prerequisites; no reuse of an earlier build is accepted.",
+      "Existing fail-stop behavior retains nonzero results and does not silently skip failed budget/native prerequisites.",
+      "Workflow uses same ci:check/ci:browser commands; dependency review and disabled deployment stay present.",
+      "Exact generated token/MSW exclusions and obsolete whole-file exemption removals do not lower authored source rule severities."
+    ],
+    "limits": [
+      "No native Storybook or browser execution performed.",
+      "Known artifact budget failures, hosted results and #52 intermittent output cause remain unresolved.",
+      "Cross-process builds still require exclusive invocation; no new lock/retry/orchestrator is introduced."
+    ]
+  },
+  "intermediate": "First narrow lint pass exposed a new cognitive-complexity warning; ownership validation was separated from test-selection traversal, and final narrow Biome is clean.",
+  "toolchain": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "playwright": "1.62.1"
+  }
+}

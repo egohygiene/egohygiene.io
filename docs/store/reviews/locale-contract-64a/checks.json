@@ -53,10 +53,7 @@
     },
     {
       "name": "portable boundary",
-      "command": [
-        "node",
-        "scripts/checks/check-store-boundaries.ts"
-      ],
+      "command": ["node", "scripts/checks/check-store-boundaries.ts"],
       "exitCode": 0,
       "elapsedSeconds": 0.335
     },
@@ -84,12 +81,7 @@
     },
     {
       "name": "fresh normal build",
-      "command": [
-        "pnpm",
-        "--filter",
-        "@egohygiene/egohygiene.io",
-        "build"
-      ],
+      "command": ["pnpm", "--filter", "@egohygiene/egohygiene.io", "build"],
       "exitCode": 0,
       "elapsedSeconds": 0.942
     },

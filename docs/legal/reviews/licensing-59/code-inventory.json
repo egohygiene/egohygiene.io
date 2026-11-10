@@ -5,11 +5,7 @@
     "root_metadata": "package.json: license Apache-2.0; private true",
     "child_manifests": "14 tracked child package.json files: all private true, none declare license",
     "initial_commit": "5e3fd943e63a741834d02aff70da7ec06b93b090",
-    "initial_scope": [
-      ".gitignore",
-      "LICENSE",
-      "README.md"
-    ],
+    "initial_scope": [".gitignore", "LICENSE", "README.md"],
     "initial_license": {
       "id": "MIT",
       "copyright": "Copyright (c) 2026 Ego Hygiene",

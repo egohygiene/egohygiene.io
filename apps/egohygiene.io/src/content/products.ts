@@ -64,7 +64,8 @@ const rawProducts = [
   {
     identifier: "store",
     name: "Store",
-    description: "Artwork, song worlds, and objects. Explore the merchandise concepts in development.",
+    description:
+      "Artwork, song worlds, and objects. Explore the merchandise concepts in development.",
     status: "development",
     category: "commerce",
     path: "/store",

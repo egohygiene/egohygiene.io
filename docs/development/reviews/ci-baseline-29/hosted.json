@@ -1,0 +1,153 @@
+{
+  "sourceCommit": "bdc3565197f56c71f128488d7c39d74172dcfea7",
+  "observedAt": "2026-10-26T05:51:39.156Z",
+  "runs": [
+    {
+      "id": 40276009684,
+      "name": "CodeQL",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40276009684",
+      "jobs": [
+        {
+          "name": "analyze",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Initialize CodeQL",
+              "conclusion": "success"
+            },
+            {
+              "name": "Analyze JavaScript and TypeScript",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Analyze JavaScript and TypeScript",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Initialize CodeQL",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 40276009669,
+      "name": "Dependency review",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40276009669",
+      "jobs": [
+        {
+          "name": "dependency-review",
+          "conclusion": "failure",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/dependency-review-action@v4",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 40276009661,
+      "name": "CI",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40276009661",
+      "jobs": [
+        {
+          "name": "validate",
+          "conclusion": "failure",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run corepack enable",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm install --frozen-lockfile --ignore-scripts",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm ci:check",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Run pnpm exec playwright install --with-deps chromium",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Run pnpm ci:browser",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Read-only refresh of automatic runs; no manual dispatch or settings changes.",
+    "Hosted CI fails at the pnpm ci:check step; detailed nested command logs were not obtained, so its exact failing sub-check is not inferred from local findings.",
+    "Dependency review still fails at its action; unsupported repository/Dependency graph diagnosis remains historical, not newly verified here.",
+    "CodeQL initialize/analyze/upload workflow success is source-specific and does not mean overall CI passed."
+  ]
+}

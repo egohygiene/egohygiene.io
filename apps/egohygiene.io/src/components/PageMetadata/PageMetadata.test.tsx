@@ -11,7 +11,9 @@ import { PageMetadata } from "./PageMetadata";
 const routers: ReturnType<typeof createMemoryRouter>[] = [];
 afterEach(() => {
   cleanup();
-  routers.splice(0).forEach((router) => router.dispose());
+  routers.splice(0).forEach((router) => {
+    router.dispose();
+  });
 });
 
 describe("client publication metadata", () => {

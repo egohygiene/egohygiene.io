@@ -11,9 +11,7 @@
     "status": "unknown"
   },
   "kind": "design",
-  "contextIds": [
-    "song-demo-static-bloom"
-  ],
+  "contextIds": ["song-demo-static-bloom"],
   "artworkRevision": 1,
   "artwork": {
     "kind": "placeholder",

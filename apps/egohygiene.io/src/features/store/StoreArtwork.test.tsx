@@ -14,7 +14,9 @@ const render = (ui: ReactElement) => baseRender(ui, { wrapper: Messages });
 
 const design: StoreDesign = {
   schemaVersion: 3,
-  sourceLocale: "en", translations: [], attribution: { status: "unknown" },
+  sourceLocale: "en",
+  translations: [],
+  attribution: { status: "unknown" },
   kind: "design",
   id: "design-test-approved",
   slug: "approved-artwork",

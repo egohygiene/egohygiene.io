@@ -149,9 +149,7 @@
       "rootFileCount": 33,
       "compilerOptions": {
         "target": "es2022",
-        "lib": [
-          "es2022"
-        ],
+        "lib": ["es2022"],
         "useDefineForClassFields": true,
         "module": "preserve",
         "moduleResolution": "bundler",
@@ -160,10 +158,7 @@
         "resolveJsonModule": true,
         "allowImportingTsExtensions": true,
         "isolatedModules": true,
-        "types": [
-          "node",
-          "vite/client"
-        ],
+        "types": ["node", "vite/client"],
         "strict": true,
         "exactOptionalPropertyTypes": true,
         "noImplicitOverride": true,
@@ -255,11 +250,7 @@
       "rootFileCount": 54,
       "compilerOptions": {
         "target": "es2022",
-        "lib": [
-          "es2022",
-          "dom",
-          "dom.iterable"
-        ],
+        "lib": ["es2022", "dom", "dom.iterable"],
         "useDefineForClassFields": true,
         "module": "preserve",
         "moduleResolution": "bundler",
@@ -268,10 +259,7 @@
         "resolveJsonModule": true,
         "allowImportingTsExtensions": true,
         "isolatedModules": true,
-        "types": [
-          "node",
-          "vite/client"
-        ],
+        "types": ["node", "vite/client"],
         "strict": true,
         "exactOptionalPropertyTypes": true,
         "noImplicitOverride": true,
@@ -289,12 +277,8 @@
         "skipLibCheck": true,
         "jsx": "react-jsx",
         "paths": {
-          "#test-utils": [
-            "./.vitest/test-utils.tsx"
-          ],
-          "@egohygiene/themes": [
-            "./packages/themes/src/index.ts"
-          ]
+          "#test-utils": ["./.vitest/test-utils.tsx"],
+          "@egohygiene/themes": ["./packages/themes/src/index.ts"]
         },
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
@@ -340,11 +324,7 @@
       "rootFileCount": 22,
       "compilerOptions": {
         "target": "es2022",
-        "lib": [
-          "es2022",
-          "dom",
-          "dom.iterable"
-        ],
+        "lib": ["es2022", "dom", "dom.iterable"],
         "useDefineForClassFields": true,
         "module": "preserve",
         "moduleResolution": "bundler",
@@ -353,10 +333,7 @@
         "resolveJsonModule": true,
         "allowImportingTsExtensions": true,
         "isolatedModules": true,
-        "types": [
-          "node",
-          "vite/client"
-        ],
+        "types": ["node", "vite/client"],
         "strict": true,
         "exactOptionalPropertyTypes": true,
         "noImplicitOverride": true,
@@ -404,9 +381,7 @@
       "rootFileCount": 9,
       "compilerOptions": {
         "target": "es2022",
-        "lib": [
-          "es2022"
-        ],
+        "lib": ["es2022"],
         "useDefineForClassFields": true,
         "module": "preserve",
         "moduleResolution": "bundler",

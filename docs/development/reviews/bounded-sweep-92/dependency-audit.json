@@ -35,15 +35,8 @@
       "react-router-dom",
       "zod"
     ],
-    "childManifestUniqueExternalDev": [
-      "@types/mdast",
-      "@vitejs/plugin-react",
-      "vite"
-    ],
-    "childManifestUniqueExternalPeers": [
-      "react",
-      "react-dom"
-    ],
+    "childManifestUniqueExternalDev": ["@types/mdast", "@vitejs/plugin-react", "vite"],
+    "childManifestUniqueExternalPeers": ["react", "react-dom"],
     "distinction": "@types/hast is declared in dependencies but is a compile-time type import, not a browser runtime. React peers are explicitly declared by consuming packages.",
     "runtime": "Website production directly uses React/ReactDOM/react-router-dom and canonical schemas through Zod. Docs adds the constrained Markdown/HAST stack. Playground consumes the same shared React primitives. This is a source/manifest observation, not a freshly measured emitted dependency graph.",
     "tooling": "Root source/config/scripts use Storybook, Vite, Vitest, Playwright, Testing Library, jsdom, PostCSS, TypeScript and Biome; additional CLI/config tooling remains distinct from public browser code.",
@@ -194,10 +187,7 @@
     ]
   },
   "preservedBroadInventory": {
-    "owners": [
-      "#15",
-      "#16"
-    ],
+    "owners": ["#15", "#16"],
     "declarations": {
       "dependencies": {
         "@auth0/auth0-spa-js": "^2.24.1",
@@ -762,10 +752,7 @@
   "deferred": [
     {
       "candidate": "Broad opt-in lab installation split",
-      "owners": [
-        "#15",
-        "#16"
-      ],
+      "owners": ["#15", "#16"],
       "reason": "Requires lossless candidate register, clean closure installs and representative optional fixtures; do not remove hundreds of experiments during this bounded sweep."
     },
     {
@@ -775,18 +762,12 @@
     },
     {
       "candidate": "Storybook11 major migration or new addon exposure",
-      "owners": [
-        "#15",
-        "#16"
-      ],
+      "owners": ["#15", "#16"],
       "reason": "Explicitly outside compatible bounded work; no new feature consumers."
     },
     {
       "candidate": "Chromatic Visual Tests addon update",
-      "owners": [
-        "#15",
-        "#16"
-      ],
+      "owners": ["#15", "#16"],
       "reason": "The retained package is not in current configured addons. Upstream advisory notes highlight link changes for active integrations; review before activation, do not silently enable it."
     },
     {
@@ -796,10 +777,7 @@
     },
     {
       "candidate": "Compiler/profile completeness and old CI draft",
-      "owners": [
-        "#52",
-        "#29"
-      ],
+      "owners": ["#52", "#29"],
       "reason": "Consume their fixes rather than duplicate test orchestration."
     }
   ],

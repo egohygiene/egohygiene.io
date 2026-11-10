@@ -60,8 +60,10 @@ describe("public rendering and browser adapter (simulated DOM)", () => {
       const fragment = document.createElement("template");
       fragment.innerHTML = rendered.markup;
       expect(fragment.content.querySelectorAll("main h1"), page.pathname).toHaveLength(1);
-      expect(fragment.content.querySelector("main")?.textContent?.trim().length, page.pathname)
-        .toBeGreaterThan(40);
+      expect(
+        fragment.content.querySelector("main")?.textContent?.trim().length,
+        page.pathname,
+      ).toBeGreaterThan(40);
       expect(rendered.markup).not.toMatch(/<!--\$(?:!|\?)-->/);
       expect(rendered.markup).not.toContain("Buy now");
     }
@@ -81,12 +83,20 @@ describe("public rendering and browser adapter (simulated DOM)", () => {
   it("fails known-route rendering instead of emitting an exception or Suspense fallback", async () => {
     const home = routes[0]!.children!.find((route) => route.id === "page:home")!;
     const original = home.element;
-    function BrokenPage(): never { throw new Error("Synthetic rendering failure"); }
-    function PendingPage(): never { throw new Promise(() => undefined); }
+    function BrokenPage(): never {
+      throw new Error("Synthetic rendering failure");
+    }
+    function PendingPage(): never {
+      throw new Promise(() => undefined);
+    }
     try {
       home.element = <BrokenPage />;
       await expect(renderPublicPage("/")).rejects.toThrow("Synthetic rendering failure");
-      home.element = <Suspense fallback={<main>Loading</main>}><PendingPage /></Suspense>;
+      home.element = (
+        <Suspense fallback={<main>Loading</main>}>
+          <PendingPage />
+        </Suspense>
+      );
       await expect(renderPublicPage("/")).rejects.toThrow("unresolved rendering boundary");
       home.element = original;
       home.loader = () => null;
@@ -103,39 +113,59 @@ describe("public rendering and browser adapter (simulated DOM)", () => {
     link.href = "https://egohygiene.io/";
     document.head.append(link);
     vi.spyOn(console, "error").mockImplementation(() => undefined);
-    function BrokenChild(): never { throw new Error("Synthetic client failure"); }
-    const result = render(<AppProviders><App><BrokenChild /></App></AppProviders>);
+    function BrokenChild(): never {
+      throw new Error("Synthetic client failure");
+    }
+    const result = render(
+      <AppProviders>
+        <App>
+          <BrokenChild />
+        </App>
+      </AppProviders>,
+    );
     expect(result.getByRole("alert")).toBeInTheDocument();
     expect(document.querySelector('link[rel="canonical"]')).toBeNull();
-    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex,follow");
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute(
+      "content",
+      "noindex,follow",
+    );
     result.unmount();
     link.remove();
   });
 
-  it.each(["/store/designs/missing", "/store/products/missing", "/store/collections/missing",
-    "/store/incompris/artists/missing", "/missing", "/missing/nested"])(
-    "renders %s as a missing page without a home canonical", async (path) => {
-      const rendered = await renderPublicPage(path);
-      expect(rendered.status).toBe(404);
-      expect(rendered.metadata.robots).toBe("noindex,follow");
-      expect(rendered.metadata.canonical).toBeUndefined();
-      expect(rendered.markup).toContain("<main");
-    },
-  );
+  it.each([
+    "/store/designs/missing",
+    "/store/products/missing",
+    "/store/collections/missing",
+    "/store/incompris/artists/missing",
+    "/missing",
+    "/missing/nested",
+  ])("renders %s as a missing page without a home canonical", async (path) => {
+    const rendered = await renderPublicPage(path);
+    expect(rendered.status).toBe(404);
+    expect(rendered.metadata.robots).toBe("noindex,follow");
+    expect(rendered.metadata.canonical).toBeUndefined();
+    expect(rendered.markup).toContain("<main");
+  });
 
-  it.each(["/", "/help", "/store/designs/heartburst", "/store/products/signal-heart-hoodie",
-    "/store/collections/static-bloom-collection"])(
-    "hydrates %s without replacing its rendered content or IDs", async (path) => {
-      window.localStorage.setItem("egohygiene-theme", "high-contrast");
-      const result = await hydrate(path);
-      expect(mounted?.hydrated).toBe(true);
-      expect(result.element.querySelector("main")).toBe(result.main);
-      expect(document.documentElement.dataset["theme"]).toBe("high-contrast");
-      expect(document.title).toBe(result.rendered.metadata.title);
-      expect(document.querySelector('link[rel="canonical"]'))
-        .toHaveAttribute("href", `https://egohygiene.io${path}`);
-    },
-  );
+  it.each([
+    "/",
+    "/help",
+    "/store/designs/heartburst",
+    "/store/products/signal-heart-hoodie",
+    "/store/collections/static-bloom-collection",
+  ])("hydrates %s without replacing its rendered content or IDs", async (path) => {
+    window.localStorage.setItem("egohygiene-theme", "high-contrast");
+    const result = await hydrate(path);
+    expect(mounted?.hydrated).toBe(true);
+    expect(result.element.querySelector("main")).toBe(result.main);
+    expect(document.documentElement.dataset["theme"]).toBe("high-contrast");
+    expect(document.title).toBe(result.rendered.metadata.title);
+    expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      `https://egohygiene.io${path}`,
+    );
+  });
 
   it("hydrates ecosystem links before restoring the explicit language query", async () => {
     const result = await hydrate("/ecosystem", "/ecosystem?lang=en");
@@ -146,8 +176,10 @@ describe("public rendering and browser adapter (simulated DOM)", () => {
     for (const link of links) {
       expect(new URL(link.getAttribute("href")!, window.location.origin).search).toBe("?lang=en");
     }
-    expect(document.querySelector('link[rel="canonical"]'))
-      .toHaveAttribute("href", "https://egohygiene.io/ecosystem");
+    expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      "https://egohygiene.io/ecosystem",
+    );
   });
 
   it("hydrates the unfiltered catalog then restores query and language without rewriting the URL", async () => {
@@ -157,8 +189,10 @@ describe("public rendering and browser adapter (simulated DOM)", () => {
     expect(result.element.querySelector('input[type="search"]')).toHaveValue("heartburst");
     expect(window.location.search).toBe("?q=heartburst&lang=en");
     expect(window.location.hash).toBe("#catalog");
-    expect(document.querySelector('link[rel="canonical"]'))
-      .toHaveAttribute("href", "https://egohygiene.io/store/catalog");
+    expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      "https://egohygiene.io/store/catalog",
+    );
   });
 
   it("hydrates artist content before restoring the song filter", async () => {
@@ -182,14 +216,19 @@ describe("public rendering and browser adapter (simulated DOM)", () => {
     const result = await hydrate("/", "/missing/nested");
     expect(mounted?.hydrated).toBe(false);
     expect(result.element.querySelector("main")).not.toBe(result.main);
-    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute("content", "noindex,follow");
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute(
+      "content",
+      "noindex,follow",
+    );
     expect(document.querySelector('link[rel="canonical"]')).toBeNull();
   });
 
   it("uses a fresh client render for an empty development shell", async () => {
     const element = document.createElement("div");
     document.body.append(element);
-    await act(async () => { mounted = mountBrowserApp(element); });
+    await act(async () => {
+      mounted = mountBrowserApp(element);
+    });
     expect(mounted?.hydrated).toBe(false);
     expect(element.querySelector("main h1")).not.toBeNull();
   });

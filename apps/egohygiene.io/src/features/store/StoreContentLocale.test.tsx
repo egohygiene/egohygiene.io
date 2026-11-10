@@ -191,17 +191,21 @@ function loadFixture(purchase: StoreProduct["purchase"] = livePurchase) {
     entries.map((value) => ({ source: value.id, value })),
     purchase.state === "live"
       ? [
-          qualifySyntheticRoute({
-            id: "route-localized",
-            provider: "fourthwall",
-            productId: "product-original",
-            checkoutUrl,
-            providerVariantIds: ["provider-original"],
-            artworkRevisions: [
-              { designId: "design-first", revision: 1 },
-              { designId: "design-second", revision: 2 },
-            ],
-          }, entries.find((entry) => entry.id === "product-original"), entries.filter((entry) => entry.kind === "design")),
+          qualifySyntheticRoute(
+            {
+              id: "route-localized",
+              provider: "fourthwall",
+              productId: "product-original",
+              checkoutUrl,
+              providerVariantIds: ["provider-original"],
+              artworkRevisions: [
+                { designId: "design-first", revision: 1 },
+                { designId: "design-second", revision: 2 },
+              ],
+            },
+            entries.find((entry) => entry.id === "product-original"),
+            entries.filter((entry) => entry.kind === "design"),
+          ),
         ]
       : [],
   );

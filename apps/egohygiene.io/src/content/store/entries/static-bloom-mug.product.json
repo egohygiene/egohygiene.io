@@ -11,12 +11,8 @@
     "status": "unknown"
   },
   "kind": "product",
-  "designIds": [
-    "design-demo-static-bloom"
-  ],
-  "contextIds": [
-    "song-demo-static-bloom"
-  ],
+  "designIds": ["design-demo-static-bloom"],
+  "contextIds": ["song-demo-static-bloom"],
   "purchase": {
     "state": "preview"
   }

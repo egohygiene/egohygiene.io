@@ -70,7 +70,7 @@
     "release": "semantic-release",
     "catalog:validate": "node scripts/store-catalog.mts validate",
     "catalog:add-design": "node scripts/store-catalog.mts add-design",
-    "catalog:test": "node --test tests/store/*.test.ts",
+    "catalog:test": "node --test --test-concurrency=2 tests/store/*.test.ts",
     "catalog:typecheck": "tsc --project tsconfig.store.json --noEmit",
     "typecheck:workspaces": "pnpm --recursive --if-present run typecheck",
     "test": "pnpm catalog:test && pnpm test:unit",
@@ -94,7 +94,9 @@
     "test:components:browser": "pnpm storybook:build && node tests/component-styles/build-consumer.mjs && playwright test --config playwright.component-styles.config.ts",
     "test:smoke": "node scripts/qualify-store.mjs --profile smoke",
     "test:browser:discover": "node scripts/check-browser-discovery.mjs",
-    "qualify:local": "node scripts/qualify-store.mjs"
+    "qualify:local": "node scripts/qualify-store.mjs",
+    "ci:check": "node scripts/qualify-store.mjs --profile ci-check",
+    "ci:browser": "node scripts/qualify-store.mjs --profile ci-browser"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^2.24.1",

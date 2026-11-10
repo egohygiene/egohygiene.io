@@ -23,7 +23,12 @@ export async function createCatalogLocalizationFixture() {
     }
     await writeFile(fixture.routesFile, `${JSON.stringify(inputs.routes, null, 2)}\n`);
     const catalog = toPublicStoreCatalog(
-      await loadCatalog(fixture.directory, inputs.routes, fixture.publicDirectory, fixture.curationFile),
+      await loadCatalog(
+        fixture.directory,
+        inputs.routes,
+        fixture.publicDirectory,
+        fixture.curationFile,
+      ),
     );
     return { ...fixture, catalog, rawCatalog };
   } catch (error) {
