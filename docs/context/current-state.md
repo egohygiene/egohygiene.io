@@ -17,7 +17,10 @@ The complete browser profile independently passes at `4ddc3d3`. Parent #131
 hosted CodeQL passes; CI fails the size gate, dependency review fails repository
 configuration and hosted browsers are skipped. No universal/combined-main pass.
 
-Manual/platform/owner decisions stay batched in #115; #34 synthetic schema work
+Final GitHub readback reports #105 conflicts with newer main; later stacked
+drafts remain mergeable against their current bases. An isolated integration and
+fresh combined-tree qualification remain agent-owned work; published heads stay
+preserved. Manual/platform/owner decisions stay batched in #115; #34 synthetic schema work
 and the unprepared #116 creative/page packet remain next agent work. No issue is
 closed, draft merged, license chosen, source retired or publication performed.
 

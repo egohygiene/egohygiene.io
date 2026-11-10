@@ -6,6 +6,13 @@ Draft [#132](https://github.com/egohygiene/egohygiene.io/pull/132) publishes the
 focused branch after #131; receipt checkpoint `24ad60a6c151ea91e15726c9044f52bf25f3b06f`
 contains the final result matrix and indexed morning handoff.
 
+Final live readback confirms #105–#109/#117/#129–#132 and store #36 are open,
+unmerged drafts at the saved heads. #105 conflicts with newer main `1605f32`;
+later website drafts remain mergeable against their current stacked bases.
+Preserve the published heads; prepare isolated integration/combined-tree checks
+as subsequent agent work before any selected merge. No stack-wide mergeability
+or combined-main qualification is inferred.
+
 Clean B `2f61616310b47658742694c7a3938705807a0b36` builds a fresh pinned
 Node/pnpm image through verified proxy trust without lifecycle scripts. Actual
 Docker 28.4.0 context exports pass (38 include/46 exclude samples, 205 checkout

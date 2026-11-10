@@ -25,6 +25,13 @@ results. Nothing is merged; qualification must be repeated after any later
 integration that changes the tested tree. Stale #73 is still open, not silently
 superseded by a new pass claim.
 
+Final GitHub readback reports **#105 currently conflicts with newer main**;
+all following website drafts are mergeable against their existing stacked bases.
+Prepare that integration separately in an isolated branch, preserve both the
+Intelligence and storefront changes, then qualify the combined tree before any
+merge. Conflict resolution remains agent-owned work. The published draft heads
+were preserved rather than rewritten during this bounded batch.
+
 ## Verification and the remaining engineering work
 
 | Evidence | Exact tested source | Actual outcome |
