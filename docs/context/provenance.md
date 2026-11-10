@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## Relationship/packet C verification — 2026-11-10
+
+A `58b93de` precedes B `c9567827db3d346f8d11454ee96866bf10466d32` in draft #137 on #136/#134. [Receipt](../store/reviews/relationship-boundary-34/verification.json): clean-source first15 Task stages pass (175 catalog/115 tooling/363 units/all compilers, actual Vite projection and raw45 routes), final artifact gate fails8 unchanged findings. All64 path hashes equal prior normal output, and the packet matrix matches the fresh route manifest. Hosted B CodeQL42923348575 succeeds; CI42923348628 fails8/skips browsers, dependency42923348549 repeats unsupported graph configuration. No rerun/dispatch or weakened gate. #116 A preparation complete, real B/C open; #34 website-only interface complete but independent private adapter/receipt/upstream-chain engineering remains. Private inspection notes/blank provider worksheet are outside public Git; no actual private record or locator was exported.
+
 ## Relationship/packet implementation checkpoint — 2026-11-10
 
 A `58b93de` is saved in draft #137, stacked on #136/#134. B adds only optional public-reference and listing-summary interfaces, tests and a 45-route preparation packet. No catalog v3 data, private canonical records, runtime dependency pins, purchase rules or default public output changed. 23 focused tests and affected typechecks pass preliminarily; normal output matches all64 baseline hashes. Private interfaces were inspected but not copied; actual private exporter/receipt compatibility is not claimed. An exhausted temporary-file inode pool interrupted the first install/write; moving an owned old dependency cache outside the temp filesystem preserved source and allowed the pinned install to finish. Exact C follows the implementation commit.

@@ -105,5 +105,6 @@
   "firstProductPacket116": "docs/store/first-product-packet-116.md",
   "firstProductPacket116Matrix": "docs/store/reviews/first-product-packet-116/route-copy-asset-matrix.json",
   "firstProductPacket116PilotTemplate": "docs/store/templates/pilot-catalog.example.json",
-  "firstProductPacket116ProviderTemplate": "docs/store/templates/provider-entry-private-template.md"
+  "firstProductPacket116ProviderTemplate": "docs/store/templates/provider-entry-private-template.md",
+  "relationshipBoundary34Evidence": "docs/store/reviews/relationship-boundary-34/verification.json"
 }

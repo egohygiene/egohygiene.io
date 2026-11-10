@@ -1,5 +1,9 @@
 # Agent entry point
 
+## Current #137 verified public boundary / #116 A packet — 2026-11-10
+
+[C receipt](docs/store/relationship-boundary-34.md) at clean `c956782` passes 15 non-browser steps (175 catalog incl23 new, 115 tooling, 363 units, all compilers/boundaries), then the unchanged eight strict sizes fail. All64 default hashes and the fresh45-route matrix match the baseline. Hosted CodeQL succeeds; CI fails those8/skips browsers and dependency review repeats graph configuration. #116 A is prepared; B/C stay open. #34 still needs independent private exporter/crosswalk and private receipt proposals plus the real upstream synthetic chain; do not reclassify that engineering as owner-only work. Canonical adoption/real identity/pilot choices stay #115/#116; publication later. Preserve #137 on #136/#134; no merge/deploy or real data change.
+
 ## Current #34 / #116 A implementation — 2026-11-10
 
 [Implemented boundary/packet](docs/store/relationship-boundary-34.md) adds optional public recording references and exact listing-evidence comparisons while preserving catalog v3 and default output. 23 focused contracts and affected types pass; normal 64-file hashes match the prior batch. [Creation packet](docs/store/first-product-packet-116.md) inventories 45 routes and prepares valid draft/blank private worksheet templates. Save exact C results next; strict eight-size/hosted failures remain. #34 private adoption/receipt criteria and #116 B/C stay open; no pilot, private data import or external action selected.

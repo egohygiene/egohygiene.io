@@ -3,6 +3,9 @@
 Prepared 2026-11-10. This packet completes mechanical preparation while Alan
 finishes the creative work. The pilot remains **unselected**; #116 B/C stay open.
 [Relationship contract and authority map](relationship-boundary-34.md).
+[Exact C verification](reviews/relationship-boundary-34/verification.json) binds
+this packet to clean source `c956782`: 175 catalog/115 tooling/363 unit checks
+pass, while the same eight strict size findings fail overall qualification.
 
 ## Existing pages and what they need
 

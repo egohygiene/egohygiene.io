@@ -115,3 +115,49 @@ in its private owning contract remain outstanding. This is an authority/integrat
 gap, not a claim that private interfaces were unavailable. #34 remains open and
 canonical ontology/package-home selection remains undecided. Existing v1→v2→v3
 website migrations are exercised; no real data is migrated or artificial v4 added.
+
+## C: exact verification and remaining paths
+
+[Source-bound receipt](reviews/relationship-boundary-34/verification.json) records
+clean `c9567827db3d346f8d11454ee96866bf10466d32`. `task ci:check` passes its first
+15 steps: 175 catalog checks (23 new), 115 tooling, 363 units, four semantic,
+one standalone consumer and three smoke; every compiler/boundary profile passes.
+The final artifact step retains all eight known raw/gzip size findings: Task 201,
+inner 1. No ceiling or test guard changed. All 64 normal file paths/hashes exactly
+match the previous batch; the 45-route/ten-indexable matrix matches the fresh
+manifest. The example validates with zero public entries and disabled purchase.
+Both inactive license patches still pass applicability checks; neither is applied.
+
+At that exact source, hosted [CodeQL](https://github.com/egohygiene/egohygiene.io/actions/runs/42923348575)
+succeeds. [CI](https://github.com/egohygiene/egohygiene.io/actions/runs/42923348628)
+logs 45-page raw success then eight strict findings/skips browsers;
+[dependency review](https://github.com/egohygiene/egohygiene.io/actions/runs/42923348549)
+repeats unsupported graph configuration. Source-specific older browser/Docker
+proof is not relabeled as new execution. The new boundary has actual Vite/client-
+module/source-map projection tests, not a claimed real private exporter pass.
+
+### Independent engineering remaining under #34
+
+Prepare the owning private exporter/crosswalk adapter and private listing-receipt
+proposal against the existing released contract and unmerged upstream extension;
+keep that work reviewable without changing canonical records. Prove an actual
+upstream-valid synthetic private→reviewed-public→website→offer→private-receipt
+chain before claiming the broader cross-repository C criteria. The website-only
+fixtures here start at approved public website keys and do not replace that proof.
+Private interfaces are accessible; this is remaining integration work, not a
+missing-access excuse or a task silently moved to Alan.
+
+Canonical adoption/package-home choice, real private/public identity approvals,
+actual pilot/assets/copy/rights and observed publication keep their existing
+owner/creative boundaries. No real data migration, account operation, publishing
+or manufacturing approval was performed. #34 stays open.
+
+### #116 preparation completed, creative review retained
+
+All six A preparation items are supplied by the [creation packet](first-product-packet-116.md).
+Its private working worksheet is blank; actual values must be retained in the
+authorized private home during B. B/C require Alan's actual pilot/display choices
+and the selected draft's rendering/projection/public-suitability acceptance.
+#116 stays open. #115 keeps the existing owner/native checks and policy decisions;
+publication is still milestone 2. Agent-owned integration and acceptance audits
+can proceed independently of the creative session.
