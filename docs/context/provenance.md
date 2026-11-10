@@ -1,5 +1,21 @@
 # Context provenance ledger
 
+## #70/#49 complete browser receipt — 2026-11-09
+
+Clean published source `4ddc3d37fccafde6bf8145426b5c1edf88f0f567` passes
+`pnpm ci:browser` (exit 0) with Node 24.21.0 and Chromium 151.0.7922.34.
+[Receipt](../development/reviews/browser-closeout-70/verification.json) retains
+15 successful steps, overlapping profile counts (31/118/6/4), 99 layouts,
+ten locale journeys, seven catalog-localization journeys, two intercepted handoffs
+and hashes of two unedited inspected captures. Prior failures and owning-seam
+repairs are recorded in [the contract/delivery](../development/browser-closeout-70.md).
+No threshold, retry or network assertion was weakened. The separate Storybook
+manager probe fails on three blocked Chakra reference requests; its local theme/
+same-document assertions passed before that failure, not complete offline proof.
+Physical/AT/native-zoom/Mac/Safari, budgets, hosted and Docker remain distinct.
+The stack remains unmerged and excludes newer mainline Intelligence work.
+The #52 receipt receives formatter-only normalization; historical values remain.
+
 ## #57 C source-bound native serving evidence — 2026-10-26
 
 Corrected published source `9a44a48031e9715cb2c3d8945a6cb2cc800c2a37` is clean and tested with Node 24.21.0/pnpm 11.28.5. [Verification](../development/reviews/static-serving-57/verification.json): 101 tooling tests, types/boundaries, fresh normal build/raw pass; 45 artifact hashes exactly match #29 controlled source. [Native HTTP](../development/reviews/static-serving-57/native-http.json) records 388 requests / 26 routes using checksum-verified Caddy 2.11.7 and the unchanged artifact, including root paths with spaces. Initial missing CNAME/webmanifest MIME findings and their correction remain recorded. Three budget failures are unchanged; no claim that earlier output anomalies are fixed.

@@ -6,7 +6,11 @@
 contrast, enlarged footer wrapping, pre-hydration image failure and duplicate
 test-host module identity on locale history. Source `e80ca51` includes the
 canonical-entry fix; focused locale journeys pass all ten cases. The full
-browser profile's prior core suites and 99 layouts pass; final complete C follows.
+browser profile now passes all 15 steps at clean `4ddc3d3`, including 99 layouts,
+ten locale journeys and seven catalog-localization journeys. Read the
+[source-bound receipt](docs/development/reviews/browser-closeout-70/verification.json).
+The separate Storybook manager probe fails on three blocked external-reference
+requests; component iframe tests pass. Do not infer manager-offline acceptance.
 Keep all guards/ceilings and physical-device/AT/native-zoom limits explicit.
 
 ## Current #52 freshness and production harness — 2026-11-09

@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "issues": [49, 70],
+  "sourceCommit": "4ddc3d37fccafde6bf8145426b5c1edf88f0f567",
+  "sourceStatus": "",
+  "command": "pnpm ci:browser",
+  "exitCode": 0,
+  "status": "passed",
+  "startedAt": "2026-11-10T03:41:00.520Z",
+  "finishedAt": "2026-11-10T03:45:34.837Z",
+  "node": "v24.21.0",
+  "browser": "151.0.7922.34",
+  "steps": [
+    {
+      "name": "maintained browser discovery",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 2825
+    },
+    {
+      "name": "fresh normal website build",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 2810
+    },
+    {
+      "name": "fresh docs build",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1188
+    },
+    {
+      "name": "fresh playground build",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1212
+    },
+    {
+      "name": "fresh all-app build smoke",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1731
+    },
+    {
+      "name": "fresh isolated preview build",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 1490
+    },
+    {
+      "name": "fresh native Storybook build",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 8172
+    },
+    {
+      "name": "fresh standalone stylesheet consumer",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 297
+    },
+    {
+      "name": "site, docs and playground browser journeys",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 20753
+    },
+    {
+      "name": "production website journeys and accessibility",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 73166
+    },
+    {
+      "name": "isolated Fourthwall and artist journeys",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 16103
+    },
+    {
+      "name": "Storybook and standalone component styles",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 7295
+    },
+    {
+      "name": "intercepted checkout handoff",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 7011
+    },
+    {
+      "name": "locale journeys, expanded text and synthetic RTL layout",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 124428
+    },
+    {
+      "name": "catalog localization and intercepted identity journeys",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedMs": 5508
+    }
+  ],
+  "playwrightProfiles": {
+    "applications": 31,
+    "normalStore": 118,
+    "isolatedPreview": 6,
+    "components": 4,
+    "note": "Counts overlap across profiles; these are not unique user journeys."
+  },
+  "layoutCases": 99,
+  "localeJourneys": 10,
+  "catalogLocalizationJourneys": 7,
+  "interceptedHandoffScenarios": 2,
+  "screens": [
+    {
+      "file": "landing-320.png",
+      "case": "production / keeps content within 320px",
+      "sha256": "b3410604094d7e02fb2a74d7621ce53ee853762e70529a7a51b6c7f5ca92d07a",
+      "bytes": 285164,
+      "width": 320,
+      "height": 4520,
+      "manipulation": "none"
+    },
+    {
+      "file": "store-2560.png",
+      "case": "production /store keeps content within 2560px",
+      "sha256": "4038b37bd4a367fc851e483c1cc1b879b98efa82bdb04ae5bcebd7846b6d81d0",
+      "bytes": 234971,
+      "width": 2560,
+      "height": 2580,
+      "manipulation": "none"
+    }
+  ],
+  "supplementalStorybookManager": {
+    "status": "failed",
+    "localThemeAndSameDocumentAssertions": "passed before the network assertion",
+    "deniedExternalCompositionRequests": 3,
+    "scope": "The manager attempted Chakra reference metadata/iframe requests; those were blocked. Four standalone/local iframe cases pass, but this does not qualify external references or complete manager offline acceptance."
+  },
+  "limits": [
+    "Unmerged storefront stack; newer Intelligence mainline not included.",
+    "No physical devices, native zoom, assistive technology, Safari/iOS or Mac/Apple Silicon acceptance.",
+    "Synthetic RTL/catalog languages and intercepted checkout do not publish translations, real products or provider requests.",
+    "Artifact budgets, hosted checks and real Docker proof are separate.",
+    "Prior failed attempts are retained in handoff history; a dated failure.json from an earlier layout attempt may remain locally and is not the current parent invocation result."
+  ]
+}

@@ -7,7 +7,7 @@ the existing Aether architecture graph to current implementation and evidence.
 | --- | --- |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
 | Active overnight closeout | [2026-11-09 batch](../development/overnight-closeout-2026-11-09.md): #51 React fallback regression, #75 reciprocal pointer correction, then #52 freshness/production harness, actual #57 Docker and #70 browser/contrast acceptance; owner decisions remain #115 |
-| Actual browser closeout | [#70/#49 repairs and coverage](../development/browser-closeout-70.md): theme transition, enlarged footer, pre-hydration artwork failure and canonical test-host entry; source-bound complete verification follows |
+| Actual browser closeout | [#70/#49 repairs and coverage](../development/browser-closeout-70.md): full 15-step browser profile passes at `4ddc3d3`; exact counts, captures and the separate failed external-reference manager probe are recorded |
 | Current sprint closeout and final owner batches | [2026-11-09 execution/closure map](../roadmaps/sprint-closeout-2026-11-09.md): reuse existing acceptance, finish agent-owned mock/schema/reliability/browser work, then [#115 manual review](https://github.com/egohygiene/egohygiene.io/issues/115) and [#116 page drafts](https://github.com/egohygiene/egohygiene.io/issues/116); publication remains a separate later milestone |
 | Local static serving | [#57 contract](../development/static-serving-57.md): draft #109: 101 tooling tests/388 native HTTP checks pass; Docker/Task/Mac acceptance remains open |
 | Morning reconciliation | [2026-10-26 handoff](overnight-2026-10-26.md): ordered drafts, licensing, output/budget/native/browser/hosted gaps and next issues |

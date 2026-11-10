@@ -61,3 +61,39 @@ canonicalizes the test entry URL and adds an explicit single-shell invariant.
 All ten real locale/history/storage/gallery/inert-preview journeys pass in the
 focused runner; no locator is weakened with first-match selection or retry.
 The final complete profile and source-bound C receipt follow this checkpoint.
+
+## C — Complete browser qualification
+
+Clean source `4ddc3d37fccafde6bf8145426b5c1edf88f0f567` passes
+`pnpm ci:browser` with exit 0, Chromium 151.0.7922.34 and Node 24.21.0.
+The [verification receipt](reviews/browser-closeout-70/verification.json) records
+all 15 successful steps, fresh artifacts and exact UTC timestamps. Application
+tests pass 31 cases, production store 118, isolated preview six and component
+styles four; these profile counts overlap. The same invocation passes 99 layout
+cases, ten locale journeys, seven catalog-localization journeys and two
+intercepted-handoff scenarios. No retry, weaker contrast limit or skipped assertion
+is used to turn the observed failures into passes.
+
+Unedited production captures retain narrow and wide examples:
+[landing at 320px](reviews/browser-closeout-70/landing-320.png) and
+[store at 2560px](reviews/browser-closeout-70/store-2560.png). Receipt hashes identify
+their original bytes. Both were inspected for clipping and legibility; a full-page
+capture can include an off-screen lazy image before it loads. These examples
+supplement the measured route/viewport matrix rather than establishing every
+content or device state.
+
+A supplemental Storybook **manager** probe has a separate failed result: local
+theme changes retained the iframe document, then the guard blocked three Chakra
+reference metadata/iframe requests. The four local component iframe/standalone
+cases pass in the supported profile. External-reference and manager-offline
+acceptance are still incomplete; do not describe this supplemental probe as a
+pass or close #53's remaining scope from it.
+
+Earlier failed invocations remain in the dated history. A prior layout
+`failure.json` can remain in the ignored local output directory; the current
+parent invocation and current journey/capture timestamps identify this passing
+run. Physical devices, native zoom, assistive technology, Safari/iOS and Mac/
+Apple Silicon remain owner/manual checks in #115. Strict budgets, hosted results
+and real Docker evidence are separate. This qualifies the unmerged storefront
+stack, excluding main's newer Intelligence changes; it does not authorize merge,
+publication or real provider activity. #70/#49 retain their original criteria.
