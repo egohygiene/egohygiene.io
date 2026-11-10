@@ -103,10 +103,7 @@
     "skill": "skill://plugin_connector_690ab09fa43c8191bca40280e4563238/stripe-directory/SKILL.md",
     "cli": "1.55.9",
     "plugin": "0.3.5",
-    "queries": [
-      "static website hosting",
-      "GitHub dependency automation"
-    ],
+    "queries": ["static website hosting", "GitHub dependency automation"],
     "result": "Both CLI searches exit 1: Invalid user agent. This endpoint can only be used by the Stripe CLI tool.",
     "providerResultsVerified": false,
     "fallback": "Official technical documentation; no provider selected, pricing/eligibility claims or provisioning."
