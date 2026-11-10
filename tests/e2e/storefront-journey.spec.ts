@@ -23,6 +23,36 @@ test.beforeEach(async ({ context }) => {
   });
 });
 
+const layoutSamples = [
+  { width: 320, path: "/" },
+  { width: 390, path: "/ecosystem" },
+  { width: 639, path: "/store" },
+  { width: 640, path: "/store/incompris" },
+  { width: 641, path: "/store/incompris/artists/play" },
+  { width: 895, path: "/store/catalog" },
+  { width: 896, path: "/store/products/signal-heart-hoodie" },
+  { width: 897, path: "/store/designs/heartburst" },
+  { width: 1024, path: "/store/incompris" },
+  { width: 1440, path: "/" },
+  { width: 1920, path: "/ecosystem" },
+  { width: 2560, path: "/store" },
+] as const;
+
+for (const { width, path } of layoutSamples) {
+  test(`production ${path} keeps content within ${width}px`, async ({ page }, testInfo) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(path);
+    await expect(page.getByRole("main").getByRole("heading", { level: 1 })).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+    if ([320, 896, 897, 2560].includes(width)) {
+      await testInfo.attach("responsive-render", {
+        body: await page.screenshot({ fullPage: true }),
+        contentType: "image/png",
+      });
+    }
+  });
+}
+
 test("missing artwork preserves a usable card, design page and dismissible viewer", async ({
   page,
 }) => {

@@ -70,9 +70,7 @@ textarea {
   padding: 0.7rem 1.1rem;
   text-decoration: none;
   cursor: pointer;
-  transition:
-    transform var(--eh-motion-fast) ease,
-    background var(--eh-motion-base) ease;
+  transition: transform var(--eh-motion-fast) ease;
 }
 
 .eh-button:hover {
