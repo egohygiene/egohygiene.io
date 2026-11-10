@@ -1,7 +1,7 @@
 /** Docker-specific adapter for the existing local qualification runner. */
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { randomUUID } from "node:crypto";
+import { randomUUID, X509Certificate } from "node:crypto";
 import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
@@ -19,6 +19,25 @@ import {
 } from "./docker-context.mjs";
 
 const execute = promisify(execFile);
+
+/** Optional public trust stays in a BuildKit secret, never in the build context. */
+export async function buildCertificateSecret(root, filename) {
+  if (!filename) return [];
+  assert.ok(!/[,\0\r\n]/.test(filename), "Build CA path contains an unsupported delimiter.");
+  const source = path.resolve(root, filename);
+  let certificate;
+  try {
+    certificate = await readFile(source, "utf8");
+  } catch {
+    throw new Error("Build CA certificate cannot be read.");
+  }
+  assert.ok(!certificate.includes("PRIVATE KEY"), "Build CA input must not contain a private key.");
+  const blocks = certificate.match(/-----BEGIN CERTIFICATE-----[\s\S]*?-----END CERTIFICATE-----/g);
+  assert.ok(blocks?.length, "Build CA input requires a PEM CA certificate bundle.");
+  for (const block of blocks)
+    assert.ok(new X509Certificate(block).ca, "Build CA must be a CA certificate.");
+  return ["--secret", `id=build_ca,src=${source}`];
+}
 
 export function localDockerEndpoint(endpoint) {
   assert.ok(
@@ -143,6 +162,10 @@ async function main() {
     }
   };
   try {
+    // biome-ignore lint/suspicious/noUndeclaredEnvVars: Explicit local input; this qualifier is not cached by Turbo.
+    const certificatePath = process.env.STORE_BUILD_CA_CERT;
+    const certificateSecret = await buildCertificateSecret(root, certificatePath);
+    report.buildTrust = { proxyAwareNode: true, customCA: certificateSecret.length > 0 };
     report.source = await smokeSourceIdentity(root);
     dockerPrefix = ["--host", await selectedDockerEndpoint(docker)];
     const versions = JSON.parse(
@@ -193,6 +216,7 @@ async function main() {
       "infra/docker/Dockerfile",
       "--iidfile",
       iidfile,
+      ...certificateSecret,
       ".",
     ]);
     const imageId = (await readFile(iidfile, "utf8")).trim();

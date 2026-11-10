@@ -3,11 +3,12 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
 
 import { publicStoreCatalog } from "./scripts/vite-store-catalog.mts";
+import { organizationIntelligence } from "./scripts/vite-organization-intelligence.mts";
 
 const resolve = (value: string) => fileURLToPath(new URL(value, import.meta.url));
 
 export default defineConfig({
-  plugins: [publicStoreCatalog()],
+  plugins: [publicStoreCatalog(), organizationIntelligence()],
   resolve: {
     alias: {
       "@egohygiene/i18n": resolve("./packages/i18n/src/index.ts"),

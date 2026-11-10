@@ -3,6 +3,8 @@ import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
+import { intelligenceEndpointRoutes } from "../../apps/egohygiene.io/src/content/intelligence-routes.ts";
+
 const digest = (value) => createHash("sha256").update(value).digest("hex");
 const query = "?q=heart%20burst&lang=en&literal=a%2Fb&empty=";
 const mediaTypes = {
@@ -102,8 +104,18 @@ export async function inspectStaticResponses(artifactRoot, publicReport, baseUrl
     }
   };
   const verifyAliases = async (page) => {
-    const aliases =
-      page.pathname === "/" ? ["/index.html"] : [`${page.pathname}/`, `/${page.file}`];
+    const aliases = new Set(
+      page.pathname === "/"
+        ? ["/index.html"]
+        : [
+            page.pathname.endsWith("/") ? page.pathname.slice(0, -1) : `${page.pathname}/`,
+            `/${page.file}`,
+            ...(
+              intelligenceEndpointRoutes.find((route) => route.path === page.pathname)?.aliases ??
+              []
+            ).flatMap((alias) => [alias, alias.slice(0, -1)]),
+          ],
+    );
     for (const alias of aliases) {
       for (const suffix of ["", query]) {
         for (const method of ["GET", "HEAD"]) {

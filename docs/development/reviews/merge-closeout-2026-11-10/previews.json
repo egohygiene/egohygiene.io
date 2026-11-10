@@ -1,0 +1,81 @@
+[
+  {
+    "pr": 105,
+    "originalHead": "2b9ebe5d3aba4f7cccb277252d15a48325ff205d",
+    "previewCommit": "2498c149e15ff9cffb61f83947698c9a107c259c",
+    "tree": "c43df94bf2e4be31901e347cd83e90c595336518",
+    "resolvedFiles": ["docs/context/current-state.md", "docs/context/provenance.md"]
+  },
+  {
+    "pr": 106,
+    "originalHead": "c5935ae45d582af19a4175db1f1e05168393e0f6",
+    "previewCommit": "099262b3eecc2a7cc5b45a00e34329eac1b8ca54",
+    "tree": "698117c2bb23092e4d5ce9679b459b67b769e783",
+    "resolvedFiles": ["docs/context/current-state.md"]
+  },
+  {
+    "pr": 107,
+    "originalHead": "3d44df671069300e13324fb3f17e3762986e7892",
+    "previewCommit": "2caae0c1280479ff1231d3101181689c0a218e7d",
+    "tree": "c2300268d3b5c5bef7816eddc881fa2cafa93fbd",
+    "resolvedFiles": ["docs/context/current-state.md"]
+  },
+  {
+    "pr": 108,
+    "originalHead": "4faaebeb50b4202e8aaf9ee0012db0f836939f79",
+    "previewCommit": "28f3060e1e9eb96261ab83581c4f77ee0d34dea5",
+    "tree": "d9c56d8400d885b1b762d77263aae15fb36f631b",
+    "resolvedFiles": [
+      "apps/egohygiene.io/src/app/router.tsx",
+      "apps/egohygiene.io/src/entry-server.tsx",
+      "apps/egohygiene.io/vite.config.ts",
+      "scripts/build-public-site.mts",
+      "scripts/public-site-output.mts",
+      "docs/context/current-state.md"
+    ],
+    "resolution": "Preserve Intelligence runtime changes and apply the current formatter; retain both context histories."
+  },
+  {
+    "pr": 109,
+    "originalHead": "8717b54d7fd64b6ef5895b163fb01fc840ffc437",
+    "previewCommit": "b047bc548eb463f1469034904260e5b4b300b55e",
+    "tree": "a3cca97b2bcee4730f131831e1e73f6324852f05",
+    "resolvedFiles": ["docs/context/current-state.md", "infra/caddy/Caddyfile"],
+    "resolution": "Retain Intelligence canonical slash URLs and all declared alias redirects before strict storefront handling; preserve both context histories."
+  },
+  {
+    "pr": 117,
+    "originalHead": "a7e15c7b1543dcba01647ec8ff358aab5126c817",
+    "previewCommit": "125af61b5a48ff7db6e6718a4e676d3145cc7a03",
+    "tree": "15695b90225d5ecc52d7d731e92b28b087d9fe6b",
+    "resolvedFiles": ["docs/context/current-state.md"]
+  },
+  {
+    "pr": 129,
+    "originalHead": "30c5d920dadb15357ee6092f5f0ae340e8cbaa1c",
+    "previewCommit": "74388f3df76f26082db5acc9825bd7939e0bfa46",
+    "tree": "a834165298ca75e5e6032e7d8b9afd0b09731f2c",
+    "resolvedFiles": ["docs/context/current-state.md"]
+  },
+  {
+    "pr": 130,
+    "originalHead": "1720b9e50eef6cca4bd495b846d219c159d094e1",
+    "previewCommit": "2ea9cbaee424323734fdc26c61847e18d5ff2795",
+    "tree": "c3f39e4fed7a9a9debe3127e58be5096e4db3bdd",
+    "resolvedFiles": ["docs/context/current-state.md"]
+  },
+  {
+    "pr": 131,
+    "originalHead": "0f9de22cd772707c2077b61ac4291357afede121",
+    "previewCommit": "6b8c28cbd3bdf2e8eb364f31fe2e9cb0c97106c6",
+    "tree": "ca44c95c5b329b1fbb328864d355976b7965766e",
+    "resolvedFiles": ["docs/context/current-state.md"]
+  },
+  {
+    "pr": 132,
+    "originalHead": "d23846b56b18f5f4f3aec703747b5676f47f448e",
+    "previewCommit": "7bd63d0b79fa4fb9f10953b0e6bbb058457ebb0d",
+    "tree": "69e1360d0e512fc64d735e095e1926284110bd66",
+    "resolvedFiles": ["docs/context/current-state.md"]
+  }
+]

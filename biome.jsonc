@@ -198,6 +198,12 @@
   // Environment-specific exceptions
   "overrides": [
     {
+      // Imported contracts and their locks are byte-pinned upstream resources.
+      // Preserve their exact hashes while retaining lint and JSON analysis.
+      "includes": ["contracts/organization-intelligence/**/*.json"],
+      "formatter": { "enabled": false }
+    },
+    {
       // Console output is a legitimate interface for repository scripts,
       // generators, configuration tools, and other Node-based tooling.
       "includes": [

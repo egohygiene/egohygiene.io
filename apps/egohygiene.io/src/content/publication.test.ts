@@ -15,9 +15,9 @@ const heartburst = storeCatalog.entries.find(
 )!;
 
 describe("reviewed public route inventory", () => {
-  it("derives all 26 current paths with exactly the ten reviewed sitemap destinations", () => {
+  it("derives all 45 current paths with exactly the ten reviewed sitemap destinations", () => {
     const routes = getPublicRoutes(input);
-    expect(routes).toHaveLength(26);
+    expect(routes).toHaveLength(45);
     expect(routes.filter((route) => route.indexable).map((route) => route.path)).toEqual([
       "/",
       "/about",
@@ -30,7 +30,29 @@ describe("reviewed public route inventory", () => {
       "/store/incompris",
       "/store/incompris/artists/play",
     ]);
-    expect(routes.filter((route) => !route.indexable)).toHaveLength(16);
+    expect(routes.filter((route) => !route.indexable)).toHaveLength(35);
+    expect(
+      routes.filter((route) => route.kind === "intelligence").map((route) => route.path),
+    ).toEqual([
+      "/audits/",
+      "/decisions/",
+      "/dependencies/",
+      "/distribution/",
+      "/health/",
+      "/hygiene/",
+      "/intelligence/compare/",
+      "/intelligence/dashboard/",
+      "/intelligence/diagnostics/",
+      "/intelligence/identity/",
+      "/intelligence/journey/",
+      "/intelligence/now/",
+      "/intelligence/work/",
+      "/releases/",
+      "/roadmap/",
+      "/sanity/",
+      "/search/",
+      "/status/",
+    ]);
     expect(routes.every((route) => route.reason.length > 0)).toBe(true);
     expect(routes.some((route) => /preview|songs/.test(route.path))).toBe(false);
     expect(routes.some((route) => route.entryId === "song-demo-static-bloom")).toBe(false);

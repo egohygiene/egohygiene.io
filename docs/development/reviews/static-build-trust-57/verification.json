@@ -1,0 +1,549 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "commit": "2f61616310b47658742694c7a3938705807a0b36",
+    "digest": "f2b34a2bb0a5ca4932366b7dae1579d3776b0712685527679a9710e1b99a51b1",
+    "files": 792
+  },
+  "startedAt": "2026-11-10T03:55:04.212Z",
+  "finishedAt": "2026-11-10T03:56:11.914Z",
+  "result": "fail",
+  "node": "v24.21.0",
+  "docker": {
+    "client": "28.4.0",
+    "server": "28.4.0"
+  },
+  "buildTrust": {
+    "proxyAwareNode": true,
+    "customCA": true
+  },
+  "contextProbe": {
+    "result": "pass",
+    "includedFiles": 38,
+    "excludedSamples": 46
+  },
+  "commands": [
+    {
+      "label": "selected-context",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:55:04.370Z",
+      "finishedAt": "2026-11-10T03:55:04.389Z"
+    },
+    {
+      "label": "context-endpoint",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:55:04.389Z",
+      "finishedAt": "2026-11-10T03:55:04.402Z"
+    },
+    {
+      "label": "engine-version",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:55:04.403Z",
+      "finishedAt": "2026-11-10T03:55:04.427Z"
+    },
+    {
+      "label": "probe-context-build",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:55:04.449Z",
+      "finishedAt": "2026-11-10T03:55:04.668Z"
+    },
+    {
+      "label": "checkout-context-build",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:55:04.676Z",
+      "finishedAt": "2026-11-10T03:55:04.949Z"
+    },
+    {
+      "label": "normal-image-build",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:55:05.007Z",
+      "finishedAt": "2026-11-10T03:56:10.033Z"
+    },
+    {
+      "label": "image-identity",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:56:10.034Z",
+      "finishedAt": "2026-11-10T03:56:10.050Z"
+    },
+    {
+      "label": "create-owned-container",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:56:10.051Z",
+      "finishedAt": "2026-11-10T03:56:10.140Z"
+    },
+    {
+      "label": "extract-served-artifact",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:56:10.141Z",
+      "finishedAt": "2026-11-10T03:56:10.168Z"
+    },
+    {
+      "label": "start-owned-container",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:56:10.830Z",
+      "finishedAt": "2026-11-10T03:56:10.947Z"
+    },
+    {
+      "label": "bound-port",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:56:10.948Z",
+      "finishedAt": "2026-11-10T03:56:10.966Z"
+    },
+    {
+      "label": "server-version",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:56:10.968Z",
+      "finishedAt": "2026-11-10T03:56:11.046Z"
+    },
+    {
+      "label": "cleanup-ownership",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:56:11.733Z",
+      "finishedAt": "2026-11-10T03:56:11.752Z"
+    },
+    {
+      "label": "remove-owned-container",
+      "status": "pass",
+      "startedAt": "2026-11-10T03:56:11.754Z",
+      "finishedAt": "2026-11-10T03:56:11.902Z"
+    }
+  ],
+  "image": {
+    "id": "sha256:c3a42df48f805a44cba963fe3c58d84bc7a76d1d33f39b5e9836e11581205c42",
+    "architecture": "amd64",
+    "os": "linux",
+    "repoDigests": []
+  },
+  "caddyVersion": "v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=",
+  "cleanup": "pass",
+  "command": "task qualify:static",
+  "taskVersion": "3.54.0",
+  "taskExitCode": 201,
+  "childExitCode": 1,
+  "taskReleaseSha256": "680859dbb4d881a9c72d4d9a8f510825450849af8567deacd7302c01124416fb",
+  "pnpm": "11.28.5",
+  "context": {
+    "result": "pass",
+    "files": 205,
+    "workspaceManifests": 14
+  },
+  "publicArtifact": {
+    "result": "pass",
+    "pages": 26,
+    "publicInputSha256": "0a42f605bd35e631b908db04f9ec434c5df6ce669adb1688622ec2f250d9dd61"
+  },
+  "artifact": {
+    "result": "fail",
+    "files": [
+      {
+        "path": "404.html",
+        "kind": "documents",
+        "bytes": 6035,
+        "gzipBytes": 1966,
+        "sha256": "a8c081c97a2ab5f66aeca81a201953cb3448aa74115eedb039d33330af47e386"
+      },
+      {
+        "path": "about/index.html",
+        "kind": "documents",
+        "bytes": 6686,
+        "gzipBytes": 2217,
+        "sha256": "852ce3d6f215d7b267381ca2580c9879140a0e4808b7a60e73bda71311eb5a60"
+      },
+      {
+        "path": "accessibility/index.html",
+        "kind": "documents",
+        "bytes": 7968,
+        "gzipBytes": 2633,
+        "sha256": "02616d722d0529bdba5b6d859ba84db501b87aeee89bc9d033df7e5717f14e22"
+      },
+      {
+        "path": "aether/index.html",
+        "kind": "documents",
+        "bytes": 6497,
+        "gzipBytes": 2094,
+        "sha256": "611443fefecfc369422ba0b3e84829d8edcb7afba67799a13304f978f6fa7ff6"
+      },
+      {
+        "path": "assets/index-BjdTxC6G.css",
+        "kind": "css",
+        "bytes": 50363,
+        "gzipBytes": 9804,
+        "sha256": "eec2f9bcf23644097e41d4ff9cbe81cc42f410e8b6ea3f6134225a2297b806a7"
+      },
+      {
+        "path": "assets/index-BTKz6PMI.js",
+        "kind": "javascript",
+        "bytes": 481242,
+        "gzipBytes": 139293,
+        "sha256": "edde7e6a1050905963b1465e32b099e126d6cc67e6e5be078e53853a96428a97"
+      },
+      {
+        "path": "CNAME",
+        "kind": "documents",
+        "bytes": 14,
+        "gzipBytes": 34,
+        "sha256": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12"
+      },
+      {
+        "path": "ecosystem/index.html",
+        "kind": "documents",
+        "bytes": 9277,
+        "gzipBytes": 2619,
+        "sha256": "97a38148d69acd2e59cef468ba690709b3b5388face2488594440f52bdd85265"
+      },
+      {
+        "path": "egolint/index.html",
+        "kind": "documents",
+        "bytes": 6468,
+        "gzipBytes": 2097,
+        "sha256": "950e91caa68e02a68a7a3ef4067c633e5c716587eeaaf67e502d6f5e0e6c8cd5"
+      },
+      {
+        "path": "favicon.ico",
+        "kind": "images",
+        "bytes": 15086,
+        "gzipBytes": 11232,
+        "sha256": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e"
+      },
+      {
+        "path": "favicon.png",
+        "kind": "images",
+        "bytes": 3008,
+        "gzipBytes": 3031,
+        "sha256": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86"
+      },
+      {
+        "path": "fonts/atkinson-bold.woff",
+        "kind": "fonts",
+        "bytes": 23780,
+        "gzipBytes": 23749,
+        "sha256": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623"
+      },
+      {
+        "path": "fonts/atkinson-regular.woff",
+        "kind": "fonts",
+        "bytes": 22792,
+        "gzipBytes": 22782,
+        "sha256": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b"
+      },
+      {
+        "path": "fonts/NOTICE.txt",
+        "kind": "documents",
+        "bytes": 2357,
+        "gzipBytes": 1335,
+        "sha256": "2231aaf86f60c69cb7c9c09a26af1bb8cd58138d8deeed992038367ee68c4df9"
+      },
+      {
+        "path": "help/index.html",
+        "kind": "documents",
+        "bytes": 8527,
+        "gzipBytes": 2787,
+        "sha256": "3052aad5a1383e984dfb0189573e51c1b93f3fdff6090602dfe5b4e43f77686d"
+      },
+      {
+        "path": "icons/apple-touch-icon.png",
+        "kind": "images",
+        "bytes": 33687,
+        "gzipBytes": 33720,
+        "sha256": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66"
+      },
+      {
+        "path": "icons/icon-192x192.png",
+        "kind": "images",
+        "bytes": 36806,
+        "gzipBytes": 36839,
+        "sha256": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8"
+      },
+      {
+        "path": "icons/icon-512x512.png",
+        "kind": "images",
+        "bytes": 161290,
+        "gzipBytes": 160949,
+        "sha256": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c"
+      },
+      {
+        "path": "icons/NOTICE.txt",
+        "kind": "documents",
+        "bytes": 1574,
+        "gzipBytes": 966,
+        "sha256": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6"
+      },
+      {
+        "path": "index.html",
+        "kind": "documents",
+        "bytes": 11211,
+        "gzipBytes": 3435,
+        "sha256": "bed9a7f69196f3f0401e7ef5b8aa9bc828d0ef53ee7ea85a69f9a9360bb85585"
+      },
+      {
+        "path": "llms.txt",
+        "kind": "documents",
+        "bytes": 2398,
+        "gzipBytes": 1029,
+        "sha256": "e60531c2ab30c1e67de2707c83b802a134fc7579acc8468ac3d6e2b968e3e98d"
+      },
+      {
+        "path": "mindcap/index.html",
+        "kind": "documents",
+        "bytes": 6460,
+        "gzipBytes": 2092,
+        "sha256": "1713c8f71a7b35f6a2f9a6137e6e3ea0bcdc7bf8dd3bdb9a4e0bd1a8b2f45ee4"
+      },
+      {
+        "path": "mindgarden/index.html",
+        "kind": "documents",
+        "bytes": 6473,
+        "gzipBytes": 2096,
+        "sha256": "8276360d131a639d42ce11ddb8d151a8f6e4914b9c5bd8ab96b4df3f0af8e0a8"
+      },
+      {
+        "path": "privacy/index.html",
+        "kind": "documents",
+        "bytes": 6862,
+        "gzipBytes": 2316,
+        "sha256": "135b234b24517c7efd93796236ebb2e6900d7c64b010fe9111294e4807770cc6"
+      },
+      {
+        "path": "public-routes.json",
+        "kind": "documents",
+        "bytes": 9941,
+        "gzipBytes": 2228,
+        "sha256": "1930ec5bc8d003491eae79764ac991c3b794bd95d8ead2b276fa3bfb0bd7bab7"
+      },
+      {
+        "path": "reflector/index.html",
+        "kind": "documents",
+        "bytes": 6446,
+        "gzipBytes": 2092,
+        "sha256": "f5aea204a91356cc4203f88b29d07f95ce9be0f0ee13fb942381fcd6169077a8"
+      },
+      {
+        "path": "renderflow/index.html",
+        "kind": "documents",
+        "bytes": 6481,
+        "gzipBytes": 2093,
+        "sha256": "3b6322a8892f3a0974067369539edb126f2a7c4ab7e1e82c65bbce54e844e8a1"
+      },
+      {
+        "path": "robots.txt",
+        "kind": "documents",
+        "bytes": 68,
+        "gzipBytes": 84,
+        "sha256": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33"
+      },
+      {
+        "path": "site.webmanifest",
+        "kind": "documents",
+        "bytes": 473,
+        "gzipBytes": 218,
+        "sha256": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e"
+      },
+      {
+        "path": "sitemap.xml",
+        "kind": "documents",
+        "bytes": 693,
+        "gzipBytes": 221,
+        "sha256": "34cf5b4b5bc8322dc07047268c8715e122a81f2233589e29e7214a97efd7117a"
+      },
+      {
+        "path": "store/catalog/index.html",
+        "kind": "documents",
+        "bytes": 42139,
+        "gzipBytes": 6269,
+        "sha256": "a3788d0187d930cc5e14fd3a6bde4200d2739627b5ecc99dc0eb39e77ca9e11e"
+      },
+      {
+        "path": "store/collections/static-bloom-collection/index.html",
+        "kind": "documents",
+        "bytes": 17427,
+        "gzipBytes": 3797,
+        "sha256": "6a204aa959045376b59de4941282069b9a0d2e633d9b19c9ddcaa04278b018fe"
+      },
+      {
+        "path": "store/designs/heartburst/index.html",
+        "kind": "documents",
+        "bytes": 9354,
+        "gzipBytes": 2748,
+        "sha256": "165537f639e5a801f59e5b7b0d23392e87fbd0d85651410e7f8bd74fc1587693"
+      },
+      {
+        "path": "store/designs/signal-heart/index.html",
+        "kind": "documents",
+        "bytes": 14060,
+        "gzipBytes": 3679,
+        "sha256": "053865e63a84f06ffa33a7089cfc4b98a8560f0bca3f7748f98baa6f9c33fcd6"
+      },
+      {
+        "path": "store/designs/static-bloom-artwork/index.html",
+        "kind": "documents",
+        "bytes": 17846,
+        "gzipBytes": 3936,
+        "sha256": "415fe4675cf2d730037482d34a53ec43be49139f723300155b632ae5667504d5"
+      },
+      {
+        "path": "store/designs/unwritten-realm-cover/index.html",
+        "kind": "documents",
+        "bytes": 13864,
+        "gzipBytes": 3732,
+        "sha256": "d2b0b4629eb1428bd61432c13c664c17947665898b44f6efd5d8b69b6d6382e9"
+      },
+      {
+        "path": "store/heartburst/heartburst-light.webp",
+        "kind": "images",
+        "bytes": 141978,
+        "gzipBytes": 141581,
+        "sha256": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550"
+      },
+      {
+        "path": "store/help/index.html",
+        "kind": "documents",
+        "bytes": 9716,
+        "gzipBytes": 3208,
+        "sha256": "2d6513d0cd70bce873bf899bb0babef78650413e3375f446c9f2a4c7462f573f"
+      },
+      {
+        "path": "store/incompris/artists/play/index.html",
+        "kind": "documents",
+        "bytes": 8760,
+        "gzipBytes": 2772,
+        "sha256": "feacc8a6b4ab19365733ae798c6721f7dea2f90045da06dc27a97522ed36f8b3"
+      },
+      {
+        "path": "store/incompris/index.html",
+        "kind": "documents",
+        "bytes": 9822,
+        "gzipBytes": 3040,
+        "sha256": "2985f6383558c7e00f24442e357060e9ae7ff7371d8bbbb4a8f7dca8e97c12c0"
+      },
+      {
+        "path": "store/index.html",
+        "kind": "documents",
+        "bytes": 10361,
+        "gzipBytes": 3175,
+        "sha256": "6ff58490334b98f94ece497d9d97113c59204e971f721e23f4ecb94316c64bd1"
+      },
+      {
+        "path": "store/products/signal-heart-hoodie/index.html",
+        "kind": "documents",
+        "bytes": 14458,
+        "gzipBytes": 3796,
+        "sha256": "32fa2eac35239883f88b1855b71cc6a061a67741ec4efa81b0f2b1074cc5d16c"
+      },
+      {
+        "path": "store/products/static-bloom-mug/index.html",
+        "kind": "documents",
+        "bytes": 18420,
+        "gzipBytes": 4085,
+        "sha256": "b7f54cf75408197efd4942c83468357ff0ef45a3d5db67be8609da5e7a03b1ae"
+      },
+      {
+        "path": "store/products/unwritten-realm-comic/index.html",
+        "kind": "documents",
+        "bytes": 14076,
+        "gzipBytes": 3795,
+        "sha256": "0a21cadd171b6cb0d53c2a830ae05d9fbb3a0bf05e135e5bab28c7a13309abb7"
+      },
+      {
+        "path": "terms/index.html",
+        "kind": "documents",
+        "bytes": 6760,
+        "gzipBytes": 2278,
+        "sha256": "408034f4e5ba0d039a99640e3fde02b0a3888d824c05aa57aad6a13f88ac20da"
+      }
+    ],
+    "references": 202,
+    "publicImageExactMatch": true,
+    "sizes": {
+      "javascript": {
+        "bytes": 481242,
+        "gzipBytes": 139293,
+        "limit": {
+          "bytes": 500000,
+          "gzipBytes": 150000
+        },
+        "result": "pass"
+      },
+      "css": {
+        "bytes": 50363,
+        "gzipBytes": 9804,
+        "limit": {
+          "bytes": 60000,
+          "gzipBytes": 12000
+        },
+        "result": "pass"
+      },
+      "images": {
+        "bytes": 391855,
+        "gzipBytes": 387352,
+        "limit": {
+          "bytes": 500000,
+          "gzipBytes": 500000
+        },
+        "result": "pass"
+      },
+      "fonts": {
+        "bytes": 46572,
+        "gzipBytes": 46531,
+        "limit": {
+          "bytes": 60000,
+          "gzipBytes": 50000
+        },
+        "result": "pass"
+      },
+      "documents": {
+        "bytes": 319972,
+        "gzipBytes": 86962,
+        "limit": {
+          "bytes": 20000,
+          "gzipBytes": 10000
+        },
+        "result": "fail"
+      },
+      "total": {
+        "bytes": 1290004,
+        "gzipBytes": 669942,
+        "limit": {
+          "bytes": 1140000,
+          "gzipBytes": 722000
+        },
+        "result": "fail"
+      }
+    },
+    "findings": [
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "bytes: 319972 exceeds 20000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "documents",
+        "detail": "gzipBytes: 86962 exceeds 10000."
+      },
+      {
+        "rule": "size-budget",
+        "file": "total",
+        "detail": "bytes: 1290004 exceeds 1140000."
+      }
+    ]
+  },
+  "hostArtifactComparison": {
+    "result": "pass",
+    "files": 45,
+    "meaning": "Every extracted image artifact file path and SHA-256 matches the independent fresh host build at the same source."
+  },
+  "http": {
+    "result": "pass",
+    "requestCount": 388,
+    "evidence": "container-http.json"
+  },
+  "failure": "HTTP checks finished, but existing artifact qualification findings remain. See static-server.json; budgets were not bypassed.\n\n'fail' !== 'pass'\n",
+  "limits": [
+    "The image, context filtering and 388 HTTP checks pass on Linux amd64; the overall qualifier fails three strict artifact-size findings.",
+    "Task returns 201 for the failing task while the inner qualifier exits 1.",
+    "The optional public CA was supplied as a BuildKit secret; its path/content and raw network/build logs are omitted. TLS verification remained enabled.",
+    "No Apple Silicon/Mac Docker or native operator walkthrough is established.",
+    "Base-image patch tags are mutable; this receipt identifies the actual local image, not a reproducible remote digest or deployment.",
+    "Browser evidence belongs to the separate source-bound #70 receipt; newer Intelligence mainline is excluded."
+  ]
+}

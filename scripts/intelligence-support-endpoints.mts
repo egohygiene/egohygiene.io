@@ -25,7 +25,17 @@ type SearchRecord = EndpointRecord & { readonly searchText: string };
 const assertions = ["authoritative", "inferred", "unknown"] as const;
 const freshnessStates = ["current", "stale", "unknown", "not_applicable"] as const;
 const queues = ["active", "ready", "waiting", "blocked", "unknown"] as const;
-const entityKinds = new Set(["repository", "roadmap_step", "architecture_decision", "issue", "pull_request", "commit", "check", "release", "deployment"]);
+const entityKinds = new Set([
+  "repository",
+  "roadmap_step",
+  "architecture_decision",
+  "issue",
+  "pull_request",
+  "commit",
+  "check",
+  "release",
+  "deployment",
+]);
 const eventLabels: Readonly<Record<string, string>> = {
   "repository.observed": "Repository observed",
   "roadmap_step.created": "Roadmap step created",
@@ -53,11 +63,17 @@ function evidenceClaim(value: unknown, states: readonly string[]): string {
   return result;
 }
 
-function isPublicEndpoint(value: unknown, context: EndpointProjectionContext): value is Record<string, unknown> {
+function isPublicEndpoint(
+  value: unknown,
+  context: EndpointProjectionContext,
+): value is Record<string, unknown> {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const item = value as Record<string, unknown>;
-  return item["visibility"] === "public" && typeof item["repository"] === "string"
-    && context.allowedRepositories.has(item["repository"]);
+  return (
+    item["visibility"] === "public" &&
+    typeof item["repository"] === "string" &&
+    context.allowedRepositories.has(item["repository"])
+  );
 }
 
 function addUnique(identifiers: Set<string>, identifier: string): void {
@@ -66,7 +82,10 @@ function addUnique(identifiers: Set<string>, identifier: string): void {
 }
 
 /** Exclude unsupported/private relationships before inspecting edge identity or prose. */
-export function projectDependencyEdges(value: unknown, context: EndpointProjectionContext): readonly DependencyEndpointEdge[] {
+export function projectDependencyEdges(
+  value: unknown,
+  context: EndpointProjectionContext,
+): readonly DependencyEndpointEdge[] {
   const view = plain(value);
   const result: DependencyEndpointEdge[] = [];
   const identifiers = new Set<string>();
@@ -74,9 +93,15 @@ export function projectDependencyEdges(value: unknown, context: EndpointProjecti
     const edge = plain(raw);
     const type = edge["type"];
     if (type !== "depends-on" && type !== "blocks") continue;
-    const sourceValue = edge["source"], targetValue = edge["target"];
-    if (!isPublicEndpoint(sourceValue, context) || !isPublicEndpoint(targetValue, context)) continue;
-    if (sourceValue["repository"] !== context.repository && targetValue["repository"] !== context.repository) continue;
+    const sourceValue = edge["source"],
+      targetValue = edge["target"];
+    if (!isPublicEndpoint(sourceValue, context) || !isPublicEndpoint(targetValue, context))
+      continue;
+    if (
+      sourceValue["repository"] !== context.repository &&
+      targetValue["repository"] !== context.repository
+    )
+      continue;
     const source = reference(sourceValue, context);
     if (!source) continue;
     const target = reference(targetValue, context);
@@ -84,34 +109,51 @@ export function projectDependencyEdges(value: unknown, context: EndpointProjecti
     const id = text(edge["id"], 512);
     addUnique(identifiers, id);
     if (source.id === target.id) throw new TypeError("ENDPOINT_INPUT");
-    result.push({ id, source, target, type,
+    result.push({
+      id,
+      source,
+      target,
+      type,
       assertion: evidenceClaim(edge["assertion"], assertions),
-      freshness: evidenceClaim(edge["freshness"], freshnessStates) });
+      freshness: evidenceClaim(edge["freshness"], freshnessStates),
+    });
   }
   return result;
 }
 
 /** Group admitted direct edges by their actual source without expanding transitively. */
-export function projectDependencies(value: unknown, context: EndpointProjectionContext): readonly EndpointRecord[] {
+export function projectDependencies(
+  value: unknown,
+  context: EndpointProjectionContext,
+): readonly EndpointRecord[] {
   const grouped = new Map<string, { source: EndpointReference; edges: DependencyEndpointEdge[] }>();
   for (const edge of projectDependencyEdges(value, context)) {
     const prior = grouped.get(edge.source.id);
     if (prior) {
-      if (JSON.stringify(prior.source) !== JSON.stringify(edge.source)) throw new TypeError("ENDPOINT_INPUT");
+      if (JSON.stringify(prior.source) !== JSON.stringify(edge.source))
+        throw new TypeError("ENDPOINT_INPUT");
       prior.edges.push(edge);
     } else grouped.set(edge.source.id, { source: edge.source, edges: [edge] });
   }
   return [...grouped.values()].map(({ source, edges }) => ({
     ...source,
-    summary: "Direct relationships supplied by the normalized source. Prerequisites and blockers retain their declared direction and evidence assertions.",
+    summary:
+      "Direct relationships supplied by the normalized source. Prerequisites and blockers retain their declared direction and evidence assertions.",
     details: edges.map((edge) => ({ label: `${edge.type} edge identity`, value: edge.id })),
-    relations: edges.map((edge) => ({ label: edge.type, target: edge.target,
-      assertion: edge.assertion, freshness: edge.freshness })),
+    relations: edges.map((edge) => ({
+      label: edge.type,
+      target: edge.target,
+      assertion: edge.assertion,
+      freshness: edge.freshness,
+    })),
   }));
 }
 
 /** Render execution inventories and the separately inferred roadmap-readiness queues. */
-export function projectWork(value: unknown, context: EndpointProjectionContext): readonly EndpointRecord[] {
+export function projectWork(
+  value: unknown,
+  context: EndpointProjectionContext,
+): readonly EndpointRecord[] {
   const view = plain(value);
   const result: EndpointRecord[] = [];
   const identifiers = new Set<string>();
@@ -124,28 +166,44 @@ export function projectWork(value: unknown, context: EndpointProjectionContext):
       if (!item) continue;
       if (item.kind !== kind || item.state !== "open") throw new TypeError("ENDPOINT_INPUT");
       addUnique(identifiers, item.id);
-      result.push({ ...item, details: [{ label: "Execution inventory", value: label }], relations: [] });
+      result.push({
+        ...item,
+        details: [{ label: "Execution inventory", value: label }],
+        relations: [],
+      });
     }
   }
   const readiness = plain(view["roadmap_queues"]);
-  if (Object.keys(readiness).length !== queues.length || !queues.every((queue) => Object.hasOwn(readiness, queue))) throw new TypeError("ENDPOINT_INPUT");
+  if (
+    Object.keys(readiness).length !== queues.length ||
+    !queues.every((queue) => Object.hasOwn(readiness, queue))
+  )
+    throw new TypeError("ENDPOINT_INPUT");
   for (const queue of queues) {
     for (const raw of list(readiness[queue])) {
       const item = reference(raw, context);
       if (!item) continue;
       if (item.kind !== "roadmap_step") throw new TypeError("ENDPOINT_INPUT");
       addUnique(identifiers, item.id);
-      result.push({ ...item,
+      result.push({
+        ...item,
         summary: `Projected readiness queue: ${queue}. Observatory derives this from canonical state and explicit relationships; the queue does not grant human approval or acceptance.`,
-        details: [{ label: "Readiness queue (inferred)", value: queue },
-          { label: "Canonical roadmap state", value: item.state }], relations: [] });
+        details: [
+          { label: "Readiness queue (inferred)", value: queue },
+          { label: "Canonical roadmap state", value: item.state },
+        ],
+        relations: [],
+      });
     }
   }
   return result;
 }
 
 /** Preserve observed event order and keep event state separate from current subject state. */
-export function projectJourney(value: unknown, context: EndpointProjectionContext): readonly EndpointRecord[] {
+export function projectJourney(
+  value: unknown,
+  context: EndpointProjectionContext,
+): readonly EndpointRecord[] {
   const view = plain(value);
   const result: EndpointRecord[] = [];
   const indices = new Map<string, number>();
@@ -161,17 +219,35 @@ export function projectJourney(value: unknown, context: EndpointProjectionContex
     if (indices.has(id) || event["subject"] !== subject.id) throw new TypeError("ENDPOINT_INPUT");
     const occurredAt = instant(event["occurred_at"]);
     const recordedAt = instant(event["recorded_at"]);
-    if (occurredAt > recordedAt || (previous && (occurredAt < previous.occurredAt || (occurredAt === previous.occurredAt && id <= previous.id)))) throw new TypeError("ENDPOINT_INPUT");
+    if (
+      occurredAt > recordedAt ||
+      (previous &&
+        (occurredAt < previous.occurredAt ||
+          (occurredAt === previous.occurredAt && id <= previous.id)))
+    )
+      throw new TypeError("ENDPOINT_INPUT");
     previous = { occurredAt, id };
     const assertion = evidenceClaim(event["assertion"], assertions);
     const freshness = evidenceClaim(event["freshness"], freshnessStates);
     indices.set(id, result.length);
-    result.push({ ...subject, id, key: id, kind: "event", title: `${eventLabels[type]} · ${subject.title}`,
-      state: type, assertion, freshness,
-      details: [{ label: "Occurred at", value: occurredAt }, { label: "Recorded at", value: recordedAt },
+    result.push({
+      ...subject,
+      id,
+      key: id,
+      kind: "event",
+      title: `${eventLabels[type]} · ${subject.title}`,
+      state: type,
+      assertion,
+      freshness,
+      details: [
+        { label: "Occurred at", value: occurredAt },
+        { label: "Recorded at", value: recordedAt },
         { label: "Subject state at this snapshot", value: subject.state },
-        { label: "Subject assertion", value: subject.assertion }, { label: "Subject freshness", value: subject.freshness }],
-      relations: [{ label: "Event subject", target: subject, assertion, freshness }] });
+        { label: "Subject assertion", value: subject.assertion },
+        { label: "Subject freshness", value: subject.freshness },
+      ],
+      relations: [{ label: "Event subject", target: subject, assertion, freshness }],
+    });
   }
   // A tail chapter's text can mention a prior unprojected release. Preserve only
   // explicit admitted release boundaries, never arbitrary chapter titles/IDs.
@@ -188,16 +264,24 @@ export function projectJourney(value: unknown, context: EndpointProjectionContex
       chapterAssignments.set(candidate, boundary.id);
       const index = indices.get(candidate)!;
       const current = result[index]!;
-      result[index] = { ...current,
-        details: [...current.details, { label: "Explicit release chapter boundary", value: boundary.title }],
-        relations: [...current.relations, { label: "Release chapter boundary", target: boundary }] };
+      result[index] = {
+        ...current,
+        details: [
+          ...current.details,
+          { label: "Explicit release chapter boundary", value: boundary.title },
+        ],
+        relations: [...current.relations, { label: "Release chapter boundary", target: boundary }],
+      };
     }
   }
   return result;
 }
 
 /** Keep Observatory's opaque matching string; never derive local field attribution. */
-export function projectSearch(value: unknown, context: EndpointProjectionContext): readonly EndpointRecord[] {
+export function projectSearch(
+  value: unknown,
+  context: EndpointProjectionContext,
+): readonly EndpointRecord[] {
   const view = plain(value);
   const result: SearchRecord[] = [];
   const identifiers = new Set<string>();
@@ -208,10 +292,21 @@ export function projectSearch(value: unknown, context: EndpointProjectionContext
     const supplied = plain(raw);
     const searchText = text(supplied["search_text"], 4096);
     addUnique(identifiers, item.id);
-    result.push({ ...item, searchText,
-      details: [{ label: "Search matching", value: "The supplied normalized search_text; no local reindexing or ranking." },
-        { label: "Matched fields", value: "Attribution unavailable in the pinned opaque Search contract." }],
-      relations: [] });
+    result.push({
+      ...item,
+      searchText,
+      details: [
+        {
+          label: "Search matching",
+          value: "The supplied normalized search_text; no local reindexing or ranking.",
+        },
+        {
+          label: "Matched fields",
+          value: "Attribution unavailable in the pinned opaque Search contract.",
+        },
+      ],
+      relations: [],
+    });
   }
   return result;
 }

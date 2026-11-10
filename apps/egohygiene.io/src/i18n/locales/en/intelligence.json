@@ -45,7 +45,7 @@
     "next": "Next ready",
     "emptyList": "No items are projected in this list. Check domain coverage before interpreting an empty view.",
     "unavailable": "Current focus, blockers and next-ready evidence are unavailable. No strategic or health state is inferred.",
-    "bounded": "Showing the first {shown} of {total} public items. Open repository evidence for the full projected lists.",
+    "bounded": "Showing the first {{shown}} of {{total}} public items. Open repository evidence for the full projected lists.",
     "repositoryHeading": "Projected repository context",
     "repositoryUnavailable": "This repository's Now module is unavailable. Its independent source and coverage evidence remain below."
   },
@@ -57,7 +57,7 @@
     "search": "Search repositories",
     "evidence": "Evidence state",
     "clear": "Clear filters",
-    "results": "Showing {shown} of {total} represented public repositories.",
+    "results": "Showing {{shown}} of {{total}} represented public repositories.",
     "noResults": "No represented public repositories match these filters. Clear the filters to return to the admitted directory.",
     "unavailable": "The public repository directory will appear when a reviewed compatible snapshot is available.",
     "noScript": "The complete admitted directory is shown below. Interactive filters and selected-repository links require JavaScript; native evidence disclosures and source links remain available."

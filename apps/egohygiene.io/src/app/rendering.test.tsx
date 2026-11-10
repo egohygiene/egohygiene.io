@@ -51,7 +51,7 @@ async function hydrate(path: string, browserPath = path) {
 describe("public rendering and browser adapter (simulated DOM)", () => {
   it("renders every approved current destination as meaningful HTML with its metadata", async () => {
     const pages = listPublicPages();
-    expect(pages).toHaveLength(26);
+    expect(pages).toHaveLength(45);
     expect(pages.filter((page) => page.indexable)).toHaveLength(10);
     for (const page of pages) {
       const rendered = await renderPublicPage(page.pathname);

@@ -1,5 +1,59 @@
 # Context provenance ledger
 
+## Combined integration and pre-merge verification — 2026-11-10
+
+Alan authorized merges and issue consolidation. Isolated integration preserves
+main `1605f32` and all original #105–#109/#117/#129–#132 heads; the
+[integration contract/receipt](../development/merge-closeout-2026-11-10.md)
+records source/format/context/Caddy resolutions, 11 unchanged byte-pinned JSON
+contracts, both inactive license patches and exact sources. Full browser passes
+at `48ded05`; final `56206ef` passes all 32 app-browser cases and 15 non-browser
+stages, including 363 units/114 tooling/152 catalog tests and all compiler checks.
+Actual Docker `2a34c59` passes context/image/45 pages/768 HTTP checks and cleanup;
+every one of its 64 artifact hashes equals the final host build. Overall Task
+profiles still exit 201 (child 1) on eight strict size findings. A controlled
+original-main build already fails the same eight metrics; no gate changed.
+
+Store #36 merge `e97ee727e6c2300e804579cf2122d34d4c162158` exactly matches reviewed
+`cbcc922`; #75 is closed completed. Duplicate future concepts #114→#111 and
+#113→#112 retain unique requirements and source history. Website merges follow
+with expected-head checks and tree comparisons; no website merge is claimed by
+this pre-merge checkpoint. Manual/creative/publication and actual-model acceptance
+remain distinct; no license, live provider or deployment is activated.
+
+## #57 actual container and complete non-browser receipt — 2026-11-09
+
+Draft [#132](https://github.com/egohygiene/egohygiene.io/pull/132) publishes the
+focused branch after #131; receipt checkpoint `24ad60a6c151ea91e15726c9044f52bf25f3b06f`
+contains the final result matrix and indexed morning handoff.
+
+Final live readback confirms #105–#109/#117/#129–#132 and store #36 are open,
+unmerged drafts at the saved heads. #105 conflicts with newer main `1605f32`;
+later website drafts remain mergeable against their current stacked bases.
+Preserve the published heads; prepare isolated integration/combined-tree checks
+as subsequent agent work before any selected merge. No stack-wide mergeability
+or combined-main qualification is inferred.
+
+Clean B `2f61616310b47658742694c7a3938705807a0b36` builds a fresh pinned
+Node/pnpm image through verified proxy trust without lifecycle scripts. Actual
+Docker 28.4.0 context exports pass (38 include/46 exclude samples, 205 checkout
+files/14 manifests). Linux amd64 Caddy 2.11.7 image
+`sha256:c3a42df48f805a44cba963fe3c58d84bc7a76d1d33f39b5e9836e11581205c42`
+passes 26 raw pages and all 388 HTTP checks; ownership-checked cleanup passes.
+All 45 extracted image file hashes equal the independent host build. The
+[receipt/commands/HTTP](../development/static-build-trust-57.md) preserve exact
+identity, public hashes and limits while omitting raw logs/CA paths/content.
+
+Task 3.54.0 executes both static and ci-check profiles. Fifteen non-browser steps
+pass, with 152 catalog/111 tooling/354 unit/four semantic/one consumer/three smoke
+tests, full compiler/boundary profiles and fresh raw output. Three strict size
+findings fail both profiles: Task exit 201, child exit 1. No threshold changed;
+native Storybook is skipped after this ci-check failure but passes independently
+in #70. Parent #131 hosted runs record CodeQL success, CI artifact failure and
+unsupported dependency-review configuration; hosted browsers are skipped. This
+does not qualify the new static branch remotely or newer Intelligence mainline.
+Owner/manual/creative/publication boundaries and every existing draft remain.
+
 ## #70/#49 complete browser receipt — 2026-11-09
 
 Clean published source `4ddc3d37fccafde6bf8145426b5c1edf88f0f567` passes

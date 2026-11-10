@@ -47,6 +47,20 @@
 !scripts/store-catalog.mts
 !scripts/vite-store-catalog.mts
 !scripts/vite-public-pages.mts
+# Exact public Intelligence build modules and the three mandatory pinned inputs.
+!scripts/vite-organization-intelligence.mts
+!scripts/intelligence-endpoint-input.mts
+!scripts/intelligence-endpoint-modules.mts
+!scripts/intelligence-intent-endpoints.mts
+!scripts/intelligence-navigation-model.mts
+!scripts/intelligence-operation-endpoints.mts
+!scripts/intelligence-publications.mts
+!scripts/intelligence-review-endpoints.mts
+!scripts/intelligence-review-json.mts
+!scripts/intelligence-support-endpoints.mts
+!contracts/organization-intelligence/input-lock.json
+!contracts/organization-intelligence/public-site-surface-registry.json
+!contracts/organization-intelligence/repository-intelligence-fleet.v1.schema.json
 !infra/docker/Dockerfile
 !infra/caddy/Caddyfile
 

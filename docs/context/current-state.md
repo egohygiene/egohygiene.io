@@ -1,5 +1,29 @@
 # Current handoff
 
+## Current: authorized combined merge candidate qualified — 2026-11-10
+
+Alan authorized the completed-draft merges and independent/manual issue paths.
+Read [the integration and results](../development/merge-closeout-2026-11-10.md)
+and [exact verification](../development/reviews/merge-closeout-2026-11-10/verification.json).
+Current main `1605f32` and the storefront stack are integrated without losing
+Intelligence routes, public contract pins or either context history. The candidate
+on `integrate/sprint-closeout-2026-11-10` is ready for ordered fast-forward feature
+branch updates and expected-head GitHub merges; final merge readbacks follow.
+
+Full browser passes at `48ded05`; final source `56206ef` passes all 32 app-browser
+cases and 15 non-browser stages (363 units/114 tooling/152 catalog tests and every
+compiler profile). Docker `2a34c59` passes 768 HTTP checks over 45 pages, cleanup
+and real context probes; all 64 artifact hashes match the final host build.
+Eight strict size findings fail overall qualification and already exist in a
+controlled build of main. No limit changed. #53 manager/reference and hosted
+dependency-review gaps remain separate. Owner/manual work stays #115; #116 has
+agent preparation before its creative review. Neither license proposal is applied.
+
+Store #36 merged at `e97ee72` with the reviewed tree; #75 is closed completed.
+Future duplicates #113/#114 are closed into #112/#111 with unique criteria kept.
+Website #51/#50/#60/#64/#65 are evidence-backed closure candidates after the
+approved integration. #34's newer relationship/publication extension stays open.
+
 ## Current: Public Intelligence fleet intake — 2026-11-09
 
 Candidate `codex/intelligence-fleet-host` starts from merged main
@@ -40,6 +64,30 @@ no further concrete blocker. Syntax/import/JSON/diff inspection is the only
 validation scope; tests, typechecks, builds, CI, browser/Caddy/runtime and live
 publication acceptance remain deferred. The notes below retain main's earlier
 source checkpoints; their historical statuses do not describe this campaign.
+
+## Current: overnight batch verified and ready for review — 2026-11-09
+
+The [morning packet](../development/overnight-closeout-2026-11-09.md) indexes
+lookup #129, reciprocal store #36, freshness #130, browser #131 and focused
+[#132](https://github.com/egohygiene/egohygiene.io/pull/132), `fix/static-build-trust-57`.
+Receipt checkpoint `24ad60a` is published. Earlier #105→#109/#117 remain unmerged.
+Clean static B `2f61616310b47658742694c7a3938705807a0b36` passes actual Task/
+Docker context exports, fresh Linux amd64 image, 26 raw pages and 388 Caddy 2.11.7
+HTTP checks. Owned container cleanup passes and every one of the 45 artifact
+hashes matches the independent host build. [Exact static/non-browser evidence](../development/static-build-trust-57.md)
+retains image identity and all failures. Fifteen non-browser stages pass,
+including complete compiler checks, 152 catalog/111 tooling/354 unit tests;
+both Task profiles end with exit 201 (child 1) on three strict size findings.
+The complete browser profile independently passes at `4ddc3d3`. Parent #131
+hosted CodeQL passes; CI fails the size gate, dependency review fails repository
+configuration and hosted browsers are skipped. No universal/combined-main pass.
+
+Final GitHub readback reports #105 conflicts with newer main; later stacked
+drafts remain mergeable against their current bases. An isolated integration and
+fresh combined-tree qualification remain agent-owned work; published heads stay
+preserved. Manual/platform/owner decisions stay batched in #115; #34 synthetic schema work
+and the unprepared #116 creative/page packet remain next agent work. No issue is
+closed, draft merged, license chosen, source retired or publication performed.
 
 ## Current: #70/#49 theme transition and actual browser pass — 2026-11-09
 

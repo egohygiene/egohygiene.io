@@ -22,6 +22,16 @@ async function fixture(t, change = (_request, response) => response) {
       file: "store/index.html",
       body: "<!doctype html><main>Store fixture</main>",
     },
+    {
+      pathname: "/intelligence/",
+      file: "intelligence/index.html",
+      body: "<!doctype html><main>Intelligence fixture</main>",
+    },
+    {
+      pathname: "/roadmap/",
+      file: "roadmap/index.html",
+      body: "<!doctype html><main>Roadmap fixture</main>",
+    },
   ].map((page) => ({ ...page, htmlSha256: digest(page.body) }));
   const missing = "<!doctype html><meta name=robots content=noindex><main>Missing fixture</main>";
   const files = new Map([
@@ -43,6 +53,12 @@ async function fixture(t, change = (_request, response) => response) {
     ["/index.html", "/"],
     ["/store/", "/store"],
     ["/store/index.html", "/store"],
+    ["/intelligence", "/intelligence/"],
+    ["/intelligence/index.html", "/intelligence/"],
+    ["/roadmap", "/roadmap/"],
+    ["/roadmap/index.html", "/roadmap/"],
+    ["/intelligence/roadmap", "/roadmap/"],
+    ["/intelligence/roadmap/", "/roadmap/"],
   ]);
   const isAssetPath = (pathname) =>
     ["/assets", "/assets/", "/fonts/", "/icons/"].includes(pathname) ||
@@ -105,6 +121,17 @@ test("static HTTP inspector exercises all supplied pages, emitted assets, aliase
   );
   assert.ok(result.responses.some((response) => response.pathname === "/store/products/%2A"));
   assert.ok(
+    result.responses.some(
+      (response) => response.pathname === "/roadmap/" && response.status === 200,
+    ),
+  );
+  assert.ok(
+    result.responses.some(
+      (response) =>
+        response.pathname === "/intelligence/roadmap/" && response.location === "/roadmap/",
+    ),
+  );
+  assert.ok(
     result.responses.some((response) => response.pathname.includes("literal=a%2Fb&empty=")),
   );
   assert.ok(
@@ -116,6 +143,13 @@ test("static HTTP inspector exercises all supplied pages, emitted assets, aliase
 
 test("static HTTP inspector rejects concrete serving regressions", async (t) => {
   const cases = [
+    [
+      "Intelligence canonical loses its slash",
+      "/roadmap/",
+      "GET",
+      (answer) => ({ ...answer, status: 308, headers: { location: "/roadmap" } }),
+      /GET status/,
+    ],
     [
       "wrong page bytes",
       "/store",

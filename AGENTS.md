@@ -1,5 +1,28 @@
 # Agent entry point
 
+## Current authorized merge and issue consolidation — 2026-11-10
+
+Alan explicitly authorized merging the completed drafts and separating agent
+work from his manual path. Read [the integration contract](docs/development/merge-closeout-2026-11-10.md).
+Integrate the prerequisite website stack and #129–#132 with current Intelligence
+main, plus independent store #36; verify the combined tree and use expected-head
+GitHub merges. Preserve original commits, license proposals as inactive and every
+gate. Owner/manual choices remain #115, creative/page approvals #116, publication
+later. Earlier no-merge snapshots are historical for this authorized action.
+
+## Current overnight final verification — 2026-11-09
+
+Read the [morning packet](docs/development/overnight-closeout-2026-11-09.md) and
+[#57 actual Task/Docker receipt](docs/development/static-build-trust-57.md).
+Clean source `2f61616` builds the Linux amd64 image, passes real context exports,
+26 raw pages and 388 container HTTP checks, and removes its owned container.
+All 45 image/host artifact hashes match. Fifteen non-browser steps pass, including
+354 units/111 tooling tests; strict artifact budgets still fail three findings.
+Task wrappers exit 201, inner qualifiers 1. Full browser profile at `4ddc3d3`
+passes independently; parent hosted CI/dependency review still fail. No full
+qualification or issue closure is inferred. Owner/creative work remains #115/#116;
+main's newer Intelligence work is separate. Preserve every draft and gate.
+
 ## Current #70/#49 browser closeout implementation — 2026-11-09
 
 [Observed repairs](docs/development/browser-closeout-70.md) fix theme-switch

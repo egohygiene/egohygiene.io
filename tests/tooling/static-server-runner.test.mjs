@@ -5,9 +5,10 @@ import { createServer } from "node:http";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { test } from "node:test";
+import { rootCertificates } from "node:tls";
 import { fileURLToPath } from "node:url";
 
-import { localDockerEndpoint } from "../../scripts/static-server.mjs";
+import { buildCertificateSecret, localDockerEndpoint } from "../../scripts/static-server.mjs";
 
 const repository = fileURLToPath(new URL("../../", import.meta.url));
 
@@ -96,7 +97,12 @@ else { process.stderr.write("Unexpected fixture command " + JSON.stringify(args)
   return { root, port: server.address().port };
 }
 
-async function runFixture({ root, port }, mode, endpoint = "unix:///fixture/docker.sock") {
+async function runFixture(
+  { root, port },
+  mode,
+  endpoint = "unix:///fixture/docker.sock",
+  certificate = "",
+) {
   const commandFile = path.join(root, "commands.jsonl");
   const child = spawn(process.execPath, ["scripts/static-server.mjs"], {
     cwd: root,
@@ -107,6 +113,7 @@ async function runFixture({ root, port }, mode, endpoint = "unix:///fixture/dock
       BUILDKIT_HOST: "tcp://remote-fixture:1234",
       DOCKER_CONTEXT: "",
       DOCKER_HOST: endpoint,
+      STORE_BUILD_CA_CERT: certificate,
       FIXTURE_MODE: mode,
       FIXTURE_COMMANDS: commandFile,
       FIXTURE_STATE: path.join(root, "state.txt"),
@@ -157,6 +164,48 @@ test("local Docker endpoint validation rejects TCP, SSH and remote Windows pipes
     undefined,
   ])
     assert.throws(() => localDockerEndpoint(endpoint), /local Docker/);
+});
+
+test("public build CA is optional and scoped only to the networked image build", async (t) => {
+  const input = await fixture(t);
+  const certificate = path.join(input.root, "public trust bundle.pem");
+  await writeFile(certificate, rootCertificates[0]);
+  assert.deepEqual(await buildCertificateSecret(input.root, undefined), []);
+  const result = await runFixture(input, "budget", "unix:///fixture/docker.sock", certificate);
+  const builds = result.commands.filter((args) => args[0] === "build");
+  assert.equal(builds.length, 3);
+  assert.ok(builds.slice(0, 2).every((args) => !args.includes("--secret")));
+  const normalBuild = builds[2];
+  assert.ok(normalBuild.includes("--iidfile"));
+  assert.equal(normalBuild[normalBuild.indexOf("--secret") + 1], `id=build_ca,src=${certificate}`);
+  assert.deepEqual(result.report.buildTrust, { proxyAwareNode: true, customCA: true });
+  assert.ok(!JSON.stringify(result.report).includes(certificate));
+  assert.ok(!JSON.stringify(result.report).includes("BEGIN CERTIFICATE"));
+  assert.equal(result.report.http.result, "pass");
+});
+
+test("invalid build CA fails before Docker and does not expose input paths", async (t) => {
+  for (const [name, contents, expected] of [
+    ["missing.pem", undefined, /certificate cannot be read/],
+    ["malformed.pem", "not a certificate", /PEM CA certificate bundle/],
+    [
+      "private.pem",
+      `${rootCertificates[0]}\n-----BEGIN PRIVATE KEY-----`,
+      /must not contain a private key/,
+    ],
+    ["ambiguous,path.pem", rootCertificates[0], /unsupported delimiter/],
+  ]) {
+    await t.test(name, async (subtest) => {
+      const input = await fixture(subtest);
+      const certificate = path.join(input.root, name);
+      if (contents !== undefined) await writeFile(certificate, contents);
+      const result = await runFixture(input, "", "unix:///fixture/docker.sock", certificate);
+      assert.equal(result.code, 1);
+      assert.match(result.report.failure, expected);
+      assert.deepEqual(result.commands, []);
+      assert.ok(!JSON.stringify(result.report).includes(certificate));
+    });
+  }
 });
 
 test("remote endpoint rejection happens before any Docker command", async (t) => {

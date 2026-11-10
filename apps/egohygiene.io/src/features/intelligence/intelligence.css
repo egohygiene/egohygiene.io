@@ -5,101 +5,410 @@
   padding-block: 1rem 2rem;
 }
 
-.oi-page :where(h1, h2, h3, h4, h5, p, ul, dl) { margin-block: 0; }
+.oi-page :where(h1, h2, h3, h4, h5, p, ul, dl) {
+  margin-block: 0;
+}
 .oi-page :where(a, button, input, select, summary):focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 4px;
 }
-.oi-page a { color: var(--color-accent); text-underline-offset: 0.2em; }
-.oi-page :where(code, time, dd, h3, h4, p, a) { overflow-wrap: anywhere; }
-.oi-page :where(section[id], article[id], details[id]) { scroll-margin-block-start: 7rem; }
-.oi-intro { display: grid; gap: 1rem; max-inline-size: 68rem; }
-.oi-intro h1 { font-size: clamp(2.2rem, 6vw, 4.25rem); line-height: 1.08; max-inline-size: 20ch; }
-.oi-lede { max-inline-size: 62ch; font-size: clamp(1.05rem, 2.2vw, 1.3rem); line-height: 1.65; }
-.oi-muted { color: var(--color-muted); line-height: 1.6; }
-.oi-section, .oi-repository-evidence { display: grid; gap: 1.25rem; min-inline-size: 0; }
-.oi-section-heading { display: flex; gap: 0.8rem 2rem; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
-.oi-section-heading > :first-child { min-inline-size: 0; }
-.oi-section-heading > p { max-inline-size: 46ch; }
-.oi-section-heading .site-eyebrow { margin-block-end: 0.4rem; }
-.oi-section-heading h2, .oi-section > h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; }
-.oi-section-nav, .oi-module-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.oi-section-nav a, .oi-module-nav a { display: inline-flex; align-items: center; min-block-size: 2.75rem; padding: 0.55rem 0.9rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); }
-.oi-state-panel, .oi-panel, .oi-repository { display: grid; gap: 1rem; padding: clamp(1rem, 3vw, 1.65rem); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); min-inline-size: 0; }
-.oi-state-panel[data-state="stale"], .oi-state-panel[data-state="partial"], .oi-repository[data-selected="true"] { border-inline-start: 4px solid var(--color-accent); }
-.oi-badge { display: inline-flex; flex: 0 0 auto; align-items: center; padding: 0.35rem 0.65rem; border: 1px solid currentColor; border-radius: var(--radius-sm); color: var(--color-foreground); font-size: 0.8rem; font-weight: 650; line-height: 1.3; }
-.oi-summary { display: flex; flex-wrap: wrap; gap: 1rem 3rem; }
-.oi-summary div, .oi-provenance-list > div { display: grid; gap: 0.35rem; min-inline-size: 0; }
-.oi-summary dt, .oi-provenance-list dt { color: var(--color-muted); font-size: 0.85rem; }
-.oi-summary dd, .oi-provenance-list dd, .oi-coverage-claim dd, .oi-item-states dd { margin-inline-start: 0; min-inline-size: 0; }
-.oi-summary dd { font-weight: 600; }
-.oi-summary time { font-size: 0.9rem; font-weight: 400; }
-.oi-now-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start; }
-.oi-now-grid h3, .oi-now-grid h5 { font-size: 1.05rem; line-height: 1.35; }
-.oi-now-items, .oi-evidence-items { display: grid; gap: 1rem; padding-inline-start: 1.15rem; }
-.oi-now-items > li, .oi-evidence-items > li { padding-inline-start: 0.2rem; }
-.oi-now-items > li + li, .oi-evidence-items > li + li { padding-block-start: 1rem; border-block-start: 1px solid var(--color-border); }
-.oi-item-source { margin-block-end: 0.35rem !important; color: var(--color-muted); font-size: 0.8rem; }
-.oi-item-caption { display: flex; flex-wrap: wrap; gap: 0.25rem 0.8rem; margin-block: 0.5rem !important; color: var(--color-muted); font-size: 0.8rem; line-height: 1.5; }
-.oi-state-note { padding: 1rem; border-inline-start: 3px solid var(--color-border); color: var(--color-muted); line-height: 1.65; }
-.oi-directory-filters { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: end; }
-.oi-directory-filters label { display: grid; gap: 0.4rem; min-inline-size: 0; font-size: 0.9rem; }
-.oi-directory-filters label:first-child { flex: 1 1 16rem; }
-.oi-directory-filters :where(input, select, button) { min-block-size: 2.75rem; max-inline-size: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font: inherit; color: var(--color-foreground); background: var(--color-surface); }
-.oi-directory-filters input { inline-size: 100%; }
-.oi-directory-filters button { cursor: pointer; }
-.oi-directory-filters :disabled { cursor: default; opacity: 0.65; }
-.oi-results { color: var(--color-muted); font-size: 0.9rem; }
-.oi-repositories { display: grid; gap: 1rem; }
-.oi-repository h3 { font-size: 1.2rem; line-height: 1.35; }
-.oi-repository-source { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.85rem; line-height: 1.6; color: var(--color-muted); }
-.oi-inspect-link { justify-self: start; padding-block: 0.4rem; min-block-size: 2.75rem; }
-.oi-evidence { border-block-start: 1px solid var(--color-border); min-inline-size: 0; }
-.oi-evidence summary { padding-block: 1rem; min-block-size: 2.75rem; cursor: pointer; font-weight: 600; }
-.oi-evidence[open] > :not(summary) { margin-block-start: 0.5rem; }
-.oi-provenance-list { display: grid; gap: 1rem; }
-.oi-provenance-list code { font-size: 0.85rem; }
-.oi-coverage-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
-.oi-coverage-claim { display: grid; gap: 0.65rem; padding: 0.9rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); min-inline-size: 0; }
-.oi-coverage-claim h5 { font-size: 0.95rem; }
-.oi-coverage-claim dl { display: grid; gap: 0.5rem; font-size: 0.8rem; }
-.oi-coverage-claim dt { color: var(--color-muted); }
-.oi-item-states { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin-block-start: 0.5rem !important; font-size: 0.8rem; }
-.oi-item-states > div { display: grid; gap: 0.15rem; }
-.oi-item-states dt { color: var(--color-muted); }
-.oi-modules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.oi-module { align-content: start; }
-.oi-module h3 { font-size: 1.1rem; }
-.oi-module p { line-height: 1.6; }
-.oi-module > a { justify-self: start; min-block-size: 2.75rem; padding-block: 0.5rem; }
+.oi-page a {
+  color: var(--color-accent);
+  text-underline-offset: 0.2em;
+}
+.oi-page :where(code, time, dd, h3, h4, p, a) {
+  overflow-wrap: anywhere;
+}
+.oi-page :where(section[id], article[id], details[id]) {
+  scroll-margin-block-start: 7rem;
+}
+.oi-intro {
+  display: grid;
+  gap: 1rem;
+  max-inline-size: 68rem;
+}
+.oi-intro h1 {
+  font-size: clamp(2.2rem, 6vw, 4.25rem);
+  line-height: 1.08;
+  max-inline-size: 20ch;
+}
+.oi-lede {
+  max-inline-size: 62ch;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  line-height: 1.65;
+}
+.oi-muted {
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+.oi-section,
+.oi-repository-evidence {
+  display: grid;
+  gap: 1.25rem;
+  min-inline-size: 0;
+}
+.oi-section-heading {
+  display: flex;
+  gap: 0.8rem 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.oi-section-heading > :first-child {
+  min-inline-size: 0;
+}
+.oi-section-heading > p {
+  max-inline-size: 46ch;
+}
+.oi-section-heading .site-eyebrow {
+  margin-block-end: 0.4rem;
+}
+.oi-section-heading h2,
+.oi-section > h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+.oi-section-nav,
+.oi-module-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.oi-section-nav a,
+.oi-module-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+.oi-state-panel,
+.oi-panel,
+.oi-repository {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 3vw, 1.65rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  min-inline-size: 0;
+}
+.oi-state-panel[data-state="stale"],
+.oi-state-panel[data-state="partial"],
+.oi-repository[data-selected="true"] {
+  border-inline-start: 4px solid var(--color-accent);
+}
+.oi-badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-sm);
+  color: var(--color-foreground);
+  font-size: 0.8rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+.oi-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+}
+.oi-summary div,
+.oi-provenance-list > div {
+  display: grid;
+  gap: 0.35rem;
+  min-inline-size: 0;
+}
+.oi-summary dt,
+.oi-provenance-list dt {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+.oi-summary dd,
+.oi-provenance-list dd,
+.oi-coverage-claim dd,
+.oi-item-states dd {
+  margin-inline-start: 0;
+  min-inline-size: 0;
+}
+.oi-summary dd {
+  font-weight: 600;
+}
+.oi-summary time {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.oi-now-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+.oi-now-grid h3,
+.oi-now-grid h5 {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+.oi-now-items,
+.oi-evidence-items {
+  display: grid;
+  gap: 1rem;
+  padding-inline-start: 1.15rem;
+}
+.oi-now-items > li,
+.oi-evidence-items > li {
+  padding-inline-start: 0.2rem;
+}
+.oi-now-items > li + li,
+.oi-evidence-items > li + li {
+  padding-block-start: 1rem;
+  border-block-start: 1px solid var(--color-border);
+}
+.oi-item-source {
+  margin-block-end: 0.35rem !important;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+.oi-item-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.8rem;
+  margin-block: 0.5rem !important;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.oi-state-note {
+  padding: 1rem;
+  border-inline-start: 3px solid var(--color-border);
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+.oi-directory-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: end;
+}
+.oi-directory-filters label {
+  display: grid;
+  gap: 0.4rem;
+  min-inline-size: 0;
+  font-size: 0.9rem;
+}
+.oi-directory-filters label:first-child {
+  flex: 1 1 16rem;
+}
+.oi-directory-filters :where(input, select, button) {
+  min-block-size: 2.75rem;
+  max-inline-size: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  color: var(--color-foreground);
+  background: var(--color-surface);
+}
+.oi-directory-filters input {
+  inline-size: 100%;
+}
+.oi-directory-filters button {
+  cursor: pointer;
+}
+.oi-directory-filters :disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+.oi-results {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+.oi-repositories {
+  display: grid;
+  gap: 1rem;
+}
+.oi-repository h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+.oi-repository-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+.oi-inspect-link {
+  justify-self: start;
+  padding-block: 0.4rem;
+  min-block-size: 2.75rem;
+}
+.oi-evidence {
+  border-block-start: 1px solid var(--color-border);
+  min-inline-size: 0;
+}
+.oi-evidence summary {
+  padding-block: 1rem;
+  min-block-size: 2.75rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.oi-evidence[open] > :not(summary) {
+  margin-block-start: 0.5rem;
+}
+.oi-provenance-list {
+  display: grid;
+  gap: 1rem;
+}
+.oi-provenance-list code {
+  font-size: 0.85rem;
+}
+.oi-coverage-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.oi-coverage-claim {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  min-inline-size: 0;
+}
+.oi-coverage-claim h5 {
+  font-size: 0.95rem;
+}
+.oi-coverage-claim dl {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+.oi-coverage-claim dt {
+  color: var(--color-muted);
+}
+.oi-item-states {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-block-start: 0.5rem !important;
+  font-size: 0.8rem;
+}
+.oi-item-states > div {
+  display: grid;
+  gap: 0.15rem;
+}
+.oi-item-states dt {
+  color: var(--color-muted);
+}
+.oi-modules {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.oi-module {
+  align-content: start;
+}
+.oi-module h3 {
+  font-size: 1.1rem;
+}
+.oi-module p {
+  line-height: 1.6;
+}
+.oi-module > a {
+  justify-self: start;
+  min-block-size: 2.75rem;
+  padding-block: 0.5rem;
+}
 
 @media (max-width: 52rem) {
-  .oi-now-grid { grid-template-columns: 1fr; }
-  .oi-coverage-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .oi-now-grid {
+    grid-template-columns: 1fr;
+  }
+  .oi-coverage-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 34rem) {
-  .oi-modules, .oi-coverage-list { grid-template-columns: 1fr; }
-  .oi-directory-filters { align-items: stretch; }
-  .oi-directory-filters > * { flex-basis: 100%; }
+  .oi-modules,
+  .oi-coverage-list {
+    grid-template-columns: 1fr;
+  }
+  .oi-directory-filters {
+    align-items: stretch;
+  }
+  .oi-directory-filters > * {
+    flex-basis: 100%;
+  }
 }
 
 @media (forced-colors: active) {
-  .oi-badge, .oi-panel, .oi-repository, .oi-state-panel { border-color: CanvasText; }
-  .oi-page a { color: LinkText; }
-  .oi-directory-filters :disabled { opacity: 1; color: GrayText; }
+  .oi-badge,
+  .oi-panel,
+  .oi-repository,
+  .oi-state-panel {
+    border-color: CanvasText;
+  }
+  .oi-page a {
+    color: LinkText;
+  }
+  .oi-directory-filters :disabled {
+    opacity: 1;
+    color: GrayText;
+  }
 }
 
 @media print {
-  .oi-page { display: block; }
-  .oi-page > * { margin-block-end: 1.5rem; }
-  .oi-directory-filters, .oi-section-nav, .oi-module-nav, .oi-inspect-link { display: none; }
-  .oi-now-grid, .oi-modules { grid-template-columns: 1fr; }
-  .oi-panel, .oi-repository, .oi-state-panel { break-inside: avoid; background: transparent; }
-  .oi-page a { color: inherit; }
+  .oi-page {
+    display: block;
+  }
+  .oi-page > * {
+    margin-block-end: 1.5rem;
+  }
+  .oi-directory-filters,
+  .oi-section-nav,
+  .oi-module-nav,
+  .oi-inspect-link {
+    display: none;
+  }
+  .oi-now-grid,
+  .oi-modules {
+    grid-template-columns: 1fr;
+  }
+  .oi-panel,
+  .oi-repository,
+  .oi-state-panel {
+    break-inside: avoid;
+    background: transparent;
+  }
+  .oi-page a {
+    color: inherit;
+  }
 }
 
-.oi-publication-links { display: grid; gap: 0.75rem; min-inline-size: 0; }
-.oi-publication-primary { justify-self: start; font-weight: 650; min-block-size: 2.75rem; padding-block: 0.45rem; }
-.oi-publication-routes { display: flex; gap: 0.35rem 1rem; flex-wrap: wrap; }
-.oi-publication-routes a { padding-block: 0.4rem; min-block-size: 2.75rem; }
+.oi-publication-links {
+  display: grid;
+  gap: 0.75rem;
+  min-inline-size: 0;
+}
+.oi-publication-primary {
+  justify-self: start;
+  font-weight: 650;
+  min-block-size: 2.75rem;
+  padding-block: 0.45rem;
+}
+.oi-publication-routes {
+  display: flex;
+  gap: 0.35rem 1rem;
+  flex-wrap: wrap;
+}
+.oi-publication-routes a {
+  padding-block: 0.4rem;
+  min-block-size: 2.75rem;
+}

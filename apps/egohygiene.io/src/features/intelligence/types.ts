@@ -1,6 +1,19 @@
 /** Website presentation inputs, projected from an admitted owner fleet artifact. */
-export type IntelligenceState = "available" | "partial" | "stale" | "unavailable" | "incompatible" | "error";
-export type EvidenceState = "current" | "stale" | "unknown" | "partial" | "unavailable" | "error" | "not_applicable";
+export type IntelligenceState =
+  | "available"
+  | "partial"
+  | "stale"
+  | "unavailable"
+  | "incompatible"
+  | "error";
+export type EvidenceState =
+  | "current"
+  | "stale"
+  | "unknown"
+  | "partial"
+  | "unavailable"
+  | "error"
+  | "not_applicable";
 
 export interface IntelligenceClaim {
   readonly domain: string;
@@ -63,10 +76,24 @@ export interface IntelligenceModule {
 }
 
 export interface IntelligenceData {
-  readonly graph?: { readonly nodes: readonly import("./graph/types").GraphNode[]; readonly edges: readonly import("./graph/types").GraphEdge[]; readonly truncated: boolean; readonly publicationRoutes?: readonly string[] };
+  readonly graph?: {
+    readonly nodes: readonly import("./graph/types").GraphNode[];
+    readonly edges: readonly import("./graph/types").GraphEdge[];
+    readonly truncated: boolean;
+    readonly publicationRoutes?: readonly string[];
+  };
   readonly endpoints?: Readonly<Record<string, import("./endpoints/types").EndpointData>>;
   readonly state: IntelligenceState;
-  readonly code: "NOT_CONFIGURED" | "REVIEW_BINDING_REQUIRED" | "INPUT_UNAVAILABLE" | "INPUT_INVALID" | "INPUT_INCOMPATIBLE" | "PUBLIC_REQUIRED" | "READY" | "STALE" | "PARTIAL";
+  readonly code:
+    | "NOT_CONFIGURED"
+    | "REVIEW_BINDING_REQUIRED"
+    | "INPUT_UNAVAILABLE"
+    | "INPUT_INVALID"
+    | "INPUT_INCOMPATIBLE"
+    | "PUBLIC_REQUIRED"
+    | "READY"
+    | "STALE"
+    | "PARTIAL";
   readonly asOf: string | null;
   readonly snapshotId: string | null;
   readonly artifactSha256: string | null;
