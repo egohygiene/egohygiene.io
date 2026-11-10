@@ -1,5 +1,16 @@
 # Current handoff
 
+## Current: #70/#49 theme transition and actual browser pass — 2026-11-09
+
+The [saved browser contract](../development/browser-closeout-70.md) starts from
+#130 `1720b9e` on `fix/theme-transition-contrast-70`. Direct browser measurements
+identify the contrast defect: button backgrounds animate while foreground theme
+colors change immediately. Preserve hover motion and all network/contrast gates;
+remove the unsafe color transition, extend bounded breakpoint/wide coverage and
+execute the complete browser profile. #57's real context probes passed, but its
+normal image still needs explicit secure proxy/trust handling. Manual/owner
+acceptance remains #115; no deployment or real product activation.
+
 ## Current: #52 output ownership and production harness — 2026-11-09
 
 Draft #129 and store #36 retain lookup/ownership closeout. The
