@@ -2,7 +2,7 @@ import { I18nProvider } from "@egohygiene/i18n";
 import type { StoreDesign } from "@egohygiene/schemas";
 import { render as baseRender, cleanup, fireEvent, screen } from "@testing-library/react";
 import type { ReactElement, ReactNode } from "react";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import storeCards from "../../i18n/locales/en/storeCards.json";
 
 import { StoreArtwork } from "./StoreArtwork";
@@ -32,7 +32,10 @@ const design: StoreDesign = {
   contextIds: [],
 };
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.restoreAllMocks();
+});
 
 describe("StoreArtwork", () => {
   it("renders the approved derivative with its authored alternative text", () => {
@@ -50,6 +53,22 @@ describe("StoreArtwork", () => {
     expect(screen.getByRole("img", { name: "Artwork preview unavailable" })).toBeInTheDocument();
     expect(screen.getByText("Artwork preview unavailable")).toBeVisible();
   });
+
+  it.each([0, 512])(
+    "recognizes an already-complete image with width %d without an error event",
+    (width) => {
+      vi.spyOn(HTMLImageElement.prototype, "complete", "get").mockReturnValue(true);
+      vi.spyOn(HTMLImageElement.prototype, "naturalWidth", "get").mockReturnValue(width);
+      render(<StoreArtwork design={design} />);
+
+      expect(
+        screen.getByRole("img", {
+          name:
+            width === 0 ? "Artwork preview unavailable" : "Pink heart surrounded by a cyan orbit",
+        }),
+      ).toBeInTheDocument();
+    },
+  );
 
   it("attempts a new approved image after the previous source failed", () => {
     const { rerender } = render(<StoreArtwork design={design} />);

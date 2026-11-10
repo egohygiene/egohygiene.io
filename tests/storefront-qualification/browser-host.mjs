@@ -1,7 +1,10 @@
 /** Reuse the real Vite document with one test-only entry; deny all remote or mutating traffic. */
 import assert from "node:assert/strict";
+import path from "node:path";
 
 export async function installHostBoundary(page, { origin, entry }) {
+  // Match Vite's canonical module URL so self-imports cannot execute a second root.
+  const entryUrl = path.posix.join("/@fs", entry.replaceAll("\\", "/"));
   const errors = [];
   const blockedRequests = [];
   const blockedWebSockets = [];
@@ -22,8 +25,8 @@ export async function installHostBoundary(page, { origin, entry }) {
       return route.abort("blockedbyclient");
     }
     if (request.resourceType() !== "document") return route.fulfill({ response });
-    const html = (await response.text()).replace('src="/src/main.tsx"', `src="/@fs/${entry}"`);
-    assert.ok(html.includes(`src="/@fs/${entry}"`), "Vite document entry must be replaced");
+    const html = (await response.text()).replace('src="/src/main.tsx"', `src="${entryUrl}"`);
+    assert.ok(html.includes(`src="${entryUrl}"`), "Vite document entry must be replaced");
     return route.fulfill({ response, body: html });
   });
   return {

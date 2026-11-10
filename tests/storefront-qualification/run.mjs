@@ -298,7 +298,7 @@ try {
   });
   report.browser = browser.version();
   for (const mode of ["expanded", "rtl"]) {
-    for (const width of [320, 390, 820, 1440]) {
+    for (const width of [320, 390, 639, 640, 641, 820, 895, 896, 897, 1440, 1920, 2560]) {
       for (const route of routes) await qualify(mode, width, route);
     }
     await qualify(mode, 390, routes[2], { textScale: true });

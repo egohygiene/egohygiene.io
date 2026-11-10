@@ -172,7 +172,7 @@ test("catalog hydration reuses raw content before restoring theme, language and 
     ).toBeVisible();
     await expect(page.getByLabel("Theme", { exact: true })).toHaveValue("high-contrast");
     await expect(page.locator("html")).toHaveAttribute("data-theme", "high-contrast");
-    await expect(page.getByLabel("Language", { exact: true })).toHaveValue("en");
+    await expect(page.getByRole("combobox", { name: "Language", exact: true })).toHaveValue("en");
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page).toHaveURL(destination);
     expect(await initialMain?.evaluate((main) => main === document.querySelector("main"))).toBe(

@@ -23,14 +23,66 @@ test.beforeEach(async ({ context }) => {
   });
 });
 
+const layoutSamples = [
+  { width: 320, path: "/" },
+  { width: 390, path: "/ecosystem" },
+  { width: 639, path: "/store" },
+  { width: 640, path: "/store/incompris" },
+  { width: 641, path: "/store/incompris/artists/play" },
+  { width: 895, path: "/store/catalog" },
+  { width: 896, path: "/store/products/signal-heart-hoodie" },
+  { width: 897, path: "/store/designs/heartburst" },
+  { width: 1024, path: "/store/incompris" },
+  { width: 1440, path: "/" },
+  { width: 1920, path: "/ecosystem" },
+  { width: 2560, path: "/store" },
+] as const;
+
+for (const { width, path } of layoutSamples) {
+  test(`production ${path} keeps content within ${width}px`, async ({ page }, testInfo) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(path);
+    await expect(page.getByRole("main").getByRole("heading", { level: 1 })).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+    if ([320, 896, 897, 2560].includes(width)) {
+      await testInfo.attach("responsive-render", {
+        body: await page.screenshot({ fullPage: true }),
+        contentType: "image/png",
+      });
+    }
+  });
+}
+
 test("missing artwork preserves a usable card, design page and dismissible viewer", async ({
   page,
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  let releaseScripts = () => {};
+  const scriptsReady = new Promise<void>((resolve) => {
+    releaseScripts = resolve;
+  });
+  await page.route("**/assets/*.js", async (route) => {
+    await scriptsReady;
+    await route.fallback();
+  });
   await page.route("**/store/heartburst/heartburst-light.webp", (route) => route.abort("failed"));
-  await page.goto("/store/incompris");
   const design = card(page, "heartburst");
+  try {
+    await page.goto("/store/incompris", { waitUntil: "commit" });
+    const image = design.locator("img");
+    await image.evaluate((element) => element.scrollIntoView());
+    await expect
+      .poll(() =>
+        image.evaluate((element: HTMLImageElement) => ({
+          complete: element.complete,
+          width: element.naturalWidth,
+        })),
+      )
+      .toEqual({ complete: true, width: 0 });
+  } finally {
+    releaseScripts();
+  }
   await expect(design.getByRole("img", { name: "Artwork preview unavailable" })).toBeVisible();
   await expect(design).toContainText("Design preview");
   await design.getByRole("link").click();
