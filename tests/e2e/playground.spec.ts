@@ -71,7 +71,7 @@ for (const theme of ["light", "dark", "high-contrast"]) {
     const evidence = [];
     for (const sample of [primary, secondary, page.locator(".eh-orbit__core")]) {
       const measured = await opaqueTextContrast(sample);
-      expect(measured.ratio, measured.text).toBeGreaterThanOrEqual(4.5);
+      expect(measured.ratio, JSON.stringify(measured)).toBeGreaterThanOrEqual(4.5);
       evidence.push(measured);
     }
     await expect(spinner).toBeVisible();

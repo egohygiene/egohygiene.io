@@ -41,6 +41,25 @@ validation scope; tests, typechecks, builds, CI, browser/Caddy/runtime and live
 publication acceptance remain deferred. The notes below retain main's earlier
 source checkpoints; their historical statuses do not describe this campaign.
 
+## Current: #70/#49 theme transition and actual browser pass — 2026-11-09
+
+The [browser contract/repairs](../development/browser-closeout-70.md) starts from
+#130 `1720b9e` on `fix/theme-transition-contrast-70`. Theme-switch colors now change
+together while hover motion remains. Enlarged footer text wraps, and artwork
+that failed before hydration recovers without waiting for another error event.
+Seven focused artwork tests and app/browser types pass; core browser suites and
+99 expanded/RTL cases pass at `d04dc61`. The remaining locale failure identified
+two URLs executing the same test entry; `e80ca51` canonicalizes it and ten focused
+locale/history journeys pass. Clean `4ddc3d3` now passes all 15 `pnpm ci:browser`
+steps, with 31 application/118 production-store/six isolated-preview/four component
+cases (overlapping profiles), 99 layouts, ten locale journeys, seven catalog
+journeys and two intercepted handoffs. The
+[source-bound receipt and captures](../development/reviews/browser-closeout-70/verification.json)
+retain exact identity and limits. A separate manager probe fails on three blocked
+Chakra reference requests; #53 manager-offline acceptance remains incomplete.
+#57's real context probes passed; image proxy/trust handling is prepared separately. Manual/owner acceptance
+remains #115; no deployment or real product activation.
+
 ## Current: #52 output ownership and production harness — 2026-11-09
 
 Draft #129 and store #36 retain lookup/ownership closeout. The

@@ -8,10 +8,7 @@
     "failed": 0,
     "scope": "real runner fixtures, source/receipt/output guards, two later-writer negative cases"
   },
-  "types": [
-    "tsconfig.node.json",
-    "tsconfig.store-browser.json"
-  ],
+  "types": ["tsconfig.node.json", "tsconfig.store-browser.json"],
   "freshSmoke": {
     "profileStatus": "passed",
     "directExitCode": 0,

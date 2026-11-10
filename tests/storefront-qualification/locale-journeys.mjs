@@ -21,6 +21,11 @@ function expectedPlural(count, id) {
 
 async function expectLocale(page, id) {
   await page.waitForFunction((expected) => document.documentElement.lang === expected, id);
+  assert.equal(
+    await page.locator(".site-header").count(),
+    1,
+    "Locale history keeps one mounted shell",
+  );
   assert.equal(await page.locator(selector).inputValue(), id);
   assert.equal(await page.locator("html").getAttribute("dir"), id === "ar" ? "rtl" : "ltr");
 }
