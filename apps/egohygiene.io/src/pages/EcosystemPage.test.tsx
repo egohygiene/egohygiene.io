@@ -48,7 +48,7 @@ describe("ecosystem navigation (simulated DOM)", () => {
     async (name, path, status) => {
       const result = setup("/ecosystem?lang=en");
       const heading = result.main().getByRole("heading", { level: 2, name });
-      const link = within(heading).getByRole("link", { name, exact: true });
+      const link = within(heading).getByRole("link", { name });
       expect(link).toHaveAttribute("href", `${path}?lang=en`);
       expect(link).not.toHaveAttribute("target");
       await act(async () => fireEvent.click(link));
@@ -93,7 +93,6 @@ describe("ecosystem navigation (simulated DOM)", () => {
     ]) {
       const external = result.main().getByRole("link", {
         name: `${name} repository on GitHub (external)`,
-        exact: true,
       });
       expect(external).toHaveAttribute("href", repository);
       expect(external).not.toHaveAttribute("target");

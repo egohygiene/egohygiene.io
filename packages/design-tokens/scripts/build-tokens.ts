@@ -5,7 +5,7 @@ const sourceDir = path.resolve(import.meta.dirname, "../src/tokens");
 const outputTs = path.resolve(import.meta.dirname, "../src/generated.ts");
 const outputCss = path.resolve(import.meta.dirname, "../src/generated.css");
 
-function readJson(name) {
+function readJson(name: string) {
   return JSON.parse(readFileSync(path.join(sourceDir, `${name}.json`), "utf8"));
 }
 

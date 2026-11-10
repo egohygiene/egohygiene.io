@@ -130,7 +130,7 @@ describe("public rendering and browser adapter (simulated DOM)", () => {
       const result = await hydrate(path);
       expect(mounted?.hydrated).toBe(true);
       expect(result.element.querySelector("main")).toBe(result.main);
-      expect(document.documentElement.dataset.theme).toBe("high-contrast");
+      expect(document.documentElement.dataset["theme"]).toBe("high-contrast");
       expect(document.title).toBe(result.rendered.metadata.title);
       expect(document.querySelector('link[rel="canonical"]'))
         .toHaveAttribute("href", `https://egohygiene.io${path}`);

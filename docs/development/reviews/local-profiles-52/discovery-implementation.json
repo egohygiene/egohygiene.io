@@ -1,0 +1,169 @@
+{
+  "recordedAt": "2026-10-26T05:23:54.356Z",
+  "sourceCommit": "25ab678b7d713c2b0232f8d8903c7d3e7f3152ae",
+  "sourceNote": "Uncommitted #52 implementation; exact owned file hashes below. Parent records final source-bound checkpoint evidence.",
+  "node": "v24.21.0",
+  "files": [
+    {
+      "file": "scripts/check-browser-discovery.mjs",
+      "sha256": "277652e69741564d430e0f2dc801adda954ae28c53cfb1a6ca91ec8e64af4452"
+    },
+    {
+      "file": "tests/tooling/browser-discovery.test.mjs",
+      "sha256": "19e0fc345a4e6af2989b59346a2f776ba426fad604063f5152a032fb7d5b65fc"
+    }
+  ],
+  "implementation": "Actual installed Playwright CLI --list JSON under all four maintained configurations; recursive maintained file inventory, populated projects, required default projects, explicit separate Node consumer runner, forbid-only. Cross-profile overlap allowed. No test-count snapshots.",
+  "discovery": {
+    "status": "passed",
+    "scope": "Playwright discovery only; no browser execution, server startup or behavior qualification. Profile counts may overlap. Custom journey runners are separate scopes.",
+    "commands": [
+      [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        "playwright.config.ts",
+        "--list",
+        "--reporter=json",
+        "--forbid-only"
+      ],
+      [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        "playwright.store.config.ts",
+        "--list",
+        "--reporter=json",
+        "--forbid-only"
+      ],
+      [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        "playwright.store-preview.config.ts",
+        "--list",
+        "--reporter=json",
+        "--forbid-only"
+      ],
+      [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        "playwright.component-styles.config.ts",
+        "--list",
+        "--reporter=json",
+        "--forbid-only"
+      ]
+    ],
+    "separateRunnerTests": [
+      {
+        "file": "tests/component-styles/consumer.test.mjs",
+        "command": "pnpm test:components"
+      }
+    ],
+    "profiles": [
+      {
+        "config": "playwright.config.ts",
+        "cases": 31,
+        "projects": [
+          {
+            "name": "site",
+            "cases": 21
+          },
+          {
+            "name": "docs",
+            "cases": 5
+          },
+          {
+            "name": "playground",
+            "cases": 5
+          }
+        ],
+        "files": [
+          "tests/e2e/docs.spec.ts",
+          "tests/e2e/playground.spec.ts",
+          "tests/e2e/site.spec.ts"
+        ]
+      },
+      {
+        "config": "playwright.store.config.ts",
+        "cases": 106,
+        "projects": [
+          {
+            "name": "",
+            "cases": 106
+          }
+        ],
+        "files": [
+          "tests/e2e/site.spec.ts",
+          "tests/e2e/store-accessibility.spec.ts",
+          "tests/e2e/store-artist.spec.ts",
+          "tests/e2e/store-metadata.spec.ts",
+          "tests/e2e/store-public-rendering.spec.ts",
+          "tests/e2e/store.spec.ts",
+          "tests/e2e/storefront-journey.spec.ts",
+          "tests/e2e/storefront.spec.ts",
+          "tests/e2e/theme.spec.ts"
+        ]
+      },
+      {
+        "config": "playwright.store-preview.config.ts",
+        "cases": 6,
+        "projects": [
+          {
+            "name": "",
+            "cases": 6
+          }
+        ],
+        "files": [
+          "tests/e2e/artist-preview.spec.ts",
+          "tests/e2e/fourthwall-preview.spec.ts"
+        ]
+      },
+      {
+        "config": "playwright.component-styles.config.ts",
+        "cases": 4,
+        "projects": [
+          {
+            "name": "",
+            "cases": 4
+          }
+        ],
+        "files": [
+          "tests/component-styles/styles.spec.ts"
+        ]
+      }
+    ],
+    "uniqueFiles": 14
+  },
+  "omissionProbe": {
+    "command": "node scripts/check-browser-discovery.mjs",
+    "injectedFile": "tests/e2e/discovery-omission-probe.spec.ts",
+    "exitCode": 1,
+    "error": "Browser discovery failed: Browser specs selected by no maintained profile: tests/e2e/discovery-omission-probe.spec.ts",
+    "expectedFailure": true,
+    "removed": true,
+    "probeFileStillExists": false
+  },
+  "regressionTests": {
+    "command": "node --test tests/tooling/browser-discovery.test.mjs",
+    "passed": 4,
+    "output": "\u2714 browser discovery accepts nested suites and cross-profile file overlap (2.301723ms)\n\u2714 only the explicit Node consumer contract is separated from browser inventory (1.415452ms)\n\u2714 browser discovery fails when a maintained spec is unselected (0.793732ms)\n\u2714 production overlap cannot hide a missing or empty default site project (0.721336ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 115.705696\n"
+  },
+  "styleCheck": {
+    "command": "pnpm exec biome check scripts/check-browser-discovery.mjs tests/tooling/browser-discovery.test.mjs",
+    "status": "passed",
+    "errors": 0,
+    "warnings": 0
+  },
+  "limits": [
+    "No browser execution or web-server startup; discovery does not establish behavior or hosted CI success.",
+    "Custom catalog-localization, checkout-handoff and storefront-qualification journey runners remain separate scopes.",
+    "Case counts may overlap; the same site file is selected by default and production profiles.",
+    "First probe identified the Node consumer contract in the broad file inventory; an explicit named separate-runner mapping and regression check corrected classification before final successful evidence."
+  ]
+}

@@ -4,7 +4,11 @@
   "compilerOptions": {
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
-    "types": ["node", "vite/client"]
+    "types": ["node", "vite/client"],
+    "paths": {
+      "#test-utils": ["./.vitest/test-utils.tsx"],
+      "@egohygiene/themes": ["./packages/themes/src/index.ts"]
+    }
   },
   "include": [
     ".vitest/**/*.ts",
@@ -14,8 +18,10 @@
     "apps/*/src/**/*.test.tsx",
     "packages/*/src/**/*.test.ts",
     "packages/*/src/**/*.test.tsx",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
-  "exclude": ["tests/store"]
+    "tests/accessibility/**/*.ts",
+    "tests/accessibility/**/*.tsx",
+    "scripts/build-smoke.mts",
+    "tests/smoke/**/*.ts",
+    "tests/smoke/**/*.mts"
+  ]
 }

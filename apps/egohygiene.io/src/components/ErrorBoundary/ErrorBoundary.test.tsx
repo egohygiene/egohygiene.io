@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { ErrorBoundary } from "./ErrorBoundary";
 
-function Broken() {
+function Broken(): never {
   throw new Error("boom");
 }
 

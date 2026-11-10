@@ -1,0 +1,103 @@
+{
+  "sourceHead": "a5e99afb060da64928bcf38cc1901e3b34889bb7",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "storybook": "10.6.2"
+  },
+  "scope": "Read-only compiler baseline; no application build, browser execution or repository edits. Composite configs may create ignored incremental compiler metadata.",
+  "checks": [
+    {
+      "name": "workspaces",
+      "command": "pnpm typecheck:workspaces",
+      "exitCode": 0,
+      "result": "pass",
+      "diagnostics": []
+    },
+    {
+      "name": "story-site",
+      "command": "pnpm exec tsc --project apps/egohygiene.io/tsconfig.storybook.json --noEmit",
+      "exitCode": 0,
+      "result": "pass",
+      "diagnostics": []
+    },
+    {
+      "name": "story-ui",
+      "command": "pnpm exec tsc --project packages/ui/tsconfig.storybook.json --noEmit",
+      "exitCode": 0,
+      "result": "pass",
+      "diagnostics": []
+    },
+    {
+      "name": "story-visualizations",
+      "command": "pnpm exec tsc --project packages/visualizations/tsconfig.storybook.json --noEmit",
+      "exitCode": 0,
+      "result": "pass",
+      "diagnostics": []
+    }
+  ],
+  "workspaceProjects": 14,
+  "remainingFailures": "Earlier tooling58/Vitest27 diagnostics at PR105 baseline remain open until fresh52 repair verification; these new checks do not replace them.",
+  "proposedScripts": {
+    "typecheck": "Keep existing fast public site/catalog/domain command.",
+    "typecheck:tooling": "tsc --project tsconfig.node.json --noEmit",
+    "typecheck:tests": "tsc --project tsconfig.vitest.json --noEmit",
+    "typecheck:browser": "tsc --project tsconfig.store-browser.json --noEmit",
+    "typecheck:stories": "tsc --project apps/egohygiene.io/tsconfig.storybook.json --noEmit && tsc --project packages/ui/tsconfig.storybook.json --noEmit && tsc --project packages/visualizations/tsconfig.storybook.json --noEmit",
+    "typecheck:locales": "tsc --project tsconfig.locales.json --noEmit",
+    "typecheck:workspaces": "Keep pnpm --recursive --if-present run typecheck",
+    "typecheck:all": "pnpm typecheck && pnpm typecheck:locales && pnpm typecheck:tooling && pnpm typecheck:tests && pnpm typecheck:browser && pnpm typecheck:stories && pnpm typecheck:workspaces"
+  },
+  "proposedConfigScopes": {
+    "tsconfig.node.json": {
+      "extends": "tsconfig.base.json",
+      "noEmit": true,
+      "modulePolicy": "Inherit Preserve/Bundler for Vite/Storybook/tool configuration; no root package type change and no declaration-emitting composite graph.",
+      "include": [
+        "vite.config.ts",
+        "vitest*.ts",
+        "playwright*.ts",
+        "knip.config.ts",
+        ".storybook/main.ts",
+        "apps/*/vite.config.ts",
+        "scripts/**/*.ts",
+        "scripts/**/*.mts",
+        "packages/*/scripts/**/*.ts"
+      ],
+      "excludeNote": "Browser-side Storybook manager/preview/theme remain checked by three existing story profiles; choose actual environment libs based on strict compiler results."
+    },
+    "tsconfig.vitest.json": {
+      "include": [
+        ".vitest/**/*.ts",
+        ".vitest/**/*.tsx",
+        "apps/*/src/**/*.d.ts",
+        "apps/*/src/**/*.test.ts",
+        "apps/*/src/**/*.test.tsx",
+        "packages/*/src/**/*.test.ts",
+        "packages/*/src/**/*.test.tsx",
+        "tests/accessibility/**/*.ts",
+        "tests/accessibility/**/*.tsx",
+        "tests/smoke/**/*.ts"
+      ],
+      "aliases": "Map #test-utils and explicitly used workspace source aliases consistent with runtime Vitest config.",
+      "types": "Retain strict ES2022/DOM/Vite/Node with no compiler weakening; replace test-only toReversed with copying reverse or justify node test lib separately."
+    },
+    "tsconfig.store-browser.json": {
+      "include": [
+        "apps/egohygiene.io/src/vite-env.d.ts",
+        "playwright*.ts",
+        "tests/e2e/**/*.spec.ts",
+        "tests/component-styles/**/*.ts",
+        "tests/component-styles/**/*.tsx",
+        "tests/storefront-qualification/host.tsx",
+        "tests/catalog-localization/host.tsx"
+      ],
+      "scope": "All maintained browser runner configs, specs and browser fixtures. Node .mts journey harnesses stay covered by tsconfig.store; preserve independent DOM-free domain profile."
+    },
+    "tsconfig.typecheck.json": {
+      "status": "Unused solution-style reference inventory; no tracked invocation found.",
+      "problem": "References non-composite/noEmit application/story configurations and omits store/domain/locales/browser profiles; not a reliable all-types gate.",
+      "disposition": "Remove with explicit replacement documentation pointing to typecheck:all, retaining historical Git record; do not build a second project-reference graph."
+    }
+  }
+}
