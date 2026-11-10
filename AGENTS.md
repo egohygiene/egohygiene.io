@@ -1,5 +1,19 @@
 # Agent entry point
 
+## Current merged closeout and independent paths — 2026-11-10
+
+The authorized website stack #105–#109/#117/#129–#132 and store #36 are merged.
+Read [current paths/results](docs/development/merge-closeout-2026-11-10.md) and
+[verified merge identities](docs/development/reviews/merge-closeout-2026-11-10/merges.json).
+Seven completed issues and two duplicates are closed; stale #73 is superseded.
+Use #88 for agent execution: next #52/#29/#91 strict costs/configuration + #53,
+then #34/#116 preparation and the remaining acceptance audits. Owner decisions/
+native checks stay #115; creative approval is #116 B. Do not repeat the completed
+merge approval or treat manual review as a blocker for independent engineering.
+Eight strict size findings and unsupported hosted dependency review remain.
+License alternatives are inactive; no deployment, provider activation or private
+creative ingestion was selected. Refresh live refs before the next code change.
+
 ## Current authorized merge and issue consolidation — 2026-11-10
 
 Alan explicitly authorized merging the completed drafts and separating agent

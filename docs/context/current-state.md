@@ -1,5 +1,37 @@
 # Current handoff
 
+## Current: merged batch and two independent paths — 2026-11-10
+
+The approved runtime integration is merged at website `560f937` (ten PRs,
+#105–#109/#117/#129–#132), plus store #36 at `e97ee72`. Every merge tree and parent
+matches its prepared integration checkpoint. [Exact receipt](../development/reviews/merge-closeout-2026-11-10/merges.json)
+preserves original heads and recoverable ancestry; no force push was used.
+Completed #50/#51/#57/#60/#64/#65/#75 are closed; duplicates #113/#114 point to
+#112/#111, and stale PR #73 is closed superseded without merging its old files.
+
+[Current execution/manual map](../development/merge-closeout-2026-11-10.md) owns
+the next queue. **#88 agent path:** #52/#29/#91 artifact costs and hosted
+configuration, #53 manager/reference repair; then #34 synthetic contracts + #116 A
+preparation and broader #36/#49/#61/#69/#92 acceptance audits. #70's remaining
+automation and #37's shared evidence are agent work. **#115 owner path:** license/
+font/source choices, factual copy/contact, native-device/AT/zoom/Mac checks and
+eventual #116 B pilot approval. Completed Linux #57 does not stand in for the
+remaining native walkthrough now tracked in #115/#37. Do not wait for creative
+choices to prepare fixtures/templates or ask again for the completed PR approval.
+
+Local qualification retains 363 units/114 tooling/152 catalog tests, all compiler
+profiles, actual browser execution, 45 raw pages/768 container HTTP checks and
+64 identical Docker/host artifact hashes. Overall Task profiles still fail eight
+strict size findings; controlled original main has the same failing metrics.
+Hosted source `68f17cf`: CodeQL success, CI fails eight artifact findings/skips
+browsers, dependency review reports unsupported repository configuration.
+Default-model rendering does not qualify real fleet evidence or upstream owners.
+
+Live issue readback: 55 open, comprising 17 foundation, six publication and 32
+outside either milestone. No license proposal, creative import, provider action,
+repository retirement, deployment or spending occurred. Publication stays under
+#31/milestone 2; original unmet criteria remain with their named owners.
+
 ## Current: authorized combined merge candidate qualified — 2026-11-10
 
 Alan authorized the completed-draft merges and independent/manual issue paths.

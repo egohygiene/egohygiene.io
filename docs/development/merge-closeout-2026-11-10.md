@@ -1,5 +1,64 @@
 # Merge closeout and independent issue paths — 2026-11-10
 
+## Current result and next batch
+
+The ten website drafts #105→#106→#107→#108→#109→#117→#129→#130→#131→#132
+are merged, ending at runtime integration `560f937a25d952873dd501ae1e0ca0a94640185b`.
+Independent store #36 merged at `e97ee727e6c2300e804579cf2122d34d4c162158`.
+[Merge receipt](reviews/merge-closeout-2026-11-10/merges.json) records every
+original head, preserved integration head, actual merge parent and verified tree.
+No force push was used. Original commits/branches remain recoverable.
+
+Seven completed scopes are closed: **#50/#51/#57/#60/#64/#65/#75**. Two future
+duplicates are consolidated, **#113→#112** and **#114→#111**, with unique criteria
+retained. Historical draft #73 is closed unmerged as superseded by the integrated
+current-source repairs; its branch/evidence remain. This leaves **55 open issues:
+17 foundation, six publication and 32 outside either milestone**.
+
+Use [#88](https://github.com/egohygiene/egohygiene.io/issues/88) as the single
+agent-owned execution queue. My recommended next batch is the first two rows:
+
+| Order | Issues | Work that can proceed without Alan's review |
+| --- | --- | --- |
+| 1 | #52 + #29 + #91, evidence in #37 | Investigate the eight current artifact-cost findings as one task, identify shared/document/route costs and prepare justified fixes. Diagnose the hosted dependency-review configuration. Preserve meaningful strict gates and distinguish proposed changes from accepted policy; no arbitrary limit increase or retry-as-fix |
+| 2 | #53 | Finish local Storybook manager and same-document/reference acceptance with its local network boundary intact; resolve the observed external-composition requests |
+| 3 | #34 + #116 A | Complete synthetic work/recording/design/product/reference/projection/publication contracts, then prepare the route/copy/asset matrix and pilot/provider-entry worksheets. Real creative selection is not needed for these templates; private values stay private |
+| 4 | #36/#49/#61/#69/#92 | Audit the broader original criteria against merged implementation and runnable consumer/browser evidence; fix specific gaps and close each satisfied scope. A merged PR or a generic passing test is insufficient for its broader requirements |
+| Alongside | #70 automation; #37 integration | Check feasible Firefox/WebKit and remaining responsive/interaction coverage, including newer Intelligence surfaces. Reuse one exact-source matrix. These are agent tasks, not substitutes for or additions to Alan's manual checklist |
+
+The source/runtime body is verified: 363 units, 114 tooling and 152 catalog tests,
+all compiler profiles, actual browser journeys and 768 container HTTP checks pass.
+Overall qualification stays red on eight size findings. Latest hosted source
+`68f17cf` has successful CodeQL, CI failure at the eight-finding artifact gate and
+unsupported dependency-review configuration; hosted browser steps are skipped.
+The default unavailable Intelligence model is not actual fleet/source acceptance.
+
+## Alan's separate end-of-sprint path
+
+[#115](https://github.com/egohygiene/egohygiene.io/issues/115) is the owner/manual
+queue, with one result referenced by the affected source issues:
+
+| Alan's input or check | Source owner | Agent preparation and follow-through |
+| --- | --- | --- |
+| Software-license choice and historical font/source dispositions | #59 | Both concrete inactive patches still apply. Refresh source evidence/options, apply only the chosen disposition, record and verify alignment |
+| Factual story/contact/accessibility-feedback and policy applicability | #90, broader #9 | Present existing rendered copy and concrete destinations/dispositions. Apply approved facts and rerun the affected checks; invent no personal/contact/provider facts |
+| Native text resizing/zoom, physical devices, AT and relevant Mac/Apple Silicon walkthrough | #70/#37, with #57's completed Linux proof as reference | Supply the short walkthrough; record OS/architecture/browser/commit/results once. The remaining native obligation stays in #115/#37 after the bounded #57 closure; Linux/emulation is not a native-platform pass |
+| One pilot design/physical product, public derivatives, copy and optional associations | #116 B, real readiness #38 later | Finish #34/#116 A first, then apply the chosen public-safe draft and validate it. Record approvals once; display approval does not establish merchandise-production rights |
+
+The approved PR merge/reconciliation is completed; Alan is not asked to approve
+this same batch again. #116 separates agent preparation from the eventual
+creative/page session. Actual provider draft creation requires the selected
+unpublished-draft action; a creation-ready private worksheet is the fallback.
+No creative choice or page/product publication was performed during this merge.
+
+Actual publication remains [milestone 2](https://github.com/egohygiene/egohygiene.io/milestone/2)
+under #31: environment/host planning, deployment commands/construction preview,
+real product/provider qualification, then publication. Separate-store retirement
+#100 and broader organization features remain outside this finite sprint.
+
+The A/B/C sections below retain the integration contract and source-specific
+history. Their pre-merge status statements describe their dated checkpoints.
+
 ## A — Authorized integration and acceptance
 
 Alan authorized merging the completed overnight drafts and asked to consolidate

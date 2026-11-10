@@ -1,5 +1,32 @@
 # Context provenance ledger
 
+## Authorized integration merged and issue paths consolidated — 2026-11-10
+
+Website #105→#106→#107→#108→#109→#117→#129→#130→#131→#132 merged in order,
+ending at `560f937a25d952873dd501ae1e0ca0a94640185b`. Every resulting first parent
+and tree matches its prepared checkpoint; the final tree equals qualified head
+`68f17cf59ee5703019f383ca88c4c2891a1951c2`. Normal atomic fast-forward updates retain
+every original commit. Independent store #36 merge `e97ee727` matches reviewed
+`cbcc922` exactly. [Full merge/closure/hosted receipt](../development/reviews/merge-closeout-2026-11-10/merges.json)
+records each identity and observed status; no force push, rule/gate change or
+software-license application occurred.
+
+#50/#51/#57/#60/#64/#65/#75 close completed on their bounded criteria; #57's
+remaining native walkthrough is explicitly owned by #115/#37. #113→#112 and
+#114→#111 consolidate duplicate future concepts with unique requirements kept.
+Old #73 closes unmerged as technically superseded by integrated #108/#130/#132,
+retaining its branch and original successes. Open readback is 55 (17 foundation,
+six publication, 32 outside). [Current two-path map](../development/merge-closeout-2026-11-10.md)
+keeps #88 agent work independent from #115 owner/native inputs and #116 B creative
+approval; #116 A preparation remains agent-owned.
+
+Actual hosted source `68f17cf`: CodeQL `42787359495` succeeds; CI `42787359721`
+logs 45 raw pages then 64 files/335 references/eight artifact findings and skips
+browsers. Dependency review `42787359682` reports unsupported repository/Dependency
+graph configuration. These failures are retained beside the local source-bound
+browser, compiler, 363-unit/114-tooling and 768-container-HTTP evidence; no global
+qualification, actual fleet-model acceptance, publication or activation inferred.
+
 ## Combined integration and pre-merge verification — 2026-11-10
 
 Alan authorized merges and issue consolidation. Isolated integration preserves
