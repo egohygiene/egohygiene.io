@@ -1,5 +1,25 @@
 # Current handoff
 
+## Current: overnight batch verified and ready for review — 2026-11-09
+
+The [morning packet](../development/overnight-closeout-2026-11-09.md) indexes
+lookup #129, reciprocal store #36, freshness #130, browser #131 and the focused
+`fix/static-build-trust-57` draft. Earlier #105→#109/#117 remain unmerged.
+Clean static B `2f61616310b47658742694c7a3938705807a0b36` passes actual Task/
+Docker context exports, fresh Linux amd64 image, 26 raw pages and 388 Caddy 2.11.7
+HTTP checks. Owned container cleanup passes and every one of the 45 artifact
+hashes matches the independent host build. [Exact static/non-browser evidence](../development/static-build-trust-57.md)
+retains image identity and all failures. Fifteen non-browser stages pass,
+including complete compiler checks, 152 catalog/111 tooling/354 unit tests;
+both Task profiles end with exit 201 (child 1) on three strict size findings.
+The complete browser profile independently passes at `4ddc3d3`. Parent #131
+hosted CodeQL passes; CI fails the size gate, dependency review fails repository
+configuration and hosted browsers are skipped. No universal/combined-main pass.
+
+Manual/platform/owner decisions stay batched in #115; #34 synthetic schema work
+and the unprepared #116 creative/page packet remain next agent work. No issue is
+closed, draft merged, license chosen, source retired or publication performed.
+
 ## Current: #70/#49 theme transition and actual browser pass — 2026-11-09
 
 The [browser contract/repairs](../development/browser-closeout-70.md) starts from

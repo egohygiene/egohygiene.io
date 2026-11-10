@@ -1,5 +1,27 @@
 # Context provenance ledger
 
+## #57 actual container and complete non-browser receipt — 2026-11-09
+
+Clean B `2f61616310b47658742694c7a3938705807a0b36` builds a fresh pinned
+Node/pnpm image through verified proxy trust without lifecycle scripts. Actual
+Docker 28.4.0 context exports pass (38 include/46 exclude samples, 205 checkout
+files/14 manifests). Linux amd64 Caddy 2.11.7 image
+`sha256:c3a42df48f805a44cba963fe3c58d84bc7a76d1d33f39b5e9836e11581205c42`
+passes 26 raw pages and all 388 HTTP checks; ownership-checked cleanup passes.
+All 45 extracted image file hashes equal the independent host build. The
+[receipt/commands/HTTP](../development/static-build-trust-57.md) preserve exact
+identity, public hashes and limits while omitting raw logs/CA paths/content.
+
+Task 3.54.0 executes both static and ci-check profiles. Fifteen non-browser steps
+pass, with 152 catalog/111 tooling/354 unit/four semantic/one consumer/three smoke
+tests, full compiler/boundary profiles and fresh raw output. Three strict size
+findings fail both profiles: Task exit 201, child exit 1. No threshold changed;
+native Storybook is skipped after this ci-check failure but passes independently
+in #70. Parent #131 hosted runs record CodeQL success, CI artifact failure and
+unsupported dependency-review configuration; hosted browsers are skipped. This
+does not qualify the new static branch remotely or newer Intelligence mainline.
+Owner/manual/creative/publication boundaries and every existing draft remain.
+
 ## #70/#49 complete browser receipt — 2026-11-09
 
 Clean published source `4ddc3d37fccafde6bf8145426b5c1edf88f0f567` passes
