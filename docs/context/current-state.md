@@ -1,5 +1,21 @@
 # Current handoff
 
+## Current: overnight closeout batch selected — 2026-11-09
+
+Alan authorized issue progress while asleep with a next-day sync. The
+[batch specification](../development/overnight-closeout-2026-11-09.md) records A
+for #51/#75 reconciliation, #52 freshness diagnostics, actual #57 Docker and #70
+browser checks. Branch `fix/overnight-closeout-2026-11-09` starts from unmerged
+#117 `a7e15c7b1543dcba01647ec8ff358aab5126c817`; main has advanced independently to
+`1605f32` with Intelligence work, which remains separate and preserved.
+
+Pinned task-local Node 24.21.0/pnpm 11.28.5 and frozen script-disabled installation
+are available; baseline i18n is 40 passing tests. Current local Docker is available
+and Playwright Chromium is installed; actual browser/container acceptance follows.
+Storefront ownership PRs website #76/store #34 are both merged, but store's active
+status pointers remain stale. No issue is closed at A. Owner/creative decisions
+remain in #115/#116; no merge or publication is performed.
+
 ## Current: closeout roadmap and final owner batches — 2026-11-09
 
 Alan requested a roadmap to close as much existing work as the evidence permits,
