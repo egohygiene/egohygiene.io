@@ -7,7 +7,8 @@ import { describe, expect, it, vi } from "vitest";
 
 import { renderWithRouter } from "#test-utils";
 import { resources } from "../../i18n/resources";
-import { StoreCard, StoreCollectionPage, StoreProductPage } from "./StorePages";
+import { StoreCard } from "./StoreCard";
+import { StoreCollectionPage, StoreProductPage } from "./StorePages";
 
 const fixture = vi.hoisted(() => ({
   catalog: { schemaVersion: 3, entries: [], checkoutRoutes: [] } as StoreCatalog,

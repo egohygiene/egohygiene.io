@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-10-26",
+  "sourceHead": "2b9ebe5d3aba4f7cccb277252d15a48325ff205d",
+  "scope": "Read-only bounded #92 application/domain sweep; no repository edits, dependency change, build or browser execution.",
+  "inspectedAreas": [
+    "application route/provider composition and browser/static state boundary",
+    "store generic, curated and artist pages",
+    "portable selectors and localization",
+    "artwork/gallery state and fallback behavior",
+    "metadata lifecycle",
+    "schema purchase/public-projection boundary",
+    "existing focused regression tests"
+  ],
+  "candidates": [
+    {
+      "id": "shared-store-presentation-ownership",
+      "priority": 1,
+      "disposition": "implement-bounded",
+      "paths": [
+        "apps/egohygiene.io/src/features/store/StorePages.tsx",
+        "apps/egohygiene.io/src/features/store/StorefrontPages.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtistPage.tsx",
+        "apps/egohygiene.io/src/features/fourthwall-preview/FourthwallPreviewPage.tsx",
+        "apps/egohygiene.io/src/features/store/StoreDesignOrder.test.tsx"
+      ],
+      "finding": "StorePages.tsx is 813 lines and exports StoreCard/StoreMetadata that three sibling feature consumers import directly. The card is shared by generic, curated and artist views; metadata is also used by isolated Fourthwall preview. A page-composition module therefore owns common presentation dependencies.",
+      "change": "Move existing card/badge and metadata presentation to explicit feature-local components, update real consumers, retain identical props/markup and canonical selectors. Keep CSS ownership/import behavior explicit. Do not introduce a generic UI framework or new package.",
+      "benefit": "Makes existing component ownership match its actual reuse and lets page composition evolve without sibling consumers depending on the large generic/detail-page module.",
+      "preserve": [
+        "StoreCard optional catalog input and default canonical catalog",
+        "StoreMetadata translated title wrapper",
+        "existing class names, element hierarchy, accessible copy and locale links",
+        "declared artwork order and public visibility"
+      ],
+      "checks": [
+        "existing StoreDesignOrder, StorefrontPages, StoreArtistPage and FourthwallPreviewPage units",
+        "StoreContentLocale/CatalogLocalizationJourney units",
+        "application types and store-boundary check",
+        "fresh normal + isolated preview build; compare route HTML after normalizing emitted asset filenames and retain any useId differences explicitly"
+      ],
+      "limit": "Structural cohesion improvement; no automatic claim of smaller browser bundle or better measured performance."
+    },
+    {
+      "id": "bounded-search-work",
+      "priority": 2,
+      "disposition": "implement-if-baseline-supported",
+      "paths": [
+        "apps/egohygiene.io/src/features/store/domain/catalog.ts",
+        "apps/egohygiene.io/src/features/store/StoreArtistPage.tsx"
+      ],
+      "finding": "filterStoreEntries calls getEntryContexts, which resolves designs, then separately resolves designs again. getEntryDesigns constructs a full ID Map for each non-design lookup. It resolves all related translated text even for empty queries. Artist pages search the entire catalog and intersect IDs even when no query is present.",
+      "change": "Use one per-invocation lookup and reuse each entry's resolved designs for context/search, and/or skip text-search work when normalized terms are empty. Artist no-query view can use its already-validated explicit selection directly. Keep public signatures stable and avoid persistent caches over mutable catalogs.",
+      "benefit": "Removes observed repeated work, especially as song/collection count grows, without changing canonical catalog identity or adding a second index lifecycle.",
+      "preserve": [
+        "catalog result order and reference identity",
+        "declared design order/stable deduplication",
+        "draft visibility filtering",
+        "direct and design-inherited contexts",
+        "locale-sensitive NFKC/case rules and original creative-title aliases",
+        "searching only current reviewed selected/fallback fields",
+        "story and type filtering even when query is blank"
+      ],
+      "checks": [
+        "existing catalog.test.ts story/type/search cases",
+        "tests/store/catalog-localization-fixture.test.ts Unicode/source-alias/rejected-text cases",
+        "existing artists, curation and design-order portable tests",
+        "add focused whitespace/no-query identity/order coverage if fast path introduced",
+        "add mutation-between-calls coverage if any lookup reuse could persist unexpectedly"
+      ],
+      "limit": "Do not weaken validation or invent a persistent memoization contract. Query behavior for malformed direct locale inputs should be consciously preserved or left unchanged; registry-supplied production locales are already validated."
+    },
+    {
+      "id": "localized-presentation-reuse",
+      "priority": 3,
+      "disposition": "optional-small-followup",
+      "paths": [
+        "apps/egohygiene.io/src/features/store/StorePages.tsx",
+        "apps/egohygiene.io/src/features/store/StoreArtworkGallery.tsx"
+      ],
+      "finding": "ContextNotes calls content(context) four times per rendered context, and gallery/copy sections call content(selectedDesign) repeatedly for the same title. Each call canonicalizes locales and builds reviewed-translation lookup maps.",
+      "change": "Bind a local presented-context/presented-selected-design value once per render/map iteration, as StoreCard and artist entrance already do. Do not add a global cache.",
+      "benefit": "Clearer pairing of each localized value with its locale while avoiding repeated pure resolution.",
+      "checks": [
+        "existing StoreContentLocale, StoreArtworkGallery, StoreDetailPages and CatalogLocalizationJourney units"
+      ],
+      "limit": "No new benchmark claim; simple cleanup can ride with the selected presentation refactor."
+    }
+  ],
+  "keep": [
+    {
+      "area": "Schema validation in browser purchase boundary",
+      "reason": "getStorePurchaseAction intentionally revalidates complete runtime configuration for live handoff. Do not strip Zod or skip readiness checks merely to reduce the current shared payload."
+    },
+    {
+      "area": "Static/browser state bridge",
+      "reason": "useBrowserSnapshot and AppProviders preserve initial prerender/hydration state before URL/storage controls. No speculative SSR route splitting or new state system justified."
+    },
+    {
+      "area": "Artwork/gallery selection and failure fallback",
+      "reason": "Existing selected-ID fallback, same-source error handling, focus return/body overflow cleanup have relevant tests. No concrete new defect established in read-only inspection."
+    },
+    {
+      "area": "Canonical schemas/catalog/readiness/locales/artwork bytes",
+      "reason": "No contract or data migration needed by the selected maintenance scope."
+    }
+  ],
+  "defer": [
+    {
+      "area": "Repeated inline placeholder SVG reduction",
+      "owner": "#92 with #37/#70 visual acceptance and #59 asset provenance if externalized",
+      "reason": "StoreArtwork repeats substantial SVG geometry in generic catalog/detail SSR. External motif assets or symbols could reduce HTML, but change asset/rendering boundaries and must preserve accessibility, gradients, fallback and artwork provenance. No such rewrite is necessary for the first overnight code cleanup; measure after profile reconciliation."
+    },
+    {
+      "area": "Lazy route splitting or runtime-schema decomposition",
+      "owner": "#92 separate measured candidate; #91/#38 contracts",
+      "reason": "Could reduce shared browser payload but adds hydration/preload or validation-boundary risk. Current receipt-based static rendering and purchase guards should remain."
+    },
+    {
+      "area": "Tooling/tests/build concurrency/freshness",
+      "owner": "#52",
+      "reason": "Concrete existing owner; do not duplicate its work in #92."
+    },
+    {
+      "area": "Formatting/CI/CodeQL/dependency review",
+      "owner": "#29",
+      "reason": "Old draft #73 must be deliberately reconciled with current code; not part of code sweep."
+    },
+    {
+      "area": "Shared Markdown/styles/generated source/accessibility repairs",
+      "owner": "#50/#53/#56/#49",
+      "reason": "Already implemented/integrated or retain explicit final acceptance; consume their contracts rather than reopen equivalent rewrites."
+    }
+  ],
+  "verificationLimits": [
+    "This audit establishes source observations and candidate checks only.",
+    "No application/build/browser benchmark was executed.",
+    "Dependency inventory/security/release verification is delegated separately.",
+    "No new license or artwork/product grant inferred; no private source accessed."
+  ]
+}

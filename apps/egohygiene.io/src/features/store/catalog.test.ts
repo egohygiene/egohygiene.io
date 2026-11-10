@@ -109,4 +109,48 @@ describe("store story browsing", () => {
       expect(filterStoreEntries(catalog, "unreleased", "all", story)).toEqual([]);
     }
   });
+
+  it("keeps empty and whitespace searches ordered, public and canonical across type/story filters", () => {
+    for (const query of ["", "  ", "\u3000\t"]) {
+      for (const story of ["all", "connected", "standalone"] as const) {
+        const all = filterStoreEntries(catalog, query, "all", story);
+        expect(ids(all)).toEqual(ids(filterStoreEntries(catalog, "", "all", story)));
+        expect(all.every((entry) => catalog.entries.includes(entry))).toBe(true);
+        const products = filterStoreEntries(catalog, query, "product", story);
+        expect(products).toEqual(all.filter((entry) => entry.kind === "product"));
+      }
+    }
+  });
+
+  it("reflects catalog edits between searches without retaining stale lookup or context state", () => {
+    const edited = structuredClone(catalog);
+    const before = JSON.stringify(edited);
+    expect(ids(filterStoreEntries(edited, "lunar", "product"))).toEqual(["product-orbit"]);
+    expect(JSON.stringify(edited)).toBe(before);
+
+    const heart = edited.entries.find((entry) => entry.id === "design-heart");
+    if (heart?.kind !== "design") throw new Error("Missing design fixture");
+    heart.contextIds.push("song-orbit");
+    edited.entries.reverse();
+    const after = JSON.stringify(edited);
+    const found = filterStoreEntries(edited, "lunar", "product");
+    expect(ids(found)).toEqual(["product-heart", "product-moss", "product-orbit"]);
+    expect(found.every((entry) => edited.entries.includes(entry))).toBe(true);
+    expect(JSON.stringify(edited)).toBe(after);
+
+    const song = edited.entries.find((entry) => entry.id === "song-orbit");
+    if (!song) throw new Error("Missing context fixture");
+    song.visibility = "draft";
+    expect(filterStoreEntries(edited, "lunar", "product")).toEqual([]);
+  });
+
+  it("still rejects malformed selection and fallback locales for a blank search", () => {
+    expect(() => filterStoreEntries(catalog, "", "all", "all", { locale: "not_a_locale" }))
+      .toThrow(RangeError);
+    expect(() => filterStoreEntries(catalog, "  ", "all", "all", {
+      locale: "en",
+      fallbackLocales: ["not_a_locale"],
+    })).toThrow(RangeError);
+  });
+
 });

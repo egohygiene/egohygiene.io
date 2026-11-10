@@ -4,7 +4,8 @@ import { storeCatalog, storefrontCuration } from "../../content/store";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import type { BrowsableStoreEntry } from "./domain/index.ts";
 import { getCuratedStoreArtists, getCuratedStoreEntries, storeArtistPath } from "./domain/index.ts";
-import { StoreCard, StoreMetadata } from "./StorePages";
+import { StoreCard } from "./StoreCard";
+import { StoreMetadata } from "./StoreMetadata";
 import { useStoreContent } from "./useStoreContent";
 
 import "./storefront.css";

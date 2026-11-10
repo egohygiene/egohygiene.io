@@ -1,0 +1,81 @@
+{
+  "capturedAt": "2026-10-26T05:05:28.611Z",
+  "sourceHead": "a5e99afb060da64928bcf38cc1901e3b34889bb7",
+  "artifactRoot": "apps/egohygiene.io/dist",
+  "result": "fail",
+  "sizes": {
+    "javascript": {
+      "bytes": 481100,
+      "gzipBytes": 139250,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 150000
+      },
+      "result": "pass"
+    },
+    "css": {
+      "bytes": 50295,
+      "gzipBytes": 9803,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 12000
+      },
+      "result": "pass"
+    },
+    "images": {
+      "bytes": 391855,
+      "gzipBytes": 387352,
+      "limit": {
+        "bytes": 500000,
+        "gzipBytes": 500000
+      },
+      "result": "pass"
+    },
+    "fonts": {
+      "bytes": 46572,
+      "gzipBytes": 46531,
+      "limit": {
+        "bytes": 60000,
+        "gzipBytes": 50000
+      },
+      "result": "pass"
+    },
+    "documents": {
+      "bytes": 319972,
+      "gzipBytes": 86947,
+      "limit": {
+        "bytes": 20000,
+        "gzipBytes": 10000
+      },
+      "result": "fail"
+    },
+    "total": {
+      "bytes": 1289794,
+      "gzipBytes": 669883,
+      "limit": {
+        "bytes": 1140000,
+        "gzipBytes": 722000
+      },
+      "result": "fail"
+    }
+  },
+  "findings": [
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "bytes: 319972 exceeds 20000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "documents",
+      "detail": "gzipBytes: 86947 exceeds 10000."
+    },
+    {
+      "rule": "size-budget",
+      "file": "total",
+      "detail": "bytes: 1289794 exceeds 1140000."
+    }
+  ],
+  "files": 45,
+  "references": 202
+}
