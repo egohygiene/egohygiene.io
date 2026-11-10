@@ -9,6 +9,12 @@ type StoreArtworkProps = {
   readonly hero?: boolean;
 };
 
+function designMotif(design: StoreDesign | undefined) {
+  return design
+    ? [...design.id].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 3
+    : 0;
+}
+
 /** Decorative studies are never presented as photographs or approved print artwork. */
 export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
   const { t } = useI18n();
@@ -26,9 +32,7 @@ export function StoreArtwork({ design, hero = false }: StoreArtworkProps) {
       setFailedSource(imageSource);
     }
   }, [imageSource]);
-  const motif = design
-    ? [...design.id].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 3
-    : 0;
+  const motif = designMotif(design);
   const gradientId = `${instanceId}-ink`;
   const gridId = `${instanceId}-grid`;
   const glowId = `${instanceId}-glow`;
