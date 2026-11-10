@@ -9,18 +9,22 @@ import { build, loadEnv, mergeConfig } from "vite";
 
 import { createWebsiteConfig } from "../apps/egohygiene.io/vite.config.ts";
 import { type PublicRenderer, writePublicSite } from "./public-site-output.mts";
-import { loadPublicStoreSnapshot, type PublicStoreCatalogSnapshot } from "./vite-store-catalog.mts";
 import {
   loadOrganizationIntelligence,
   type OrganizationIntelligenceSnapshot,
 } from "./vite-organization-intelligence.mts";
+import { loadPublicStoreSnapshot, type PublicStoreCatalogSnapshot } from "./vite-store-catalog.mts";
 
 const appRoot = fileURLToPath(new URL("../apps/egohygiene.io/", import.meta.url));
 
 export async function buildPublicSite(arguments_: string[] = []) {
   const { values } = parseArgs({
     args: arguments_,
-    options: { outDir: { type: "string" }, mode: { type: "string", default: "production" } },
+    options: {
+      outDir: { type: "string" },
+      mode: { type: "string", default: "production" },
+      costReport: { type: "boolean", default: false },
+    },
   });
   const mode = values.mode!;
   const preview =
@@ -44,6 +48,8 @@ export async function buildPublicSite(arguments_: string[] = []) {
       mode,
       build: { outDir: outputDirectory, emptyOutDir: true },
     });
+  if (preview && values.costReport)
+    throw new Error("Cost reports require the normal public build.");
   if (preview) {
     await build(configuration(await loadPublicStoreSnapshot()));
     return;
@@ -53,7 +59,12 @@ export async function buildPublicSite(arguments_: string[] = []) {
   try {
     const snapshot = await loadPublicStoreSnapshot();
     const intelligence = await loadOrganizationIntelligence();
-    await build(configuration(snapshot, intelligence));
+    // Host-only diagnostics stay outside the bounded Docker build context.
+    const costTools = values.costReport ? await import("./public-cost-report.mts") : undefined;
+    const probe = costTools?.createPublicCostProbe();
+    await build(
+      mergeConfig(configuration(snapshot, intelligence), { plugins: probe ? [probe.plugin] : [] }),
+    );
     await build(
       mergeConfig(configuration(snapshot, intelligence), {
         publicDir: false,
@@ -74,6 +85,15 @@ export async function buildPublicSite(arguments_: string[] = []) {
       .update(JSON.stringify({ store: snapshot.digest, intelligence: intelligence.digest }))
       .digest("hex");
     const result = await writePublicSite(outputDirectory, renderer, publicInputDigest);
+    if (probe && costTools) {
+      const report = await costTools.writePublicCostReport(
+        outputDirectory,
+        probe.chunks,
+        probe.styles,
+      );
+      // Reporting never turns the strict artifact gate into a successful command.
+      if (report.findings.length) process.exitCode = 1;
+    }
     console.log(
       `Public rendering: ${result.pages} pages, ${result.sitemapEntries} sitemap entries and a noindex 404 artifact.`,
     );

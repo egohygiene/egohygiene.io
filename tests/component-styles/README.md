@@ -36,9 +36,11 @@ pnpm exec playwright test --config playwright.component-styles.config.ts --list
 pnpm exec playwright test --config playwright.component-styles.config.ts
 ```
 
-The last command starts two fresh loopback-only Vite previews and executes four
+The last command starts two fresh loopback-only Vite previews and executes five
 cases: standalone/representative story geometry and label contrast in each theme,
-plus provider-versus-toolbar ownership. They reject external/mutating requests.
-Discovery alone executes zero browsers. Chromium execution and visual review are
-deferred to the final local pass; screen readers/native zoom are separate checks.
+plus provider-versus-toolbar ownership and manager story/theme switching in the
+same iframe document. The refs preset replaces automatic dependency Storybooks;
+all attempted external/mutating requests and WebSockets remain failures.
+Discovery alone executes zero browsers. Passing runs save representative theme
+screenshots for inspection; screen readers/native zoom remain separate checks.
 #52 owns incorporation into the permanent compiler/test/Taskfile profiles.

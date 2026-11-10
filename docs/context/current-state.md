@@ -1,5 +1,13 @@
 # Current handoff
 
+## Current: cost/Storybook delivery — 2026-11-10
+
+[Batch evidence](../development/qualification-costs-2026-11-10.md) records five actual component cases (including same-document manager) and unchanged normal public output. At clean `70cc124`, 15 non-browser steps/363 units/115 tooling pass before eight strict size findings. An inactive measured budget proposal and concrete dependency-graph settings/support packet are prepared for #115. No optimization, global qualification, new Docker/hosted/native pass, policy change or activation is claimed. #52/#29 retain open work; #91 rendering criteria can be reconciled using prior actual app/HTTP proof. Research follows this batch.
+
+## Current: cost and Storybook batch selected — 2026-11-10
+
+Base `dfff96a`; [contract](../development/qualification-costs-2026-11-10.md) selects #52/#29/#91 actual cost attribution and hosted diagnosis, then #53 manager/reference repair. Preserve strict ceilings and report source-specific results. Research issue/report follows this batch; #115/#116 remain separate.
+
 ## Current: merged batch and two independent paths — 2026-11-10
 
 The approved runtime integration is merged at website `560f937` (ten PRs,

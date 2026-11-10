@@ -101,12 +101,14 @@ for (const theme of ["light", "dark", "high-contrast"]) {
     );
     expect(padding).toBeGreaterThanOrEqual(12);
     const buttonRatio = await labelContrast(button);
+    await page.screenshot({ path: testInfo.outputPath(`button-${theme}.png`) });
     await button.focus();
     await expect(button).toHaveCSS("outline-style", "solid");
     await expect(button).toHaveCSS("transition-duration", "0s");
     await page.goto(storyUrl("visualizations-orbit--default", theme));
     await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
     const storyRatio = await styledOrbit(page);
+    await page.screenshot({ path: testInfo.outputPath(`orbit-${theme}.png`) });
     await testInfo.attach("computed-component-style-samples", {
       body: JSON.stringify({ theme, standaloneRatio, buttonRatio, storyRatio }, null, 2),
       contentType: "application/json",
@@ -130,4 +132,42 @@ test("provider-owned ThemeToggle and toolbar-owned stories do not compete", asyn
   await page.goto(storyUrl("components-button--primary", "light"));
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
+});
+
+test("local manager switches stories and themes without replacing the preview document", async ({
+  page,
+}, testInfo) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.addInitScript(() => localStorage.setItem("egohygiene-theme", "high-contrast"));
+  await page.goto(`${storybookOrigin}/?path=/story/components-themetoggle--default`);
+  const preview = page.frameLocator("#storybook-preview-iframe");
+  const control = preview.getByLabel("Theme", { exact: true });
+  await expect(control).toHaveValue("high-contrast");
+  await control.selectOption("dark");
+  await expect(preview.locator("html")).toHaveAttribute("data-theme", "dark");
+  const token = "same-document-53";
+  await preview
+    .locator("html")
+    .evaluate(
+      (element, value) => element.setAttribute("data-qualification-document", value),
+      token,
+    );
+  // Local manager links use its channel to change the story in the existing iframe.
+  await page.getByRole("button", { name: "Button", exact: true }).click();
+  await page.getByRole("link", { name: "Primary", exact: true }).click();
+  const button = preview.getByRole("button", { name: "Explore the ecosystem", exact: true });
+  await expect(button).toBeVisible();
+  const samples: { theme: string; ratio: number }[] = [];
+  for (const theme of ["light", "dark", "high-contrast"]) {
+    await page.getByRole("button", { name: /^Theme (?:light|dark|high-contrast)$/ }).click();
+    await page.getByRole("option", { name: theme, exact: true }).click();
+    await expect(preview.locator("html")).toHaveAttribute("data-theme", theme);
+    await expect(preview.locator("html")).toHaveAttribute("data-qualification-document", token);
+    samples.push({ theme, ratio: await labelContrast(button) });
+    await page.screenshot({ path: testInfo.outputPath(`manager-${theme}.png`) });
+  }
+  await testInfo.attach("same-document-manager-themes", {
+    body: JSON.stringify(samples),
+    contentType: "application/json",
+  });
 });

@@ -1,5 +1,13 @@
 # Context provenance ledger
 
+## Cost/Storybook verification checkpoint — 2026-11-10
+
+A `a6531f6` precedes implementation `7449922`; import alignment `dc4bb25` passes native Storybook/consumer and all five actual Chromium cases, including local manager same-document themes with no external attempts. Manifest formatting-only `70cc124` passes 15 non-browser steps/363 units/115 tooling/152 catalog before eight strict findings (Task 201, inner 1). Instrumented/default normal builds share all 64 hashes. [Exact evidence](../development/reviews/qualification-costs-2026-11-10/verification.json) records clean sources and failed current-connection graph probes. Inactive multi-page budget patch is applicable but unapplied; no source/schema/runtime pin or purchase policy changed.
+
+## Cost/Storybook checkpoint A — 2026-11-10
+
+User authorized the next few independent issues and requested a subsequent current technology research issue/report. [Contract](../development/qualification-costs-2026-11-10.md) records scope from merged main `dfff96af545628edf4d68476587b6f093313c437`; implementation/qualification pending.
+
 ## Authorized integration merged and issue paths consolidated — 2026-11-10
 
 Website #105→#106→#107→#108→#109→#117→#129→#130→#131→#132 merged in order,
