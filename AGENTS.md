@@ -1,5 +1,15 @@
 # Agent entry point
 
+## Current #52 freshness and production harness — 2026-11-09
+
+The overnight batch continues from draft #129 with the
+[saved contract](docs/development/qualification-freshness-52.md). Capture each
+app output at its own build and detect later mutation before recording the
+receipt; serve fresh production artifacts for production-only browser guards.
+Historical writer/root cause and budgets remain unresolved. Actual shared-button
+contrast failures belong to the following #70/#49 draft. Preserve #129 and store
+#36; keep owner/manual review in #115 and creative pages in #116.
+
 ## Current overnight closeout execution — 2026-11-09
 
 Alan authorized a bounded issue batch while asleep and a next-day sync. Read the

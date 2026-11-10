@@ -1,5 +1,15 @@
 # Current handoff
 
+## Current: #52 output ownership and production harness — 2026-11-09
+
+Draft #129 and store #36 retain lookup/ownership closeout. The next bounded
+contract is [#52 freshness/harness](../development/qualification-freshness-52.md),
+saved before implementation on `fix/qualification-freshness-52`, based on
+`30c5d920dadb15357ee6092f5f0ae340e8cbaa1c`. Detect prior-app output mutation during
+later builds and serve the fresh production artifacts to the strict browser
+guards. Historical interference cause, budgets and independent actual contrast
+failures remain open. No merged-main/hosted/full qualification is inferred.
+
 ## Current: overnight closeout batch selected — 2026-11-09
 
 Alan authorized issue progress while asleep with a next-day sync. The
