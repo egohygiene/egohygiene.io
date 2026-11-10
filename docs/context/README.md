@@ -5,6 +5,7 @@ the existing Aether architecture graph to current implementation and evidence.
 
 | Need | Read |
 | --- | --- |
+| Current stack research / next batch | [Research #135](../research/maintainer-stack-2026-11-10.md): dated releases, actual native compiler comparison, ranked operator-effort roadmap; #34/#116 A next, owner choices #115/#116 B |
 | Current cost/Storybook batch | [Selected A contract](../development/qualification-costs-2026-11-10.md): five local component cases pass, exact cost attribution retains eight strict failures; inactive policy/hosted settings packet, then technology research |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
 | Active overnight closeout | [2026-11-09 morning packet](../development/overnight-closeout-2026-11-09.md): #129 → #130 → #131 → #132 plus independent store #36; full browser pass, actual container HTTP pass and remaining strict-budget/manual/creative work |

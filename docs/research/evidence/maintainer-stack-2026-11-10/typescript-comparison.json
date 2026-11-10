@@ -1,0 +1,45 @@
+{
+  "source": "401845a5f7110666c7fe44039617185dcea68fa8",
+  "method": "One sequential noEmit CLI observation per compiler/profile; same project dependencies retained at current pins; no config relaxation or production compiler replacement. Not a statistically repeated benchmark.",
+  "observations": [
+    {
+      "compiler": "typescript-5.9.3",
+      "profile": "apps/egohygiene.io/tsconfig.app.json",
+      "seconds": 3.559,
+      "exit": 0,
+      "diagnostics": ""
+    },
+    {
+      "compiler": "typescript-7.0.2",
+      "profile": "apps/egohygiene.io/tsconfig.app.json",
+      "seconds": 0.581,
+      "exit": 0,
+      "diagnostics": ""
+    },
+    {
+      "compiler": "typescript-5.9.3",
+      "profile": "tsconfig.node.json",
+      "seconds": 2.641,
+      "exit": 0,
+      "diagnostics": ""
+    },
+    {
+      "compiler": "typescript-7.0.2",
+      "profile": "tsconfig.node.json",
+      "seconds": 0.567,
+      "exit": 0,
+      "diagnostics": ""
+    }
+  ],
+  "commands": {
+    "baseline": "node node_modules/typescript/bin/tsc --project <profile> --noEmit",
+    "candidate": "<isolated-scratch>/node_modules/.bin/tsc --project <profile> --noEmit",
+    "setup": "pnpm --dir <isolated-scratch> add --ignore-scripts typescript@7.0.2"
+  },
+  "limits": [
+    "Single Linux environment; baseline runs before native, so cache/order may affect times.",
+    "Only two profiles observed, not the complete compiler/tool/browser/CI suite.",
+    "Existing project resolves TypeScript 5.9.3 for compiler-API consumers; replacing that dependency was not tested.",
+    "No tracked dependency, config or lockfile changed."
+  ]
+}

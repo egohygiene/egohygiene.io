@@ -1,5 +1,9 @@
 # Agent entry point
 
+## Current completed research and next independent batch — 2026-11-10
+
+[Research #135 report](docs/research/maintainer-stack-2026-11-10.md) ranks public-content review preparation, extending existing setup, an isolated TypeScript 7 CLI pilot and low-noise updates. Two native-CLI profiles pass with measured timings; compiler-API consumers remain on the existing pin. Draft #134 delivers Storybook manager/cost diagnostics; #91 is closed completed, #53 awaits final repair integration, #52/#29 retain eight strict costs/output-cause/hosted acceptance. Next #34 + #116 A; owner decisions/native checks #115/#116 B; publication stays milestone 2. This report changes no application, dependency, workflow, service or active budget.
+
 ## Current cost/Storybook delivery — 2026-11-10
 
 [Batch result](docs/development/qualification-costs-2026-11-10.md): local manager replacement of automatic refs and five Chromium cases pass; one-command attributed costs preserves all 64 public hashes and eight active findings. Non-browser 15 steps pass at `70cc124`, then strict gate fails. Inactive budget proposal and exact graph-settings diagnosis go to #115; #52/#29 remain open. #91 rendering acceptance can be reconciled separately. Next create/do the requested current technology research issue/report.

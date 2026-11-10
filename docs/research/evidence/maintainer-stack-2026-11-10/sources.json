@@ -1,0 +1,117 @@
+{
+  "sources": [
+    {
+      "id": "vite8",
+      "url": "https://vite.dev/blog/announcing-vite8",
+      "published": "2026-03-12",
+      "accessed": "2026-11-10",
+      "usedFor": "Vite 8 stable unified Rolldown/Oxc toolchain; already in this repo."
+    },
+    {
+      "id": "node-lts",
+      "url": "https://nodejs.org/en/about/previous-releases",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Node 24 and 26 LTS; no need to adopt alpha line."
+    },
+    {
+      "id": "typescript7",
+      "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/",
+      "published": "2026-07-08",
+      "accessed": "2026-11-10",
+      "usedFor": "Stable native CLI; no programmatic API in 7.0; documented side-by-side adoption."
+    },
+    {
+      "id": "dependabot",
+      "url": "https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Grouping, schedule, pull-request limit and cooldown controls."
+    },
+    {
+      "id": "dependabot-pnpm",
+      "url": "https://docs.github.com/en/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Current GitHub.com table lists pnpm 11/12 via npm ecosystem; older search snippets differ."
+    },
+    {
+      "id": "zod-mini",
+      "url": "https://zod.dev/packages/mini",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Functional tree-shakable API with same validation capability; actual savings require measuring."
+    },
+    {
+      "id": "astro-islands",
+      "url": "https://docs.astro.build/en/concepts/islands/",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Static HTML with client JS only for explicitly hydrated islands."
+    },
+    {
+      "id": "router7-prerender",
+      "url": "https://reactrouter.com/7.18.5/how-to/pre-rendering",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Version-specific v7 framework prerendering; preserve dynamic catalog paths and host output contracts."
+    },
+    {
+      "id": "router-latest",
+      "url": "https://reactrouter.com/how-to/pre-rendering",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Current docs latest selects v8.5.1 while react-router-dom npm latest is v7.18.5; do not mix APIs."
+    },
+    {
+      "id": "react-compiler",
+      "url": "https://react.dev/blog/2025/10/07/react-compiler-1",
+      "published": "2025-10-07",
+      "accessed": "2026-11-10",
+      "usedFor": "Stable automatic memoization; not proof of smaller download."
+    },
+    {
+      "id": "react-compiler-incremental",
+      "url": "https://react.dev/learn/react-compiler/incremental-adoption",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Opt-in directory/component adoption and measurement."
+    },
+    {
+      "id": "keystatic-local",
+      "url": "https://keystatic.com/docs/local-mode",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Local file storage for authoring UI."
+    },
+    {
+      "id": "keystatic-github",
+      "url": "https://keystatic.com/docs/github-mode",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Hosted GitHub integration has additional application/auth/configuration requirements."
+    },
+    {
+      "id": "directory",
+      "url": "https://stripe.directory",
+      "published": null,
+      "accessed": "2026-11-10",
+      "usedFor": "Official CLI/plugin setup; actual provider searches failed in current execution path."
+    }
+  ],
+  "directoryAttempt": {
+    "skill": "skill://plugin_connector_690ab09fa43c8191bca40280e4563238/stripe-directory/SKILL.md",
+    "cli": "1.55.9",
+    "plugin": "0.3.5",
+    "queries": ["static website hosting", "GitHub dependency automation"],
+    "result": "Both CLI searches exit 1: Invalid user agent. This endpoint can only be used by the Stripe CLI tool.",
+    "providerResultsVerified": false,
+    "fallback": "Official technical documentation; no provider selected, pricing/eligibility claims or provisioning."
+  },
+  "validation": {
+    "localReportLinks": 6,
+    "contextManifestAdditions": 4,
+    "primarySources": "Read through web tools; command-line URL checks additionally saved. Some direct CLI fetches return 403 despite successful web-tool retrieval.",
+    "reportOnly": "No new application tests required; compiler experiment is separate from application qualification."
+  }
+}

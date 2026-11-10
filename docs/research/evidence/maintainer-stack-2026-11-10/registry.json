@@ -1,0 +1,139 @@
+{
+  "observedAt": "2026-11-10T17:08:52Z",
+  "method": "Public npm /latest metadata; mutable stable dist-tag, not an upgrade instruction",
+  "packages": [
+    {
+      "package": "react",
+      "version": "19.3.1",
+      "engines": {
+        "node": ">=0.10.0"
+      },
+      "source": "https://registry.npmjs.org/react/latest",
+      "installed": "19.2.8"
+    },
+    {
+      "package": "react-router-dom",
+      "version": "7.18.5",
+      "engines": {
+        "node": ">=20.0.0"
+      },
+      "source": "https://registry.npmjs.org/react-router-dom/latest",
+      "installed": "7.18.2"
+    },
+    {
+      "package": "vite",
+      "version": "8.3.7",
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      },
+      "source": "https://registry.npmjs.org/vite/latest",
+      "installed": "8.2.0"
+    },
+    {
+      "package": "vitest",
+      "version": "5.1.0",
+      "engines": {
+        "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+      },
+      "source": "https://registry.npmjs.org/vitest/latest",
+      "installed": "4.1.11"
+    },
+    {
+      "package": "@playwright/test",
+      "version": "1.65.0",
+      "engines": {
+        "node": ">=20"
+      },
+      "source": "https://registry.npmjs.org/%40playwright%2Ftest/latest",
+      "installed": "1.62.1"
+    },
+    {
+      "package": "zod",
+      "version": "4.6.7",
+      "engines": null,
+      "source": "https://registry.npmjs.org/zod/latest",
+      "installed": "4.4.3"
+    },
+    {
+      "package": "typescript",
+      "version": "7.0.2",
+      "engines": {
+        "node": ">=16.20.0"
+      },
+      "source": "https://registry.npmjs.org/typescript/latest",
+      "installed": "5.9.3"
+    },
+    {
+      "package": "storybook",
+      "version": "10.6.7",
+      "engines": null,
+      "source": "https://registry.npmjs.org/storybook/latest",
+      "installed": "10.6.2"
+    },
+    {
+      "package": "@biomejs/biome",
+      "version": "2.6.6",
+      "engines": {
+        "node": ">=14.21.3"
+      },
+      "source": "https://registry.npmjs.org/%40biomejs%2Fbiome/latest",
+      "installed": "2.5.9"
+    },
+    {
+      "package": "pnpm",
+      "version": "12.18.0",
+      "engines": {
+        "node": ">=18"
+      },
+      "source": "https://registry.npmjs.org/pnpm/latest",
+      "installed": "11.28.5"
+    },
+    {
+      "package": "astro",
+      "version": "7.4.8",
+      "engines": {
+        "npm": ">=9.6.5",
+        "node": ">=22.23.4",
+        "pnpm": ">=7.1.0"
+      },
+      "source": "https://registry.npmjs.org/astro/latest"
+    },
+    {
+      "package": "babel-plugin-react-compiler",
+      "version": "1.0.0",
+      "engines": null,
+      "source": "https://registry.npmjs.org/babel-plugin-react-compiler/latest"
+    },
+    {
+      "package": "@keystatic/core",
+      "version": "0.6.9",
+      "engines": null,
+      "source": "https://registry.npmjs.org/%40keystatic%2Fcore/latest"
+    },
+    {
+      "package": "react-router",
+      "version": "8.5.1",
+      "engines": {
+        "node": ">=22.22.0"
+      },
+      "source": "https://registry.npmjs.org/react-router/latest",
+      "installed": "8.3.0"
+    },
+    {
+      "package": "@react-router/dev",
+      "version": "8.5.1",
+      "engines": {
+        "node": ">=22.22.0"
+      },
+      "source": "https://registry.npmjs.org/%40react-router%2Fdev/latest"
+    },
+    {
+      "package": "react-dom",
+      "version": "19.3.1",
+      "engines": null,
+      "source": "https://registry.npmjs.org/react-dom/latest",
+      "installed": "19.2.8"
+    }
+  ],
+  "repositorySource": "401845a5f7110666c7fe44039617185dcea68fa8"
+}

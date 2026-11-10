@@ -88,6 +88,10 @@ regression policy/optimization, output-cause and hosted acceptance. #91's actual
 rendering criteria can be reconciled separately against the already-qualified
 45-page raw/HTTP and app-browser receipts; this does not waive cost failures.
 
+### Current hosted readback
+
+At draft #134 head `401845a`, CodeQL [42860458365](https://github.com/egohygiene/egohygiene.io/actions/runs/42860458365) succeeds. CI [42860458475](https://github.com/egohygiene/egohygiene.io/actions/runs/42860458475) passes 45-page raw inspection then fails 64 files/335 references/eight strict findings; browser install/profile are skipped. Dependency review [42860458408](https://github.com/egohygiene/egohygiene.io/actions/runs/42860458408) repeats unsupported repository/Dependency graph configuration. [Observed jobs/source](../research/evidence/maintainer-stack-2026-11-10/batch-hosted.json). No current hosted-browser pass is inferred.
+
 ### Hosted dependency-review boundary
 
 The live repository is public. Official [GitHub dependency-review documentation](https://docs.github.com/en/code-security/concepts/supply-chain-security/dependency-review)
