@@ -49,3 +49,34 @@ selection and website/provider page drafts remain #116; actual publication is
 the later milestone under #31. No software-license choice, private creative
 association, ontology adoption, merge, account/DNS change, source retirement,
 deployment, real provider activation, purchase or spending is selected here.
+
+## B/C — Lookup regression and ownership reconciliation
+
+Source B `2b52ccc6d2207c84b595f68622039fc8c409533b` adds eight real-provider/hook
+React regressions for #51. Invalid namespaces, missing/partial paths and inherited
+prototype names render the complete requested key; valid nested and empty string
+translations remain intact. No runtime or data contract changes. Focused i18n now
+passes 48 tests in three files; `pnpm typecheck:tests` and the changed-file Biome
+check pass. The active safe lookup was already integrated; this draft retains the
+missing regression evidence for review rather than maintaining another runtime.
+
+Both #75 ownership PR merge states were refreshed. Store's stale active pointers
+are corrected in [store draft #36](https://github.com/egohygiene/store/pull/36),
+based directly on store main `5786fd40bfe40b0d338eb96087355b98f7e16d42`.
+Four documentation files change; 15 relative links, merge ancestry and whitespace
+checks pass. #75 remains open for the reciprocal-pointer draft's disposition;
+this is not a new ownership decision or source retirement.
+
+Current Chromium 151.0.7922.34 launches and executes a real page/button action.
+The first complete `pnpm ci:browser` attempt at source B passes fresh website,
+docs, playground, isolated-preview, native Storybook and standalone-consumer
+builds plus all-app smoke. It then runs 31 application cases: eight pass and
+23 fail. Twenty-one site failures come from a production-only no-WebSocket
+guard attached to a development server that injects Vite HMR. Two playground
+cases expose real action-text contrast failures: Secondary in dark is 2.8633:1;
+Primary in high contrast is 3.2458:1, below the retained 4.5:1 requirement.
+
+These are actionable #52/#70/#49 findings. Preserve the failed baseline and
+repair the harness/server mismatch plus actual token/style behavior; do not
+relax network or contrast assertions. Later suite/profile steps did not run.
+No full browser/CI qualification or issue closure is claimed by this checkpoint.

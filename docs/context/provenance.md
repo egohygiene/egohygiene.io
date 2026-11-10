@@ -2385,3 +2385,40 @@ ontology adoption, merge, account/DNS change, deployment, retirement, provider
 activation, order or spending occurred. A later implementation session starts
 Wave 0's criterion/evidence audit and #34 A, continues concrete reliability and
 #70/#37, and prepares #115/#116 before Alan's required end-of-sprint actions.
+
+## Overnight closeout: lookup regression and ownership audit — 2026-11-09 local
+
+Alan explicitly requested issue progress while asleep and a next-day sync.
+The [batch record](../development/overnight-closeout-2026-11-09.md) saves A before
+B `2b52ccc6d2207c84b595f68622039fc8c409533b`. The branch starts from unmerged #117
+`a7e15c7`; main's separate Intelligence changes at observed `1605f32` are preserved
+and are not included in this qualification source.
+
+Verified the official Node 24.21.0 archive checksum and used task-local pnpm
+11.28.5 with the existing frozen lockfile/lifecycle scripts disabled. Baseline
+i18n: 40 tests pass. Eight meaningful real-provider/hook React regressions now
+exercise invalid namespace/missing/partial/prototype keys and valid nested/empty
+strings; focused i18n is 48 passing cases. Test TypeScript and scoped Biome pass.
+Runtime lookup implementation is unchanged; #51 remains reviewable for closure.
+
+Live metadata confirms website #76 and store #34 merged at
+`08174a9ce39dfd3f2be806181b20153e94642e6a` and
+`13279f96491d3dad49d9d6ebf558404eccc8103f`. Store active status remained stale;
+[store draft #36](https://github.com/egohygiene/store/pull/36), source `cbcc922`,
+corrects four documentation files, with 15 relative paths, ancestry and whitespace
+verified. #75 remains open pending this reciprocal-pointer disposition. Neither
+the ownership choice nor its correction completes #100 retirement.
+
+Current Docker 28.4.0 responds on the managed local socket. Installed Playwright
+Chromium 151.0.7922.34 launches and executes an actual page/button action. At B,
+`pnpm ci:browser` passes all fresh app/isolated-preview/Storybook/consumer builds
+and smoke, then fails the first actual app suite: eight pass, 23 fail. Twenty-one
+site cases reject development HMR WebSockets under the production-only guard;
+two playground cases report Secondary dark contrast 2.8633:1 and Primary high
+contrast 3.2458:1 against the retained 4.5:1 requirement. Later profile steps did
+not run. These are new observed failures, not an environment-unavailable claim.
+
+Next focused work repairs #52 production-server/freshness behavior, then actual
+#70/#49 failures and real #57 Docker proof. No full qualification, issue closure,
+merge, license/creative choice, private data migration, account/DNS change,
+deployment, retirement, provider activation, purchase or spending occurred.
