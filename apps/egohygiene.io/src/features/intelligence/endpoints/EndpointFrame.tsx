@@ -32,6 +32,7 @@ export function EndpointFrame({ id, question, children, renderRecord, showEmpty 
   const [browserParams, setParams] = useSearchParams();
   const params = ready ? browserParams : new URLSearchParams();
   const data = endpointData(id);
+  const evaluatedAt = data.source?.asOf ?? (["audits", "sanity"].includes(id) ? null : intelligenceData.asOf);
   const module = intelligenceData.modules.find((item) => item.id === id);
   const query = (params.get("q") ?? "").slice(0, 160);
   const repository = params.get("repository") ?? "";
@@ -48,7 +49,7 @@ export function EndpointFrame({ id, question, children, renderRecord, showEmpty 
     <p className="site-eyebrow">Organization Intelligence</p>
     <h1>{module?.title ?? id.replaceAll("_", " ")}</h1><p className="oi-lede">{question}</p>
     <nav className="oi-section-nav" aria-label="Intelligence views"><Link to={{ pathname: "/intelligence/", search: params.toString() }}>Overview</Link>{intelligenceData.modules.filter((item) => item.implemented && item.id !== "intelligence").map((item) => <Link aria-current={item.id === id ? "page" : undefined} key={item.id} to={{ pathname: item.path, search: params.toString() }}>{item.title}</Link>)}</nav>
-    <section className="oi-state-panel"><h2>Evidence boundary</h2><p><b>{data.state}</b> · {(data.source?.asOf ?? intelligenceData.asOf) ? `Evaluated ${data.source?.asOf ?? intelligenceData.asOf}` : "No reviewed snapshot is connected."}</p><p>Canonical sources retain authority. Activity does not establish human approval, acceptance or conformance.</p>{module ? <a href={module.issueUrl}>Canonical owner and remaining acceptance</a> : null}</section>
+    <section className="oi-state-panel"><h2>Evidence boundary</h2><p><b>{data.state}</b> · {evaluatedAt ? `Evaluated ${evaluatedAt}` : "No reviewed snapshot is connected."}</p><p>Canonical sources retain authority. Activity does not establish human approval, acceptance or conformance.</p>{module ? <a href={module.issueUrl}>Canonical owner and remaining acceptance</a> : null}</section>
     {data.source ? <details className="oi-panel"><summary>Inspect this independent source contract</summary><dl className="oi-provenance-list">
       <div><dt>Schema</dt><dd><code>{data.source.schema}</code> · {data.source.contractVersion}</dd></div>
       <div><dt>Normalized model source</dt><dd><a href={`https://github.com/${data.source.repository}/tree/${data.source.revision}`}><code>{data.source.revision}</code></a></dd></div>
