@@ -6,7 +6,8 @@ import { storeCatalog, storefrontCuration } from "../../content/store";
 import { useBrowserSnapshot } from "../../hooks/useBrowserSnapshot";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import { filterStoreEntries, getCuratedStoreArtist } from "./domain/index.ts";
-import { StoreCard, StoreMetadata } from "./StorePages";
+import { StoreCard } from "./StoreCard";
+import { StoreMetadata } from "./StoreMetadata";
 import { useStoreContent } from "./useStoreContent";
 
 import "./storefront.css";

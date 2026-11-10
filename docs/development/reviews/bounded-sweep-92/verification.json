@@ -1,0 +1,147 @@
+{
+  "sourceHead": "a5e99afb060da64928bcf38cc1901e3b34889bb7",
+  "sourceTree": "c3bf7448ae29dc84a56947e370d0e931ab0cb686",
+  "runtime": {
+    "node": "v24.21.0",
+    "pnpm": "11.28.5"
+  },
+  "checks": [
+    {
+      "name": "check",
+      "command": [
+        "pnpm",
+        "check"
+      ],
+      "exitCode": 0,
+      "qualification": "native command"
+    },
+    {
+      "name": "types",
+      "command": [
+        "pnpm",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "qualification": "native command"
+    },
+    {
+      "name": "unit",
+      "command": [
+        "pnpm",
+        "test:unit"
+      ],
+      "exitCode": 0,
+      "qualification": "native command"
+    },
+    {
+      "name": "catalog",
+      "command": [
+        "node",
+        "--test",
+        "--test-concurrency=2",
+        "tests/store/artifact-qualification.test.ts",
+        "tests/store/artists.test.ts",
+        "tests/store/artwork-files.test.ts",
+        "tests/store/catalog-envelope.test.ts",
+        "tests/store/catalog-localization-fixture.test.ts",
+        "tests/store/catalog-localization.test.ts",
+        "tests/store/catalog-migration.test.ts",
+        "tests/store/catalog-presentation.test.ts",
+        "tests/store/catalog.test.ts",
+        "tests/store/checkout-handoff-fixture.test.ts",
+        "tests/store/checkout-handoff-network.test.ts",
+        "tests/store/curation.test.ts",
+        "tests/store/design-order.test.ts",
+        "tests/store/domain-consumer.test.ts",
+        "tests/store/fourthwall-check.test.ts",
+        "tests/store/providers.test.ts",
+        "tests/store/public-build.test.ts",
+        "tests/store/public-page-preview.test.ts",
+        "tests/store/public-rendering-build.test.ts",
+        "tests/store/readiness.test.ts"
+      ],
+      "exitCode": 0,
+      "qualification": "native command"
+    },
+    {
+      "name": "build",
+      "command": [
+        "pnpm",
+        "build"
+      ],
+      "exitCode": 0,
+      "qualification": "native command"
+    },
+    {
+      "name": "preview-build",
+      "command": [
+        "node",
+        "scripts/store-environment.mjs",
+        "build"
+      ],
+      "exitCode": 0,
+      "qualification": "native command"
+    },
+    {
+      "name": "storybook-native",
+      "command": [
+        "pnpm",
+        "storybook:build"
+      ],
+      "exitCode": 1,
+      "qualification": "native command"
+    },
+    {
+      "name": "storybook-build-only-compat",
+      "command": [
+        "pnpm",
+        "storybook:build"
+      ],
+      "exitCode": 0,
+      "qualification": "limited build-only OS compatibility probe, not native startup or host/origin security evidence"
+    },
+    {
+      "name": "artifact",
+      "command": [
+        "node",
+        "tests/store-qualification/artifacts.mts",
+        "--output",
+        "test-results/store-qualification/night92-final.json"
+      ],
+      "exitCode": 1,
+      "qualification": "native command"
+    }
+  ],
+  "recordedOn": "2026-10-26",
+  "recordedTimezone": "America/New_York",
+  "counts": {
+    "unitTests": 344,
+    "unitFiles": 45,
+    "catalogTests": 152,
+    "componentBrowserDiscovered": 4,
+    "browserExecuted": 0
+  },
+  "result": "bounded implementation verified with explicit native Storybook/environment and prior acceptance gaps",
+  "comparison": "artifact-comparison.json",
+  "dependencyChanges": "dependency-change.json",
+  "workingTreeAfterChecks": "clean",
+  "hosted": [
+    {
+      "name": "validate",
+      "runId": 40272250681,
+      "result": "failure"
+    },
+    {
+      "name": "dependency-review",
+      "runId": 40272250520,
+      "result": "failure"
+    }
+  ],
+  "limits": [
+    "Native Storybook build fails before bundling due to denied os.networkInterfaces; the successful compatibility probe is not a native or dev-server security pass.",
+    "Temporary build-only probe catches only ERR_SYSTEM_ERROR/uv_interface_addresses and supplies an empty interface list. It exists outside the repository, does not run a server/browser and is not a supported task or gate bypass.",
+    "Existing three artifact budgets still fail; no ceiling changed.",
+    "No browser/host/provider/purchase/license/merge qualification.",
+    "Unrelated experimental dependencies and21 peer-warning groups remain #15/#16."
+  ]
+}
