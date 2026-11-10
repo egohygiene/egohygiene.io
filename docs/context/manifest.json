@@ -95,5 +95,9 @@
   "localStaticServing": "docs/development/static-serving-57.md",
   "localStaticServingEvidence": "docs/development/reviews/static-serving-57/verification.json",
   "localStaticServingHttp": "docs/development/reviews/static-serving-57/native-http.json",
-  "qualificationCosts20261110": "docs/development/qualification-costs-2026-11-10.md"
+  "qualificationCosts20261110": "docs/development/qualification-costs-2026-11-10.md",
+  "maintainerStack20261110": "docs/research/maintainer-stack-2026-11-10.md",
+  "maintainerStackSources": "docs/research/evidence/maintainer-stack-2026-11-10/sources.json",
+  "maintainerStackRegistry": "docs/research/evidence/maintainer-stack-2026-11-10/registry.json",
+  "maintainerStackCompilerTrial": "docs/research/evidence/maintainer-stack-2026-11-10/typescript-comparison.json"
 }
