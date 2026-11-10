@@ -166,7 +166,7 @@ function admitted(value: unknown, allowed: ReadonlySet<string>): boolean {
     if (depth > 64 || nodes > 100000) return false;
     if (typeof item === "string") {
       if (unsafe.test(item) || /%[a-f0-9]{2}/i.test(item)) return false;
-      for (const match of item.matchAll(/egohygiene\/(?:\.github|[A-Za-z0-9][A-Za-z0-9.-]*)/gi)) {
+      for (const match of item.matchAll(/egohygiene\/[A-Za-z0-9_.-]+/gi)) {
         const name = match[0].replace(/\.+$/, "").replace(/\.git$/i, "").toLowerCase();
         if (!publicNames.has(name)) return false;
       }
