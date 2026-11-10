@@ -70,3 +70,48 @@ private receipt-home decisions remain #115/#116 B/#38. Actual provider/account
 creation, rights qualification, deployment and publication remain milestone 2.
 #34 stays open for those cross-owner criteria even if this synthetic website
 boundary is verified. No external action or approval is implied by a fixture.
+
+## B: implemented for review
+
+`@egohygiene/schemas` now exports the optional reference/parser/selectors and
+listing-evidence schema factories. Factories are lazy; existing browser consumers
+ship none of these unused helpers. Recording keys are public website keys, not
+private UUIDs or guessed crosswalks. Work links reuse current design contextIds;
+products union links through designIds. Full authoring validation precedes public
+filtering, including unused malformed drafts.
+
+`loadPublicStoreSnapshot({ referencesFile })` is the explicit optional Node/Vite
+seam. Its input must be a regular non-symlink file outside the real public asset
+directory. The emitted companion contains referenced public recordings/design
+links only; JSON and source-map inputs do not expose raw authoring sources.
+With no selection, the original two-export virtual module is unchanged. No normal
+build option points at a new file, and the real app does not import private data.
+
+The listing evidence is a **website public summary**, not the private owner's
+canonical publication receipt. It snapshots the validated public catalog and
+existing offer as immutable comparison evidence; neither snapshot is an editable
+price/inventory source. It binds public asset hashes/revisions, projection/build
+and website source identity. Partial build/asset/provider facts can be prepared
+but cannot assert approval. Observation requires the exact destination, explicit
+published result, timestamp, evidence reference and freshness boundary. Withdrawal
+has a separate explicit result/destination/time. Future observations are rejected;
+changed bindings/expired observation are stale. No helper creates an approval,
+visits a URL or certifies the supplied evidence as authentic/remote publication.
+
+The [#116 A packet](first-product-packet-116.md) includes the existing-route matrix,
+one valid v3 draft configuration, and a blank provider-entry template with a
+restricted working copy outside public Git. It contains no selected real pilot,
+filled private receipt or account configuration. The template validates with zero
+public entries and a disabled purchase action. #116 B/C require the actual choice.
+
+Preliminary focused contracts: 23 pass, including the actual Vite/source-map seam
+and private-field/draft/unsafe-file negative cases. App/catalog/tooling/portable
+types pass; a normal build matches all 64 pre-batch path hashes. Exact clean-source
+C qualification follows this saved implementation checkpoint.
+
+Private released contracts and an upstream draft were inspected read-only. Real
+canonical crosswalk adoption, the versioned private exporter and a minimal receipt
+in its private owning contract remain outstanding. This is an authority/integration
+gap, not a claim that private interfaces were unavailable. #34 remains open and
+canonical ontology/package-home selection remains undecided. Existing v1→v2→v3
+website migrations are exercised; no real data is migrated or artificial v4 added.

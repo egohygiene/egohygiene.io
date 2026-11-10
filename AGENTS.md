@@ -1,5 +1,9 @@
 # Agent entry point
 
+## Current #34 / #116 A implementation — 2026-11-10
+
+[Implemented boundary/packet](docs/store/relationship-boundary-34.md) adds optional public recording references and exact listing-evidence comparisons while preserving catalog v3 and default output. 23 focused contracts and affected types pass; normal 64-file hashes match the prior batch. [Creation packet](docs/store/first-product-packet-116.md) inventories 45 routes and prepares valid draft/blank private worksheet templates. Save exact C results next; strict eight-size/hosted failures remain. #34 private adoption/receipt criteria and #116 B/C stay open; no pilot, private data import or external action selected.
+
 ## Current #34 / #116 A execution — 2026-11-10
 
 Read [the selected relationship/packet contract](docs/store/relationship-boundary-34.md) and ADR 0016 before implementation. Work stacks on #136/#134; keep catalog v3 and default output, strict gates and current purchase guards. Only synthetic public website interfaces are selected; private contracts were inspected without importing creative records. #34 retains cross-owner adoption/receipt gaps. #116 A prepares one route/pilot/provider template packet; B choices and native checks stay #115/#116, actual activation/publication milestone 2.

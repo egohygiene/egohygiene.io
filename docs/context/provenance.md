@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## Relationship/packet implementation checkpoint — 2026-11-10
+
+A `58b93de` is saved in draft #137, stacked on #136/#134. B adds only optional public-reference and listing-summary interfaces, tests and a 45-route preparation packet. No catalog v3 data, private canonical records, runtime dependency pins, purchase rules or default public output changed. 23 focused tests and affected typechecks pass preliminarily; normal output matches all64 baseline hashes. Private interfaces were inspected but not copied; actual private exporter/receipt compatibility is not claimed. An exhausted temporary-file inode pool interrupted the first install/write; moving an owned old dependency cache outside the temp filesystem preserved source and allowed the pinned install to finish. Exact C follows the implementation commit.
+
 ## Relationship/packet checkpoint A — 2026-11-10
 
 [A specification](../store/relationship-boundary-34.md) and ADR 0016 record the authorized #34/#116 A batch from #136 `1fab310`. Read-only private interface reconciliation found released preview/review contracts and an unmerged song/merch extension; no actual creative records or private data were imported. Website v3 remains authority. No implementation pass, private receipt adoption, migration or public/provider action is inferred.

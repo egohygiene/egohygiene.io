@@ -1,5 +1,9 @@
 # Current handoff
 
+## Current: optional references and creation packet implemented — 2026-11-10
+
+[Batch delivery](../store/relationship-boundary-34.md) implements lazy schema factories, design/product work selectors, strict optional Node/Vite references and a website-only listing-evidence summary. Prepared/approved/observed/withdrawn/unknown/stale remain distinct; actual private receipt adoption/exporter still needs its owning contract. [#116 A packet](../store/first-product-packet-116.md) supplies 45-route copy/asset inventory, schema-valid draft configuration and a blank private worksheet copy outside public Git. Preliminary 23 contracts/affected types pass; default normal output is byte-identical across 64 files. Clean-source C checks follow. #34/#116 remain open for actual cross-owner/pilot acceptance; #115 manual and milestone-2 publication remain separate.
+
 ## Current: relationship contracts and creation packet selected — 2026-11-10
 
 User authorized the next batch: #34 synthetic references/publication-evidence boundary and #116 A. [A contract](../store/relationship-boundary-34.md) starts at #136 `1fab310`, preserving #134/#136 as drafts and current main. Existing private contract/draft interfaces are readable; actual private records, crosswalks and receipts remain private. Canonical adoption, real pilot/exporter and publication are not selected. Save a focused draft before B, then verify exact source and prepare one owner packet.

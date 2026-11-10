@@ -10,7 +10,8 @@ whose declared work must match that design's existing song context. Private
 canonical IDs and their crosswalk remain outside this public repository.
 
 A website listing-evidence envelope can bind exact public input/build/artwork and
-the existing reviewed offer. Its status distinguishes preparation, supplied
+the existing reviewed offer. The snapshot is comparison evidence, never an alternative editable catalog/price
+authority. Its status distinguishes preparation, supplied
 approval, dated observation, withdrawal and unknown evidence. Effective stale
 status follows changed bindings. It neither creates a private review receipt nor
 authenticates a reviewer or visits a provider. It cannot enable purchase or

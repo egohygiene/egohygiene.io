@@ -101,5 +101,9 @@
   "maintainerStackRegistry": "docs/research/evidence/maintainer-stack-2026-11-10/registry.json",
   "maintainerStackCompilerTrial": "docs/research/evidence/maintainer-stack-2026-11-10/typescript-comparison.json",
   "relationshipBoundary34": "docs/store/relationship-boundary-34.md",
-  "relationshipBoundary34Decision": "docs/architecture/decisions/0016-website-reference-and-listing-boundary.md"
+  "relationshipBoundary34Decision": "docs/architecture/decisions/0016-website-reference-and-listing-boundary.md",
+  "firstProductPacket116": "docs/store/first-product-packet-116.md",
+  "firstProductPacket116Matrix": "docs/store/reviews/first-product-packet-116/route-copy-asset-matrix.json",
+  "firstProductPacket116PilotTemplate": "docs/store/templates/pilot-catalog.example.json",
+  "firstProductPacket116ProviderTemplate": "docs/store/templates/provider-entry-private-template.md"
 }

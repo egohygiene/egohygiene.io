@@ -5,7 +5,7 @@ the existing Aether architecture graph to current implementation and evidence.
 
 | Need | Read |
 | --- | --- |
-| Current relationships / creation packet | [#34 / #116 A contract](../store/relationship-boundary-34.md): optional public references, exact listing evidence, synthetic proof and a creation-ready template packet |
+| Current relationships / creation packet | [#34 / #116 A contract](../store/relationship-boundary-34.md): optional public references/listing summaries implemented; 23 focused contracts pass; [45-route creation packet](../store/first-product-packet-116.md) and owner templates prepared |
 | Current stack research / next batch | [Research #135](../research/maintainer-stack-2026-11-10.md): dated releases, actual native compiler comparison, ranked operator-effort roadmap; #34/#116 A next, owner choices #115/#116 B |
 | Current cost/Storybook batch | [Selected A contract](../development/qualification-costs-2026-11-10.md): five local component cases pass, exact cost attribution retains eight strict failures; inactive policy/hosted settings packet, then technology research |
 | Agent instructions | [Root](../../AGENTS.md), [website](../../apps/egohygiene.io/AGENTS.md), [schemas](../../packages/schemas/AGENTS.md) |
