@@ -32,6 +32,7 @@ export function EndpointFrame({ id, question, children, renderRecord, showEmpty 
   const [browserParams, setParams] = useSearchParams();
   const params = ready ? browserParams : new URLSearchParams();
   const data = endpointData(id);
+  const evaluatedAt = data.source?.asOf ?? (["audits", "sanity"].includes(id) ? null : intelligenceData.asOf);
   const module = intelligenceData.modules.find((item) => item.id === id);
   const query = (params.get("q") ?? "").slice(0, 160);
   const repository = params.get("repository") ?? "";
@@ -48,7 +49,14 @@ export function EndpointFrame({ id, question, children, renderRecord, showEmpty 
     <p className="site-eyebrow">Organization Intelligence</p>
     <h1>{module?.title ?? id.replaceAll("_", " ")}</h1><p className="oi-lede">{question}</p>
     <nav className="oi-section-nav" aria-label="Intelligence views"><Link to={{ pathname: "/intelligence/", search: params.toString() }}>Overview</Link>{intelligenceData.modules.filter((item) => item.implemented && item.id !== "intelligence").map((item) => <Link aria-current={item.id === id ? "page" : undefined} key={item.id} to={{ pathname: item.path, search: params.toString() }}>{item.title}</Link>)}</nav>
-    <section className="oi-state-panel"><h2>Evidence boundary</h2><p><b>{data.state}</b> · {intelligenceData.asOf ? `Evaluated ${intelligenceData.asOf}` : "No reviewed snapshot is connected."}</p><p>Canonical sources retain authority. Activity does not establish human approval, acceptance or conformance.</p>{module ? <a href={module.issueUrl}>Canonical owner and remaining acceptance</a> : null}</section>
+    <section className="oi-state-panel"><h2>Evidence boundary</h2><p><b>{data.state}</b> · {evaluatedAt ? `Evaluated ${evaluatedAt}` : "No reviewed snapshot is connected."}</p><p>Canonical sources retain authority. Activity does not establish human approval, acceptance or conformance.</p>{module ? <a href={module.issueUrl}>Canonical owner and remaining acceptance</a> : null}</section>
+    {data.source ? <details className="oi-panel"><summary>Inspect this independent source contract</summary><dl className="oi-provenance-list">
+      <div><dt>Schema</dt><dd><code>{data.source.schema}</code> · {data.source.contractVersion}</dd></div>
+      <div><dt>Normalized model source</dt><dd><a href={`https://github.com/${data.source.repository}/tree/${data.source.revision}`}><code>{data.source.revision}</code></a></dd></div>
+      <div><dt>Schema SHA-256</dt><dd><code>{data.source.schemaSha256}</code></dd></div>
+      <div><dt>Admitted presentation SHA-256</dt><dd><code>{data.source.presentationSha256}</code></dd></div>
+      <div><dt>Semantic owners</dt><dd><code>{data.source.owner}</code></dd></div>
+    </dl><p>The host presents admitted normalized metadata. Source truth and human authority require their original evidence; a checksum establishes neither.</p></details> : null}
     {children}
     {data.groups.length ? <div className="oi-directory-filters" role="search" aria-label="Filter evidence">
       <label>Search<input disabled={!ready} type="search" value={query} maxLength={160} onChange={(event) => update("q", event.target.value)} /></label>
@@ -60,7 +68,7 @@ export function EndpointFrame({ id, question, children, renderRecord, showEmpty 
     {groups.map((group) => {
       const records = group.records.filter((item) => (!state || item.state === state) && (!normalized || (item.searchText !== undefined ? item.searchText.includes(query.toLowerCase().trim()) : `${item.title} ${item.key} ${item.summary ?? ""} ${item.details.map((detail) => detail.value).join(" ")} ${item.relations.map((relation) => `${relation.target.title} ${relation.target.key}`).join(" ")}`.normalize("NFKC").toLocaleLowerCase("en").includes(normalized))));
       return <section className="oi-section" key={group.repository}><h2>{group.repository}</h2><p className="oi-muted">{group.state} · {group.sourceFreshness ? `Source freshness: ${group.sourceFreshness} · ` : ""}{group.reason}</p>
-        <details><summary>Collection coverage</summary><ul>{group.coverage.map((claim) => <li key={claim.domain}>{claim.domain}: {claim.collection} · {claim.freshness} · {claim.reason}{claim.observedAt ? ` · ${claim.observedAt}` : ""}</li>)}</ul></details>
+        {group.coverage.length ? <details><summary>Collection coverage</summary><ul>{group.coverage.map((claim) => <li key={claim.domain}>{claim.domain}: {claim.collection} · {claim.freshness} · {claim.reason}{claim.observedAt ? ` · ${claim.observedAt}` : ""}</li>)}</ul></details> : null}
         {records.map((item) => <div key={item.id}>{renderRecord ? renderRecord(item) : <EndpointRecordCard record={item} />}</div>)}
         {!records.length ? <p className="oi-state-note">{group.records.length ? "No records match these filters." : group.state === "available" ? "The admitted source contains no records in this view. Collection coverage above states its scope." : "Records are unavailable for this source boundary."}</p> : null}
         {group.truncated ? <p>Presentation is bounded. Follow canonical sources for the complete inventory.</p> : null}

@@ -2,6 +2,7 @@ import { attachRepositoryPublications } from "./intelligence-publications.mts";
 import { buildIntelligenceNavigation } from "./intelligence-navigation-model.mts";
 import { intelligenceEndpointRoutes } from "../apps/egohygiene.io/src/content/intelligence-routes.ts";
 import { projectEndpointModules } from "./intelligence-endpoint-modules.mts";
+import { loadReviewEndpoints } from "./intelligence-review-endpoints.mts";
 import { createHash } from "node:crypto";
 import { lstat, readFile } from "node:fs/promises";
 import { dirname, parse, resolve } from "node:path";
@@ -320,6 +321,10 @@ export interface OrganizationIntelligenceOptions {
   readonly publicationsExpectedSha256?: string;
   readonly artifactManifestFilename?: string;
   readonly artifactManifestExpectedSha256?: string;
+  readonly auditsFilename?: string;
+  readonly auditsExpectedSha256?: string;
+  readonly sanityFilename?: string;
+  readonly sanityExpectedSha256?: string;
 }
 
 /** Bind the optional Relay handoff without treating it as publication approval. */
@@ -374,6 +379,7 @@ export async function loadOrganizationIntelligence(options: Omit<OrganizationInt
   let data: IntelligenceData = { ...contract, state: "unavailable", code: "NOT_CONFIGURED", asOf: null,
     snapshotId: null, artifactSha256: null, observationWindow: null, repositories: [], endpoints: projectEndpointModules({}, []) };
   const filename = options.filename ?? process.env["EGOHYGIENE_INTELLIGENCE_FLEET"];
+  let navigationViews: unknown = {};
   if (filename) {
     try {
       const expected = options.expectedSha256 ?? process.env["EGOHYGIENE_INTELLIGENCE_SHA256"];
@@ -397,13 +403,17 @@ export async function loadOrganizationIntelligence(options: Omit<OrganizationInt
         asOf, surfaces: repositorySurfaces,
       }) };
       data = { ...data, ...linked, asOf, artifactSha256: hash(JSON.stringify(linked)) };
-      data = { ...data, graph: buildIntelligenceNavigation(data, object(JSON.parse(content.toString("utf8")))["views"]) };
+      navigationViews = object(JSON.parse(content.toString("utf8")))["views"];
     } catch (error) {
       const code = error instanceof FleetInputError ? error.code : "INPUT_UNAVAILABLE";
       data = { ...data, state: code === "INPUT_INCOMPATIBLE" ? "incompatible" : "error", code };
     }
   }
-  if (!data.graph) data = { ...data, graph: buildIntelligenceNavigation(data, {}) };
+  const reviews = await loadReviewEndpoints(options);
+  const independent = Object.values(reviews).find((model) => model?.source && ["available", "partial", "stale"].includes(model.state));
+  data = { ...data, endpoints: { ...data.endpoints, ...reviews } };
+  if (independent?.source && data.state === "unavailable") data = { ...data, state: "partial", code: "PARTIAL", asOf: independent.source.asOf };
+  data = { ...data, graph: buildIntelligenceNavigation(data, navigationViews) };
   // JSON text is data inside a trusted generated JS module, never literal HTML.
   const serialized = JSON.stringify(data).replace(/</g, "\\u003c").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029");
   const moduleCode = `export const intelligenceData = ${serialized};\n`;

@@ -102,7 +102,7 @@ export function IntelligencePage() {
     (!normalizedQuery || `${repository.name} ${repository.title}`.normalize("NFKC").toLowerCase().includes(normalizedQuery)) &&
     (evidence === "all" || repository.evidenceState === evidence),
   );
-  const hasSnapshot = ["available", "stale", "partial"].includes(intelligenceData.state);
+  const hasSnapshot = Boolean(intelligenceData.snapshotId) && ["available", "stale", "partial"].includes(intelligenceData.state);
   const nowRepositories = intelligenceData.repositories.filter((repository) => repository.now.state === "available");
   const lanes = [
     { key: "currentFocus", label: "focus" },
@@ -220,6 +220,7 @@ export function IntelligencePage() {
           {intelligenceData.modules.map((module) => <article className="oi-panel oi-module" id={`module-${module.id}`} key={module.id}>
             <div className="oi-section-heading"><h3>{module.title}</h3><span className="oi-badge">{module.id === "intelligence" ? intelligenceData.state : intelligenceData.endpoints?.[module.id]?.state ?? "unavailable"}</span></div>
             <p>{module.description}</p>
+            {intelligenceData.endpoints?.[module.id]?.source ? <p className="oi-muted">{t("intelligenceGovernance.common.independentModel")} · {intelligenceData.endpoints?.[module.id]?.groups.length ?? 0} {t("intelligenceGovernance.common.representedRepositories")}</p> : null}
             <p><span className="oi-muted">{t("intelligence.modules.canonical")}: </span><code>{module.path}</code></p>
             {module.implemented ? <Link to={{ pathname: module.path, search: params.toString() }}>{t("intelligence.modules.snapshotLink")}</Link> : <a href={module.issueUrl}>{t("intelligence.modules.ownerLink")}</a>}
           </article>)}

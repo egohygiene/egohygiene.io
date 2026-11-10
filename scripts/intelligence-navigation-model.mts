@@ -5,6 +5,7 @@ import type { EndpointReference } from "../apps/egohygiene.io/src/features/intel
 import type { GraphNode, GraphEdge } from "../apps/egohygiene.io/src/features/intelligence/graph/types.ts";
 import { endpointViewGroups } from "./intelligence-endpoint-modules.mts";
 import { projectDependencyEdges } from "./intelligence-support-endpoints.mts";
+import { endpointFragment } from "../apps/egohygiene.io/src/features/intelligence/endpoints/fragment.ts";
 
 export function buildIntelligenceNavigation(data: IntelligenceData, views: unknown): { nodes: readonly GraphNode[]; edges: readonly GraphEdge[]; truncated: boolean; publicationRoutes: readonly string[] } {
   const nodes = new Map<string, GraphNode>();
@@ -68,9 +69,12 @@ export function buildIntelligenceNavigation(data: IntelligenceData, views: unkno
         label: "View context", kind: "navigation", assertion: "navigation", freshness: group.sourceFreshness ?? "unknown" });
       for (const record of group.records) {
         if (!addNode({ id: `entity:${record.id}`, label: record.title, kind: "entity", repository: record.repository, state: record.state,
-          href: (route.id === "dependencies"
+          href: data.endpoints?.[route.id]?.source
+            ? `${route.path}?repository=${encodeURIComponent(record.repository)}#${record.anchorId ?? endpointFragment(record.id)}`
+            : (route.id === "dependencies"
             ? repositoryIntelligenceHref(byRepository.get(record.repository) ?? {}, "search", record.id) ?? repositoryIntelligenceHref(byRepository.get(record.repository) ?? {}, "dependencies")
-            : repositoryIntelligenceHref(byRepository.get(record.repository) ?? {}, route.id, route.id === "now" ? record.key : record.id)) ?? "",
+            : repositoryIntelligenceHref(byRepository.get(record.repository) ?? {}, route.id, route.id === "now" ? record.key : record.id))
+            ?? `${route.path}?repository=${encodeURIComponent(record.repository)}#${record.anchorId ?? endpointFragment(record.id)}`,
           sourceHref: `https://github.com/${record.repository}`,
           description: `${record.kind} · ${record.assertion} · ${record.freshness}` })) continue;
         addEdge({ id: `navigation:${route.id}:${record.id}`, source: `module:${route.id}`, target: `entity:${record.id}`,

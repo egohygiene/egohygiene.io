@@ -38,4 +38,15 @@ export interface EndpointData {
   readonly id: string;
   readonly state: IntelligenceState;
   readonly groups: readonly EndpointGroup[];
+  /** Independent owner-model provenance; never the legacy fleet identity. */
+  readonly source?: {
+    readonly schema: string;
+    readonly contractVersion: string;
+    readonly asOf: string;
+    readonly repository: string;
+    readonly revision: string;
+    readonly schemaSha256: string;
+    readonly presentationSha256: string;
+    readonly owner: string;
+  };
 }
