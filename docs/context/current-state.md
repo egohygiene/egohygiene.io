@@ -41,6 +41,19 @@ validation scope; tests, typechecks, builds, CI, browser/Caddy/runtime and live
 publication acceptance remain deferred. The notes below retain main's earlier
 source checkpoints; their historical statuses do not describe this campaign.
 
+## Current: #52 output ownership and production harness — 2026-11-09
+
+Draft #129 and store #36 retain lookup/ownership closeout. The
+[#52 contract/delivery](../development/qualification-freshness-52.md) records
+source `e0f9b9b` on `fix/qualification-freshness-52`: per-build snapshots detect
+later output mutation and the application browser profile serves production
+artifacts. All 24 focused tooling and 26 actual site/docs browser cases pass;
+tooling/browser TypeScript, scoped Biome and the direct fresh smoke runner pass.
+One earlier named-command outer exit anomaly is retained in the receipt.
+Historical interference cause, budgets and actual theme-transition contrast
+failures remain open. Actual Docker context probes pass; image Corepack traffic
+needs explicit managed-proxy/trust handling. No full/main/hosted pass is inferred.
+
 ## Current: overnight closeout batch selected — 2026-11-09
 
 Alan authorized issue progress while asleep with a next-day sync. The

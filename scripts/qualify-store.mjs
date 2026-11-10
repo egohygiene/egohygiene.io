@@ -7,6 +7,8 @@ import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 
 import {
+  assertSmokeArtifactsUnchanged,
+  captureSmokeArtifact,
   createSmokeReceipt,
   smokeApps,
   smokeReceiptPath,
@@ -98,22 +100,23 @@ async function freshBuildSmoke() {
     await rm(path.join(root, "apps", app, "dist"), { recursive: true, force: true });
   }
   const source = await smokeSourceIdentity(root);
-  await run("fresh normal website build", [environmentRunner, "run", "build"]);
-  await run("fresh docs build", [
-    environmentRunner,
-    "run",
-    "--filter",
-    "@egohygiene/docs",
-    "build",
-  ]);
-  await run("fresh playground build", [
-    environmentRunner,
-    "run",
-    "--filter",
-    "@egohygiene/playground",
-    "build",
-  ]);
-  const receipt = await createSmokeReceipt(root, invocationId, source);
+  const artifacts = [];
+  report.smokeBuilds = [];
+  for (const app of smokeApps) {
+    const name = app === "egohygiene.io" ? "fresh normal website build" : `fresh ${app} build`;
+    await assertSmokeArtifactsUnchanged(root, artifacts, `before ${name}`);
+    const args =
+      app === "egohygiene.io"
+        ? [environmentRunner, "run", "build"]
+        : [environmentRunner, "run", "--filter", `@egohygiene/${app}`, "build"];
+    await run(name, args);
+    const artifact = await captureSmokeArtifact(root, app);
+    report.smokeBuilds.push({ ...artifact, capturedAt: new Date().toISOString() });
+    await saveReport();
+    await assertSmokeArtifactsUnchanged(root, artifacts, `during ${name}`);
+    artifacts.push(artifact);
+  }
+  const receipt = await createSmokeReceipt(root, invocationId, source, artifacts);
   await mkdir(path.dirname(path.join(root, smokeReceiptPath)), { recursive: true });
   await writeFile(path.join(root, smokeReceiptPath), `${JSON.stringify(receipt, null, 2)}\n`);
   await run(

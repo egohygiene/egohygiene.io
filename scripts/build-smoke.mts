@@ -13,7 +13,7 @@ export interface SmokeSourceIdentity {
   readonly files: number;
 }
 
-interface SmokeArtifact {
+export interface SmokeArtifact {
   readonly app: SmokeApp;
   readonly files: Readonly<Record<string, string>>;
 }
@@ -82,19 +82,49 @@ async function artifactHashes(directory: string): Promise<Record<string, string>
   return files;
 }
 
+/** Capture an app at its own successful build boundary, before another app runs. */
+export async function captureSmokeArtifact(root: string, app: SmokeApp): Promise<SmokeArtifact> {
+  return { app, files: await artifactHashes(path.join(root, "apps", app, "dist")) };
+}
+
+/** Detect interference without accepting changed output as a new baseline. */
+export async function assertSmokeArtifactsUnchanged(
+  root: string,
+  artifacts: readonly SmokeArtifact[],
+  stage: string,
+): Promise<void> {
+  for (const artifact of artifacts) {
+    const actual = await artifactHashes(path.join(root, "apps", artifact.app, "dist"));
+    const changed = [...new Set([...Object.keys(artifact.files), ...Object.keys(actual)])]
+      .filter((file) => artifact.files[file] !== actual[file])
+      .sort();
+    if (changed.length > 0) {
+      throw new Error(
+        `Fresh build ${artifact.app} output changed ${stage}: ${changed.slice(0, 8).join(", ")}`,
+      );
+    }
+  }
+}
+
 export async function createSmokeReceipt(
   root: string,
   invocationId: string,
   source: SmokeSourceIdentity,
+  artifacts: readonly SmokeArtifact[],
 ): Promise<BuildSmokeReceipt> {
   if (!invocationId) throw new Error("Build smoke requires an invocation identity.");
   if (!sameSmokeSource(source, await smokeSourceIdentity(root))) {
     throw new Error("Build smoke source changed while prerequisites were building.");
   }
-  const artifacts = [];
-  for (const app of smokeApps) {
-    artifacts.push({ app, files: await artifactHashes(path.join(root, "apps", app, "dist")) });
+  if (
+    !Array.isArray(artifacts) ||
+    artifacts.length !== smokeApps.length ||
+    new Set(artifacts.map((artifact) => artifact.app)).size !== smokeApps.length ||
+    smokeApps.some((app) => !artifacts.some((artifact) => artifact.app === app))
+  ) {
+    throw new Error("Build smoke requires snapshots from all three completed builds.");
   }
+  await assertSmokeArtifactsUnchanged(root, artifacts, "before recording the smoke receipt");
   return {
     schemaVersion: 1,
     invocationId,

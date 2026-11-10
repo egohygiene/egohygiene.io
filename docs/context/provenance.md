@@ -2456,3 +2456,29 @@ Next focused work repairs #52 production-server/freshness behavior, then actual
 #70/#49 failures and real #57 Docker proof. No full qualification, issue closure,
 merge, license/creative choice, private data migration, account/DNS change,
 deployment, retirement, provider activation, purchase or spending occurred.
+
+## Per-build freshness and production harness #52 — 2026-11-09 local
+
+[Saved A/specification and B/C delivery](../development/qualification-freshness-52.md)
+follow draft #129 on the preserved storefront stack. A `89a088a` preceded source
+B `e0f9b9bcce1b6a58475874bc38fe4a887b234d5e`. Each app is hashed at its own build;
+the final receipt validates the original snapshots rather than capturing later
+output as a new baseline. The real-runner fixture deterministically rejects both
+a docs-stage homepage replacement and extra old JS before later work/receipt.
+Default app browser servers now serve the fresh production artifacts expected
+by the existing strict local-GET/no-WebSocket guard. Assertions/budgets remain.
+
+[Verification](../development/reviews/qualification-freshness-52/verification.json):
+24 tooling tests, tooling/browser TypeScript, scoped Biome, direct fresh smoke
+with three tests, and all 26 actual site/docs browser cases pass. One earlier
+named smoke outer invocation returned 1 although its internal report/all four
+steps passed; the direct supported runner is independently confirmed at exit 0.
+Historical interference's writer is still unknown; no retry is called a fix.
+
+Current real Docker context probe and checkout export pass. The normal image
+fails at Corepack's direct registry network request. A separate Node container
+probe uses the managed proxy/public CA with TLS verification and reaches pinned
+pnpm metadata at HTTP 200. #57's secure build proxy/trust path follows separately.
+Actual #49 theme-transition contrast, full browser, budget, hosted and manual
+platform acceptance remain separate. No issue closure, merge, license/creative
+choice, retirement, deployment, provider activation, order or spending occurred.

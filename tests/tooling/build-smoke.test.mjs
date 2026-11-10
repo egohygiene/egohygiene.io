@@ -7,6 +7,7 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 
 import {
+  captureSmokeArtifact,
   createSmokeReceipt,
   smokeApps,
   smokeReceiptPath,
@@ -59,7 +60,8 @@ async function fixture(t, seedBuilds = true) {
 
 async function refreshReceipt(root) {
   const source = await smokeSourceIdentity(root);
-  const receipt = await createSmokeReceipt(root, invocation, source);
+  const artifacts = await Promise.all(smokeApps.map((app) => captureSmokeArtifact(root, app)));
+  const receipt = await createSmokeReceipt(root, invocation, source, artifacts);
   await mkdir(path.dirname(path.join(root, smokeReceiptPath)), { recursive: true });
   await writeFile(path.join(root, smokeReceiptPath), JSON.stringify(receipt));
   return receipt;
@@ -73,6 +75,21 @@ test("fresh smoke validates all apps against invocation, source and artifact ide
     assert.deepEqual(result.styles, ["assets/app.css"]);
     assert.match(result.indexSha256, /^[a-f0-9]{64}$/);
   }
+});
+
+test("receipt creation refuses mutated or incomplete completed-build snapshots", async (t) => {
+  const root = await fixture(t);
+  const source = await smokeSourceIdentity(root);
+  const artifacts = await Promise.all(smokeApps.map((app) => captureSmokeArtifact(root, app)));
+  await assert.rejects(
+    createSmokeReceipt(root, invocation, source, artifacts.slice(0, 2)),
+    /snapshots from all three completed builds/,
+  );
+  await writeFile(path.join(root, "apps/egohygiene.io/dist/assets/old.js"), "old output");
+  await assert.rejects(
+    createSmokeReceipt(root, invocation, source, artifacts),
+    /egohygiene.io output changed before recording the smoke receipt: assets\/old.js/,
+  );
 });
 
 test("smoke refuses direct invocation, missing receipts and receipts from an earlier run", async (t) => {
@@ -183,6 +200,8 @@ const args = process.argv.slice(2);
 if (args[0] === "--version") { process.stdout.write("11.28.5\\n"); process.exit(0); }
 fs.appendFileSync("test-results/build-commands.txt", args.join(" ") + "\\n");
 if (args.includes("@egohygiene/docs")) process.exit(17);
+fs.mkdirSync("apps/egohygiene.io/dist", { recursive: true });
+fs.writeFileSync("apps/egohygiene.io/dist/index.html", "fresh completed website");
 process.exit(0);
 `,
     { mode: 0o755 },
@@ -205,7 +224,11 @@ process.exit(0);
   const commands = await readFile(path.join(root, "test-results/build-commands.txt"), "utf8");
   assert.doesNotMatch(commands, /playground|vitest/);
   await assert.rejects(readFile(path.join(root, smokeReceiptPath)), /ENOENT/);
-  for (const app of smokeApps)
+  assert.equal(
+    await readFile(path.join(root, "apps/egohygiene.io/dist/index.html"), "utf8"),
+    "fresh completed website",
+  );
+  for (const app of ["docs", "playground"])
     await assert.rejects(readFile(path.join(root, "apps", app, "dist/index.html")), /ENOENT/);
   assert.equal(
     await readFile(path.join(root, ".cache/keep.txt"), "utf8"),
