@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## Relationship/packet checkpoint A — 2026-11-10
+
+[A specification](../store/relationship-boundary-34.md) and ADR 0016 record the authorized #34/#116 A batch from #136 `1fab310`. Read-only private interface reconciliation found released preview/review contracts and an unmerged song/merch extension; no actual creative records or private data were imported. Website v3 remains authority. No implementation pass, private receipt adoption, migration or public/provider action is inferred.
+
 ## Current-stack research and exact trial — 2026-11-10
 
 Research #135 is closed completed after report delivery in draft #136 (`docs/maintainer-stack-research-135`), stacked on draft #134 (`401845a`). #88/#115/#52 link the result and preserve independent/manual ownership. Hosted readback at that exact head: CodeQL `42860458365` success, CI `42860458475` fails eight artifact findings after 45-page raw inspection/skips browsers, dependency review `42860458408` fails unsupported graph configuration; no dispatch. Public npm stable-tag snapshots and primary docs were checked on 2026-11-10. [Report](../research/maintainer-stack-2026-11-10.md) and [source ledger](../research/evidence/maintainer-stack-2026-11-10/sources.json) distinguish installed/latest/experimental choices and planned effort. A temporary TypeScript 7.0.2 CLI passes two unchanged profiles at base `401845a`; [observations](../research/evidence/maintainer-stack-2026-11-10/typescript-comparison.json) retain single-run/cache/API limits. Current Node/pnpm/compiler/lock, application and workflows remain unchanged. Stripe CLI 1.55.9/Directory 0.3.5 install succeeds, but both research searches fail invalid user agent; official technical docs are the fallback, with no selected provider or account action. #91 closes completed on merged rendering criteria; #53 final repair remains draft #134; #52/#29 still fail active size/hosted gates.

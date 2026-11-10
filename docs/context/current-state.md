@@ -1,5 +1,9 @@
 # Current handoff
 
+## Current: relationship contracts and creation packet selected — 2026-11-10
+
+User authorized the next batch: #34 synthetic references/publication-evidence boundary and #116 A. [A contract](../store/relationship-boundary-34.md) starts at #136 `1fab310`, preserving #134/#136 as drafts and current main. Existing private contract/draft interfaces are readable; actual private records, crosswalks and receipts remain private. Canonical adoption, real pilot/exporter and publication are not selected. Save a focused draft before B, then verify exact source and prepare one owner packet.
+
 ## Current: research delivered and next independent work — 2026-11-10
 
 [Draft #134](https://github.com/egohygiene/egohygiene.io/pull/134) contains local Storybook manager repair (five actual Chromium cases pass) and hash-bound costs preserving eight strict findings. #91 is now closed on its bounded rendering criteria; #53 is verified pending final repair integration. #52/#29 remain open. At exact #134 head `401845a`, hosted CodeQL succeeds; CI logs the same eight size failures/skips browsers, and dependency review repeats unsupported graph configuration. Prepared policy/graph-settings checks are consolidated in #115.

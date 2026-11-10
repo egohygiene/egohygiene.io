@@ -27,3 +27,5 @@ Use full paths/links and titles in issues, handoffs and provenance.
 This table records a dated delivery snapshot, not live merge status. Refresh the
 [current handoff](../../context/current-state.md) and GitHub before resuming.
 Preserve intent/rationale here and implementation results in the owning receipt.
+
+| [0016 — Website references and listing evidence](0016-website-reference-and-listing-boundary.md) | Proposed/selected under #34 | Optional v1 public recording references, derived design/product work links and exact listing bindings; private canonical contracts remain separate |

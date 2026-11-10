@@ -99,5 +99,7 @@
   "maintainerStack20261110": "docs/research/maintainer-stack-2026-11-10.md",
   "maintainerStackSources": "docs/research/evidence/maintainer-stack-2026-11-10/sources.json",
   "maintainerStackRegistry": "docs/research/evidence/maintainer-stack-2026-11-10/registry.json",
-  "maintainerStackCompilerTrial": "docs/research/evidence/maintainer-stack-2026-11-10/typescript-comparison.json"
+  "maintainerStackCompilerTrial": "docs/research/evidence/maintainer-stack-2026-11-10/typescript-comparison.json",
+  "relationshipBoundary34": "docs/store/relationship-boundary-34.md",
+  "relationshipBoundary34Decision": "docs/architecture/decisions/0016-website-reference-and-listing-boundary.md"
 }

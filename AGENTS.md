@@ -1,5 +1,9 @@
 # Agent entry point
 
+## Current #34 / #116 A execution — 2026-11-10
+
+Read [the selected relationship/packet contract](docs/store/relationship-boundary-34.md) and ADR 0016 before implementation. Work stacks on #136/#134; keep catalog v3 and default output, strict gates and current purchase guards. Only synthetic public website interfaces are selected; private contracts were inspected without importing creative records. #34 retains cross-owner adoption/receipt gaps. #116 A prepares one route/pilot/provider template packet; B choices and native checks stay #115/#116, actual activation/publication milestone 2.
+
 ## Current completed research and next independent batch — 2026-11-10
 
 [Research #135 report](docs/research/maintainer-stack-2026-11-10.md) ranks public-content review preparation, extending existing setup, an isolated TypeScript 7 CLI pilot and low-noise updates. Two native-CLI profiles pass with measured timings; compiler-API consumers remain on the existing pin. Draft #134 delivers Storybook manager/cost diagnostics; #91 is closed completed, #53 awaits final repair integration, #52/#29 retain eight strict costs/output-cause/hosted acceptance. Next #34 + #116 A; owner decisions/native checks #115/#116 B; publication stays milestone 2. This report changes no application, dependency, workflow, service or active budget.
