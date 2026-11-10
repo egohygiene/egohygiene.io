@@ -1,5 +1,15 @@
 # Agent entry point
 
+## Current authorized merge and issue consolidation — 2026-11-10
+
+Alan explicitly authorized merging the completed drafts and separating agent
+work from his manual path. Read [the integration contract](docs/development/merge-closeout-2026-11-10.md).
+Integrate the prerequisite website stack and #129–#132 with current Intelligence
+main, plus independent store #36; verify the combined tree and use expected-head
+GitHub merges. Preserve original commits, license proposals as inactive and every
+gate. Owner/manual choices remain #115, creative/page approvals #116, publication
+later. Earlier no-merge snapshots are historical for this authorized action.
+
 ## Current overnight final verification — 2026-11-09
 
 Read the [morning packet](docs/development/overnight-closeout-2026-11-09.md) and
