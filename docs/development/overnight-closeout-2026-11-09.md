@@ -51,7 +51,10 @@ Next agent-owned work remains concrete:
    import a private catalog, adopt a private ontology or create a provider page.
 5. Reconcile #36/#49/#50/#60/#64/#65/#70/#91 against the shared browser receipt,
    preserve their untested original criteria, then update #37's closure packet.
-   #61/#69 still require their broader comparison/extension evidence.
+   Firefox/WebKit automation was not attempted in this bounded batch; checking
+   feasibility and adding that coverage remains agent-owned work, not an owner
+   manual-check substitute. #61/#69 still need their broader comparison/extension
+   evidence.
 
 ## One end-of-sprint owner session
 
