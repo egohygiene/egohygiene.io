@@ -1,5 +1,15 @@
 # Agent entry point
 
+## Current overnight closeout execution — 2026-11-09
+
+Alan authorized a bounded issue batch while asleep and a next-day sync. Read the
+[batch specification/handoff](docs/development/overnight-closeout-2026-11-09.md).
+Selected: #51/#75 acceptance, #52 freshness diagnostics, real #57 Docker checks
+and #70 Chromium acceptance. Branch starts from #117 `a7e15c7`; live main's newer
+Intelligence work is separate and preserved. Keep focused A/B/C checkpoints and
+drafts; record owner/manual decisions in #115, creative/page work in #116.
+Do not infer merge, license, deployment, provider or spending authority.
+
 ## Current sprint roadmap — 2026-11-09
 
 Alan requested a closeout issue roadmap that batches his review and page creation

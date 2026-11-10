@@ -41,6 +41,28 @@ validation scope; tests, typechecks, builds, CI, browser/Caddy/runtime and live
 publication acceptance remain deferred. The notes below retain main's earlier
 source checkpoints; their historical statuses do not describe this campaign.
 
+## Current: overnight closeout batch selected — 2026-11-09
+
+Alan authorized issue progress while asleep with a next-day sync. The
+[batch specification](../development/overnight-closeout-2026-11-09.md) records A
+for #51/#75 reconciliation, #52 freshness diagnostics, actual #57 Docker and #70
+browser checks. Branch `fix/overnight-closeout-2026-11-09` starts from unmerged
+#117 `a7e15c7b1543dcba01647ec8ff358aab5126c817`; main has advanced independently to
+`1605f32` with Intelligence work, which remains separate and preserved.
+
+Pinned task-local Node 24.21.0/pnpm 11.28.5 and frozen script-disabled installation
+are available; baseline i18n is 40 passing tests. Current local Docker is available
+and Playwright Chromium is installed; actual browser/container acceptance follows.
+Storefront ownership PRs website #76/store #34 are both merged; stale store pointers
+now have a focused [store draft #36](https://github.com/egohygiene/store/pull/36).
+Source B `2b52ccc` adds eight React fallback regressions for #51; 48 focused i18n
+tests, test types and scoped Biome pass. Native Storybook builds and Chromium
+executes. Baseline `ci:browser` reaches 31 app tests: eight pass, 21 fail because
+the production network guard is wired to Vite dev/HMR, two fail real shared-button
+contrast. Next #52 fixes fresh-output/harness ownership, then #70/#49 repairs and
+verification. No issue is closed at this checkpoint. Owner/creative decisions
+remain in #115/#116; no merge or publication is performed.
+
 ## Current: closeout roadmap and final owner batches — 2026-11-09
 
 Alan requested a roadmap to close as much existing work as the evidence permits,
