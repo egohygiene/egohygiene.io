@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "invocation": "022f2fd1-4d75-46f2-8181-9ef1b9e0941a",
+  "startedAt": "2026-10-26T16:23:40.138Z",
+  "result": "fail",
+  "scope": "Local Docker context, fresh normal image and Caddy HTTP verification. Browser, hosted CI, deployment and licensing acceptance are separate.",
+  "node": "v24.21.0",
+  "commands": [
+    {
+      "label": "selected-context",
+      "status": "fail",
+      "startedAt": "2026-10-26T16:23:40.427Z",
+      "finishedAt": "2026-10-26T16:23:40.435Z"
+    }
+  ],
+  "limits": [
+    "Base image patch tags remain mutable; the resulting local image ID is recorded.",
+    "Existing artifact budgets remain strict and can fail this profile after HTTP evidence is collected."
+  ],
+  "source": {
+    "commit": "9a44a48031e9715cb2c3d8945a6cb2cc800c2a37",
+    "digest": "036b443c1490480be710e21be50e0e9bff2908df3c78140673c7128e0c7a8e43",
+    "files": 774
+  },
+  "failure": "Docker is unavailable. Start Docker Desktop on your Mac, then rerun task qualify:static.",
+  "finishedAt": "2026-10-26T16:23:40.436Z"
+}

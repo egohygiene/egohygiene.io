@@ -191,3 +191,12 @@ Reviewed on 2026-10-23; no external implementation or assets copied:
 The recent discovery-file discussion is retained in the receipt. Hygiene's
 proposed profile and open Holon/Relay/Pace rollout do not require implementing all
 experimental files or agent capabilities in #91.
+
+## Intended-server delivery under #57 — 2026-10-26
+
+[The #57 receipt](../../development/static-serving-57.md) implements this decision's
+local Caddy boundary in draft #109: generated clean pages, canonical aliases,
+explicit metadata MIME and true missing-resource responses. 388 actual native
+HTTP checks pass at `9a44a48031e9715cb2c3d8945a6cb2cc800c2a37`; Docker/Mac/host
+and browser acceptance remain separate. No renderer, catalog, canonical-origin,
+publication or deployment policy changes are selected by this adapter.

@@ -34,7 +34,7 @@ tasks:
       - node scripts/store-environment.mjs dev
 
   test:store:tooling:
-    desc: "Run focused local setup and preview command tests without installing dependencies"
+    desc: "Run tooling and failure-path contracts using installed dependencies"
     cmds:
       - node --test tests/tooling/*.test.mjs
 
@@ -88,6 +88,11 @@ tasks:
     desc: "Run the strict complete local profile, including all browser checks"
     cmds:
       - node scripts/store-environment.mjs run qualify:local
+
+  qualify:static:
+    desc: "Build a fresh local Docker image and verify context, artifacts and Caddy HTTP behavior"
+    cmds:
+      - node scripts/store-environment.mjs run qualify:static
 
   ci:check:
     desc: "Run complete non-browser validation with strict artifact and native Storybook gates"

@@ -1,0 +1,53 @@
+{
+  "source": "9a44a48031e9715cb2c3d8945a6cb2cc800c2a37",
+  "runs": [
+    {
+      "id": 40358564480,
+      "name": "Dependency review",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "9a44a48031e9715cb2c3d8945a6cb2cc800c2a37",
+      "html_url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40358564480",
+      "updated_at": "2026-10-26T16:23:06Z"
+    },
+    {
+      "id": 40358564254,
+      "name": "CodeQL",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "9a44a48031e9715cb2c3d8945a6cb2cc800c2a37",
+      "html_url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40358564254",
+      "updated_at": "2026-10-26T16:24:16Z"
+    },
+    {
+      "id": 40358564335,
+      "name": "CI",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "9a44a48031e9715cb2c3d8945a6cb2cc800c2a37",
+      "html_url": "https://github.com/egohygiene/egohygiene.io/actions/runs/40358564335",
+      "updated_at": "2026-10-26T16:26:00Z"
+    }
+  ],
+  "limits": "Automatic source-bound runs only. No manual dispatch. CI failed at the artifact gate; individual hosted finding details were not downloaded. Dependency-review configuration error is freshly confirmed. No full hosted or browser qualification.",
+  "ciLogEvidence": {
+    "jobId": 121697520653,
+    "observedStep": "pnpm ci:check",
+    "terminalCheck": "production artifacts and provisional regression budgets",
+    "files": 45,
+    "references": 202,
+    "findings": 3,
+    "rawRoutesPassed": 26,
+    "browserSteps": "skipped",
+    "lines": [
+      "2026-10-26T16:25:58.0516921Z Public rendering inspection: pass; 26 pages. Report: test-results/store-qualification/ci-check/public-rendering.json",
+      "2026-10-26T16:25:58.2704552Z Artifact qualification: fail; 45 files, 202 asset references, 3 findings. Report: test-results/store-qualification/ci-check/production-artifact.json",
+      "2026-10-26T16:25:58.2792323Z production artifacts and provisional regression budgets failed with exit code 1"
+    ]
+  },
+  "dependencyLogEvidence": {
+    "jobId": 121697521305,
+    "error": "Dependency review is not supported on this repository. Please ensure that Dependency graph is enabled.",
+    "interpretation": "Current repository/service configuration failure; not a reported dependency vulnerability."
+  }
+}
