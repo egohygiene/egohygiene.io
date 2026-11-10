@@ -46,7 +46,9 @@ async function fixture(t, paths = ["/", "/fictional"]) {
         const page = pages.find((candidate) => candidate.pathname === pathname);
         return {
           markup:
-            '<nav><a href="/">Home</a></nav><main><h1>Test page</h1><p>Meaningful primary content without executing scripts.</p></main>',
+            '<nav><a href="/">Home</a></nav><main><h1>Test page</h1><p>Meaningful primary content without executing scripts.</p>' +
+            (pathname === "/intelligence/" ? "<svg><title>Graph node tooltip</title></svg>" : "") +
+            "</main>",
           metadata: page?.metadata ?? missing,
           status: page ? 200 : 404,
         };
@@ -80,7 +82,7 @@ test("raw inspection parses escaped metadata and matching discovery without exec
 });
 
 test("raw inspection preserves declared Intelligence slash URLs without accepting arbitrary slash routes", async (t) => {
-  const root = await fixture(t, ["/", "/audits/", "/fictional"]);
+  const root = await fixture(t, ["/", "/audits/", "/fictional", "/intelligence/"]);
   const report = await inspectPublicArtifact(root);
   assert.ok(
     report.pages.some((page) => page.pathname === "/audits/" && page.file === "audits/index.html"),
@@ -94,6 +96,11 @@ test("raw inspection preserves declared Intelligence slash URLs without acceptin
 
 test("raw inspection rejects semantic damage even with a refreshed receipt hash", async (t) => {
   for (const [name, transform, expected] of [
+    [
+      "duplicate document title",
+      (html) => html.replace("</head>", "<title>Injected second document title</title></head>"),
+      /Expected one head > title/,
+    ],
     [
       "duplicate canonical",
       (html) => html.replace("</head>", `<link rel="canonical" href="${origin}/"></head>`),

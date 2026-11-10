@@ -80,7 +80,7 @@ test("integrated Intelligence preserves graph interaction and slash-canonical de
     "href",
     "https://egohygiene.io/intelligence/",
   );
-  const selection = page.getByLabel("Inspect a node", { exact: true });
+  const selection = page.getByRole("combobox", { name: "Inspect a node", exact: true });
   await expect(selection).toBeEnabled();
   await selection.selectOption("module:roadmap");
   await expect(page).toHaveURL(/graph=module%3Aroadmap/);

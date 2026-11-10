@@ -35,7 +35,7 @@ export function inspectPublicDocument(html, route) {
     const heading = one("main h1").textContent.trim();
     assert.ok(heading.length > 0);
     assert.ok(document.querySelector("#root nav a[href]"), "Initial navigation is missing");
-    const title = one("title").textContent.trim();
+    const title = one("head > title").textContent.trim();
     const description = meta('meta[name="description"]');
     assert.ok(title && description?.trim(), "Missing title/description");
     assert.equal(meta('meta[name="robots"]'), route.robots);
