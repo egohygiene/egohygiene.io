@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "design-pilot-placeholder",
+      "kind": "design",
+      "slug": "pilot-design-placeholder",
+      "title": "Public title pending creative review",
+      "description": "Drafting template only. Replace with approved public copy after the pilot is selected.",
+      "visibility": "draft",
+      "sourceLocale": "en",
+      "translations": [],
+      "attribution": { "status": "unknown" },
+      "contextIds": [],
+      "artworkRevision": 1,
+      "artwork": { "kind": "placeholder", "label": "Approved public derivative pending" }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "product-pilot-placeholder",
+      "kind": "product",
+      "slug": "pilot-product-placeholder",
+      "title": "Physical product choice pending",
+      "description": "A physical item carrying the selected design. Garment, variants, public copy and production approval remain unknown.",
+      "visibility": "draft",
+      "sourceLocale": "en",
+      "translations": [],
+      "attribution": { "status": "unknown" },
+      "designIds": ["design-pilot-placeholder"],
+      "contextIds": [],
+      "purchase": { "state": "preview" }
+    }
+  ],
+  "checkoutRoutes": []
+}

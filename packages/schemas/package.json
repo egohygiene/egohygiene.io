@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./store-references": "./src/store-references.ts",
+    "./store-listing": "./src/store-listing.ts"
   },
   "dependencies": {
     "zod": "^4.4.3"

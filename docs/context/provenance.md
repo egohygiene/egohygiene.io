@@ -1,5 +1,33 @@
 # Context provenance ledger
 
+## Authorized final draft merges and readiness roadmap — 2026-11-10
+
+Alan requested merging all open project PRs, then a simple ordered chat roadmap to readiness. #134 reviewed `401845a` merges as `08d381cb8cd376b60866804e90b1cdf10b70a2a9`; #136 reviewed `1fab310` merges as `f44e4cc74921850c5119c580a7d03514d97e0c91`; #137 reviewed `f201e4b` merges as `785aec3099b196cebe1e5d801297cb49258edc64`. Every tree and first/second parent is verified; normal expected-head merges used no override/force push. [Exact receipt](../development/reviews/readiness-merge-2026-11-10/merges.json). #53 closes completed on its original styled-component/local-manager evidence; no current size/hosted or native gaps are waived. [Ordered roadmap](../roadmaps/product-readiness-2026-11-10.md) keeps 15 foundation scopes and six publication scopes distinct, with agent/private integration work separated from #115/#116 real owner choices. No application code, dependency, active limit, license or deployment change is made by this handoff documentation.
+
+## Relationship/packet C verification — 2026-11-10
+
+A `58b93de` precedes B `c9567827db3d346f8d11454ee96866bf10466d32` in draft #137 on #136/#134. [Receipt](../store/reviews/relationship-boundary-34/verification.json): clean-source first15 Task stages pass (175 catalog/115 tooling/363 units/all compilers, actual Vite projection and raw45 routes), final artifact gate fails8 unchanged findings. All64 path hashes equal prior normal output, and the packet matrix matches the fresh route manifest. Hosted B CodeQL42923348575 succeeds; CI42923348628 fails8/skips browsers, dependency42923348549 repeats unsupported graph configuration. No rerun/dispatch or weakened gate. #116 A preparation complete, real B/C open; #34 website-only interface complete but independent private adapter/receipt/upstream-chain engineering remains. Private inspection notes/blank provider worksheet are outside public Git; no actual private record or locator was exported.
+
+## Relationship/packet implementation checkpoint — 2026-11-10
+
+A `58b93de` is saved in draft #137, stacked on #136/#134. B adds only optional public-reference and listing-summary interfaces, tests and a 45-route preparation packet. No catalog v3 data, private canonical records, runtime dependency pins, purchase rules or default public output changed. 23 focused tests and affected typechecks pass preliminarily; normal output matches all64 baseline hashes. Private interfaces were inspected but not copied; actual private exporter/receipt compatibility is not claimed. An exhausted temporary-file inode pool interrupted the first install/write; moving an owned old dependency cache outside the temp filesystem preserved source and allowed the pinned install to finish. Exact C follows the implementation commit.
+
+## Relationship/packet checkpoint A — 2026-11-10
+
+[A specification](../store/relationship-boundary-34.md) and ADR 0016 record the authorized #34/#116 A batch from #136 `1fab310`. Read-only private interface reconciliation found released preview/review contracts and an unmerged song/merch extension; no actual creative records or private data were imported. Website v3 remains authority. No implementation pass, private receipt adoption, migration or public/provider action is inferred.
+
+## Current-stack research and exact trial — 2026-11-10
+
+Research #135 is closed completed after report delivery in draft #136 (`docs/maintainer-stack-research-135`), stacked on draft #134 (`401845a`). #88/#115/#52 link the result and preserve independent/manual ownership. Hosted readback at that exact head: CodeQL `42860458365` success, CI `42860458475` fails eight artifact findings after 45-page raw inspection/skips browsers, dependency review `42860458408` fails unsupported graph configuration; no dispatch. Public npm stable-tag snapshots and primary docs were checked on 2026-11-10. [Report](../research/maintainer-stack-2026-11-10.md) and [source ledger](../research/evidence/maintainer-stack-2026-11-10/sources.json) distinguish installed/latest/experimental choices and planned effort. A temporary TypeScript 7.0.2 CLI passes two unchanged profiles at base `401845a`; [observations](../research/evidence/maintainer-stack-2026-11-10/typescript-comparison.json) retain single-run/cache/API limits. Current Node/pnpm/compiler/lock, application and workflows remain unchanged. Stripe CLI 1.55.9/Directory 0.3.5 install succeeds, but both research searches fail invalid user agent; official technical docs are the fallback, with no selected provider or account action. #91 closes completed on merged rendering criteria; #53 final repair remains draft #134; #52/#29 still fail active size/hosted gates.
+
+## Cost/Storybook verification checkpoint — 2026-11-10
+
+A `a6531f6` precedes implementation `7449922`; import alignment `dc4bb25` passes native Storybook/consumer and all five actual Chromium cases, including local manager same-document themes with no external attempts. Manifest formatting-only `70cc124` passes 15 non-browser steps/363 units/115 tooling/152 catalog before eight strict findings (Task 201, inner 1). Instrumented/default normal builds share all 64 hashes. [Exact evidence](../development/reviews/qualification-costs-2026-11-10/verification.json) records clean sources and failed current-connection graph probes. Inactive multi-page budget patch is applicable but unapplied; no source/schema/runtime pin or purchase policy changed.
+
+## Cost/Storybook checkpoint A — 2026-11-10
+
+User authorized the next few independent issues and requested a subsequent current technology research issue/report. [Contract](../development/qualification-costs-2026-11-10.md) records scope from merged main `dfff96af545628edf4d68476587b6f093313c437`; implementation/qualification pending.
+
 ## Authorized integration merged and issue paths consolidated — 2026-11-10
 
 Website #105→#106→#107→#108→#109→#117→#129→#130→#131→#132 merged in order,

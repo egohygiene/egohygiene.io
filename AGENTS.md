@@ -1,5 +1,33 @@
 # Agent entry point
 
+## Current merged readiness queue — 2026-11-10
+
+Alan explicitly authorized all open project PRs: website #134→#136→#137 are merged, exact trees/parents verified, runtime main `785aec3`; store has none open. #53 closes completed; #91/#135 already completed. [Current ordered roadmap](docs/roadmaps/product-readiness-2026-11-10.md) owns the next work: #36/#61/#69 acceptance, #34 private adapter/receipt proof, #52/#29 reliability/cost/CI, #92 cleanup and #49/#70 automation, with #59/#90 inputs prepared for #115. #116 A is merged/prepared, B/C require the real pilot. Final #37 then #88 readiness; #84 and publication milestone2 remain open. Preserve gates: eight sizes and unsupported dependency review still fail. Private integration remains agent-owned; real identity/adoption/creative/native decisions stay #115/#116. No repeat merge approval is needed for this completed action; no license/budget/provider/deployment choice inferred.
+
+## Current #137 verified public boundary / #116 A packet — 2026-11-10
+
+[C receipt](docs/store/relationship-boundary-34.md) at clean `c956782` passes 15 non-browser steps (175 catalog incl23 new, 115 tooling, 363 units, all compilers/boundaries), then the unchanged eight strict sizes fail. All64 default hashes and the fresh45-route matrix match the baseline. Hosted CodeQL succeeds; CI fails those8/skips browsers and dependency review repeats graph configuration. #116 A is prepared; B/C stay open. #34 still needs independent private exporter/crosswalk and private receipt proposals plus the real upstream synthetic chain; do not reclassify that engineering as owner-only work. Canonical adoption/real identity/pilot choices stay #115/#116; publication later. Preserve #137 on #136/#134; no merge/deploy or real data change.
+
+## Current #34 / #116 A implementation — 2026-11-10
+
+[Implemented boundary/packet](docs/store/relationship-boundary-34.md) adds optional public recording references and exact listing-evidence comparisons while preserving catalog v3 and default output. 23 focused contracts and affected types pass; normal 64-file hashes match the prior batch. [Creation packet](docs/store/first-product-packet-116.md) inventories 45 routes and prepares valid draft/blank private worksheet templates. Save exact C results next; strict eight-size/hosted failures remain. #34 private adoption/receipt criteria and #116 B/C stay open; no pilot, private data import or external action selected.
+
+## Current #34 / #116 A execution — 2026-11-10
+
+Read [the selected relationship/packet contract](docs/store/relationship-boundary-34.md) and ADR 0016 before implementation. Work stacks on #136/#134; keep catalog v3 and default output, strict gates and current purchase guards. Only synthetic public website interfaces are selected; private contracts were inspected without importing creative records. #34 retains cross-owner adoption/receipt gaps. #116 A prepares one route/pilot/provider template packet; B choices and native checks stay #115/#116, actual activation/publication milestone 2.
+
+## Current completed research and next independent batch — 2026-11-10
+
+[Research #135 report](docs/research/maintainer-stack-2026-11-10.md) ranks public-content review preparation, extending existing setup, an isolated TypeScript 7 CLI pilot and low-noise updates. Two native-CLI profiles pass with measured timings; compiler-API consumers remain on the existing pin. Draft #134 delivers Storybook manager/cost diagnostics; #91 is closed completed, #53 awaits final repair integration, #52/#29 retain eight strict costs/output-cause/hosted acceptance. Next #34 + #116 A; owner decisions/native checks #115/#116 B; publication stays milestone 2. This report changes no application, dependency, workflow, service or active budget.
+
+## Current cost/Storybook delivery — 2026-11-10
+
+[Batch result](docs/development/qualification-costs-2026-11-10.md): local manager replacement of automatic refs and five Chromium cases pass; one-command attributed costs preserves all 64 public hashes and eight active findings. Non-browser 15 steps pass at `70cc124`, then strict gate fails. Inactive budget proposal and exact graph-settings diagnosis go to #115; #52/#29 remain open. #91 rendering acceptance can be reconciled separately. Next create/do the requested current technology research issue/report.
+
+## Current authorized cost/Storybook batch — 2026-11-10
+
+Read [the selected contract](docs/development/qualification-costs-2026-11-10.md). Work #52/#29/#91 measured costs and hosted diagnostics, then #53 local manager acceptance. Keep all active budgets/network guards and public pins. Subsequent technology research has a separate issue/report. Owner/native/creative choices stay #115/#116; routine work is authorized.
+
 ## Current merged closeout and independent paths — 2026-11-10
 
 The authorized website stack #105–#109/#117/#129–#132 and store #36 are merged.

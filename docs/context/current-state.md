@@ -1,5 +1,41 @@
 # Current handoff
 
+## Current: all open project drafts merged; ordered readiness roadmap — 2026-11-10
+
+Website #134, #136 and #137 are merged in order, ending at runtime main `785aec3099b196cebe1e5d801297cb49258edc64`. Every merge tree equals its reviewed head and preserves the expected parents; [receipt](../development/reviews/readiness-merge-2026-11-10/merges.json). Store has no open PR. #53 closes completed after its final local manager fix; #91 and research #135 remain completed. #116 A's creation packet is merged, while B/C and the actual pilot remain open.
+
+[Current ordered readiness roadmap](../roadmaps/product-readiness-2026-11-10.md) separates independent engineering, one owner/creative session and the final verification/handoff. Fifteen foundation issues remain: #29/#34/#36/#37/#49/#52/#59/#61/#69/#70/#88/#90/#92/#115/#116. #34 still has agent-owned private exporter/crosswalk/receipt integration and genuine upstream synthetic-chain proof; do not reclassify that as missing access/manual work. #115/#116 keep actual identity/adoption/rights/creative/native choices. Publication remains milestone2 with six issues under #31, after readiness.
+
+The merged runtime is exactly reviewed #137 `f201e4b`; clean functional source `c956782` passes 15 non-browser steps (175 catalog/115 tooling/363 units/all compiler profiles/45 raw pages), then eight strict artifact findings fail. Hosted final reviewed head has CodeQL success, CI failure at those8/skipped browsers, and unsupported dependency review. Source-bound browser/Docker evidence is retained without claiming fresh execution from this merge. Both license alternatives and the measured budget patch remain inactive; no workflow, gate, provider, private record or deployment action changed.
+
+## Current: public relationship boundary verified; creation packet ready — 2026-11-10
+
+[Draft #137](https://github.com/egohygiene/egohygiene.io/pull/137) stacks on #136/#134. [Exact C evidence](../store/reviews/relationship-boundary-34/verification.json) at clean `c956782` passes 15 non-browser steps: 175 catalog (23 new reference/listing/Vite projection tests), 115 tooling, 363 units, all compiler/boundary profiles and 45 raw pages. Overall Task fails the unchanged eight strict sizes (201/inner1); all64 normal hashes equal the prior batch. Hosted CodeQL succeeds; CI reaches those8/skips browsers and dependency review repeats unsupported graph configuration.
+
+[#116 A packet](../store/first-product-packet-116.md) supplies the matching45-route copy/asset matrix, valid all-draft/non-purchasable configuration and blank restricted provider worksheet outside public Git. A is prepared; B/C require the real pilot and acceptance. #34 remains open for agent-owned private exporter/crosswalk/receipt proposals and a genuine upstream-valid synthetic chain; private contract read access exists, and this work is not assigned to Alan as a manual blocker. Canonical adoption, real mappings/creative/rights/native choices remain #115/#116 B; actual activation/publication stays milestone2. No new browser/Docker/provider/native pass, real data import/migration, active-limit change or external operation is claimed.
+
+## Current: optional references and creation packet implemented — 2026-11-10
+
+[Batch delivery](../store/relationship-boundary-34.md) implements lazy schema factories, design/product work selectors, strict optional Node/Vite references and a website-only listing-evidence summary. Prepared/approved/observed/withdrawn/unknown/stale remain distinct; actual private receipt adoption/exporter still needs its owning contract. [#116 A packet](../store/first-product-packet-116.md) supplies 45-route copy/asset inventory, schema-valid draft configuration and a blank private worksheet copy outside public Git. Preliminary 23 contracts/affected types pass; default normal output is byte-identical across 64 files. Clean-source C checks follow. #34/#116 remain open for actual cross-owner/pilot acceptance; #115 manual and milestone-2 publication remain separate.
+
+## Current: relationship contracts and creation packet selected — 2026-11-10
+
+User authorized the next batch: #34 synthetic references/publication-evidence boundary and #116 A. [A contract](../store/relationship-boundary-34.md) starts at #136 `1fab310`, preserving #134/#136 as drafts and current main. Existing private contract/draft interfaces are readable; actual private records, crosswalks and receipts remain private. Canonical adoption, real pilot/exporter and publication are not selected. Save a focused draft before B, then verify exact source and prepare one owner packet.
+
+## Current: research delivered and next independent work — 2026-11-10
+
+[Draft #134](https://github.com/egohygiene/egohygiene.io/pull/134) contains local Storybook manager repair (five actual Chromium cases pass) and hash-bound costs preserving eight strict findings. #91 is now closed on its bounded rendering criteria; #53 is verified pending final repair integration. #52/#29 remain open. At exact #134 head `401845a`, hosted CodeQL succeeds; CI logs the same eight size failures/skips browsers, and dependency review repeats unsupported graph configuration. Prepared policy/graph-settings checks are consolidated in #115.
+
+Research #135 is closed completed with its delivered [report](../research/maintainer-stack-2026-11-10.md) in [draft #136](https://github.com/egohygiene/egohygiene.io/pull/136), stacked on #134. It verifies current primary docs/npm channels and ranks changes by operator effort. Isolated TypeScript 7.0.2 passes app/tooling CLI checks (0.581/0.567 s versus 3.559/2.641 s for 5.9.3; single observations). Existing compiler-API boundary checks need side-by-side adoption; no tracked pin or workflow changed. Keep current React/Vite/static catalog, prepare #34/#116 A next, then bounded #52/#92 trials. Astro/Keystatic remain optional prototypes. Owner/native/creative approvals stay #115/#116 B, publication later. Directory CLI lookup failed; no provider shortlist/pricing/eligibility or service setup inferred.
+
+## Current: cost/Storybook delivery — 2026-11-10
+
+[Batch evidence](../development/qualification-costs-2026-11-10.md) records five actual component cases (including same-document manager) and unchanged normal public output. At clean `70cc124`, 15 non-browser steps/363 units/115 tooling pass before eight strict size findings. An inactive measured budget proposal and concrete dependency-graph settings/support packet are prepared for #115. No optimization, global qualification, new Docker/hosted/native pass, policy change or activation is claimed. #52/#29 retain open work; #91 rendering criteria can be reconciled using prior actual app/HTTP proof. Research follows this batch.
+
+## Current: cost and Storybook batch selected — 2026-11-10
+
+Base `dfff96a`; [contract](../development/qualification-costs-2026-11-10.md) selects #52/#29/#91 actual cost attribution and hosted diagnosis, then #53 manager/reference repair. Preserve strict ceilings and report source-specific results. Research issue/report follows this batch; #115/#116 remain separate.
+
 ## Current: merged batch and two independent paths — 2026-11-10
 
 The approved runtime integration is merged at website `560f937` (ten PRs,

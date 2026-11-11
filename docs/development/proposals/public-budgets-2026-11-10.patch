@@ -1,0 +1,25 @@
+--- a/tests/store-qualification/artifacts.mts
++++ b/tests/store-qualification/artifacts.mts
+@@ -13,16 +13,16 @@
+ type AddFinding = (rule: string, file: string, detail: string) => void;
+ 
+ // Proposed local review ceilings, not maintainer-agreed performance or service targets.
+-// JS/CSS leave roughly 15–22% above the #37c baseline; other groups allow the
+-// current public icons, one artwork derivative and fonts with bounded headroom.
++// Proposed multi-page ceilings use the measured 2026-11-10 normal build with
++// roughly 16–19% per-group headroom; existing image/font limits remain unchanged.
+ // Aggregate groups prevent bypassing the check by splitting an oversized chunk.
+ export const LOCAL_REVIEW_BUDGETS: Record<AssetKind | "total", Size> = {
+-  javascript: { bytes: 500_000, gzipBytes: 150_000 },
+-  css: { bytes: 60_000, gzipBytes: 12_000 },
++  javascript: { bytes: 675_000, gzipBytes: 190_000 },
++  css: { bytes: 74_000, gzipBytes: 14_500 },
+   images: { bytes: 500_000, gzipBytes: 500_000 },
+   fonts: { bytes: 60_000, gzipBytes: 50_000 },
+-  documents: { bytes: 20_000, gzipBytes: 10_000 },
+-  total: { bytes: 1_140_000, gzipBytes: 722_000 },
++  documents: { bytes: 660_000, gzipBytes: 180_000 },
++  total: { bytes: 1_969_000, gzipBytes: 934_500 },
+ };
+ 
+ export const EXCLUDED_MARKERS: Marker[] = [

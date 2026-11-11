@@ -1,0 +1,26 @@
+{
+  "source": "401845a5f7110666c7fe44039617185dcea68fa8",
+  "pullRequest": 134,
+  "scope": "Automatic pull-request-triggered hosted runs, observed 2026-11-10; no manual dispatch.",
+  "runs": [
+    {
+      "id": 42860458365,
+      "name": "CodeQL",
+      "conclusion": "success"
+    },
+    {
+      "id": 42860458475,
+      "name": "CI",
+      "conclusion": "failure",
+      "job": 129984857840,
+      "observed": "Public rendering inspection passes 45 pages, then artifact qualifier fails 64 files/335 references/eight findings. Browser install/profile skipped."
+    },
+    {
+      "id": 42860458408,
+      "name": "Dependency review",
+      "conclusion": "failure",
+      "job": 129984865621,
+      "observed": "Dependency review is not supported on this repository. Please ensure that Dependency graph is enabled."
+    }
+  ]
+}

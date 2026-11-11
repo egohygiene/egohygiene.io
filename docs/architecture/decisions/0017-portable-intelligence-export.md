@@ -1,4 +1,4 @@
-# ADR0016 — Portable organization Intelligence review artifact
+# ADR0017 — Portable organization Intelligence review artifact
 
 - Date: 2026-11-10.
 - Status: Proposed; implementation is source-only review material.

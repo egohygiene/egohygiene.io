@@ -130,7 +130,7 @@ hosting transition establishes one canonical home and deliberate aliases.
 
 ## Decision and qualification boundary
 
-[ADR0016](../architecture/decisions/0016-portable-intelligence-export.md) records
+[ADR0017](../architecture/decisions/0017-portable-intelligence-export.md) records
 this proposed producer interface, composing
 [ADR0012](../architecture/decisions/0012-static-public-route-rendering.md).
 Organization hosting remains the separate proposed `.github` decision. Hygiene's

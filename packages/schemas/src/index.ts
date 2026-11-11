@@ -1,10 +1,12 @@
 import { z } from "zod";
 
 export * from "./store.ts";
-export * from "./store-readiness.ts";
+export * from "./store-listing.ts";
 export * from "./store-localization.ts";
 export * from "./store-migrations.ts";
 export * from "./store-providers.ts";
+export * from "./store-readiness.ts";
+export * from "./store-references.ts";
 export * from "./storefront-curation.ts";
 
 export const productStatusSchema = z.enum(["available", "development", "planned"]);

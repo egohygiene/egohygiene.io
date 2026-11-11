@@ -1,0 +1,221 @@
+{
+  "date": "2026-11-10",
+  "base": "dfff96af545628edf4d68476587b6f093313c437",
+  "source": "70cc1244232c7d5e579730e484b3c82c5a6c1a16",
+  "sourceStatusAtProfileStart": "",
+  "runtime": {
+    "node": "24.21.0",
+    "pnpm": "11.28.5",
+    "task": "3.54.0",
+    "storybook": "10.6.2",
+    "playwright": "1.62.1"
+  },
+  "nonBrowser": {
+    "command": "task ci:check",
+    "taskExit": 201,
+    "innerExit": 1,
+    "status": "failed",
+    "steps": [
+      {
+        "name": "repository formatting",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "authored source lint",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "all maintained compiler profiles",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "workspace, exports, locale and import boundaries",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "catalog and artifact contracts",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "all tooling and freshness contracts",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "all maintained unit tests",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "website semantic component checks",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "maintained browser discovery",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "standalone component build contract",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh normal website build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh docs build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh playground build",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "fresh all-app build smoke",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "raw public HTML and discovery consistency",
+        "status": "passed",
+        "exitCode": 0
+      },
+      {
+        "name": "production artifacts and provisional regression budgets",
+        "status": "failed",
+        "exitCode": 1
+      }
+    ],
+    "tests": {
+      "units": 363,
+      "tooling": 115,
+      "catalog": 152,
+      "semantic": 4,
+      "standaloneConsumer": 1,
+      "allAppSmoke": 3
+    },
+    "failure": "production artifacts and provisional regression budgets failed with exit code 1"
+  },
+  "costCommand": {
+    "command": "pnpm report:costs",
+    "exit": 1,
+    "source": "70cc1244232c7d5e579730e484b3c82c5a6c1a16",
+    "sourceDirty": false,
+    "retainedFindings": 8,
+    "renderedPublicPages": 45,
+    "htmlDocumentsIncluding404": 46,
+    "modules": 146,
+    "sharedAssets": 9
+  },
+  "publicOutputIdentity": {
+    "normalAndInstrumentedFiles": 64,
+    "allPathHashesEqual": true,
+    "files": {
+      "public-routes.json": "47347702f98852734bc4bd655fb733b2e528364f69f74d614133249b074612da",
+      "sitemap.xml": "34cf5b4b5bc8322dc07047268c8715e122a81f2233589e29e7214a97efd7117a",
+      "404.html": "dc8d2a60f67919dd803b591da5239b7488dbd1cb78863800733e10700df96397",
+      "index.html": "d3bfea31b41af8a61555122a04f1353ebba1a4f56bf4d39a9511a976eca0a59d",
+      "site.webmanifest": "a92b1e676ce0edb5f1d76cbcb83d885984e81fa497ed719cbcfb5a7b92777c8e",
+      "robots.txt": "15580ea3a68b913ef17ec7a12af0fbda94eeccb43d2ff4032ccc297e0ea64f33",
+      "llms.txt": "e60531c2ab30c1e67de2707c83b802a134fc7579acc8468ac3d6e2b968e3e98d",
+      "favicon.png": "00e290b029f741523e14267dd3d7b73a982f59ca3533792422223bf86e317c86",
+      "favicon.ico": "3229e0d4aed52b50896e43e8e4af040d1c926d78d249ff1e7ff42e211d472c6e",
+      "CNAME": "348bb8243fca14e427da68d530e3c8091c759d2eed5e845e8d9bbfdb63db2e12",
+      "terms/index.html": "8b056f618c5090a49da14492767a1e999df6b3f34f5137818360256d8b8eb1c6",
+      "status/index.html": "14ba9a479304916c7c0ded4c8666edb18ce9958e68a3c591100888a2155fa470",
+      "search/index.html": "15c93852365b7c1c4dbe51a3088d2fb9c4429e2c42fdd621e10176fc24168153",
+      "sanity/index.html": "36798961c8066dac064cfec7c6ebaedd32fe2ae4b0204a30047f36adef46d88b",
+      "roadmap/index.html": "656c8694377b315fe7e913bd006e343193c4dcc2004879bde2696f30f9987f99",
+      "renderflow/index.html": "02f5c3faa937c329ba26557a7697546c86c98e6d8e4b3991528eec99a64a9711",
+      "releases/index.html": "b31c4b3b4b76c6eba742f77d418cbe4bfba0335fbb982324145a89d00b9e1508",
+      "reflector/index.html": "d9e5f144c686142d49eb9b6fc42a5fcdf1a6c61664de4b0a8173b17a67643af7",
+      "privacy/index.html": "0af177cf3a24541a4207308e571739943e9553fae7c37cf3573394d1a1622d91",
+      "mindgarden/index.html": "3657a99e70b8f1e0f697d85ecd14883dc48206b5445177100d58c79223c1bb66",
+      "mindcap/index.html": "15c8f39cae29a0193977d35a5282274984245e34bd2a996db40f413f411c72ef",
+      "intelligence/index.html": "c9b6373828bb2c289576c5de88c75397611afb1b3ca26689d7fa79d18648ae1c",
+      "hygiene/index.html": "a460dfc835d38c9d3627c04c8b70cd9aa4526a78849d30915d549b5023e9b99b",
+      "help/index.html": "8f8ee19746343138ec40a8bcefef06d046b1c4f6b6d6535e675034a22e52234f",
+      "health/index.html": "99e293207dfa3d4fe87e64d448a65e230da6ab0ad5846bab6dd47ecc2b13f24c",
+      "egolint/index.html": "19095bdef1d5b0a3ab845a33049ca30fa4a847e81cae3b312cbc9c828ab85f61",
+      "ecosystem/index.html": "414f01849816101b28b6a16222b1d95462732cca4da61afc23142e457ab8f344",
+      "distribution/index.html": "279d142e86161a3364653f0aba65cdec64695773cae6de01418e6608adb6decd",
+      "dependencies/index.html": "ede99422b0dda817130f7d6bf77ae0ad4f0382c8b1d77476906061b6a9e39504",
+      "decisions/index.html": "1236414a07e54236233f21864a36b63fcc139024aae040e554171191a6a40d47",
+      "audits/index.html": "9268a2bc2fb8af332567fe15ef1ecc2168b73d060dc038d98dd430146c7d9813",
+      "aether/index.html": "1083bfaaf3c2f28681e36066102638d7d282e5dbb55659ac2252f8e9c6048805",
+      "accessibility/index.html": "dadc0f42e272e5a66c904a7f756ee028e7f6648dc6cc12f50858fc1769b4db6e",
+      "about/index.html": "f6c30eeb2abe67c08bca7224812331264e0fe6f23fa6f7a663a500e6cd354dd9",
+      "assets/index-D4Fmhrf9.css": "75782b9b0a3645caefd4718dd440c913a03cfa9c371c1119a73bece1ec4495a2",
+      "assets/index-CIRMjij1.js": "3d0d59732f1283f01d6249127e1744ee71ce04e0526100f4e2edff35feaf016f",
+      "store/index.html": "6ea97dab27796dc02a9206e3c1f29a9a9dfce182d84f4fe14f40758560308526",
+      "icons/icon-512x512.png": "35367ce894a35b4e5dd68bc557723acbbc11d1c93c1727e97f092c270c1c066c",
+      "icons/icon-192x192.png": "63bcdcca7f401be69f72369ef8fd16e0fdf5861fbdeae310981dc3e8c3b215a8",
+      "icons/apple-touch-icon.png": "8f6fe754ee79068f5cc5b61107dfd0f389bd708e8d71a4bf73c4ba4d65806c66",
+      "icons/NOTICE.txt": "e861efb23b10730ac0e9d0e9b77f6c560ef36320a826f8044ef72ab71ced93c6",
+      "fonts/atkinson-regular.woff": "b51d2e16226a56e304ab9ba67d22f504afc5bdceab1caefe386063a26ee4bc0b",
+      "fonts/atkinson-bold.woff": "f0de8ccb0af6e50fd1b51d50d5032c6824adc0f1b435345919fca1d9b72b3623",
+      "fonts/NOTICE.txt": "2231aaf86f60c69cb7c9c09a26af1bb8cd58138d8deeed992038367ee68c4df9",
+      "intelligence/work/index.html": "038255d4f30e58bdaaa880c5b449bf403f9215ce2ce52f82b013a799cf11bced",
+      "intelligence/now/index.html": "4315caae6bcd0301e9053e4c0fd1dc6c0bea528175d3def7bd4859ba81cdb15c",
+      "intelligence/journey/index.html": "a72a3b65fb2db2951619c35e6c1eb24d5297817815a662a35a0b1353a709fd65",
+      "intelligence/identity/index.html": "55b2baf9a2a779e4bfa764deebc0e025dbec0257015ecb0f2dab9137c821c2dc",
+      "intelligence/diagnostics/index.html": "514d1c0e3880cafc663eca22d7301de03fa494ca7392dbff1b703072f3e0675f",
+      "intelligence/dashboard/index.html": "889f630ffffd416fa19ce464d5418d33709087da4d673389578cc7a2db0660fb",
+      "intelligence/compare/index.html": "426858a7e379fc327c8a4b72e5ca916a76ef3fdb5033c63aa4b7f07fe10d1be5",
+      "store/incompris/index.html": "e755d50833dbd8ea830b374d501f6e53eb348f97b864baebd14fb3706776dc23",
+      "store/help/index.html": "1b5615322a86ffcde5af72ec3f3e856efca7a5f76c47bf888523a635415fa656",
+      "store/catalog/index.html": "8f20afc3a48b907ce2257a2d23f6162d61a5c15694f4a9f8d46b956063fef437",
+      "store/heartburst/heartburst-light.webp": "a476be3c98db3a7ac9f1bbbe2c4ab4f0d23d603d8d569ccf6daa0a59e57e9550",
+      "store/products/unwritten-realm-comic/index.html": "93de84df9511fccf7ddb26421ad141bc645d481587b2b2e4d568e281c8709ba6",
+      "store/products/static-bloom-mug/index.html": "4d8eea90568d7c00e437ed0af07aa5c5a19294633c7e8e542338a3e6b4423ef2",
+      "store/products/signal-heart-hoodie/index.html": "3dab8d24d0da7f9d89582e6fcb4a8f6cb301706cb92ab78d151037774e43f8d5",
+      "store/incompris/artists/play/index.html": "acf3d2ed4071d4e651750f299cbbb871cfa84fc8e9d01fad1f8188dbb8615f7d",
+      "store/designs/unwritten-realm-cover/index.html": "2cd573a645e15314f762a6d869965c53d7b4c0af8c5dbdcdff057953188406bb",
+      "store/designs/static-bloom-artwork/index.html": "778133289936d1b3f8a20389f1da2ad0cd47b5c9aede5e5bedb74a38ef72c152",
+      "store/designs/signal-heart/index.html": "e2502fad2573268641fb614ae7b25cf61634449800c84362501b0e7ebc529f8c",
+      "store/designs/heartburst/index.html": "0df41aaa8311bbc98b4eeb196b7aa433518c794a4529f4a3da5b0b48399b517f",
+      "store/collections/static-bloom-collection/index.html": "06d6f7d7f1152ecba3e32e8e903cd1ddd1c71027db4b724aae80ac056395e5b2"
+    }
+  },
+  "components": {
+    "source": "dc4bb25",
+    "command": "pnpm test:components:browser",
+    "exit": 0,
+    "browserCases": 5,
+    "retries": 0,
+    "scope": "fresh native static Storybook/declared consumer builds; actual Chromium styles in three themes, provider ownership, local manager same-document story/theme switching; strict GET-only local guard and WebSocket rejection",
+    "screenshots": 9,
+    "visualInspection": "Button/Orbit and manager themes inspected; no missing geometry or overlapping controls observed. Native Mac, screen reader and physical device checks remain #115/#37.",
+    "sourceDifferenceTo70cc124": "Only docs/context/manifest.json formatting; component source/config/tests are identical."
+  },
+  "dependencyReview": {
+    "priorSource": "68f17cf59ee5703019f383ca88c4c2891a1951c2",
+    "priorRun": 42787359682,
+    "priorJob": 129731833094,
+    "priorFailure": "Dependency review is not supported on this repository. Please ensure that Dependency graph is enabled.",
+    "repository": "egohygiene/egohygiene.io",
+    "visibility": "public",
+    "currentConnectionCompareStatus": 403,
+    "currentConnectionSbomStatus": 404,
+    "meaning": "Neither response establishes the configured graph state. The managed connection cannot complete this settings diagnosis; no paid-plan requirement is inferred.",
+    "settingsChanged": false,
+    "workflowChanged": false
+  },
+  "limits": [
+    "No active ceiling changed; inactive patch is review-only.",
+    "No JavaScript/CSS optimization or full qualification pass claimed.",
+    "No historical interfering writer identified.",
+    "No fresh Docker/hosted-browser/native Mac execution claimed for this source. Previous integrated Docker/browser receipts remain source-specific."
+  ]
+}
