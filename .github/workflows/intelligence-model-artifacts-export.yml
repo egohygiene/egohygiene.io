@@ -1,0 +1,169 @@
+name: Organization Intelligence model artifact export
+run-name: Select exact public model artifacts and retain a sealed review export
+
+on:
+  workflow_dispatch:
+    inputs:
+      selection_path:
+        description: Checked-in reviewed model selection JSON at this exact main source.
+        type: string
+        required: true
+      selection_sha256:
+        description: SHA-256 of the exact reviewed selection bytes.
+        type: string
+        required: true
+      retention_days:
+        description: Ordinary review artifact lifetime, from 1 through 90 days.
+        type: number
+        default: 30
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: organization-intelligence-model-export-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  export:
+    if: >-
+      github.repository == 'egohygiene/egohygiene.io' &&
+      github.event.repository.visibility == 'public' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    outputs:
+      producer-sha: ${{ github.sha }}
+      artifact-id: ${{ steps.upload.outputs.artifact-id }}
+      artifact-digest: ${{ steps.upload.outputs.artifact-digest }}
+      manifest-sha256: ${{ steps.export.outputs.manifest-sha256 }}
+      selection-artifact-id: ${{ steps.selection_upload.outputs.artifact-id }}
+      selection-artifact-digest: ${{ steps.selection_upload.outputs.artifact-digest }}
+      selection-receipt-sha256: ${{ steps.receipt.outputs.selection-receipt-sha256 }}
+    steps:
+      - name: Read the exact producer source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Bind the immutable selection source
+        id: selection
+        shell: bash
+        env:
+          SELECTION_PATH: ${{ inputs.selection_path }}
+          SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+          SELECTION_RETENTION: ${{ inputs.retention_days }}
+        run: |
+          set -euo pipefail
+          python3 -I - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+          import tempfile
+          path, expected = os.environ["SELECTION_PATH"], os.environ["SELECTION_SHA256"]
+          retention = os.environ["SELECTION_RETENTION"]
+          if (not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._/-]{0,239}", path)
+              or any(part in {"", ".", "..", ".git"} for part in path.split("/"))
+              or not re.fullmatch(r"[a-f0-9]{64}", expected)
+              or not re.fullmatch(r"[1-9][0-9]?", retention) or not 1 <= int(retention) <= 90):
+              raise SystemExit("Model selection source binding denied")
+          entry = subprocess.check_output(["git", "ls-tree", "-z", os.environ["GITHUB_SHA"], "--", path], timeout=10)
+          match = re.fullmatch(rb"100644 blob ([a-f0-9]{40})\t([^\x00]+)\x00", entry)
+          if not match or match[2].decode("utf-8") != path:
+              raise SystemExit("Selection requires one regular source JSON blob")
+          size = subprocess.check_output(["git", "cat-file", "-s", match[1].decode()], timeout=10)
+          if not size.strip().isdigit() or not 0 < int(size) <= 65536:
+              raise SystemExit("Model selection source is too large")
+          content = subprocess.check_output(["git", "cat-file", "blob", match[1].decode()], timeout=10)
+          if hashlib.sha256(content).hexdigest() != expected:
+              raise SystemExit("Reviewed selection bytes do not match")
+          packet = Path(tempfile.mkdtemp(prefix="organization-model-selection-", dir=os.environ["RUNNER_TEMP"]))
+          packet.chmod(0o700)
+          selected = packet / "selection.json"
+          selected.write_bytes(content)
+          selected.chmod(0o600)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as target:
+              for key, value in {"selection": selected, "workspace": packet / "inputs",
+                  "artifact": packet / "export", "receipt": packet / "selection-receipt"}.items():
+                  target.write(key + "=" + str(value) + "\n")
+          PY
+      - name: Select retained public model bytes without running their code
+        id: models
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.INTELLIGENCE_PUBLIC_ARTIFACT_READ_TOKEN || github.token }}
+          SELECTION_PATH: ${{ steps.selection.outputs.selection }}
+          SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+          MODEL_WORKSPACE: ${{ steps.selection.outputs.workspace }}
+        run: |
+          set -euo pipefail
+          python3 -I scripts/intelligence_model_artifacts.py prepare \
+            --selection "$SELECTION_PATH" --selection-sha256 "$SELECTION_SHA256" \
+            --output "$MODEL_WORKSPACE" --github-output "$GITHUB_OUTPUT"
+      - name: Select the pinned Node runtime
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24.21.0
+      - name: Select the pinned package manager
+        uses: pnpm/action-setup@9fd676a19091d4595eefd76e4bd31c97133911f1
+        with:
+          version: 11.28.5
+          run_install: false
+      - name: Install only the locked producer dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Build the existing sealed organization export
+        id: export
+        shell: bash
+        env:
+          EXPORT_REQUEST: ${{ steps.models.outputs.request }}
+          EXPORT_REQUEST_SHA256: ${{ steps.models.outputs.request-sha256 }}
+          EXPORT_INPUT_ROOT: ${{ steps.models.outputs.input-root }}
+          EXPORT_OUTPUT: ${{ steps.selection.outputs.artifact }}
+        run: |
+          set -euo pipefail
+          node scripts/build-intelligence-export.mts \
+            --request "$EXPORT_REQUEST" --request-sha256 "$EXPORT_REQUEST_SHA256" \
+            --input-root "$EXPORT_INPUT_ROOT" --output "$EXPORT_OUTPUT" \
+            --selection-evidence "$EXPORT_INPUT_ROOT/presentation-state.json"
+          python3 -I - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          raw = (Path(os.environ["EXPORT_OUTPUT"]) / "export-manifest.json").read_bytes()
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as target:
+              target.write("manifest-sha256=" + hashlib.sha256(raw).hexdigest() + "\n")
+          PY
+      - name: Bind the admitted presentations to a separate selection receipt
+        id: receipt
+        shell: bash
+        env:
+          MODEL_WORKSPACE: ${{ steps.selection.outputs.workspace }}
+          EXPORT_OUTPUT: ${{ steps.selection.outputs.artifact }}
+          SELECTION_RECEIPT: ${{ steps.selection.outputs.receipt }}
+        run: |
+          set -euo pipefail
+          python3 -I scripts/intelligence_model_artifacts.py finalize \
+            --workspace "$MODEL_WORKSPACE" --export-manifest "$EXPORT_OUTPUT/export-manifest.json" \
+            --presentation-evidence "$MODEL_WORKSPACE/presentation-state.json" \
+            --output "$SELECTION_RECEIPT/model-selection-receipt.json" --github-output "$GITHUB_OUTPUT"
+      - name: Retain existing sealed static bytes for review
+        id: upload
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: organization-intelligence-static-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ steps.selection.outputs.artifact }}
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: ${{ inputs.retention_days }}
+      - name: Retain only the public selection receipt separately
+        id: selection_upload
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: organization-intelligence-model-selection-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ steps.selection.outputs.receipt }}
+          if-no-files-found: error
+          retention-days: ${{ inputs.retention_days }}

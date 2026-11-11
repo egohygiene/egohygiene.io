@@ -47,6 +47,11 @@ manifest and repository-publication file retain their existing intake contracts.
 Use the exact artifacts/owner queries described in the
 [fleet handoff](intelligence-fleet-artifact-intake.md) and
 [review-model intake](intelligence-audits-sanity-intake.md).
+The optional [retained-model selection workflow](intelligence-model-artifact-selection.md)
+binds those actual ordinary artifacts to this same exporter. Its optional
+`module_as_of` request member preserves independent original module clocks;
+omitting it keeps the existing request behavior. The export manifest, route
+contract and static intake format are unchanged.
 
 ```bash
 pnpm intelligence:export \

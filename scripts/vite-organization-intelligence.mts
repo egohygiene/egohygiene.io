@@ -542,8 +542,10 @@ export interface OrganizationIntelligenceOptions {
   readonly artifactManifestExpectedSha256?: string;
   readonly auditsFilename?: string;
   readonly auditsExpectedSha256?: string;
+  readonly auditsAsOf?: string;
   readonly sanityFilename?: string;
   readonly sanityExpectedSha256?: string;
+  readonly sanityAsOf?: string;
 }
 
 /** Bind the optional Relay handoff without treating it as publication approval. */

@@ -1,0 +1,23 @@
+{
+  "helper": {
+    "file": "review_feed_contract.py",
+    "sha256": "5c5eaa6d3d90c57ae8141b9e40718a444cfb48464e0e0ffccc49c5d62f9771d6"
+  },
+  "implementation": {
+    "contract_sha256": "5c5eaa6d3d90c57ae8141b9e40718a444cfb48464e0e0ffccc49c5d62f9771d6",
+    "lock_sha256": "b154af1c6ed281fde5d641e80dec94a5d04939eee701942f0869c958658ade76",
+    "plan_schema_sha256": "2f0d28cd2efeebb8b36ce4fcde8c86fec40aab143e1502f9448d2722dfdb9722",
+    "producer_sha256": "59421468227abf0093df1a57c66456ee6ebea477ce7998cc33d20e40dfdbabe4",
+    "receipt_schema_sha256": "0235a90072a05e71b6edc38d64cdd65dde3d4a2917ba6829e03a734c654c4d8e"
+  },
+  "repository": "egohygiene/relay",
+  "revision": "5d27be5ce1599df883e31f14cd894eb18622c18c",
+  "schema": "egohygiene.website.typed-review-feed-input-lock/v1",
+  "source_files": {
+    "actions/repository-intelligence-review-feed/contracts/review-feed-owner.v1.lock.json": "b154af1c6ed281fde5d641e80dec94a5d04939eee701942f0869c958658ade76",
+    "actions/repository-intelligence-review-feed/contracts/review-feed-receipt.v1.schema.json": "0235a90072a05e71b6edc38d64cdd65dde3d4a2917ba6829e03a734c654c4d8e",
+    "actions/repository-intelligence-review-feed/contracts/review-plan.v1.schema.json": "2f0d28cd2efeebb8b36ce4fcde8c86fec40aab143e1502f9448d2722dfdb9722",
+    "actions/repository-intelligence-review-feed/scripts/review_feed.py": "59421468227abf0093df1a57c66456ee6ebea477ce7998cc33d20e40dfdbabe4",
+    "actions/repository-intelligence-review-feed/scripts/review_feed_contract.py": "5c5eaa6d3d90c57ae8141b9e40718a444cfb48464e0e0ffccc49c5d62f9771d6"
+  }
+}
