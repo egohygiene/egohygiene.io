@@ -1,7 +1,7 @@
 import { hasAsciiControl } from "../text";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent, PointerEvent } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useHref, useSearchParams } from "react-router-dom";
 
 import { useBrowserSnapshot } from "../../../hooks/useBrowserSnapshot";
 import type { GraphEdge, GraphNode, IntelligenceGraphProps } from "./types";
@@ -236,6 +236,8 @@ function edgePath(source: Point, target: Point) {
 
 /** A navigation aid over already-admitted records, with no layout-derived claims. */
 export function IntelligenceGraph({ nodes, edges, publicationRoutes }: IntelligenceGraphProps) {
+  const mountRoot = useHref("/").replace(/\/$/, "");
+  const mountedHref = (href: string) => href.startsWith("/") ? `${mountRoot}${href}` : href;
   const ready = useBrowserSnapshot();
   const [browserParams, setSearchParams] = useSearchParams();
   const params = ready ? browserParams : new URLSearchParams();
@@ -599,7 +601,7 @@ export function IntelligenceGraph({ nodes, edges, publicationRoutes }: Intellige
                     >
                       {href ? (
                         <a
-                          href={href}
+                          href={mountedHref(href)}
                           tabIndex={ready ? 0 : -1}
                           aria-label={`${node.label}, ${node.kind}, ${node.state}. Open view.`}
                           onFocus={() => ready && select(node.id)}
@@ -637,7 +639,7 @@ export function IntelligenceGraph({ nodes, edges, publicationRoutes }: Intellige
                 </p>
                 <p>{selected.description || "No additional description is projected."}</p>
                 {nodeLink(selected) ? (
-                  <a href={nodeLink(selected)!}>Open destination →</a>
+                  <a href={mountedHref(nodeLink(selected)!)}>Open destination →</a>
                 ) : (
                   <p>Publication destination unavailable for this node.</p>
                 )}
@@ -664,7 +666,7 @@ export function IntelligenceGraph({ nodes, edges, publicationRoutes }: Intellige
                             {sourceContext(edge)}
                           </p>
                           {safeGraphHref(edge.evidenceHref, publications) ? (
-                            <a href={safeGraphHref(edge.evidenceHref, publications)!}>
+                            <a href={mountedHref(safeGraphHref(edge.evidenceHref, publications)!)}>
                               Open declared relationship evidence
                             </a>
                           ) : null}
@@ -692,7 +694,7 @@ export function IntelligenceGraph({ nodes, edges, publicationRoutes }: Intellige
                   <li key={node.id}>
                     <p>
                       {nodeLink(node) ? (
-                        <a href={nodeLink(node)!}>
+                        <a href={mountedHref(nodeLink(node)!)}>
                           <bdi dir="auto">{node.label}</bdi>
                         </a>
                       ) : (
@@ -731,7 +733,7 @@ export function IntelligenceGraph({ nodes, edges, publicationRoutes }: Intellige
                         {sourceContext(edge)}
                       </p>
                       {safeGraphHref(edge.evidenceHref, publications) ? (
-                        <a href={safeGraphHref(edge.evidenceHref, publications)!}>
+                        <a href={mountedHref(safeGraphHref(edge.evidenceHref, publications)!)}>
                           Open declared relationship evidence
                         </a>
                       ) : null}

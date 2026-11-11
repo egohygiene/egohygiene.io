@@ -1,0 +1,210 @@
+{
+  "$id": "https://egohygiene.io/schemas/organization-intelligence-export-request.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "as_of": {
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "models": {
+      "additionalProperties": false,
+      "properties": {
+        "audits": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "maxLength": 240,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$",
+                  "type": "string"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "core": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "fleet": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "path": {
+                      "maxLength": 240,
+                      "minLength": 1,
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$",
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "type": "object"
+                },
+                "manifest": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "maxLength": 240,
+                          "minLength": 1,
+                          "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$",
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "publications": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "path": {
+                          "maxLength": 240,
+                          "minLength": 1,
+                          "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$",
+                          "type": "string"
+                        },
+                        "sha256": {
+                          "pattern": "^[a-f0-9]{64}$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "sha256"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "fleet",
+                "manifest",
+                "publications"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sanity": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "maxLength": 240,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$",
+                  "type": "string"
+                },
+                "sha256": {
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "core",
+        "audits",
+        "sanity"
+      ],
+      "type": "object"
+    },
+    "schema": {
+      "const": "egohygiene.website.organization-intelligence-export-request/v1"
+    },
+    "target": {
+      "additionalProperties": false,
+      "properties": {
+        "base_path": {
+          "anyOf": [
+            {
+              "pattern": "^/(?:[a-z0-9][a-z0-9._-]*/)*$"
+            },
+            {
+              "const": "/.github/"
+            }
+          ],
+          "type": "string"
+        },
+        "origin": {
+          "maxLength": 256,
+          "minLength": 9,
+          "pattern": "^https://[a-z0-9.-]+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "origin",
+        "base_path"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema",
+    "contract_version",
+    "target",
+    "as_of",
+    "models"
+  ],
+  "type": "object"
+}

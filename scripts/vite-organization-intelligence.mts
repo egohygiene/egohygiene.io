@@ -386,6 +386,7 @@ function projectFleet(
   value: unknown,
   asOf: string,
   maximumAge: number,
+  allowedRepositories?: ReadonlySet<string>,
 ): Pick<
   IntelligenceData,
   "state" | "code" | "snapshotId" | "observationWindow" | "repositories" | "endpoints"
@@ -419,7 +420,8 @@ function projectFleet(
       reference !== null &&
       typeof reference === "object" &&
       !Array.isArray(reference) &&
-      (reference as RecordValue)["visibility"] === "public"
+      (reference as RecordValue)["visibility"] === "public" &&
+      (allowedRepositories === undefined || allowedRepositories.has(String((reference as RecordValue)["repository"])))
     );
   });
   requireInput(rawRows.length <= 1024);
@@ -527,6 +529,8 @@ function projectFleet(
 }
 
 export interface OrganizationIntelligenceOptions {
+  /** Optional narrower consumer scope, authenticated by its existing owner catalog. */
+  readonly allowedRepositories?: ReadonlySet<string>;
   readonly filename?: string;
   readonly expectedSha256?: string;
   readonly asOf?: string;
@@ -625,6 +629,7 @@ export interface OrganizationIntelligenceSnapshot {
   readonly [snapshotBrand]: true;
   readonly moduleCode: string;
   readonly digest: string;
+  readonly presentation: IntelligenceData;
 }
 
 /** No VITE_ variable contains raw input paths or credentials. Missing input stays unavailable. */
@@ -656,7 +661,7 @@ export async function loadOrganizationIntelligence(
       const content = await boundedFile(filename);
       requireInput(hash(content) === expected, "INPUT_INCOMPATIBLE");
       const handoff = await fleetArtifactBinding(options, content, asOf);
-      const projected = projectFleet(JSON.parse(content.toString("utf8")), asOf, maximumAge);
+      const projected = projectFleet(JSON.parse(content.toString("utf8")), asOf, maximumAge, options.allowedRepositories);
       const admitted =
         handoff === "partial" && (projected.state === "available" || projected.state === "stale")
           ? {
@@ -708,7 +713,8 @@ export async function loadOrganizationIntelligence(
     .replace(/\u2028/g, "\\u2028")
     .replace(/\u2029/g, "\\u2029");
   const moduleCode = `export const intelligenceData = ${serialized};\n`;
-  return Object.freeze({ [snapshotBrand]: true as const, moduleCode, digest: hash(moduleCode) });
+  return Object.freeze({ [snapshotBrand]: true as const, moduleCode, digest: hash(moduleCode),
+    presentation: Object.freeze(JSON.parse(serialized) as IntelligenceData) });
 }
 
 export function organizationIntelligence(options: OrganizationIntelligenceOptions = {}): Plugin {
