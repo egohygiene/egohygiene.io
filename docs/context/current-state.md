@@ -1,5 +1,20 @@
 # Current handoff
 
+## Parallel draft: portable organization Intelligence export — 2026-11-10
+
+The [producer interface](../development/intelligence-portable-export.md) and proposed
+[ADR0017](../architecture/decisions/0017-portable-intelligence-export.md) prepare
+the existing Intelligence components/models as an isolated, sealed review artifact
+for the separately proposed `.github` home. Functional source `54e0b6e` and manual
+ordinary-artifact workflow `ae00128` are reconciled with observed main
+`599dd884ef30f72642563160f4c52352615f539a`; the concurrent business/store/readiness
+changes and existing production build, origins, gates and workflows are preserved.
+Only static source/schema/TypeScript/YAML inspection and independent source peer
+review ran. No export build, app/helper execution, tests, CI, dispatch, transport,
+Pages/DNS operation or publication is claimed. Root retains draft/continuity
+coordination; actual base-path/hydration/resource qualification and the hosting,
+Hygiene compatibility/catalog and human approval gates remain separate.
+
 ## Current: all open project drafts merged; ordered readiness roadmap — 2026-11-10
 
 Website #134, #136 and #137 are merged in order, ending at runtime main `785aec3099b196cebe1e5d801297cb49258edc64`. Every merge tree equals its reviewed head and preserves the expected parents; [receipt](../development/reviews/readiness-merge-2026-11-10/merges.json). Store has no open PR. #53 closes completed after its final local manager fix; #91 and research #135 remain completed. #116 A's creation packet is merged, while B/C and the actual pilot remain open.

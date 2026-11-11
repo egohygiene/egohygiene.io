@@ -1,0 +1,6 @@
+body { margin: 0; font-family: var(--font-sans); line-height: 1.5; }
+#root { max-inline-size: 88rem; margin-inline: auto; padding: clamp(1rem, 3vw, 3rem); }
+button, input, select { font: inherit; }
+button, input, select, summary { min-block-size: 2.75rem; }
+a { color: var(--color-accent); }
+.site-eyebrow { color: var(--color-muted); font-size: .875rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }

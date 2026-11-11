@@ -24,6 +24,7 @@ Use full paths/links and titles in issues, handoffs and provenance.
 | [0014 — Standalone store retirement](0014-standalone-store-retirement.md) | Migration prepared; source remains intact pending integration and final platform-state checks | Recoverable inactive source/history, MIT notice, public issue/PR records and all16 backlog dispositions before retirement |
 | [0015 — Explicit component styles](0015-explicit-component-styles.md) | Implemented in merged #103; browser acceptance remains | Storybook owns declared package imports; visualization owns its stylesheet over themes; standalone consumer proves isolation |
 | [0016 — Website references and listing evidence](0016-website-reference-and-listing-boundary.md) | Proposed/selected under #34 | Optional v1 public recording references, derived design/product work links and exact listing bindings; private canonical contracts remain separate |
+| [0017 — Portable Intelligence export](0017-portable-intelligence-export.md) | Proposed producer interface; source implementation only | Isolated Intelligence components/models, explicit reviewed origin/base and sealed ordinary review artifact; hosting/catalog reconciliation and runtime qualification remain separate |
 
 This table records a dated delivery snapshot, not live merge status. Refresh the
 [current handoff](../../context/current-state.md) and GitHub before resuming.

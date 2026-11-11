@@ -52,6 +52,7 @@
   "scripts": {
     "dev": "pnpm --filter @egohygiene/egohygiene.io dev",
     "build": "pnpm catalog:validate && pnpm --filter @egohygiene/egohygiene.io build",
+    "intelligence:export": "node scripts/build-intelligence-export.mts",
     "report:costs": "pnpm --filter @egohygiene/egohygiene.io build --costReport",
     "preview": "pnpm --filter @egohygiene/egohygiene.io preview",
     "biome": "biome",
