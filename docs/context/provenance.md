@@ -1,5 +1,22 @@
 # Context provenance ledger
 
+## Portable Intelligence producer draft — 2026-11-10
+
+Organization #41 authorized a bounded reusable export for the proposed `.github`
+home. Source `54e0b6e66b9b028bad382bbbc4bc6ba588cee665` adds the isolated producer,
+explicit target, existing public projection/graph composition and closed39-route
+manifest; `ae00128` adds the manual ordinary-artifact handoff and operator guide.
+Fresh main `599dd884ef30f72642563160f4c52352615f539a` was sequentially reconciled in
+`b3f67fd`; both independent package commands are retained and the new proposed
+export ADR uses0017, preserving main's0016 business record. The schema/route bytes
+in54e0b6e remain the immutable Relay compatibility source. Static schema metadata,
+39 unique route/file/canonical bindings, Node/TypeScript/TSX syntax, a single
+installed Vite8.2 declaration view for targeted source types, YAML/bash/embedded-JS
+syntax and independent source review passed. Existing installed peer declaration
+duplication is not a full project typecheck or runtime qualification. No export
+build, tests, owner helper/app execution, CI, workflow/provider transport, Pages,
+DNS or publication ran. [Interface and limits](../development/intelligence-portable-export.md).
+
 ## Authorized final draft merges and readiness roadmap — 2026-11-10
 
 Alan requested merging all open project PRs, then a simple ordered chat roadmap to readiness. #134 reviewed `401845a` merges as `08d381cb8cd376b60866804e90b1cdf10b70a2a9`; #136 reviewed `1fab310` merges as `f44e4cc74921850c5119c580a7d03514d97e0c91`; #137 reviewed `f201e4b` merges as `785aec3099b196cebe1e5d801297cb49258edc64`. Every tree and first/second parent is verified; normal expected-head merges used no override/force push. [Exact receipt](../development/reviews/readiness-merge-2026-11-10/merges.json). #53 closes completed on its original styled-component/local-manager evidence; no current size/hosted or native gaps are waived. [Ordered roadmap](../roadmaps/product-readiness-2026-11-10.md) keeps 15 foundation scopes and six publication scopes distinct, with agent/private integration work separated from #115/#116 real owner choices. No application code, dependency, active limit, license or deployment change is made by this handoff documentation.
