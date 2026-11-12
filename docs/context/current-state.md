@@ -1,5 +1,26 @@
 # Current handoff
 
+## Current: retained-model producer integration — 2026-11-12
+
+The user accepted the five Repository Intelligence source integrations and one
+real report → repository artifact → sealed organization export → `.github`
+review artifact canary. Website [PR #140](https://github.com/egohygiene/egohygiene.io/pull/140)
+retains functional source `f1388a38eeef5986a33febc8c2b1224dc5227d47`, originally
+reviewed at `159a836e1be0f65596b3139b23b9df7414c8bb92`, on current main
+`c35932b77fe3623cad19f1f1b890e51ec16f38a8`. Relay #181 is provider-verified merged at
+`12d3a0823c8c8f885dea4acf482160fd726325e2` before this source integration. The exact reviewed helper/schema capsule remains
+pinned to Relay `5d27be5ce1599df883e31f14cd894eb18622c18c`.
+
+Use [CONTINUITY.md](../../CONTINUITY.md) for the bounded source checkpoint and
+[the producer guide](../development/intelligence-model-artifact-selection.md)
+for the existing manual workflow and exact input/artifact bindings. Focused
+tests/builds needed by the selected canary are authorized; its actual provider
+IDs, clocks, digests and outcome belong to the resulting evidence. This source
+integration has not run or claimed that canary. Broad CI, browser, deployment,
+live Pages and end-to-end acceptance remain deferred. Existing production/store
+publishers, legacy host/canonical paths, strict gates and human holds remain.
+Earlier website/store handoffs below keep their original dates and evidence.
+
 ## Parallel draft: portable organization Intelligence export — 2026-11-10
 
 The [producer interface](../development/intelligence-portable-export.md) and proposed

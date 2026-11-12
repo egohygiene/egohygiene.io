@@ -1,5 +1,15 @@
 # Agent entry point
 
+## Current Repository Intelligence integration — 2026-11-12
+
+The selected retained-model producer is in [PR #140](https://github.com/egohygiene/egohygiene.io/pull/140).
+Read the bounded [current checkpoint](CONTINUITY.md) and
+[current handoff](docs/context/current-state.md). The user authorized this
+source merge after Relay #181 and one real report-to-review-artifact canary.
+Focused work necessary for that canary is selected; broad CI, browsers, live
+Pages, provider activation and hosting cutover retain their separate gates.
+Website/store records below retain their dated evidence and owner decisions.
+
 ## Current merged readiness queue — 2026-11-10
 
 Alan explicitly authorized all open project PRs: website #134→#136→#137 are merged, exact trees/parents verified, runtime main `785aec3`; store has none open. #53 closes completed; #91/#135 already completed. [Current ordered roadmap](docs/roadmaps/product-readiness-2026-11-10.md) owns the next work: #36/#61/#69 acceptance, #34 private adapter/receipt proof, #52/#29 reliability/cost/CI, #92 cleanup and #49/#70 automation, with #59/#90 inputs prepared for #115. #116 A is merged/prepared, B/C require the real pilot. Final #37 then #88 readiness; #84 and publication milestone2 remain open. Preserve gates: eight sizes and unsupported dependency review still fail. Private integration remains agent-owned; real identity/adoption/creative/native decisions stay #115/#116. No repeat merge approval is needed for this completed action; no license/budget/provider/deployment choice inferred.
