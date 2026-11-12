@@ -79,9 +79,22 @@ function routes(): ExportRoute[] {
 
 async function inputs(request: RecordValue, inputRoot: string): Promise<OrganizationIntelligenceOptions> {
   const models = closed(request["models"], ["core", "audits", "sanity"]);
-  const options: Record<string, unknown> = { asOf: text(request["as_of"]), filename: "", expectedSha256: "",
+  const clocks = request["module_as_of"] === undefined ? null
+    : closed(request["module_as_of"], ["core", "audits", "sanity"]);
+  if (clocks) for (const id of ["core", "audits", "sanity"] as const) {
+    const clock = clocks[id];
+    requireInput(models[id] === null ? clock === null : typeof clock === "string"
+      && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(clock)
+      && new Date(clock).toISOString().replace(".000Z", "Z") === clock
+      && clock <= text(request["as_of"]));
+  }
+  const options: Record<string, unknown> = { asOf: clocks?.["core"] ?? text(request["as_of"]), filename: "", expectedSha256: "",
     artifactManifestFilename: "", artifactManifestExpectedSha256: "", publicationsFilename: "", publicationsExpectedSha256: "",
     auditsFilename: "", auditsExpectedSha256: "", sanityFilename: "", sanityExpectedSha256: "" };
+  if (clocks) {
+    options["auditsAsOf"] = clocks["audits"] ?? text(request["as_of"]);
+    options["sanityAsOf"] = clocks["sanity"] ?? text(request["as_of"]);
+  }
   const bind = async (value: unknown): Promise<readonly [string, string]> => {
     const binding = closed(value, ["path", "sha256"]); const path = resolve(inputRoot, relativeInput(binding["path"]));
     const checksum = text(binding["sha256"]); requireInput(inside(path, inputRoot) && sha.test(checksum));
@@ -126,11 +139,14 @@ async function inventory(site: string): Promise<{ path: string; sha256: string; 
 export async function buildIntelligenceExport(arguments_: string[] = []): Promise<void> {
   const { values } = parseArgs({ args: arguments_, options: {
     request: { type: "string" }, "request-sha256": { type: "string" }, "input-root": { type: "string" }, output: { type: "string" },
+    "selection-evidence": { type: "string" },
   } });
   requireInput(values.request && values["request-sha256"] && sha.test(values["request-sha256"]) && values.output);
   const requestPath = resolve(values.request); const rawRequest = await readBounded(requestPath, 65536);
   requireInput(hash(rawRequest) === values["request-sha256"]);
-  const request = closed(decodeReviewJson(rawRequest), ["schema", "contract_version", "target", "as_of", "models"]);
+  const parsed = object(decodeReviewJson(rawRequest));
+  const request = closed(parsed, ["schema", "contract_version", "target", "as_of", "models",
+    ...(Object.hasOwn(parsed, "module_as_of") ? ["module_as_of"] : [])]);
   requireInput(request["schema"] === "egohygiene.website.organization-intelligence-export-request/v1" && request["contract_version"] === version);
   const target = targetInput(request["target"]); const asOf = text(request["as_of"]);
   requireInput(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(asOf) && new Date(asOf).toISOString().replace(".000Z", "Z") === asOf);
@@ -139,6 +155,13 @@ export async function buildIntelligenceExport(arguments_: string[] = []): Promis
   requireInput(!inside(output, repositoryRoot) && !inside(repositoryRoot, output)
     && !inside(requestPath, output) && !inside(inputRoot, output));
   try { await lstat(output); throw new Error("Output already exists"); } catch (error) { requireInput((error as NodeJS.ErrnoException).code === "ENOENT"); }
+  const selectionEvidence = values["selection-evidence"] ? resolve(values["selection-evidence"]) : null;
+  if (selectionEvidence) {
+    await noSymlinks(selectionEvidence, false);
+    requireInput(!inside(selectionEvidence, output) && !inside(selectionEvidence, repositoryRoot) && selectionEvidence !== requestPath);
+    try { await lstat(selectionEvidence); throw new Error("Selection evidence already exists"); }
+    catch (error) { requireInput((error as NodeJS.ErrnoException).code === "ENOENT"); }
+  }
   const producerRevision = execFileSync("git", ["rev-parse", "HEAD"], { cwd: repositoryRoot, encoding: "utf8" }).trim();
   requireInput(/^[a-f0-9]{40}$/.test(producerRevision)
     && execFileSync("git", ["status", "--porcelain", "--untracked-files=all"], { cwd: repositoryRoot, encoding: "utf8" }).trim() === "");
@@ -196,6 +219,15 @@ export async function buildIntelligenceExport(arguments_: string[] = []): Promis
       scope: { kind: "organization", repositories: selectedNames, admission: { ...object(lock["admission"]), selected_sha256: hash(bytes(selected)) } },
       models: { core: model("core"), audits: model("audits"), sanity: model("sanity") }, routes: routeInventory, files: await inventory(site), publication: "review-only" };
     await writeFile(join(output, "export-manifest.json"), bytes(manifest));
+    if (selectionEvidence) {
+      const states = new Set(["available", "partial", "stale", "unavailable", "incompatible", "error"]);
+      const models = Object.fromEntries((["core", "audits", "sanity"] as const).map((id) => {
+        const state = id === "core" ? manifest.models.core.state === "available" ? data.state : "unavailable"
+          : data.endpoints?.[id]?.state ?? "unavailable";
+        return [id, { presentation_state: states.has(state) ? state : "unavailable" }];
+      }));
+      await writeFile(selectionEvidence, bytes({ export_manifest_sha256: hash(bytes(manifest)), models }), { flag: "wx" });
+    }
   } catch (error) { if (ownsOutput) await rm(output, { recursive: true, force: true }); throw error; }
   finally { await rm(temporary, { recursive: true, force: true }); }
 }

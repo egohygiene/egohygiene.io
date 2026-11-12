@@ -701,6 +701,8 @@ export interface ReviewInputOptions {
   readonly auditsExpectedSha256?: string;
   readonly sanityFilename?: string;
   readonly sanityExpectedSha256?: string;
+  readonly auditsAsOf?: string;
+  readonly sanityAsOf?: string;
   readonly asOf?: string;
 }
 
@@ -717,7 +719,7 @@ export async function loadReviewEndpoints(
       process.env[`EGOHYGIENE_INTELLIGENCE_${id.toUpperCase()}_SHA256`];
     if (!filename && !expected) continue;
     try {
-      const asOf = instant(options.asOf ?? process.env["EGOHYGIENE_INTELLIGENCE_AS_OF"]);
+      const asOf = instant(options[`${id}AsOf`] ?? options.asOf ?? process.env["EGOHYGIENE_INTELLIGENCE_AS_OF"]);
       requireInput(filename && expected && hex.test(expected));
       const lock = object(decodeReviewJson(await boundedFile(`${root}/input-lock.json`, 65536)));
       requireInput(

@@ -1,5 +1,22 @@
 # Context provenance ledger
 
+## Retained-model producer source integration — 2026-11-12
+
+The selected website #140 starts from reviewed head
+`159a836e1be0f65596b3139b23b9df7414c8bb92` with implementation
+`f1388a38eeef5986a33febc8c2b1224dc5227d47`; main remains
+`c35932b77fe3623cad19f1f1b890e51ec16f38a8` at preparation. The user authorized
+landing the accepted source batch and one bounded real report-to-review-artifact
+canary. Relay #181 is provider-verified merged at
+`12d3a0823c8c8f885dea4acf482160fd726325e2`; its reviewed interface bytes remain
+unchanged. Current handoff/entry pointers
+are refreshed while all historical website/store records and reviewed producer
+bytes remain intact. The sealed manifest/39-route contract, original export
+workflow, production publisher, purchase guards and proposed ADR0017 lifecycle
+are unchanged. Static source inspection is separate from the forthcoming canary;
+no new report, artifact, runtime result, publication or hosting cutover is
+claimed by this preparation checkpoint.
+
 ## Portable Intelligence producer draft — 2026-11-10
 
 Organization #41 authorized a bounded reusable export for the proposed `.github`
