@@ -1,5 +1,22 @@
 # Current handoff
 
+## Current: real audit evidence membership — 2026-11-13
+
+Website #140 merged at `eed5070382e36c0f29e71519c8df476d8c131ca2` after
+Relay #181. The first actual audit export exposed unsupported owner-schema
+`contains`; the bounded repair enforces observed and observed-policy membership
+without changing pins or relaxing admission. Four focused tests, actual input
+and resealed-negative probes, and a clean local real-model export passed at
+`e79b250d88e62aa2cd4880972b4bd91d4b48b201`.
+
+The [canary receipt and selection](../development/intelligence-real-audit-canary.md)
+record actual organization run `43333273329`, model artifact `13996296082`, the
+original frame and local export outcome. [CONTINUITY.md](../../CONTINUITY.md)
+owns the bounded current handoff. Next: land the reviewed repair/selection and
+execute the existing manual website producer and `.github` consumer with real
+provider IDs. No live Pages, hosting cutover, broad CI/browser or human
+ratification is selected. Earlier website/store records remain dated evidence.
+
 ## Current: retained-model producer integration — 2026-11-12
 
 The user accepted the five Repository Intelligence source integrations and one
