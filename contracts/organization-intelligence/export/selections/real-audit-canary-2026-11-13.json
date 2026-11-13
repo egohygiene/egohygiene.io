@@ -1,0 +1,28 @@
+{
+  "schema": "egohygiene.website.organization-intelligence-model-selection/v1",
+  "contract_version": "1.0.0-alpha.1",
+  "visibility": "public",
+  "target": {
+    "origin": "https://egohygiene.github.io",
+    "base_path": "/.github/"
+  },
+  "as_of": "2026-11-13T00:04:12Z",
+  "modules": {
+    "core": null,
+    "audits": {
+      "visibility": "public",
+      "producer_repository": "egohygiene/.github",
+      "producer_revision": "b1539be1ab718de2db3da4b1eaa6827e36d4753f",
+      "workflow_path": ".github/workflows/repository-intelligence-canary.yml",
+      "run_id": 43333273329,
+      "run_attempt": 1,
+      "artifact_id": 13996296082,
+      "artifact_name": "repository-intelligence-real-review-v1-43333273329-1",
+      "archive_sha256": "1192d4c86ccb449d6f40762785a47022235dc0160831e04d6f4354f394d9668d",
+      "manifest_sha256": "0ec4e83d1c381eabc7450a69c762cc894a8b8a3568d6fbeea7afdf0ce090c651",
+      "maximum_age_seconds": 86400
+    },
+    "sanity": null
+  },
+  "publications": null
+}
