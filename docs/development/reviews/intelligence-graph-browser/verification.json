@@ -1,0 +1,52 @@
+{
+  "functional_source": "6753eb1b731746d27e6f8c94466c721313196344",
+  "source_clean": true,
+  "node": "v24.21.0",
+  "chromium": "151.0.7922.173",
+  "started_at": "2026-11-13T03:18:06.900Z",
+  "finished_at": "2026-11-13T03:18:08.588Z",
+  "status": "passed",
+  "checks": [
+    "First pointer click opens the declared finding URL and anchor.",
+    "Keyboard Tab still selects/recenters the node; Enter follows its destination.",
+    "390px mobile selector stays bounded and the first touch activation opens its destination."
+  ],
+  "page_errors": [],
+  "negative_controls": [
+    {
+      "name": "pre-fix-pointer",
+      "original_source": "3672c05323b348edba8720998e735668c5d4a3a9",
+      "outcome": "failed",
+      "expected_failure": "expect(page).toHaveURL(expected) failed\n\nExpected: \"http://127.0.0.1:5173/.github/audits/#synthetic-finding\"\nReceived: \"http://127.0.0.1:5173/.github/intelligence/?graph=entity-synthetic-finding\"\nTimeout:  5000ms"
+    },
+    {
+      "name": "pre-fix-mobile",
+      "original_source": "3672c05323b348edba8720998e735668c5d4a3a9",
+      "outcome": "failed",
+      "expected_failure": "Long node labels must not expand the mobile layout viewport\n\n598 !== 390\n"
+    }
+  ],
+  "historical_retained_artifact": {
+    "artifact_id": 13998892236,
+    "producer_revision": "3672c05323b348edba8720998e735668c5d4a3a9",
+    "mode": "declared-origin local browser replay; not live HTTPS",
+    "routes_and_aliases": 39,
+    "producer_files_unchanged_before_and_after": 43,
+    "console_errors": 0,
+    "page_errors": 0,
+    "failed_requests": 0,
+    "observed_issues": [
+      "First pointer click recenters SVG link without navigation",
+      "Hub selector overflows390px to651px",
+      "Separate Audits layout overflows390px to402px; outside this graph repair"
+    ],
+    "model_clock": "2026-11-12T23:58:44Z",
+    "scope": "one partial historical .github audit; Core/Sanity unavailable"
+  },
+  "limits": [
+    "No historical export or receipt modified",
+    "No fresh export or canonical live deployment proof supplied by this component regression",
+    "No whole-organization audit, human ratification or full accessibility/performance qualification"
+  ],
+  "kind": "focused-browser-regression"
+}

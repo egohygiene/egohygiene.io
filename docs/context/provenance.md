@@ -1,5 +1,16 @@
 # Context provenance ledger
 
+## Intelligence graph browser interaction — 2026-11-13
+
+Functional `6753eb1b731746d27e6f8c94466c721313196344` corrects pointer-focus camera
+movement and graph selector width. Three focused actual Chromium journeys pass
+at clean source; exact original TSX and CSS separately reproduce failures.
+[Receipt](../development/reviews/intelligence-graph-browser/verification.json)
+and [scope/limits](../development/intelligence-graph-browser.md) preserve the
+synthetic component test separately from actual retained-artifact local replay.
+No historical export byte, model clock, publisher, human disposition, provider
+setting or deployed content is modified by this source change.
+
 ## GitHub CLI device-state cause and repair — 2026-11-13
 
 Diagnostic run `43337872934/1` at `d476a224c97d311cbe034f7e9d15ee3d37e1c6c4`
