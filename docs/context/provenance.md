@@ -1,5 +1,16 @@
 # Context provenance ledger
 
+## GitHub CLI device-state cause and repair — 2026-11-13
+
+Diagnostic run `43337872934/1` at `d476a224c97d311cbe034f7e9d15ee3d37e1c6c4`
+showed only `.local/state/gh/device-id` appearing after acquisition; HEAD
+remained valid. Missing HOME/XDG state configuration allowed the newer CLI
+to write relative to source. A private workspace `XDG_STATE_HOME` confines
+that state without changing HOME, the clean-source guard, fixed API calls or
+module isolation. A focused child-process regression passes the repair and
+fails exact pre-fix source; actual hosted retry/admission remains pending.
+The [canary guide](../development/intelligence-real-audit-canary.md) retains exact evidence.
+
 ## Hosted export guard observation — 2026-11-13
 
 Website #141 merged as `0847371698710df35d79190e32154be96c72858e`, preserving
