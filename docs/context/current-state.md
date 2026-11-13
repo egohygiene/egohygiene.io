@@ -1,5 +1,18 @@
 # Current handoff
 
+## Current: graph pointer and mobile browser repair — 2026-11-13
+
+Actual retained-artifact Chromium replay found first-click SVG link selection
+moving the camera before activation and an intrinsic-width mobile selector.
+Functional `6753eb1b731746d27e6f8c94466c721313196344` preserves native pointer/touch
+activation while retaining keyboard selection/recentering and bounds the selector.
+Three real-browser journeys pass at clean source; exact old TSX and old CSS
+independently fail the relevant regressions. Read the
+[repair and evidence](../development/intelligence-graph-browser.md) and root
+[checkpoint](../../CONTINUITY.md). Original producer bytes/receipts stay unchanged;
+a fresh export and canonical live proof remain separate. The small existing
+Audits mobile overflow and broader acceptance are not declared fixed.
+
 ## Current: private GitHub CLI state — 2026-11-13
 
 Diagnostic run `43337872934/1` observed a clean valid-HEAD checkout followed by

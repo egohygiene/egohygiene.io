@@ -237,7 +237,7 @@ function edgePath(source: Point, target: Point) {
 /** A navigation aid over already-admitted records, with no layout-derived claims. */
 export function IntelligenceGraph({ nodes, edges, publicationRoutes }: IntelligenceGraphProps) {
   const mountRoot = useHref("/").replace(/\/$/, "");
-  const mountedHref = (href: string) => href.startsWith("/") ? `${mountRoot}${href}` : href;
+  const mountedHref = (href: string) => (href.startsWith("/") ? `${mountRoot}${href}` : href);
   const ready = useBrowserSnapshot();
   const [browserParams, setSearchParams] = useSearchParams();
   const params = ready ? browserParams : new URLSearchParams();
@@ -604,7 +604,12 @@ export function IntelligenceGraph({ nodes, edges, publicationRoutes }: Intellige
                           href={mountedHref(href)}
                           tabIndex={ready ? 0 : -1}
                           aria-label={`${node.label}, ${node.kind}, ${node.state}. Open view.`}
-                          onFocus={() => ready && select(node.id)}
+                          onFocus={(event) => {
+                            // Pointer focus must not move the link between pointerdown
+                            // and pointerup. Keyboard focus still selects and reveals it.
+                            if (ready && event.currentTarget.matches(":focus-visible"))
+                              select(node.id);
+                          }}
                         >
                           {content}
                         </a>

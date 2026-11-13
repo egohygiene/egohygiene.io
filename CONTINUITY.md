@@ -7,35 +7,31 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-13T00:37:25Z'
+  updated_at: '2026-11-13T03:21:05Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Confine GitHub CLI device state to the private acquisition workspace and complete the selected
-    real report-to-review-artifact canary without relaxing source admission.
+  purpose: Repair observed Intelligence graph first-click navigation and mobile selector overflow while preserving
+    historical export evidence.
   includes:
-  - Diagnostic website run43337872934/1 at d476a224c97d311cbe034f7e9d15ee3d37e1c6c4 observed valid HEAD
-    and clean checkout. After acquisition, its only dirty source path was untracked .local/state/gh/device-id;
-    installation and export-failure checkpoints showed the same path. Export again failed the unchanged
-    guard; no finalization or uploads occurred.
-  - The sanitized GitHub child environment intentionally has no HOME. Newer gh device state is independent
-    of GH_CONFIG_DIR and falls back relative to the working directory without XDG_STATE_HOME. Provider.capture
-    now binds XDG_STATE_HOME to gh-state beneath its existing validated private output workspace outside
-    the producer. HOME, fixed GET calls, credentials, proxy/CA allowlist and module failure isolation
-    remain unchanged.
-  - The focused actual-child mock reproduces HOME-absent relative state and proves the real Provider keeps
-    a clean checkout, writes private device state, preserves exact GET arguments and returns identical
-    captured bytes. It passes at8711a380cc4ebe38bcc0a67744fd0f45bb65245b and fails against exact pre-fix
-    d476 Provider. No network or real credentials are involved.
-  - 'Website #141 contains repair and actual public selection are merged; original model frame23:58:44Z,
-    partial/historical report semantics and unselected Core/Sanity/publications remain. Actual hosted
-    audit admission/export/companion and .github intake still require their own retained proof. Existing
-    clean-source guard, lock, owner contracts, publishers and legacy hosting are unchanged.'
+  - Clean functional source6753eb1b731746d27e6f8c94466c721313196344 gates graph camera selection on focus-visible
+    keyboard focus, preserving pointer/touch native link activation. A scoped selector inline-size correction
+    prevents intrinsic long-label mobile overflow. No graph data, route/URL admission, schema, owner, lock
+    or publisher changes.
+  - 'Three actual Chromium journeys pass at clean source: first pointer destination+anchor, keyboard Tab selection/recentering
+    plus Enter, and390px mobile first-touch navigation without viewport expansion. Exact original TSX and CSS
+    separately reproduce their regression failures; restoring fixed source passes.'
+  - Original review artifact13998892236 and43 producer site files remain unchanged. Local declared-origin browser
+    replay confirms all39 routes/aliases, real historical partial audit/finding, filtering, keyboard/no-JS
+    fallback and honest unavailable Sanity. Existing mobile Audits overflow390to402px is retained as a separate
+    limitation.
   excludes:
-  - Broad CI, browser/full-application qualification, live Pages/deployment, provider activation, hosting
-    cutover, human ratification and issue acceptance outside the selected review-artifact canary.
+  - Historical artifact edits, model-clock refresh, fabricated fleet/audit/human claims, owner/publisher or
+    provider changes.
+  - Full website/business/store builds, broad CI and complete accessibility/performance/physical-device acceptance.
+    Canonical live/export qualification remains separate.
   precedence:
   - user-and-runtime-instructions
   - scoped-repository-instructions
@@ -44,114 +40,99 @@ scope:
   - continuity-checkpoint
   canonical_sources:
   - AGENTS.md
-  - scripts/intelligence_source_status.py
-  - .github/workflows/intelligence-model-artifacts-export.yml
-  - scripts/build-intelligence-export.mts
-  - scripts/intelligence_model_artifacts.py
-  - docs/development/intelligence-real-audit-canary.md
-  - docs/development/intelligence-model-artifact-selection.md
-  - contracts/organization-intelligence/export/selections/real-audit-canary-2026-11-13.json
-  - contracts/organization-intelligence/export/export-manifest.v1.schema.json
-  - contracts/organization-intelligence/export/organization-routes.v1.json
-  - scripts/intelligence-review-endpoints.mts
-  - tests/tooling/intelligence-review-schema.test.mjs
-  - docs/architecture/decisions/0017-portable-intelligence-export.md
+  - apps/egohygiene.io/AGENTS.md
+  - apps/egohygiene.io/src/features/intelligence/graph/IntelligenceGraph.tsx
+  - apps/egohygiene.io/src/features/intelligence/graph/graph.css
+  - tests/intelligence-graph/run.mts
+  - tests/intelligence-graph/host.tsx
+  - docs/development/intelligence-graph-browser.md
+  - docs/development/reviews/intelligence-graph-browser/verification.json
   - docs/context/current-state.md
   - docs/context/provenance.md
-  - https://github.com/egohygiene/.github/issues/27
-  - tests/tooling/intelligence_model_artifacts_test.py
+  - docs/architecture/decisions/0017-portable-intelligence-export.md
+  - https://github.com/egohygiene/.github/issues/41
 work:
-  objective: Confine GitHub CLI device state to the private acquisition workspace and complete the selected
-    real report-to-review-artifact canary without relaxing source admission.
+  objective: Repair observed Intelligence graph first-click navigation and mobile selector overflow while preserving
+    historical export evidence.
   success_conditions:
-  - Keep child GitHub CLI device state beneath the validated private workspace outside source, without
-    repurposing HOME or ignoring/removing source changes.
-  - Reproduce the observed fallback with an actual mock child; prove the Provider keeps source clean and
-    existing command/environment boundaries intact.
-  - Observe a new actual hosted export, inspect admitted real audit evidence and retain authentic export/companion
-    artifacts before review intake; green preparation alone is insufficient.
+  - First pointer/touch activation follows the declared destination without camera movement before release.
+  - Keyboard selection/recentering/Enter and existing native href/context/SSR behavior remain intact.
+  - Long synthetic node labels stay within390px; exact original sources fail the relevant actual browser regression.
   active_issue:
     provider: github
-    id: egohygiene/.github#27
-    url: https://github.com/egohygiene/.github/issues/27
+    id: egohygiene/.github#41
+    url: https://github.com/egohygiene/.github/issues/41
   next:
     kind: action
-    id: retry-hosted-export-with-confined-gh-state
-    description: After exact-head peer and ordinary merge, dispatch the existing manual retained-model
-      producer again with the unchanged real-audit-canary-2026-11-13 selection and SHA a2f02e5039714154c11f250704cc926017c0b7cc18403444b7696b58f7a7429c.
-      Require clean source checkpoints, then inspect actual admitted Audits receipt/rendering and seal/retain
-      real export/companion IDs before the .github review-only consumer. Preserve original clocks, partial
-      semantics and publication holds.
+    id: peer-and-export-fixed-graph
+    description: Land the independently reviewed exact graph fix, include it in a fresh owner-qualified organization
+      export with real selected report inputs, then verify canonical Pages navigation/live bytes separately.
+      Preserve original partial observations and record the separate Audits mobile layout gap.
     readiness: ready
     references:
-    - docs/development/intelligence-real-audit-canary.md
-    - https://github.com/egohygiene/egohygiene.io/actions/runs/43337872934
+    - https://github.com/egohygiene/.github/issues/41
+    - docs/development/intelligence-graph-browser.md
     depends_on: []
 state:
   base:
-    revision: d476a224c97d311cbe034f7e9d15ee3d37e1c6c4
+    revision: 3672c05323b348edba8720998e735668c5d4a3a9
     ref: refs/heads/main
-    verified_at: '2026-11-13T00:37:25Z'
+    verified_at: '2026-11-13T03:21:05Z'
   candidate:
-    branch: codex/ri-convergence-gh-state-boundary
+    branch: codex/intelligence-graph-pointer-navigation
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-13T00:37:25Z'
-    default_branch_revision: d476a224c97d311cbe034f7e9d15ee3d37e1c6c4
+    observed_at: '2026-11-13T03:21:05Z'
+    default_branch_revision: 3672c05323b348edba8720998e735668c5d4a3a9
     issue_state: open
     pull_request_state: not-applicable
-    notes: '#142 merged at d476. Actual diagnostic run43337872934/1 observed only .local/state/gh/device-id
-      appearing after acquisition; HEAD stayed valid, no export/companion artifact exists. This bounded
-      repair has no owner PR or actual hosted retry yet. Audit-model admission remains unverified until
-      receipt/render inspection.'
+    notes: Remote website main3672 was explicitly refreshed. Root authorized the observed first-click graph
+      repair and needed hosting/browser qualification. Navigation independently source-reviewed functional6753eb1.
+      This candidate is not claimed merged/exported/deployed; root owns ordinary integration and provider activation.
   parallel_changes: []
 review:
   status: partial
-  reviewed_at: '2026-11-13T00:37:25Z'
+  reviewed_at: '2026-11-13T03:21:05Z'
   reviewed_by: Codex
   evidence:
-  - command: python3 -I tests/tooling/intelligence_model_artifacts_test.py; same focused regression against
-      exact d476 Provider
+  - command: PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium; pinned Node24.21.0 tests/intelligence-graph/run.mts
     outcome: passed
-    observed_at: '2026-11-13T00:37:25Z'
-    notes: 'One actual-child mock test passes fixed and fails pre-fix as expected: HOME-absent fallback,
-      private state, clean checkout, exact GET and captured bytes. No network or real credential used.'
-  - command: Actual hosted diagnostic run43337872934/1 checkout/acquisition/install/export-failure JSON
-    outcome: failed
-    observed_at: '2026-11-13T00:37:25Z'
-    notes: Checkout clean, HEADd476 valid; sole dirty path .local/state/gh/device-id appears after acquisition
-      and persists. Unchanged export guard rejects; no artifacts. Green preparation still does not prove
-      model admission.
-  - command: Historical focused owner membership tests, actual/resealed-negative probes and clean real-model
-      export at e79b250
+    observed_at: '2026-11-13T03:21:05Z'
+    notes: Three real-browser synthetic-component journeys pass at clean functional6753eb1 using Chromium151.0.7922.173;
+      no page errors. Installed dependencies reused at the identical lock; no dependency upgrade.
+  - command: Exact pre-fix3672 TSX and CSS independent negative controls through the same browser runner
     outcome: passed
-    observed_at: '2026-11-13T00:10:19Z'
-    notes: Four tests; actual audit admitted and invalid evidence rejected. Original frame retained; only
-      egohygiene/.github, 39 routes and43 hashes/sizes checked. Local proof remains separate from hosted
-      artifacts.
-  - command: Python AST, source/guard/selection/lock/legacy preservation, bounded Aether continuity schema/local
-      links/whitespace
+    observed_at: '2026-11-13T03:21:05Z'
+    notes: 'Expected failures observed: first pointer stays on graph selection instead of destination; original
+      CSS expands synthetic viewport598vs390. Fixed source restored and all three checks pass.'
+  - command: Original retained-artifact declared-origin local Chromium replay; all43 producer file hashes before/after
     outcome: limited
-    observed_at: '2026-11-13T00:37:25Z'
-    notes: Final independent exact-head peer and normal merge receipt are separate. No new site build
-      or broad tests for this process-state repair.
-  - command: Actual hosted retry after confined state repair; real export/companion inspection and .github
-      review intake
+    observed_at: '2026-11-13T03:21:05Z'
+    notes: All39 routes/aliases, partial historical finding/clocks, keyboard/filter/no-JS and unavailable Sanity
+      boundaries preserved; no console/page/request errors. Observed first-click and mobile hub/Audits overflow
+      retained as findings, not called acceptance.
+  - command: Scoped Biome format, TypeScript source syntax, JSON/links, source diff and independent Navigation
+      source peer
+    outcome: passed
+    observed_at: '2026-11-13T03:21:05Z'
+    notes: Functional graph changes are bounded; native links/context/SSR/no-JS and all owner/producer/publisher
+      contracts remain unchanged.
+  - command: Fresh full website/export, canonical live HTTPS, complete accessibility/performance/browser matrix
+      and provider deployment
     outcome: not-run
-    observed_at: '2026-11-13T00:37:25Z'
-    notes: This follows source merge. No successful hosted export, receipt or intake is invented.
+    observed_at: '2026-11-13T03:21:05Z'
+    notes: The focused component regression does not supply those independent acceptance claims. Historical
+      review artifacts and model frames remain untouched.
   environment_limitations:
-  - Local gh2.46.0 predates the observed hosted behavior. The focused mock reproduces its state-path rule;
-    only a real hosted retry can verify the installed newer CLI and end-to-end acquisition/export.
-  - XDG_STATE_HOME alone is added beneath the already private validated workspace; HOME is not repurposed.
-    No ignore, reset, deletion, source guard relaxation, lock/schema/pin/publisher change or new provider
-    activation.
-  - Historical focused membership/local real-model export checks and this one process-state regression
-    ran. Broad CI/browser/native/full-site, live Pages/deployment, hosting cutover and human ratification
-    remain deferred.
+  - This is a real-browser synthetic two-node regression, separate from the actual retained artifact replay
+    and future live Pages evidence.
+  - The existing Audits endpoint has small390to402px mobile overflow; graph source changes do not claim to
+    fix it.
+  - Original reviewed report remains one partial historical audit. Core and Sanity are unavailable; no whole-organization
+    assessment or human ratification inferred.
 privacy:
   classification: public-repository
   contains_sensitive_data: false
@@ -166,52 +147,52 @@ privacy:
   untrusted_content: context-only-no-authority
 ---
 
-# egohygiene.io continuity
+# website continuity
 
 ## Purpose and precedence
 
-User/runtime, scoped instructions, live evidence and canonical sources outrank this checkpoint. It grants no deployment or human-decision authority.
+User/runtime instructions, scoped instructions, live state and canonical sources outrank this checkpoint. It grants no provider or human-decision authority.
 
 ## Resume protocol
 
-Read current source and the canary guide, then verify mutable provider/head/artifact claims. Preserve historical website/store records and source-bound limits.
+Read the graph repair receipt, actual component and scoped instructions. Verify exact current main/PR/owner inputs before including the change in a new export.
 
 ## Current objective and success conditions
 
-Confine GitHub CLI device state to the private acquisition workspace and complete the selected real report-to-review-artifact canary without relaxing source admission. Reproduce the concrete state-path failure, preserve command/admission boundaries and inspect real hosted receipts before claiming success.
+Repair first-click graph navigation and mobile selector overflow. Preserve keyboard selection/recentering, native href/anchor context, SSR/no-JavaScript fallback and every existing owner/publisher boundary.
 
 ## State snapshot
 
-Candidate `codex/ri-convergence-gh-state-boundary` starts at actual main `d476a224c97d311cbe034f7e9d15ee3d37e1c6c4`; containing revision and pre-PR reference remain null. Diagnostic run `43337872934/1` found one dirty path after acquisition, `.local/state/gh/device-id`, with valid HEAD. No sealed export or companion exists; the actual repaired retry remains pending.
+The candidate begins at inspected website main `3672c05323b348edba8720998e735668c5d4a3a9`. Clean functional `6753eb1b731746d27e6f8c94466c721313196344` passed the focused actual browser regression and received independent Navigation source peer. The containing commit and future PR remain null; no merge, fresh export or live publication is claimed.
 
 ## Completed and material changes
 
-Diagnostic website run43337872934/1 at d476a224c97d311cbe034f7e9d15ee3d37e1c6c4 observed valid HEAD and clean checkout. After acquisition, its only dirty source path was untracked .local/state/gh/device-id; installation and export-failure checkpoints showed the same path. Export again failed the unchanged guard; no finalization or uploads occurred. The sanitized GitHub child environment intentionally has no HOME. Newer gh device state is independent of GH_CONFIG_DIR and falls back relative to the working directory without XDG_STATE_HOME. Provider.capture now binds XDG_STATE_HOME to gh-state beneath its existing validated private output workspace outside the producer. HOME, fixed GET calls, credentials, proxy/CA allowlist and module failure isolation remain unchanged. The focused actual-child mock reproduces HOME-absent relative state and proves the real Provider keeps a clean checkout, writes private device state, preserves exact GET arguments and returns identical captured bytes. It passes at8711a380cc4ebe38bcc0a67744fd0f45bb65245b and fails against exact pre-fix d476 Provider. No network or real credentials are involved. Website #141 contains repair and actual public selection are merged; original model frame23:58:44Z, partial/historical report semantics and unselected Core/Sanity/publications remain. Actual hosted audit admission/export/companion and .github intake still require their own retained proof. Existing clean-source guard, lock, owner contracts, publishers and legacy hosting are unchanged.
+Only focus-visible keyboard focus selects/recenters a graph link; pointer/touch activation no longer moves it before release. The native node selector permits zero minimum inline width and fills its available space. A synthetic fixture imports the real component/router/CSS at the actual project basename; its three journeys have exact original-source negative controls.
 
 ## Validation and review evidence
 
-One focused actual-child process-state regression passes at `8711a380cc4ebe38bcc0a67744fd0f45bb65245b` and fails against exact pre-fix Provider. It verifies the HOME-absent fallback, private state, clean source, fixed GET and captured bytes without network. The diagnostic workflow supplied concrete path evidence. Historical four owner-rule tests and real/resealed-negative loader/export proofs remain separately bounded; no new site build or broad tests ran.
+Three Chromium journeys pass at clean6753 using pinned Node24.21.0. Exact original TSX and CSS separately fail their intended regression; restored fixes pass. Original-artifact local replay preserves all39 route targets and all43 source files, real partial/historical clocks, filtering, unavailable Sanity and no-JS content with no browser errors. That replay also records graph pointer/mobile and a separate small Audits overflow; it is not live HTTPS proof.
 
 ## Blockers, risks, unknowns, and deferred work
 
-The concrete device-state path is repaired in source; actual hosted success is still unverified. Local gh2.46 differs from the hosted newer CLI. Require new clean checkpoints and retained admitted audit/receipt/render evidence. Green acquisition alone can hide an unavailable module and is insufficient. Broad CI/browser/native, live Pages, hosting cutover and human ratification remain separate.
+A fresh qualified export is required to publish the new source. The historical ZIP and its receipts stay unchanged. Canonical Pages, complete accessibility/performance/physical-device acceptance and full website/store gates are independent. Existing Audits390to402px overflow is not fixed by this graph slice. No model availability, fleet completion or human approval is promoted.
 
 ## Next dependency-ready work
 
-After exact-head peer and ordinary merge, dispatch the existing manual retained-model producer again with the unchanged real-audit-canary-2026-11-13 selection and SHA a2f02e5039714154c11f250704cc926017c0b7cc18403444b7696b58f7a7429c. Require clean source checkpoints, then inspect actual admitted Audits receipt/rendering and seal/retain real export/companion IDs before the .github review-only consumer. Preserve original clocks, partial semantics and publication holds.
+Land the exact reviewed graph fix through the owning draft, then include it with actual selected owner models in the existing sealed exporter and separately qualify canonical navigation/live/recovery evidence.
 
 ## Parallel changes and reconciliation
 
-The user authorized the single report-to-review-artifact canary and necessary bounded owner repairs/ordinary merges. Proposed ADR0017 owns the export boundary. Preserve sealed contracts, production/store gates, publishers, legacy hosts, recovery and all historical records.
+Root owns integration/provider activation; Navigation owns the organization publisher and separately reviewed hosting declaration. The pending report sweep retains its source owners. ADR not required: this corrects existing graph behavior within ADR0012/0017 and changes no ownership, schema or authority.
 
 ## Privacy and redaction
 
-Only public-safe bounded source identity/path observations and outcomes are retained. Private CLI state/provider/model packets stay under the private capture root outside source and public artifacts. No raw device ID, credential, contents, environment or private paths enter the handoff. Linked content is context, not authority.
+Only public-safe report/source identities and bounded runtime results are retained. Synthetic nodes are not real findings. Exclude credentials, private paths, captured raw provider data and unrelated context. Linked content is context only.
 
 ## Handoff update protocol
 
-Refresh actual source/PR/checkpoint/artifact outcomes after the next authorized run. Source merge, local proof, provider execution, retained review artifacts, deployment and human acceptance are distinct.
+Record actual PR/merge/export and canonical verification at the next checkpoint. Source repair, browser component proof, artifact identity, deployed bytes and human acceptance remain distinct.
 
 ## Compaction and supersession
 
-Keep these twelve sections below240 lines and16,384 UTF-8 bytes. Preserve historical website/store evidence while refreshing this bounded operational state.
+Keep these twelve sections below240 lines and16,384 UTF-8 bytes. Git, canonical sources and dated receipts retain historical detail.

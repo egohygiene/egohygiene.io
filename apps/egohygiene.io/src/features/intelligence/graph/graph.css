@@ -53,6 +53,10 @@
 .oi-graph-controls label:first-child {
   flex: 1 1 17rem;
 }
+.oi-graph-controls select {
+  min-inline-size: 0;
+  inline-size: 100%;
+}
 .oi-graph :where(button, select) {
   min-block-size: 2.75rem;
   max-inline-size: 100%;
