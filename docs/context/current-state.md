@@ -1,5 +1,15 @@
 # Current handoff
 
+## Current: private GitHub CLI state — 2026-11-13
+
+Diagnostic run `43337872934/1` observed a clean valid-HEAD checkout followed by
+only untracked `.local/state/gh/device-id` after acquisition. The child now uses
+`XDG_STATE_HOME` beneath its existing private capture workspace, preserving
+HOME, fixed GET/admission/failure boundaries and the unchanged source guard.
+The actual-child regression passes fixed and fails pre-fix. The repaired hosted
+retry and admitted audit/export/intake evidence remain pending; see the
+[checkpoint](../../CONTINUITY.md) and [canary guide](../development/intelligence-real-audit-canary.md).
+
 ## Current: hosted source-identity observation — 2026-11-13
 
 Website #141 merged at `0847371698710df35d79190e32154be96c72858e`. Actual hosted

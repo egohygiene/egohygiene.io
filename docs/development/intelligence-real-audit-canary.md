@@ -92,3 +92,32 @@ and repair are claimed. Hosted export/finalization and `.github` intake remain
 incomplete, separately from the executed local membership/export checks above.
 Preparation can degrade an individual acquisition failure to an unavailable
 module; its green step alone does not prove hosted audit-model admission.
+
+## Observed GitHub CLI device-state boundary
+
+Diagnostic [run 43337872934, attempt 1](https://github.com/egohygiene/egohygiene.io/actions/runs/43337872934)
+at `d476a224c97d311cbe034f7e9d15ee3d37e1c6c4` reported valid HEAD and a clean
+checkout. Immediately after acquisition, its only dirty path was untracked
+`.local/state/gh/device-id`; install and failed-export observations agreed.
+The existing guard rejected export, so no finalization or uploads occurred.
+
+The sanitized child environment intentionally omits HOME. Newer GitHub CLI
+device state uses `XDG_STATE_HOME` independently of the already bounded
+`GH_CONFIG_DIR`; without HOME or an explicit state root it wrote relative to
+the checkout. The repair sets only `XDG_STATE_HOME` beneath the existing
+validated private acquisition workspace outside source. It does not change
+HOME, fixed read-only API arguments, credentials/proxy/CA allowlists, module
+failure isolation, source guards, ignores, owner pins or selection bytes.
+
+```sh
+python3 -I tests/tooling/intelligence_model_artifacts_test.py
+```
+
+The one focused actual-child mock test reproduces the HOME-absent fallback and
+proves a clean checkout, private device-state placement, exact GET arguments
+and captured-byte preservation. It passes at
+`8711a380cc4ebe38bcc0a67744fd0f45bb65245b` and fails against the exact pre-fix
+Provider as expected. It makes no network call and uses no real credential.
+Local GitHub CLI `2.46.0` predates the hosted behavior; the actual repaired
+workflow retry remains necessary. Inspect its admitted audit presentation and
+public companion receipt before claiming transport or end-to-end success.

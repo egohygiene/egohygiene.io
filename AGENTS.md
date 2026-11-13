@@ -1,5 +1,14 @@
 # Agent entry point
 
+## Current GitHub CLI state boundary — 2026-11-13
+
+Diagnostic run `43337872934/1` found only `.local/state/gh/device-id` appearing
+after acquisition. The child now receives `XDG_STATE_HOME` under its existing
+private output workspace outside source; HOME and the source guard are unchanged.
+A focused actual-child regression passes fixed and fails pre-fix. The actual
+hosted retry, admitted audit evidence and review intake remain pending. Read
+[CONTINUITY.md](CONTINUITY.md) and the [canary guide](docs/development/intelligence-real-audit-canary.md).
+
 ## Current hosted canary observation — 2026-11-13
 
 Website #141 is merged. Hosted run `43335344355/1` completed the acquisition step and
