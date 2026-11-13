@@ -48,6 +48,8 @@ jobs:
           ref: ${{ github.sha }}
           persist-credentials: false
           fetch-depth: 1
+      - name: Inspect source identity after checkout
+        run: python3 -I scripts/intelligence_source_status.py checkout
       - name: Bind the immutable selection source
         id: selection
         shell: bash
@@ -104,6 +106,8 @@ jobs:
           python3 -I scripts/intelligence_model_artifacts.py prepare \
             --selection "$SELECTION_PATH" --selection-sha256 "$SELECTION_SHA256" \
             --output "$MODEL_WORKSPACE" --github-output "$GITHUB_OUTPUT"
+      - name: Inspect source identity after model acquisition
+        run: python3 -I scripts/intelligence_source_status.py acquisition
       - name: Select the pinned Node runtime
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
@@ -115,6 +119,8 @@ jobs:
           run_install: false
       - name: Install only the locked producer dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Inspect source identity after dependency installation
+        run: python3 -I scripts/intelligence_source_status.py install
       - name: Build the existing sealed organization export
         id: export
         shell: bash
@@ -137,6 +143,9 @@ jobs:
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as target:
               target.write("manifest-sha256=" + hashlib.sha256(raw).hexdigest() + "\n")
           PY
+      - name: Inspect source identity after an export failure
+        if: ${{ failure() && steps.export.outcome == 'failure' }}
+        run: python3 -I scripts/intelligence_source_status.py export-failure
       - name: Bind the admitted presentations to a separate selection receipt
         id: receipt
         shell: bash

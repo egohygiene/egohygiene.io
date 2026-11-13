@@ -60,3 +60,35 @@ manual retained-model workflow and the `.github` review consumer still need
 their own real producer/run/artifact proof. No local capture replay receipt was
 minted. Broad CI, browser, live Pages, hosting cutover and human ratification
 remain separate; existing publisher and business gates are preserved.
+
+## Hosted source-identity checkpoint
+
+Website [PR #141](https://github.com/egohygiene/egohygiene.io/pull/141) merged as
+`0847371698710df35d79190e32154be96c72858e`. The actual hosted
+[export run 43335344355, attempt 1](https://github.com/egohygiene/egohygiene.io/actions/runs/43335344355)
+completed the model-selection/acquisition step and Node `24.21.0`, pnpm
+`11.28.5` and frozen ignore-scripts installation. It then failed the existing
+combined 40-hex HEAD and clean-source guard. Finalization and uploads were
+skipped: this attempt produced no sealed export or public companion receipt.
+
+The exact failing identity or source path was not logged. Local exact frozen
+installs remained clean, including with Git file-mode checking; these results
+do not establish a hosted cause. The selected diagnostic retry observes fixed
+checkpoints after checkout, model acquisition, dependency installation and a
+failed export. The last observation also catches mutations during exporter
+imports or input admission before its guard.
+[The observer](../../scripts/intelligence_source_status.py) reports HEAD
+validity/public SHA and at most 32 JSON-escaped canonical relative status
+paths. Git stdout and execution time are bounded, rename fields remain paired,
+and noncanonical or credential-like names are omitted. Optional Git index
+writes are disabled. No contents, diffs, private inputs, environment,
+configuration or new hashes are logged. The original export guard still
+decides admission; no reset, deletion, ignore or gate relaxation is selected.
+
+Metadata-only disposable Git checks cover clean identity/status, tracked
+typechanges, NUL-delimited renames, path omission and explicit row truncation.
+The next actual workflow must supply the checkpoint evidence before a cause
+and repair are claimed. Hosted export/finalization and `.github` intake remain
+incomplete, separately from the executed local membership/export checks above.
+Preparation can degrade an individual acquisition failure to an unavailable
+module; its green step alone does not prove hosted audit-model admission.
