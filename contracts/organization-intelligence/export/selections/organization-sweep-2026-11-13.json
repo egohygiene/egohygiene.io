@@ -1,0 +1,40 @@
+{
+  "schema": "egohygiene.website.organization-intelligence-model-selection/v1",
+  "contract_version": "1.0.0-alpha.1",
+  "visibility": "public",
+  "target": {
+    "origin": "https://egohygiene.github.io",
+    "base_path": "/.github/"
+  },
+  "as_of": "2026-11-13T03:36:14Z",
+  "modules": {
+    "core": null,
+    "audits": {
+      "visibility": "public",
+      "producer_repository": "egohygiene/.github",
+      "producer_revision": "281c3827378ae08bb44cde810ad6467fdb0c8adc",
+      "workflow_path": ".github/workflows/repository-intelligence-canary.yml",
+      "run_id": 43358630670,
+      "run_attempt": 1,
+      "artifact_id": 14007481492,
+      "artifact_name": "repository-intelligence-real-review-v1-43358630670-1",
+      "archive_sha256": "6c0307435f17a03808ddb71da53216463d87fe2183aebb3380e795c45d1b94f5",
+      "manifest_sha256": "3dd9c1668211559ee69c0597d33de776aa9d2249a4fb68d12bc701e0a1d813a2",
+      "maximum_age_seconds": 86400
+    },
+    "sanity": {
+      "visibility": "public",
+      "producer_repository": "egohygiene/.github",
+      "producer_revision": "281c3827378ae08bb44cde810ad6467fdb0c8adc",
+      "workflow_path": ".github/workflows/repository-intelligence-canary.yml",
+      "run_id": 43358630670,
+      "run_attempt": 1,
+      "artifact_id": 14007481492,
+      "artifact_name": "repository-intelligence-real-review-v1-43358630670-1",
+      "archive_sha256": "6c0307435f17a03808ddb71da53216463d87fe2183aebb3380e795c45d1b94f5",
+      "manifest_sha256": "3dd9c1668211559ee69c0597d33de776aa9d2249a4fb68d12bc701e0a1d813a2",
+      "maximum_age_seconds": 86400
+    }
+  },
+  "publications": null
+}

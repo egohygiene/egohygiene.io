@@ -1,5 +1,14 @@
 # Agent entry point
 
+## Current organization Audit/Sanity selection — 2026-11-13
+
+The [actual sweep selection](docs/development/intelligence-organization-sweep-selection.md)
+selects real hosted Audit and Sanity inputs while preserving one target row,
+original clocks and partial/human-unreviewed states. Local sealed export/intake
+qualification passed on graph-fixed source; actual hosted export/intake is next.
+Read [CONTINUITY.md](CONTINUITY.md). Old canary/store records below remain dated
+evidence; no Pages activation or publisher change is claimed here.
+
 ## Current GitHub CLI state boundary — 2026-11-13
 
 Diagnostic run `43337872934/1` found only `.local/state/gh/device-id` appearing

@@ -1,5 +1,15 @@
 # Current handoff
 
+## Current: organization Audit and Sanity inputs — 2026-11-13
+
+Website main `d6f4a452f265ba78ecc88623613e9797a8ca2700` contains the graph repair.
+The [new actual selection](../development/intelligence-organization-sweep-selection.md)
+binds organization run `43358630670/1` and both review domains at their original
+model clock. Local loader, 39-route sealed export and native intake pass, with
+all eight Sanity concern summaries and honest partial/unreviewed states. Actual
+hosted export/companion/intake remain next; Core stays unavailable and one fleet
+row is not 28 rows. [CONTINUITY.md](../../CONTINUITY.md) owns the current handoff.
+
 ## Current: graph pointer and mobile browser repair — 2026-11-13
 
 Actual retained-artifact Chromium replay found first-click SVG link selection
