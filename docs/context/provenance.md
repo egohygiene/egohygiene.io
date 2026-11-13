@@ -3,12 +3,13 @@
 ## Hosted export guard observation — 2026-11-13
 
 Website #141 merged as `0847371698710df35d79190e32154be96c72858e`, preserving
-reviewed functional source. Actual run `43335344355/1` acquired the selected
-public model and completed exact pinned runtime/frozen ignore-scripts setup,
+reviewed functional source. Actual run `43335344355/1` completed the model-selection/acquisition step and exact pinned runtime/frozen
+ignore-scripts setup,
 then failed the existing combined 40-hex HEAD/clean-source guard. No finalize
 or upload occurred. Local frozen installs remained clean; no package-manager,
 mode or Git cause is established. Bounded read-only checkpoint observations
-are the next selected diagnostic. The guard, lock, owner pins/schemas, actual
+before export and after a failed export are the next selected diagnostic.
+The green acquisition step alone does not establish hosted model admission. The guard, lock, owner pins/schemas, actual
 selection, publishers and legacy records remain unchanged. See the
 [canary guide](../development/intelligence-real-audit-canary.md); local proof
 does not establish a hosted export or review artifact.

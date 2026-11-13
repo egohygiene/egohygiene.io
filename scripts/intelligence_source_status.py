@@ -43,7 +43,7 @@ def public_path(raw: bytes) -> str:
 
 
 def main() -> int:
-    if len(sys.argv) != 2 or sys.argv[1] not in {"checkout", "acquisition", "install"}:
+    if len(sys.argv) != 2 or sys.argv[1] not in {"checkout", "acquisition", "install", "export-failure"}:
         return 2
     head, head_ok = capture(["rev-parse", "HEAD"], 128)
     head_valid = head_ok and re.fullmatch(rb"[a-f0-9]{40}\n?", head) is not None

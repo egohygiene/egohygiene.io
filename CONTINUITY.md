@@ -7,7 +7,7 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-13T00:28:42Z'
+  updated_at: '2026-11-13T00:31:14Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
@@ -18,14 +18,14 @@ scope:
   includes:
   - 'Website #141 merged at 0847371698710df35d79190e32154be96c72858e after #140 and Relay #181. The required
     pinned contains constraints and actual public model selection remain unchanged.'
-  - Hosted website run 43335344355 attempt 1 acquired the actual organization model artifact, selected
+  - Hosted website run 43335344355 attempt 1 completed the model-selection/acquisition step, selected
     Node 24.21.0 and pnpm 11.28.5, and completed frozen ignore-scripts installation. Export failed at
     the existing combined 40-hex HEAD and clean-source guard; no sealed export or selection receipt was
     uploaded.
-  - Fixed checkout, post-acquisition and post-install observations now log only bounded HEAD validity/public
-    SHA and JSON-escaped canonical relative status paths. Git output/time and row counts are bounded;
-    noncanonical or credential-like paths are omitted. Optional index writes are disabled. No file contents,
-    diffs, private model paths, environment or configuration are logged.
+  - Fixed checkout, post-acquisition, post-install and export-failure observations now log only bounded
+    HEAD validity/public SHA and JSON-escaped canonical relative status paths. Git output/time and row
+    counts are bounded; noncanonical or credential-like paths are omitted. Optional index writes are disabled.
+    No file contents, diffs, private model paths, environment or configuration are logged.
   - The export source guard, source/pin/schema/selection bytes, dependency lock, publisher boundaries
     and private capture restrictions remain intact. The exact hosted source path or identity mismatch
     is still unknown; local exact frozen installs remained clean.
@@ -59,8 +59,8 @@ work:
   objective: Diagnose the hosted retained-model export source-identity guard with bounded read-only checkpoints
     before repairing any demonstrated source mutation.
   success_conditions:
-  - Observe HEAD identity and bounded status metadata at the three actual hosted checkpoints without changing
-    the clean-source guard or checkout.
+  - Observe HEAD identity and bounded status metadata at the three preflight checkpoints and after a failed
+    export without changing the clean-source guard or checkout.
   - Identify a concrete source mutation or identity mismatch before selecting its repair; do not infer
     a package-manager or Git defect from the failed guard.
   - Preserve the real audit model, original clocks, partial/historical report semantics, sealed format
@@ -74,8 +74,9 @@ work:
     id: observe-hosted-source-checkpoints
     description: After exact-head peer review and ordinary source merge, repeat the selected manual retained-model
       workflow once with the existing checked-in selection and SHA a2f02e5039714154c11f250704cc926017c0b7cc18403444b7696b58f7a7429c.
-      Compare the three public metadata checkpoints with the unchanged source guard. Repair only a demonstrated
-      cause; then retain real export/companion artifacts and execute the .github review-only consumer.
+      Compare the preflight and export-failure metadata checkpoints with the unchanged source guard. Repair
+      only a demonstrated cause; then retain real export/companion artifacts and execute the .github review-only
+      consumer.
     readiness: ready
     references:
     - docs/development/intelligence-real-audit-canary.md
@@ -89,17 +90,21 @@ state:
   candidate:
     branch: codex/ri-convergence-export-source-diagnostic
     revision: null
-    pull_request: null
+    pull_request:
+      provider: github
+      id: egohygiene/egohygiene.io#142
+      url: https://github.com/egohygiene/egohygiene.io/pull/142
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-13T00:28:42Z'
+    observed_at: '2026-11-13T00:29:31Z'
     default_branch_revision: 0847371698710df35d79190e32154be96c72858e
     issue_state: open
-    pull_request_state: not-applicable
-    notes: 'Provider metadata verifies #141 merged at main084737. The actual hosted run43335344355/1 failed
-      only after acquisition/runtime/install succeeded; no public export/companion artifact exists for
-      that attempt. This diagnostic candidate has no owner PR or hosted checkpoint observations yet.'
+    pull_request_state: draft
+    notes: 'Provider metadata verifies #141 merged at main084737 and #142 open draft. Hosted run43335344355/1
+      completed the acquisition step/runtime/install, then failed the source guard; preparation may degrade
+      an individual module to unavailable, so hosted model admission is unverified. No public export/companion
+      artifact exists for that attempt. Actual diagnostic checkpoint observations remain pending.'
   parallel_changes: []
 review:
   status: partial
@@ -115,9 +120,9 @@ review:
   - command: Actual hosted retained-model workflow43335344355 attempt1 at084737
     outcome: failed
     observed_at: '2026-11-13T00:28:42Z'
-    notes: Acquisition, pinned runtimes and frozen ignore-scripts install succeeded. Existing combined
-      HEAD/clean-source guard rejected the export. Finalize/upload skipped; exact failing identity/path
-      remains unobserved.
+    notes: The acquisition step, pinned runtimes and frozen ignore-scripts install completed. The existing
+      combined HEAD/clean-source guard rejected export. Finalize/upload skipped; hosted model admission
+      and exact failing identity/path remain unobserved.
   - command: Historical focused membership tests, actual/resealed-negative loader probes and clean real-model
       local export at e79b250
     outcome: passed
@@ -142,7 +147,8 @@ review:
     checking; this does not identify the hosted failure cause.
   - No reset, deletion, ignored source change, lock weakening, gate relaxation, file-content dump, new
     provider activation or publisher change is selected. The next actual run must provide the bounded
-    source metadata.
+    source metadata. Preparation may degrade individual acquisition failures to unavailable; its green
+    step alone does not prove model admission.
   - Four focused owner-rule tests and selected real-model local loader/export checks previously ran. This
     diagnostic adds metadata fixture checks only; no new site build, broad CI, browser, deployment or
     ratification is claimed.
@@ -176,11 +182,11 @@ Diagnose the hosted retained-model export source-identity guard with bounded rea
 
 ## State snapshot
 
-Candidate `codex/ri-convergence-export-source-diagnostic` starts at actual main `0847371698710df35d79190e32154be96c72858e`; containing revision and pre-PR reference remain null. #141 is merged. Run `43335344355/1` failed at the combined HEAD/clean-source guard after successful actual acquisition and installation. No hosted export or companion receipt exists for that attempt.
+Candidate `codex/ri-convergence-export-source-diagnostic` starts at actual main `0847371698710df35d79190e32154be96c72858e`; containing revision remains null and draft PR #142 is open. #141 is merged. Run `43335344355/1` failed at the combined HEAD/clean-source guard after the acquisition step and installation completed; actual hosted model admission remains unverified. No hosted export or companion receipt exists for that attempt.
 
 ## Completed and material changes
 
-Website #141 merged at 0847371698710df35d79190e32154be96c72858e after #140 and Relay #181. The required pinned contains constraints and actual public model selection remain unchanged. Hosted website run 43335344355 attempt 1 acquired the actual organization model artifact, selected Node 24.21.0 and pnpm 11.28.5, and completed frozen ignore-scripts installation. Export failed at the existing combined 40-hex HEAD and clean-source guard; no sealed export or selection receipt was uploaded. Fixed checkout, post-acquisition and post-install observations now log only bounded HEAD validity/public SHA and JSON-escaped canonical relative status paths. Git output/time and row counts are bounded; noncanonical or credential-like paths are omitted. Optional index writes are disabled. No file contents, diffs, private model paths, environment or configuration are logged. The export source guard, source/pin/schema/selection bytes, dependency lock, publisher boundaries and private capture restrictions remain intact. The exact hosted source path or identity mismatch is still unknown; local exact frozen installs remained clean.
+Website #141 merged at 0847371698710df35d79190e32154be96c72858e after #140 and Relay #181. The required pinned contains constraints and actual public model selection remain unchanged. Hosted website run 43335344355 attempt 1 completed the model-selection/acquisition step, selected Node 24.21.0 and pnpm 11.28.5, and completed frozen ignore-scripts installation. Export failed at the existing combined 40-hex HEAD and clean-source guard; no sealed export or selection receipt was uploaded. Fixed checkout, post-acquisition, post-install and export-failure observations now log only bounded HEAD validity/public SHA and JSON-escaped canonical relative status paths. Git output/time and row counts are bounded; noncanonical or credential-like paths are omitted. Optional index writes are disabled. No file contents, diffs, private model paths, environment or configuration are logged. The export source guard, source/pin/schema/selection bytes, dependency lock, publisher boundaries and private capture restrictions remain intact. The exact hosted source path or identity mismatch is still unknown; local exact frozen installs remained clean.
 
 ## Validation and review evidence
 
@@ -192,7 +198,7 @@ The actual failing source path or HEAD mismatch is unknown. Local frozen install
 
 ## Next dependency-ready work
 
-After exact-head peer review and ordinary source merge, repeat the selected manual retained-model workflow once with the existing checked-in selection and SHA a2f02e5039714154c11f250704cc926017c0b7cc18403444b7696b58f7a7429c. Compare the three public metadata checkpoints with the unchanged source guard. Repair only a demonstrated cause; then retain real export/companion artifacts and execute the .github review-only consumer.
+After exact-head peer review and ordinary source merge, repeat the selected manual retained-model workflow once with the existing checked-in selection and SHA a2f02e5039714154c11f250704cc926017c0b7cc18403444b7696b58f7a7429c. Compare the preflight and export-failure metadata checkpoints with the unchanged source guard. Repair only a demonstrated cause; then retain real export/companion artifacts and execute the .github review-only consumer.
 
 ## Parallel changes and reconciliation
 

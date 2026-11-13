@@ -143,6 +143,9 @@ jobs:
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as target:
               target.write("manifest-sha256=" + hashlib.sha256(raw).hexdigest() + "\n")
           PY
+      - name: Inspect source identity after an export failure
+        if: ${{ failure() && steps.export.outcome == 'failure' }}
+        run: python3 -I scripts/intelligence_source_status.py export-failure
       - name: Bind the admitted presentations to a separate selection receipt
         id: receipt
         shell: bash
