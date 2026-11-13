@@ -1,5 +1,22 @@
 # Context provenance ledger
 
+## Observed evidence membership repair — 2026-11-13
+
+Website #140 merged as `eed5070382e36c0f29e71519c8df476d8c131ca2`, with the
+exact reviewed tree and parents. Its first real-model export completed but
+reported Audits incompatible: the existing pinned owner schema uses two
+`contains` constraints that the structural adapter did not support. Repair
+`e79b250d88e62aa2cd4880972b4bd91d4b48b201` enforces those constraints and adds
+four passing focused owner-rule tests plus the actual provider selection.
+A real hosted input is admitted; its resealed no-observed-evidence mutation is
+rejected. The clean local export renders the real finding, partial completion
+and original frame across the sealed 39-route artifact. See the
+[source-bound receipt](../development/intelligence-real-audit-canary.md).
+Normal runtime pins, owner schemas, publishers, legacy hosting and all earlier
+records remain unchanged. Hosted website export/intake proof is still pending;
+no local capture receipt, broad qualification, deployment or ratification is
+inferred from the local checks.
+
 ## Retained-model producer source integration — 2026-11-12
 
 The selected website #140 starts from reviewed head

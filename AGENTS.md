@@ -1,13 +1,13 @@
 # Agent entry point
 
-## Current Repository Intelligence integration — 2026-11-12
+## Current Repository Intelligence canary — 2026-11-13
 
-The selected retained-model producer is in [PR #140](https://github.com/egohygiene/egohygiene.io/pull/140).
 Read the bounded [current checkpoint](CONTINUITY.md) and
-[current handoff](docs/context/current-state.md). The user authorized this
-source merge after Relay #181 and one real report-to-review-artifact canary.
-Focused work necessary for that canary is selected; broad CI, browsers, live
-Pages, provider activation and hosting cutover retain their separate gates.
+[real audit canary](docs/development/intelligence-real-audit-canary.md).
+The selected owner-schema membership repair and actual provider selection keep
+existing contract and publisher boundaries. Focused tests and a local real-model
+export ran; provider export/intake proof is the next selected step. Broad CI,
+browsers, live Pages, hosting cutover and human ratification remain separate.
 Website/store records below retain their dated evidence and owner decisions.
 
 ## Current merged readiness queue — 2026-11-10

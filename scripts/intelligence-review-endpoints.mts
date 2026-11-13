@@ -107,6 +107,7 @@ function supportedSchema(value: unknown, depth = 0): void {
     "additionalProperties",
     "propertyNames",
     "items",
+    "contains",
     "minItems",
     "maxItems",
     "uniqueItems",
@@ -129,7 +130,7 @@ function supportedSchema(value: unknown, depth = 0): void {
   for (const name of ["properties", "$defs"])
     if (schema[name] !== undefined)
       for (const child of Object.values(object(schema[name]))) supportedSchema(child, depth + 1);
-  for (const name of ["items", "additionalProperties", "propertyNames", "if", "then", "else"])
+  for (const name of ["items", "contains", "additionalProperties", "propertyNames", "if", "then", "else"])
     if (schema[name] !== undefined) supportedSchema(schema[name], depth + 1);
   for (const name of ["allOf", "anyOf", "oneOf"])
     for (const child of list(schema[name] ?? [], 32)) supportedSchema(child, depth + 1);
@@ -224,6 +225,15 @@ function shape(value: unknown, schemaValue: unknown, document: Value, depth = 0)
       requireInput(new Set(value.map(canonical)).size === value.length);
     if (schema["items"] !== undefined)
       for (const item of value) shape(item, schema["items"], document, depth + 1);
+    if (schema["contains"] !== undefined)
+      requireInput(value.some((item) => {
+        try {
+          shape(item, schema["contains"], document, depth + 1);
+          return true;
+        } catch {
+          return false;
+        }
+      }));
   } else if (value !== null && typeof value === "object") {
     const record = object(value);
     const properties = object(schema["properties"] ?? {});
@@ -241,6 +251,9 @@ function shape(value: unknown, schemaValue: unknown, document: Value, depth = 0)
     }
   }
 }
+
+/** Internal structural-validator seam for focused owner-contract regressions. */
+export { shape as validateReviewSchemaShape };
 
 /** Inspect only source ownership until the entire repository projection is
  * admitted. Hidden owners cannot affect public IDs, counts or semantic hashes. */

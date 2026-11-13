@@ -7,31 +7,33 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-12T23:49:58Z'
+  updated_at: '2026-11-13T00:10:19Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Land the accepted retained-model export source and hand off the authorized single real report-to-review-artifact
-    canary.
+  purpose: Admit the pinned audit evidence-membership constraints and hand off the real checked-in model
+    selection for the selected review-artifact canary.
   includes:
-  - The reviewed producer workflow, standalone Relay capsule, loader additions and sealed-export/39-route
-    contracts remain byte-identical to functional f1388a38eeef5986a33febc8c2b1224dc5227d47. Main c35932b77fe3623cad19f1f1b890e51ec16f38a8
-    is unchanged at preparation.
-  - The user accepted the five Repository Intelligence integrations and one real report to repository
-    artifact to sealed organization export to .github review artifact canary. Relay181 is merged at 12d3a0823c8c8f885dea4acf482160fd726325e2.
-    The pinned functional Relay5d27be5ce1599df883e31f14cd894eb18622c18c capsule bytes remain the selected
-    unchanged interface.
-  - The current bounded handoff and entry/context pointers replace stale operational instructions for
-    this task while preserving all legacy website/store records. Existing production publishers, legacy
-    host/canonical paths, purchase guards, strict budgets and proposed decision lifecycles remain unchanged.
-  - Focused tests, helper/export builds, manual ordinary-artifact transport and review-artifact retention
-    necessary for the single selected canary are authorized. This source integration has not executed
-    or claimed that canary; actual IDs, source clocks, hashes and outcomes belong to its later evidence.
+  - The website structural validator now supports the two existing owner-schema contains constraints,
+    recursively inspects their schemas and requires one jointly matching array member. Empty and nonmatching
+    evidence still fail; no owner pin, schema, bounded guard or fallback is loosened.
+  - The checked-in real-audit-canary-2026-11-13 selection binds actual public organization run43333273329/attempt1/sourceb1539be1ab718de2db3da4b1eaa6827e36d4753f/model
+    artifact13996296082. Evaluation00:04:12Z follows actual artifact creation23:58:46Z; the original model
+    frame23:58:44Z and partial/historical report semantics remain unchanged. Core, Sanity and publications
+    are unselected.
+  - At functionale79b250d88e62aa2cd4880972b4bd91d4b48b201, four focused owner-rule tests passed. The actual
+    hosted model was admitted and a resealed no-observed-evidence mutation rejected. A clean existing
+    client/SSR export admitted only egohygiene/.github, rendered the real finding and partial completion,
+    and passed closed manifest/39-route/43-file inventory checks.
+  - Website140 is merged ateed5070382e36c0f29e71519c8df476d8c131ca2 after Relay181 at12d3a0823c8c8f885dea4acf482160fd726325e2.
+    The user accepted the single real report to repository artifact to sealed organization export to .github
+    review artifact canary. Current normal publishers, legacy hosting, production/store contracts and
+    human holds remain unchanged.
   excludes:
-  - Broad CI, browser/full-application qualification, live Pages or deployment, provider activation, hosting
-    cutover, human ratification and issue acceptance outside the single selected review-artifact canary.
+  - Broad CI, browser/full-application qualification, live Pages/deployment, provider activation, hosting
+    cutover, human ratification and issue acceptance outside the selected review-artifact canary.
   precedence:
   - user-and-runtime-instructions
   - scoped-repository-instructions
@@ -57,84 +59,101 @@ scope:
   - .github/workflows/intelligence-model-artifacts-export.yml
   - docs/development/intelligence-model-artifact-selection.md
   - https://github.com/egohygiene/.github/issues/27
+  - scripts/intelligence-review-endpoints.mts
+  - tests/tooling/intelligence-review-schema.test.mjs
+  - contracts/organization-intelligence/export/selections/real-audit-canary-2026-11-13.json
+  - docs/development/intelligence-real-audit-canary.md
 work:
-  objective: Land the accepted retained-model export source and hand off the authorized single real report-to-review-artifact
-    canary.
+  objective: Admit the pinned audit evidence-membership constraints and hand off the real checked-in model
+    selection for the selected review-artifact canary.
   success_conditions:
-  - Land this exact source only after actual Relay181 integration and independent exact-head source review,
-    preserving original functional bytes and current main.
-  - Keep source-merge evidence separate from the selected real canary and retain actual operator/provider
-    bindings without fabricating artifacts or refreshing report clocks.
-  - Preserve current legacy hosting, publication/store contracts and human approval boundaries while preparing
-    the existing review-only path.
+  - Enforce the exact pinned observed-evidence and observed-policy membership rules, retaining fail-closed
+    unknown-schema and input bounds.
+  - Admit the actual public report model without retiming or promoting its partial audit/historical subject,
+    while rejecting a resealed invalid-evidence input.
+  - Prepare actual operator selection bindings for the next hosted export/intake step without fabricating
+    its future run, artifact, receipt or acceptance.
   active_issue:
     provider: github
     id: egohygiene/.github#27
     url: https://github.com/egohygiene/.github/issues/27
   next:
     kind: action
-    id: land-producer-then-complete-single-review-artifact-canary
-    description: With Relay181 merged, land website140 at its exact independently reviewed head, then
-      complete the root-owned single real report-to-review-artifact canary using real source, artifact,
-      manifest, clock and receipt bindings. Broad CI/browser/live Pages and hosting cutover remain separate.
+    id: execute-selected-hosted-export-and-review-intake
+    description: After this exact reviewed source merge, dispatch the existing manual website retained-model
+      producer with the checked-in real-audit-canary-2026-11-13 selection and raw SHA256a2f02e5039714154c11f250704cc926017c0b7cc18403444b7696b58f7a7429c.
+      Retain its real sealed export/companion IDs and digests, then execute the existing .github review-only
+      consumer. Keep publication and broad qualification separate.
     readiness: ready
     references:
-    - https://github.com/egohygiene/egohygiene.io/pull/140
-    - https://github.com/egohygiene/relay/pull/181
+    - docs/development/intelligence-real-audit-canary.md
     - https://github.com/egohygiene/.github/issues/41
     depends_on: []
 state:
   base:
-    revision: c35932b77fe3623cad19f1f1b890e51ec16f38a8
+    revision: eed5070382e36c0f29e71519c8df476d8c131ca2
     ref: refs/heads/main
-    verified_at: '2026-11-12T23:49:58Z'
+    verified_at: '2026-11-13T00:10:19Z'
   candidate:
-    branch: codex/intelligence-model-artifact-selection
+    branch: codex/ri-convergence-audit-contains
     revision: null
-    pull_request:
-      provider: github
-      id: egohygiene/egohygiene.io#140
-      url: https://github.com/egohygiene/egohygiene.io/pull/140
-    handoff_state: review-reference-recorded
+    pull_request: null
+    handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-12T23:49:58Z'
-    default_branch_revision: c35932b77fe3623cad19f1f1b890e51ec16f38a8
+    observed_at: '2026-11-13T00:10:19Z'
+    default_branch_revision: eed5070382e36c0f29e71519c8df476d8c131ca2
     issue_state: open
-    pull_request_state: draft
-    notes: Fresh website140 is open/draft at original159a836e1be0f65596b3139b23b9df7414c8bb92 on mainc35932b77fe3623cad19f1f1b890e51ec16f38a8,
-      with no comments/reviews returned. The current explicit landing and one-canary authorization supersedes
-      this draft source checkpoint's prior review-only/no-merge scheduling; Relay181 is now provider-verified
-      merged at 12d3a0823c8c8f885dea4acf482160fd726325e2, preserving its reviewed source interface. No
-      canary, new report or artifact outcome is claimed by this handoff.
+    pull_request_state: not-applicable
+    notes: Website140 is provider-verified merged ateed5070382e36c0f29e71519c8df476d8c131ca2 and Relay181
+      at12d3a0823c8c8f885dea4acf482160fd726325e2. Actual public organization artifact13996296082/run43333273329/1/sourceb153
+      was authenticated through provider metadata and exact ZIP/member hashes. This bounded source candidate
+      has not yet opened its owner PR or executed the hosted website export/.github intake.
   parallel_changes: []
 review:
   status: partial
-  reviewed_at: '2026-11-12T23:49:58Z'
+  reviewed_at: '2026-11-13T00:10:19Z'
   reviewed_by: Codex
   evidence:
-  - command: Independent original source peer; fresh PR/main/comments inspection, exact functional/current-main
-      preservation, Python AST, TypeScript parse-only syntax, JSON/schema/capsule hashes, YAML metadata,
-      current/legacy handoff preservation and bounded continuity/local links/whitespace
+  - command: Node24.21.0 --test tests/tooling/intelligence-review-schema.test.mjs
+    outcome: passed
+    observed_at: '2026-11-13T00:10:19Z'
+    notes: All4 focused tests passed, including empty/nonmatching evidence, single-member observed-policy
+      semantics, bounded arrays and boolean contains.
+  - command: Actual hosted-model public loader probe plus resealed no-observed-evidence negative; native
+      pinned owner JSON Schema comparison
+    outcome: passed
+    observed_at: '2026-11-13T00:10:19Z'
+    notes: One actual partial audit run and AUDIT-001 admitted; resealed negative incompatible with no
+      records. Its sole native owner-schema violation was contains.
+  - command: Existing build-intelligence-export.mts client/SSR execution at clean functionale79b250d88e62aa2cd4880972b4bd91d4b48b201;
+      closed manifest/schema/39 route/43 file hash-size and rendered finding anchor/title/partial checks
+    outcome: passed
+    observed_at: '2026-11-13T00:10:19Z'
+    notes: Actual hosted model bytes; original frame2026-11-12T23:58:44Z. Local manifest1662c0bdf0ee186396b3d8402d538568c598000b721aed7132c51ac5c4f9fda3;
+      only egohygiene/.github admitted. Local proof is separate from a real hosted producer artifact.
+  - command: Actual provider selection/schema/hash/clock checks, current source/legacy preservation, syntax
+      and bounded Aether continuity schema/local links/whitespace
     outcome: limited
-    observed_at: '2026-11-12T23:49:58Z'
-    notes: Source and Git/provider metadata inspection only. Final exact-head peer and ordinary expected-head
-      source merge are recorded in the integration receipt; no producer helper, export build or canary
-      was executed by this preparation.
-  - command: Selected single report/artifact/export/review canary and its necessary focused tests/builds
+    observed_at: '2026-11-13T00:10:19Z'
+    notes: Source and provider metadata checks; final independent exact-head peer and normal expected-head
+      merge are recorded separately.
+  - command: Hosted website retained-model producer/export upload and .github review consumer; broad CI/browser/live
+      Pages/deployment
     outcome: not-run
-    observed_at: '2026-11-12T23:49:58Z'
-    notes: Now authorized by the accepted plan and owned by the subsequent canary checkpoint; no result,
-      actual provider ID or digest is invented.
+    observed_at: '2026-11-13T00:10:19Z'
+    notes: The selected hosted export/intake follows this source merge. Broad qualification, live publication
+      and human ratification remain outside this checkpoint.
   environment_limitations:
-  - The default local runtime is Node24.19.0/pnpm11.19.0; this producer pins Node24.21.0/pnpm11.28.5.
-    Fresh isolated producer dependencies are not installed. Reuse a store/cache with correct local workspace
-    links or install the exact pinned locked environment for actual canary builds.
-  - No populated retained selection is committed until real artifact identities exist. Local --capture-root
-    replay remains acquisition-only and cannot mint the real-provider public selection receipt.
-  - Broad CI, browser/native-device and full-site qualification, live Pages/deployment, provider activation
-    and hosting cutover remain deferred. Source merges and a single review-artifact canary do not ratify
-    human decisions or establish full-fleet acceptance.
+  - Exact Node24.21.0/pnpm11.28.5 archives were checksum/integrity verified and a fresh frozen-lockfile
+    ignore-scripts install completed. Source/lock inputs remain unchanged; no primary-workspace dependency
+    symlinks were reused.
+  - Actual hosted model ZIP bytes came from the authorized GitHub connector and retain their original
+    source/frame. Local capture replay cannot mint a public provider selection receipt; the real producer
+    workflow must supply actual export and companion artifacts.
+  - Only four focused tests and the selected real-model local loader/export checks ran. Browser/native-device,
+    broad CI/full-site qualification, live Pages/deployment, hosting cutover and human ratification remain
+    separate.
 privacy:
   classification: public-repository
   contains_sensitive_data: false
@@ -153,48 +172,48 @@ privacy:
 
 ## Purpose and precedence
 
-User/runtime and repository instructions, live evidence and canonical sources outrank this checkpoint. It grants no deployment or human-decision authority beyond the current explicit task.
+User/runtime, scoped instructions, live evidence and canonical sources outrank this checkpoint. It grants no additional deployment or human-decision authority.
 
 ## Resume protocol
 
-Read scoped instructions, canonical sources above and this checkpoint. Verify mutable GitHub state and exact owner pins before continuing. Preserve the legacy website/store handoffs and their dated evidence.
+Read the current source and canary guide above, then verify mutable provider/head/lease claims. Preserve the legacy website/store records and their source-bound limits.
 
 ## Current objective and success conditions
 
-Land the accepted retained-model export source and hand off the authorized single real report-to-review-artifact canary. Land this exact source only after actual Relay181 integration and independent exact-head source review, preserving original functional bytes and current main. Keep source-merge evidence separate from the selected real canary and retain actual operator/provider bindings without fabricating artifacts or refreshing report clocks. Preserve current legacy hosting, publication/store contracts and human approval boundaries while preparing the existing review-only path.
+Admit the pinned audit evidence-membership constraints and hand off the real checked-in model selection for the selected review-artifact canary. Enforce the exact pinned observed-evidence and observed-policy membership rules, retaining fail-closed unknown-schema and input bounds. Admit the actual public report model without retiming or promoting its partial audit/historical subject, while rejecting a resealed invalid-evidence input. Prepare actual operator selection bindings for the next hosted export/intake step without fabricating its future run, artifact, receipt or acceptance.
 
 ## State snapshot
 
-Candidate `codex/intelligence-model-artifact-selection` is based on observed main `c35932b77fe3623cad19f1f1b890e51ec16f38a8`. Its containing revision remains null; PR140 is recorded above. Fresh website140 is open/draft at original159a836e1be0f65596b3139b23b9df7414c8bb92 on mainc35932b77fe3623cad19f1f1b890e51ec16f38a8, with no comments/reviews returned. The current explicit landing and one-canary authorization supersedes this draft source checkpoint's prior review-only/no-merge scheduling; Relay181 is now provider-verified merged at 12d3a0823c8c8f885dea4acf482160fd726325e2, preserving its reviewed source interface. No canary, new report or artifact outcome is claimed by this handoff.
+Candidate `codex/ri-convergence-audit-contains` is based on actual main `eed5070382e36c0f29e71519c8df476d8c131ca2`. Its containing revision and pre-PR reference remain null. Website140 is provider-verified merged ateed5070382e36c0f29e71519c8df476d8c131ca2 and Relay181 at12d3a0823c8c8f885dea4acf482160fd726325e2. Actual public organization artifact13996296082/run43333273329/1/sourceb153 was authenticated through provider metadata and exact ZIP/member hashes. This bounded source candidate has not yet opened its owner PR or executed the hosted website export/.github intake.
 
 ## Completed and material changes
 
-The reviewed producer workflow, standalone Relay capsule, loader additions and sealed-export/39-route contracts remain byte-identical to functional f1388a38eeef5986a33febc8c2b1224dc5227d47. Main c35932b77fe3623cad19f1f1b890e51ec16f38a8 is unchanged at preparation. The user accepted the five Repository Intelligence integrations and one real report to repository artifact to sealed organization export to .github review artifact canary. Relay181 is merged at 12d3a0823c8c8f885dea4acf482160fd726325e2. The pinned functional Relay5d27be5ce1599df883e31f14cd894eb18622c18c capsule bytes remain the selected unchanged interface. The current bounded handoff and entry/context pointers replace stale operational instructions for this task while preserving all legacy website/store records. Existing production publishers, legacy host/canonical paths, purchase guards, strict budgets and proposed decision lifecycles remain unchanged. Focused tests, helper/export builds, manual ordinary-artifact transport and review-artifact retention necessary for the single selected canary are authorized. This source integration has not executed or claimed that canary; actual IDs, source clocks, hashes and outcomes belong to its later evidence.
+The website structural validator now supports the two existing owner-schema contains constraints, recursively inspects their schemas and requires one jointly matching array member. Empty and nonmatching evidence still fail; no owner pin, schema, bounded guard or fallback is loosened. The checked-in real-audit-canary-2026-11-13 selection binds actual public organization run43333273329/attempt1/sourceb1539be1ab718de2db3da4b1eaa6827e36d4753f/model artifact13996296082. Evaluation00:04:12Z follows actual artifact creation23:58:46Z; the original model frame23:58:44Z and partial/historical report semantics remain unchanged. Core, Sanity and publications are unselected. At functionale79b250d88e62aa2cd4880972b4bd91d4b48b201, four focused owner-rule tests passed. The actual hosted model was admitted and a resealed no-observed-evidence mutation rejected. A clean existing client/SSR export admitted only egohygiene/.github, rendered the real finding and partial completion, and passed closed manifest/39-route/43-file inventory checks. Website140 is merged ateed5070382e36c0f29e71519c8df476d8c131ca2 after Relay181 at12d3a0823c8c8f885dea4acf482160fd726325e2. The user accepted the single real report to repository artifact to sealed organization export to .github review artifact canary. Current normal publishers, legacy hosting, production/store contracts and human holds remain unchanged.
 
 ## Validation and review evidence
 
-Static source/capsule/schema/hash/syntax and Git/provider metadata checks are separate from runtime qualification. Original functional producer bytes and legacy records are preserved. Exact-head source peer and merge receipts are recorded outside this containing document. No selected report, helper run, export build, artifact upload/intake or canary result is claimed here.
+Four focused owner-rule tests passed. The public loader admitted the actual hosted audit model and rejected its resealed invalid-evidence mutation. Clean functional `e79b250d88e62aa2cd4880972b4bd91d4b48b201` built the existing sealed export; the real finding anchor/title/partial state, original frame, only-public repository scope, manifest schema and exact39 routes/43 file hashes were checked. The canary guide owns exact source/model/selection/manifest references. These local checks do not establish hosted export/intake or live publication.
 
 ## Blockers, risks, unknowns, and deferred work
 
-The default local runtime is Node24.19.0/pnpm11.19.0; this producer pins Node24.21.0/pnpm11.28.5. Fresh isolated producer dependencies are not installed. Reuse a store/cache with correct local workspace links or install the exact pinned locked environment for actual canary builds. No populated retained selection is committed until real artifact identities exist. Local --capture-root replay remains acquisition-only and cannot mint the real-provider public selection receipt. Broad CI, browser/native-device and full-site qualification, live Pages/deployment, provider activation and hosting cutover remain deferred. Source merges and a single review-artifact canary do not ratify human decisions or establish full-fleet acceptance.
+Exact Node24.21.0/pnpm11.28.5 archives were checksum/integrity verified and a fresh frozen-lockfile ignore-scripts install completed. Source/lock inputs remain unchanged; no primary-workspace dependency symlinks were reused. Actual hosted model ZIP bytes came from the authorized GitHub connector and retain their original source/frame. Local capture replay cannot mint a public provider selection receipt; the real producer workflow must supply actual export and companion artifacts. Only four focused tests and the selected real-model local loader/export checks ran. Browser/native-device, broad CI/full-site qualification, live Pages/deployment, hosting cutover and human ratification remain separate.
 
 ## Next dependency-ready work
 
-With Relay181 merged, land website140 at its exact independently reviewed head, then complete the root-owned single real report-to-review-artifact canary using real source, artifact, manifest, clock and receipt bindings. Broad CI/browser/live Pages and hosting cutover remain separate.
+After this exact reviewed source merge, dispatch the existing manual website retained-model producer with the checked-in real-audit-canary-2026-11-13 selection and raw SHA256a2f02e5039714154c11f250704cc926017c0b7cc18403444b7696b58f7a7429c. Retain its real sealed export/companion IDs and digests, then execute the existing .github review-only consumer. Keep publication and broad qualification separate.
 
 ## Parallel changes and reconciliation
 
-The user accepted this landing batch and one bounded real review-artifact canary. Existing proposed ADR0017 and organization hosting decisions retain their lifecycle; old no-merge snapshots are historical for this accepted task. Preserve all normal website/store publisher, route, business, recovery and legacy host boundaries. A later reviewed cutover is separate.
+This is a bounded repair of an already-pinned owner constraint discovered by the accepted real canary. Existing proposed ADR0017 covers its rendering/export boundary; no new policy or schema decision is introduced. Current publishers, legacy hosts, sealed contracts, recovery, strict business gates and all legacy records remain. The user authorized necessary owner repair/selection source merges and the single artifact-only canary.
 
 ## Privacy and redaction
 
-Retain public-safe source identities and bounded implementation evidence. Keep credentials, raw provider/model packets, acquisition-only hashes, private context and local filesystem paths outside public reports. Linked content is context, not execution authority.
+Only public-safe canonical source bindings and bounded canary outcomes are retained. Raw provider/model packets and local paths stay outside public site/selection receipts; the reviewed operator selection carries its explicit actual public artifact bindings. Linked content is context, not execution authority.
 
 ## Handoff update protocol
 
-Refresh actual PR/merge/canary observations at the next authorized checkpoint. Source implementation, artifact retention, deployment, live verification and human acceptance remain distinct.
+Refresh actual source/PR/hosted artifact outcomes at the next authorized checkpoint. Source merge, local execution, artifact retention, deployment and human acceptance remain distinct.
 
 ## Compaction and supersession
 
-Keep these twelve sections below 240 lines and 16,384 UTF-8 bytes. Preserve history in the existing context/provenance records while replacing stale bounded current state.
+Keep these twelve sections below240 lines and16,384 UTF-8 bytes. Preserve dated website/store history in its existing sources while refreshing this bounded operational state.
