@@ -7,31 +7,36 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-13T05:18:12Z'
+  updated_at: '2026-11-13T05:38:44Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Deliver Light, Dark and System appearance on the portable Organization Intelligence dashboard using
-    the existing shared theme owner.
+  purpose: Record completed actual Intelligence appearance delivery and resume the open organization acceptance
+    and foundation gates without changing runtime or publication.
   includes:
-  - Functional cbe8b1ece8fe7ca1904963c6303310d5988a9fd0 adds a native System/Light/Dark selector to the shared
-    export shell. It reuses ThemeProvider, semantic tokens and the existing preference key; ordinary website
-    controls stay unchanged. Saved high contrast is preserved until an explicit primary-mode choice.
-  - A synchronous same-origin assets/theme-preference.js resolves the actual palette before styles/content
-    on canonical pages, aliases and fallback. Shared allowed values/key feed the script; SSR/first hydration
-    match. Storage getter/quota failures remain usable in memory. No dependency or CSP change.
-  - Actual-input sealed export has 39 routes / 44 files (one additive bootstrap), manifest 4f252c5eaad92dc716d580b083a34250ae41634be5a5d0745ccfa9b131f1dbfd.
-    Unchanged pinned Relay native intake accepts review-only directory transport; receipt 2cdbcb9d84edef44b6306f0357e78f92c9265789037090be8af4d5e93b0308c7
-    is deployment-unauthorized.
-  - Existing actual Audit/Sanity inputs retain 2026-11-13T03:23:31Z model clocks, one target row and partial/unreviewed
-    states; Core stays unavailable. Owner contracts, input selection, publisher workflows, historical receipts
-    and company/store boundaries remain unchanged.
+  - 'Website #147 merged at d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a. That exact source was exported and published;
+    subsequent documentation commits are not exported or deployed by this closeout. Website #146 is closed
+    completed. The shared provider supplies persistent System/Light/Dark, safe storage fallback and a sealed
+    same-origin prepaint asset under unchanged CSP.'
+  - 'Actual hosted website export 43371316736/1 and native organization intake 43371630627/1 succeeded. Organization
+    #64 integrated the selection at c6ea728ebc68eef1c22418319e34fbe54d82caa9; actual publication 43372599165/1
+    succeeded at that publisher source. Canonical live publication 4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1
+    binds 44 producer files plus one consumer provenance file and 39 routes.'
+  - Hosted HTTPS byte verification passed; five live browser groups and eight independent peer assertions passed
+    actual palettes, modes, navigation/reload and OS changes with no interception, TLS bypass or page exceptions.
+    The browser automatic origin-root favicon404 is outside the project export. The actual prior 44-file public
+    site (publication 63e3f2e57cd261ceea4dbb3bf6cb0b92a4df88d91cfa4a0ebd93ccfb14c89322) was captured/verified
+    before replacement; restore remains unexercised.
+  - 'Original Audit/Sanity model clock 2026-11-13T03:23:31Z and selection evaluation 2026-11-13T03:36:14Z remain
+    unchanged, as do one fleet target, partial/unreviewed states and Core unavailable. Parent #41 remains open;
+    source merge/live delivery does not complete broader acceptance or the five foundation gates.'
   excludes:
-  - Report/model retiming, owner/schema/helper/pin/workflow changes, fabricated fleet rows or human ratification.
-  - Broad CI/full-site/store qualification, unrelated layout repair and consumer publication from this source
-    worktree. Actual theme export/intake/Pages delivery remains the next coordinated step.
+  - Runtime, dependency, CSP, model, selection, publisher or source-clock changes; new deployment/export; additional
+    test or broad CI runs.
+  - Human assessment/ADR ratification, full accessibility/performance certification, restore rehearsal and
+    closure of open organization/foundation acceptance gates.
   precedence:
   - user-and-runtime-instructions
   - scoped-repository-instructions
@@ -40,90 +45,86 @@ scope:
   - continuity-checkpoint
   canonical_sources:
   - AGENTS.md
-  - apps/egohygiene.io/AGENTS.md
-  - packages/themes/src/components/ThemeProvider.tsx
-  - packages/themes/src/initialization-script.ts
-  - apps/egohygiene.io/src/features/intelligence/export/AppearanceControl.tsx
-  - scripts/build-intelligence-export.mts
   - docs/development/intelligence-appearance.md
-  - contracts/organization-intelligence/export/selections/organization-sweep-2026-11-13.json
-  - docs/architecture/decisions/0003-design-token-architecture.md
-  - docs/architecture/decisions/0017-portable-intelligence-export.md
   - docs/context/current-state.md
   - docs/context/provenance.md
+  - contracts/organization-intelligence/export/selections/organization-sweep-2026-11-13.json
   - https://github.com/egohygiene/egohygiene.io/issues/146
+  - https://github.com/egohygiene/egohygiene.io/pull/147
+  - https://github.com/egohygiene/.github/pull/64
+  - https://github.com/egohygiene/.github/blob/main/docs/reviews/2026-11-13-organization-live-publication.json
+  - https://github.com/egohygiene/.github/blob/main/docs/reviews/2026-11-13-foundation-batch-20.md
+  - https://github.com/egohygiene/.github/issues/41
 work:
-  objective: Deliver Light, Dark and System appearance on the portable Organization Intelligence dashboard
-    using the existing shared theme owner.
+  objective: Record completed actual Intelligence appearance delivery and resume the open organization acceptance
+    and foundation gates without changing runtime or publication.
   success_conditions:
-  - Expose accessible primary choices throughout the exported dashboard/detail routes while keeping a shared
-    preference owner.
-  - Preserve explicit choices across reload/navigation; follow live OS changes for System and safely handle
-    unavailable storage.
-  - Prove pre-hydration palette, matching SSR, sealed resource inventory and actual-input browser behavior;
-    then deliver through existing export/intake/publisher and verify live.
+  - Point to the exact reviewed website and publisher revisions and inspect actual hosted/live delivery evidence.
+  - 'Record completed website #146 separately from open parent #41 and five foundation gates.'
+  - Keep a bounded twelve-section schema-valid handoff with original source/model/evaluation clocks and historical
+    proof preserved.
   active_issue:
     provider: github
-    id: egohygiene/egohygiene.io#146
-    url: https://github.com/egohygiene/egohygiene.io/issues/146
+    id: egohygiene/.github#41
+    url: https://github.com/egohygiene/.github/issues/41
   next:
     kind: action
-    id: deliver-theme-through-existing-publisher
-    description: 'After exact final-head peer and root ordinary merge, dispatch the existing website model-artifact
-      exporter on actual main with the unchanged organization-sweep-2026-11-13 selection. Inspect actual artifacts/44-file
-      manifest, run existing retained-models intake, replace the consumer selection through its normal publisher,
-      then verify actual canonical HTTPS bytes and Light/Dark/System behavior. Keep #146 open until live theme
-      verification; parent #41 acceptance remains separate.'
+    id: review-open-organization-and-foundation-gates
+    description: 'Review parent egohygiene/.github#41 and the foundation batch packet, then choose a bounded
+      remaining scope: Empathy #92 ignore deviations, #98 report-to-live source proof, #109 lint/Cargo/runtime
+      disposition, #112 actual PR-event staging proof, or Hygiene #76 unit-timeout/hosted/native acceptance.
+      Organization-wide accessibility/performance, fleet/privacy/failure canaries and restore rehearsal remain
+      separate. Do not redispatch the completed theme delivery merely to publish this documentation.'
     readiness: ready
     references:
-    - https://github.com/egohygiene/egohygiene.io/issues/146
+    - https://github.com/egohygiene/.github/issues/41
     depends_on: []
 state:
   base:
-    revision: 342673b110915f4a29ada01625a77416a1e105d7
+    revision: d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a
     ref: refs/heads/main
-    verified_at: '2026-11-13T05:18:12Z'
+    verified_at: '2026-11-13T05:38:44Z'
   candidate:
-    branch: codex/intelligence-theme-modes
+    branch: codex/intelligence-theme-live-closeout
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-13T05:18:12Z'
-    default_branch_revision: 342673b110915f4a29ada01625a77416a1e105d7
+    observed_at: '2026-11-13T05:38:44Z'
+    default_branch_revision: d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a
     issue_state: open
     pull_request_state: not-applicable
-    notes: Actual website origin/main remains 342673b110915f4a29ada01625a77416a1e105d7 (queried read-only).
-      The theme candidate is not yet hosted. Root/publisher report the initial prior dashboard live; this local
-      source checkpoint makes no new deployment claim.
+    notes: 'Website main observed at d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a; it remains the actual exported/published
+      website source. Organization publisher source is c6ea728ebc68eef1c22418319e34fbe54d82caa9. Canonical
+      https://egohygiene.github.io/.github/intelligence/ is verified live, website #146 closed completed and
+      parent #41 open. This candidate only updates documentation.'
   parallel_changes: []
 review:
   status: partial
-  reviewed_at: '2026-11-13T05:18:12Z'
+  reviewed_at: '2026-11-13T05:38:44Z'
   reviewed_by: Codex
   evidence:
-  - command: 35 focused shared-theme/control tests; themes build TypeScript; scoped Biome no errors; whitespace;
-      actual-input clean export 39 routes / 44 hashes; unchanged native Relay intake; 10 Chromium 151 browser
-      groups including 12 held-hydration startup cases, actual palette, media/storage/persistence, all routes,
-      keyboard/focus, 390px mobile and visible no-JS content; independent exact functional/native peer
+  - command: 'Read-only website #146 completed state and parent #41 open reconciliation; actual publisher proof
+      inspection for hosted export/intake/publication, file counts/digests, live browser/peer and prior-site
+      capture; continuity schema/formats/twelve headings/budgets, scoped links and whitespace'
     outcome: limited
-    observed_at: '2026-11-13T05:18:12Z'
-    notes: All listed focused checks pass at clean functional cbe8b1. Manifest4f252c5e/receipt 2cdbcb9d are
-      actual local bytes; browser replay has zero console/page errors and all 44 files unchanged before/after.
-      Final documentation exact-head bind and actual hosted/live theme delivery remain separate.
-  - command: Actual hosted theme export/companion, consumer retained-model intake and replacement Pages deployment/live
-      behavior
+    observed_at: '2026-11-13T05:38:44Z'
+    notes: Actual upstream execution and live checks are attributed to their retained run/artifact/browser
+      evidence, not rerun by this documentation closeout. Earlier 35 focused tests and 10 local sealed-export
+      browser groups remain historical functional cbe8b1 evidence. Published website source is d8f9a7c, publisher
+      source c6ea728.
+  - command: 'Remaining parent #41 acceptance, five foundation gates and restore rehearsal'
     outcome: not-run
-    observed_at: '2026-11-13T05:18:12Z'
-    notes: These follow ordinary source integration under root/publisher coordination. Existing source test
-      success does not establish live delivery or broader human acceptance.
+    observed_at: '2026-11-13T05:38:44Z'
+    notes: 'Empathy #92/#98/#109/#112 and Hygiene #76 remain open. Full accessibility/performance/privacy/fleet
+      canaries and exercised restore are not inferred from completed theme delivery.'
   environment_limitations:
-  - 'Local replay/native directory intake do not mint provider acquisition, finalization or deployment receipts.
-    #146 stays open for actual delivery/live proof.'
-  - One public target contains the organization review; original model/report/source clocks and independent
-    partial/human states remain unchanged. Existing unrelated Audits mobile overflow/full-site accessibility,
-    broad CI and company/store gates are outside this bounded feature.
+  - The actual prior site is captured and verified, but restore/automatic rollback is not exercised. The root
+    favicon404 is outside the project base; earlier detail replay retained a separate 12px mobile overflow.
+  - Only one public fleet target contains the organization review. Partial/unreviewed states, Core unavailability
+    and original source/model/evaluation clocks remain honest. Full organization release/human ratification
+    is separate.
 privacy:
   classification: public-repository
   contains_sensitive_data: false
@@ -150,37 +151,37 @@ Read scoped instructions, canonical sources above and this checkpoint. Verify mu
 
 ## Current objective and success conditions
 
-Deliver Light, Dark and System appearance on the portable Organization Intelligence dashboard using the existing shared theme owner. Expose accessible primary choices throughout the exported dashboard/detail routes while keeping a shared preference owner. Preserve explicit choices across reload/navigation; follow live OS changes for System and safely handle unavailable storage. Prove pre-hydration palette, matching SSR, sealed resource inventory and actual-input browser behavior; then deliver through existing export/intake/publisher and verify live.
+Record completed actual Intelligence appearance delivery and resume the open organization acceptance and foundation gates without changing runtime or publication. Point to the exact reviewed website and publisher revisions and inspect actual hosted/live delivery evidence. Record completed website #146 separately from open parent #41 and five foundation gates. Keep a bounded twelve-section schema-valid handoff with original source/model/evaluation clocks and historical proof preserved.
 
 ## State snapshot
 
-Candidate `codex/intelligence-theme-modes` is based on observed main `342673b110915f4a29ada01625a77416a1e105d7`. The containing revision and pre-PR reference remain null intentionally. Actual website origin/main remains 342673b110915f4a29ada01625a77416a1e105d7 (queried read-only). The theme candidate is not yet hosted. Root/publisher report the initial prior dashboard live; this local source checkpoint makes no new deployment claim.
+Candidate `codex/intelligence-theme-live-closeout` is based on observed main `d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a`. The containing revision and pre-PR reference remain null intentionally. Website main observed at d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a; it remains the actual exported/published website source. Organization publisher source is c6ea728ebc68eef1c22418319e34fbe54d82caa9. Canonical https://egohygiene.github.io/.github/intelligence/ is verified live, website #146 closed completed and parent #41 open. This candidate only updates documentation.
 
 ## Completed and material changes
 
-Functional cbe8b1ece8fe7ca1904963c6303310d5988a9fd0 adds a native System/Light/Dark selector to the shared export shell. It reuses ThemeProvider, semantic tokens and the existing preference key; ordinary website controls stay unchanged. Saved high contrast is preserved until an explicit primary-mode choice.
+Website #147 merged at d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a. That exact source was exported and published; subsequent documentation commits are not exported or deployed by this closeout. Website #146 is closed completed. The shared provider supplies persistent System/Light/Dark, safe storage fallback and a sealed same-origin prepaint asset under unchanged CSP.
 
-A synchronous same-origin assets/theme-preference.js resolves the actual palette before styles/content on canonical pages, aliases and fallback. Shared allowed values/key feed the script; SSR/first hydration match. Storage getter/quota failures remain usable in memory. No dependency or CSP change.
+Actual hosted website export 43371316736/1 and native organization intake 43371630627/1 succeeded. Organization #64 integrated the selection at c6ea728ebc68eef1c22418319e34fbe54d82caa9; actual publication 43372599165/1 succeeded at that publisher source. Canonical live publication 4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1 binds 44 producer files plus one consumer provenance file and 39 routes.
 
-Actual-input sealed export has 39 routes / 44 files (one additive bootstrap), manifest 4f252c5eaad92dc716d580b083a34250ae41634be5a5d0745ccfa9b131f1dbfd. Unchanged pinned Relay native intake accepts review-only directory transport; receipt 2cdbcb9d84edef44b6306f0357e78f92c9265789037090be8af4d5e93b0308c7 is deployment-unauthorized.
+Hosted HTTPS byte verification passed; five live browser groups and eight independent peer assertions passed actual palettes, modes, navigation/reload and OS changes with no interception, TLS bypass or page exceptions. The browser automatic origin-root favicon404 is outside the project export. The actual prior 44-file public site (publication 63e3f2e57cd261ceea4dbb3bf6cb0b92a4df88d91cfa4a0ebd93ccfb14c89322) was captured/verified before replacement; restore remains unexercised.
 
-Existing actual Audit/Sanity inputs retain 2026-11-13T03:23:31Z model clocks, one target row and partial/unreviewed states; Core stays unavailable. Owner contracts, input selection, publisher workflows, historical receipts and company/store boundaries remain unchanged.
+Original Audit/Sanity model clock 2026-11-13T03:23:31Z and selection evaluation 2026-11-13T03:36:14Z remain unchanged, as do one fleet target, partial/unreviewed states and Core unavailable. Parent #41 remains open; source merge/live delivery does not complete broader acceptance or the five foundation gates.
 
 ## Validation and review evidence
 
-35 focused shared-theme/control tests; themes build TypeScript; scoped Biome no errors; whitespace; actual-input clean export 39 routes / 44 hashes; unchanged native Relay intake; 10 Chromium 151 browser groups including 12 held-hydration startup cases, actual palette, media/storage/persistence, all routes, keyboard/focus, 390px mobile and visible no-JS content; independent exact functional/native peer. Focused execution passed on clean functional cbe8b1 using pinned Node 24.21.0 / pnpm 11.28.5 and fresh frozen ignore-scripts dependencies. Browser replay is explicitly local at the declared origin, not a provider or live-HTTPS claim.
+Read-only website #146 completed state and parent #41 open reconciliation; actual publisher proof inspection for hosted export/intake/publication, file counts/digests, live browser/peer and prior-site capture; continuity schema/formats/twelve headings/budgets, scoped links and whitespace. Only documentation consistency and public evidence were inspected here. Actual hosted/live checks are already completed and recorded by their canonical owners; no runtime or broad test suite was rerun.
 
 ## Blockers, risks, unknowns, and deferred work
 
-Local replay/native directory intake do not mint provider acquisition, finalization or deployment receipts. #146 stays open for actual delivery/live proof. One public target contains the organization review; original model/report/source clocks and independent partial/human states remain unchanged. Existing unrelated Audits mobile overflow/full-site accessibility, broad CI and company/store gates are outside this bounded feature.
+The actual prior site is captured and verified, but restore/automatic rollback is not exercised. The root favicon404 is outside the project base; earlier detail replay retained a separate 12px mobile overflow. Only one public fleet target contains the organization review. Partial/unreviewed states, Core unavailability and original source/model/evaluation clocks remain honest. Full organization release/human ratification is separate.
 
 ## Next dependency-ready work
 
-After exact final-head peer and root ordinary merge, dispatch the existing website model-artifact exporter on actual main with the unchanged organization-sweep-2026-11-13 selection. Inspect actual artifacts/44-file manifest, run existing retained-models intake, replace the consumer selection through its normal publisher, then verify actual canonical HTTPS bytes and Light/Dark/System behavior. Keep #146 open until live theme verification; parent #41 acceptance remains separate.
+Review parent egohygiene/.github#41 and the foundation batch packet, then choose a bounded remaining scope: Empathy #92 ignore deviations, #98 report-to-live source proof, #109 lint/Cargo/runtime disposition, #112 actual PR-event staging proof, or Hygiene #76 unit-timeout/hosted/native acceptance. Organization-wide accessibility/performance, fleet/privacy/failure canaries and restore rehearsal remain separate. Do not redispatch the completed theme delivery merely to publish this documentation.
 
 ## Parallel changes and reconciliation
 
-Root independently clears functional cbe8b1; theme reviewer independently clears all 44 hashes / 39 routes / fallback, unchanged CSP and native intake. Publisher owns the actual downstream replacement after merge. Preserve the initial live selection and immutable previous recovery bytes; no competing renderer or publisher is introduced.
+Organization publisher owns the canonical live-proof document and its documentation closeout. This website candidate changes only CONTINUITY and existing context pointers. Keep deployed producer d8f9a7c and publisher c6ea728 fixed even if later documentation-only commits advance either main.
 
 ## Privacy and redaction
 

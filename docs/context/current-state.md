@@ -1,15 +1,19 @@
 # Current handoff
 
-## Current: Intelligence appearance modes — 2026-11-13
+## Current: Intelligence appearance delivered — 2026-11-13
 
-[Issue #146](https://github.com/egohygiene/egohygiene.io/issues/146) adds System,
-Light and Dark through the existing shared theme owner. Functional `cbe8b1e`
-passes 35 focused tests, theme TypeScript, actual-input sealed export and native
-review intake (39 routes, 44 files). The [bounded feature guide](../development/intelligence-appearance.md)
-records focused browser evidence and the strict same-origin startup asset.
-Actual hosted theme delivery and live verification follow integration; report
-clocks, source/data owners and historical proof stay unchanged. The root
-[checkpoint](../../CONTINUITY.md) owns the current next action.
+[Website #146](https://github.com/egohygiene/egohygiene.io/issues/146) is completed
+and closed. [PR #147](https://github.com/egohygiene/egohygiene.io/pull/147) merged
+at `d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a`, the actual exported/published
+website source. Export `43371316736/1`, native intake `43371630627/1` and Pages
+publication `43372599165/1` succeeded; organization publisher source is
+`c6ea728ebc68eef1c22418319e34fbe54d82caa9`. The [live dashboard](https://egohygiene.github.io/.github/intelligence/)
+passes focused canonical HTTPS theme/browser and byte verification; its
+[canonical proof](https://github.com/egohygiene/.github/blob/main/docs/reviews/2026-11-13-organization-live-publication.json)
+retains exact artifacts and captured prior-site recovery. This documentation
+closeout is not an additional export/deployment. Original model/evaluation clocks
+and partial/human states stay unchanged. Parent #41 and the five foundation
+gates remain open; [CONTINUITY.md](../../CONTINUITY.md) owns the current handoff.
 
 ## Current: organization Audit and Sanity inputs — 2026-11-13
 
