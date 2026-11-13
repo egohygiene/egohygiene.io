@@ -1,5 +1,16 @@
 # Context provenance ledger
 
+## Actual organization sweep selection checkpoint — 2026-11-13
+
+Selection source `55058a6db4568caa230bf472f916b11e0cc099b1` binds actual public
+organization artifact `14007481492` from source `281c3827378ae08bb44cde810ad6467fdb0c8adc`.
+Both Audit and Sanity presentations pass local loader/export/native intake,
+retaining model frame `2026-11-13T03:23:31Z`, one public target and partial scope.
+The graph-fixed producer is unchanged; historical exports/receipts are preserved.
+See the [bounded source guide](../development/intelligence-organization-sweep-selection.md)
+for exact selection and local proof. No actual hosted export or Pages claim is
+introduced by this local checkpoint.
+
 ## Intelligence graph browser interaction — 2026-11-13
 
 Functional `6753eb1b731746d27e6f8c94466c721313196344` corrects pointer-focus camera
