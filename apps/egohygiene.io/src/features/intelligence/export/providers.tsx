@@ -9,6 +9,7 @@ import errors from "../../../i18n/locales/en/errors.json";
 import intelligence from "../../../i18n/locales/en/intelligence.json";
 import intelligenceGovernance from "../../../i18n/locales/en/intelligenceGovernance.json";
 import { ErrorBoundary } from "../../../components/ErrorBoundary/ErrorBoundary";
+import { AppearanceControl } from "./AppearanceControl";
 
 const catalogs = { en: { common, errors, intelligence, intelligenceGovernance } };
 
@@ -18,6 +19,6 @@ export function IntelligenceExportProviders({ children }: PropsWithChildren) {
   const navigate = useNavigate();
   return <ThemeProvider><LocaleProvider registry={localeRegistry} catalogs={catalogs} search={location.search}
     onSearchChange={(search) => void navigate({ pathname: location.pathname, search, hash: location.hash }, { preventScrollReset: true })}>
-    <ErrorBoundary>{children}</ErrorBoundary>
+    <ErrorBoundary><AppearanceControl />{children}</ErrorBoundary>
   </LocaleProvider></ThemeProvider>;
 }

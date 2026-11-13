@@ -1,10 +1,7 @@
-import { createContext, useEffect, useMemo, useState, type PropsWithChildren } from "react";
-
 import { isBrowser } from "@egohygiene/utilities";
+import { createContext, type PropsWithChildren, useEffect, useMemo, useState } from "react";
 
-import { themeNames, type ThemeName } from "../theme.types";
-
-const STORAGE_KEY = "egohygiene-theme";
+import { themeStorageKey as STORAGE_KEY, type ThemeName, themeNames } from "../theme.types";
 
 /** Storage is optional: a blocked preference must never prevent the app from rendering. */
 function readThemePreference(): ThemeName {

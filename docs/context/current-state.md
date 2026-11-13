@@ -1,5 +1,16 @@
 # Current handoff
 
+## Current: Intelligence appearance modes — 2026-11-13
+
+[Issue #146](https://github.com/egohygiene/egohygiene.io/issues/146) adds System,
+Light and Dark through the existing shared theme owner. Functional `cbe8b1e`
+passes 35 focused tests, theme TypeScript, actual-input sealed export and native
+review intake (39 routes, 44 files). The [bounded feature guide](../development/intelligence-appearance.md)
+records focused browser evidence and the strict same-origin startup asset.
+Actual hosted theme delivery and live verification follow integration; report
+clocks, source/data owners and historical proof stay unchanged. The root
+[checkpoint](../../CONTINUITY.md) owns the current next action.
+
 ## Current: organization Audit and Sanity inputs — 2026-11-13
 
 Website main `d6f4a452f265ba78ecc88623613e9797a8ca2700` contains the graph repair.
