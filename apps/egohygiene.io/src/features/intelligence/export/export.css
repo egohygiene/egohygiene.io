@@ -3,4 +3,8 @@ body { margin: 0; font-family: var(--font-sans); line-height: 1.5; }
 button, input, select { font: inherit; }
 button, input, select, summary { min-block-size: 2.75rem; }
 a { color: var(--color-accent); }
+.oi-appearance { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: .75rem; margin-block-end: 1rem; }
+.oi-appearance label { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .65rem; }
+.oi-appearance select { min-inline-size: 8rem; padding: .4rem .7rem; color: var(--color-foreground); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); }
+.oi-appearance select:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
 .site-eyebrow { color: var(--color-muted); font-size: .875rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }

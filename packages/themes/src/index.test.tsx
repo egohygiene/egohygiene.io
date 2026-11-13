@@ -8,7 +8,8 @@ import { hydrateRoot } from "react-dom/client";
 import { renderToString } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { ThemeProvider, applyTheme, resolveTheme, themeNames, useTheme } from "./index";
+import { applyTheme, resolveTheme, ThemeProvider, themeNames, useTheme } from "./index";
+import { themeInitializationScript } from "./initialization-script";
 
 const storageKey = "egohygiene-theme";
 function readStartupScript(): string {
@@ -201,7 +202,10 @@ describe("theme preferences", () => {
   });
 });
 
-describe("pre-paint website bootstrap", () => {
+describe.each([
+  ["website", startupScript],
+  ["Intelligence export", themeInitializationScript],
+])("pre-paint %s bootstrap", (_name, script) => {
   function bootstrap(
     stored: string | null,
     prefersDark: boolean,
@@ -215,7 +219,7 @@ describe("pre-paint website bootstrap", () => {
         return { getItem: () => (failure === "getItem" ? denyStorage() : stored) };
       },
     };
-    runInNewContext(startupScript, { window: browser, document: { documentElement: root } });
+    runInNewContext(script, { window: browser, document: { documentElement: root } });
     return root;
   }
 

@@ -13,6 +13,7 @@ import { decodeReviewJson } from "./intelligence-review-json.mts";
 import { loadOrganizationIntelligence } from "./vite-organization-intelligence.mts";
 import type { OrganizationIntelligenceOptions } from "./vite-organization-intelligence.mts";
 import { createIntelligenceExportConfig } from "../apps/egohygiene.io/vite.intelligence-export.config.ts";
+import { themeInitializationScript } from "../packages/themes/src/initialization-script.ts";
 
 type RecordValue = Record<string, unknown>;
 interface Target { readonly origin: string; readonly base_path: string }
@@ -67,6 +68,7 @@ function targetInput(value: unknown): Target {
   return { origin, base_path: basePath };
 }
 const mounted = (target: Target, path: string): string => `${target.base_path.replace(/\/$/, "")}${path}`;
+const themeStartup = (target: Target): string => `<script type="text/javascript" src="${escape(mounted(target, "/assets/theme-preference.js"))}"></script>`;
 function routes(): ExportRoute[] {
   return [
     { id: "home", path: "/", file: "index.html", canonical_path: "/intelligence/" },
@@ -117,7 +119,7 @@ function head(title: string, description: string, canonical: string): string {
 }
 function redirect(target: Target, canonicalPath: string): string {
   const destination = `${target.origin}${mounted(target, canonicalPath)}`;
-  return `<!doctype html><html lang="en"><head><meta charset="UTF-8">${policy}${head("Organization Intelligence", "Open the canonical organization Intelligence view.", destination)}<meta http-equiv="refresh" content="0; url=${escape(destination)}"></head><body><p>This route moved to <a href="${escape(destination)}">Organization Intelligence</a>.</p></body></html>\n`;
+  return `<!doctype html><html lang="en"><head><meta charset="UTF-8">${policy}${themeStartup(target)}${head("Organization Intelligence", "Open the canonical organization Intelligence view.", destination)}<meta http-equiv="refresh" content="0; url=${escape(destination)}"></head><body><p>This route moved to <a href="${escape(destination)}">Organization Intelligence</a>.</p></body></html>\n`;
 }
 async function inventory(site: string): Promise<{ path: string; sha256: string; size_bytes: number }[]> {
   const files: { path: string; sha256: string; size_bytes: number }[] = []; let total = 0;
@@ -197,8 +199,12 @@ export async function buildIntelligenceExport(arguments_: string[] = []): Promis
       rolldownOptions: { output: { entryFileNames: "entry-server.mjs" } },
     } });
     const renderer = await import(pathToFileURL(join(temporary, "entry-server.mjs")).href) as { renderIntelligenceExport(path: string): string };
-    const template = (await readBounded(join(site, "index.html"))).toString("utf8");
-    requireInput(template.includes("<!-- intelligence-export-head -->") && template.includes('<div id="root"></div>'));
+    const rawTemplate = (await readBounded(join(site, "index.html"))).toString("utf8");
+    requireInput(rawTemplate.includes("<!-- intelligence-export-head -->")
+      && rawTemplate.includes("<!-- intelligence-export-theme -->") && rawTemplate.includes('<div id="root"></div>'));
+    const template = rawTemplate.replace("<!-- intelligence-export-theme -->", themeStartup(target));
+    await mkdir(join(site, "assets"), { recursive: true });
+    await writeFile(join(site, "assets/theme-preference.js"), themeInitializationScript, { flag: "wx" });
     for (const route of routeInventory) {
       const destination = join(site, route.file); await mkdir(dirname(destination), { recursive: true });
       if (route.path !== route.canonical_path) await writeFile(destination, redirect(target, route.canonical_path));
@@ -212,7 +218,7 @@ export async function buildIntelligenceExport(arguments_: string[] = []): Promis
         requireInput(Buffer.byteLength(html) <= maximumFile); await writeFile(destination, html);
       }
     }
-    await writeFile(join(site, "404.html"), `<!doctype html><html lang="en"><head><meta charset="UTF-8">${policy}<title>Intelligence route unavailable</title><meta name="robots" content="noindex,follow"></head><body><h1>Intelligence route unavailable</h1><p><a href="${escape(`${target.origin}${mounted(target, "/intelligence/")}`)}">Open Organization Intelligence</a>.</p></body></html>\n`);
+    await writeFile(join(site, "404.html"), `<!doctype html><html lang="en"><head><meta charset="UTF-8">${policy}${themeStartup(target)}<title>Intelligence route unavailable</title><meta name="robots" content="noindex,follow"></head><body><h1>Intelligence route unavailable</h1><p><a href="${escape(`${target.origin}${mounted(target, "/intelligence/")}`)}">Open Organization Intelligence</a>.</p></body></html>\n`);
     await writeFile(join(site, ".nojekyll"), "");
     const manifest = { schema: "egohygiene.website.organization-intelligence-export/v1", contract_version: version, visibility: "public",
       producer: { repository: "egohygiene/egohygiene.io", revision: producerRevision }, target, as_of: asOf,
