@@ -1,5 +1,15 @@
 # Agent entry point
 
+## Current hosted canary observation — 2026-11-13
+
+Website #141 is merged. Hosted run `43335344355/1` acquired the real model and
+installed exact locked runtimes/dependencies, then failed the existing combined
+HEAD/clean-source guard; no export/companion artifact was retained. Read
+[CONTINUITY.md](CONTINUITY.md) and the [canary guide](docs/development/intelligence-real-audit-canary.md).
+The selected retry adds bounded read-only source metadata at three checkpoints.
+The actual failing path/identity is unknown; preserve the unchanged guard and
+all publisher/legacy boundaries. Earlier records below remain dated evidence.
+
 ## Current Repository Intelligence canary — 2026-11-13
 
 Read the bounded [current checkpoint](CONTINUITY.md) and

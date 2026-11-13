@@ -1,5 +1,18 @@
 # Current handoff
 
+## Current: hosted source-identity observation — 2026-11-13
+
+Website #141 merged at `0847371698710df35d79190e32154be96c72858e`. Actual hosted
+run `43335344355/1` passed real model acquisition, exact Node/pnpm setup and
+frozen ignore-scripts installation, then failed the existing combined HEAD and
+clean-source check. No export or companion artifact was uploaded. The next
+selected retry logs bounded source identity/status metadata after checkout,
+acquisition and installation; no failing path or cause is claimed yet.
+[Current checkpoint](../../CONTINUITY.md) and the
+[canary guide](../development/intelligence-real-audit-canary.md) distinguish
+historical local proof from incomplete hosted export/intake. Publisher and
+legacy-host gates remain; prior handoffs below preserve their observation dates.
+
 ## Current: real audit evidence membership — 2026-11-13
 
 Website #140 merged at `eed5070382e36c0f29e71519c8df476d8c131ca2` after
