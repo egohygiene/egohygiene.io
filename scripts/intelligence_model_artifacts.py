@@ -202,7 +202,9 @@ class Provider:
         path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
         environment = {"PATH": os.environ.get("PATH", ""), "GH_HOST": "github.com",
             "GH_TOKEN": os.environ.get("GH_TOKEN", ""), "GH_PROMPT_DISABLED": "1",
-            "GH_CONFIG_DIR": str(self.root / "gh-config"), "GH_PAGER": "cat", "LANG": "C.UTF-8"}
+            "GH_CONFIG_DIR": str(self.root / "gh-config"),
+            "XDG_STATE_HOME": str(self.root / "gh-state"),
+            "GH_PAGER": "cat", "LANG": "C.UTF-8"}
         for key in ("HTTPS_PROXY", "HTTP_PROXY", "ALL_PROXY", "NO_PROXY", "https_proxy", "http_proxy",
                     "all_proxy", "no_proxy", "SSL_CERT_FILE", "SSL_CERT_DIR", "REQUESTS_CA_BUNDLE",
                     "CURL_CA_BUNDLE", "NODE_EXTRA_CA_CERTS"):
