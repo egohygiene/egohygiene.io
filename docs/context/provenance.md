@@ -1,5 +1,17 @@
 # Context provenance ledger
 
+## Intelligence appearance source and local qualification — 2026-11-13
+
+Clean functional `cbe8b1ece8fe7ca1904963c6303310d5988a9fd0` adds an export-only
+native selector using the shared provider and a sealed external prepaint asset.
+The [feature guide](../development/intelligence-appearance.md) binds 35 focused
+tests, theme TypeScript, actual-input export manifest `4f252c5e` (44 files/39
+routes), unchanged Relay review-only intake receipt `2cdbcb9d`, browser proof and
+independent exact-source review. The actual model frame remains
+`2026-11-13T03:23:31Z`; source clocks and partial/human states are preserved.
+Local replay is distinct from the consumer's actual replacement deployment and
+canonical HTTPS theme verification.
+
 ## Actual organization sweep selection checkpoint — 2026-11-13
 
 Selection source `55058a6db4568caa230bf472f916b11e0cc099b1` binds actual public
