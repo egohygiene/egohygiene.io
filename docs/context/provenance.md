@@ -1,5 +1,20 @@
 # Context provenance ledger
 
+## Intelligence appearance actual delivery closeout — 2026-11-13
+
+Website #146 closed completed after reviewed #147 merged at published source
+`d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a`. Actual export `43371316736/1`,
+native organization intake `43371630627/1` and publication `43372599165/1` passed;
+organization #64 merged at publisher source `c6ea728ebc68eef1c22418319e34fbe54d82caa9`.
+Publication SHA256 `4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1`
+binds 44 producer files plus separate consumer provenance and 39 routes.
+The [public proof](https://github.com/egohygiene/.github/blob/main/docs/reviews/2026-11-13-organization-live-publication.json)
+records prior publication `63e3f2e5` recovery capture, five live browser groups and
+eight independent peer assertions without interception or TLS bypass. Restore
+remains unexercised. Model `03:23:31Z` and evaluation `03:36:14Z` on 2026-11-13,
+partial/human states and the earlier local evidence below remain unchanged. This
+documentation-only closeout was not the exported/published source.
+
 ## Intelligence appearance source and local qualification — 2026-11-13
 
 Clean functional `cbe8b1ece8fe7ca1904963c6303310d5988a9fd0` adds an export-only
