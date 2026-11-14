@@ -16,7 +16,7 @@
   color: var(--color-accent);
   text-underline-offset: 0.2em;
 }
-.oi-page :where(code, time, dd, h3, h4, p, a) {
+.oi-page :where(code, time, dd, h1, h2, h3, h4, h5, p, a, summary) {
   overflow-wrap: anywhere;
 }
 .oi-page :where(section[id], article[id], details[id]) {
@@ -479,7 +479,7 @@
 }
 .oi-view-groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
   gap: 1rem;
   align-items: start;
 }
