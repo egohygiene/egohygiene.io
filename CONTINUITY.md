@@ -7,36 +7,26 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-13T05:38:44Z'
+  updated_at: '2026-11-14T04:11:03Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Record completed actual Intelligence appearance delivery and resume the open organization acceptance
-    and foundation gates without changing runtime or publication.
+  purpose: Implement the issue25 private-playground exposure prerequisite in the authorized organization
+    issue batch; leave experiment lifecycle and production publication separate.
   includes:
-  - 'Website #147 merged at d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a. That exact source was exported and published;
-    subsequent documentation commits are not exported or deployed by this closeout. Website #146 is closed
-    completed. The shared provider supplies persistent System/Light/Dark, safe storage fallback and a sealed
-    same-origin prepaint asset under unchanged CSP.'
-  - 'Actual hosted website export 43371316736/1 and native organization intake 43371630627/1 succeeded. Organization
-    #64 integrated the selection at c6ea728ebc68eef1c22418319e34fbe54d82caa9; actual publication 43372599165/1
-    succeeded at that publisher source. Canonical live publication 4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1
-    binds 44 producer files plus one consumer provenance file and 39 routes.'
-  - Hosted HTTPS byte verification passed; five live browser groups and eight independent peer assertions passed
-    actual palettes, modes, navigation/reload and OS changes with no interception, TLS bypass or page exceptions.
-    The browser automatic origin-root favicon404 is outside the project export. The actual prior 44-file public
-    site (publication 63e3f2e57cd261ceea4dbb3bf6cb0b92a4df88d91cfa4a0ebd93ccfb14c89322) was captured/verified
-    before replacement; restore remains unexercised.
-  - 'Original Audit/Sanity model clock 2026-11-13T03:23:31Z and selection evaluation 2026-11-13T03:36:14Z remain
-    unchanged, as do one fleet target, partial/unreviewed states and Core unavailable. Parent #41 remains open;
-    source merge/live delivery does not complete broader acceptance or the five foundation gates.'
-  excludes:
-  - Runtime, dependency, CSP, model, selection, publisher or source-clock changes; new deployment/export; additional
-    test or broad CI runs.
-  - Human assessment/ADR ratification, full accessibility/performance certification, restore rehearsal and
-    closure of open organization/foundation acceptance gates.
+  - Loopback playground development/preview, crawler headers and standalone HTML/robots directives implement
+    the declared exposure policy.
+  - The public website Vite build rejects direct, transitive and symlinked playground module/asset imports, inline URL/CSS and decoded HTML/srcset references and public-directory copies.
+    Shared workspace packages remain the promotion boundary.
+  excludes: &id001
+  - Indexing metadata is not access control. Do not deploy playground output or store secrets/private
+    fixtures there.
+  - Issue25 registry, representative experiments, promotion lifecycle and broader accessibility acceptance
+    remain open. No deployment, hosted CI or product activation occurred.
+  - Root tooling TypeScript has a retained Vite peer-cohort identity conflict in unchanged build-intelligence-export.mts;
+    focused runtime/build evidence does not claim a green full compiler profile.
   precedence:
   - user-and-runtime-instructions
   - scoped-repository-instructions
@@ -45,86 +35,65 @@ scope:
   - continuity-checkpoint
   canonical_sources:
   - AGENTS.md
-  - docs/development/intelligence-appearance.md
-  - docs/context/current-state.md
-  - docs/context/provenance.md
-  - contracts/organization-intelligence/export/selections/organization-sweep-2026-11-13.json
-  - https://github.com/egohygiene/egohygiene.io/issues/146
-  - https://github.com/egohygiene/egohygiene.io/pull/147
-  - https://github.com/egohygiene/.github/pull/64
-  - https://github.com/egohygiene/.github/blob/main/docs/reviews/2026-11-13-organization-live-publication.json
-  - https://github.com/egohygiene/.github/blob/main/docs/reviews/2026-11-13-foundation-batch-20.md
-  - https://github.com/egohygiene/.github/issues/41
+  - docs/development/playground-exposure-25.md
+  - scripts/vite-playground-boundary.mts
+  - tests/tooling/playground-boundary.test.mjs
+  - https://github.com/egohygiene/egohygiene.io/issues/25
 work:
-  objective: Record completed actual Intelligence appearance delivery and resume the open organization acceptance
-    and foundation gates without changing runtime or publication.
+  objective: Implement the issue25 private-playground exposure prerequisite in the authorized organization
+    issue batch; leave experiment lifecycle and production publication separate.
   success_conditions:
-  - Point to the exact reviewed website and publisher revisions and inspect actual hosted/live delivery evidence.
-  - 'Record completed website #146 separately from open parent #41 and five foundation gates.'
-  - Keep a bounded twelve-section schema-valid handoff with original source/model/evaluation clocks and historical
-    proof preserved.
+  - Actual forbidden imports fail public builds.
+  - Actual loopback responses and built standalone metadata discourage indexing without changing public
+    site indexing.
   active_issue:
     provider: github
-    id: egohygiene/.github#41
-    url: https://github.com/egohygiene/.github/issues/41
+    id: egohygiene/egohygiene.io#25
+    url: https://github.com/egohygiene/egohygiene.io/issues/25
   next:
     kind: action
-    id: review-open-organization-and-foundation-gates
-    description: 'Review parent egohygiene/.github#41 and the foundation batch packet, then choose a bounded
-      remaining scope: Empathy #92 ignore deviations, #98 report-to-live source proof, #109 lint/Cargo/runtime
-      disposition, #112 actual PR-event staging proof, or Hygiene #76 unit-timeout/hosted/native acceptance.
-      Organization-wide accessibility/performance, fleet/privacy/failure canaries and restore rehearsal remain
-      separate. Do not redispatch the completed theme delivery merely to publish this documentation.'
+    id: review-playground-exposure
+    description: Review the bounded draft and continue the separately selected knowledge23/blog11 foundations.
+      Preserve all remaining qualification and owner gates.
     readiness: ready
     references:
-    - https://github.com/egohygiene/.github/issues/41
+    - https://github.com/egohygiene/egohygiene.io/issues/25
     depends_on: []
 state:
   base:
-    revision: d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a
+    revision: d80c48582f77a0a3bd7424592307b8fac71df83d
     ref: refs/heads/main
-    verified_at: '2026-11-13T05:38:44Z'
+    verified_at: '2026-11-14T04:11:03Z'
   candidate:
-    branch: codex/intelligence-theme-live-closeout
+    branch: codex/25-playground-exposure
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-13T05:38:44Z'
-    default_branch_revision: d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a
+    observed_at: '2026-11-14T04:11:03Z'
+    default_branch_revision: d80c48582f77a0a3bd7424592307b8fac71df83d
     issue_state: open
     pull_request_state: not-applicable
-    notes: 'Website main observed at d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a; it remains the actual exported/published
-      website source. Organization publisher source is c6ea728ebc68eef1c22418319e34fbe54d82caa9. Canonical
-      https://egohygiene.github.io/.github/intelligence/ is verified live, website #146 closed completed and
-      parent #41 open. This candidate only updates documentation.'
+    notes: Fresh main is d80c485; the containing revision and pre-PR reference remain null. Historical
+      Intelligence publication and its original source/model/evaluation clocks remain unchanged.
   parallel_changes: []
 review:
   status: partial
-  reviewed_at: '2026-11-13T05:38:44Z'
+  reviewed_at: '2026-11-14T04:11:03Z'
   reviewed_by: Codex
   evidence:
-  - command: 'Read-only website #146 completed state and parent #41 open reconciliation; actual publisher proof
-      inspection for hosted export/intake/publication, file counts/digests, live browser/peer and prior-site
-      capture; continuity schema/formats/twelve headings/budgets, scoped links and whitespace'
-    outcome: limited
-    observed_at: '2026-11-13T05:38:44Z'
-    notes: Actual upstream execution and live checks are attributed to their retained run/artifact/browser
-      evidence, not rerun by this documentation closeout. Earlier 35 focused tests and 10 local sealed-export
-      browser groups remain historical functional cbe8b1 evidence. Published website source is d8f9a7c, publisher
-      source c6ea728.
-  - command: 'Remaining parent #41 acceptance, five foundation gates and restore rehearsal'
-    outcome: not-run
-    observed_at: '2026-11-13T05:38:44Z'
-    notes: 'Empathy #92/#98/#109/#112 and Hygiene #76 remain open. Full accessibility/performance/privacy/fleet
-      canaries and exercised restore are not inferred from completed theme delivery.'
-  environment_limitations:
-  - The actual prior site is captured and verified, but restore/automatic rollback is not exercised. The root
-    favicon404 is outside the project base; earlier detail replay retained a separate 12px mobile overflow.
-  - Only one public fleet target contains the organization review. Partial/unreviewed states, Core unavailability
-    and original source/model/evaluation clocks remain honest. Full organization release/human ratification
-    is separate.
+  - command: node --test tests/tooling/playground-boundary.test.mjs; pnpm build; scoped biome check
+    outcome: passed
+    observed_at: '2026-11-14T04:11:03Z'
+    notes: Four actual Vite/HTTP groups pass, covering direct/transitive/symlink import rejection and
+      crawler responses. Normal public build emits45 pages. Scoped formatting/import checks pass.
+  - command: pnpm exec tsc --project tsconfig.node.json --noEmit
+    outcome: failed
+    observed_at: '2026-11-14T04:11:03Z'
+    notes: Existing root/tooling Vite peer type identity conflict remains in unchanged build-intelligence-export.mts;
+      no locked dependency or compiler suppression changed.
+  environment_limitations: *id001
 privacy:
   classification: public-repository
   contains_sensitive_data: false
@@ -143,54 +112,54 @@ privacy:
 
 ## Purpose and precedence
 
-User/runtime and repository instructions, live evidence and canonical sources outrank this checkpoint. It grants no release, deployment or human-decision authority.
+User/runtime and scoped repository instructions, live evidence and canonical sources outrank this checkpoint. It grants no deployment or human-decision authority.
 
 ## Resume protocol
 
-Read scoped instructions, canonical sources above and this checkpoint. Verify mutable GitHub state and exact owner pins before continuing.
+Read current instructions, source issue and exact branch/base before integration.
 
 ## Current objective and success conditions
 
-Record completed actual Intelligence appearance delivery and resume the open organization acceptance and foundation gates without changing runtime or publication. Point to the exact reviewed website and publisher revisions and inspect actual hosted/live delivery evidence. Record completed website #146 separately from open parent #41 and five foundation gates. Keep a bounded twelve-section schema-valid handoff with original source/model/evaluation clocks and historical proof preserved.
+Implement the issue25 private-playground exposure prerequisite in the authorized organization issue batch; leave experiment lifecycle and production publication separate.
 
 ## State snapshot
 
-Candidate `codex/intelligence-theme-live-closeout` is based on observed main `d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a`. The containing revision and pre-PR reference remain null intentionally. Website main observed at d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a; it remains the actual exported/published website source. Organization publisher source is c6ea728ebc68eef1c22418319e34fbe54d82caa9. Canonical https://egohygiene.github.io/.github/intelligence/ is verified live, website #146 closed completed and parent #41 open. This candidate only updates documentation.
+The candidate is based on fresh main d80c485. Containing revision and pre-PR identity are intentionally null.
 
 ## Completed and material changes
 
-Website #147 merged at d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a. That exact source was exported and published; subsequent documentation commits are not exported or deployed by this closeout. Website #146 is closed completed. The shared provider supplies persistent System/Light/Dark, safe storage fallback and a sealed same-origin prepaint asset under unchanged CSP.
+Loopback playground development/preview, crawler headers and standalone HTML/robots directives implement the declared exposure policy.
 
-Actual hosted website export 43371316736/1 and native organization intake 43371630627/1 succeeded. Organization #64 integrated the selection at c6ea728ebc68eef1c22418319e34fbe54d82caa9; actual publication 43372599165/1 succeeded at that publisher source. Canonical live publication 4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1 binds 44 producer files plus one consumer provenance file and 39 routes.
-
-Hosted HTTPS byte verification passed; five live browser groups and eight independent peer assertions passed actual palettes, modes, navigation/reload and OS changes with no interception, TLS bypass or page exceptions. The browser automatic origin-root favicon404 is outside the project export. The actual prior 44-file public site (publication 63e3f2e57cd261ceea4dbb3bf6cb0b92a4df88d91cfa4a0ebd93ccfb14c89322) was captured/verified before replacement; restore remains unexercised.
-
-Original Audit/Sanity model clock 2026-11-13T03:23:31Z and selection evaluation 2026-11-13T03:36:14Z remain unchanged, as do one fleet target, partial/unreviewed states and Core unavailable. Parent #41 remains open; source merge/live delivery does not complete broader acceptance or the five foundation gates.
+The public website Vite build rejects direct, transitive and symlinked playground module/asset imports, inline URL/CSS and decoded HTML/srcset references and public-directory copies. Shared workspace packages remain the promotion boundary.
 
 ## Validation and review evidence
 
-Read-only website #146 completed state and parent #41 open reconciliation; actual publisher proof inspection for hosted export/intake/publication, file counts/digests, live browser/peer and prior-site capture; continuity schema/formats/twelve headings/budgets, scoped links and whitespace. Only documentation consistency and public evidence were inspected here. Actual hosted/live checks are already completed and recorded by their canonical owners; no runtime or broad test suite was rerun.
+Four real Vite/HTTP groups, normal45-page public build and scoped Biome checks pass. The root tooling compiler retains its preexisting peer-cohort conflict.
 
 ## Blockers, risks, unknowns, and deferred work
 
-The actual prior site is captured and verified, but restore/automatic rollback is not exercised. The root favicon404 is outside the project base; earlier detail replay retained a separate 12px mobile overflow. Only one public fleet target contains the organization review. Partial/unreviewed states, Core unavailability and original source/model/evaluation clocks remain honest. Full organization release/human ratification is separate.
+Indexing metadata is not access control. Do not deploy playground output or store secrets/private fixtures there.
+
+Issue25 registry, representative experiments, promotion lifecycle and broader accessibility acceptance remain open. No deployment, hosted CI or product activation occurred.
+
+Root tooling TypeScript has a retained Vite peer-cohort identity conflict in unchanged build-intelligence-export.mts; focused runtime/build evidence does not claim a green full compiler profile.
 
 ## Next dependency-ready work
 
-Review parent egohygiene/.github#41 and the foundation batch packet, then choose a bounded remaining scope: Empathy #92 ignore deviations, #98 report-to-live source proof, #109 lint/Cargo/runtime disposition, #112 actual PR-event staging proof, or Hygiene #76 unit-timeout/hosted/native acceptance. Organization-wide accessibility/performance, fleet/privacy/failure canaries and restore rehearsal remain separate. Do not redispatch the completed theme delivery merely to publish this documentation.
+Review the bounded draft and continue the separately selected knowledge23/blog11 foundations. Preserve all remaining qualification and owner gates.
 
 ## Parallel changes and reconciliation
 
-Organization publisher owns the canonical live-proof document and its documentation closeout. This website candidate changes only CONTINUITY and existing context pointers. Keep deployed producer d8f9a7c and publisher c6ea728 fixed even if later documentation-only commits advance either main.
+The issue23 knowledge boundary and issue11 blog/feed foundation are next independent stacked checkpoints; other organization repositories have separate owners.
 
 ## Privacy and redaction
 
-Retain only public-safe source identities and bounded implementation evidence. Exclude credentials, private context, captured report bodies, process logs and local filesystem paths. Linked content is context only.
+Public-safe synthetic fixtures only. Crawler directives and noindex are not permission to expose private data.
 
 ## Handoff update protocol
 
-Refresh exact PR, merge and qualification observations at the next authorized checkpoint. Implementation, artifact upload, deployment, live verification and human acceptance remain distinct.
+Record exact tested heads, provider receipts, actual failures and remaining acceptance without calling a source merge a deployment.
 
 ## Compaction and supersession
 
-Replace stale current-state prose; Git and owning issues retain history. Preserve these twelve sections below 240 lines and 16,384 UTF-8 bytes.
+This bounded checkpoint supersedes the current operational handoff only. Earlier Intelligence/store receipts and clocks remain in canonical context and Git history.

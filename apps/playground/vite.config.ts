@@ -12,10 +12,14 @@ export default defineConfig({
     dedupe: ["react", "react-dom"],
   },
   server: {
+    host: "127.0.0.1",
+    headers: { "X-Robots-Tag": "noindex, nofollow, noarchive" },
     port: 5175,
     strictPort: true,
   },
   preview: {
+    host: "127.0.0.1",
+    headers: { "X-Robots-Tag": "noindex, nofollow, noarchive" },
     port: 4175,
     strictPort: true,
   },
