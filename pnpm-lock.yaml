@@ -1310,6 +1310,9 @@ importers:
 
   packages/content:
     dependencies:
+      '@egohygiene/schemas':
+        specifier: workspace:*
+        version: link:../schemas
       '@egohygiene/utilities':
         specifier: workspace:*
         version: link:../utilities
