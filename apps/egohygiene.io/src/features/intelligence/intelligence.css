@@ -1,5 +1,6 @@
 .oi-page {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 4rem);
   min-inline-size: 0;
   padding-block: 1rem 2rem;
@@ -16,7 +17,7 @@
   color: var(--color-accent);
   text-underline-offset: 0.2em;
 }
-.oi-page :where(code, time, dd, h3, h4, p, a) {
+.oi-page :where(code, time, dd, h1, h2, h3, h4, h5, p, a, summary) {
   overflow-wrap: anywhere;
 }
 .oi-page :where(section[id], article[id], details[id]) {
@@ -102,8 +103,12 @@
 }
 .oi-badge {
   display: inline-flex;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   align-items: center;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
   padding: 0.35rem 0.65rem;
   border: 1px solid currentColor;
   border-radius: var(--radius-sm);
@@ -411,4 +416,204 @@
 .oi-publication-routes a {
   padding-block: 0.4rem;
   min-block-size: 2.75rem;
+}
+
+/* The overview is an orientation page. Full records stay in their owning views. */
+.oi-overview {
+  gap: clamp(1.75rem, 4vw, 3rem);
+}
+.oi-overview .oi-intro {
+  gap: 0.65rem;
+}
+.oi-overview .oi-intro h1 {
+  font-size: clamp(2rem, 4.5vw, 3.35rem);
+  letter-spacing: -0.035em;
+  max-inline-size: 24ch;
+}
+.oi-overview .oi-lede {
+  max-inline-size: 60ch;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
+}
+.oi-overview .oi-section-nav {
+  gap: 0.35rem 0.6rem;
+}
+.oi-overview .oi-section-nav a {
+  border-color: transparent;
+  background: transparent;
+  padding-inline: 0.65rem;
+}
+.oi-overview .oi-section-nav a:hover {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+}
+.oi-snapshot-compact {
+  gap: 0.7rem;
+}
+.oi-snapshot-compact h2 {
+  font-size: 1rem;
+}
+.oi-review-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0.75rem;
+  margin-block-start: 0.5rem;
+}
+.oi-review-shortcuts > a {
+  display: grid;
+  gap: 0.3rem;
+  min-inline-size: 0;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+.oi-review-shortcuts > a > span {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+.oi-review-shortcuts strong {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.oi-review-shortcuts > a:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.oi-view-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+.oi-view-group {
+  display: grid;
+  gap: 1rem;
+  min-inline-size: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+.oi-view-group header {
+  display: grid;
+  gap: 0.35rem;
+}
+.oi-view-group h3 {
+  font-size: 1.1rem;
+}
+.oi-view-group header p {
+  font-size: 0.9rem;
+}
+.oi-view-list {
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
+.oi-view-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.1rem 0.75rem;
+  min-inline-size: 0;
+}
+.oi-view-list li + li {
+  border-block-start: 1px solid var(--color-border);
+}
+.oi-view-list a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  max-inline-size: 100%;
+  padding-block: 0.45rem;
+  font-weight: 600;
+}
+.oi-view-state {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+.oi-view-scope {
+  border-block-start: 1px solid var(--color-border);
+}
+.oi-view-scope summary,
+.oi-publication-disclosure summary {
+  padding-block: 0.75rem;
+  min-block-size: 2.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.oi-view-scope dl {
+  display: grid;
+  gap: 1rem;
+  padding-block: 0.5rem;
+  font-size: 0.9rem;
+}
+.oi-view-scope dt {
+  font-weight: 650;
+}
+.oi-view-scope dd {
+  display: grid;
+  gap: 0.35rem;
+  margin-inline: 0;
+}
+.oi-map-disclosure {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  min-inline-size: 0;
+}
+.oi-map-disclosure > summary {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  cursor: pointer;
+}
+.oi-map-disclosure > summary > span {
+  display: inline-grid;
+  gap: 0.5rem;
+  max-inline-size: calc(100% - 1.5rem);
+  vertical-align: top;
+}
+.oi-map-title {
+  color: var(--color-foreground);
+  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+  font-weight: 650;
+}
+.oi-map-disclosure summary .oi-muted {
+  max-inline-size: 65ch;
+  font-size: 0.95rem;
+}
+.oi-map-content {
+  display: grid;
+  gap: 1rem;
+  min-inline-size: 0;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-block-start: 1px solid var(--color-border);
+}
+@media (forced-colors: active) {
+  .oi-overview .oi-section-nav a {
+    border-color: LinkText;
+  }
+}
+
+.oi-overview .oi-section-empty {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-block: 0.9rem;
+  border-block-start: 1px solid var(--color-border);
+}
+.oi-section-empty > header {
+  flex: 0 1 15rem;
+}
+.oi-section-empty h2 {
+  font-size: 1rem;
+}
+.oi-section-empty > .oi-state-note {
+  flex: 1 1 25rem;
+  min-inline-size: 0;
+  padding: 0;
+  border: 0;
+  font-size: 0.9rem;
 }

@@ -1,5 +1,17 @@
 # Context provenance ledger
 
+## Compact Intelligence overview local source review — 2026-11-14
+
+Functional `1576e48efc503244315dfd052a7299873b484e62` implements the explicit
+website #27 / org #27 progressive-disclosure slice. The [source-bound receipt](../development/reviews/intelligence-compact-overview/verification.json)
+records 16 focused cases, app/test and driver typechecks, the44-file/39-route
+actual retained-input export, unchanged model identities, pinned native directory
+intake and eight local HTTP Chromium groups. Desktop/mobile captures are retained.
+No hosted export, new selection, deployment, human ratification or full directory
+acceptance is inferred. The previous theme publication remains historical live
+proof; original model/evaluation clocks stay fixed.
+
+
 ## Intelligence appearance actual delivery closeout — 2026-11-13
 
 Website #146 closed completed after reviewed #147 merged at published source

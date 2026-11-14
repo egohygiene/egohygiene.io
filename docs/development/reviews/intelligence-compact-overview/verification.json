@@ -1,0 +1,164 @@
+{
+  "schema": "egohygiene.website.intelligence-compact-overview-review/v1",
+  "observed_at": "2026-11-14T19:49:27Z",
+  "functional_source": "1576e48efc503244315dfd052a7299873b484e62",
+  "base_revision": "d80c48582f77a0a3bd7424592307b8fac71df83d",
+  "scope": "Presentation-only implementation of website #27 / org #27. Exact sealed retained-input export over local HTTP; not canonical HTTPS, publication, full accessibility or organization acceptance.",
+  "checks": {
+    "focused_unit_cases": 16,
+    "focused_unit_files": 4,
+    "app_typecheck": "passed",
+    "unit_test_typecheck": "passed",
+    "existing_browser_config_typecheck": "passed",
+    "overview_driver_direct_typecheck": "passed",
+    "scoped_biome_errors": 0,
+    "whitespace": "passed"
+  },
+  "export": {
+    "manifest_sha256": "39776adfc8c4feb5e1a8b12f3ac4add417b723d3a2e6119915cad9462a551dc3",
+    "file_count": 44,
+    "route_count": 39,
+    "target": {
+      "base_path": "/.github/",
+      "origin": "https://egohygiene.github.io"
+    },
+    "evaluation_as_of": "2026-11-13T03:36:14Z",
+    "scope_repositories": [
+      "egohygiene/.github"
+    ],
+    "models": {
+      "audits": {
+        "contract_version": "1.0.0-alpha.1",
+        "presentation_sha256": "480c4f0fee01dc68ff215b6a52f5d7e5b7c2a71954d732d0285518ef5a80e240",
+        "schema": "egohygiene.observatory.fleet-audits/v1",
+        "state": "available"
+      },
+      "core": {
+        "contract_version": "1.0.0-alpha.2",
+        "presentation_sha256": null,
+        "schema": "egohygiene.observatory.repository-intelligence-fleet/v1",
+        "state": "unavailable"
+      },
+      "sanity": {
+        "contract_version": "1.0.0-alpha.1",
+        "presentation_sha256": "ce1d3241f9e3a0eb923cf970ed6a7bd487407d481672ed42dcd2e29279eac5f7",
+        "schema": "egohygiene.observatory.fleet-sanity/v1",
+        "state": "available"
+      }
+    },
+    "model_bindings_equal_to_previous_theme_review": true,
+    "original_review_model_as_of": "2026-11-13T03:23:31Z"
+  },
+  "native_intake": {
+    "relay_revision": "d15cacd987ef1f98a6b94b051a42925eb91f8cc7",
+    "transport": "directory",
+    "status": "passed",
+    "receipt_sha256": "e08a5edfc18c93a60fcb88e5b231a35d5fe4e269da63f9a54008da209cac95e5",
+    "publication": "review-only",
+    "deployment_authorized": false
+  },
+  "browser": {
+    "node": "v24.21.0",
+    "browser": "151.0.7922.173",
+    "status": "passed",
+    "checks": [
+      "Default overview has four compact view groups, all 18 endpoints and a closed optional graph.",
+      "Native scope disclosures toggle with the keyboard and keep a visible focus outline.",
+      "A grouped view keeps URL filters across navigation, direct refresh and Back at the project mount.",
+      "320/390/768/1440px layouts stay within the viewport with the graph closed and open.",
+      "The overview also remains bounded at 390px with RTL flow and 200% root text size.",
+      "Selecting a graph node writes shared graph state and reload reopens the optional map.",
+      "Without JavaScript all view links, native scope disclosures and the map's text directory remain usable.",
+      "No page exceptions or application console errors; sealed manifest and all files remain byte-identical after review. An origin-root favicon 404, if requested, is recorded separately in consoleErrors."
+    ],
+    "layouts": [
+      {
+        "width": 320,
+        "document": 320,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": false
+      },
+      {
+        "width": 320,
+        "document": 320,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": true
+      },
+      {
+        "width": 390,
+        "document": 390,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": false
+      },
+      {
+        "width": 390,
+        "document": 390,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": true
+      },
+      {
+        "width": 768,
+        "document": 768,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": false
+      },
+      {
+        "width": 768,
+        "document": 768,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": true
+      },
+      {
+        "width": 1440,
+        "document": 1440,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": false
+      },
+      {
+        "width": 1440,
+        "document": 1440,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": true
+      },
+      {
+        "width": 390,
+        "document": 390,
+        "direction": "rtl",
+        "fontScale": "32px",
+        "graphOpen": false
+      }
+    ],
+    "pageErrors": [],
+    "startedAt": "2026-11-14T19:45:54.408Z",
+    "finishedAt": "2026-11-14T19:45:57.693Z"
+  },
+  "browser_driver_sha256": "446c695a4b47741b043e3bfc0df28875742cef2bcc9623f8db78589a0742b061",
+  "browser_origin_root_favicon_404_count": 1,
+  "browser_application_console_error_count": 0,
+  "screenshots": [
+    {
+      "path": "overview-390.png",
+      "sha256": "b106ed09d845d953248f7f396889006c8c92a1572624a6e069cdcbbadff9b0a0"
+    },
+    {
+      "path": "overview-1440.png",
+      "sha256": "dc81f022809ddf65c08bbebe853e44f162d772674e0729c9cc17534aebf68e24"
+    }
+  ],
+  "limits": [
+    "Core remains unavailable; the directory is not fabricated from review targets. org #42 owns its independent input work.",
+    "One .github target with 28 Sanity components is not 28 captured repository rows. Original partial execution/not-reviewed governance/human unavailable states remain.",
+    "Native disclosure and keyboard checks are bounded Chromium checks, not physical-device, assistive-technology or whole-site accessibility certification.",
+    "An origin-root favicon 404 is outside the declared project export and retained separately; no application console error or page exception occurred.",
+    "Vite retains its existing greater-than500kB chunk warning. Scoped Biome has warnings; no threshold or rule was disabled.",
+    "No hosted export, consumer selection, publication, rollback rehearsal, source-model refresh or human ratification occurred."
+  ]
+}
