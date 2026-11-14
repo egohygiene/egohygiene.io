@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## Private playground exposure checkpoint — 2026-11-13
+
+[Issue25 repair](../development/playground-exposure-25.md) implements loopback/crawler policy and a fail-closed public build module boundary. Actual Vite import/HTTP checks and the normal45-route build pass; broader experiment lifecycle and retained compiler/engineering gates stay open. No deployment or hosted run occurred.
+
 ## Intelligence appearance actual delivery closeout — 2026-11-13
 
 Website #146 closed completed after reviewed #147 merged at published source
