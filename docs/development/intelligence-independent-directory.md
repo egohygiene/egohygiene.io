@@ -104,3 +104,26 @@ Physical devices, assistive technology, full zoom, canaries, restore and human
 ratification are separate acceptance. No new ADR is needed: this consumes the
 already reviewed navigation contract through the existing static compositor;
 canonical catalog/architecture and model ownership stay with their owners.
+
+## Actual combined delivery — 2026-11-14
+
+Website #153 merged at `d5730066cf8645a927efcd6ff4f2170627bf4443` on top
+of the compact overview #152. Actual retained-model export `43637285216/1`,
+organization native review `43637764378/1` and authorized publisher
+`43639599345/1` completed successfully. The [live organization overview](https://egohygiene.github.io/.github/intelligence/)
+and [source-bound live closeout](https://github.com/egohygiene/.github/pull/70)
+retain exact artifact/receipt identities and previous4814 recovery. All44 producer
+files stayed unchanged; actual publisher source is `5f02bfd6`, publication SHA256
+`0fcf249a88e1b34fd111eed9155c8051ea6476a0f30cd980ba53b61734d58d15`.
+Canonical browser review passed11 focused groups,19 exact HTML views and nine
+narrow/RTL/enlarged-text observations, with keyboard/disclosures/query/appearance
+and no-JavaScript navigation. Origin-rootfavicon404 is retained separately.
+
+Directory source834d and payloadd294, original source observation clocks,
+28-row historical-roster scope, two dated links, three literal custom-domain
+declarations/unknown publication and23 unknown destinations are unchanged.
+Core stays unavailable; model frame/evaluation and partial/human boundaries stay
+unchanged. No new model collection or normalization occurred. Restore, full
+accessibility/fleet/privacy and broader website27/org27/41/42 acceptance remain
+open. This later documentation-only closeout is not the exported source and
+requires no new publication.

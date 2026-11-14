@@ -1,5 +1,27 @@
 # Current handoff
 
+## Current: compact organization UI and directory delivered — 2026-11-14
+
+The [live organization dashboard](https://egohygiene.github.io/.github/intelligence/)
+now serves accepted website source `d5730066cf8645a927efcd6ff4f2170627bf4443`
+(UI #152 and directory #153). Actual hosted export `43637285216/1`, native
+organization review `43637764378/1` and publisher `43639599345/1` succeeded;
+organization publisher source is `5f02bfd6353b764513ef57a41bcf79db0f3c2e72`.
+[Actual live closeout](https://github.com/egohygiene/.github/pull/70) retains
+publication `0fcf249a88e1b34fd111eed9155c8051ea6476a0f30cd980ba53b61734d58d15`,
+all 44 unchanged producer files, complete previous4814 recovery and canonical
+browser review. Eleven focused browser groups and 19 exact served HTML bodies
+pass, including narrow/keyboard/disclosure/theme/no-JavaScript navigation.
+No new export or deployment is needed for this documentation checkpoint.
+
+The 28-row navigation roster remains separate from unavailable Core and the
+one-target Audit/Sanity models. Two dated records stay dated; three custom-domain
+declarations are text with unknown publication and 23 dashboards stay unknown.
+Original model/evaluation clocks, partial/unreviewed/human-unavailable states and
+two baseline tooling Vite type errors remain unchanged. Broad website #27 and
+organization #27/#41/#42 stay open. [CONTINUITY.md](../../CONTINUITY.md) owns the
+next checkpoint; older pending-delivery entries below are historical.
+
 ## Current: independent repository navigation ready for review — 2026-11-14
 
 The [directory consumer](../development/intelligence-independent-directory.md)
