@@ -1,5 +1,18 @@
 # Current handoff
 
+## Current: independent repository navigation ready for review — 2026-11-14
+
+The [directory consumer](../development/intelligence-independent-directory.md)
+pins accepted organization source `834d7fd5` and exact payload `d2943598`.
+Navigation has 28 reviewed public rows, independently of unavailable Core and
+the unchanged one-target Audit/Sanity models. Two dated GitHub Pages records are
+clickable; three custom-domain declarations are literal text with unknown
+publication, and 23 dashboard destinations remain unknown. Twenty UI cases,
+eight admission controls, ten local browser groups and unchanged native intake
+pass at functional `b105681`. Source review precedes one combined UI/directory
+hosted export and publication. The two baseline tooling Vite type errors remain
+explicit. [CONTINUITY.md](../../CONTINUITY.md) owns the current handoff.
+
 ## Current: compact Intelligence overview ready for source review — 2026-11-14
 
 The [bounded website #27 / org #27 presentation](../development/intelligence-compact-overview.md)

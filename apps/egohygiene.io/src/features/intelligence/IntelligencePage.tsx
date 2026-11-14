@@ -7,6 +7,7 @@ import { intelligenceData } from "./data";
 import { IntelligenceHub } from "./graph/IntelligenceHub";
 import { IntelligenceViews } from "./IntelligenceViews";
 import { repositoryIntelligenceHref } from "./publication";
+import { RepositoryDirectory } from "./RepositoryDirectory";
 import { RepositoryPublicationLinks } from "./RepositoryPublicationLinks";
 import type { EvidenceState, IntelligenceItem, IntelligenceRepository } from "./types";
 
@@ -283,7 +284,15 @@ export function IntelligencePage() {
 
       <nav className="oi-section-nav" aria-label={t("intelligence.navigation.label")}>
         <a href="#intelligence-now">{t("intelligence.navigation.now")}</a>
-        <a href="#intelligence-repositories">{t("intelligence.navigation.repositories")}</a>
+        <a
+          href={
+            intelligenceData.directory?.state === "admitted"
+              ? "#intelligence-directory"
+              : "#intelligence-repositories"
+          }
+        >
+          {t("intelligence.navigation.repositories")}
+        </a>
         <a href="#intelligence-modules">{t("intelligence.navigation.modules")}</a>
         <a href="#intelligence-map">{t("intelligence.navigation.map")}</a>
         <a href="#intelligence-provenance">{t("intelligence.navigation.provenance")}</a>
@@ -407,6 +416,8 @@ export function IntelligencePage() {
         )}
       </section>
 
+      <RepositoryDirectory />
+
       <section
         className={`oi-section${hasSnapshot ? "" : " oi-section-empty"}`}
         id="intelligence-repositories"
@@ -528,7 +539,11 @@ export function IntelligencePage() {
           </>
         ) : (
           <p className="oi-state-note">
-            {t("intelligence.directory.unavailable")}{" "}
+            {t(
+              intelligenceData.directory?.state === "admitted"
+                ? "intelligence.roster.coreUnavailable"
+                : "intelligence.directory.unavailable",
+            )}{" "}
             <a href="https://github.com/egohygiene/.github/issues/42">
               {t("intelligence.directory.coverageOwner")}
             </a>

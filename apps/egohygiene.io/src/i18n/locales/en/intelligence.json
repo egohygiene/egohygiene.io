@@ -226,5 +226,55 @@
     "unavailable": "Unavailable",
     "incompatible": "Incompatible input",
     "error": "Collection error"
+  },
+  "roster": {
+    "kicker": "Reviewed public navigation",
+    "heading": "Repository dashboards",
+    "description": "Find a repository and follow its declared dashboard. Publication records are dated evidence; current availability has not been rechecked.",
+    "filters": "Filter the reviewed repository navigation",
+    "linkEvidence": "Dashboard evidence",
+    "allStates": "All link states",
+    "results": "Showing {{shown}} of {{total}} entries in the reviewed public roster.",
+    "noScript": "All reviewed rows remain available in the native disclosures. Interactive filters require JavaScript.",
+    "recordedHeading": "Dated publication records",
+    "recordedLimit": "These destinations have retained publication evidence. The dates below are the original observations, not a new live check.",
+    "recordedAt": "Publication recorded at",
+    "declaredLimit": "Destination declared in inspected source; publication unknown.",
+    "entryDetails": "Source and publication evidence",
+    "inspectedRevision": "Inspected source revision",
+    "sourceObserved": "Source inspection observed at",
+    "declaration": "Source declaration",
+    "publication": "Publication evidence",
+    "publishedSource": "Recorded published source",
+    "recordedRun": "Recorded run · attempt {{attempt}}",
+    "evidence": "Retained evidence packet",
+    "states": {
+      "publication-recorded": "Publication recorded",
+      "source-declared": "Source declared · publication unknown",
+      "unknown": "Dashboard unknown"
+    },
+    "publicationStates": {
+      "recorded": "Dated record; current availability unchecked",
+      "unknown": "Unknown"
+    },
+    "declarations": {
+      "pages-composition-source-declared": "Pages composition declared in inspected source",
+      "artifact-or-preview-source-declared": "Artifact or preview declared in inspected source",
+      "not-declared-in-inspected-source": "Not declared in inspected source"
+    },
+    "groups": {
+      "source-declared": "Source-declared destinations ({{count}})",
+      "unknown": "Repositories with an unknown dashboard ({{count}})"
+    },
+    "noResults": "No reviewed roster rows match these filters. This says nothing about repositories outside the reviewed scope.",
+    "provenance": "Directory sources and scope",
+    "scope": "This is a fixed reviewed public navigation roster, not an organization total or a collection of Core evidence. Source, catalog and publication clocks remain independent. Missing dashboard evidence is unknown, not a health failure.",
+    "input": "Pinned directory input",
+    "digest": "Directory payload SHA-256",
+    "catalog": "Canonical public catalog and original observation",
+    "inventory": "Inspected source inventory and original observation",
+    "coreUnavailable": "Core model evidence remains unavailable. Repository navigation above is independently sourced.",
+    "resultStatus": "Reviewed roster search results",
+    "declaredDestination": "Declared destination (text only):"
   }
 }

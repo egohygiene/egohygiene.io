@@ -180,7 +180,7 @@ export async function buildIntelligenceExport(arguments_: string[] = []): Promis
   requireInput(bytes(routeInventory) === bytes(fixture["routes"]));
   const snapshot = await loadOrganizationIntelligence({ ...await inputs(request, inputRoot), allowedRepositories: new Set(publicRows.keys()) });
   const data = snapshot.presentation;
-  const selectedNames = [...new Set([...data.repositories.map((row) => row.name), ...Object.values(data.endpoints ?? {}).flatMap((endpoint) => endpoint.groups.map((group) => group.repository))])].sort();
+  const selectedNames = [...new Set([...data.repositories.map((row) => row.name), ...(data.directory?.entries.map((row) => row.repository) ?? []), ...Object.values(data.endpoints ?? {}).flatMap((endpoint) => endpoint.groups.map((group) => group.repository))])].sort();
   requireInput(selectedNames.every((name) => publicRows.has(name)));
   const selected = selectedNames.map((name) => publicRows.get(name)!);
   const model = (id: "core" | "audits" | "sanity") => {

@@ -152,6 +152,67 @@ try {
   );
 
   await page.goto(url);
+  const roster = page.locator("#intelligence-directory");
+  if (await roster.count()) {
+    const sourceRoot = join(repository, "contracts/organization-intelligence/directory");
+    const inputLock = JSON.parse(await readFile(join(sourceRoot, "input-lock.json"), "utf8"));
+    const projected = JSON.parse(
+      await readFile(join(sourceRoot, "owner", inputLock.payload_path), "utf8"),
+    ) as {
+      entries: { repository: string; dashboard: { url: string | null; link_state: string } }[];
+    };
+    await expect(roster.locator(".oi-directory-entry")).toHaveCount(projected.entries.length);
+    await expect(roster.locator(".oi-directory-group[open]")).toHaveCount(0);
+    await expect(roster.locator("#intelligence-directory-source")).toContainText(
+      inputLock.revision,
+    );
+    await expect(roster.locator("#intelligence-directory-source")).toContainText(
+      inputLock.files[inputLock.payload_path],
+    );
+    for (const row of projected.entries.filter(
+      (entry) => entry.dashboard.link_state === "publication-recorded",
+    ))
+      await expect(
+        roster
+          .locator(".oi-directory-entry-heading")
+          .getByRole("link", { name: row.repository, exact: true }),
+      ).toHaveAttribute("href", row.dashboard.url ?? "");
+    for (const row of projected.entries.filter(
+      (entry) => entry.dashboard.link_state === "source-declared",
+    )) {
+      const declared = roster
+        .locator('[data-link-state="source-declared"]')
+        .filter({ hasText: row.repository });
+      await expect(declared.locator(".oi-directory-entry-heading > a")).toHaveAttribute(
+        "href",
+        `https://github.com/${row.repository}`,
+      );
+      await expect(declared.locator(".oi-directory-caption code")).toContainText(
+        row.dashboard.url ?? "",
+      );
+    }
+    await roster.getByRole("searchbox", { name: "Search repositories" }).fill("empathy");
+    await expect(roster.locator(".oi-directory-entry")).toHaveCount(1);
+    await expect(roster.locator(".oi-directory-entry-heading > a")).toHaveAttribute(
+      "href",
+      "https://egohygiene.github.io/empathy/intelligence/",
+    );
+    await page.reload();
+    await expect(roster.getByRole("searchbox", { name: "Search repositories" })).toHaveValue(
+      "empathy",
+    );
+    await roster.getByRole("searchbox", { name: "Search repositories" }).fill("");
+    await roster.getByRole("combobox", { name: "Dashboard evidence" }).selectOption("unknown");
+    const unknown = projected.entries.filter((entry) => entry.dashboard.link_state === "unknown");
+    await expect(roster.locator(".oi-directory-entry")).toHaveCount(unknown.length);
+    await expect(roster.locator(".oi-directory-group")).toHaveAttribute("open");
+    for (const link of await roster.locator(".oi-directory-entry-heading > a").all())
+      assert.match((await link.getAttribute("href")) ?? "", /^https:\/\/github\.com\/egohygiene\//);
+    report.checks.push(
+      "Independent roster binds its accepted org source/payload, preserves dated/declaration/unknown states and consumer links, and filters/reloads through URL state without Core rows.",
+    );
+    await page.goto(url);
+  }
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     for (const graphOpen of [false, true]) {
@@ -221,6 +282,14 @@ try {
   report.checks.push(
     "Without JavaScript all view links, native scope disclosures and the map's text directory remain usable.",
   );
+  if (await staticPage.locator("#intelligence-directory").count()) {
+    const group = staticPage.locator(".oi-directory-group").last();
+    await group.locator(":scope > summary").click();
+    await expect(group.locator(".oi-directory-list")).toBeVisible();
+    report.checks.push(
+      "JavaScript-disabled roster disclosures expose unknown repositories and source provenance without inventing dashboard destinations.",
+    );
+  }
   await noScript.close();
   assert.deepEqual(report.pageErrors, []);
   assert.deepEqual(
