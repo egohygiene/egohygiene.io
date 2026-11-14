@@ -119,7 +119,7 @@ try {
     `Default overview has four compact view groups, all ${endpointCount} endpoints and a closed optional graph.`,
   );
 
-  const groups = page.locator(".oi-view-scope");
+  const groups = page.locator(".oi-view-group .oi-view-scope");
   const summary = groups.first().locator("summary");
   await summary.focus();
   await page.keyboard.press("Enter");
@@ -213,7 +213,7 @@ try {
   const staticPage = await noScript.newPage();
   await staticPage.goto(url);
   await expect(staticPage.locator(".oi-view-list a")).toHaveCount(endpointCount);
-  const nativeScope = staticPage.locator(".oi-view-scope").first();
+  const nativeScope = staticPage.locator(".oi-view-group .oi-view-scope").first();
   await nativeScope.locator("summary").click();
   await expect(nativeScope.locator("dl")).toBeVisible();
   await staticPage.locator(".oi-map-disclosure > summary").click();
