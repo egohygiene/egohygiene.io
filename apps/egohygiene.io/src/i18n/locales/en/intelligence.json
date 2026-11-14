@@ -143,7 +143,7 @@
     "snapshotLink": "Open fleet exploration draft",
     "ownerLink": "View the owning implementation issue",
     "scope": "View scope and sources",
-    "evaluated": "Evidence evaluated at"
+    "sourceAsOf": "Source snapshot as of"
   },
   "provenance": {
     "presentationIdentity": "Admitted presentation identity",

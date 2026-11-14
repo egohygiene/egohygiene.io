@@ -1,5 +1,5 @@
 import { useI18n } from "@egohygiene/i18n";
-import { Link } from "react-router-dom";
+import { LocaleLink as Link } from "../../i18n/LocaleLink";
 
 import { intelligenceData } from "./data";
 import type { IntelligenceModule } from "./types";
@@ -88,7 +88,7 @@ export function IntelligenceViews({ search }: { readonly search: string }) {
                           </p>
                           {source ? (
                             <p className="oi-muted">
-                              {t("intelligence.modules.evaluated")}{" "}
+                              {t("intelligence.modules.sourceAsOf")}{" "}
                               <time dateTime={source.asOf}>{source.asOf}</time>
                             </p>
                           ) : null}

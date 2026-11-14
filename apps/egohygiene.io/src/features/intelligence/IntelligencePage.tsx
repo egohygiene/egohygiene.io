@@ -179,7 +179,7 @@ function ReviewShortcuts({ search }: { readonly search: string }) {
           </strong>
           <span>{t(`intelligence.viewStates.${state}`)}</span>
           <span>
-            {t("intelligence.modules.evaluated")} <time dateTime={asOf}>{asOf}</time>
+            {t("intelligence.modules.sourceAsOf")} <time dateTime={asOf}>{asOf}</time>
           </span>
         </Link>
       ))}
