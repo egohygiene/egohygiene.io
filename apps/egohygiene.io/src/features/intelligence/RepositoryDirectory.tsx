@@ -17,7 +17,13 @@ function DirectoryEntry({ entry }: { readonly entry: RepositoryDirectoryEntry })
   return (
     <li className="oi-directory-entry" data-link-state={dashboard.link_state}>
       <div className="oi-directory-entry-heading">
-        <a href={dashboard.url ?? entry.repository_url}>
+        <a
+          href={
+            dashboard.link_state === "publication-recorded"
+              ? (dashboard.url ?? entry.repository_url)
+              : entry.repository_url
+          }
+        >
           <bdi dir="auto">{entry.repository}</bdi>
         </a>
         <span className="oi-view-state">
@@ -30,7 +36,12 @@ function DirectoryEntry({ entry }: { readonly entry: RepositoryDirectoryEntry })
           <time dateTime={publication.observed_at}>{publication.observed_at}</time>
         </p>
       ) : dashboard.link_state === "source-declared" ? (
-        <p className="oi-directory-caption">{t("intelligence.roster.declaredLimit")}</p>
+        <p className="oi-directory-caption">
+          {t("intelligence.roster.declaredLimit")}{" "}
+          <span>
+            {t("intelligence.roster.declaredDestination")} <code>{dashboard.url}</code>
+          </span>
+        </p>
       ) : null}
       <details className="oi-directory-entry-details">
         <summary>{t("intelligence.roster.entryDetails")}</summary>

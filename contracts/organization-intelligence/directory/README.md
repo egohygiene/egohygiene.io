@@ -25,3 +25,10 @@ Update the semantic owner first, review its exact source, then replace the full
 capsule and pin together. Do not hand-edit a URL, date, proof packet or lock to
 manufacture a publication record. Recorded, source-declared and unknown remain
 distinct. The fixed reviewed roster is not a current organization total.
+
+The unchanged pinned Relay static-intake profile accepts repository links and
+public GitHub Pages targets. For this delivery, the two dated GitHub Pages
+publications are clickable. The three source-declared custom-domain destinations
+remain literal text alongside GitHub source links and unknown publication state.
+Their values are preserved; clickable custom-domain support and live acceptance
+are separate owner work. No intake URL rule is relaxed to bypass this boundary.

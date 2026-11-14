@@ -177,6 +177,20 @@ try {
           .locator(".oi-directory-entry-heading")
           .getByRole("link", { name: row.repository, exact: true }),
       ).toHaveAttribute("href", row.dashboard.url ?? "");
+    for (const row of projected.entries.filter(
+      (entry) => entry.dashboard.link_state === "source-declared",
+    )) {
+      const declared = roster
+        .locator('[data-link-state="source-declared"]')
+        .filter({ hasText: row.repository });
+      await expect(declared.locator(".oi-directory-entry-heading > a")).toHaveAttribute(
+        "href",
+        `https://github.com/${row.repository}`,
+      );
+      await expect(declared.locator(".oi-directory-caption code")).toContainText(
+        row.dashboard.url ?? "",
+      );
+    }
     await roster.getByRole("searchbox", { name: "Search repositories" }).fill("empathy");
     await expect(roster.locator(".oi-directory-entry")).toHaveCount(1);
     await expect(roster.locator(".oi-directory-entry-heading > a")).toHaveAttribute(

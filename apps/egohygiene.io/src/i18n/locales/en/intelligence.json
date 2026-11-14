@@ -274,6 +274,7 @@
     "catalog": "Canonical public catalog and original observation",
     "inventory": "Inspected source inventory and original observation",
     "coreUnavailable": "Core model evidence remains unavailable. Repository navigation above is independently sourced.",
-    "resultStatus": "Reviewed roster search results"
+    "resultStatus": "Reviewed roster search results",
+    "declaredDestination": "Declared destination (text only):"
   }
 }

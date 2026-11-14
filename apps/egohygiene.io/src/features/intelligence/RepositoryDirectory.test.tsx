@@ -56,6 +56,15 @@ it("renders dated publication records while keeping declarations and unknown des
   expect(screen.getByText("2026-11-14T06:35:35.745Z")).toBeInTheDocument();
   expect(document.querySelectorAll(".oi-directory-group[open]")).toHaveLength(0);
   expect(screen.queryByText("Healthy")).not.toBeInTheDocument();
+  const declared = document.querySelectorAll('[data-link-state="source-declared"]');
+  for (const row of declared) {
+    expect(row.querySelector(".oi-directory-entry-heading > a")?.getAttribute("href")).toMatch(
+      /^https:\/\/github.com\/egohygiene\//,
+    );
+    expect(row.querySelector(".oi-directory-caption code")?.textContent).toMatch(
+      /^https:\/\/[^/]+\.egohygiene\.io\/intelligence\//,
+    );
+  }
 });
 it("searches the reviewed roster with URL context and an exact consumer-owned destination", () => {
   render(<Page route="/intelligence/?entity=retained" />);
