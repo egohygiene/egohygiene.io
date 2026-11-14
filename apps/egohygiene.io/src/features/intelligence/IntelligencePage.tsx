@@ -163,6 +163,27 @@ function RepositoryEvidence({ repository }: { readonly repository: IntelligenceR
   );
 }
 
+function OverviewSectionHeader({
+  group,
+  headingId,
+  available,
+}: {
+  readonly group: "now" | "directory";
+  readonly headingId: string;
+  readonly available: boolean;
+}) {
+  const { t } = useI18n();
+  return (
+    <header className="oi-section-heading">
+      <div>
+        {available ? <p className="site-eyebrow">{t(`intelligence.${group}.kicker`)}</p> : null}
+        <h2 id={headingId}>{t(`intelligence.${group}.heading`)}</h2>
+      </div>
+      {available ? <p className="oi-muted">{t(`intelligence.${group}.description`)}</p> : null}
+    </header>
+  );
+}
+
 function ReviewShortcuts({ search }: { readonly search: string }) {
   const { t } = useI18n();
   const views = intelligenceData.modules.flatMap((module) => {
@@ -305,17 +326,11 @@ export function IntelligencePage() {
         id="intelligence-now"
         aria-labelledby="intelligence-now-heading"
       >
-        <header className="oi-section-heading">
-          <div>
-            {nowRepositories.length ? (
-              <p className="site-eyebrow">{t("intelligence.now.kicker")}</p>
-            ) : null}
-            <h2 id="intelligence-now-heading">{t("intelligence.now.heading")}</h2>
-          </div>
-          {nowRepositories.length ? (
-            <p className="oi-muted">{t("intelligence.now.description")}</p>
-          ) : null}
-        </header>
+        <OverviewSectionHeader
+          group="now"
+          headingId="intelligence-now-heading"
+          available={nowRepositories.length > 0}
+        />
         {nowRepositories.length ? (
           <div className="oi-now-grid">
             {lanes.map((lane) => {
@@ -395,17 +410,11 @@ export function IntelligencePage() {
         id="intelligence-repositories"
         aria-labelledby="intelligence-repositories-heading"
       >
-        <header className="oi-section-heading">
-          <div>
-            {hasSnapshot ? (
-              <p className="site-eyebrow">{t("intelligence.directory.kicker")}</p>
-            ) : null}
-            <h2 id="intelligence-repositories-heading">{t("intelligence.directory.heading")}</h2>
-          </div>
-          {hasSnapshot ? (
-            <p className="oi-muted">{t("intelligence.directory.description")}</p>
-          ) : null}
-        </header>
+        <OverviewSectionHeader
+          group="directory"
+          headingId="intelligence-repositories-heading"
+          available={hasSnapshot}
+        />
         {hasSnapshot ? (
           <>
             <search
