@@ -1,0 +1,372 @@
+{
+  "schema": "egohygiene.github.organization-live-evidence/v1alpha1",
+  "target": {
+    "base_path": "/.github/",
+    "origin": "https://egohygiene.github.io"
+  },
+  "initial_publication": {
+    "source_revision": "460bd07960a1dfa85614874e2daa0c29fc2eab48",
+    "workflow_path": ".github/workflows/organization-intelligence-pages.yml",
+    "run_id": 43369556651,
+    "run_attempt": 1,
+    "conclusion": "success",
+    "pages_configuration": {
+      "build_type": "workflow",
+      "html_url": "https://egohygiene.github.io/.github/",
+      "cname": null,
+      "https_enforced": true
+    },
+    "selection_sha256": "37c6de9b070199dc893403d1deeeede50e2a5e71be60e530ff5cacbf3c0f46d9",
+    "publication_sha256": "63e3f2e57cd261ceea4dbb3bf6cb0b92a4df88d91cfa4a0ebd93ccfb14c89322",
+    "publication_verified_at": "2026-11-13T05:04:53Z",
+    "producer_files": 43,
+    "public_files": 44,
+    "route_count": 39,
+    "before": [
+      {
+        "url": "https://egohygiene.github.io/.github/",
+        "status": 404,
+        "final_url": "https://egohygiene.github.io/.github/",
+        "body_sha256": "70d613e3acfba24fd2876fcbacaf639e1e111ef4d54baf70761c47673f37d6a3"
+      },
+      {
+        "url": "https://egohygiene.github.io/.github/organization-intelligence-publication.json",
+        "status": 404,
+        "final_url": "https://egohygiene.github.io/.github/organization-intelligence-publication.json",
+        "body_sha256": "70d613e3acfba24fd2876fcbacaf639e1e111ef4d54baf70761c47673f37d6a3"
+      }
+    ],
+    "recovery": {
+      "prior_publication_sha256": null,
+      "state": "first-deployment"
+    },
+    "artifacts": [
+      {
+        "id": 14011946753,
+        "kind": "verified-public-handoff",
+        "archive_sha256": "22096049c05e98cf107ce8042fe4b0d853097b1e21b81646dd4074a2c4c565ef"
+      },
+      {
+        "id": 14012340473,
+        "kind": "first-deployment-recovery",
+        "archive_sha256": "49392a821d07c22f888d0c94cd1ea2b4b666c92e19d6a57ba092279a970772e7"
+      },
+      {
+        "id": 14011124894,
+        "kind": "live-verification-evidence",
+        "archive_sha256": "2a1e50a7cb57da1ea82b9d787ef9ad39e9f5cbbaaba27d26d6ad0f9912b0e482"
+      }
+    ],
+    "review": {
+      "archive_sha256": "45a128195fe10c53b518c903fc800d69c786595b9a329897ba364d9255fcaea7",
+      "artifact_id": 14008223697,
+      "consumer_revision": "281c3827378ae08bb44cde810ad6467fdb0c8adc",
+      "intake_receipt_sha256": "208320a354d30a30791c09fe6ab2f531ffdb820dfe97eea6a7d73ae91df09777",
+      "manifest_sha256": "6fe95bb157d5c419d1db59b37ab27bc994b62441d4906e6c971f2ec71557ee97",
+      "producer_revision": "342673b110915f4a29ada01625a77416a1e105d7",
+      "run_attempt": 1,
+      "run_id": 43362027530,
+      "selection_receipt_sha256": "486cbaad1bccbcd0e19e323eb5df11fc2f495ddd027d4d57fb795a4ac86cb04c"
+    },
+    "provider_and_independent_https_byte_verification": "passed",
+    "canonical_browser": {
+      "started_at": "2026-11-13T05:08:41.452430+00:00",
+      "finished_at": "2026-11-13T05:08:45.494602+00:00",
+      "browser": "151.0.7922.173",
+      "mode": "canonical-live-https",
+      "checks": [
+        "canonical root resolves to the real organization hub",
+        "first visible graph link opens actual Audits evidence",
+        "native graph selection opens28component/8concern Sanity with original partial/human states"
+      ],
+      "outcome": "passed-with-findings",
+      "certificate_errors_ignored": false,
+      "request_interception": false,
+      "page_exceptions": 0,
+      "failed_requests": 0,
+      "findings": [
+        {
+          "kind": "browser-default-icon",
+          "url": "https://egohygiene.github.io/favicon.ico",
+          "status": 404,
+          "scope": "Browser automatic request outside the selected project base; no declared producer resource mismatch."
+        }
+      ]
+    }
+  },
+  "limits": [
+    "One .github fleet target contains an organization Sanity review of 28 components / 8 concerns; this is not 28 independent fleet reports.",
+    "Core remains unavailable and original 03:23:31Z model clocks, partial execution and unreviewed human state remain unchanged.",
+    "No automatic rollback, company host retirement, full accessibility certification or human ADR ratification is inferred.",
+    "Initial publication was a first deployment. The replacement separately retained the actual prior 44-file public site; no automatic rollback or restore exercise is claimed."
+  ],
+  "theme_refresh": {
+    "producer_export": {
+      "repository": "egohygiene/egohygiene.io",
+      "producer_revision": "d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a",
+      "run_id": 43371316736,
+      "run_attempt": 1,
+      "static_artifact_id": 14012273181,
+      "static_archive_sha256": "a91a09436ef64bcef47475d36be136276d4b8ae8fc3469e89b00d5c7c3c8d4c3",
+      "manifest_sha256": "6574c9c10e91fd9150439f4c2c0a0b934bb42ecc2f2bc9ccd307607f85989623",
+      "selection_artifact_id": 14012283577,
+      "selection_archive_sha256": "0084c94497d29c718719256521a4b6ea981673bb2cb02125a8c752e824a678ee",
+      "selection_receipt_sha256": "a1147de4bdc78da5b53ac2dfefb13fc29f9ec075a7a7041c0fb2eac1a5028e03",
+      "models": {
+        "audits": {
+          "code": "NONE",
+          "presentation_sha256": "480c4f0fee01dc68ff215b6a52f5d7e5b7c2a71954d732d0285518ef5a80e240",
+          "presentation_state": "available",
+          "source": {
+            "repository": "egohygiene/.github",
+            "revision": "281c3827378ae08bb44cde810ad6467fdb0c8adc",
+            "run_attempt": 1,
+            "run_id": 43358630670,
+            "workflow_path": ".github/workflows/repository-intelligence-canary.yml"
+          },
+          "source_as_of": "2026-11-13T03:23:31Z",
+          "state": "available"
+        },
+        "core": {
+          "code": "NOT_CONFIGURED",
+          "presentation_sha256": null,
+          "presentation_state": "unavailable",
+          "source": null,
+          "source_as_of": null,
+          "state": "unavailable"
+        },
+        "sanity": {
+          "code": "NONE",
+          "presentation_sha256": "ce1d3241f9e3a0eb923cf970ed6a7bd487407d481672ed42dcd2e29279eac5f7",
+          "presentation_state": "available",
+          "source": {
+            "repository": "egohygiene/.github",
+            "revision": "281c3827378ae08bb44cde810ad6467fdb0c8adc",
+            "run_attempt": 1,
+            "run_id": 43358630670,
+            "workflow_path": ".github/workflows/repository-intelligence-canary.yml"
+          },
+          "source_as_of": "2026-11-13T03:23:31Z",
+          "state": "available"
+        }
+      },
+      "selection_evaluated_at": "2026-11-13T03:36:14Z",
+      "producer_files": 44,
+      "route_count": 39,
+      "all_hashes_sizes_verified": true,
+      "all40_html_bootstrap_before_content_and_existing_styles": true,
+      "source_observers": {
+        "checkout": {
+          "head": "d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a",
+          "head_valid": true,
+          "paths": [],
+          "stage": "checkout",
+          "status_read_ok": true,
+          "truncated": false
+        },
+        "acquisition": {
+          "head": "d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a",
+          "head_valid": true,
+          "paths": [],
+          "stage": "acquisition",
+          "status_read_ok": true,
+          "truncated": false
+        },
+        "install": {
+          "head": "d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a",
+          "head_valid": true,
+          "paths": [],
+          "stage": "install",
+          "status_read_ok": true,
+          "truncated": false
+        }
+      },
+      "conclusion": "success"
+    },
+    "organization_review": {
+      "repository": "egohygiene/.github",
+      "run_id": 43371630627,
+      "run_attempt": 1,
+      "consumer_revision": "460bd07960a1dfa85614874e2daa0c29fc2eab48",
+      "conclusion": "success",
+      "artifact_id": 14011999855,
+      "archive_sha256": "818b8ded0abb5ede0f36c967f6235e06c29be488b691ed6c4dda4046de6cd316",
+      "intake_receipt_sha256": "c1424052a6f9dc39322d187641945d854c494cb0b6af3ade3fb3e1460d7f9a9c",
+      "selection_receipt_sha256": "a1147de4bdc78da5b53ac2dfefb13fc29f9ec075a7a7041c0fb2eac1a5028e03",
+      "producer_site_manifest_and_companion_bytes": "exact",
+      "members": 47,
+      "publication": "review-only",
+      "deployment_authorized": false
+    },
+    "source_pointer_revision": "82e4ba749daebc05377e456a87833ea03cb19c54",
+    "declaration_sha256": "57e41c12b1cc85ecd947d7693f9eadc923598515e3d6faecf7fd6789827e8017",
+    "selection_sha256": "0f83a0fc255bb505df7472740e38f3611f28310adb65b48d10672f10875aaae5",
+    "publication_state": "canonical-live-bytes-and-appearance-verified",
+    "expected_public_files": 45,
+    "recovery_requirement": "Satisfied: unchanged publisher captured and verified the actual previous publication 63e3f2e57cd261ceea4dbb3bf6cb0b92a4df88d91cfa4a0ebd93ccfb14c89322 and all 44 prior public files before replacement; separately controlled restore remains unexercised.",
+    "publication_preparation_local": {
+      "functional_revision": "6dfee8a91add38f47aecc050e6ddd7183013345f",
+      "selection_sha256": "0f83a0fc255bb505df7472740e38f3611f28310adb65b48d10672f10875aaae5",
+      "declaration_sha256": "57e41c12b1cc85ecd947d7693f9eadc923598515e3d6faecf7fd6789827e8017",
+      "actual_review_artifact": 14011999855,
+      "native_relay_sealed_export": "passed",
+      "native_hygiene_declaration": "passed",
+      "producer_files": 44,
+      "public_files": 45,
+      "routes": 39,
+      "all_producer_bytes": "exact",
+      "local_acquisition": "local-unverified",
+      "deployable_check": "denied-as-required",
+      "private_capture_or_cli_state_in_public_site": false,
+      "publication_sha256": "e54223a517a9c53a9a971012d91e7e6bd57cbdcb278d8cb2aca24c25d1d3b234",
+      "limits": [
+        "Offline replay of actual retained artifacts; no fresh GitHub acquisition or deployment claimed."
+      ]
+    },
+    "source_integration": {
+      "pull_request": 64,
+      "reviewed_head": "a42905b347032ed9c00dc23c9d89404926ef756e",
+      "merge_revision": "c6ea728ebc68eef1c22418319e34fbe54d82caa9",
+      "state": "merged"
+    },
+    "prepared_handoff": {
+      "artifact_id": 14013745222,
+      "archive_sha256": "f8e9ac0b46040131e0519b93d359cb9ebd624bb06a752deb9d3079d09a307d5d",
+      "archive_size": 310525,
+      "members": 49,
+      "public_files": 45,
+      "producer_files": 44,
+      "routes": 39,
+      "publication_sha256": "4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1",
+      "consumer_revision": "c6ea728ebc68eef1c22418319e34fbe54d82caa9",
+      "acquisition": "github-read-only",
+      "all_producer_bytes": "exact"
+    },
+    "actual_publication": {
+      "workflow_path": ".github/workflows/organization-intelligence-pages.yml",
+      "run_id": 43372599165,
+      "run_attempt": 1,
+      "conclusion": "success",
+      "source_revision": "c6ea728ebc68eef1c22418319e34fbe54d82caa9",
+      "selection_sha256": "0f83a0fc255bb505df7472740e38f3611f28310adb65b48d10672f10875aaae5",
+      "producer_files": 44,
+      "public_files": 45,
+      "route_count": 39,
+      "hosted_receipt": {
+        "consumer_revision": "c6ea728ebc68eef1c22418319e34fbe54d82caa9",
+        "file_count": 44,
+        "publication_sha256": "4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1",
+        "recovery": {
+          "prior_publication_sha256": "63e3f2e57cd261ceea4dbb3bf6cb0b92a4df88d91cfa4a0ebd93ccfb14c89322",
+          "state": "retained-prior-site"
+        },
+        "review": {
+          "archive_sha256": "818b8ded0abb5ede0f36c967f6235e06c29be488b691ed6c4dda4046de6cd316",
+          "artifact_id": 14011999855,
+          "consumer_revision": "460bd07960a1dfa85614874e2daa0c29fc2eab48",
+          "intake_receipt_sha256": "c1424052a6f9dc39322d187641945d854c494cb0b6af3ade3fb3e1460d7f9a9c",
+          "manifest_sha256": "6574c9c10e91fd9150439f4c2c0a0b934bb42ecc2f2bc9ccd307607f85989623",
+          "producer_revision": "d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a",
+          "run_attempt": 1,
+          "run_id": 43371630627,
+          "selection_receipt_sha256": "a1147de4bdc78da5b53ac2dfefb13fc29f9ec075a7a7041c0fb2eac1a5028e03"
+        },
+        "run_attempt": "1",
+        "run_id": "43372599165",
+        "schema": "egohygiene.github.organization-intelligence-pages-verification/v1",
+        "target": {
+          "base_path": "/.github/",
+          "origin": "https://egohygiene.github.io"
+        },
+        "verified_at": "2026-11-13T05:32:30Z"
+      },
+      "artifacts": [
+        {
+          "id": 14013361170,
+          "sha256": "d3dd98c9b403b73b5045c5d90ad81d2dc971c1cd30410a99afa9bff0b7249b4f",
+          "size": 298388,
+          "kind": "evidence",
+          "expires_at": "2027-02-11T05:31:42Z"
+        },
+        {
+          "id": 14013046878,
+          "sha256": "7a8f59b615cb7f1fb04bc7a06ac1f49d9800b706b15f81f26f2afa6c6b3378de",
+          "size": 294396,
+          "kind": "recovery",
+          "expires_at": "2027-02-11T05:31:42Z"
+        }
+      ],
+      "all_prior_public_files": "exact-against-original-prepared-artifact"
+    },
+    "authentication_interruption": {
+      "observed_at": "2026-11-13T05:29:43Z",
+      "state": "HTTP401 from configured gh credential after actual export/intake; connector source operations remained available",
+      "recovered_before": "2026-11-13T05:31:42Z",
+      "recovery": "Ordinary configured gh access recovered without a local credential change; exact canonical main and selection bytes were re-read before the accepted authorized dispatch.",
+      "impact": "Temporary block before replacement dispatch. It caused no failed deployment, source-binding bypass or workflow-trigger change."
+    },
+    "canonical_browser": {
+      "mode": "canonical-live-https",
+      "target": "https://egohygiene.github.io/.github/",
+      "producer_revision": "d8f9a7c706ef4cc477b0cf7201dd6c9f128d985a",
+      "started_at": "2026-11-13T05:34:30.620653+00:00",
+      "request_interception": false,
+      "certificate_errors_ignored": false,
+      "checks": [
+        "Fresh system preference follows dark operating-system mode",
+        "Explicit light survives OS changes, route navigation and reload",
+        "Explicit dark changes actual computed background and foreground",
+        "All 39 routes and aliases retain dark preference",
+        "System mode follows live operating-system changes"
+      ],
+      "page_errors": [],
+      "console_errors": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 404 ()",
+          "location": {
+            "url": "https://egohygiene.github.io/favicon.ico",
+            "line": 0,
+            "column": 0,
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        }
+      ],
+      "browser": "151.0.7922.173",
+      "palettes": {
+        "light": {
+          "theme": "light",
+          "background": "rgb(246, 241, 255)",
+          "foreground": "rgb(31, 22, 51)"
+        },
+        "dark": {
+          "theme": "dark",
+          "background": "rgb(18, 13, 31)",
+          "foreground": "rgb(249, 245, 255)"
+        }
+      },
+      "outcome": "passed-with-findings",
+      "finished_at": "2026-11-13T05:34:58.548924+00:00"
+    },
+    "browser_harness_correction": {
+      "first_attempt": "The initial actual HTTPS browser run passed the first four groups including all39routes, then an expression-string wait invoked eval blocked by the existing self-only CSP.",
+      "correction": "Changed only the task-local wait to a function predicate with an explicit argument, retained the failed harness report, and reran all five groups. Product source and CSP were unchanged."
+    },
+    "independent_peer": {
+      "outcome": "delivery-clear",
+      "actual_live_checks": "Six canonical resources byte-exact, eight mode/navigation/reload/HTML-and-graph-palette/System/clock assertions passed, and actual prepared/recovery/evidence archives independently rehashed.",
+      "page_exceptions": 0,
+      "request_interception": false,
+      "certificate_errors_ignored": false,
+      "scope": "Focused actual HTTPS review; not full accessibility or human assessment ratification."
+    },
+    "feature_issue": {
+      "repository": "egohygiene/egohygiene.io",
+      "number": 146,
+      "state": "closed",
+      "state_reason": "completed",
+      "closed_at": "2026-11-13T05:35:59Z",
+      "observed_at": "2026-11-13T05:37:24Z"
+    }
+  }
+}

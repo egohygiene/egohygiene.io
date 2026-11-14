@@ -1,0 +1,653 @@
+{
+  "schema": "egohygiene.repository-dashboard-directory/v1",
+  "scope": {
+    "kind": "fixed-reviewed-public-roster",
+    "organization_total_claim": false,
+    "model_evidence": false,
+    "current_availability_checked": false
+  },
+  "catalog": {
+    "repository": "egohygiene/hygiene",
+    "revision": "49639c1845cdfd08fbd5a768261a8b3cf515f80f",
+    "path": "catalog/public-repositories.json",
+    "sha256": "af9c7186ded0bb57b18741eaa5905314b96d6adb03736946c868e0fc4aa50b26",
+    "observed_at": "2026-11-09T14:06:57Z"
+  },
+  "source_inventory": {
+    "repository": "egohygiene/.github",
+    "revision": "ed2fd5d200cbb1b0e35b0efec2dcb817bac40ec2",
+    "path": "docs/intelligence/repositories.source.json",
+    "sha256": "c4e41df201500c5a00aa7b0e5e30cc4d8054f33eb39c842718266c70530175a9",
+    "observed_at": "2026-11-10T23:49:35Z"
+  },
+  "entries": [
+    {
+      "repository": "egohygiene/.github",
+      "repository_id": 1196401336,
+      "repository_url": "https://github.com/egohygiene/.github",
+      "source_observation": {
+        "revision": "ac2e4035173ed252d71d6655e723964ef93684df",
+        "observed_at": "2026-11-10T23:49:28Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": "https://egohygiene.github.io/.github/intelligence/",
+        "link_state": "publication-recorded",
+        "publication": {
+          "state": "recorded",
+          "observed_at": "2026-11-13T05:32:30Z",
+          "source_revision": "c6ea728ebc68eef1c22418319e34fbe54d82caa9",
+          "run_url": "https://github.com/egohygiene/.github/actions/runs/43372599165",
+          "run_attempt": 1,
+          "evidence": {
+            "repository": "egohygiene/.github",
+            "revision": "ed2fd5d200cbb1b0e35b0efec2dcb817bac40ec2",
+            "path": "docs/reviews/2026-11-13-organization-live-publication.json",
+            "sha256": "0098b29cae9a1325ee61485878c903cda2aa18bee8142cd005f3eee2c23afc65",
+            "observed_at": "2026-11-13T05:32:30Z"
+          }
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/aether",
+      "repository_id": 1315637692,
+      "repository_url": "https://github.com/egohygiene/aether",
+      "source_observation": {
+        "revision": "7ad20f3c73497ccc3aa9ee3b92d181b2436ef375",
+        "observed_at": "2026-11-10T23:49:29Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/akashic",
+      "repository_id": 1320228396,
+      "repository_url": "https://github.com/egohygiene/akashic",
+      "source_observation": {
+        "revision": "dc21c6a24506d748deb45f29ce54fc7e7bf69753",
+        "observed_at": "2026-11-10T23:49:29Z",
+        "state": "pages-composition-source-declared"
+      },
+      "dashboard": {
+        "url": "https://akashic.egohygiene.io/intelligence/",
+        "link_state": "source-declared",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/aniflow",
+      "repository_id": 1315637894,
+      "repository_url": "https://github.com/egohygiene/aniflow",
+      "source_observation": {
+        "revision": "8db708087f002aa6063c85faddb99bbc980ff732",
+        "observed_at": "2026-11-10T23:49:28Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/antidote",
+      "repository_id": 1347532537,
+      "repository_url": "https://github.com/egohygiene/antidote",
+      "source_observation": {
+        "revision": "34f7653469002c8f19c9adc87d4bfdcecc0eda33",
+        "observed_at": "2026-11-10T23:49:30Z",
+        "state": "artifact-or-preview-source-declared"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/athena",
+      "repository_id": 1315681605,
+      "repository_url": "https://github.com/egohygiene/athena",
+      "source_observation": {
+        "revision": "5c0221deab24a17b007c9aba8217b64fed2f04de",
+        "observed_at": "2026-11-10T23:49:30Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/beacon",
+      "repository_id": 1315637921,
+      "repository_url": "https://github.com/egohygiene/beacon",
+      "source_observation": {
+        "revision": "1d53983ee1ed760d59802dcb472be4481710d507",
+        "observed_at": "2026-11-10T23:49:30Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/civics",
+      "repository_id": 1344564036,
+      "repository_url": "https://github.com/egohygiene/civics",
+      "source_observation": {
+        "revision": "c95596afc206e38b3c5b1f80a3ccbae46326daa8",
+        "observed_at": "2026-11-10T23:49:30Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/egohygiene.io",
+      "repository_id": 1318535423,
+      "repository_url": "https://github.com/egohygiene/egohygiene.io",
+      "source_observation": {
+        "revision": "785aec3099b196cebe1e5d801297cb49258edc64",
+        "observed_at": "2026-11-10T23:49:31Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/egolint",
+      "repository_id": 1315144197,
+      "repository_url": "https://github.com/egohygiene/egolint",
+      "source_observation": {
+        "revision": "f14f7fd3ab0ce9e87c367352fcb3af11a32eda59",
+        "observed_at": "2026-11-10T23:49:31Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "repository_id": 1315637648,
+      "repository_url": "https://github.com/egohygiene/empathy",
+      "source_observation": {
+        "revision": "18d22e113e87c306b76d24873841249d41358c77",
+        "observed_at": "2026-11-10T23:49:31Z",
+        "state": "pages-composition-source-declared"
+      },
+      "dashboard": {
+        "url": "https://egohygiene.github.io/empathy/intelligence/",
+        "link_state": "publication-recorded",
+        "publication": {
+          "state": "recorded",
+          "observed_at": "2026-11-14T06:35:35.745Z",
+          "source_revision": "41d4c8bdba88cd5cc17318647d542eea57a70364",
+          "run_url": "https://github.com/egohygiene/empathy/actions/runs/43565067306",
+          "run_attempt": 1,
+          "evidence": {
+            "repository": "egohygiene/.github",
+            "revision": "ed2fd5d200cbb1b0e35b0efec2dcb817bac40ec2",
+            "path": "docs/reviews/2026-11-14-foundation-selected-ten.json",
+            "sha256": "3e13c92d2cf39eaa0593d9e96677835e8a442050ecd2b0d47f6915c88704ab5c",
+            "observed_at": "2026-11-14T06:35:35.745Z"
+          }
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/filament",
+      "repository_id": 1340174644,
+      "repository_url": "https://github.com/egohygiene/filament",
+      "source_observation": {
+        "revision": "c3eb64b8087face7504e7571dc8396c19525649f",
+        "observed_at": "2026-11-10T23:49:31Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/flow",
+      "repository_id": 1333207724,
+      "repository_url": "https://github.com/egohygiene/flow",
+      "source_observation": {
+        "revision": "5ac9c4bf9004275a74f774c13ef4ac74b6a53529",
+        "observed_at": "2026-11-10T23:49:31Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/holon",
+      "repository_id": 1315637967,
+      "repository_url": "https://github.com/egohygiene/holon",
+      "source_observation": {
+        "revision": "934e559400336cbf1acac325c89754056e27e3f2",
+        "observed_at": "2026-11-10T23:49:31Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/hygiene",
+      "repository_id": 1315637988,
+      "repository_url": "https://github.com/egohygiene/hygiene",
+      "source_observation": {
+        "revision": "95f6ddb948e6b874f02510d586b89e99cc20e38e",
+        "observed_at": "2026-11-10T23:49:32Z",
+        "state": "pages-composition-source-declared"
+      },
+      "dashboard": {
+        "url": "https://hygiene.egohygiene.io/intelligence/",
+        "link_state": "source-declared",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/identity",
+      "repository_id": 1315637826,
+      "repository_url": "https://github.com/egohygiene/identity",
+      "source_observation": {
+        "revision": "401b2f1de298a171fbb5bf4ee6b510e0cf12c301",
+        "observed_at": "2026-11-10T23:49:33Z",
+        "state": "pages-composition-source-declared"
+      },
+      "dashboard": {
+        "url": "https://identity.egohygiene.io/intelligence/",
+        "link_state": "source-declared",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/mantle",
+      "repository_id": 1320127077,
+      "repository_url": "https://github.com/egohygiene/mantle",
+      "source_observation": {
+        "revision": "0f54fa6e100c5b86af64aa383e41eed8c64e363a",
+        "observed_at": "2026-11-10T23:49:32Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/mindcap",
+      "repository_id": 1315637844,
+      "repository_url": "https://github.com/egohygiene/mindcap",
+      "source_observation": {
+        "revision": "02d30d6eb19037b3f770aad3a12c598778b5ae22",
+        "observed_at": "2026-11-10T23:49:32Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/mindgarden",
+      "repository_id": 1315637864,
+      "repository_url": "https://github.com/egohygiene/mindgarden",
+      "source_observation": {
+        "revision": "7594921fb89097d9dae04f14e3ebc967055aa470",
+        "observed_at": "2026-11-10T23:49:33Z",
+        "state": "artifact-or-preview-source-declared"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/observatory",
+      "repository_id": 1325309565,
+      "repository_url": "https://github.com/egohygiene/observatory",
+      "source_observation": {
+        "revision": "7f399a0b32a1abdd1283ef8bf06b8c3cda703636",
+        "observed_at": "2026-11-10T23:49:33Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/optiflow",
+      "repository_id": 1324450169,
+      "repository_url": "https://github.com/egohygiene/optiflow",
+      "source_observation": {
+        "revision": "18dc494bffbb76c2872b3f5d64903bf8e4e7e510",
+        "observed_at": "2026-11-10T23:49:33Z",
+        "state": "pages-composition-source-declared"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/pace",
+      "repository_id": 1315637735,
+      "repository_url": "https://github.com/egohygiene/pace",
+      "source_observation": {
+        "revision": "76a28ee10fdf73e556beacda1893383e3d31cc36",
+        "observed_at": "2026-11-10T23:49:34Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/realm",
+      "repository_id": 1315637781,
+      "repository_url": "https://github.com/egohygiene/realm",
+      "source_observation": {
+        "revision": "0a3bbdc379b54db07dc5103887af0dfe05f97a0a",
+        "observed_at": "2026-11-10T23:49:34Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/reflector",
+      "repository_id": 1247115338,
+      "repository_url": "https://github.com/egohygiene/reflector",
+      "source_observation": {
+        "revision": "dfca10718f4cca20cc126d689d1fd70d29c27a02",
+        "observed_at": "2026-11-10T23:49:34Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/relay",
+      "repository_id": 1321918958,
+      "repository_url": "https://github.com/egohygiene/relay",
+      "source_observation": {
+        "revision": "73f750ef9dd1782b20d280b4c555aacd92ee5f4e",
+        "observed_at": "2026-11-10T23:49:34Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/renderflow",
+      "repository_id": 1187580231,
+      "repository_url": "https://github.com/egohygiene/renderflow",
+      "source_observation": {
+        "revision": "f68a4ad4ff6122e45e1aa0fe29fdc244838d8d33",
+        "observed_at": "2026-11-10T23:49:34Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/sanctuary",
+      "repository_id": 1341342928,
+      "repository_url": "https://github.com/egohygiene/sanctuary",
+      "source_observation": {
+        "revision": "0db2d923e110e49dec823c486ec4084d266f3627",
+        "observed_at": "2026-11-10T23:49:34Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    },
+    {
+      "repository": "egohygiene/store",
+      "repository_id": 1318861461,
+      "repository_url": "https://github.com/egohygiene/store",
+      "source_observation": {
+        "revision": "e97ee727e6c2300e804579cf2122d34d4c162158",
+        "observed_at": "2026-11-10T23:49:35Z",
+        "state": "not-declared-in-inspected-source"
+      },
+      "dashboard": {
+        "url": null,
+        "link_state": "unknown",
+        "publication": {
+          "state": "unknown",
+          "observed_at": null,
+          "source_revision": null,
+          "run_url": null,
+          "run_attempt": null,
+          "evidence": null
+        }
+      }
+    }
+  ]
+}

@@ -76,6 +76,7 @@ export interface IntelligenceModule {
 }
 
 export interface IntelligenceData {
+  readonly directory?: IntelligenceDirectory;
   readonly graph?: {
     readonly nodes: readonly import("./graph/types").GraphNode[];
     readonly edges: readonly import("./graph/types").GraphEdge[];
@@ -109,4 +110,52 @@ export interface IntelligenceData {
     readonly registrySha256: string;
     readonly registryUrl: string;
   };
+}
+
+/** Reviewed navigation input. These rows are never normalized Core evidence. */
+export interface DirectorySourceReference {
+  readonly repository: string;
+  readonly revision: string;
+  readonly path: string;
+  readonly sha256: string;
+  readonly observed_at: string;
+}
+export interface RepositoryDirectoryEntry {
+  readonly repository: string;
+  readonly repository_id: number;
+  readonly repository_url: string;
+  readonly source_observation: {
+    readonly revision: string;
+    readonly observed_at: string;
+    readonly state:
+      | "pages-composition-source-declared"
+      | "artifact-or-preview-source-declared"
+      | "not-declared-in-inspected-source";
+  };
+  readonly dashboard: {
+    readonly url: string | null;
+    readonly link_state: "publication-recorded" | "source-declared" | "unknown";
+    readonly publication: {
+      readonly state: "recorded" | "unknown";
+      readonly observed_at: string | null;
+      readonly source_revision: string | null;
+      readonly run_url: string | null;
+      readonly run_attempt: number | null;
+      readonly evidence: DirectorySourceReference | null;
+    };
+  };
+}
+export interface IntelligenceDirectory {
+  readonly state: "admitted" | "unavailable";
+  readonly source: {
+    readonly repository: "egohygiene/.github";
+    readonly revision: string;
+    readonly path: string;
+    readonly sha256: string;
+    readonly schemaSha256: string;
+    readonly validatorSha256: string;
+  } | null;
+  readonly catalog: DirectorySourceReference | null;
+  readonly sourceInventory: DirectorySourceReference | null;
+  readonly entries: readonly RepositoryDirectoryEntry[];
 }

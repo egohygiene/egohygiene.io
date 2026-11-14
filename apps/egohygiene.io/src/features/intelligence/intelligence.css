@@ -209,6 +209,8 @@
   flex: 1 1 16rem;
 }
 .oi-directory-filters :where(input, select, button) {
+  box-sizing: border-box;
+  min-inline-size: 0;
   min-block-size: 2.75rem;
   max-inline-size: 100%;
   padding: 0.6rem 0.8rem;
@@ -616,4 +618,74 @@
   padding: 0;
   border: 0;
   font-size: 0.9rem;
+}
+
+.oi-directory-recorded {
+  display: grid;
+  gap: 0.6rem;
+}
+.oi-directory-recorded h3 {
+  font-size: 1rem;
+}
+.oi-directory-recorded > p {
+  font-size: 0.9rem;
+}
+.oi-directory-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+  align-items: start;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+}
+.oi-directory-entry {
+  display: grid;
+  min-inline-size: 0;
+  gap: 0.4rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+.oi-directory-entry-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.3rem 1rem;
+}
+.oi-directory-entry-heading > a {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  min-block-size: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+}
+.oi-directory-caption,
+.oi-directory-entry-details {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.oi-directory-entry-details summary,
+.oi-directory-group > summary {
+  cursor: pointer;
+  min-block-size: 2.75rem;
+  padding-block: 0.75rem;
+}
+.oi-directory-group {
+  border-block-start: 1px solid var(--color-border);
+}
+.oi-directory-group > summary {
+  font-weight: 600;
+}
+.oi-directory-evidence-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-block-start: 0.75rem;
+}
+#intelligence-directory-source dd {
+  display: grid;
+  gap: 0.4rem;
 }
