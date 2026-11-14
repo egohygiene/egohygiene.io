@@ -1,14 +1,15 @@
 {
   "title": "Organization Intelligence",
-  "description": "Survey the public fleet, see what needs attention, and open each repository’s consumer-owned Pages Intelligence for detailed evidence.",
+  "description": "See what needs attention, find a repository, and open the evidence behind it.",
   "kicker": "Ego Hygiene · Public control plane",
   "authority": "These views reflect declared source evidence. Strategy, human decisions and acceptance remain with their canonical owners.",
   "navigation": {
     "label": "Organization Intelligence sections",
     "now": "Now",
     "repositories": "Repositories",
-    "modules": "Modules",
-    "provenance": "Provenance"
+    "modules": "Explore views",
+    "provenance": "Sources",
+    "map": "Relationship map"
   },
   "states": {
     "available": "Public snapshot available",
@@ -30,11 +31,12 @@
     "STALE": "This snapshot is older than the declared freshness window. Its source revisions and original observations remain visible; it is not current evidence."
   },
   "snapshot": {
-    "heading": "Evidence snapshot",
+    "heading": "Repository summary",
     "repositories": "Represented public repositories",
     "asOf": "Freshness evaluated at",
     "window": "Admitted public observation window",
-    "noCount": "An unavailable snapshot does not mean there are no repositories, no findings or no work."
+    "noCount": "An unavailable snapshot does not mean there are no repositories, no findings or no work.",
+    "reviewViews": "Review evidence with independent source coverage"
   },
   "now": {
     "kicker": "Reorientation",
@@ -132,14 +134,16 @@
   },
   "modules": {
     "kicker": "One question per view",
-    "heading": "Fleet exploration drafts",
-    "description": "These central draft views explore admitted aggregate evidence. Each repository’s shared Relay publication remains its detailed Intelligence experience.",
+    "heading": "Explore a view",
+    "description": "Choose a question, then drill into its repository evidence. Each view keeps its own source and availability.",
     "navigation": "All Intelligence endpoints",
     "overview": "Overview foundation",
     "unavailable": "Module unavailable",
     "canonical": "Central fleet draft route",
     "snapshotLink": "Open fleet exploration draft",
-    "ownerLink": "View the owning implementation issue"
+    "ownerLink": "View the owning implementation issue",
+    "scope": "View scope and sources",
+    "evaluated": "Evidence evaluated at"
   },
   "provenance": {
     "presentationIdentity": "Admitted presentation identity",
@@ -183,5 +187,42 @@
       "compare": "Compare",
       "dashboard": "Dashboard"
     }
+  },
+  "map": {
+    "kicker": "Optional exploration",
+    "heading": "Relationship map",
+    "description": "Explore the connections when you need the bigger picture. The same views and evidence remain reachable from the links above.",
+    "bounded": "This map is bounded to 140 nodes and 320 links. The view directory and repository pages retain the remaining admitted context.",
+    "unavailable": "No map source is admitted yet. Use the view and repository links above."
+  },
+  "viewGroups": {
+    "work": {
+      "title": "Direction and work",
+      "description": "Focus, plans and the work behind them."
+    },
+    "governance": {
+      "title": "Coherence and assurance",
+      "description": "Decisions, reviews and declared contracts."
+    },
+    "operations": {
+      "title": "Operations and delivery",
+      "description": "Checks, dependencies and published artifacts."
+    },
+    "exploration": {
+      "title": "Find and connect",
+      "description": "Search, compare and follow evidence."
+    },
+    "additional": {
+      "title": "More views",
+      "description": "Additional registered Intelligence views."
+    }
+  },
+  "viewStates": {
+    "available": "Input available",
+    "partial": "Partial evidence",
+    "stale": "Stale evidence",
+    "unavailable": "Unavailable",
+    "incompatible": "Incompatible input",
+    "error": "Collection error"
   }
 }

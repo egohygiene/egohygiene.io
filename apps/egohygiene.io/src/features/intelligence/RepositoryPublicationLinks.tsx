@@ -35,18 +35,21 @@ export function RepositoryPublicationLinks({
         <p className="oi-muted">{t("intelligence.publication.unavailable")}</p>
       )}
       {root ? (
-        <nav className="oi-publication-routes" aria-label={t("intelligence.publication.routes")}>
-          {surfaces.flatMap((surface) => {
-            const href = repositoryIntelligenceHref(repository, surface);
-            return href
-              ? [
-                  <a key={surface} href={href}>
-                    {t(`intelligence.publication.surfaces.${surface}`)}
-                  </a>,
-                ]
-              : [];
-          })}
-        </nav>
+        <details className="oi-publication-disclosure">
+          <summary>{t("intelligence.publication.routes")}</summary>
+          <nav className="oi-publication-routes" aria-label={t("intelligence.publication.routes")}>
+            {surfaces.flatMap((surface) => {
+              const href = repositoryIntelligenceHref(repository, surface);
+              return href
+                ? [
+                    <a key={surface} href={href}>
+                      {t(`intelligence.publication.surfaces.${surface}`)}
+                    </a>,
+                  ]
+                : [];
+            })}
+          </nav>
+        </details>
       ) : null}
       <p className="oi-muted">
         <a href={repository.sourceUrl}>{t("intelligence.publication.github")}</a>

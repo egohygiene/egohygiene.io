@@ -1,11 +1,11 @@
-import { IntelligenceHub } from "./graph/IntelligenceHub";
 import { useI18n } from "@egohygiene/i18n";
 import { useLocation, useSearchParams } from "react-router-dom";
-
 import { PageMetadata } from "../../components/PageMetadata/PageMetadata";
 import { useBrowserSnapshot } from "../../hooks/useBrowserSnapshot";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import { intelligenceData } from "./data";
+import { IntelligenceHub } from "./graph/IntelligenceHub";
+import { IntelligenceViews } from "./IntelligenceViews";
 import { repositoryIntelligenceHref } from "./publication";
 import { RepositoryPublicationLinks } from "./RepositoryPublicationLinks";
 import type { EvidenceState, IntelligenceItem, IntelligenceRepository } from "./types";
@@ -163,6 +163,30 @@ function RepositoryEvidence({ repository }: { readonly repository: IntelligenceR
   );
 }
 
+function ReviewShortcuts({ search }: { readonly search: string }) {
+  const { t } = useI18n();
+  const views = intelligenceData.modules.flatMap((module) => {
+    const endpoint = intelligenceData.endpoints?.[module.id];
+    return endpoint?.source ? [{ module, state: endpoint.state, asOf: endpoint.source.asOf }] : [];
+  });
+  if (!views.length) return null;
+  return (
+    <nav className="oi-review-shortcuts" aria-label={t("intelligence.snapshot.reviewViews")}>
+      {views.slice(0, 3).map(({ module, state, asOf }) => (
+        <Link key={module.id} to={{ pathname: module.path, search }}>
+          <strong>
+            {module.title} <span aria-hidden="true">↗</span>
+          </strong>
+          <span>{t(`intelligence.viewStates.${state}`)}</span>
+          <span>
+            {t("intelligence.modules.evaluated")} <time dateTime={asOf}>{asOf}</time>
+          </span>
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
 /** The SSR page and first hydration use the same admitted build-time snapshot. */
 export function IntelligencePage() {
   const { t, formatNumber } = useI18n();
@@ -228,24 +252,25 @@ export function IntelligencePage() {
   }
 
   return (
-    <article className="oi-page">
+    <article className="oi-page oi-overview">
       <PageMetadata title={t("intelligence.title")} description={t("intelligence.description")} />
       <header className="oi-intro">
         <p className="site-eyebrow">{t("intelligence.kicker")}</p>
         <h1>{t("intelligence.title")}</h1>
         <p className="oi-lede">{t("intelligence.description")}</p>
-        <p className="oi-muted">{t("intelligence.authority")}</p>
       </header>
 
       <nav className="oi-section-nav" aria-label={t("intelligence.navigation.label")}>
         <a href="#intelligence-now">{t("intelligence.navigation.now")}</a>
         <a href="#intelligence-repositories">{t("intelligence.navigation.repositories")}</a>
         <a href="#intelligence-modules">{t("intelligence.navigation.modules")}</a>
+        <a href="#intelligence-map">{t("intelligence.navigation.map")}</a>
         <a href="#intelligence-provenance">{t("intelligence.navigation.provenance")}</a>
       </nav>
 
       <section
-        className="oi-state-panel"
+        id="module-intelligence"
+        className="oi-state-panel oi-snapshot-compact"
         aria-labelledby="intelligence-snapshot-state"
         data-state={intelligenceData.state}
       >
@@ -253,7 +278,7 @@ export function IntelligencePage() {
           <h2 id="intelligence-snapshot-state">{t("intelligence.snapshot.heading")}</h2>
           <span className="oi-badge">{t(`intelligence.states.${intelligenceData.state}`)}</span>
         </div>
-        <p>{t(`intelligence.messages.${intelligenceData.code}`)}</p>
+        <p className="oi-muted">{t(`intelligence.messages.${intelligenceData.code}`)}</p>
         {hasSnapshot ? (
           <dl className="oi-summary">
             <div>
@@ -268,27 +293,12 @@ export function IntelligencePage() {
                 </dd>
               </div>
             ) : null}
-            {intelligenceData.observationWindow ? (
-              <div>
-                <dt>{t("intelligence.snapshot.window")}</dt>
-                <dd>
-                  <time dateTime={intelligenceData.observationWindow.earliest}>
-                    {intelligenceData.observationWindow.earliest}
-                  </time>
-                  <span> — </span>
-                  <time dateTime={intelligenceData.observationWindow.latest}>
-                    {intelligenceData.observationWindow.latest}
-                  </time>
-                </dd>
-              </div>
-            ) : null}
           </dl>
         ) : (
           <p className="oi-muted">{t("intelligence.snapshot.noCount")}</p>
         )}
+        <ReviewShortcuts search={params.toString()} />
       </section>
-
-      <IntelligenceHub />
 
       <section
         className="oi-section"
@@ -317,7 +327,7 @@ export function IntelligencePage() {
                   <h3>{t(`intelligence.now.${lane.label}`)}</h3>
                   {items.length ? (
                     <ul className="oi-now-items">
-                      {items.slice(0, 6).map(({ repository, item }) => (
+                      {items.slice(0, 3).map(({ repository, item }) => (
                         <li key={`${repository.name}:${item.id}`}>
                           <p className="oi-item-source">
                             {repositoryIntelligenceHref(repository) ? (
@@ -362,9 +372,9 @@ export function IntelligencePage() {
                   ) : (
                     <p className="oi-muted">{t("intelligence.now.emptyList")}</p>
                   )}
-                  {items.length > 6 ? (
+                  {items.length > 3 ? (
                     <p className="oi-muted">
-                      {t("intelligence.now.bounded", { shown: 6, total: items.length })}
+                      {t("intelligence.now.bounded", { shown: 3, total: items.length })}
                     </p>
                   ) : null}
                 </section>
@@ -502,59 +512,9 @@ export function IntelligencePage() {
         )}
       </section>
 
-      <section
-        className="oi-section"
-        id="intelligence-modules"
-        aria-labelledby="intelligence-modules-heading"
-      >
-        <header className="oi-section-heading">
-          <div>
-            <p className="site-eyebrow">{t("intelligence.modules.kicker")}</p>
-            <h2 id="intelligence-modules-heading">{t("intelligence.modules.heading")}</h2>
-          </div>
-          <p className="oi-muted">{t("intelligence.modules.description")}</p>
-        </header>
-        <nav className="oi-module-nav" aria-label={t("intelligence.modules.navigation")}>
-          {intelligenceData.modules.map((module) => (
-            <Link to={{ pathname: module.path, search: params.toString() }} key={module.id}>
-              {module.title}
-            </Link>
-          ))}
-        </nav>
-        <div className="oi-modules">
-          {intelligenceData.modules.map((module) => (
-            <article className="oi-panel oi-module" id={`module-${module.id}`} key={module.id}>
-              <div className="oi-section-heading">
-                <h3>{module.title}</h3>
-                <span className="oi-badge">
-                  {module.id === "intelligence"
-                    ? intelligenceData.state
-                    : (intelligenceData.endpoints?.[module.id]?.state ?? "unavailable")}
-                </span>
-              </div>
-              <p>{module.description}</p>
-              {intelligenceData.endpoints?.[module.id]?.source ? (
-                <p className="oi-muted">
-                  {t("intelligenceGovernance.common.independentModel")} ·{" "}
-                  {intelligenceData.endpoints?.[module.id]?.groups.length ?? 0}{" "}
-                  {t("intelligenceGovernance.common.representedRepositories")}
-                </p>
-              ) : null}
-              <p>
-                <span className="oi-muted">{t("intelligence.modules.canonical")}: </span>
-                <code>{module.path}</code>
-              </p>
-              {module.implemented ? (
-                <Link to={{ pathname: module.path, search: params.toString() }}>
-                  {t("intelligence.modules.snapshotLink")}
-                </Link>
-              ) : (
-                <a href={module.issueUrl}>{t("intelligence.modules.ownerLink")}</a>
-              )}
-            </article>
-          ))}
-        </div>
-      </section>
+      <IntelligenceViews search={params.toString()} />
+
+      <IntelligenceHub />
 
       <section
         className="oi-section"
@@ -565,7 +525,22 @@ export function IntelligencePage() {
         <p className="oi-muted">{t("intelligence.provenance.description")}</p>
         <details className="oi-evidence">
           <summary>{t("intelligence.provenance.details")}</summary>
+          <p className="oi-muted">{t("intelligence.authority")}</p>
           <dl className="oi-provenance-list">
+            {intelligenceData.observationWindow ? (
+              <div>
+                <dt>{t("intelligence.snapshot.window")}</dt>
+                <dd>
+                  <time dateTime={intelligenceData.observationWindow.earliest}>
+                    {intelligenceData.observationWindow.earliest}
+                  </time>
+                  {" — "}
+                  <time dateTime={intelligenceData.observationWindow.latest}>
+                    {intelligenceData.observationWindow.latest}
+                  </time>
+                </dd>
+              </div>
+            ) : null}
             <div>
               <dt>{t("intelligence.provenance.contract")}</dt>
               <dd>
