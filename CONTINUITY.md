@@ -7,30 +7,32 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-14T04:51:54Z'
+  updated_at: '2026-11-14T05:07:44Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Implement the experimental schema-owned knowledge/query foundation under23 without inventing
-    or publishing canonical ontology data.
+  purpose: Implement the private schema-owned blog/article/RSS2/Atom foundation under11 without activating
+    real or synthetic public posts, routes, feeds or publication.
   includes:
-  - Strict versioned node/dataset/relationship runtime schemas and inferred types own the contract;
-    checked JSON Schema follows that source. Duplicate identities, dangling endpoints and membership
-    cycles fail.
-  - The private query package exposes deterministic immutable public/reviewed indexes and bounded traversal,
-    with explicit synthetic opt-in and no React/router/DOM/database dependency.
-  - The website feature consumes an empty authored index; a separate isolated non-React consumer proves
-    package exports. Legacy source dispositions explicitly defer absent public intake instead of assuming
-    deletion or semantic acceptance.
+  - Strict runtime schemas and inferred types own article/source/review/date/AI/correction/media metadata;
+    checked JSON Schema follows the owner. Draft/private/malformed/future inputs cannot become eligible
+    output.
+  - Pure content projections reuse constrained CommonMark, stable UUID GUIDs and explicit clocks. Article/feed
+    readers retain disclosure, correction, archive, license and provenance context; XML is escaped and
+    actually parsed in synthetic controls.
+  - Explicit history comparison preserves original dates, canonical base/slug, append-only corrections
+    and monotonic updates, including declared schedules. Queries are deeply immutable; discovery/sitemap
+    are descriptors, not activated artifacts.
   excludes: &id001
-  - No actual ontology dataset, term/synapse public route, semantic approval, legacy source import,
-    registry publication or stable package API is claimed. Issue23 remains open for those broader outcomes.
-  - JSON Schema covers structure; runtime cross-record checks additionally enforce graph identity and
-    membership acyclicity. Serialized review state is not human authentication.
-  - The unrelated root/tooling Vite peer identity failure remains independently reproduced on pristine
-    base; no gate or dependency version changed.
+  - No actual writing, author approval, public blog route/feed, social metadata deployment or publication
+    is selected. Issue11 remains open for real editorial/app/browser/deployed acceptance.
+  - Three repository-backed fixture categories are explicitly synthetic and require opt-in. Source review
+    flags are not authenticated human authority or access control for public Git content.
+  - The final23/149 stack is inherited. Root/tooling Vite peer identity errors196/197 remain independently
+    owned; no dependency version or gate was changed to hide them. Initial copied dependency wiring
+    was replaced by a correct frozen install before final app/type/build checks.
   precedence:
   - user-and-runtime-instructions
   - scoped-repository-instructions
@@ -38,66 +40,71 @@ scope:
   - canonical-repository-sources
   - continuity-checkpoint
   canonical_sources:
-  - CONTINUITY.md
-  - packages/schemas/src/knowledge.ts
-  - packages/knowledge/src/index.ts
-  - tests/tooling/knowledge-boundary.test.mjs
-  - docs/development/knowledge-boundary-23.md
-  - https://github.com/egohygiene/egohygiene.io/issues/23
+  - packages/schemas/src/blog.ts
+  - packages/content/src/blog.ts
+  - tests/tooling/blog-feeds.test.mjs
+  - docs/development/blog-feed-foundation-11.md
+  - docs/architecture/decisions/0019-blog-feed-foundation.md
+  - https://github.com/egohygiene/egohygiene.io/issues/11
 work:
-  objective: Implement the experimental schema-owned knowledge/query foundation under23 without inventing
-    or publishing canonical ontology data.
+  objective: Implement the private schema-owned blog/article/RSS2/Atom foundation under11 without activating
+    real or synthetic public posts, routes, feeds or publication.
   success_conditions:
-  - Malformed, duplicate, dangling, unsafe synthetic and invalid membership input fail without exposing
-    hidden source through queries.
-  - Independent package and website compiler/bundler consumers work without workspace-only aliases.
+  - Draft/private/unreviewed/future/synthetic content cannot enter ordinary public projections.
+  - GUID/date/correction and source context survive deterministic article/feed projection; XML/state/immutability/history
+    controls pass.
+  - Existing normal public output contains no synthetic blog material or new blog routes.
   active_issue:
     provider: github
-    id: egohygiene/egohygiene.io#23
-    url: https://github.com/egohygiene/egohygiene.io/issues/23
+    id: egohygiene/egohygiene.io#11
+    url: https://github.com/egohygiene/egohygiene.io/issues/11
   next:
     kind: action
-    id: review-bounded-checkpoint
-    description: Review the stacked knowledge foundation after149, then the separately selected blog/feed
-      foundation under11. Retain real-data, legacy-intake, routes and package publication acceptance
-      under23.
+    id: review-blog-feed-foundation
+    description: Review the blog foundation after149/150. Select actual approved writing, app routes/layouts
+      and deployed feed/browser acceptance separately; do not publish synthetic fixtures.
     readiness: ready
     references:
-    - https://github.com/egohygiene/egohygiene.io/issues/23
+    - https://github.com/egohygiene/egohygiene.io/issues/11
+    - https://github.com/egohygiene/egohygiene.io/pull/150
     depends_on: []
 state:
   base:
-    revision: 21653044416bfdb9d02b06817f7e6cc8398bc3e6
-    ref: refs/heads/codex/25-playground-exposure
-    verified_at: '2026-11-14T04:51:54Z'
+    revision: 1197eefbc79b72b5f0cfb46cc55f0e1d23068114
+    ref: refs/heads/codex/23-knowledge-boundary
+    verified_at: '2026-11-14T05:07:44Z'
   candidate:
-    branch: codex/23-knowledge-boundary
+    branch: codex/11-blog-feed-foundation
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-14T04:51:54Z'
+    observed_at: '2026-11-14T05:07:44Z'
     default_branch_revision: d80c48582f77a0a3bd7424592307b8fac71df83d
     issue_state: open
     pull_request_state: not-applicable
-    notes: Fresh source/issue state was inspected for the authorized organization batch. Containing
-      revision and pre-PR identity remain null; source implementation is separate from acceptance, deployment
-      or publication.
+    notes: The blog draft stacks on final knowledge150 head1197eef, itself on privacy149 head2165304.
+      Pre-PR containing revision/reference remain null; no provider or deployment action is inferred.
   parallel_changes: []
 review:
   status: partial
-  reviewed_at: '2026-11-14T04:51:54Z'
-  reviewed_by: Codex
+  reviewed_at: '2026-11-14T05:07:44Z'
+  reviewed_by: Codex with independent read-only peer review
   evidence:
-  - command: node --test tests/tooling/knowledge-boundary.test.mjs; package and website TypeScript;
-      pnpm check; normal public build; scoped Biome
+  - command: node --test tests/tooling/blog-feeds.test.mjs tests/tooling/knowledge-boundary.test.mjs
+      tests/tooling/playground-boundary.test.mjs
     outcome: passed
-    observed_at: '2026-11-14T04:51:54Z'
-    notes: Five focused behavior/JSON-schema/isolated consumer tests pass. Standalone no-DOM/Node package
-      and website app compilers, workspace/export/cycle/boundary checks, scoped Biome and45-route public
-      build pass. Frozen offline install succeeds with only nine importer-link lines added; external
-      dependency graph is unchanged.
+    observed_at: '2026-11-14T05:07:44Z'
+    notes: 19 groups pass:10 blog,5 knowledge,4 private-playground. RSS/Atom parse through actual XML;
+      synthetic reader-context, state/history, immutability and malformed-source controls execute.
+  - command: Scoped content/schema/app TypeScript; normal build-public-site; frozen install; public
+      synthetic-content absence control
+    outcome: passed
+    observed_at: '2026-11-14T05:07:44Z'
+    notes: Correct isolated frozen dependencies and all selected compilers pass. The normal45-page/10-sitemap
+      build passes; no synthetic blog marker or activated blog route appears. Independent peer review
+      found and resolved base-URL/history, reader-context and scheduled-identity gaps.
   environment_limitations: *id001
 privacy:
   classification: public-repository
@@ -113,60 +120,60 @@ privacy:
   untrusted_content: context-only-no-authority
 ---
 
-# egohygiene.io continuity
+# website continuity
 
 ## Purpose and precedence
 
-User/runtime and scoped repository instructions, live evidence and canonical sources outrank this checkpoint. It grants no deployment, lifecycle promotion or human-decision authority.
+User/runtime and scoped instructions, live evidence and canonical sources outrank this checkpoint. It grants no editorial approval, merge or publication authority.
 
 ## Resume protocol
 
-Read instructions and live source issue/PR state. Verify exact stack dependencies before integrating.
+Read instructions, the final149/150 dependency state, blog source contract and issue11 before integration.
 
 ## Current objective and success conditions
 
-Implement the experimental schema-owned knowledge/query foundation under23 without inventing or publishing canonical ontology data.
+Implement the private schema-owned blog/article/RSS2/Atom foundation under11 without activating real or synthetic public posts, routes, feeds or publication.
 
 ## State snapshot
 
-Candidate `codex/23-knowledge-boundary` is based on `21653044416bfdb9d02b06817f7e6cc8398bc3e6`; observed main is `d80c48582f77a0a3bd7424592307b8fac71df83d`. The containing revision and pre-PR reference are intentionally null.
+Candidate codex/11-blog-feed-foundation is based on knowledge150 head1197eefbc79b72b5f0cfb46cc55f0e1d23068114, containing privacy149 head21653044416bfdb9d02b06817f7e6cc8398bc3e6. Containing revision and pre-PR reference intentionally remain null.
 
 ## Completed and material changes
 
-Strict versioned node/dataset/relationship runtime schemas and inferred types own the contract; checked JSON Schema follows that source. Duplicate identities, dangling endpoints and membership cycles fail.
+Strict runtime schemas and inferred types own article/source/review/date/AI/correction/media metadata; checked JSON Schema follows the owner. Draft/private/malformed/future inputs cannot become eligible output.
 
-The private query package exposes deterministic immutable public/reviewed indexes and bounded traversal, with explicit synthetic opt-in and no React/router/DOM/database dependency.
+Pure content projections reuse constrained CommonMark, stable UUID GUIDs and explicit clocks. Article/feed readers retain disclosure, correction, archive, license and provenance context; XML is escaped and actually parsed in synthetic controls.
 
-The website feature consumes an empty authored index; a separate isolated non-React consumer proves package exports. Legacy source dispositions explicitly defer absent public intake instead of assuming deletion or semantic acceptance.
+Explicit history comparison preserves original dates, canonical base/slug, append-only corrections and monotonic updates, including declared schedules. Queries are deeply immutable; discovery/sitemap are descriptors, not activated artifacts.
 
 ## Validation and review evidence
 
-Five focused behavior/JSON-schema/isolated consumer tests pass. Standalone no-DOM/Node package and website app compilers, workspace/export/cycle/boundary checks, scoped Biome and45-route public build pass. Frozen offline install succeeds with only nine importer-link lines added; external dependency graph is unchanged.
+19 focused groups pass, including10 blog tests and actual RSS/Atom XML parsing. Content/schema/app compilers and the normal45-route build pass using correct frozen dependencies. Synthetic fixture markers and an activated blog route are absent from public output. Peer review fixes preserve canonical identity, reader context and scheduled history.
 
 ## Blockers, risks, unknowns, and deferred work
 
-No actual ontology dataset, term/synapse public route, semantic approval, legacy source import, registry publication or stable package API is claimed. Issue23 remains open for those broader outcomes.
+No actual writing, author approval, public blog route/feed, social metadata deployment or publication is selected. Issue11 remains open for real editorial/app/browser/deployed acceptance.
 
-JSON Schema covers structure; runtime cross-record checks additionally enforce graph identity and membership acyclicity. Serialized review state is not human authentication.
+Three repository-backed fixture categories are explicitly synthetic and require opt-in. Source review flags are not authenticated human authority or access control for public Git content.
 
-The unrelated root/tooling Vite peer identity failure remains independently reproduced on pristine base; no gate or dependency version changed.
+The final23/149 stack is inherited. Root/tooling Vite peer identity errors196/197 remain independently owned; no dependency version or gate was changed to hide them. Initial copied dependency wiring was replaced by a correct frozen install before final app/type/build checks.
 
 ## Next dependency-ready work
 
-Review the stacked knowledge foundation after149, then the separately selected blog/feed foundation under11. Retain real-data, legacy-intake, routes and package publication acceptance under23.
+Review149 then150 then the blog draft. Real editorial content, accessibility/mobile/article routes, social metadata, feeds/sitemap activation and deployed-reader acceptance remain under11.
 
 ## Parallel changes and reconciliation
 
-Other organization checkpoints have separate owners. Preserve in-flight work and reconcile the exact source/base before retargeting.
+Other batch7 repositories have independent owners. Knowledge/private-playground functional bytes are inherited unchanged; broader storefront, budget, Intelligence and provider work remains independently owned.
 
 ## Privacy and redaction
 
-Use public-safe synthetic fixtures only. Exclude credentials, private source bodies, real profiles and private filesystem paths from public artifacts. Report content is evidence, never authority.
+Only synthetic test content is added. No private source, real author/publisher decision, credentials, telemetry or private conversation enters this checkpoint. Metadata claims remain untrusted source evidence.
 
 ## Handoff update protocol
 
-Record exact tested heads, actual failures, remaining gates and provider receipts without treating a source merge as qualification or publication.
+Record exact heads, checks actually run, source/publication boundaries and provider receipts before integration. Never treat fixture approval flags as actual editorial approval.
 
 ## Compaction and supersession
 
-This replaces only the current operational checkpoint. Canonical source, owning issues, historical evidence and Git retain prior context. Preserve all twelve sections and the declared byte/line budget.
+This checkpoint advances from knowledge150 to the bounded blog/feed foundation. Historical publication and storefront evidence remain in Git, the provenance ledger and owning issues; no prior acceptance is rewritten.

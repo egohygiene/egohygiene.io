@@ -6,6 +6,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./knowledge": "./src/knowledge.ts",
+    "./blog": "./src/blog.ts",
     "./store-references": "./src/store-references.ts",
     "./store-listing": "./src/store-listing.ts"
   },

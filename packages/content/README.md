@@ -1,5 +1,10 @@
 # Shared documentation content
 
+The private [`@egohygiene/content/blog`](../../docs/development/blog-feed-foundation-11.md)
+entry point adds pure article/RSS2/Atom projections over supplied reviewed blog
+source. It reuses this CommonMark owner and does not activate public posts,
+routes or publication. Existing root Markdown exports remain unchanged.
+
 `@egohygiene/content` is a private, framework-independent CommonMark boundary.
 It parses strings with `mdast-util-from-markdown` and converts them to a constrained
 HAST tree with `mdast-util-to-hast`. It performs no network, filesystem or browser

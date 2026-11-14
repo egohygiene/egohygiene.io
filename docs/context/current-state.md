@@ -1,5 +1,9 @@
 # Current handoff
 
+## Blog/feed foundation checkpoint — 2026-11-13
+
+[Issue11 foundation](../development/blog-feed-foundation-11.md) adds schema-owned article and RSS2/Atom projections over explicit reviewed source and clock. Ten focused blog groups plus nine knowledge/private-playground groups pass; content/schema/app types and the normal45-route build pass. Synthetic fixtures never enter public output. No posts, routes, public feeds, editorial approval or deployment activated.
+
 ## Knowledge/query foundation checkpoint — 2026-11-13
 
 [Issue23 foundation](../development/knowledge-boundary-23.md) adds strict schema-owned records, immutable framework-neutral queries and an empty website consumer; synthetic content requires opt-in. Five focused/isolated-consumer tests, package/app types, boundaries and45-route build pass. Legacy intake, real data/routes and publication remain open.

@@ -4,9 +4,11 @@
   "version": "0.1.0",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./blog": "./src/blog.ts"
   },
   "dependencies": {
+    "@egohygiene/schemas": "workspace:*",
     "@egohygiene/utilities": "workspace:*",
     "@types/hast": "3.0.5",
     "hast-util-to-html": "9.0.5",
