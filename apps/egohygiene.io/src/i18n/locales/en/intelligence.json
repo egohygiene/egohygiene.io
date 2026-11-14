@@ -31,12 +31,13 @@
     "STALE": "This snapshot is older than the declared freshness window. Its source revisions and original observations remain visible; it is not current evidence."
   },
   "snapshot": {
-    "heading": "Repository summary",
+    "heading": "Available evidence",
     "repositories": "Represented public repositories",
     "asOf": "Freshness evaluated at",
     "window": "Admitted public observation window",
     "noCount": "An unavailable snapshot does not mean there are no repositories, no findings or no work.",
-    "reviewViews": "Review evidence with independent source coverage"
+    "reviewViews": "Review evidence with independent source coverage",
+    "coverageDetails": "Snapshot coverage and limits"
   },
   "now": {
     "kicker": "Reorientation",

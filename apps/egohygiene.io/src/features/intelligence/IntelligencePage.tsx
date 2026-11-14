@@ -299,7 +299,7 @@ export function IntelligencePage() {
           <h2 id="intelligence-snapshot-state">{t("intelligence.snapshot.heading")}</h2>
           <span className="oi-badge">{t(`intelligence.states.${intelligenceData.state}`)}</span>
         </div>
-        <p className="oi-muted">{t(`intelligence.messages.${intelligenceData.code}`)}</p>
+        <ReviewShortcuts search={params.toString()} />
         {hasSnapshot ? (
           <dl className="oi-summary">
             <div>
@@ -315,10 +315,12 @@ export function IntelligencePage() {
               </div>
             ) : null}
           </dl>
-        ) : (
-          <p className="oi-muted">{t("intelligence.snapshot.noCount")}</p>
-        )}
-        <ReviewShortcuts search={params.toString()} />
+        ) : null}
+        <details className="oi-view-scope">
+          <summary>{t("intelligence.snapshot.coverageDetails")}</summary>
+          <p className="oi-muted">{t(`intelligence.messages.${intelligenceData.code}`)}</p>
+          {!hasSnapshot ? <p className="oi-muted">{t("intelligence.snapshot.noCount")}</p> : null}
+        </details>
       </section>
 
       <section
