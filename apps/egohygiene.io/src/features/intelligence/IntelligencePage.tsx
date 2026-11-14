@@ -301,16 +301,20 @@ export function IntelligencePage() {
       </section>
 
       <section
-        className="oi-section"
+        className={`oi-section${nowRepositories.length ? "" : " oi-section-empty"}`}
         id="intelligence-now"
         aria-labelledby="intelligence-now-heading"
       >
         <header className="oi-section-heading">
           <div>
-            <p className="site-eyebrow">{t("intelligence.now.kicker")}</p>
+            {nowRepositories.length ? (
+              <p className="site-eyebrow">{t("intelligence.now.kicker")}</p>
+            ) : null}
             <h2 id="intelligence-now-heading">{t("intelligence.now.heading")}</h2>
           </div>
-          <p className="oi-muted">{t("intelligence.now.description")}</p>
+          {nowRepositories.length ? (
+            <p className="oi-muted">{t("intelligence.now.description")}</p>
+          ) : null}
         </header>
         {nowRepositories.length ? (
           <div className="oi-now-grid">
@@ -387,16 +391,20 @@ export function IntelligencePage() {
       </section>
 
       <section
-        className="oi-section"
+        className={`oi-section${hasSnapshot ? "" : " oi-section-empty"}`}
         id="intelligence-repositories"
         aria-labelledby="intelligence-repositories-heading"
       >
         <header className="oi-section-heading">
           <div>
-            <p className="site-eyebrow">{t("intelligence.directory.kicker")}</p>
+            {hasSnapshot ? (
+              <p className="site-eyebrow">{t("intelligence.directory.kicker")}</p>
+            ) : null}
             <h2 id="intelligence-repositories-heading">{t("intelligence.directory.heading")}</h2>
           </div>
-          <p className="oi-muted">{t("intelligence.directory.description")}</p>
+          {hasSnapshot ? (
+            <p className="oi-muted">{t("intelligence.directory.description")}</p>
+          ) : null}
         </header>
         {hasSnapshot ? (
           <>
@@ -508,7 +516,12 @@ export function IntelligencePage() {
             ) : null}
           </>
         ) : (
-          <p className="oi-state-note">{t("intelligence.directory.unavailable")}</p>
+          <p className="oi-state-note">
+            {t("intelligence.directory.unavailable")}{" "}
+            <a href="https://github.com/egohygiene/.github/issues/42">
+              {t("intelligence.directory.coverageOwner")}
+            </a>
+          </p>
         )}
       </section>
 
