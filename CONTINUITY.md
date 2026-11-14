@@ -7,26 +7,25 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-14T20:16:27Z'
+  updated_at: '2026-11-14T20:56:50.099Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: 'Deliver independently admitted public repository navigation under website #27 and org #42, preserving
-    model clocks and preparing one combined UI/directory publication.'
+  purpose: Record completed compact organization UI/directory delivery and canonical proof; continue bounded
+    parent acceptance without rerunning publication.
   includes:
-  - Exact organization source 834 directory/native-projector capsule, canonical Hygiene identity admission
-    and isolated failures.
-  - Reviewed navigation rows, dated/declaration/unknown distinctions, URL filters, native source disclosures
-    and original source clocks.
-  - Source-bound actual retained-input export, unchanged pinned native intake, eight admission controls, twenty
-    UI cases and ten local browser groups.
-  excludes:
-  - Core synthesis, source discovery, current availability/organization-total/health/human claims, schema/CSP/publisher
-    trust changes.
-  - Hosted export, provider acquisition or publication before source integration; full accessibility/fleet/privacy/restore
-    or human ratification.
+  - Accepted website152/153 producerd573, organization directory68/selector69 and actual native export/review/publication.
+  - Independently admitted navigation, original dates/unknown states, compact UI and canonical served-byte/keyboard/browser
+    evidence.
+  excludes: &id001
+  - Original03:23:31Z model frame/03:36:14Z evaluation on November13, model hashes, one-target review scope,
+    partial execution and human-unavailable/unreviewed states unchanged; Core unavailable.
+  - Navigation28 is a reviewed public roster, not current org total or Core/fleet coverage. Two dated records,3
+    declared text custom domains/unknownpublication and23 unknown dashboards remain distinct.
+  - Two baseline tooling Vite type errors remain. Full accessibility/performance/device/fleet/privacy acceptance,
+    restore exercise and human ratification remain separate.
   precedence:
   - user-and-runtime-instructions
   - scoped-repository-instructions
@@ -46,82 +45,76 @@ scope:
   - https://github.com/egohygiene/egohygiene.io/issues/27
   - https://github.com/egohygiene/.github/issues/42
   - https://github.com/egohygiene/.github/issues/41
+  - https://github.com/egohygiene/.github/pull/70
+  - https://egohygiene.github.io/.github/organization-intelligence-publication.json
 work:
-  objective: 'Deliver independently admitted public repository navigation under website #27 and org #42, preserving
-    model clocks and preparing one combined UI/directory publication.'
+  objective: Record completed compact organization UI/directory delivery and canonical proof; continue bounded
+    parent acceptance without rerunning publication.
   success_conditions:
-  - Navigation works with unavailable Core and never populates model rows.
-  - Exact owner inputs and canonical public IDs precede rendering; failure is isolated.
-  - Preserve explicit dated publication versus declaration/unknown states and original clocks.
-  - Review source, then one combined UI/directory hosted export/native intake/selection/publication with canonical
-    verification.
+  - Accepted source exported and native reviewed unchanged, with actual authorized publication and complete
+    prior4814 recovery.
+  - Canonical browser confirms exact served bytes, compact navigation/keyboard/appearance/no-JavaScript
+    behavior and original evidence limits.
   active_issue:
     provider: github
     id: egohygiene/egohygiene.io#27
     url: https://github.com/egohygiene/egohygiene.io/issues/27
   next:
     kind: action
-    id: integrate-directory-and-publish-combined-ui
-    description: Review/merge this consumer source, then execute the existing exact-source retained-model exporter,
-      native consumer review, reviewed replacement selection, organization publisher and canonical HTTPS/browser
-      verification once for the combined UI/directory. Keep broader parent acceptance open.
+    id: advance-bounded-parent-acceptance
+    description: Use actual live closeout to select remaining website27/org27/41/42 source coverage and
+      usability acceptance. Do not rerun completed publication or synthesize Core.
     readiness: ready
     references:
     - https://github.com/egohygiene/egohygiene.io/issues/27
+    - https://github.com/egohygiene/.github/issues/41
     - https://github.com/egohygiene/.github/issues/42
     depends_on: []
 state:
   base:
-    revision: 7a77ba77fa52c3a7b2686cc1a9722c592188d630
+    revision: d5730066cf8645a927efcd6ff4f2170627bf4443
     ref: refs/heads/main
-    verified_at: '2026-11-14T20:16:27Z'
+    verified_at: '2026-11-14T20:56:50.099Z'
   candidate:
-    branch: codex/intelligence-independent-directory
+    branch: codex/intelligence-live-handoff
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-14T20:16:27Z'
-    default_branch_revision: 7a77ba77fa52c3a7b2686cc1a9722c592188d630
+    observed_at: '2026-11-14T20:56:50.099Z'
+    default_branch_revision: d5730066cf8645a927efcd6ff4f2170627bf4443
     issue_state: open
     pull_request_state: not-applicable
-    notes: 'Compact UI #152 merged at 7a77; org #68 merged at 834d7fd with exact reviewed source. This candidate
-      is unmerged and locally qualified. The previous org live publication 4814dfa9 retains original clocks;
-      no replacement is claimed.'
+    notes: Actual combined UI/directory producerd573 and publisher5f02/run43639599345 verified publication0fcf249a;
+      original models and source dates unchanged. This docs-only candidate is later than the exported source.
   parallel_changes:
   - provider: github
     id: egohygiene/.github#42
     url: https://github.com/egohygiene/.github/issues/42
 review:
   status: partial
-  reviewed_at: '2026-11-14T20:16:27Z'
+  reviewed_at: '2026-11-14T20:56:50.099Z'
   reviewed_by: Codex
   evidence:
-  - command: Eight Node consumer controls; twenty UI cases; app/test and direct loader/browser TypeScript;
-      scoped Biome and diff checks
+  - command: Source qualification at functionalb105681:8 admission controls,20 UI cases,10 local browser
+      groups; native export/intake.
     outcome: passed
     observed_at: '2026-11-14T20:16:27Z'
-    notes: Native owner semantics and canonical IDs are checked. Two pre-existing Vite tooling type-identity
-      errors reproduce at previous UI source; no gate or dependency is relaxed.
-  - command: Actual retained-model sealed export; pinned d15 native directory intake; ten local HTTP browser
-      groups
+    notes: Original source-bound review receipt unchanged. Broad tooling retains2 reproducible baseline
+      Vite type errors.
+  - command: Actual hosted export43637285216/1; native review43637764378/1; publisher43639599345/1.
     outcome: passed
-    observed_at: '2026-11-14T20:16:27Z'
-    notes: Functional b105681; 44 files/39 routes. Navigation scope 28 is distinct from unavailable Core and
-      one target per review model. All model identities/clocks equal the earlier UI export; three custom-domain
-      declarations are text, two dated GitHub Pages publications are links.
-  - command: Actual hosted combined UI/directory publication and broader parent acceptance
-    outcome: not-run
-    observed_at: '2026-11-14T20:16:27Z'
-    notes: Review/merge source first. No new acquisition, publication, full accessibility/fleet/privacy/restore
-      or human acceptance is inferred.
-  environment_limitations:
-  - Local HTTP is not canonical HTTPS. Origin-root favicon 404 remains outside the declared project export.
-  - The existing native link profile accepts GitHub/GitHub Pages; custom-domain declarations remain literal
-    text and publication unknown.
-  - Broad tooling retains two baseline duplicate-Vite type errors. Physical devices/assistive technology/full
-    zoom and broader release acceptance remain separate.
+    observed_at: '2026-11-14T20:56:50.099Z'
+    notes: All44 producer files retained exact; nativeHTTPS20:50:59Z passed; full previous45-file4814 recovery
+      captured before replacement (no restore exercised). Configured provider acquisition actual.
+  - command: Actual canonical Chromium151/Node24.21 at20:56:39–50Z:11 groups,19 exact HTML views,9 layout
+      observations.
+    outcome: passed
+    observed_at: '2026-11-14T20:56:50.099Z'
+    notes: NormalTLS/standard environment proxy; no interception/globalheaders. Actual query/directory/graph/keyboard/theme/no-JS
+      passed.390/1440 captures viewed; separate origin-rootfavicon404; no app/page/request errors.
+  environment_limitations: *id001
 privacy:
   classification: public-repository
   contains_sensitive_data: false
@@ -140,48 +133,50 @@ privacy:
 
 ## Purpose and precedence
 
-User/runtime and scoped repository instructions, live evidence and canonical sources outrank this checkpoint. It grants no human ratification or new publication claim.
+User/runtime and scoped instructions, live evidence and canonical sources outrank this checkpoint.
 
 ## Resume protocol
 
-Read the sources above, verify actual source/PR/merge state and preserve the independent catalog, source-declaration, publication and model clocks.
+Read current-state/provenance and the actual organization live closeout. Verify mutable main/issues/PRs. Older pending-export/publication records retain historical meaning; do not redispatch this completed delivery.
 
 ## Current objective and success conditions
 
-Provide independently admitted public navigation with unavailable Core, honest dated/declaration/unknown states and native keyboard/no-JavaScript behavior. Prepare one combined UI/directory publication after source review.
+Compact overview and independent repository navigation are actually published. Continue bounded parent coverage/usability acceptance with original model clocks and ownership intact.
 
 ## State snapshot
 
-Base is compact-UI main `7a77ba77fa52c3a7b2686cc1a9722c592188d630`; org source is `834d7fd51c48860b2cc4f1a6a262ce466f2004db`. Candidate `codex/intelligence-independent-directory` keeps its self-containing revision and pre-creation PR null. Clean functional proof is `b1056812f3db7ea839bba56351547ac13b10ee9f`. The previous org live publication `4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1` has not been replaced here.
+Accepted published producer and docs base is `d5730066cf8645a927efcd6ff4f2170627bf4443`. Actual publisher `5f02bfd6353b764513ef57a41bcf79db0f3c2e72`, run43639599345/1, verified publication `0fcf249a88e1b34fd111eed9155c8051ea6476a0f30cd980ba53b61734d58d15`. This later docs candidate keeps its containing revision null.
 
 ## Completed and material changes
 
-The exact owner capsule/native projector and canonical Hygiene identity gate admit 28 navigation rows. Two dated public GitHub Pages records are clickable; three source-declared custom domains are literal text with GitHub source links and unknown publication; 23 dashboards remain unknown. URL-backed filters and native disclosures retain all rows and provenance. No Core rows, health or current-availability claims are created.
+Website152/153 compact the overview, group views and disclose graph/provenance. Directory68 pins organization834d/payloadd294 independently of Core. Actual retained-model export43637285216 and native review43637764378 passed; selector69 integrated and publisher43639599345 replaced the site after full previous4814 recovery.
 
 ## Validation and review evidence
 
-Eight Node admission controls and twenty UI cases pass. App/test and direct loader/browser TypeScript, scoped Biome and whitespace pass. Actual retained models produce 44 sealed files/39 routes; unchanged pinned d15 native intake passes in review-only directory transport. Ten local HTTP Chromium groups pass across 320/390/768/1440px, open/closed graph, 390px RTL/200% text, keyboard, URL reload, no-JavaScript and directory state/provenance. All sealed hashes remain unchanged; page/application-console errors are zero, with a separate root favicon 404.
+Original functionalb105 source review retains8 admission/20 UI cases and10 local browser groups. Actual44 producer files remain byte-identical through hosted export/review/publication. Native live20:50:59Z and canonical browser20:56:39–50Z pass:11 groups,19 exact served HTML bodies, nine narrow/RTL/enlarged-text observations, query/directory/keyboard/disclosures/graph/theme/no-JS.390/1440 captures viewed. See [actual delivery](https://github.com/egohygiene/.github/pull/70).
 
 ## Blockers, risks, unknowns, and deferred work
 
-Core remains unavailable; Audit/Sanity each retain one target, original model 03:23:31Z and evaluation 03:36:14Z on November 13, partial/unreviewed/human-unavailable states. Navigation is a fixed reviewed public roster, not an organization total. The broad tooling configuration retains two duplicate-Vite type errors reproduced at previous UI source. Custom-domain click support, physical devices/assistive technology/full zoom, canaries, restore and human ratification remain separate.
+Model frame03:23:31Z/evaluation03:36:14Z on November13, hashes and one-target Audit/Sanity scope remain fixed;28 Sanity components, partial execution, unreviewed governance and unavailable human evidence. Core unavailable. Directory28 is not org total/capturedfleet:2 dated links,3 text declarations/unknownpublication,23 unknown dashboards. Point-in-time Empathy link200 does not refresh its record.
+
+Two baseline tooling Vite errors remain; no dependency/gate relaxed. Full accessibility/performance/physical devices/assistive technology/fullzoom/fleet/privacy and human ADR acceptance remain separate. Complete4814 recovery retained, restore unexercised. Automatic origin-rootfavicon404 explicit; no app/page/request errors. Initial direct-network browser request failed before page visits; task-local proxy correction changed no source/TLS/assertion.
 
 ## Next dependency-ready work
 
-Review/merge the consumer; perform the existing exact-source hosted export/native intake/reviewed selection/organization publication once for UI plus directory; verify actual canonical HTTPS bytes and browser behavior. Parent website #27 / org #27 / org #41 and broader org #42 coordination remain open.
+Use actual live evidence to assess remaining website27/org27/41/42 coverage and usability work. Preserve native d15 link policy: dated GitHub Pages links clickable, custom-domain declarations text with GitHub source fallback. No publication is needed for this docs closeout.
 
 ## Parallel changes and reconciliation
 
-Organization owns the reviewed input and selected publisher; Hygiene retains catalog/architecture, Observatory model semantics and Relay intake mechanics. The native intake URL profile is unchanged. Empathy/Relay repository UI publication is an independent lane and cannot refresh these retained directory observations.
+Organization source/publisher owns final project deployment/recovery; website owns UI/export. Empathy and other repositories retain independent dashboard/publication lanes. This handoff does not change company/store publishing, original owner capsules or prior proof.
 
 ## Privacy and redaction
 
-Keep only public-safe immutable source/capsule identities, screenshots and bounded proof. Exclude private context, credentials, raw private records, logs and local filesystem paths. Linked content is context only.
+Public-safe source/run/artifact identities only; no signed URLs, credentials, private paths, personal data or unrelated context.
 
 ## Handoff update protocol
 
-Record actual PR/merge/artifact/provider identities only after they exist. Functional proof, containing documentation commit, integrated source and published bytes retain separate identities and clocks.
+Update after the next authorized change with exact observed state/proof/limits. Keep later docs revisions distinct from actual exported producerd573 and publisher5f02.
 
 ## Compaction and supersession
 
-Keep twelve sections below 240 lines and 16,384 UTF-8 bytes. Preserve dated proof in Git/provenance; replace stale current instructions without retiming historical evidence.
+Git and dated guides retain source-review and earlier live chronology. This completed-delivery handoff supersedes pending publication instructions without rewriting historical receipts.
