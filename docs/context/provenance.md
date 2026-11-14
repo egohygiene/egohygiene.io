@@ -1,5 +1,9 @@
 # Context provenance ledger
 
+## Knowledge/query foundation checkpoint — 2026-11-13
+
+[Issue23 foundation](../development/knowledge-boundary-23.md) adds strict schema-owned records, immutable framework-neutral queries and an empty website consumer; synthetic content requires opt-in. Five focused/isolated-consumer tests, package/app types, boundaries and45-route build pass. Legacy intake, real data/routes and publication remain open.
+
 ## Private playground exposure checkpoint — 2026-11-13
 
 [Issue25 repair](../development/playground-exposure-25.md) implements loopback/crawler policy and a fail-closed public build module boundary. Actual Vite import/HTTP checks and the normal45-route build pass; broader experiment lifecycle and retained compiler/engineering gates stay open. No deployment or hosted run occurred.

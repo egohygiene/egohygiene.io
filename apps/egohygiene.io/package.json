@@ -10,6 +10,7 @@
     "typecheck": "tsc -p tsconfig.app.json --noEmit"
   },
   "dependencies": {
+    "@egohygiene/knowledge": "workspace:*",
     "@egohygiene/api-client": "workspace:*",
     "@egohygiene/config": "workspace:*",
     "@egohygiene/i18n": "workspace:*",

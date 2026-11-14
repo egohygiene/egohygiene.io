@@ -1240,6 +1240,9 @@ importers:
       '@egohygiene/icons':
         specifier: workspace:*
         version: link:../../packages/icons
+      '@egohygiene/knowledge':
+        specifier: workspace:*
+        version: link:../../packages/knowledge
       '@egohygiene/schemas':
         specifier: workspace:*
         version: link:../../packages/schemas
@@ -1346,6 +1349,12 @@ importers:
       react:
         specifier: 19.2.8
         version: 19.2.8
+
+  packages/knowledge:
+    dependencies:
+      '@egohygiene/schemas':
+        specifier: workspace:*
+        version: link:../schemas
 
   packages/schemas:
     dependencies:
