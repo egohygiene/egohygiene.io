@@ -1,5 +1,21 @@
 # Current handoff
 
+## Current: compact Intelligence overview ready for source review — 2026-11-14
+
+The [bounded website #27 / org #27 presentation](../development/intelligence-compact-overview.md)
+leads with available review views, compacts unavailable Now/directory rows,
+groups endpoints and makes graph/scope/publication details opt-in. Functional
+`1576e48efc503244315dfd052a7299873b484e62` has 16 focused passing cases and an actual
+sealed retained-input export/native intake/eight-group local browser review.
+Source clocks, partial/human states and unavailable Core remain unchanged.
+The missing directory stays explicit under organization #42. No new export was
+published; source review and the separately reviewed directory seam precede one
+combined publication. [CONTINUITY.md](../../CONTINUITY.md) owns this handoff.
+The completed selected-ten foundation packet is on organization main; its nine
+closed selected issues supersede the stale next-issue list in the dated theme
+checkpoint below. Hygiene #76 and broader organization acceptance remain open.
+
+
 ## Current: Intelligence appearance delivered — 2026-11-13
 
 [Website #146](https://github.com/egohygiene/egohygiene.io/issues/146) is completed
