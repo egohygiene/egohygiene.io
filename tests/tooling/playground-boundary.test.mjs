@@ -46,6 +46,102 @@ test("public build rejects direct, transitive and symlinked experiment imports",
   assert.doesNotMatch(JSON.stringify(output), /PRIVATE_CANARY/u);
 });
 
+test("asset references and public-directory copies cannot bypass the private module boundary", async (t) => {
+  const root = await mkdtemp(path.join(tmpdir(), "playground-assets-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const experiments = path.join(root, "private");
+  await mkdir(experiments);
+  await writeFile(path.join(root, "index.html"), '<script type="module" src="/entry.js"></script>');
+  for (const payload of ["PRIVATE_INLINE_CANARY", "PRIVATE_ASSET_CANARY".repeat(500)]) {
+    await writeFile(path.join(experiments, "private.txt"), payload);
+    for (const suffix of ["", "?inline", "?no-inline"]) {
+      await writeFile(
+        path.join(root, "entry.js"),
+        `globalThis.asset = new URL("./private/private.txt${suffix}", import.meta.url).href;`,
+      );
+      await assert.rejects(
+        build({
+          root,
+          configFile: false,
+          logLevel: "silent",
+          plugins: [excludePlayground(experiments)],
+          build: { write: false },
+        }),
+        /private playground/u,
+      );
+    }
+    await writeFile(path.join(root, "entry.js"), 'import "./style.css";');
+    await writeFile(
+      path.join(root, "style.css"),
+      'body { background: url("./private/private.txt?inline"); }',
+    );
+    await assert.rejects(
+      build({
+        root,
+        configFile: false,
+        logLevel: "silent",
+        plugins: [excludePlayground(experiments)],
+        build: { write: false },
+      }),
+      /private playground/u,
+    );
+  }
+  await writeFile(path.join(root, "index.html"), '<script type="module" src="/entry.ts"></script>');
+  await writeFile(
+    path.join(root, "entry.ts"),
+    'globalThis.asset = new URL(("./private/private.txt" as string), (import.meta.url as string)).href;',
+  );
+  await assert.rejects(
+    build({
+      root,
+      configFile: false,
+      logLevel: "silent",
+      plugins: [excludePlayground(experiments)],
+      build: { write: false },
+    }),
+    /private playground/u,
+  );
+  await writeFile(
+    path.join(root, "entry.ts"),
+    'const name = "private"; globalThis.asset = new URL(`./private/${name}.txt`, import.meta.url).href;',
+  );
+  await assert.rejects(
+    build({
+      root,
+      configFile: false,
+      logLevel: "silent",
+      plugins: [excludePlayground(experiments)],
+      build: { write: false },
+    }),
+    /private playground/u,
+  );
+  await writeFile(path.join(root, "index.html"), '<script type="module" src="/entry.js"></script>');
+  await writeFile(path.join(root, "entry.js"), "globalThis.safe = true;");
+  await assert.rejects(
+    build({
+      root,
+      publicDir: experiments,
+      configFile: false,
+      logLevel: "silent",
+      plugins: [excludePlayground(experiments)],
+      build: { write: false },
+    }),
+    /private playground/u,
+  );
+  await mkdir(path.join(root, "public"));
+  await symlink(path.join(experiments, "private.txt"), path.join(root, "public/private.txt"));
+  await assert.rejects(
+    build({
+      root,
+      configFile: false,
+      logLevel: "silent",
+      plugins: [excludePlayground(experiments)],
+      build: { write: false },
+    }),
+    /private playground/u,
+  );
+});
+
 test("actual local playground responses discourage indexing without claiming access control", async (t) => {
   const server = await createServer({
     ...playgroundConfig,

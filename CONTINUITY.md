@@ -18,7 +18,7 @@ scope:
   includes:
   - Loopback playground development/preview, crawler headers and standalone HTML/robots directives implement
     the declared exposure policy.
-  - The public website Vite build rejects direct, transitive and symlinked playground module imports.
+  - The public website Vite build rejects direct, transitive and symlinked playground module/asset imports, inline URL/CSS references and public-directory copies.
     Shared workspace packages remain the promotion boundary.
   excludes: &id001
   - Indexing metadata is not access control. Do not deploy playground output or store secrets/private
@@ -86,7 +86,7 @@ review:
   - command: node --test tests/tooling/playground-boundary.test.mjs; pnpm build; scoped biome check
     outcome: passed
     observed_at: '2026-11-14T04:11:03Z'
-    notes: Two actual Vite/HTTP tests pass, covering direct/transitive/symlink import rejection and
+    notes: Three actual Vite/HTTP groups pass, covering direct/transitive/symlink import rejection and
       crawler responses. Normal public build emits45 pages. Scoped formatting/import checks pass.
   - command: pnpm exec tsc --project tsconfig.node.json --noEmit
     outcome: failed
@@ -130,11 +130,11 @@ The candidate is based on fresh main d80c485. Containing revision and pre-PR ide
 
 Loopback playground development/preview, crawler headers and standalone HTML/robots directives implement the declared exposure policy.
 
-The public website Vite build rejects direct, transitive and symlinked playground module imports. Shared workspace packages remain the promotion boundary.
+The public website Vite build rejects direct, transitive and symlinked playground module/asset imports, inline URL/CSS references and public-directory copies. Shared workspace packages remain the promotion boundary.
 
 ## Validation and review evidence
 
-Two real Vite/HTTP tests, normal45-page public build and scoped Biome checks pass. The root tooling compiler retains its preexisting peer-cohort conflict.
+Three real Vite/HTTP groups, normal45-page public build and scoped Biome checks pass. The root tooling compiler retains its preexisting peer-cohort conflict.
 
 ## Blockers, risks, unknowns, and deferred work
 
