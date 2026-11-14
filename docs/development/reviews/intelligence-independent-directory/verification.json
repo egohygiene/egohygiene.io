@@ -1,0 +1,227 @@
+{
+  "schema": "egohygiene.website.independent-directory-review/v1",
+  "observed_at": "2026-11-14T20:16:27Z",
+  "functional_source": "b1056812f3db7ea839bba56351547ac13b10ee9f",
+  "base_revision": "7a77ba77fa52c3a7b2686cc1a9722c592188d630",
+  "directory": {
+    "owner": "egohygiene/.github",
+    "revision": "834d7fd51c48860b2cc4f1a6a262ce466f2004db",
+    "payload_sha256": "d29435982560531d31e7698c31fb40e55cfc0849615f4d094be6cb4342ee04fd",
+    "schema_sha256": "19d79bbcea6e3556e3c1228af2eafe40c97f25eee79edb389d51beec2f87709c",
+    "validator_sha256": "7b3fde6a69726dd3a560aaae1d1b4dd0cf1c722c9d0de8d1036bbdbcdd794879",
+    "owner_files": {
+      "scripts/project_repository_directory.py": "7b3fde6a69726dd3a560aaae1d1b4dd0cf1c722c9d0de8d1036bbdbcdd794879",
+      "docs/intelligence/repository-directory.json": "d29435982560531d31e7698c31fb40e55cfc0849615f4d094be6cb4342ee04fd",
+      "docs/intelligence/repository-directory.schema.json": "19d79bbcea6e3556e3c1228af2eafe40c97f25eee79edb389d51beec2f87709c",
+      "docs/intelligence/repositories.source.json": "c4e41df201500c5a00aa7b0e5e30cc4d8054f33eb39c842718266c70530175a9",
+      "docs/reviews/2026-11-13-organization-live-publication.json": "0098b29cae9a1325ee61485878c903cda2aa18bee8142cd005f3eee2c23afc65",
+      "docs/reviews/2026-11-14-foundation-selected-ten.json": "3e13c92d2cf39eaa0593d9e96677835e8a442050ecd2b0d47f6915c88704ab5c"
+    },
+    "row_count": 28,
+    "link_states": {
+      "publication-recorded": 2,
+      "source-declared": 3,
+      "unknown": 23
+    },
+    "organization_total_claim": false,
+    "model_evidence": false,
+    "current_availability_checked": false,
+    "clickable_dashboard_policy": "The two dated GitHub Pages publications are clickable. Three source-declared custom-domain destinations are literal text with GitHub source links; their publication remains unknown. Pinned d15 intake policy is unchanged."
+  },
+  "export": {
+    "manifest_sha256": "32553fa9828e478b9667e00c58d6f2f8b4df6dfb4939957e430cf383ff3e889c",
+    "files": 44,
+    "routes": 39,
+    "public_navigation_scope": [
+      "egohygiene/.github",
+      "egohygiene/aether",
+      "egohygiene/akashic",
+      "egohygiene/aniflow",
+      "egohygiene/antidote",
+      "egohygiene/athena",
+      "egohygiene/beacon",
+      "egohygiene/civics",
+      "egohygiene/egohygiene.io",
+      "egohygiene/egolint",
+      "egohygiene/empathy",
+      "egohygiene/filament",
+      "egohygiene/flow",
+      "egohygiene/holon",
+      "egohygiene/hygiene",
+      "egohygiene/identity",
+      "egohygiene/mantle",
+      "egohygiene/mindcap",
+      "egohygiene/mindgarden",
+      "egohygiene/observatory",
+      "egohygiene/optiflow",
+      "egohygiene/pace",
+      "egohygiene/realm",
+      "egohygiene/reflector",
+      "egohygiene/relay",
+      "egohygiene/renderflow",
+      "egohygiene/sanctuary",
+      "egohygiene/store"
+    ],
+    "models_equal_previous_UI_export": true,
+    "models": {
+      "audits": {
+        "contract_version": "1.0.0-alpha.1",
+        "presentation_sha256": "480c4f0fee01dc68ff215b6a52f5d7e5b7c2a71954d732d0285518ef5a80e240",
+        "schema": "egohygiene.observatory.fleet-audits/v1",
+        "state": "available"
+      },
+      "core": {
+        "contract_version": "1.0.0-alpha.2",
+        "presentation_sha256": null,
+        "schema": "egohygiene.observatory.repository-intelligence-fleet/v1",
+        "state": "unavailable"
+      },
+      "sanity": {
+        "contract_version": "1.0.0-alpha.1",
+        "presentation_sha256": "ce1d3241f9e3a0eb923cf970ed6a7bd487407d481672ed42dcd2e29279eac5f7",
+        "schema": "egohygiene.observatory.fleet-sanity/v1",
+        "state": "available"
+      }
+    },
+    "review_model_target_counts": {
+      "audits": 1,
+      "sanity": 1
+    },
+    "original_model_as_of": "2026-11-13T03:23:31Z",
+    "original_evaluation_as_of": "2026-11-13T03:36:14Z"
+  },
+  "native_intake": {
+    "revision": "d15cacd987ef1f98a6b94b051a42925eb91f8cc7",
+    "status": "passed",
+    "transport": "directory",
+    "receipt_sha256": "84fabc97495d0b47e7465f7475a280d6ed79f74b12909400274d5b8d4a416874",
+    "publication": "review-only",
+    "deployment_authorized": false
+  },
+  "checks": {
+    "node_consumer_cases": 8,
+    "UI_unit_cases": 20,
+    "UI_unit_files": 5,
+    "app_typecheck": "passed",
+    "unit_typecheck": "passed",
+    "direct_loader_typecheck": "passed",
+    "direct_browser_driver_typecheck": "passed",
+    "scoped_biome_errors": 0,
+    "whitespace": "passed",
+    "tooling_config": {
+      "status": "baseline-failure",
+      "baseline_source": "51a7e54eaa38064bf80116ad9b92d86bbdc621fa",
+      "errors": 2,
+      "locations": [
+        "scripts/build-intelligence-export.mts:196",
+        "scripts/build-intelligence-export.mts:197"
+      ],
+      "cause": "Existing duplicate Vite type identities across locked peer installations; both baseline and candidate fail the unchanged build calls. No assertion, gate or dependency was relaxed."
+    }
+  },
+  "browser": {
+    "status": "passed",
+    "node": "v24.21.0",
+    "browser": "151.0.7922.173",
+    "checks": [
+      "Default overview has four compact view groups, all 18 endpoints and a closed optional graph.",
+      "Native scope disclosures toggle with the keyboard and keep a visible focus outline.",
+      "A grouped view keeps URL filters across navigation, direct refresh and Back at the project mount.",
+      "Independent roster binds its accepted org source/payload, preserves dated/declaration/unknown states and consumer links, and filters/reloads through URL state without Core rows.",
+      "320/390/768/1440px layouts stay within the viewport with the graph closed and open.",
+      "The overview also remains bounded at 390px with RTL flow and 200% root text size.",
+      "Selecting a graph node writes shared graph state and reload reopens the optional map.",
+      "Without JavaScript all view links, native scope disclosures and the map's text directory remain usable.",
+      "JavaScript-disabled roster disclosures expose unknown repositories and source provenance without inventing dashboard destinations.",
+      "No page exceptions or application console errors; sealed manifest and all files remain byte-identical after review. An origin-root favicon404, if requested, is recorded separately in consoleErrors."
+    ],
+    "layouts": [
+      {
+        "width": 320,
+        "document": 320,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": false
+      },
+      {
+        "width": 320,
+        "document": 320,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": true
+      },
+      {
+        "width": 390,
+        "document": 390,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": false
+      },
+      {
+        "width": 390,
+        "document": 390,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": true
+      },
+      {
+        "width": 768,
+        "document": 768,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": false
+      },
+      {
+        "width": 768,
+        "document": 768,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": true
+      },
+      {
+        "width": 1440,
+        "document": 1440,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": false
+      },
+      {
+        "width": 1440,
+        "document": 1440,
+        "direction": "ltr",
+        "fontScale": "16px",
+        "graphOpen": true
+      },
+      {
+        "width": 390,
+        "document": 390,
+        "direction": "rtl",
+        "fontScale": "32px",
+        "graphOpen": false
+      }
+    ],
+    "pageErrors": [],
+    "startedAt": "2026-11-14T20:12:29.784Z",
+    "finishedAt": "2026-11-14T20:12:34.990Z"
+  },
+  "browser_application_console_errors": 0,
+  "browser_origin_root_favicon_404_count": 1,
+  "browser_driver_sha256": "885dde1a5d61068b5bb69450faf20cfe2b9ed4df2d5d1f5cbb8620f4599d89c8",
+  "screenshots": [
+    {
+      "path": "overview-390.png",
+      "sha256": "523ff769acd7fe69f21aa1ad6458c6a67999bc7402d3a2c813b56536a5975ec3"
+    },
+    {
+      "path": "overview-1440.png",
+      "sha256": "9345d6ce4c53743102e5700a5adebcd9e3446afc2c8567c251178b6bb1b423be"
+    }
+  ],
+  "limits": [
+    "Local retained-input HTTP review is not canonical HTTPS, hosted export, provider acquisition or publication.",
+    "Navigation rows are not Core evidence. Core remains unavailable; the review modules each retain one target and unchanged partial/human states.",
+    "Original source declarations and dated publication observations are not refreshed. No live availability or whole-organization total is asserted.",
+    "Custom-domain clickable support, full accessibility/physical-device/zoom, fleet/privacy canaries, restore and human acceptance remain separate.",
+    "The first local candidate was correctly denied for a source-declared custom-domain anchor. The accepted consumer renders that destination as text; no native URL rule was relaxed."
+  ]
+}

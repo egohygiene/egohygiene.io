@@ -1,5 +1,16 @@
 # Context provenance ledger
 
+## Independent repository directory consumer — 2026-11-14
+
+Functional `b1056812f3db7ea839bba56351547ac13b10ee9f` consumes accepted
+organization `834d7fd51c48860b2cc4f1a6a262ce466f2004db` without fabricating Core.
+The [source-bound receipt](../development/reviews/intelligence-independent-directory/verification.json)
+retains exact capsule hashes, 8 admission/20 UI cases, ten local HTTP Chromium
+groups, the 44-file/39-route sealed export and native directory intake. Model
+identities/clocks remain unchanged. Three declared custom-domain URLs are text
+under the unchanged intake policy; two dated GitHub Pages records are clickable.
+Source merge, actual hosted delivery and canonical proof remain separate.
+
 ## Compact Intelligence overview local source review — 2026-11-14
 
 Functional `1576e48efc503244315dfd052a7299873b484e62` implements the explicit
