@@ -103,7 +103,7 @@ test("asset references and public-directory copies cannot bypass the private mod
   );
   await writeFile(
     path.join(root, "entry.ts"),
-    'const name = "private"; globalThis.asset = new URL(`./private/${name}.txt`, import.meta.url).href;',
+    `const name = "private"; globalThis.asset = new URL(\`./private/\${name}.txt\`, import.meta.url).href;`,
   );
   await assert.rejects(
     build({

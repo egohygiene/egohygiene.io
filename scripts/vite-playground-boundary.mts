@@ -118,6 +118,12 @@ export function excludePlayground(root = playgroundRoot): Plugin {
     }
     visit(source);
   }
+  function srcsetAssets(srcset: string, filename: string): void {
+    for (const candidate of srcset.split(",")) {
+      const value = candidate.trim().split(/\s+/u)[0];
+      if (value) asset(value, filename);
+    }
+  }
   function htmlAttributes(
     attributes: DefaultTreeAdapterMap["element"]["attrs"],
     filename: string,
@@ -126,34 +132,27 @@ export function excludePlayground(root = playgroundRoot): Plugin {
     for (const attribute of attributes) {
       if (urls.has(attribute.name)) asset(attribute.value, filename);
       if (attribute.name === "style") cssAssets(attribute.value, filename);
-      if (attribute.name !== "srcset" && attribute.name !== "imagesrcset") continue;
-      for (const candidate of attribute.value.split(",")) {
-        const value = candidate.trim().split(/\s+/u)[0];
-        if (value) asset(value, filename);
-      }
+      if (attribute.name === "srcset" || attribute.name === "imagesrcset")
+        srcsetAssets(attribute.value, filename);
     }
+  }
+  function htmlNode(
+    node: DefaultTreeAdapterMap["node"],
+    filename: string,
+  ): DefaultTreeAdapterMap["node"][] {
+    if ("attrs" in node) htmlAttributes(node.attrs, filename);
+    if ("content" in node) return [node.content];
+    if (!("childNodes" in node)) return [];
+    const code = node.childNodes.map((child) => ("value" in child ? child.value : "")).join("");
+    if (node.nodeName === "style") cssAssets(code, filename);
+    if (node.nodeName === "script") scriptAssets(code, filename);
+    return node.childNodes;
   }
   function htmlAssets(html: string, filename: string): void {
     const pending: DefaultTreeAdapterMap["node"][] = [parse(html)];
     while (pending.length) {
       const node = pending.pop();
-      if (!node) continue;
-      if ("attrs" in node) htmlAttributes(node.attrs, filename);
-      if ("content" in node) pending.push(node.content);
-      if (!("childNodes" in node)) continue;
-      if (node.nodeName === "style") {
-        cssAssets(
-          node.childNodes.map((child) => ("value" in child ? child.value : "")).join(""),
-          filename,
-        );
-      }
-      if (node.nodeName === "script") {
-        scriptAssets(
-          node.childNodes.map((child) => ("value" in child ? child.value : "")).join(""),
-          filename,
-        );
-      }
-      pending.push(...node.childNodes);
+      if (node) pending.push(...htmlNode(node, filename));
     }
   }
   function checkPublicTree(directory: string): void {
