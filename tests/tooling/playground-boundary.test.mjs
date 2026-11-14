@@ -142,6 +142,53 @@ test("asset references and public-directory copies cannot bypass the private mod
   );
 });
 
+test("HTML attributes, srcset and inline CSS cannot inline private source bytes", async (t) => {
+  const root = await mkdtemp(path.join(tmpdir(), "playground-html-assets-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const experiments = path.join(root, "private");
+  await mkdir(experiments);
+  for (const size of [1, 500]) {
+    await writeFile(
+      path.join(experiments, "private.svg"),
+      `<svg xmlns="http://www.w3.org/2000/svg"><text>${"PRIVATE_HTML_CANARY".repeat(size)}</text></svg>`,
+    );
+    for (const suffix of ["", "?inline", "?no-inline"]) {
+      for (const markup of [
+        `<img src="./private/private.svg${suffix}">`,
+        `<img srcset="./private/private.svg${suffix} 1x">`,
+        `<link rel="preload" as="image" imagesrcset="./private/private.svg${suffix} 1x">`,
+        `<img src="./pri&#118;ate/private.svg${suffix}">`,
+        `<div style="background:url('./private/private.svg${suffix}')"></div>`,
+        `<style>body{background:url('./private/private.svg${suffix}')}</style>`,
+        `<script type="module">globalThis.asset = new URL('./private/private.svg${suffix}', import.meta.url).href;</script>`,
+      ]) {
+        await writeFile(path.join(root, "index.html"), markup);
+        await assert.rejects(
+          build({
+            root,
+            configFile: false,
+            logLevel: "silent",
+            plugins: [excludePlayground(experiments)],
+            build: { write: false },
+          }),
+          /private playground/u,
+        );
+      }
+    }
+  }
+  const publicSvg = '<svg xmlns="http://www.w3.org/2000/svg"><text>PUBLIC_HTML_CANARY</text></svg>';
+  await writeFile(path.join(root, "public.svg"), publicSvg);
+  await writeFile(path.join(root, "index.html"), '<img src="./public.svg">');
+  const safe = await build({
+    root,
+    configFile: false,
+    logLevel: "silent",
+    plugins: [excludePlayground(experiments)],
+    build: { write: false },
+  });
+  assert.ok(JSON.stringify(safe).includes(Buffer.from(publicSvg).toString("base64")));
+});
+
 test("actual local playground responses discourage indexing without claiming access control", async (t) => {
   const server = await createServer({
     ...playgroundConfig,

@@ -2,6 +2,7 @@ import { readdirSync, realpathSync, statSync } from "node:fs";
 import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { type DefaultTreeAdapterMap, parse } from "parse5";
 import ts from "typescript";
 import type { Plugin } from "vite";
 
@@ -71,19 +72,22 @@ export function excludePlayground(root = playgroundRoot): Plugin {
     return path === "" || (path !== ".." && !path.startsWith(`..${sep}`) && !isAbsolute(path));
   }
   function check(filename: string): void {
-    let actual: string;
-    try {
-      actual = realpathSync(filename);
-    } catch {
-      return;
+    let current = filename;
+    let actual = realPath(current);
+    while (!actual && dirname(current) !== current) {
+      current = dirname(current);
+      actual = realPath(current);
     }
+    if (!actual) return;
     if (contains(protectedRoot, actual)) {
       throw new Error("Public applications cannot import private playground modules or assets.");
     }
   }
   function asset(value: string, importer: string, dynamic = false): void {
     if (/^[a-z][a-z0-9+.-]*:/iu.test(value) || value.startsWith("//")) return;
-    const decoded = decodeURIComponent(value.split(/[?#]/u)[0] ?? "");
+    const decoded = decodeURIComponent(
+      (value.split(/[?#]/u)[0] ?? "").replace(/^%BASE_URL%/u, "/"),
+    );
     if (!decoded) return;
     const filename = decoded.startsWith("/")
       ? resolve(buildRoot, `.${decoded}`)
@@ -91,6 +95,65 @@ export function excludePlayground(root = playgroundRoot): Plugin {
     check(filename);
     if (dynamic && contains(filename, protectedRoot)) {
       throw new Error("Dynamic public asset references may not traverse the private playground.");
+    }
+  }
+  function cssAssets(code: string, filename: string): void {
+    const values = [
+      ...code.matchAll(/url\(\s*("[^"]*"|'[^']*'|[^)]*)\s*\)/giu),
+      ...code.matchAll(/@import\s+("[^"]*"|'[^']*')/giu),
+    ];
+    for (const match of values) {
+      let value = (match[1] ?? "").replace(/\/\*[\s\S]*?\*\//gu, "").trim();
+      if (value.includes("\\"))
+        throw new Error("Escaped public asset references require explicit review.");
+      value = value.replace(/^["']|["']$/gu, "");
+      asset(value, filename);
+    }
+  }
+  function scriptAssets(code: string, filename: string): void {
+    const source = ts.createSourceFile(filename, code, ts.ScriptTarget.Latest, true);
+    function visit(node: ts.Node): void {
+      inspectUrl(node, (value, dynamic) => asset(value, filename, dynamic));
+      ts.forEachChild(node, visit);
+    }
+    visit(source);
+  }
+  function htmlAttributes(
+    attributes: DefaultTreeAdapterMap["element"]["attrs"],
+    filename: string,
+  ): void {
+    const urls = new Set(["src", "href", "data", "poster", "background"]);
+    for (const attribute of attributes) {
+      if (urls.has(attribute.name)) asset(attribute.value, filename);
+      if (attribute.name === "style") cssAssets(attribute.value, filename);
+      if (attribute.name !== "srcset" && attribute.name !== "imagesrcset") continue;
+      for (const candidate of attribute.value.split(",")) {
+        const value = candidate.trim().split(/\s+/u)[0];
+        if (value) asset(value, filename);
+      }
+    }
+  }
+  function htmlAssets(html: string, filename: string): void {
+    const pending: DefaultTreeAdapterMap["node"][] = [parse(html)];
+    while (pending.length) {
+      const node = pending.pop();
+      if (!node) continue;
+      if ("attrs" in node) htmlAttributes(node.attrs, filename);
+      if ("content" in node) pending.push(node.content);
+      if (!("childNodes" in node)) continue;
+      if (node.nodeName === "style") {
+        cssAssets(
+          node.childNodes.map((child) => ("value" in child ? child.value : "")).join(""),
+          filename,
+        );
+      }
+      if (node.nodeName === "script") {
+        scriptAssets(
+          node.childNodes.map((child) => ("value" in child ? child.value : "")).join(""),
+          filename,
+        );
+      }
+      pending.push(...node.childNodes);
     }
   }
   function checkPublicTree(directory: string): void {
@@ -122,29 +185,20 @@ export function excludePlayground(root = playgroundRoot): Plugin {
       check(filename);
       return null;
     },
+    transformIndexHtml: {
+      order: "pre",
+      handler(html, context) {
+        htmlAssets(html, context.filename);
+        return html;
+      },
+    },
     transform(code, id) {
       const filename = id.split("?")[0] ?? "";
       if (!filename || !isAbsolute(filename)) return null;
       if (/\.[cm]?[jt]sx?$/u.test(filename)) {
-        const source = ts.createSourceFile(filename, code, ts.ScriptTarget.Latest, true);
-        function visit(node: ts.Node): void {
-          inspectUrl(node, (value, dynamic) => asset(value, filename, dynamic));
-          ts.forEachChild(node, visit);
-        }
-        visit(source);
+        scriptAssets(code, filename);
       } else if (/\.(?:css|scss|less)$/u.test(filename)) {
-        // Inspect source references before Vite can inline their contents.
-        const values = [
-          ...code.matchAll(/url\(\s*("[^"]*"|'[^']*'|[^)]*)\s*\)/giu),
-          ...code.matchAll(/@import\s+("[^"]*"|'[^']*')/giu),
-        ];
-        for (const match of values) {
-          let value = (match[1] ?? "").replace(/\/\*[\s\S]*?\*\//gu, "").trim();
-          if (value.includes("\\"))
-            throw new Error("Escaped public asset references require explicit review.");
-          value = value.replace(/^["']|["']$/gu, "");
-          asset(value, filename);
-        }
+        cssAssets(code, filename);
       }
       return null;
     },

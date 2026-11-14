@@ -461,6 +461,7 @@
     "msw-storybook-addon": "^3.0.0",
     "normalize.css": "^8.0.1",
     "nx": "^23.1.0",
+    "parse5": "7.3.0",
     "postcss": "^8.5.25",
     "postcss-import": "^16.1.1",
     "prettier": "^3.8.4",
