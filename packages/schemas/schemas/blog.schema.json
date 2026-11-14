@@ -8,10 +8,7 @@
     },
     "origin": {
       "type": "string",
-      "enum": [
-        "authored",
-        "synthetic"
-      ]
+      "enum": ["authored", "synthetic"]
     },
     "site": {
       "type": "object",
@@ -44,12 +41,7 @@
           "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
         }
       },
-      "required": [
-        "title",
-        "description",
-        "baseUrl",
-        "language"
-      ],
+      "required": ["title", "description", "baseUrl", "language"],
       "additionalProperties": false
     },
     "posts": {
@@ -85,12 +77,7 @@
           },
           "category": {
             "type": "string",
-            "enum": [
-              "essay",
-              "release-update",
-              "research-note",
-              "community"
-            ]
+            "enum": ["essay", "release-update", "research-note", "community"]
           },
           "markdown": {
             "type": "string",
@@ -98,21 +85,14 @@
           },
           "visibility": {
             "type": "string",
-            "enum": [
-              "public",
-              "private"
-            ]
+            "enum": ["public", "private"]
           },
           "review": {
             "type": "object",
             "properties": {
               "status": {
                 "type": "string",
-                "enum": [
-                  "draft",
-                  "pending",
-                  "approved"
-                ]
+                "enum": ["draft", "pending", "approved"]
               },
               "reference": {
                 "anyOf": [
@@ -128,20 +108,12 @@
                 ]
               }
             },
-            "required": [
-              "status",
-              "reference"
-            ],
+            "required": ["status", "reference"],
             "additionalProperties": false
           },
           "publication": {
             "type": "string",
-            "enum": [
-              "draft",
-              "scheduled",
-              "published",
-              "archived"
-            ]
+            "enum": ["draft", "scheduled", "published", "archived"]
           },
           "publishedAt": {
             "anyOf": [
@@ -195,11 +167,7 @@
                   ]
                 }
               },
-              "required": [
-                "id",
-                "name",
-                "url"
-              ],
+              "required": ["id", "name", "url"],
               "additionalProperties": false
             }
           },
@@ -208,11 +176,7 @@
             "properties": {
               "status": {
                 "type": "string",
-                "enum": [
-                  "none",
-                  "disclosed",
-                  "unknown"
-                ]
+                "enum": ["none", "disclosed", "unknown"]
               },
               "disclosure": {
                 "anyOf": [
@@ -227,10 +191,7 @@
                 ]
               }
             },
-            "required": [
-              "status",
-              "disclosure"
-            ],
+            "required": ["status", "disclosure"],
             "additionalProperties": false
           },
           "corrections": {
@@ -253,11 +214,7 @@
                   "maxLength": 1000
                 }
               },
-              "required": [
-                "id",
-                "at",
-                "summary"
-              ],
+              "required": ["id", "at", "summary"],
               "additionalProperties": false
             }
           },
@@ -297,10 +254,7 @@
                     ]
                   }
                 },
-                "required": [
-                  "name",
-                  "url"
-                ],
+                "required": ["name", "url"],
                 "additionalProperties": false
               },
               {
@@ -342,11 +296,7 @@
                 ]
               }
             },
-            "required": [
-              "path",
-              "revision",
-              "url"
-            ],
+            "required": ["path", "revision", "url"],
             "additionalProperties": false
           },
           "media": {
@@ -368,11 +318,7 @@
                 },
                 "mimeType": {
                   "type": "string",
-                  "enum": [
-                    "image/png",
-                    "image/jpeg",
-                    "image/webp"
-                  ]
+                  "enum": ["image/png", "image/jpeg", "image/webp"]
                 },
                 "byteLength": {
                   "anyOf": [
@@ -387,12 +333,7 @@
                   ]
                 }
               },
-              "required": [
-                "url",
-                "alt",
-                "mimeType",
-                "byteLength"
-              ],
+              "required": ["url", "alt", "mimeType", "byteLength"],
               "additionalProperties": false
             }
           }
@@ -421,11 +362,6 @@
       }
     }
   },
-  "required": [
-    "schemaVersion",
-    "origin",
-    "site",
-    "posts"
-  ],
+  "required": ["schemaVersion", "origin", "site", "posts"],
   "additionalProperties": false
 }
