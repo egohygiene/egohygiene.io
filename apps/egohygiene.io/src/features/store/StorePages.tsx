@@ -1,7 +1,8 @@
 import { useI18n } from "@egohygiene/i18n";
 import type { StoreDesign, StoreEntry, StoreProduct } from "@egohygiene/schemas";
 import { getStorePurchaseAction } from "@egohygiene/schemas";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { useLocation, useNavigationType, useParams, useSearchParams } from "react-router-dom";
 import { storeCatalog, storefrontCuration } from "../../content/store";
 import { useBrowserSnapshot } from "../../hooks/useBrowserSnapshot";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
@@ -17,6 +18,7 @@ import {
   storeArtistPath,
   storeEntryPath,
 } from "./domain/index.ts";
+import { productArtworkStyle, useProductViewTransition } from "./product-view-transition";
 import { StoreArtwork } from "./StoreArtwork";
 import { StoreArtworkGallery } from "./StoreArtworkGallery";
 import { StoreArrow as Arrow, StoreCard, StoreEntryBadge as EntryBadge } from "./StoreCard";
@@ -41,14 +43,20 @@ const stories: { value: StoreStory; label: string }[] = [
 function StoreGrid({
   entries,
   emptyMessage,
+  collectionProductNavigation,
 }: {
   readonly entries: BrowsableStoreEntry[];
   readonly emptyMessage: string;
+  readonly collectionProductNavigation?: { readonly animate: boolean };
 }) {
   return entries.length ? (
     <div className="store-grid">
       {entries.map((entry) => (
-        <StoreCard entry={entry} key={entry.id} />
+        <StoreCard
+          entry={entry}
+          key={entry.id}
+          collectionProductNavigation={collectionProductNavigation}
+        />
       ))}
     </div>
   ) : (
@@ -456,6 +464,17 @@ export function StoreProductPage() {
   const { content } = useStoreContent();
   const { t, locale } = useI18n();
   const { slug } = useParams();
+  const { state } = useLocation();
+  const navigationType = useNavigationType();
+  const title = useRef<HTMLHeadingElement>(null);
+  const focusFromCollection =
+    (state as { focusStoreProduct?: boolean } | null)?.focusStoreProduct === true;
+  useEffect(() => {
+    if (navigationType === "PUSH" && focusFromCollection) {
+      title.current?.focus({ preventScroll: true });
+    }
+  }, [navigationType, focusFromCollection, slug]);
+
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "product" && candidate.slug === slug,
   );
@@ -475,7 +494,7 @@ export function StoreProductPage() {
         kind={entry.kind}
       />
       <article className="store-detail">
-        <div className="store-detail__art">
+        <div className="store-detail__art" style={productArtworkStyle(entry.slug)}>
           <StoreArtworkGallery
             designs={designs}
             title={presented.title.value}
@@ -494,7 +513,9 @@ export function StoreProductPage() {
         <div className="store-detail__copy">
           <p className="store-kicker">{t("storeCards.detail.productKicker")}</p>
           <EntryBadge entry={entry} />
-          <h1 lang={presented.title.locale}>{presented.title.value}</h1>
+          <h1 lang={presented.title.locale} ref={title} tabIndex={-1}>
+            {presented.title.value}
+          </h1>
           <p className="store-detail__description" lang={presented.description.locale}>
             {presented.description.value}
           </p>
@@ -675,6 +696,7 @@ export function StoreCollectionPage() {
   const { content } = useStoreContent();
   const { t } = useI18n();
   const { slug } = useParams();
+  const animateProductNavigation = useProductViewTransition();
   const entry = storeCatalog.entries.find(
     (candidate) => candidate.kind === "collection" && candidate.slug === slug,
   );
@@ -743,6 +765,7 @@ export function StoreCollectionPage() {
         <StoreGrid
           entries={entries.filter(isBrowsableEntry)}
           emptyMessage={t("storeCards.detail.entriesEmpty")}
+          collectionProductNavigation={{ animate: animateProductNavigation }}
         />
       </section>
     </div>

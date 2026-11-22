@@ -1,0 +1,21 @@
+@media (prefers-reduced-motion: no-preference) {
+  .store-card__visual,
+  .store-detail__art .store-artwork-gallery__open {
+    view-transition-name: var(--store-product-art-name, none);
+    view-transition-class: store-product-art;
+  }
+
+  ::view-transition-group(*.store-product-art) {
+    animation-duration: 220ms;
+    animation-timing-function: cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+}
+
+/* A browser may replay a previously opted-in navigation after the preference changes. */
+@media (prefers-reduced-motion: reduce) {
+  :root:has(.store-shell)::view-transition-group(root),
+  :root:has(.store-shell)::view-transition-old(root),
+  :root:has(.store-shell)::view-transition-new(root) {
+    animation: none;
+  }
+}

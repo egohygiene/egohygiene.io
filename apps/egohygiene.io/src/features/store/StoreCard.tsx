@@ -5,6 +5,7 @@ import { storeCatalog } from "../../content/store";
 import { LocaleLink as Link } from "../../i18n/LocaleLink";
 import type { BrowsableStoreEntry } from "./domain/index.ts";
 import { getEntryContexts, getEntryDesigns, storeEntryPath } from "./domain/index.ts";
+import { productArtworkStyle } from "./product-view-transition";
 import { StoreArtwork } from "./StoreArtwork";
 import { useStoreContent } from "./useStoreContent";
 
@@ -40,19 +41,30 @@ export function StoreEntryBadge({ entry }: { readonly entry: BrowsableStoreEntry
 export function StoreCard({
   entry,
   catalog = storeCatalog,
+  collectionProductNavigation,
 }: {
   readonly entry: BrowsableStoreEntry;
   readonly catalog?: StoreCatalog;
+  readonly collectionProductNavigation?: { readonly animate: boolean } | undefined;
 }) {
   const { t } = useI18n();
   const { content } = useStoreContent();
   const presented = content(entry);
   const design = getEntryDesigns(catalog, entry)[0];
   const connected = getEntryContexts(catalog, entry).length > 0;
+  const collectionProduct = entry.kind === "product" ? collectionProductNavigation : undefined;
   return (
     <article className="store-card">
-      <Link className="store-card__link" to={storeEntryPath(entry)}>
-        <div className="store-card__visual">
+      <Link
+        className="store-card__link"
+        to={storeEntryPath(entry)}
+        state={collectionProduct ? { focusStoreProduct: true } : undefined}
+        viewTransition={collectionProduct?.animate ?? false}
+      >
+        <div
+          className="store-card__visual"
+          style={collectionProduct ? productArtworkStyle(entry.slug) : undefined}
+        >
           <StoreArtwork design={design} />
           <span className="store-card__badge">
             <StoreEntryBadge entry={entry} />

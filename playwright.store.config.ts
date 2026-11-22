@@ -8,6 +8,7 @@ export default defineConfig({
     "storefront.spec.ts",
     "store-artist.spec.ts",
     "storefront-journey.spec.ts",
+    "store-motion.spec.ts",
     "theme.spec.ts",
     "site.spec.ts",
     "store-metadata.spec.ts",
