@@ -1,5 +1,23 @@
 # Current handoff
 
+## Private merch studio draft review — 2026-11-21
+
+The [private merch studio roadmap](../roadmaps/private-merch-studio.md) advances
+five open storefront issues with separate drafts: [access and roadmap #155](https://github.com/egohygiene/egohygiene.io/pull/155),
+[draft repository #156](https://github.com/egohygiene/egohygiene.io/pull/156),
+[editor #157](https://github.com/egohygiene/egohygiene.io/pull/157),
+[product preview #158](https://github.com/egohygiene/egohygiene.io/pull/158),
+then the dependent `codex/store-private-qualification` draft. Review in that order.
+Start the last branch with `node scripts/store-environment.mjs studio` and try
+the fictional product journey at `http://127.0.0.1:5173/store/studio`.
+
+The exact qualification source `bf60a70ea5cb0a94dafabde26cfae4fb7ee19058`
+passed the focused browser, catalog and artifact checks in the
+[provenance ledger](provenance.md). The demo session resets on reload; draft
+data stays in the local browser profile. A real hosted owner session and draft
+backend, the upstream catalog chain, real-product selection, and broader
+#37 qualification are later work.
+
 ## Current: compact organization UI and directory delivered — 2026-11-14
 
 The [live organization dashboard](https://egohygiene.github.io/.github/intelligence/)

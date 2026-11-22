@@ -1,5 +1,30 @@
 # Context provenance ledger
 
+## Local private merch studio review — 2026-11-21
+
+Base `04d816395a6041739895d016b91faa879a42c3af`. Qualification source
+`bf60a70ea5cb0a94dafabde26cfae4fb7ee19058` follows access `7e45261`, drafts
+`cbb3f2a`, editor `cf45222`, and preview `0316ef5`. All fixture product data is
+fictional. [Roadmap and local commands](../roadmaps/private-merch-studio.md).
+
+- Pinned Node 24.21.0 and pnpm 11.28.5 installed the frozen lockfile with ignored
+  dependency scripts. Eleven focused studio unit tests, ten environment-tooling
+  tests, website and browser TypeScript, and the 18-module portable boundary
+  check passed.
+- Chromium passed two journeys at loopback, including signed-out entry, draft
+  creation/editing/removal, disabled-purchase preview, restored focus, reload
+  persistence, and mobile keyboard activation. The desktop journey observed zero
+  external requests.
+- Eight projection/build tests passed. Normal and isolated client builds excluded
+  the studio route, code and source-map modules with the studio flag supplied;
+  the isolated build also used development `NODE_ENV`. Direct Vite serving with
+  the flag and a non-loopback bind was rejected. The normal website client and
+  SSR build rendered 45 pages and ten sitemap entries. Vite reported a size
+  warning for the main client chunk.
+
+This is local prototype evidence. The final release qualification, real identity
+and storage integration, provider proof and owner review remain outstanding.
+
 ## Combined compact UI/directory actual delivery — 2026-11-14
 
 Accepted website #152/#153 merged at published producer
