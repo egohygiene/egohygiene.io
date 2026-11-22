@@ -1,0 +1,105 @@
+.merch-draft-editor {
+  display: grid;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.merch-draft-editor__header,
+.merch-draft-editor__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.merch-draft-editor__header {
+  justify-content: space-between;
+}
+
+.merch-draft-editor :is(h2, h3, p) {
+  margin-block: 0;
+}
+
+.merch-draft-editor [role="status"]:empty {
+  position: absolute;
+  clip-path: inset(100%);
+}
+
+.merch-draft-editor [role="alert"],
+.merch-draft-editor__confirm {
+  padding: 0.75rem;
+  border: 1px solid var(--store-line);
+  border-radius: 0.75rem;
+  background: var(--store-soft);
+}
+
+.merch-draft-editor__workspace {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 23rem), 1fr));
+  align-items: start;
+  gap: 1rem;
+}
+
+.merch-draft-editor__list ul {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.merch-draft-editor :is(.merch-draft-editor__card, .merch-draft-editor__form) {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--store-line);
+  border-radius: var(--store-radius);
+  background: var(--store-card);
+}
+
+.merch-draft-editor__confirm {
+  display: grid;
+  gap: 0.55rem;
+  min-inline-size: 0;
+  margin: 0;
+}
+
+.merch-draft-editor__form label {
+  display: grid;
+  gap: 0.3rem;
+  font-weight: 600;
+}
+
+.merch-draft-editor :is(input, textarea, button:not(.store-button)) {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--store-line);
+  border-radius: 0.55rem;
+  color: var(--color-foreground);
+  background: var(--color-surface);
+  font: inherit;
+}
+
+.merch-draft-editor :is(input, textarea) {
+  box-sizing: border-box;
+  width: 100%;
+  font-weight: 400;
+}
+
+.merch-draft-editor textarea {
+  resize: vertical;
+}
+
+.merch-draft-editor button:not(:disabled) {
+  cursor: pointer;
+}
+
+.merch-draft-editor button:not(.store-button):hover:not(:disabled) {
+  border-color: currentColor;
+}
+
+.merch-draft-editor button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
