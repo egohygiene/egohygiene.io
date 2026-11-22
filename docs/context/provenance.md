@@ -21,6 +21,10 @@ fictional. [Roadmap and local commands](../roadmaps/private-merch-studio.md).
   the flag and a non-loopback bind was rejected. The normal website client and
   SSR build rendered 45 pages and ten sitemap entries. Vite reported a size
   warning for the main client chunk.
+- The repository `pnpm test` run passed 176 catalog/build checks and 395 unit
+  checks. Hosted CI on [draft #158](https://github.com/egohygiene/egohygiene.io/pull/158)
+  stops at repository-wide formatting outside the studio scope. Dependency
+  review reports that dependency-graph support is unavailable.
 
 This is local prototype evidence. The final release qualification, real identity
 and storage integration, provider proof and owner review remain outstanding.

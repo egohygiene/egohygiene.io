@@ -7,7 +7,8 @@ five open storefront issues with separate drafts: [access and roadmap #155](http
 [draft repository #156](https://github.com/egohygiene/egohygiene.io/pull/156),
 [editor #157](https://github.com/egohygiene/egohygiene.io/pull/157),
 [product preview #158](https://github.com/egohygiene/egohygiene.io/pull/158),
-then the dependent `codex/store-private-qualification` draft. Review in that order.
+and [qualification #159](https://github.com/egohygiene/egohygiene.io/pull/159).
+Review in that order.
 Start the last branch with `node scripts/store-environment.mjs studio` and try
 the fictional product journey at `http://127.0.0.1:5173/store/studio`.
 
