@@ -22,6 +22,12 @@ export function createWebsiteConfig(
       react(),
       {
         name: "merch-studio-loopback",
+        config(_config, { command }) {
+          // A static build must exclude this route even when started with a development NODE_ENV.
+          if (command === "build") {
+            return { define: { "import.meta.env.VITE_STORE_STUDIO": JSON.stringify("false") } };
+          }
+        },
         configResolved(config) {
           if (
             config.command === "serve" &&

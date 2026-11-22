@@ -8,7 +8,8 @@ import { setTimeout as delay } from "node:timers/promises";
 import { fileURLToPath } from "node:url";
 import { runInNewContext } from "node:vm";
 import type { InlineConfig } from "vite";
-import { build, createServer } from "vite";
+import { build, createServer, mergeConfig } from "vite";
+import { createWebsiteConfig } from "../../apps/egohygiene.io/vite.config.ts";
 import type { StoreCatalog } from "../../packages/schemas/src/store.ts";
 import { getStorePurchaseAction, parseStoreCatalog } from "../../packages/schemas/src/store.ts";
 import { emptyStorefrontCuration } from "../../packages/schemas/src/storefront-curation.ts";
@@ -16,6 +17,7 @@ import { loadPublicStoreSnapshot, publicStoreCatalog } from "../../scripts/vite-
 import { qualifySyntheticRoute } from "./fixtures/readiness.ts";
 
 const repositoryRoot = fileURLToPath(new URL("../../", import.meta.url));
+const appRoot = fileURLToPath(new URL("../../apps/egohygiene.io/", import.meta.url));
 const browserEntry = fileURLToPath(
   new URL("../../apps/egohygiene.io/src/content/store/index.ts", import.meta.url),
 );
@@ -218,6 +220,61 @@ test("production artifacts exclude all draft kinds and unused routes while prese
   assert.equal(getStorePurchaseAction(catalog, "product-draft").kind, "disabled");
   await build(f.configuration());
   assert.deepEqual(await emittedFiles(f.root), files, "Repeated builds must be byte-identical");
+});
+
+test("normal and isolated static website builds exclude the dev-only merch studio", async (t) => {
+  const root = await mkdtemp(join(tmpdir(), "store-studio-public-build-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const studioFlag = "VITE_STORE_STUDIO";
+  const previewFlag = "VITE_STORE_PREVIEW";
+  const originalStudio = process.env[studioFlag];
+  const originalPreview = process.env[previewFlag];
+  const originalNodeEnv = process.env.NODE_ENV;
+  t.after(() => {
+    if (originalStudio === undefined) delete process.env[studioFlag];
+    else process.env[studioFlag] = originalStudio;
+    if (originalPreview === undefined) delete process.env[previewFlag];
+    else process.env[previewFlag] = originalPreview;
+    if (originalNodeEnv === undefined) delete process.env.NODE_ENV;
+    else process.env.NODE_ENV = originalNodeEnv;
+  });
+
+  // A mistaken studio flag is still harmless in either static build.
+  process.env[studioFlag] = "true";
+  for (const profile of ["normal", "preview"] as const) {
+    process.env[previewFlag] = String(profile === "preview");
+    process.env.NODE_ENV = profile === "preview" ? "development" : "production";
+    const profileRoot = join(root, profile);
+    await build(
+      mergeConfig(createWebsiteConfig(), {
+        root: appRoot,
+        configFile: false,
+        logLevel: "silent",
+        mode: "production",
+        build: { outDir: join(profileRoot, "dist"), sourcemap: true },
+      }),
+    );
+    const files = await emittedFiles(profileRoot);
+    const runtime = Object.entries(files)
+      .filter(([path]) => !path.endsWith(".map"))
+      .map(([, content]) => content)
+      .join("\n");
+    assert.match(runtime, /store\/incompris/, `${profile}: public storefront control is missing`);
+    assert.equal(
+      runtime.includes("store/preview/fourthwall"),
+      profile === "preview",
+      `${profile}: preview route control does not match the build flags`,
+    );
+    assert.doesNotMatch(runtime, /store\/studio|Merch studio|Sign in as demo owner/, profile);
+    const studioModule = /(?:merch|store)[-_]?studio/i;
+    for (const [path, content] of Object.entries(files)) {
+      assert.doesNotMatch(path, studioModule, profile);
+      if (path.endsWith(".map")) {
+        const sourceMap = JSON.parse(content) as { sources: string[] };
+        for (const source of sourceMap.sources) assert.doesNotMatch(source, studioModule, profile);
+      }
+    }
+  }
 });
 
 test("emitted catalog includes only current reviewed translation fields", async (t) => {
