@@ -1,7 +1,8 @@
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import { DraftEditor } from "./DraftEditor";
-import { createLocalDraftStore } from "./draft-store";
+import { DraftPreview } from "./DraftPreview";
+import { type MerchDraft, createLocalDraftStore } from "./draft-store";
 import { type StudioAuth, type StudioOwner, createMockStudioAuth } from "./studio-auth";
 
 type MerchStudioProps = {
@@ -89,13 +90,36 @@ function MerchStudio({ auth, signInLabel, children }: MerchStudioProps) {
 }
 
 function OwnerDrafts() {
+  const [preview, setPreview] = useState<MerchDraft | null>(null);
+  const previewTrigger = useRef<HTMLElement | null>(null);
   const [store] = useState(() =>
     createLocalDraftStore({
       getItem: (key) => window.localStorage.getItem(key),
       setItem: (key, value) => window.localStorage.setItem(key, value),
     }),
   );
-  return <DraftEditor store={store} />;
+
+  useEffect(() => {
+    if (!preview) {
+      previewTrigger.current?.focus();
+      previewTrigger.current = null;
+    }
+  }, [preview]);
+
+  function openPreview(draft: MerchDraft) {
+    previewTrigger.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setPreview(draft);
+  }
+
+  return (
+    <>
+      <div hidden={preview !== null}>
+        <DraftEditor store={store} onPreview={openPreview} />
+      </div>
+      {preview && <DraftPreview draft={preview} onBack={() => setPreview(null)} />}
+    </>
+  );
 }
 
 export function MerchStudioPage() {
