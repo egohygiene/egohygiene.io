@@ -110,13 +110,16 @@ describe("StoreArtworkGallery", () => {
     const { rerender } = render(
       <StoreArtworkGallery designs={[firstDesign, secondDesign]} title="Two studies" />,
     );
-    fireEvent.click(screen.getByRole("button", { name: "Select artwork: Garden artwork" }));
+    const thumbnail = screen.getByRole("button", { name: "Select artwork: Garden artwork" });
+    const caption = screen.getByText("1 / 2").parentElement;
+    thumbnail.focus();
+    fireEvent.click(thumbnail);
     expect(screen.getByRole("img", { name: "A lavender flower under a moon" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Select artwork: Garden artwork" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
-    expect(screen.getByText("2 / 2")).toBeInTheDocument();
+    expect(thumbnail).toHaveFocus();
+    expect(thumbnail).toHaveAttribute("aria-pressed", "true");
+    expect(caption).toHaveAttribute("aria-live", "polite");
+    expect(caption).toHaveTextContent("Garden artwork");
+    expect(caption).toHaveTextContent("2 / 2");
 
     rerender(<StoreArtworkGallery designs={[secondDesign, firstDesign]} title="Two studies" />);
     expect(screen.getByRole("img", { name: "A lavender flower under a moon" })).toBeInTheDocument();

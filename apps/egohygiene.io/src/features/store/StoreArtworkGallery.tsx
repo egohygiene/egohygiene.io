@@ -45,17 +45,19 @@ export function StoreArtworkGallery({ designs, title, titleLocale }: StoreArtwor
 
   if (!selectedDesign) return <StoreArtwork />;
   const selectedContent = content(selectedDesign);
+  const animateArtwork = selectedId === selectedDesign.id;
 
   return (
     <div className="store-artwork-gallery">
       <button
         className="store-artwork-gallery__open"
         type="button"
+        data-animate-artwork={animateArtwork ? "" : undefined}
         aria-label={t("storeCards.gallery.openLabel", { title })}
         aria-haspopup="dialog"
         onClick={() => setIsViewerOpen(true)}
       >
-        <StoreArtwork design={selectedDesign} />
+        <StoreArtwork key={selectedDesign.id} design={selectedDesign} />
         <span className="store-artwork-gallery__expand" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true">
             <path
@@ -94,11 +96,20 @@ export function StoreArtworkGallery({ designs, title, titleLocale }: StoreArtwor
                 title: content(design).title.value,
               })}
               aria-pressed={design.id === selectedDesign.id}
-              onClick={() => setSelectedId(design.id)}
+              onClick={() => {
+                if (design.id !== selectedDesign.id) setSelectedId(design.id);
+              }}
             >
               <span aria-hidden="true">
                 <StoreArtwork design={design} />
               </span>
+              {design.id === selectedDesign.id && (
+                <span className="store-artwork-gallery__selection-mark" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" focusable="false" aria-hidden="true">
+                    <path d="m3.5 8 3 3 6-6" stroke="currentColor" strokeWidth="1.75" />
+                  </svg>
+                </span>
+              )}
             </button>
           ))}
         </fieldset>
