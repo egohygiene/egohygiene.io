@@ -86,7 +86,7 @@ function readPort(name, fallback) {
   return value;
 }
 
-function serverArguments(mode) {
+function serverArguments(mode, openPath = "/store") {
   const openBrowser = process.env["STORE_OPEN_BROWSER"] ?? "true";
   if (!["true", "false"].includes(openBrowser)) {
     throw new Error("STORE_OPEN_BROWSER must be true or false.");
@@ -103,7 +103,7 @@ function serverArguments(mode) {
       ? readPort("STORE_PREVIEW_PORT", "4173")
       : readPort("STORE_DEV_PORT", "5173"),
     "--strictPort",
-    ...(openBrowser === "true" ? ["--open", "/store"] : []),
+    ...(openBrowser === "true" ? ["--open", openPath] : []),
   ];
 }
 
@@ -136,11 +136,11 @@ async function execute(manager, arguments_, environment = {}) {
 /** Run repository commands through the declared pnpm without changing global tools. */
 export async function runStoreEnvironment([command, ...arguments_]) {
   if (
-    !["setup", "build", "preview", "dev", "run"].includes(command) ||
+    !["setup", "build", "preview", "dev", "studio", "run"].includes(command) ||
     (command === "run" && arguments_.length === 0)
   ) {
     throw new Error(
-      "Usage: node scripts/store-environment.mjs <setup|build|preview|dev|run pnpm-arguments...>",
+      "Usage: node scripts/store-environment.mjs <setup|build|preview|dev|studio|run pnpm-arguments...>",
     );
   }
   const { pnpmPin } = await readToolchain();
@@ -149,6 +149,11 @@ export async function runStoreEnvironment([command, ...arguments_]) {
     return execute(manager, ["install", "--frozen-lockfile", "--ignore-scripts"]);
   }
   if (command === "run") return execute(manager, arguments_);
+  if (command === "studio") {
+    return execute(manager, serverArguments("dev", "/store/studio"), {
+      VITE_STORE_STUDIO: "true",
+    });
+  }
   const previewEnvironment = { VITE_STORE_PREVIEW: "true" };
   if (command === "build") {
     return execute(

@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_STORE_PREVIEW?: string;
+  readonly VITE_STORE_STUDIO?: string;
 }
 
 declare module "virtual:store-catalog" {

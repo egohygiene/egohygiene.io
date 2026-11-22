@@ -21,6 +21,19 @@ export function createWebsiteConfig(
     plugins: [
       excludePlayground(),
       react(),
+      {
+        name: "merch-studio-loopback",
+        configResolved(config) {
+          if (
+            config.command === "serve" &&
+            !config.isPreview &&
+            config.env.VITE_STORE_STUDIO === "true" &&
+            config.server.host !== "127.0.0.1"
+          ) {
+            throw new Error("Merch studio requires the loopback host 127.0.0.1.");
+          }
+        },
+      },
       publicStoreCatalog(catalogOptions),
       organizationIntelligence(intelligenceOptions),
       publicPagePreview(),
