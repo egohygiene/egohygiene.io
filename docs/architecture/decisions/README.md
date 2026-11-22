@@ -29,3 +29,7 @@ Use full paths/links and titles in issues, handoffs and provenance.
 This table records a dated delivery snapshot, not live merge status. Refresh the
 [current handoff](../../context/current-state.md) and GitHub before resuming.
 Preserve intent/rationale here and implementation results in the owning receipt.
+
+[ADR0018 — Knowledge source boundary](0018-knowledge-source-boundary.md) is proposed for the experimental issue23 package; implementation does not ratify semantic data or publish the package.
+
+[ADR0019 — Blog/feed foundation](0019-blog-feed-foundation.md) is proposed for the private issue11 article and RSS/Atom projection contract; no real posts, public routes or feeds are activated.
