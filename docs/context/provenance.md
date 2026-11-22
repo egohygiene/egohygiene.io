@@ -1,5 +1,25 @@
 # Context provenance ledger
 
+## Combined storefront integration — 2026-11-22
+
+Reconciled Playground #149, knowledge #150 and blog/feed #151 with `04d8163`
+before integrating the five studio drafts. The existing live Intelligence
+handoff and the older review evidence remain available. Combined source
+`4b5480f8cb76407e8f5c76577d9c261e69862dfb` retains both Vite isolation guards
+and the reviewed implementation of each draft. This handoff adds only links
+and integration evidence to that source.
+
+On Node 24.21.0 and pnpm 11.28.5, the frozen install with scripts ignored and
+supply-chain verification passed. Thirty-five targeted playground, knowledge,
+blog, directory and storefront artifact checks passed. Eleven studio unit
+tests, website and browser typechecking, and two Chromium journeys passed.
+The production client and SSR build emitted 45 pages and ten sitemap entries
+with the existing large-client-chunk warning. Hosted repository formatting and
+dependency-graph review remain with #29.
+
+[The nine follow-up issues and their order](../roadmaps/private-merch-studio.md#next-issue-order--november-22-2026)
+record the local motion, private authoring, and conditional architecture tracks.
+
 ## Local private merch studio review — 2026-11-21
 
 Base `04d816395a6041739895d016b91faa879a42c3af`. Qualification source

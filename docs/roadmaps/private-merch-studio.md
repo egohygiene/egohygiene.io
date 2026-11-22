@@ -28,3 +28,14 @@ The studio accepts an owner-session adapter and an asynchronous draft repository
 The accepted storefront remains in `egohygiene/egohygiene.io`. [#61](https://github.com/egohygiene/egohygiene.io/issues/61) retains its reusable commerce proof; the standalone store and private merch repositories retain relevant work, including [the standalone store cart handoff](https://github.com/egohygiene/store/issues/32), [artist collections](https://github.com/egohygiene/store/issues/30), and [the merch design-to-sample workflow](https://github.com/incomprisllc/merch/issues/8).
 
 After this stack, review the real pilot and approved assets under [#116](https://github.com/egohygiene/egohygiene.io/issues/116) and complete the upstream private projection and receipt work under [#34](https://github.com/egohygiene/egohygiene.io/issues/34). The publication path under [#31](https://github.com/egohygiene/egohygiene.io/issues/31) retains environment and hosting work, the purchasing-disabled public construction preview, then [#38](https://github.com/egohygiene/egohygiene.io/issues/38) checkout qualification and [#39](https://github.com/egohygiene/egohygiene.io/issues/39) launch.
+
+## Next issue order — November 22, 2026
+
+| Order | Issue | Review outcome |
+| --- | --- | --- |
+| 1 | [#160](https://github.com/egohygiene/egohygiene.io/issues/160) then [#161](https://github.com/egohygiene/egohygiene.io/issues/161) | One native collection-to-product transition and a responsive gallery image change under [#63](https://github.com/egohygiene/egohygiene.io/issues/63). Use CSS first and evaluate Motion when it simplifies the gallery. |
+| 2 | [#162](https://github.com/egohygiene/egohygiene.io/issues/162) then [#163](https://github.com/egohygiene/egohygiene.io/issues/163) | Private server-verified owner access and durable drafts, then variant authoring with Zod. Evaluate TanStack Query against the real API and React Hook Form against the dynamic fields. |
+| 3 | [#164](https://github.com/egohygiene/egohygiene.io/issues/164) then [#165](https://github.com/egohygiene/egohygiene.io/issues/165) | Compare one decorative hero effect with static artwork. Try an opt-in 3D viewer when a concrete product model makes inspection worthwhile. |
+| When needed | [#166](https://github.com/egohygiene/egohygiene.io/issues/166), [#167](https://github.com/egohygiene/egohygiene.io/issues/167), [#168](https://github.com/egohygiene/egohygiene.io/issues/168) | Revisit IndexedDB for richer offline drafts, Redux Toolkit for shared state across routes, and Next.js for a demonstrated request-time runtime need. |
+
+Restore repository-wide hosted validation through [#29](https://github.com/egohygiene/egohygiene.io/issues/29) alongside the local passes. Keep the visual experiments outside the product-launch requirements and retain the real pilot and checkout sequence above.
