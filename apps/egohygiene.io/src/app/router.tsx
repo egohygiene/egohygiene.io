@@ -55,6 +55,20 @@ const previewRoutes =
       ]
     : [];
 
+const studioRoutes: RouteObject[] =
+  // biome-ignore lint/suspicious/noUndeclaredEnvVars: DEV is a compile-time Vite constant.
+  import.meta.env.DEV && import.meta.env.VITE_STORE_STUDIO === "true"
+    ? [
+        {
+          path: "store/studio",
+          lazy: async () => {
+            const { MerchStudioPage } = await import("../features/merch-studio/MerchStudioPage");
+            return { Component: MerchStudioPage };
+          },
+        },
+      ]
+    : [];
+
 // The fixed page paths and their publication metadata are declared together.
 // Both adapters consume this route table; importing it never reads a browser global.
 const fixedPages: Record<(typeof fixedPublicRoutes)[number]["page"], ReactElement> = {
@@ -100,6 +114,7 @@ export const routes: RouteObject[] = [
       ),
       { id: "artist", path: "store/incompris/artists/:artistSlug", element: <StoreArtistPage /> },
       ...previewRoutes,
+      ...studioRoutes,
       { id: "store-product", path: "store/products/:slug", element: <StoreProductPage /> },
       { id: "store-design", path: "store/designs/:slug", element: <StoreDesignPage /> },
       { id: "store-collection", path: "store/collections/:slug", element: <StoreCollectionPage /> },
