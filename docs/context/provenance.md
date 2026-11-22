@@ -1,5 +1,29 @@
 # Context provenance ledger
 
+## Storefront motion review — 2026-11-22
+
+Base `3f88d0e`. The collection transition is `6701b377bdc5322976093578ecb30190606e2fb1`
+in [#169](https://github.com/egohygiene/egohygiene.io/pull/169). The combined
+code `bb30d11bdecf53366811292b49948d94659dbac9` includes the gallery reveal and
+thumbnail feedback in [#170](https://github.com/egohygiene/egohygiene.io/pull/170).
+Both use existing browser APIs and CSS with the published mock catalog.
+
+- Website and browser types passed. All 88 focused storefront and rendering
+  unit cases passed with one worker and the existing test timeout. Parallel
+  runs hit intermittent five-second timeouts while other checks ran.
+- Nineteen production Chromium journeys passed, including Static Bloom
+  keyboard and touch navigation, focus, Back/Forward, reload, native animation,
+  reduced motion and missing-API fallback. Four additional gallery checks used
+  the existing two-artwork qualification fixture and passed with desktop
+  keyboard, phone touch emulation, reduced motion and forced colors.
+- The pinned production client and SSR build emitted 45 pages and ten sitemap
+  entries. Main gzip JavaScript went from 170.75 kB to 171.23 kB and CSS from
+  12.98 kB to 13.29 kB in Vite's reported output. The existing main-chunk size
+  warning remains visible. No dependency or public content changes.
+
+The browser evidence is local Chromium emulation. Native device and broader
+hosted qualification remain outside this checkpoint.
+
 ## Combined storefront integration — 2026-11-22
 
 Reconciled Playground #149, knowledge #150 and blog/feed #151 with `04d8163`

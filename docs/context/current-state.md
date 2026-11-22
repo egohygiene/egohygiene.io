@@ -1,5 +1,19 @@
 # Current handoff
 
+## Storefront collection and gallery motion — 2026-11-22
+
+Review [#169](https://github.com/egohygiene/egohygiene.io/pull/169) for #160,
+then [the stacked gallery draft #170](https://github.com/egohygiene/egohygiene.io/pull/170)
+for #161. The Static Bloom collection's mug card uses the native artwork
+transition and puts keyboard focus on the product heading. The gallery adds a
+short CSS image reveal and a checked thumbnail with a reduced-motion fallback.
+These drafts use the existing catalog and theme.
+
+The [provenance ledger](provenance.md#storefront-motion-review--2026-11-22)
+records the exact code and local desktop/mobile, preference, and public-build
+evidence. Review the drafts in order before the remaining work under
+[the storefront queue](../roadmaps/private-merch-studio.md#next-issue-order--november-22-2026).
+
 ## Storefront integration and follow-up queue — 2026-11-22
 
 The approved integration order is #149 → #150 → #151, then #155 → #156 → #157
