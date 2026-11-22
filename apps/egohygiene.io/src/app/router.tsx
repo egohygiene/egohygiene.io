@@ -61,6 +61,7 @@ const studioRoutes: RouteObject[] =
     ? [
         {
           path: "store/studio",
+          HydrateFallback: () => <p role="status">Loading merch studio…</p>,
           lazy: async () => {
             const { MerchStudioPage } = await import("../features/merch-studio/MerchStudioPage");
             return { Component: MerchStudioPage };

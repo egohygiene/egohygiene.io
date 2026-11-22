@@ -48,6 +48,7 @@ You do not have to install pnpm globally. The helper uses `pnpm` already on your
 | `task preview:store` | Prepare dependencies, validate, build, and serve the production-style local preview. |
 | `task build:store` | Prepare and build the isolated preview without starting a server. |
 | `task dev:store` | Prepare dependencies and open `/store` at port 5173 with live reload while editing. |
+| `node scripts/store-environment.mjs studio` | Open the loopback merch studio after setup. Sign in as the demo owner and try fictional product drafts. [Studio guide](../roadmaps/private-merch-studio.md). |
 | `task fourthwall:check` | Check optional Fourthwall credentials with read-only requests; see the [connection guide](fourthwall-local-setup.md). |
 | `task test:store:tooling` | Run tooling and failure-path tests using installed dependencies. |
 | `task qualify:static` | Build and verify the normal website in local Docker/Caddy; requires a running local Docker engine. |

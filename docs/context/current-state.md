@@ -1,5 +1,41 @@
 # Current handoff
 
+## Storefront integration and follow-up queue — 2026-11-22
+
+The approved integration order is #149 → #150 → #151, then #155 → #156 → #157
+→ #158 → #159. The first stack preserves the live Intelligence handoff while
+adding the local Playground guard and private knowledge and blog/feed foundations.
+The second integrates the local merch studio. Review output from the combined
+source `4b5480f8cb76407e8f5c76577d9c261e69862dfb` is in the
+[provenance ledger](provenance.md#combined-storefront-integration--2026-11-22).
+
+The [next issue order](../roadmaps/private-merch-studio.md#next-issue-order--november-22-2026)
+starts with #160 and #161 under #63, then private owner access/durable drafts
+#162 and variant authoring #163. #164/#165 are optional visual experiments.
+#166–#168 have explicit offline, shared-state and runtime triggers. Local studio
+review uses `node scripts/store-environment.mjs studio`. Hosted validation
+continues under #29. The existing real pilot and publication queues retain
+their decision and rollout owners.
+
+## Private merch studio draft review — 2026-11-21
+
+The [private merch studio roadmap](../roadmaps/private-merch-studio.md) advances
+five open storefront issues with separate drafts: [access and roadmap #155](https://github.com/egohygiene/egohygiene.io/pull/155),
+[draft repository #156](https://github.com/egohygiene/egohygiene.io/pull/156),
+[editor #157](https://github.com/egohygiene/egohygiene.io/pull/157),
+[product preview #158](https://github.com/egohygiene/egohygiene.io/pull/158),
+and [qualification #159](https://github.com/egohygiene/egohygiene.io/pull/159).
+Review in that order.
+Start the last branch with `node scripts/store-environment.mjs studio` and try
+the fictional product journey at `http://127.0.0.1:5173/store/studio`.
+
+The exact qualification source `bf60a70ea5cb0a94dafabde26cfae4fb7ee19058`
+passed the focused browser, catalog and artifact checks in the
+[provenance ledger](provenance.md). The demo session resets on reload; draft
+data stays in the local browser profile. A real hosted owner session and draft
+backend, the upstream catalog chain, real-product selection, and broader
+#37 qualification are later work.
+
 ## Current: compact organization UI and directory delivered — 2026-11-14
 
 The [live organization dashboard](https://egohygiene.github.io/.github/intelligence/)
