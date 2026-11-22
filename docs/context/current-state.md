@@ -51,6 +51,10 @@ closed selected issues supersede the stale next-issue list in the dated theme
 checkpoint below. Hygiene #76 and broader organization acceptance remain open.
 
 
+## Private playground exposure checkpoint — 2026-11-13
+
+[Issue25 repair](../development/playground-exposure-25.md) implements loopback/crawler policy and a fail-closed public build module boundary. Actual Vite import/HTTP checks and the normal45-route build pass; broader experiment lifecycle and retained compiler/engineering gates stay open. No deployment or hosted run occurred.
+
 ## Current: Intelligence appearance delivered — 2026-11-13
 
 [Website #146](https://github.com/egohygiene/egohygiene.io/issues/146) is completed

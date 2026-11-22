@@ -2,16 +2,16 @@ import { fileURLToPath } from "node:url";
 
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-
 import {
-  publicStoreCatalog,
-  type PublicStoreCatalogOptions,
-} from "../../scripts/vite-store-catalog.mts";
+  type OrganizationIntelligenceOptions,
+  organizationIntelligence,
+} from "../../scripts/vite-organization-intelligence.mts";
+import { excludePlayground } from "../../scripts/vite-playground-boundary.mts";
 import { publicPagePreview } from "../../scripts/vite-public-pages.mts";
 import {
-  organizationIntelligence,
-  type OrganizationIntelligenceOptions,
-} from "../../scripts/vite-organization-intelligence.mts";
+  type PublicStoreCatalogOptions,
+  publicStoreCatalog,
+} from "../../scripts/vite-store-catalog.mts";
 
 export function createWebsiteConfig(
   catalogOptions: PublicStoreCatalogOptions = {},
@@ -19,6 +19,7 @@ export function createWebsiteConfig(
 ) {
   return defineConfig({
     plugins: [
+      excludePlayground(),
       react(),
       publicStoreCatalog(catalogOptions),
       organizationIntelligence(intelligenceOptions),
