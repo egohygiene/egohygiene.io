@@ -1,5 +1,7 @@
 import { type ReactNode, useEffect, useState } from "react";
 
+import { DraftEditor } from "./DraftEditor";
+import { createLocalDraftStore } from "./draft-store";
 import { type StudioAuth, type StudioOwner, createMockStudioAuth } from "./studio-auth";
 
 type MerchStudioProps = {
@@ -86,12 +88,22 @@ function MerchStudio({ auth, signInLabel, children }: MerchStudioProps) {
   );
 }
 
+function OwnerDrafts() {
+  const [store] = useState(() =>
+    createLocalDraftStore({
+      getItem: (key) => window.localStorage.getItem(key),
+      setItem: (key, value) => window.localStorage.setItem(key, value),
+    }),
+  );
+  return <DraftEditor store={store} />;
+}
+
 export function MerchStudioPage() {
   const [auth] = useState(createMockStudioAuth);
 
   return (
     <MerchStudio auth={auth} signInLabel="Sign in as demo owner">
-      <p role="status">Mock owner session active.</p>
+      <OwnerDrafts />
     </MerchStudio>
   );
 }
