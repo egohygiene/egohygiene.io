@@ -1,3 +1,4 @@
+import { loadRepositoryDirectory } from "./intelligence-directory.mts";
 import { hasAsciiControl } from "../apps/egohygiene.io/src/features/intelligence/text.ts";
 import { attachRepositoryPublications } from "./intelligence-publications.mts";
 import { buildIntelligenceNavigation } from "./intelligence-navigation-model.mts";
@@ -531,6 +532,8 @@ function projectFleet(
 export interface OrganizationIntelligenceOptions {
   /** Optional narrower consumer scope, authenticated by its existing owner catalog. */
   readonly allowedRepositories?: ReadonlySet<string>;
+  /** Test-only local capsule seam; normal builds use the checked-in reviewed pin. */
+  readonly directoryRoot?: string;
   readonly filename?: string;
   readonly expectedSha256?: string;
   readonly asOf?: string;
@@ -708,7 +711,11 @@ export async function loadOrganizationIntelligence(
   data = { ...data, endpoints: { ...data.endpoints, ...reviews } };
   if (independent?.source && data.state === "unavailable")
     data = { ...data, state: "partial", code: "PARTIAL", asOf: independent.source.asOf };
-  data = { ...data, graph: buildIntelligenceNavigation(data, navigationViews) };
+  const directory = await loadRepositoryDirectory({
+    ...(options.directoryRoot !== undefined ? { root: options.directoryRoot } : {}),
+    ...(options.allowedRepositories !== undefined ? { allowedRepositories: options.allowedRepositories } : {}),
+  });
+  data = { ...data, directory, graph: buildIntelligenceNavigation(data, navigationViews) };
   // JSON text is data inside a trusted generated JS module, never literal HTML.
   const serialized = JSON.stringify(data)
     .replace(/</g, "\\u003c")

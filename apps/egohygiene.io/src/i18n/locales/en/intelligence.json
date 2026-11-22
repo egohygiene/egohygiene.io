@@ -1,14 +1,15 @@
 {
   "title": "Organization Intelligence",
-  "description": "Survey the public fleet, see what needs attention, and open each repository’s consumer-owned Pages Intelligence for detailed evidence.",
+  "description": "See what needs attention, find a repository, and open the evidence behind it.",
   "kicker": "Ego Hygiene · Public control plane",
   "authority": "These views reflect declared source evidence. Strategy, human decisions and acceptance remain with their canonical owners.",
   "navigation": {
     "label": "Organization Intelligence sections",
     "now": "Now",
     "repositories": "Repositories",
-    "modules": "Modules",
-    "provenance": "Provenance"
+    "modules": "Explore views",
+    "provenance": "Sources",
+    "map": "Relationship map"
   },
   "states": {
     "available": "Public snapshot available",
@@ -30,11 +31,13 @@
     "STALE": "This snapshot is older than the declared freshness window. Its source revisions and original observations remain visible; it is not current evidence."
   },
   "snapshot": {
-    "heading": "Evidence snapshot",
+    "heading": "Available evidence",
     "repositories": "Represented public repositories",
     "asOf": "Freshness evaluated at",
     "window": "Admitted public observation window",
-    "noCount": "An unavailable snapshot does not mean there are no repositories, no findings or no work."
+    "noCount": "An unavailable snapshot does not mean there are no repositories, no findings or no work.",
+    "reviewViews": "Review evidence with independent source coverage",
+    "coverageDetails": "Snapshot coverage and limits"
   },
   "now": {
     "kicker": "Reorientation",
@@ -44,7 +47,7 @@
     "blockers": "Blockers",
     "next": "Next ready",
     "emptyList": "No items are projected in this list. Check domain coverage before interpreting an empty view.",
-    "unavailable": "Current focus, blockers and next-ready evidence are unavailable. No strategic or health state is inferred.",
+    "unavailable": "Focus, blockers and next actions are unavailable in this snapshot. No priority or health state is inferred.",
     "bounded": "Showing the first {{shown}} of {{total}} public items. Open repository evidence for the full projected lists.",
     "repositoryHeading": "Projected repository context",
     "repositoryUnavailable": "This repository's Now module is unavailable. Its independent source and coverage evidence remain below."
@@ -59,8 +62,9 @@
     "clear": "Clear filters",
     "results": "Showing {{shown}} of {{total}} represented public repositories.",
     "noResults": "No represented public repositories match these filters. Clear the filters to return to the admitted directory.",
-    "unavailable": "The public repository directory will appear when a reviewed compatible snapshot is available.",
-    "noScript": "The complete admitted directory is shown below. Interactive filters and selected-repository links require JavaScript; native evidence disclosures and source links remain available."
+    "unavailable": "A reviewed repository directory is not connected yet.",
+    "noScript": "The complete admitted directory is shown below. Interactive filters and selected-repository links require JavaScript; native evidence disclosures and source links remain available.",
+    "coverageOwner": "Directory source and coverage"
   },
   "evidence": {
     "all": "All evidence states",
@@ -132,14 +136,16 @@
   },
   "modules": {
     "kicker": "One question per view",
-    "heading": "Fleet exploration drafts",
-    "description": "These central draft views explore admitted aggregate evidence. Each repository’s shared Relay publication remains its detailed Intelligence experience.",
+    "heading": "Explore a view",
+    "description": "Choose a question, then drill into its repository evidence. Each view keeps its own source and availability.",
     "navigation": "All Intelligence endpoints",
     "overview": "Overview foundation",
     "unavailable": "Module unavailable",
     "canonical": "Central fleet draft route",
     "snapshotLink": "Open fleet exploration draft",
-    "ownerLink": "View the owning implementation issue"
+    "ownerLink": "View the owning implementation issue",
+    "scope": "View scope and sources",
+    "sourceAsOf": "Source snapshot as of"
   },
   "provenance": {
     "presentationIdentity": "Admitted presentation identity",
@@ -183,5 +189,92 @@
       "compare": "Compare",
       "dashboard": "Dashboard"
     }
+  },
+  "map": {
+    "kicker": "Optional exploration",
+    "heading": "Relationship map",
+    "description": "Explore the connections when you need the bigger picture. The same views and evidence remain reachable from the links above.",
+    "bounded": "This map is bounded to 140 nodes and 320 links. The view directory and repository pages retain the remaining admitted context.",
+    "unavailable": "No map source is admitted yet. Use the view and repository links above."
+  },
+  "viewGroups": {
+    "work": {
+      "title": "Direction and work",
+      "description": "Focus, plans and the work behind them."
+    },
+    "governance": {
+      "title": "Coherence and assurance",
+      "description": "Decisions, reviews and declared contracts."
+    },
+    "operations": {
+      "title": "Operations and delivery",
+      "description": "Checks, dependencies and published artifacts."
+    },
+    "exploration": {
+      "title": "Find and connect",
+      "description": "Search, compare and follow evidence."
+    },
+    "additional": {
+      "title": "More views",
+      "description": "Additional registered Intelligence views."
+    }
+  },
+  "viewStates": {
+    "available": "Input available",
+    "partial": "Partial evidence",
+    "stale": "Stale evidence",
+    "unavailable": "Unavailable",
+    "incompatible": "Incompatible input",
+    "error": "Collection error"
+  },
+  "roster": {
+    "kicker": "Reviewed public navigation",
+    "heading": "Repository dashboards",
+    "description": "Find a repository and follow its declared dashboard. Publication records are dated evidence; current availability has not been rechecked.",
+    "filters": "Filter the reviewed repository navigation",
+    "linkEvidence": "Dashboard evidence",
+    "allStates": "All link states",
+    "results": "Showing {{shown}} of {{total}} entries in the reviewed public roster.",
+    "noScript": "All reviewed rows remain available in the native disclosures. Interactive filters require JavaScript.",
+    "recordedHeading": "Dated publication records",
+    "recordedLimit": "These destinations have retained publication evidence. The dates below are the original observations, not a new live check.",
+    "recordedAt": "Publication recorded at",
+    "declaredLimit": "Destination declared in inspected source; publication unknown.",
+    "entryDetails": "Source and publication evidence",
+    "inspectedRevision": "Inspected source revision",
+    "sourceObserved": "Source inspection observed at",
+    "declaration": "Source declaration",
+    "publication": "Publication evidence",
+    "publishedSource": "Recorded published source",
+    "recordedRun": "Recorded run · attempt {{attempt}}",
+    "evidence": "Retained evidence packet",
+    "states": {
+      "publication-recorded": "Publication recorded",
+      "source-declared": "Source declared · publication unknown",
+      "unknown": "Dashboard unknown"
+    },
+    "publicationStates": {
+      "recorded": "Dated record; current availability unchecked",
+      "unknown": "Unknown"
+    },
+    "declarations": {
+      "pages-composition-source-declared": "Pages composition declared in inspected source",
+      "artifact-or-preview-source-declared": "Artifact or preview declared in inspected source",
+      "not-declared-in-inspected-source": "Not declared in inspected source"
+    },
+    "groups": {
+      "source-declared": "Source-declared destinations ({{count}})",
+      "unknown": "Repositories with an unknown dashboard ({{count}})"
+    },
+    "noResults": "No reviewed roster rows match these filters. This says nothing about repositories outside the reviewed scope.",
+    "provenance": "Directory sources and scope",
+    "scope": "This is a fixed reviewed public navigation roster, not an organization total or a collection of Core evidence. Source, catalog and publication clocks remain independent. Missing dashboard evidence is unknown, not a health failure.",
+    "input": "Pinned directory input",
+    "digest": "Directory payload SHA-256",
+    "catalog": "Canonical public catalog and original observation",
+    "inventory": "Inspected source inventory and original observation",
+    "coreUnavailable": "Core model evidence remains unavailable. Repository navigation above is independently sourced.",
+    "resultStatus": "Reviewed roster search results",
+    "declaredDestination": "Declared destination (text only):"
   }
 }

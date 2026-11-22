@@ -1,5 +1,57 @@
 # Context provenance ledger
 
+## Combined compact UI/directory actual delivery — 2026-11-14
+
+Accepted website #152/#153 merged at published producer
+`d5730066cf8645a927efcd6ff4f2170627bf4443`. Export `43637285216/1` sealed
+44 files/39 logical routes; native organization review `43637764378/1` admitted
+unchanged files and actual companions. Accepted selector #69 merged at actual
+publisher `5f02bfd6353b764513ef57a41bcf79db0f3c2e72`; authorized
+`43639599345/1` replaced prior4814 after complete45-file hash/size-checked
+recovery. Native HTTPS verification succeeded `2026-11-14T20:50:59Z` for
+publication `0fcf249a88e1b34fd111eed9155c8051ea6476a0f30cd980ba53b61734d58d15`.
+The [actual closeout and source chain](https://github.com/egohygiene/.github/pull/70)
+retain provider artifact IDs/digests/expiry, the native receipt, canonical
+Chromium evidence and reviewed390/1440 captures. Nineteen actual HTML views
+matched producer bytes;11 focused groups passed at20:56:39–50Z with normalTLS,
+configured standard proxy and no interception/global headers. The separate
+origin-rootfavicon404 remains explicit. An initial harness direct-network
+identity request failed before page visits; proxy correction changed no source,
+publication, TLS rule or assertion.
+
+The actual original selected model artifacts were reacquired, with no new
+collection/normalization: model frame `2026-11-13T03:23:31Z`, evaluation
+`03:36:14Z`, model hashes/one-target scopes/partial/human states are unchanged.
+Directory source834d/payloadd294 remains independently pinned, not Core or a
+current fleet total. A separate point-in-time Empathy link200 does not refresh
+its retained publication record. Full accessibility/performance/device/fleet/
+privacy acceptance, restore rehearsal and human ADR ratification remain separate.
+This documentation commit is later than the actual exported source and does not
+change the published files or require another export/publication.
+
+## Independent repository directory consumer — 2026-11-14
+
+Functional `b1056812f3db7ea839bba56351547ac13b10ee9f` consumes accepted
+organization `834d7fd51c48860b2cc4f1a6a262ce466f2004db` without fabricating Core.
+The [source-bound receipt](../development/reviews/intelligence-independent-directory/verification.json)
+retains exact capsule hashes, 8 admission/20 UI cases, ten local HTTP Chromium
+groups, the 44-file/39-route sealed export and native directory intake. Model
+identities/clocks remain unchanged. Three declared custom-domain URLs are text
+under the unchanged intake policy; two dated GitHub Pages records are clickable.
+Source merge, actual hosted delivery and canonical proof remain separate.
+
+## Compact Intelligence overview local source review — 2026-11-14
+
+Functional `1576e48efc503244315dfd052a7299873b484e62` implements the explicit
+website #27 / org #27 progressive-disclosure slice. The [source-bound receipt](../development/reviews/intelligence-compact-overview/verification.json)
+records 16 focused cases, app/test and driver typechecks, the44-file/39-route
+actual retained-input export, unchanged model identities, pinned native directory
+intake and eight local HTTP Chromium groups. Desktop/mobile captures are retained.
+No hosted export, new selection, deployment, human ratification or full directory
+acceptance is inferred. The previous theme publication remains historical live
+proof; original model/evaluation clocks stay fixed.
+
+
 ## Private playground exposure checkpoint — 2026-11-13
 
 [Issue25 repair](../development/playground-exposure-25.md) implements loopback/crawler policy and a fail-closed public build module boundary. Actual Vite import/HTTP checks and the normal45-route build pass; broader experiment lifecycle and retained compiler/engineering gates stay open. No deployment or hosted run occurred.

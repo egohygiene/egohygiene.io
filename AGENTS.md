@@ -1,5 +1,16 @@
 # Agent entry point
 
+## Current organization UI/directory delivery — 2026-11-14
+
+The compact overview and independent repository directory are actually published
+at [Organization Intelligence](https://egohygiene.github.io/.github/intelligence/).
+Read [CONTINUITY.md](CONTINUITY.md) and the
+[actual delivery handoff](docs/context/current-state.md) before resuming.
+Accepted exported source is `d5730066`, publisher `5f02bfd6`, run43639599345/1;
+older pending-export/publication checkpoints below remain historical. Do not
+repeat this completed delivery to publish documentation. Original model clocks,
+partial/human states and unavailable Core remain unchanged.
+
 ## Current organization Audit/Sanity selection — 2026-11-13
 
 The [actual sweep selection](docs/development/intelligence-organization-sweep-selection.md)
