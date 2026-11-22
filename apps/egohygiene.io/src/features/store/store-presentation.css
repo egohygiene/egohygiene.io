@@ -1,3 +1,4 @@
 /* Preserve the existing gallery-before-base cascade regardless of component import order. */
 @import "./store-artwork-gallery.css";
 @import "./store.css";
+@import "./store-product-transition.css";
