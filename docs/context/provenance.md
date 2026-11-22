@@ -52,6 +52,18 @@ acceptance is inferred. The previous theme publication remains historical live
 proof; original model/evaluation clocks stay fixed.
 
 
+## Blog/feed foundation checkpoint — 2026-11-13
+
+[Issue11 foundation](../development/blog-feed-foundation-11.md) adds schema-owned article and RSS2/Atom projections over explicit reviewed source and clock. Ten focused blog groups plus nine knowledge/private-playground groups pass; content/schema/app types and the normal45-route build pass. Synthetic fixtures never enter public output. No posts, routes, public feeds, editorial approval or deployment activated.
+
+## Knowledge/query foundation checkpoint — 2026-11-13
+
+[Issue23 foundation](../development/knowledge-boundary-23.md) adds strict schema-owned records, immutable framework-neutral queries and an empty website consumer; synthetic content requires opt-in. Five focused/isolated-consumer tests, package/app types, boundaries and45-route build pass. Legacy intake, real data/routes and publication remain open.
+
+## Private playground exposure checkpoint — 2026-11-13
+
+[Issue25 repair](../development/playground-exposure-25.md) implements loopback/crawler policy and a fail-closed public build module boundary. Actual Vite import/HTTP checks and the normal45-route build pass; broader experiment lifecycle and retained compiler/engineering gates stay open. No deployment or hosted run occurred.
+
 ## Intelligence appearance actual delivery closeout — 2026-11-13
 
 Website #146 closed completed after reviewed #147 merged at published source
