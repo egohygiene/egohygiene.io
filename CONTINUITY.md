@@ -98,6 +98,9 @@ state:
   - provider: github
     id: egohygiene/egohygiene.io#23
     url: https://github.com/egohygiene/egohygiene.io/issues/23
+  - provider: github
+    id: egohygiene/egohygiene.io#11
+    url: https://github.com/egohygiene/egohygiene.io/issues/11
 review:
   status: partial
   reviewed_at: '2026-11-14T20:56:50.099Z'
@@ -177,6 +180,7 @@ Organization source/publisher owns final project deployment/recovery; website ow
 
 - Loopback preview and public artifact boundary [#149](https://github.com/egohygiene/egohygiene.io/pull/149). [Tested source handoff](docs/development/playground-exposure-25.md)
 - Private schema-owned knowledge query foundation [#150](https://github.com/egohygiene/egohygiene.io/pull/150). [Tested source handoff](docs/development/knowledge-boundary-23.md)
+- Private article and feed projection foundation [#151](https://github.com/egohygiene/egohygiene.io/pull/151). [Tested source handoff](docs/development/blog-feed-foundation-11.md)
 
 ## Privacy and redaction
 
