@@ -1,0 +1,16 @@
+{
+  "schema": "egohygiene.website.repository-directory-input-lock/v1",
+  "owner": "egohygiene/.github",
+  "revision": "834d7fd51c48860b2cc4f1a6a262ce466f2004db",
+  "payload_path": "docs/intelligence/repository-directory.json",
+  "schema_path": "docs/intelligence/repository-directory.schema.json",
+  "validator_path": "scripts/project_repository_directory.py",
+  "files": {
+    "scripts/project_repository_directory.py": "7b3fde6a69726dd3a560aaae1d1b4dd0cf1c722c9d0de8d1036bbdbcdd794879",
+    "docs/intelligence/repository-directory.json": "d29435982560531d31e7698c31fb40e55cfc0849615f4d094be6cb4342ee04fd",
+    "docs/intelligence/repository-directory.schema.json": "19d79bbcea6e3556e3c1228af2eafe40c97f25eee79edb389d51beec2f87709c",
+    "docs/intelligence/repositories.source.json": "c4e41df201500c5a00aa7b0e5e30cc4d8054f33eb39c842718266c70530175a9",
+    "docs/reviews/2026-11-13-organization-live-publication.json": "0098b29cae9a1325ee61485878c903cda2aa18bee8142cd005f3eee2c23afc65",
+    "docs/reviews/2026-11-14-foundation-selected-ten.json": "3e13c92d2cf39eaa0593d9e96677835e8a442050ecd2b0d47f6915c88704ab5c"
+  }
+}

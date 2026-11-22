@@ -1,0 +1,1104 @@
+{
+  "schema": "egohygiene.foundation-selected-issue-review/v1",
+  "observed_at": "2026-11-14T06:35:35.745Z",
+  "prepared_at": "2026-11-14T06:36:45Z",
+  "selected_issue_count": 10,
+  "accepted_completed_count": 9,
+  "issue_dispositions": [
+    {
+      "repository": "egohygiene/empathy",
+      "number": 92,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/empathy/issues/92"
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "number": 98,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/empathy/issues/98"
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "number": 105,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/empathy/issues/105"
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "number": 109,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/empathy/issues/109"
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "number": 112,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/empathy/issues/112"
+    },
+    {
+      "repository": "egohygiene/holon",
+      "number": 67,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/holon/issues/67"
+    },
+    {
+      "repository": "egohygiene/holon",
+      "number": 70,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/holon/issues/70"
+    },
+    {
+      "repository": "egohygiene/holon",
+      "number": 73,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/holon/issues/73"
+    },
+    {
+      "repository": "egohygiene/holon",
+      "number": 81,
+      "state": "closed",
+      "state_reason": "completed",
+      "url": "https://github.com/egohygiene/holon/issues/81"
+    },
+    {
+      "repository": "egohygiene/hygiene",
+      "number": 76,
+      "state": "open",
+      "state_reason": null,
+      "url": "https://github.com/egohygiene/hygiene/issues/76"
+    }
+  ],
+  "auxiliary_owner_issue": {
+    "repository": "egohygiene/relay",
+    "number": 189,
+    "state": "closed",
+    "state_reason": "completed",
+    "scope": "Native SVG correctness and actual final consumer acceptance; separate from the selected-ten count."
+  },
+  "accepted_merges": [
+    {
+      "repository": "egohygiene/holon",
+      "pr": 101,
+      "reviewed_head": "1126329f725bf4ba9616e08ea14759bbfaabfe00",
+      "merge": "bfa61f74a491cb621953d38b03da5bdc46da3e28"
+    },
+    {
+      "repository": "egohygiene/holon",
+      "pr": 102,
+      "reviewed_head": "4447405fe6d2f99458bf31b6bb6bac90fc1a2323",
+      "merge": "4672deb2daae88e64d8aff2479037f934b413054"
+    },
+    {
+      "repository": "egohygiene/holon",
+      "pr": 103,
+      "reviewed_head": "0e663eb9b603660cccb8e966ff8a7aa9a974b2c8",
+      "merge": "bcf758c52fb31f1c6ceae65961adbc5d4b92b812"
+    },
+    {
+      "repository": "egohygiene/hygiene",
+      "pr": 118,
+      "reviewed_head": "11228ac12b6e8f50ffbc103848cf5d49eddf52f0",
+      "merge": "044b3f1797937092a36e4d51ebb67b1b760b1916"
+    },
+    {
+      "repository": "egohygiene/hygiene",
+      "pr": 119,
+      "reviewed_head": "c9c4c0bd56a1cfe31a6489b523f637c26494690a",
+      "merge": "627b448f655afb2f4366654ba3ca3050389e464a"
+    },
+    {
+      "repository": "egohygiene/relay",
+      "pr": 183,
+      "reviewed_head": "2764a7c32a879e351e7ee6f6bbc958f8d7f26a2b",
+      "merge": "e2cef7e15c9a441b4015eb2efabad1c21eec8573"
+    },
+    {
+      "repository": "egohygiene/relay",
+      "pr": 184,
+      "reviewed_head": "89a73fcfdcc3d6369e382f275fa8d9d0f3e29671",
+      "merge": "d7604056e36633a59735318454f20f2984602726"
+    },
+    {
+      "repository": "egohygiene/relay",
+      "pr": 185,
+      "reviewed_head": "bd9ffc5a346ee9eabb4780405ec54a1a808d913c",
+      "merge": "95105a9f5d99239af0d44d7dbd796fd1507fef31"
+    },
+    {
+      "repository": "egohygiene/relay",
+      "pr": 186,
+      "reviewed_head": "b75b747e735618e0c78682b0edae20e450c6c390",
+      "merge": "ec4bab46ae52e603b3e06a54f87db4318030a01b"
+    },
+    {
+      "repository": "egohygiene/relay",
+      "pr": 187,
+      "reviewed_head": "c80fc4e78856fcc6c375d7f9a66328be0d47ee4d",
+      "merge": "669a4c3ea3ccc077a0fae1cf7dbc464eff8a96bb"
+    },
+    {
+      "repository": "egohygiene/relay",
+      "pr": 188,
+      "reviewed_head": "7a8a770d7dba2f12d563aa3ffccd2551bad55072",
+      "merge": "f7f9bd44713606d9c099adda715db2542c8b66bf"
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "pr": 146,
+      "reviewed_head": "2af5a52274f8cd9cc3e1b1022adf5fc0b22b5971",
+      "merge": "4a12cbb8cbc8580ef8b7fe0911b51bbaa35a9924"
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "pr": 147,
+      "reviewed_head": "2b26fc847ff6e2af0ee42d249c94e2b499fdc037",
+      "merge": "498aef8e64d876118d63db81823552e205e0b0b4"
+    },
+    {
+      "repository": "egohygiene/relay",
+      "pr": 190,
+      "reviewed_head": "1c22b0410e93bbdcd5065a86f57d3aa2c1ec1d95",
+      "merge": "2d0d88bdcfa1c9614a9a6bf7f66b26a397dfec2a"
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "pr": 148,
+      "reviewed_head": "19beeda7f5d65d3dd88de7738be53585db21e294",
+      "merge": "88667126133cdec5843bf22a09b1ef40b493f5f9"
+    },
+    {
+      "repository": "egohygiene/relay",
+      "pr": 191,
+      "reviewed_head": "f33f18c4533eb92dee54c722daa9bcfb959401b5",
+      "merge": "41fe97bc69e44fdaff6b6c34ae28e4d2af22e41b"
+    },
+    {
+      "repository": "egohygiene/empathy",
+      "pr": 149,
+      "reviewed_head": "4b9754d445db981c515d5dc1f0f47f89db8a46ad",
+      "merge": "41d4c8bdba88cd5cc17318647d542eea57a70364"
+    }
+  ],
+  "historical_s1": {
+    "source_commit": "4a12cbb8cbc8580ef8b7fe0911b51bbaa35a9924",
+    "relay_revision": "f7f9bd44713606d9c099adda715db2542c8b66bf",
+    "initial_current_run": 43548934225,
+    "qualification": "Actual publication used committed historical report inputs. Scorecard SARIF scanning succeeded but the caller absolute API path prevented normalization; PR147 repaired the caller in a separately reviewed S2 cycle.",
+    "baseline_tests": {
+      "executed_functional_source": "8592794977221f7553181675b8b34eeb1bba2610",
+      "accepted_review_head": "2af5a52274f8cd9cc3e1b1022adf5fc0b22b5971",
+      "equipped_root_tests": 257,
+      "skips": 0,
+      "typing_files": 40,
+      "scope": "Functional source check before two documentation-only commits; not an S3 test run."
+    }
+  },
+  "historical_s2": {
+    "source_commit": "498aef8e64d876118d63db81823552e205e0b0b4",
+    "relay_revision": "f7f9bd44713606d9c099adda715db2542c8b66bf",
+    "qualification": "Actual full hosted current, failure isolation, fixed historical rollback and restored-current proof; functional SVG defect blocked105 and required a new source cycle.",
+    "fresh_current": {
+      "run": 43554408087,
+      "attempt": 1,
+      "conclusion": "success",
+      "all_four_jobs": "success",
+      "manifest_sha256": "d5267cd81741471cd71929b7edb9c31edeab1b7cfa4123682843ac8fd3dfbbf7",
+      "provenance": 14097871408,
+      "composed": 14096974874,
+      "receipt": 14097338871,
+      "live": 14097771605,
+      "captures": 14097054633,
+      "owner_reviews": 14097248107
+    },
+    "intentional_failure": {
+      "run": 43555036637,
+      "attempt": 1,
+      "conclusion": "failure",
+      "report": 14097349100,
+      "report_archive_sha256": "e0f91cb66aac5556e0da1b7bbfa2cd36d5eae662a8d756618bd72b677852afd4",
+      "public_files_unchanged": 30,
+      "no_pages_or_deploy": true
+    },
+    "rollback": {
+      "run": 43555099296,
+      "attempt": 1,
+      "conclusion": "success",
+      "all_four_jobs": "success",
+      "historical_consumer": "254185272ab27b6858b8b0393af6549c205c9a8d",
+      "historical_relay": "b71b090406a3a9e4cd9f107e9d14a623bbecb127",
+      "original_known_good_site_digest": "sha256:1e92a0a74c154bbc3c339a6ef1764852bfcceba1a58b294e238b4a0331f94498",
+      "actual_replay_site_digest": "sha256:bb59282f702e9af168cf9ce57ca18f2abbc7e817d9f2dac16169b9dc2c2dcb39",
+      "site_file_count": 81,
+      "stable_files": 79,
+      "allowed_feed_date_variances": 2,
+      "historical_intelligence_fixed": true,
+      "receipt": null,
+      "receipt_shape": "Current-format creation/upload intentionally skipped; historical fixed-verifier and actual live report carry rollback identity.",
+      "live": 14097364545
+    },
+    "first_restore": {
+      "run": 43555413527,
+      "attempt": 1,
+      "conclusion": "failure",
+      "manifest_sha256": "06abfba2f5d35979a75d585926095c611b6d2f66f8fba1995a77268ecdec4f57",
+      "provenance": 14097987558,
+      "composed": 14098256494,
+      "receipt": 14098476278,
+      "live": null,
+      "captures": 14098241646,
+      "owner_reviews": 14098520014
+    },
+    "first_restore_job_outcomes": {
+      "build": "success",
+      "deploy": "success",
+      "finalize_deployment": "success",
+      "verify_live": "failure"
+    },
+    "first_restore_hosted_cause": "Unavailable; independent exact17route bytes later passed, but that does not turn the failed hosted job into success.",
+    "restored_current_retry": {
+      "run": 43556453334,
+      "attempt": 1,
+      "conclusion": "success",
+      "all_four_jobs": "success",
+      "manifest_sha256": "bf9ad21095e49be2ef6a6b495069ab34fce9e6d8e9ae066c561907e326363806",
+      "intelligence_bundle_digest": "sha256:b55b6fdcbdd07786dd1a5e1afe533d70d557115e8f7e3060473902ac87337948",
+      "composed_site_digest": "sha256:1317de85b1e4dae30eea134787bb727e320f2a7fed1dd82c51892fb2a5b36196",
+      "site_file_count": 93,
+      "preserved_consumer_files": 63,
+      "provenance": 14098078462,
+      "composed": 14097963823,
+      "receipt": 14097894104,
+      "live": 14098970069,
+      "captures": 14098576917,
+      "owner_reviews": 14098666767,
+      "pages": 14097908888,
+      "report": 14097983938
+    },
+    "portability": {
+      "state": "passed",
+      "scope": "Two clean full-historyS2 checkout names; same actual initialS2provider63-file Quartzbaseline, selected3reports and literal freshstandalone43553541433 capture/review/asof. Complete93byte equality/native projection+snapshot+receipt equality; bothproductioncompositionverifiers pass.",
+      "transport_limitation": "Original local directartifactCDN tunnel403 preserved. Exact productioncaptureadmit replay uses retained real providerJSON+archive transport only; eightotherBashsteps unchanged. Hostedintake separatelysuccess.",
+      "manifest_sha256": "fc935705455a1389a1eae42a71725af3cf699da46a1ff03e2dad572e0b21b31d",
+      "composed_digest": "e17143f222d33296fdc2f6f11f161e79e33c262d832b87490af6b859563f425f"
+    },
+    "not_relabelled_as_current_cycle": true
+  },
+  "organization_boundary": {
+    "parent_issue": "egohygiene/.github#41",
+    "state": "open",
+    "models_refreshed": false,
+    "model_as_of": "2026-11-13T03:23:31Z",
+    "evaluation_at": "2026-11-13T03:36:14Z",
+    "fleet_rows": 1,
+    "sanity_components": 28,
+    "execution": "partial",
+    "human_state": "unreviewed",
+    "core": "unavailable",
+    "publication_sha256": "4814dfa96229f172cff1b2a5e2b101e6891ecceada6769130eb41dc5933b4fd1",
+    "publication_refreshed": false
+  },
+  "remaining": [
+    "Hygiene #76 remains open on original native/source/human47/95 and provider-enforcement gates; repaired hosted gate and declared memberships are accepted separately.",
+    "Empathy110 specialist runtime/catalog and79 whole-repository graduation remain independently owned; findings are not remediated by displaying them correctly.",
+    "Source/pin integration, native collection, hosted publication, live bytes, human acceptance and release/fleet qualification remain distinct.",
+    "UI density and retained layout findings remain for a separate maintainer review; no redesign or full accessibility acceptance is claimed.",
+    "Organization model/publication clocks, broader parent acceptance and historical artifacts are not retimed by this documentation packet."
+  ],
+  "current": {
+    "source_commit": "41d4c8bdba88cd5cc17318647d542eea57a70364",
+    "relay_revision": "41fe97bc69e44fdaff6b6c34ae28e4d2af22e41b",
+    "consumer_pr": 149,
+    "source_review": {
+      "exact_review_head": "4b9754d445db981c515d5dc1f0f47f89db8a46ad",
+      "canonical_holistic": {
+        "run": 43563304898,
+        "attempt": 1,
+        "job": 132351562764,
+        "result": "failure",
+        "snapshot_result": "skipped",
+        "artifact": 14101975290,
+        "zip_sha256": "04f4359b615937396654d9d605b977e7d244ffd260615072719538f6936d98fd",
+        "payload_sha256": "f388728d28ea669b862ba87fa2db4f6e093b6f012ceb8e381843dc2f5bfb953d",
+        "normalized_artifact": 14101069928,
+        "normalized_zip_sha256": "ff8f1666a161acb0da906a62592e8fa60fb32064f3b6d74fef22fe17b1c2984e",
+        "normalized_payload_sha256": "7de52c1f6bd3e80f746c40870253c3ce1c6b5401e1aa1417d3d74fd5fc1ea9a0",
+        "source": "4b9754d445db981c515d5dc1f0f47f89db8a46ad",
+        "owner": "41fe97bc69e44fdaff6b6c34ae28e4d2af22e41b",
+        "counts": {
+          "error": 21,
+          "success": 72,
+          "warning": 8
+        },
+        "active_counts": {
+          "error": 21,
+          "success": 21,
+          "warning": 8
+        },
+        "execution": {
+          "state": "failure",
+          "message": "MegaLinter returned a failing runner status."
+        },
+        "findings": {
+          "advisory": 8,
+          "blocking": 21,
+          "by_severity": {},
+          "state": "blocked",
+          "total": 29
+        },
+        "diagnostics": {
+          "errors": 74523,
+          "warnings": 17
+        },
+        "normalizer_byte_replay": true,
+        "introduced_review": "clear; independent full native and all eight advisory descriptor review found no introduced blocking diagnostic; actual full holistic failure remains literal. JSCPD2742 measured decrease3 vs S3 is an advisory metric, not a cleanup claim.",
+        "native_required_checks": {
+          "Bandit": {
+            "changed_fixture_nosec_notices": 6,
+            "confidence": "High",
+            "disposition": "Existing unchanged call sites/comments; no actual new Bandit issue.",
+            "issues": 3,
+            "path": "tools/staging_home_audit.py",
+            "rules": [
+              "B404",
+              "B607",
+              "B603"
+            ],
+            "severity": "Low",
+            "source_byte_equal_base": true
+          },
+          "Betterleaks": "Native1.7.3 SUCCESS",
+          "Lychee": {
+            "actual_metric": 182,
+            "changed_source_failures": [
+              {
+                "diagnostic": "[404] https://api.scorecard.dev/projects/github.com/$ (at 126:13) | Rejected status code: 404 Not Found",
+                "path": ".github/workflows/ossf-scorecard.yml"
+              }
+            ],
+            "new_owner_guide_links": [
+              "[200] https://github.com/egohygiene/relay/blob/41fe97bc69e44fdaff6b6c34ae28e4d2af22e41b/docs/dashboard-svg-context-2026-11-14.md (at 22:5)"
+            ],
+            "prior19be_extra429": "Not present in this actual run; no timeless vendor-availability claim."
+          },
+          "Mypy": "Native1.19.1 SUCCESS",
+          "Secretlint": {
+            "issues": 1,
+            "matched_value": "omitted",
+            "path": ".staging/.github/skills/mcp-security-audit/SKILL.md",
+            "source_byte_equal_base": true
+          }
+        },
+        "scope": "Exact manual4b full profile; provider PR synthetic tests remain separately bound. No whole repository green claim."
+      },
+      "actual_pr_previews": {
+        "run": 43563306347,
+        "current_job": 132351563412,
+        "current": "success",
+        "rollback_job": 132351563619,
+        "rollback": "success",
+        "deploy": "skipped",
+        "finalize": "skipped",
+        "live": "skipped",
+        "current_artifact": 14100929664,
+        "current_zip_sha256": "7fa3b4558cd62f652d3fbf7d637f7255b0cc54c70709b50266c611b46de0f1b1",
+        "current_composed_artifact": 14101855073,
+        "current_composed_zip_sha256": "b2b222e7548199ed3802876ec65d7fd6e956e3d349338ad9962df096427ec7eb",
+        "rollback_artifact": 14101730048,
+        "rollback_zip_sha256": "6da3f8b4d3d73f0e28caa9493de75fab988910ce47ac9b5b77f60754129f81f7",
+        "archive_roots": [
+          "site",
+          "publication"
+        ],
+        "duplicate_identical": true,
+        "files": 93,
+        "preserved_quartz_files": 63,
+        "full_bundle_and_composition_revalidation": "passed exact41fe owner",
+        "fixed_rollback": "254/b71 unchanged verifier passes; provider source checkout verified/local lack of historical checkout explicit",
+        "report_mode": "committed historical inputs; no freshmainproducer/liveclaim"
+      },
+      "equipped_consumer_checks": {
+        "run": 43563306360,
+        "result": "success",
+        "tests": 95,
+        "skips": 0,
+        "artifact": 14101207303
+      },
+      "actual_standalone": {
+        "run": 43563306364,
+        "result": "success",
+        "artifact": 14101167591
+      }
+    },
+    "selected_report_intake": {
+      "mode": "selected-artifacts",
+      "reports": [
+        {
+          "archive_sha256": "104e5ae6f948239927bc71798606058facc99fbd2da8e71c2e9a9eafcd71874c",
+          "artifact_id": 14101512946,
+          "artifact_name": "empathy-report-osv-43564341564-1",
+          "conclusion": "failure",
+          "event": "workflow_dispatch",
+          "producer": "osv",
+          "run_attempt": 1,
+          "run_id": 43564341564,
+          "summary_sha256": "e572be41e196623f24d72b0e3d05ea64cb50797b719e5af0b7f212a428b8c18d"
+        },
+        {
+          "archive_sha256": "af8879100d167e95647f708a2ca03b64c09d76750b455bcdb3aef9c70e0d2c26",
+          "artifact_id": 14101189354,
+          "artifact_name": "empathy-report-megalinter-43564341542-1",
+          "conclusion": "failure",
+          "event": "workflow_dispatch",
+          "producer": "megalinter",
+          "run_attempt": 1,
+          "run_id": 43564341542,
+          "summary_sha256": "12b4a5d186d3d7fce212ee9abb1b8c544cbfdbf608f35f88d1ce6afde84caa98"
+        },
+        {
+          "archive_sha256": "cc9fa8e42c8eaff91f907715908ce04d3e7fc95ba4621f15ceca7688d7027567",
+          "artifact_id": 14101258549,
+          "artifact_name": "empathy-report-scorecard-43564341902-1",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "producer": "scorecard",
+          "run_attempt": 1,
+          "run_id": 43564341902,
+          "summary_sha256": "61d57d3a5bba83692a233f05abd658b468deef9fcf49644cdfe650f945aee46b"
+        }
+      ],
+      "repository": "egohygiene/empathy",
+      "schema": "empathy.repository-intelligence-report-artifact-intake/v1",
+      "source_commit": "41d4c8bdba88cd5cc17318647d542eea57a70364"
+    },
+    "selection_input_sha256": "303cc9db515d92f33213dd004910030feda9518ee83563d86f7a1f55fb9509e0",
+    "selection_receipt_sha256": "87a43ac24d6c8a28355b0e8392735250862aec21c2cf5713cc44feb3f89b2089",
+    "actual_reports": {
+      "osv": {
+        "producer": "osv",
+        "commit": "41d4c8bdba88cd5cc17318647d542eea57a70364",
+        "generated_at": "2026-11-14T06:02:46Z",
+        "execution": {
+          "message": "Canonical OSV JSON and SARIF outputs were validated.",
+          "state": "success"
+        },
+        "findings": {
+          "advisory": 345,
+          "blocking": 322,
+          "by_severity": {
+            "critical": 34,
+            "high": 288,
+            "low": 61,
+            "medium": 282,
+            "unknown": 2
+          },
+          "state": "blocked",
+          "total": 667
+        },
+        "freshness": {
+          "expires_at": "2026-11-22T06:02:46Z",
+          "stale_after_days": 8
+        },
+        "provenance": {
+          "event": "workflow_dispatch",
+          "run_attempt": 1,
+          "run_id": "43564341564",
+          "workflow": "\ud83d\udd0d OSV Vulnerability Scan"
+        },
+        "links": {
+          "detail": "https://github.com/egohygiene/empathy/actions/runs/43564341564",
+          "security": "https://github.com/egohygiene/empathy/security/code-scanning",
+          "source": "https://github.com/egohygiene/empathy/commit/41d4c8bdba88cd5cc17318647d542eea57a70364",
+          "workflow": "https://github.com/egohygiene/empathy/actions/runs/43564341564"
+        }
+      },
+      "megalinter": {
+        "producer": "megalinter",
+        "commit": "41d4c8bdba88cd5cc17318647d542eea57a70364",
+        "generated_at": "2026-11-14T06:08:05Z",
+        "execution": {
+          "message": "MegaLinter returned a failing runner status.",
+          "state": "failure"
+        },
+        "findings": {
+          "advisory": 8,
+          "blocking": 21,
+          "by_severity": {},
+          "state": "blocked",
+          "total": 29
+        },
+        "freshness": {
+          "expires_at": "2026-11-22T06:08:05Z",
+          "stale_after_days": 8
+        },
+        "provenance": {
+          "event": "workflow_dispatch",
+          "run_attempt": 1,
+          "run_id": "43564341542",
+          "workflow": "MegaLinter"
+        },
+        "links": {
+          "detail": "https://github.com/egohygiene/empathy/actions/runs/43564341542",
+          "security": "https://github.com/egohygiene/empathy/security/code-scanning",
+          "source": "https://github.com/egohygiene/empathy/commit/41d4c8bdba88cd5cc17318647d542eea57a70364",
+          "workflow": "https://github.com/egohygiene/empathy/actions/runs/43564341542"
+        },
+        "native_diagnostics": {
+          "errors": 74523,
+          "warnings": 17
+        }
+      },
+      "scorecard": {
+        "producer": "scorecard",
+        "commit": "41d4c8bdba88cd5cc17318647d542eea57a70364",
+        "generated_at": "2026-11-14T06:04:10Z",
+        "execution": {
+          "message": "OpenSSF Scorecard produced valid SARIF output.",
+          "state": "success"
+        },
+        "findings": {
+          "advisory": 10,
+          "blocking": 0,
+          "by_severity": {
+            "critical": 0,
+            "high": 4,
+            "low": 2,
+            "medium": 4,
+            "unknown": 0
+          },
+          "state": "attention",
+          "total": 10
+        },
+        "freshness": {
+          "expires_at": "2026-11-22T06:04:10Z",
+          "stale_after_days": 8
+        },
+        "provenance": {
+          "event": "workflow_dispatch",
+          "run_attempt": 1,
+          "run_id": "43564341902",
+          "workflow": "OpenSSF Scorecard"
+        },
+        "links": {
+          "detail": "https://github.com/egohygiene/empathy/actions/runs/43564341902",
+          "security": "https://github.com/egohygiene/empathy/security/code-scanning",
+          "source": "https://github.com/egohygiene/empathy/commit/41d4c8bdba88cd5cc17318647d542eea57a70364",
+          "workflow": "https://github.com/egohygiene/empathy/actions/runs/43564341902"
+        },
+        "scorecard": {
+          "api_status": "invalid",
+          "check_source": "sarif",
+          "checks_total": 18,
+          "checks_needing_attention": 10,
+          "aggregate_score": null,
+          "aggregate_source": "unavailable"
+        }
+      }
+    },
+    "fresh_standalone": {
+      "run": 43565067415,
+      "attempt": 1,
+      "conclusion": "success",
+      "captures": 14102390214,
+      "owner_reviews": 14101519288,
+      "report": 14101214974,
+      "bundle": 14102285477,
+      "job": 132356991148
+    },
+    "fresh_current": {
+      "run": 43565067306,
+      "attempt": 1,
+      "conclusion": "success",
+      "all_four_jobs": "success",
+      "manifest_sha256": "be7024621c672ffc9a579f028ab46affd9cfa65a0c511f3cd2f11193b65582ba",
+      "intelligence_bundle_digest": "sha256:0f243fe82338f5031bb25487e2c4e3d641ba4472999c402cc108db0a84cd7f52",
+      "composed_site_digest": "sha256:403dd9517ef7d67c56a318c149893b82ad868bbe745dd7cb63595dd2e881128a",
+      "provenance": 14101339879,
+      "composed": 14102211046,
+      "receipt": 14101759142,
+      "live": 14102575231,
+      "captures": 14101912780,
+      "owner_reviews": 14101812971,
+      "pages": 14102330711,
+      "report": 14102146271,
+      "composition_files": 93,
+      "preserved_consumer_files": 63
+    },
+    "portability": {
+      "result": "passed",
+      "repository": "egohygiene/empathy",
+      "source_commit": "41d4c8bdba88cd5cc17318647d542eea57a70364",
+      "relay_revision": "41fe97bc69e44fdaff6b6c34ae28e4d2af22e41b",
+      "as_of": "2026-11-14T06:11:54Z",
+      "different_checkout_names": [
+        "empathy-primary",
+        "consumer-different-name"
+      ],
+      "clean_full_history_consumers": true,
+      "baseline": {
+        "files": 63,
+        "provider_archive_sha256": "77de3a1324c3a5f285a6f86c108994dfd0b481d5c74f1cecf408a7f7a94d6f3a",
+        "provider_provenance_artifact_id": 14101339879,
+        "sha256": "aad38f1f68a2bf7517213579b42bd3d4a70716e9b6ae7ff700dc74dfad8471c7"
+      },
+      "report_intake_sha256": "87a43ac24d6c8a28355b0e8392735250862aec21c2cf5713cc44feb3f89b2089",
+      "composed_file_count": 93,
+      "preserved_consumer_file_count": 63,
+      "identical_full_composed_bytes": true,
+      "identical_native_envelope_snapshot_receipt_bytes": true,
+      "native_sha256": {
+        "projection.json": "6aace253243502182d58aca4b664fef5fcbe6fe13632cc205168216e56e71cbb",
+        "receipt.json": "9fb84d8334d9fc02583cb61af0bfbcd82d797c3c884daa0a1b42fc93e6574eff",
+        "snapshot.json": "25a68f12ac6f73fc59a6bff085c2846bfcedfa7c11506bd779b7fdea867857af"
+      },
+      "build_manifest": {
+        "bundle_digest": "sha256:e4cab5fb6b6707eda292604d6f969e55163d821e08f8bbdbc93051b0d3bffa4b",
+        "path": "intelligence/build-manifest.json",
+        "sha256": "sha256:ed7886f68b02de601f5ba2a54cd3b5ace3feae56bd45926628e3a9805f550a32"
+      },
+      "composed_site_digest": "sha256:31f2f31c871d40fefa356d9f78635588ce31748660e761e054535a3fabdfaa36",
+      "scope": "Two clean full-history S4 consumers share one actual CURRENT provider Quartz baseline and exact same-run capture/review/as-of plus selected report inputs. Counts derive from actual inventories. Independent Quartz rebuilding, deployment and broader acceptance are separate.",
+      "transport": {
+        "actual_hosted_capture_intake_run": 43565067306,
+        "bounded_network_observation_sha256": "fc17d1510a964e61c81b2f5f422b13e98b43389fe9974ec14589f08baef7f5c5",
+        "capture_admission": "Unchanged frozen production module with exact retained real provider run/attempt JSON, artifact JSON and ZIP; exact three read responses substituted.",
+        "composite_stages_completed": 9,
+        "limitation": "No CDN/network portability claim; original local attempt receipts are retained separately.",
+        "original_local_attempts": "Both original composites passed metadata resolution and failed capture admission; unchanged production requests independently confirmed run/artifact metadata success and artifact-CDN tunnel403.",
+        "production_admission_module_sha256": "90b6074a89feea29c78d8d61ebc462bc46c3b46f92e26408cd9f195b2fb8fe73",
+        "retained_response_sha256": {
+          "artifact.json": "108d043c77a814b6877fca5892ff36244515f19b655230ed447ef5120ee8ace3",
+          "run-attempt.json": "5403665fb39c507432672e814fc57bf649dacf2bb319941f52075e41e1473d1b"
+        },
+        "retained_response_substitution": true,
+        "unchanged_bash_steps": 8
+      },
+      "identical_provider_composed_bytes": false,
+      "provider_comparison": {
+        "differing_paths": [
+          "intelligence/build-manifest.json",
+          "intelligence/provenance.json"
+        ],
+        "explanation": "The unchanged native protocol/source controls ran with two authentic physical EgoLint binaries. Local and hosted binary fingerprints remain literal; six provenance runtime fingerprints and their derived manifest digest differ. Every other provider file matches exactly.",
+        "fingerprints_or_output_bytes_rewritten": false,
+        "identical": false,
+        "local_native_egolint_sha256": "0a5a6ddc760f7f7a741a2f3d2087d1d6c245b38bebabd578ac029ca8f2f372e3",
+        "matching_files": 91,
+        "only_runtime_fingerprint_and_derived_manifest_differences": true,
+        "provider_build_manifest_sha256": "be7024621c672ffc9a579f028ab46affd9cfa65a0c511f3cd2f11193b65582ba",
+        "provider_bundle_digest": "sha256:0f243fe82338f5031bb25487e2c4e3d641ba4472999c402cc108db0a84cd7f52",
+        "provider_native_egolint_sha256": "e4a176eeda39f62fbe282203399e19282bc06e2c8fb3c94a661917c3c4192e5a",
+        "runtime_fingerprint_json_paths": [
+          "/source_collection/domains/dependencies/runtime/egolint_sha256",
+          "/source_collection/domains/health/runtime/egolint_sha256",
+          "/source_collection/domains/journey/runtime/egolint_sha256",
+          "/source_collection/domains/releases/runtime/egolint_sha256",
+          "/source_collection/domains/work/runtime/egolint_sha256",
+          "/source_collection/normalization_profile/runtime/egolint_sha256"
+        ]
+      },
+      "provider_artifacts": {
+        "capture": {
+          "archive_sha256": "49291235c2b62013cc46e741d2fb445da9aac7207ab4845f37661cd49c938ee7",
+          "artifact_id": 14101912780,
+          "bytes": 5847,
+          "name": "repository-intelligence-captures-v1-1315637648-41d4c8bdba88cd5cc17318647d542eea57a70364-43565067306-1"
+        },
+        "provenance": {
+          "archive_sha256": "77de3a1324c3a5f285a6f86c108994dfd0b481d5c74f1cecf408a7f7a94d6f3a",
+          "artifact_id": 14101339879,
+          "bytes": 571274,
+          "name": "empathy-provenance-current-43565067306-1"
+        },
+        "reviews": {
+          "archive_sha256": "388e79ed966eedf64738e21fec43936c695f48efa09aa9e84364bfa7ec11badf",
+          "artifact_id": 14101812971,
+          "bytes": 8587,
+          "name": "empathy-owner-reviews-43565067306-1"
+        }
+      },
+      "provider_composed_file_count": 93,
+      "provider_difference_paths": [
+        "intelligence/build-manifest.json",
+        "intelligence/provenance.json"
+      ],
+      "workflow_run_id": 43565067306,
+      "workflow_run_attempt": 1,
+      "selected_input_json_sha256": "303cc9db515d92f33213dd004910030feda9518ee83563d86f7a1f55fb9509e0"
+    },
+    "canonical_browser": {
+      "outcome": "passed-with-layout-findings",
+      "consumer_source": "41d4c8bdba88cd5cc17318647d542eea57a70364",
+      "generator_source": "41fe97bc69e44fdaff6b6c34ae28e4d2af22e41b",
+      "current_run": {
+        "id": 43565067306,
+        "attempt": 1
+      },
+      "origin": "https://egohygiene.github.io/empathy/",
+      "expected_manifest_sha256": "be7024621c672ffc9a579f028ab46affd9cfa65a0c511f3cd2f11193b65582ba",
+      "failed_checks": [],
+      "identity_before": {
+        "status": 200,
+        "url": "https://egohygiene.github.io/empathy/intelligence/build-manifest.json",
+        "sha256": "be7024621c672ffc9a579f028ab46affd9cfa65a0c511f3cd2f11193b65582ba"
+      },
+      "identity_after": {
+        "status": 200,
+        "url": "https://egohygiene.github.io/empathy/intelligence/build-manifest.json",
+        "sha256": "be7024621c672ffc9a579f028ab46affd9cfa65a0c511f3cd2f11193b65582ba"
+      },
+      "overflow_observation_count": 5,
+      "declared_html_file_counts": {
+        "intelligence": 18,
+        "quartz": 19,
+        "composed": 37
+      },
+      "retained_quartz_baseline_sha256": "aad38f1f68a2bf7517213579b42bd3d4a70716e9b6ae7ff700dc74dfad8471c7",
+      "required_svg_and_shared_checks": [
+        "all-selected-html-route-bytes",
+        "all-selected-html-routes",
+        "application-console-errors",
+        "application-page-errors",
+        "asset:explorer.js",
+        "brand-keyboard-focus",
+        "browser-served-favicon",
+        "dashboard-context-initialization",
+        "dashboard-svg-focus-context",
+        "dashboard-svg-keyboard-context",
+        "dashboard-svg-pointer-click-context",
+        "favicon-reference",
+        "graph-keyboard-direct-navigation",
+        "graph-svg-context-destination",
+        "graph-svg-focus-inspection",
+        "graph-svg-pointer-click-context",
+        "shared-brand:organization",
+        "shared-brand:repository",
+        "shared-entity-listener-initialization",
+        "shared-filter-keyboard-initialization",
+        "shared-hash-listener-initialization"
+      ],
+      "passed_check_count": 214,
+      "remaining_findings": [
+        {
+          "route": "intelligence/dashboard/",
+          "viewport": 768,
+          "document_width": 853
+        },
+        {
+          "route": "intelligence/",
+          "viewport": 390,
+          "document_width": 540
+        },
+        {
+          "route": "intelligence/dashboard/",
+          "viewport": 390,
+          "document_width": 540
+        },
+        {
+          "route": "intelligence/audits/",
+          "viewport": 390,
+          "document_width": 640
+        },
+        {
+          "route": "intelligence/sanity/",
+          "viewport": 390,
+          "document_width": 663
+        }
+      ]
+    },
+    "reused_s2_controls": {
+      "root_reviewed": true,
+      "source": "498aef8e64d876118d63db81823552e205e0b0b4",
+      "relay_revision": "f7f9bd44713606d9c099adda715db2542c8b66bf",
+      "source_receipt_sha256": "316f875fc688f2ca0b98067cc7cbf70b867df4cab68ded9b25a8abde517a1253",
+      "compatibility": {
+        "normalized_workflows": 19,
+        "consumer_helpers_unchanged": true,
+        "owner_action_workflow_changes_only_three_reviewed_assets": true,
+        "historical_rollback_and_publishers_unchanged": true,
+        "reused_original_runs": {
+          "trusted_scorecard_refresh": 43552821038,
+          "trusted_failed_megalinter_refresh": 43553352731,
+          "cancelled_queued_osv_refresh": 43552736509,
+          "intentional_failure": 43555036637,
+          "fixed_rollback": 43555099296
+        },
+        "scope": "Mechanical source identity supports reuse of original S2 trust/failure/historical rollback controls at their actual source/run/clocks; no active-cycle rerun is claimed."
+      },
+      "scope": "Verified pin-normalized consumer workflow logic and identical owner helper blobs preserve applicability of original S2 trust/failure/historical rollback controls. No S4 failure or rollback replay is claimed."
+    },
+    "independent_artifact_peer": {
+      "result": "CLEAR",
+      "receipt_sha256": "1231e3fc5a33b7074fdfa3485658ee30137658a1d7c27c0a8a82f2c888e1a954",
+      "scope": "Actual active-cycle source/run/attempt, strict three-carrier intake, complete native/composed bytes, preserved consumer baseline and hosted/live receipt bindings independently clear."
+    },
+    "automatic_refresh_disposition": {
+      "proof": "automatic-cancellations.json",
+      "all_scoped_automatic_runs_settled": true,
+      "observed_records": 11,
+      "no_precise_producer_origin_claim": true
+    },
+    "cycle": "S4",
+    "owner_pr": 191,
+    "browser_methodology": {
+      "source": "41d4c8bdba88cd5cc17318647d542eea57a70364",
+      "generator": "41fe97bc69e44fdaff6b6c34ae28e4d2af22e41b",
+      "current_run": {
+        "id": 43565067306,
+        "attempt": 1
+      },
+      "manifest_sha256": "be7024621c672ffc9a579f028ab46affd9cfa65a0c511f3cd2f11193b65582ba",
+      "original_result": "findings",
+      "original_failed_checks": [
+        "application-console-errors"
+      ],
+      "original_console_messages": 95,
+      "original_failed_requests": 38,
+      "original_proof_sha256": "fd6293643d1627ca86587b20a8d5d3e2140352a26b1f4300450e3d59934824b0",
+      "diagnosis_sha256": "e7a65547f7da4ab5ee0e6a5729835e98d914389c5762a420bdf79101c0122656",
+      "normal_header_control_sha256": "5994ccecbc2a9789363500c86a373a1b65ddf4a33fb27c2d584cc0e848946c82",
+      "normal_header_external_responses": [
+        {
+          "url": "https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.jsdelivr.net/npm/pixi.js@8/dist/pixi.js",
+          "status": 200
+        }
+      ],
+      "cause": "The private harness injected a global Cache-Control:no-cache header. External CDN script loads then required a CORS preflight that did not allow that custom header. The same browser/proxy without the header loaded both libraries successfully.",
+      "correction": "Remove the private global browser header; keep cache-control on first-party API reads only. Rerun all canonical checks at the unchanged source/run/manifest, with all console/page errors still gating.",
+      "final_console_errors": 0,
+      "final_page_errors": 0,
+      "scope": "Methodology correction, not a product/CDN outage or a source change. Initial raw failure is retained; no acceptance waiver or new #64 finding is inferred."
+    }
+  },
+  "historical_s3": {
+    "source_commit": "88667126133cdec5843bf22a09b1ef40b493f5f9",
+    "relay_revision": "2d0d88bdcfa1c9614a9a6bf7f66b26a397dfec2a",
+    "fresh_standalone": {
+      "run": 43560603499,
+      "attempt": 1,
+      "conclusion": "success",
+      "captures": 14099513387,
+      "owner_reviews": 14099308938,
+      "report": 14099764889,
+      "bundle": 14100475202,
+      "job": 132343198330
+    },
+    "fresh_current": {
+      "run": 43560603493,
+      "attempt": 1,
+      "conclusion": "success",
+      "all_four_jobs": "success",
+      "manifest_sha256": "0e5a33806a8009a5bd775923b26c65573a801dbad383ee8053e91ef0694c46bc",
+      "intelligence_bundle_digest": "sha256:c616b566c43689e51af8edec52a5ed2474bda8a815ac63281fd430cf16144a93",
+      "composed_site_digest": "sha256:0f07a5dbf6a6785e56610e48b4831fac73983e31cd95c4dca52e933278c3821e",
+      "provenance": 14100630521,
+      "composed": 14100725372,
+      "receipt": 14100830315,
+      "live": 14100124972,
+      "captures": 14100335656,
+      "owner_reviews": 14100221559,
+      "pages": 14100460707,
+      "report": 14100119757
+    },
+    "report_intake": {
+      "mode": "selected-artifacts",
+      "reports": [
+        {
+          "archive_sha256": "5a5fbe9930775dc089afe9095e6ae7860fcda7c7303a43aefa5585c59b36bc00",
+          "artifact_id": 14099297508,
+          "artifact_name": "empathy-report-osv-43559636994-1",
+          "conclusion": "failure",
+          "event": "workflow_dispatch",
+          "producer": "osv",
+          "run_attempt": 1,
+          "run_id": 43559636994,
+          "summary_sha256": "9f4275d8200ebd429a3de78884fc98c4a1f6c08fe7c2213dc017881c9fc6c862"
+        },
+        {
+          "archive_sha256": "3dc003cc761785060b7a614c0be97ee4364020fdd96d0b115cc4bb4c7e31de4a",
+          "artifact_id": 14100295240,
+          "artifact_name": "empathy-report-megalinter-43559637488-1",
+          "conclusion": "failure",
+          "event": "workflow_dispatch",
+          "producer": "megalinter",
+          "run_attempt": 1,
+          "run_id": 43559637488,
+          "summary_sha256": "f54913a3e898e105eafa2dc23b51463a947dc1a47ec379a0ed0348657e9d9c4a"
+        },
+        {
+          "archive_sha256": "542ed7fd9592eae4ec0966f87165205d6ccebe643309644345cedd7d8925f0fb",
+          "artifact_id": 14099053138,
+          "artifact_name": "empathy-report-scorecard-43559637583-1",
+          "conclusion": "success",
+          "event": "workflow_dispatch",
+          "producer": "scorecard",
+          "run_attempt": 1,
+          "run_id": 43559637583,
+          "summary_sha256": "423a00af2d46b8c776b79814dc1dbb3d8c4e8cc25f661ac8d2fa334317bc9e3f"
+        }
+      ],
+      "repository": "egohygiene/empathy",
+      "schema": "empathy.repository-intelligence-report-artifact-intake/v1",
+      "source_commit": "88667126133cdec5843bf22a09b1ef40b493f5f9"
+    },
+    "actual_reports": {
+      "osv": {
+        "commit": "88667126133cdec5843bf22a09b1ef40b493f5f9",
+        "generated_at": "2026-11-14T05:04:23Z",
+        "execution": {
+          "message": "Canonical OSV JSON and SARIF outputs were validated.",
+          "state": "success"
+        },
+        "findings": {
+          "advisory": 345,
+          "blocking": 322,
+          "by_severity": {
+            "critical": 34,
+            "high": 288,
+            "low": 61,
+            "medium": 282,
+            "unknown": 2
+          },
+          "state": "blocked",
+          "total": 667
+        },
+        "provenance": {
+          "event": "workflow_dispatch",
+          "run_attempt": 1,
+          "run_id": "43559636994",
+          "workflow": "\ud83d\udd0d OSV Vulnerability Scan"
+        }
+      },
+      "megalinter": {
+        "commit": "88667126133cdec5843bf22a09b1ef40b493f5f9",
+        "generated_at": "2026-11-14T05:11:31Z",
+        "execution": {
+          "message": "MegaLinter returned a failing runner status.",
+          "state": "failure"
+        },
+        "findings": {
+          "advisory": 8,
+          "blocking": 21,
+          "by_severity": {},
+          "state": "blocked",
+          "total": 29
+        },
+        "provenance": {
+          "event": "workflow_dispatch",
+          "run_attempt": 1,
+          "run_id": "43559637488",
+          "workflow": "MegaLinter"
+        }
+      },
+      "scorecard": {
+        "commit": "88667126133cdec5843bf22a09b1ef40b493f5f9",
+        "generated_at": "2026-11-14T05:05:24Z",
+        "execution": {
+          "message": "OpenSSF Scorecard produced valid SARIF output.",
+          "state": "success"
+        },
+        "findings": {
+          "advisory": 10,
+          "blocking": 0,
+          "by_severity": {
+            "critical": 0,
+            "high": 4,
+            "low": 2,
+            "medium": 4,
+            "unknown": 0
+          },
+          "state": "attention",
+          "total": 10
+        },
+        "provenance": {
+          "event": "workflow_dispatch",
+          "run_attempt": 1,
+          "run_id": "43559637583",
+          "workflow": "OpenSSF Scorecard"
+        }
+      }
+    },
+    "qualification": "Actual source-bound producer/standalone/native/current publication succeeded, but canonical browser found explorer dashboard initialization TypeErrors;105/189 stayed open and required a new source cycle.",
+    "not_relabelled_as_current_cycle": true,
+    "browser_blocker": {
+      "outcome": "findings",
+      "current_run": {
+        "id": 43560603493,
+        "attempt": 1
+      },
+      "expected_manifest_sha256": "0e5a33806a8009a5bd775923b26c65573a801dbad383ee8053e91ef0694c46bc",
+      "failed_checks": [
+        "application-page-errors"
+      ],
+      "actual_page_error_count": 3,
+      "disposition": "Original dashboard SVG errors remain literal. The subsequent owner correction and derived local witnesses do not turn this canonical run into acceptance."
+    },
+    "portability": {
+      "result": "passed",
+      "source_commit": "88667126133cdec5843bf22a09b1ef40b493f5f9",
+      "relay_revision": "2d0d88bdcfa1c9614a9a6bf7f66b26a397dfec2a",
+      "scope": "Two clean full-history S3 consumers share one actual CURRENT provider Quartz baseline and exact same-run capture/review/as-of plus selected report inputs. Counts derive from actual inventories. Independent Quartz rebuilding, deployment and broader acceptance are separate.",
+      "transport": {
+        "actual_hosted_capture_intake_run": 43560603493,
+        "bounded_network_observation_sha256": "4b1a52351d2c09a3d851abc467948868fdecb3e98b2227740331b5546d4451d2",
+        "capture_admission": "Unchanged frozen production module with exact retained real provider run/attempt JSON, artifact JSON and ZIP; exact three read responses substituted.",
+        "composite_stages_completed": 9,
+        "limitation": "No CDN/network portability claim; original local attempt receipts are retained separately.",
+        "original_local_attempts": "Both original composites passed metadata resolution and failed capture admission; unchanged production requests independently confirmed run/artifact metadata success and artifact-CDN tunnel403.",
+        "production_admission_module_sha256": "90b6074a89feea29c78d8d61ebc462bc46c3b46f92e26408cd9f195b2fb8fe73",
+        "retained_response_sha256": {
+          "artifact.json": "293e488317cbd30556806b2849949c13c3f176bb6eb111707560039fa51dae3c",
+          "run-attempt.json": "02267371ee4bd134e1c464dcf4a89b7e43a1532dd3b240ce904bc50667a793cb"
+        },
+        "retained_response_substitution": true,
+        "unchanged_bash_steps": 8
+      },
+      "baseline": {
+        "files": 63,
+        "provider_archive_sha256": "d983f74306e178d72f212fc6e906052860cdc4245d44a14a1bb62bc5cd6ce35c",
+        "provider_provenance_artifact_id": 14100630521,
+        "sha256": "968ff8d1b63c26c2803d52fc5f8aa185b5d1d242616571d2f5025251205255d1"
+      },
+      "composed_file_count": 93,
+      "preserved_consumer_file_count": 63,
+      "identical_full_composed_bytes": true,
+      "identical_native_envelope_snapshot_receipt_bytes": true,
+      "identical_provider_composed_bytes": false,
+      "provider_comparison": {
+        "differing_paths": [
+          "intelligence/build-manifest.json",
+          "intelligence/provenance.json"
+        ],
+        "explanation": "The unchanged native protocol/source controls ran with two authentic physical EgoLint binaries. Local and hosted binary fingerprints remain literal; six provenance runtime fingerprints and their derived manifest digest differ. Every other provider file matches exactly.",
+        "fingerprints_or_output_bytes_rewritten": false,
+        "identical": false,
+        "local_native_egolint_sha256": "0a5a6ddc760f7f7a741a2f3d2087d1d6c245b38bebabd578ac029ca8f2f372e3",
+        "matching_files": 91,
+        "only_runtime_fingerprint_and_derived_manifest_differences": true,
+        "provider_build_manifest_sha256": "0e5a33806a8009a5bd775923b26c65573a801dbad383ee8053e91ef0694c46bc",
+        "provider_bundle_digest": "sha256:c616b566c43689e51af8edec52a5ed2474bda8a815ac63281fd430cf16144a93",
+        "provider_native_egolint_sha256": "e4a176eeda39f62fbe282203399e19282bc06e2c8fb3c94a661917c3c4192e5a",
+        "runtime_fingerprint_json_paths": [
+          "/source_collection/domains/dependencies/runtime/egolint_sha256",
+          "/source_collection/domains/health/runtime/egolint_sha256",
+          "/source_collection/domains/journey/runtime/egolint_sha256",
+          "/source_collection/domains/releases/runtime/egolint_sha256",
+          "/source_collection/domains/work/runtime/egolint_sha256",
+          "/source_collection/normalization_profile/runtime/egolint_sha256"
+        ]
+      },
+      "runtime_fingerprint_scope": "Whole-bundle reproduction is qualified only within each declared runtime fingerprint; cross-provider equality claims are limited to the explicitly verified portable scope. Native bytes retain their exact observed inputs."
+    }
+  }
+}
