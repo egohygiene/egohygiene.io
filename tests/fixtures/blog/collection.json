@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "egohygiene.blog/v1",
+  "origin": "synthetic",
+  "site": {
+    "title": "Synthetic Blog & Feed Fixture",
+    "description": "Test data only, never a public feed.",
+    "baseUrl": "https://example.invalid/blog/",
+    "language": "en"
+  },
+  "posts": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "slug": "synthetic-essay",
+      "title": "Synthetic essay",
+      "summary": "Fixture only: essay",
+      "category": "essay",
+      "visibility": "public",
+      "review": {
+        "status": "approved",
+        "reference": "https://example.invalid/synthetic-review"
+      },
+      "publication": "published",
+      "publishedAt": "2026-11-01T12:00:00Z",
+      "updatedAt": null,
+      "authors": [
+        {
+          "id": "synthetic-author",
+          "name": "Synthetic Fixture Author",
+          "url": null
+        }
+      ],
+      "aiAssistance": {
+        "status": "disclosed",
+        "disclosure": "Synthetic fixture prepared with AI assistance; no real article is published."
+      },
+      "corrections": [],
+      "archivalNote": null,
+      "license": {
+        "name": "Apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0"
+      },
+      "source": {
+        "path": "tests/fixtures/blog/synthetic-essay.md",
+        "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "url": "https://example.invalid/synthetic-source/synthetic-essay.md"
+      },
+      "media": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "slug": "synthetic-release",
+      "title": "Synthetic release-update",
+      "summary": "Fixture only: release-update",
+      "category": "release-update",
+      "visibility": "public",
+      "review": {
+        "status": "approved",
+        "reference": "https://example.invalid/synthetic-review"
+      },
+      "publication": "published",
+      "publishedAt": "2026-11-02T12:00:00Z",
+      "updatedAt": null,
+      "authors": [
+        {
+          "id": "synthetic-author",
+          "name": "Synthetic Fixture Author",
+          "url": null
+        }
+      ],
+      "aiAssistance": {
+        "status": "disclosed",
+        "disclosure": "Synthetic fixture prepared with AI assistance; no real article is published."
+      },
+      "corrections": [],
+      "archivalNote": null,
+      "license": {
+        "name": "Apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0"
+      },
+      "source": {
+        "path": "tests/fixtures/blog/synthetic-release.md",
+        "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "url": "https://example.invalid/synthetic-source/synthetic-release.md"
+      },
+      "media": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "slug": "synthetic-research",
+      "title": "Synthetic research-note",
+      "summary": "Fixture only: research-note",
+      "category": "research-note",
+      "visibility": "public",
+      "review": {
+        "status": "approved",
+        "reference": "https://example.invalid/synthetic-review"
+      },
+      "publication": "published",
+      "publishedAt": "2026-11-03T12:00:00Z",
+      "updatedAt": null,
+      "authors": [
+        {
+          "id": "synthetic-author",
+          "name": "Synthetic Fixture Author",
+          "url": null
+        }
+      ],
+      "aiAssistance": {
+        "status": "disclosed",
+        "disclosure": "Synthetic fixture prepared with AI assistance; no real article is published."
+      },
+      "corrections": [],
+      "archivalNote": null,
+      "license": {
+        "name": "Apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0"
+      },
+      "source": {
+        "path": "tests/fixtures/blog/synthetic-research.md",
+        "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "url": "https://example.invalid/synthetic-source/synthetic-research.md"
+      },
+      "media": []
+    }
+  ]
+}
