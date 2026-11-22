@@ -1077,6 +1077,9 @@ importers:
       nx:
         specifier: ^23.1.0
         version: 23.1.1(@swc/core@1.16.0(@swc/helpers@0.5.23))
+      parse5:
+        specifier: 7.3.0
+        version: 7.3.0
       postcss:
         specifier: ^8.5.25
         version: 8.5.26
@@ -1237,6 +1240,9 @@ importers:
       '@egohygiene/icons':
         specifier: workspace:*
         version: link:../../packages/icons
+      '@egohygiene/knowledge':
+        specifier: workspace:*
+        version: link:../../packages/knowledge
       '@egohygiene/schemas':
         specifier: workspace:*
         version: link:../../packages/schemas
@@ -1304,6 +1310,9 @@ importers:
 
   packages/content:
     dependencies:
+      '@egohygiene/schemas':
+        specifier: workspace:*
+        version: link:../schemas
       '@egohygiene/utilities':
         specifier: workspace:*
         version: link:../utilities
@@ -1343,6 +1352,12 @@ importers:
       react:
         specifier: 19.2.8
         version: 19.2.8
+
+  packages/knowledge:
+    dependencies:
+      '@egohygiene/schemas':
+        specifier: workspace:*
+        version: link:../schemas
 
   packages/schemas:
     dependencies:

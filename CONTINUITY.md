@@ -92,6 +92,15 @@ state:
   - provider: github
     id: egohygiene/.github#42
     url: https://github.com/egohygiene/.github/issues/42
+  - provider: github
+    id: egohygiene/egohygiene.io#25
+    url: https://github.com/egohygiene/egohygiene.io/issues/25
+  - provider: github
+    id: egohygiene/egohygiene.io#23
+    url: https://github.com/egohygiene/egohygiene.io/issues/23
+  - provider: github
+    id: egohygiene/egohygiene.io#11
+    url: https://github.com/egohygiene/egohygiene.io/issues/11
 review:
   status: partial
   reviewed_at: '2026-11-14T20:56:50.099Z'
@@ -168,6 +177,10 @@ Use actual live evidence to assess remaining website27/org27/41/42 coverage and 
 ## Parallel changes and reconciliation
 
 Organization source/publisher owns final project deployment/recovery; website owns UI/export. Empathy and other repositories retain independent dashboard/publication lanes. This handoff does not change company/store publishing, original owner capsules or prior proof.
+
+- Loopback preview and public artifact boundary [#149](https://github.com/egohygiene/egohygiene.io/pull/149). [Tested source handoff](docs/development/playground-exposure-25.md)
+- Private schema-owned knowledge query foundation [#150](https://github.com/egohygiene/egohygiene.io/pull/150). [Tested source handoff](docs/development/knowledge-boundary-23.md)
+- Private article and feed projection foundation [#151](https://github.com/egohygiene/egohygiene.io/pull/151). [Tested source handoff](docs/development/blog-feed-foundation-11.md)
 
 ## Privacy and redaction
 
