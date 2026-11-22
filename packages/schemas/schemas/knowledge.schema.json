@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "egohygiene.knowledge/v1"
+    },
+    "datasetVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"
+    },
+    "origin": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "authored",
+            "synthetic"
+          ]
+        },
+        "sources": {
+          "maxItems": 100,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "sources"
+      ],
+      "additionalProperties": false
+    },
+    "nodes": {
+      "maxItems": 1000,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "pillar",
+              "term",
+              "synapse",
+              "system",
+              "tag"
+            ]
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "public",
+              "private"
+            ]
+          },
+          "review": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "reviewed"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "slug",
+          "title",
+          "visibility",
+          "review"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "relationships": {
+      "maxItems": 5000,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "source": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,79}$"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "related",
+              "supports",
+              "extends",
+              "contradicts",
+              "member-of"
+            ]
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "public",
+              "private"
+            ]
+          },
+          "review": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "reviewed"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "source",
+          "target",
+          "type",
+          "visibility",
+          "review"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "datasetVersion",
+    "origin",
+    "nodes",
+    "relationships"
+  ],
+  "additionalProperties": false
+}
