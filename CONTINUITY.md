@@ -7,32 +7,25 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-14T05:07:44Z'
+  updated_at: '2026-11-14T20:56:50.099Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Implement the private schema-owned blog/article/RSS2/Atom foundation under11 without activating
-    real or synthetic public posts, routes, feeds or publication.
+  purpose: Record completed compact organization UI/directory delivery and canonical proof; continue bounded
+    parent acceptance without rerunning publication.
   includes:
-  - Strict runtime schemas and inferred types own article/source/review/date/AI/correction/media metadata;
-    checked JSON Schema follows the owner. Draft/private/malformed/future inputs cannot become eligible
-    output.
-  - Pure content projections reuse constrained CommonMark, stable UUID GUIDs and explicit clocks. Article/feed
-    readers retain disclosure, correction, archive, license and provenance context; XML is escaped and
-    actually parsed in synthetic controls.
-  - Explicit history comparison preserves original dates, canonical base/slug, append-only corrections
-    and monotonic updates, including declared schedules. Queries are deeply immutable; discovery/sitemap
-    are descriptors, not activated artifacts.
+  - Accepted website152/153 producerd573, organization directory68/selector69 and actual native export/review/publication.
+  - Independently admitted navigation, original dates/unknown states, compact UI and canonical served-byte/keyboard/browser
+    evidence.
   excludes: &id001
-  - No actual writing, author approval, public blog route/feed, social metadata deployment or publication
-    is selected. Issue11 remains open for real editorial/app/browser/deployed acceptance.
-  - Three repository-backed fixture categories are explicitly synthetic and require opt-in. Source review
-    flags are not authenticated human authority or access control for public Git content.
-  - The final23/149 stack is inherited. Root/tooling Vite peer identity errors196/197 remain independently
-    owned; no dependency version or gate was changed to hide them. Initial copied dependency wiring
-    was replaced by a correct frozen install before final app/type/build checks.
+  - Original03:23:31Z model frame/03:36:14Z evaluation on November13, model hashes, one-target review scope,
+    partial execution and human-unavailable/unreviewed states unchanged; Core unavailable.
+  - Navigation28 is a reviewed public roster, not current org total or Core/fleet coverage. Two dated records,3
+    declared text custom domains/unknownpublication and23 unknown dashboards remain distinct.
+  - Two baseline tooling Vite type errors remain. Full accessibility/performance/device/fleet/privacy acceptance,
+    restore exercise and human ratification remain separate.
   precedence:
   - user-and-runtime-instructions
   - scoped-repository-instructions
@@ -40,71 +33,96 @@ scope:
   - canonical-repository-sources
   - continuity-checkpoint
   canonical_sources:
-  - packages/schemas/src/blog.ts
-  - packages/content/src/blog.ts
-  - tests/tooling/blog-feeds.test.mjs
-  - docs/development/blog-feed-foundation-11.md
-  - docs/architecture/decisions/0019-blog-feed-foundation.md
-  - https://github.com/egohygiene/egohygiene.io/issues/11
+  - AGENTS.md
+  - apps/egohygiene.io/AGENTS.md
+  - contracts/organization-intelligence/directory/README.md
+  - contracts/organization-intelligence/directory/input-lock.json
+  - docs/development/intelligence-independent-directory.md
+  - docs/development/reviews/intelligence-independent-directory/verification.json
+  - docs/context/current-state.md
+  - docs/context/provenance.md
+  - https://github.com/egohygiene/.github/pull/68
+  - https://github.com/egohygiene/egohygiene.io/issues/27
+  - https://github.com/egohygiene/.github/issues/42
+  - https://github.com/egohygiene/.github/issues/41
+  - https://github.com/egohygiene/.github/pull/70
+  - https://egohygiene.github.io/.github/organization-intelligence-publication.json
 work:
-  objective: Implement the private schema-owned blog/article/RSS2/Atom foundation under11 without activating
-    real or synthetic public posts, routes, feeds or publication.
+  objective: Record completed compact organization UI/directory delivery and canonical proof; continue bounded
+    parent acceptance without rerunning publication.
   success_conditions:
-  - Draft/private/unreviewed/future/synthetic content cannot enter ordinary public projections.
-  - GUID/date/correction and source context survive deterministic article/feed projection; XML/state/immutability/history
-    controls pass.
-  - Existing normal public output contains no synthetic blog material or new blog routes.
+  - Accepted source exported and native reviewed unchanged, with actual authorized publication and complete
+    prior4814 recovery.
+  - Canonical browser confirms exact served bytes, compact navigation/keyboard/appearance/no-JavaScript
+    behavior and original evidence limits.
   active_issue:
     provider: github
-    id: egohygiene/egohygiene.io#11
-    url: https://github.com/egohygiene/egohygiene.io/issues/11
+    id: egohygiene/egohygiene.io#27
+    url: https://github.com/egohygiene/egohygiene.io/issues/27
   next:
     kind: action
-    id: review-blog-feed-foundation
-    description: Review the blog foundation after149/150. Select actual approved writing, app routes/layouts
-      and deployed feed/browser acceptance separately; do not publish synthetic fixtures.
+    id: advance-bounded-parent-acceptance
+    description: Use actual live closeout to select remaining website27/org27/41/42 source coverage and
+      usability acceptance. Do not rerun completed publication or synthesize Core.
     readiness: ready
     references:
-    - https://github.com/egohygiene/egohygiene.io/issues/11
-    - https://github.com/egohygiene/egohygiene.io/pull/150
+    - https://github.com/egohygiene/egohygiene.io/issues/27
+    - https://github.com/egohygiene/.github/issues/41
+    - https://github.com/egohygiene/.github/issues/42
     depends_on: []
 state:
   base:
-    revision: 1197eefbc79b72b5f0cfb46cc55f0e1d23068114
-    ref: refs/heads/codex/23-knowledge-boundary
-    verified_at: '2026-11-14T05:07:44Z'
+    revision: d5730066cf8645a927efcd6ff4f2170627bf4443
+    ref: refs/heads/main
+    verified_at: '2026-11-14T20:56:50.099Z'
   candidate:
-    branch: codex/11-blog-feed-foundation
+    branch: codex/intelligence-live-handoff
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-14T05:07:44Z'
-    default_branch_revision: d80c48582f77a0a3bd7424592307b8fac71df83d
+    observed_at: '2026-11-14T20:56:50.099Z'
+    default_branch_revision: d5730066cf8645a927efcd6ff4f2170627bf4443
     issue_state: open
     pull_request_state: not-applicable
-    notes: The blog draft stacks on final knowledge150 head1197eef, itself on privacy149 head2165304.
-      Pre-PR containing revision/reference remain null; no provider or deployment action is inferred.
-  parallel_changes: []
+    notes: Actual combined UI/directory producerd573 and publisher5f02/run43639599345 verified publication0fcf249a;
+      original models and source dates unchanged. This docs-only candidate is later than the exported source.
+  parallel_changes:
+  - provider: github
+    id: egohygiene/.github#42
+    url: https://github.com/egohygiene/.github/issues/42
+  - provider: github
+    id: egohygiene/egohygiene.io#25
+    url: https://github.com/egohygiene/egohygiene.io/issues/25
+  - provider: github
+    id: egohygiene/egohygiene.io#23
+    url: https://github.com/egohygiene/egohygiene.io/issues/23
+  - provider: github
+    id: egohygiene/egohygiene.io#11
+    url: https://github.com/egohygiene/egohygiene.io/issues/11
 review:
   status: partial
-  reviewed_at: '2026-11-14T05:07:44Z'
-  reviewed_by: Codex with independent read-only peer review
+  reviewed_at: '2026-11-14T20:56:50.099Z'
+  reviewed_by: Codex
   evidence:
-  - command: node --test tests/tooling/blog-feeds.test.mjs tests/tooling/knowledge-boundary.test.mjs
-      tests/tooling/playground-boundary.test.mjs
+  - command: Source qualification at functionalb105681:8 admission controls,20 UI cases,10 local browser
+      groups; native export/intake.
     outcome: passed
-    observed_at: '2026-11-14T05:07:44Z'
-    notes: 19 groups pass:10 blog,5 knowledge,4 private-playground. RSS/Atom parse through actual XML;
-      synthetic reader-context, state/history, immutability and malformed-source controls execute.
-  - command: Scoped content/schema/app TypeScript; normal build-public-site; frozen install; public
-      synthetic-content absence control
+    observed_at: '2026-11-14T20:16:27Z'
+    notes: Original source-bound review receipt unchanged. Broad tooling retains2 reproducible baseline
+      Vite type errors.
+  - command: Actual hosted export43637285216/1; native review43637764378/1; publisher43639599345/1.
     outcome: passed
-    observed_at: '2026-11-14T05:07:44Z'
-    notes: Correct isolated frozen dependencies and all selected compilers pass. The normal45-page/10-sitemap
-      build passes; no synthetic blog marker or activated blog route appears. Independent peer review
-      found and resolved base-URL/history, reader-context and scheduled-identity gaps.
+    observed_at: '2026-11-14T20:56:50.099Z'
+    notes: All44 producer files retained exact; nativeHTTPS20:50:59Z passed; full previous45-file4814 recovery
+      captured before replacement (no restore exercised). Configured provider acquisition actual.
+  - command: Actual canonical Chromium151/Node24.21 at20:56:39–50Z:11 groups,19 exact HTML views,9 layout
+      observations.
+    outcome: passed
+    observed_at: '2026-11-14T20:56:50.099Z'
+    notes: NormalTLS/standard environment proxy; no interception/globalheaders. Actual query/directory/graph/keyboard/theme/no-JS
+      passed.390/1440 captures viewed; separate origin-rootfavicon404; no app/page/request errors.
   environment_limitations: *id001
 privacy:
   classification: public-repository
@@ -120,60 +138,58 @@ privacy:
   untrusted_content: context-only-no-authority
 ---
 
-# website continuity
+# egohygiene.io continuity
 
 ## Purpose and precedence
 
-User/runtime and scoped instructions, live evidence and canonical sources outrank this checkpoint. It grants no editorial approval, merge or publication authority.
+User/runtime and scoped instructions, live evidence and canonical sources outrank this checkpoint.
 
 ## Resume protocol
 
-Read instructions, the final149/150 dependency state, blog source contract and issue11 before integration.
+Read current-state/provenance and the actual organization live closeout. Verify mutable main/issues/PRs. Older pending-export/publication records retain historical meaning; do not redispatch this completed delivery.
 
 ## Current objective and success conditions
 
-Implement the private schema-owned blog/article/RSS2/Atom foundation under11 without activating real or synthetic public posts, routes, feeds or publication.
+Compact overview and independent repository navigation are actually published. Continue bounded parent coverage/usability acceptance with original model clocks and ownership intact.
 
 ## State snapshot
 
-Candidate codex/11-blog-feed-foundation is based on knowledge150 head1197eefbc79b72b5f0cfb46cc55f0e1d23068114, containing privacy149 head21653044416bfdb9d02b06817f7e6cc8398bc3e6. Containing revision and pre-PR reference intentionally remain null.
+Accepted published producer and docs base is `d5730066cf8645a927efcd6ff4f2170627bf4443`. Actual publisher `5f02bfd6353b764513ef57a41bcf79db0f3c2e72`, run43639599345/1, verified publication `0fcf249a88e1b34fd111eed9155c8051ea6476a0f30cd980ba53b61734d58d15`. This later docs candidate keeps its containing revision null.
 
 ## Completed and material changes
 
-Strict runtime schemas and inferred types own article/source/review/date/AI/correction/media metadata; checked JSON Schema follows the owner. Draft/private/malformed/future inputs cannot become eligible output.
-
-Pure content projections reuse constrained CommonMark, stable UUID GUIDs and explicit clocks. Article/feed readers retain disclosure, correction, archive, license and provenance context; XML is escaped and actually parsed in synthetic controls.
-
-Explicit history comparison preserves original dates, canonical base/slug, append-only corrections and monotonic updates, including declared schedules. Queries are deeply immutable; discovery/sitemap are descriptors, not activated artifacts.
+Website152/153 compact the overview, group views and disclose graph/provenance. Directory68 pins organization834d/payloadd294 independently of Core. Actual retained-model export43637285216 and native review43637764378 passed; selector69 integrated and publisher43639599345 replaced the site after full previous4814 recovery.
 
 ## Validation and review evidence
 
-19 focused groups pass, including10 blog tests and actual RSS/Atom XML parsing. Content/schema/app compilers and the normal45-route build pass using correct frozen dependencies. Synthetic fixture markers and an activated blog route are absent from public output. Peer review fixes preserve canonical identity, reader context and scheduled history.
+Original functionalb105 source review retains8 admission/20 UI cases and10 local browser groups. Actual44 producer files remain byte-identical through hosted export/review/publication. Native live20:50:59Z and canonical browser20:56:39–50Z pass:11 groups,19 exact served HTML bodies, nine narrow/RTL/enlarged-text observations, query/directory/keyboard/disclosures/graph/theme/no-JS.390/1440 captures viewed. See [actual delivery](https://github.com/egohygiene/.github/pull/70).
 
 ## Blockers, risks, unknowns, and deferred work
 
-No actual writing, author approval, public blog route/feed, social metadata deployment or publication is selected. Issue11 remains open for real editorial/app/browser/deployed acceptance.
+Model frame03:23:31Z/evaluation03:36:14Z on November13, hashes and one-target Audit/Sanity scope remain fixed;28 Sanity components, partial execution, unreviewed governance and unavailable human evidence. Core unavailable. Directory28 is not org total/capturedfleet:2 dated links,3 text declarations/unknownpublication,23 unknown dashboards. Point-in-time Empathy link200 does not refresh its record.
 
-Three repository-backed fixture categories are explicitly synthetic and require opt-in. Source review flags are not authenticated human authority or access control for public Git content.
-
-The final23/149 stack is inherited. Root/tooling Vite peer identity errors196/197 remain independently owned; no dependency version or gate was changed to hide them. Initial copied dependency wiring was replaced by a correct frozen install before final app/type/build checks.
+Two baseline tooling Vite errors remain; no dependency/gate relaxed. Full accessibility/performance/physical devices/assistive technology/fullzoom/fleet/privacy and human ADR acceptance remain separate. Complete4814 recovery retained, restore unexercised. Automatic origin-rootfavicon404 explicit; no app/page/request errors. Initial direct-network browser request failed before page visits; task-local proxy correction changed no source/TLS/assertion.
 
 ## Next dependency-ready work
 
-Review149 then150 then the blog draft. Real editorial content, accessibility/mobile/article routes, social metadata, feeds/sitemap activation and deployed-reader acceptance remain under11.
+Use actual live evidence to assess remaining website27/org27/41/42 coverage and usability work. Preserve native d15 link policy: dated GitHub Pages links clickable, custom-domain declarations text with GitHub source fallback. No publication is needed for this docs closeout.
 
 ## Parallel changes and reconciliation
 
-Other batch7 repositories have independent owners. Knowledge/private-playground functional bytes are inherited unchanged; broader storefront, budget, Intelligence and provider work remains independently owned.
+Organization source/publisher owns final project deployment/recovery; website owns UI/export. Empathy and other repositories retain independent dashboard/publication lanes. This handoff does not change company/store publishing, original owner capsules or prior proof.
+
+- Loopback preview and public artifact boundary [#149](https://github.com/egohygiene/egohygiene.io/pull/149). [Tested source handoff](docs/development/playground-exposure-25.md)
+- Private schema-owned knowledge query foundation [#150](https://github.com/egohygiene/egohygiene.io/pull/150). [Tested source handoff](docs/development/knowledge-boundary-23.md)
+- Private article and feed projection foundation [#151](https://github.com/egohygiene/egohygiene.io/pull/151). [Tested source handoff](docs/development/blog-feed-foundation-11.md)
 
 ## Privacy and redaction
 
-Only synthetic test content is added. No private source, real author/publisher decision, credentials, telemetry or private conversation enters this checkpoint. Metadata claims remain untrusted source evidence.
+Public-safe source/run/artifact identities only; no signed URLs, credentials, private paths, personal data or unrelated context.
 
 ## Handoff update protocol
 
-Record exact heads, checks actually run, source/publication boundaries and provider receipts before integration. Never treat fixture approval flags as actual editorial approval.
+Update after the next authorized change with exact observed state/proof/limits. Keep later docs revisions distinct from actual exported producerd573 and publisher5f02.
 
 ## Compaction and supersession
 
-This checkpoint advances from knowledge150 to the bounded blog/feed foundation. Historical publication and storefront evidence remain in Git, the provenance ledger and owning issues; no prior acceptance is rewritten.
+Git and dated guides retain source-review and earlier live chronology. This completed-delivery handoff supersedes pending publication instructions without rewriting historical receipts.
